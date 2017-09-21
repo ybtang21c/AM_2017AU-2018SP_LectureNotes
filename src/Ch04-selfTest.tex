@@ -1,0 +1,338 @@
+\begin{center}
+	{\Large\bf 导数、微分的概念与性质自测}
+	
+	(时间：60分钟)
+\end{center}
+
+\bigskip
+
+{\bf 一、选择题}（每题3分）
+
+\bigskip
+
+1、设$f(x)=\left\{\begin{array}{ll}
+\df{1-\cos x}{\sqrt x},& x>0\\ x^2g(x),& x\leq 0
+\end{array}\right.$，其中$g(x)$有界，则$f(x)$在$x=0$处（\quad）%D
+\begin{tabbing}
+	\hspace{8cm}\=\kill
+	\quad\quad\quad(A)\;极限不存在 \> 
+	(B)\;极限存在，但不连续 \\ 
+	\quad\quad\quad(C)\;连续，但不可导\>
+	(D)\;可导
+\end{tabbing}
+
+\bigskip
+
+2、函数$f(x)$可导，且曲线$y=f(x)$在点$(x_0,f(x_0))$处的切线与直线$y=2-x$
+垂直，则当$\Delta x\to0$时，该函数在$x=x_0$处的微分$\d y$是（\quad）%B
+\begin{tabbing}
+	\hspace{8cm}\=\kill
+	\quad\quad\quad(A)\;与$\Delta x$同阶但不等价的无穷小 \> 
+	(B)\;与$\Delta x$等价的无穷小 \\ 
+	\quad\quad\quad(C)\;$\Delta x$的高阶无穷小\>
+	(D)\;比$\Delta x$低阶的无穷小
+\end{tabbing}
+
+\bigskip
+
+3、函数$f(x)=\ln|x-1|$的导数是（\quad）%B
+\begin{tabbing}
+	\hspace{8cm}\=\kill
+	\quad\quad\quad(A)\;$\df1{|x-1|}$ \> 
+	(B)\;$\df1{x-1}$ \\ 
+	\quad\quad\quad(C)\;$\df1{1-x}$\>
+	(D)\;$\left\{\begin{array}{ll}
+	\df1{x-1},&x>1\\ \df1{1-x},&x<1
+	\end{array}\right.$
+\end{tabbing}
+
+\bigskip
+
+4、函数$y=\df13x^3+\df12x^2+6x+1$的图形在点$(0,1)$处的切线与$x$轴的交点
+坐标是（\quad）%B
+
+\quad (A)\;$(-1,0)$\quad\quad\quad(B)\;$(-1/6,0)$
+\quad\quad\quad (C)\;$(1,0)$\quad\quad\quad(D)\;$(1/6,0)$
+
+\bigskip
+
+5、函数$f(x)=\left|\df{\sin x}x\right|$在$x=\pi$处（\quad）%D
+\begin{tabbing}
+	\hspace{8cm}\=\kill
+	\quad\quad\quad(A)\;$f'_+(\pi)=-1/\pi$ \> 
+	(B)\;$f'(\pi)=1/\pi$ \\ 
+	\quad\quad\quad(C)\;$f'_-(\pi)=1/\pi$\>
+	(D)\;$f'_+(\pi)=1/\pi$
+\end{tabbing}
+
+\bigskip
+
+6、$f(x)=\lim\limits_{n\to\infty}\sqrt[n]{1+|x|^{3n}}$在
+$(-\infty,+\infty)$内（\quad）%B
+\begin{tabbing}
+	\hspace{8cm}\=\kill
+	\quad\quad\quad(A)\;处处可导 \> 
+	(B)\;恰有一个不可导点 \\ 
+	\quad\quad\quad(C)\;恰有两个不可导点\>
+	(D)\;至少有三个不可导点
+\end{tabbing}
+
+\bigskip
+
+7、设$f(x)$在$x=0$连续，其$\limx0\df{f(x^2)}{x^2}=1$，则（\quad）%C
+\begin{tabbing}
+	\hspace{8cm}\=\kill
+	\quad\quad\quad(A)\;$f(0)=0$，且$f'(0)$存在 \> 
+	(B)\;$f(0)=1$，且$f'_+(0)$存在 \\ 
+	\quad\quad\quad(C)\;$f(0)=0$，且$f'_+(0)$存在\>
+	(D)\;$f(0)=1$，且$f'(0)$存在
+\end{tabbing}
+
+\bigskip
+
+8、设函数$f(x)$以$4$为周期，且处处可导，$\limx0\df{f(1)-f(1-x)}{2x}=1$，则
+曲线$y=f(x)$在点$(5,f(5))$处的法线斜率为（\quad）%A
+
+\quad (A)\;$1/2$\quad\quad\quad(B)\;$0)$
+\quad\quad\quad (C)\;$-2$\quad\quad\quad(D)\;$-1$
+
+\bigskip
+
+9、若函数$f(x)$在$x_0$可导，则$|f(x)|$在$x_0$处（\quad）%B
+\begin{tabbing}
+	\hspace{8cm}\=\kill
+	\quad\quad\quad(A)\;可导 \> 
+	(B)\;连续，但未必可导 \\ 
+	\quad\quad\quad(C)\;连续，但不可导\>
+	(D)\;未必连续
+\end{tabbing}
+
+\bigskip
+
+10、函数$f(x)=\left\{\begin{array}{ll}
+\sqrt{|x|}\sin\df1{x^2},& x\ne 0\\
+0,& x=0
+\end{array}\right.$在$x=0$处（\quad）%C
+\begin{tabbing}
+	\hspace{8cm}\=\kill
+	\quad\quad\quad(A)\;极限不存在 \> 
+	(B)\;极限存在，但不连续 \\ 
+	\quad\quad\quad(C)\;连续，但不可导\>
+	(D)\;可导
+\end{tabbing}
+
+\bigskip
+
+11、设$F(x)=\left\{\begin{array}{ll}
+\df{f(x)}x,& x\ne0\\ f(0),& x=0
+\end{array}\right.$，其中$f(0)=0$，$f'(0)\ne 0$，则
+$x=0$是$F(x)$的（\quad）%B
+\begin{tabbing}
+	\hspace{8cm}\=\kill
+	\quad\quad\quad(A)\;连续点 \> 
+	(B)\;第一类间断点 \\ 
+	\quad\quad\quad(C)\;第二类间断点\>
+	(D)\;连续点还是间断点无法确定
+\end{tabbing}
+
+\bigskip
+
+12、设$f(x)=\left\{\begin{array}{ll}
+x^{\frac53}\sin\df1x,& x\ne0\\ 0,& x=0
+\end{array}\right.$，$f(x)$在$x=0$处（\quad）%C
+\begin{tabbing}
+	\hspace{8cm}\=\kill
+	\quad\quad\quad(A)\;不连续 \> 
+	(B)\;连续，但不可导 \\ 
+	\quad\quad\quad(C)\;可导，但导函数不连续\>
+	(D)\;导函数连续
+\end{tabbing}
+
+\bigskip
+
+13、$f(x)$在原点附近有定义，且满足$|f(x)|\leq x^2$，则$x=0$是
+$f(x)$的（\quad）%C
+\begin{tabbing}
+	\hspace{8cm}\=\kill
+	\quad\quad\quad(A)\;间断点 \> 
+	(B)\;连续但不可导点 \\ 
+	\quad\quad\quad(C)\;可导点且$f'(0)=0$\>
+	(D)\;可导点但$f'(0)$的值不确定
+\end{tabbing}
+
+\bigskip
+
+14、设$f(x)$可导，$F(x)=f(x)(1+|\sin x|)$，若使$F(x)$在$x=0$
+可导，则（\quad）%A
+\begin{tabbing}
+	\hspace{8cm}\=\kill
+	\quad\quad\quad(A)\;$f(0)=0$ \> 
+	(B)\;$f'(0)=0$ \\ 
+	\quad\quad\quad(C)\;$f(0)+f'(0)=0$\>
+	(D)\;$f(0)-f'(0)=0$
+\end{tabbing}
+
+% 15、设$f(x)=\left\{\begin{array}{ll}
+% \df{g(x)}x,& x\ne0\\ f(0),& x=0
+% \end{array}\right.$，其中
+% $g(x)$在$x=0$处二阶可导，且$g(0)=g'(0)=0$，则$f(x)$在$x=0$处（\quad）%D
+% \begin{tabbing}
+% 	\hspace{8cm}\=\kill
+% 	\quad\quad\quad(A)\;不连续 \> 
+% 	(B)\;连续，但不可导 \\ 
+% 	\quad\quad\quad(C)\;可导，但导函数不连续\>
+% 	(D)\;导函数连续
+% \end{tabbing}
+
+\bigskip
+
+15、当$x>0$时，曲线$y=x\sin\df1x$（\quad）%A
+\begin{tabbing}
+	\hspace{8cm}\=\kill
+	\quad\quad\quad(A)\;仅有水平渐近线 \> 
+	(B)\;仅有铅直渐近线 \\ 
+	\quad\quad\quad(C)\;同时有水平和铅直渐近线\>
+	(D)\;无渐近线
+\end{tabbing}
+
+\bigskip
+
+16、曲线$y=e^{\frac1{x^2}}\arctan\df{x^2+x+1}{(x-1)(x+2)}$的渐近线
+有
+（\quad）%B
+
+\quad (A)\;$1$条\quad\quad\quad(B)\;$2$条
+\quad\quad\quad (C)\;$3$条\quad\quad\quad(D)\;$4$条
+
+\bigskip
+
+17、设$f(x)=(e^x-1)(e^{2x}-2)\ldots(e^{nx}-n)$，其中$n$为正整数，则
+$f'(0)=$（\quad）%A
+\begin{tabbing}
+	\hspace{8cm}\=\kill
+	\quad\quad\quad(A)\;$(-1)^{n-1}(n-1)!$ \> 
+	(B)\;$(-1)^{n}(n-1)!$ \\ 
+	\quad\quad\quad(C)\;$(-1)^{n-1}n!$\>
+	(D)\;$(-1)^{n}n!$
+\end{tabbing}
+
+\bigskip
+
+18、$\left.\left(\sin\df x2+\cos2x\right)^{(99)}\right|_{x=\pi}=$
+（\quad）%A
+
+\quad (A)\;$0$\quad\quad\quad(B)\;$-\df1{2^{99}}$
+\quad\quad\quad (C)\;$2^{99}-\df1{2^{99}}$\quad\quad\quad(D)\;$2^{99}$
+
+\bigskip
+
+19、设$f(x)=x^3+2x^2+4x,\;(x>0)$，$g(x)$为其反函数，则$g'(7)=$（\quad）%B
+
+\quad (A)\;$10$\quad\quad\quad(B)\;$\df1{10}$
+\quad\quad\quad (C)\;$179$\quad\quad\quad(D)\;$\df1{179}$
+
+\bigskip
+
+20、$f(x)=(1-e^x)|x^3-x|$的不可导点个数为（\quad）%B
+
+\quad (A)\;$0$\quad\quad\quad(B)\;$1$
+\quad\quad\quad (C)\;$2$\quad\quad\quad(D)\;$3$
+
+\bigskip
+
+{\bf 二、填空题}（每题4分）
+
+\bigskip
+
+% 1、设$f(x)=\left\{\begin{array}{ll}
+% \df{\ln(1+bx)}x,&x\ne 0\\-1,& x=0
+% \end{array}\right.$，已知$1+bx>0$，则当$f(x)$在$x=0$可导时
+% $f'(0)=$\underline{\hspace{4cm}}.%$-\df12$
+
+1、若$f(t)=\limx{\infty}t\left(1+\df1x\right)^{2tx}$，则$f'(t)=$
+\underline{\hspace{4cm}}.%$te^{2t}$
+
+% 2、$\left(e^{\tan\frac1x}\sin\df1x\right)'=$
+
+\bigskip
+
+2、曲线$\left\{\begin{array}{l}
+x=e^t\sin 2t\\ y=e^t\cos t
+\end{array}\right.$在点$(0,1)$处的法线方程为\underline{\hspace{4cm}}.
+%$y+2x-1=0$
+
+\bigskip
+
+3、$f(x)$在$x=2$附近可导，且$f'(x)=e^{f(x)}$，$f(2)=1$，则$f^{(n)}(2)=$
+\underline{\hspace{4cm}}.%$(n-1)!e^{nf(x)}$
+
+\bigskip
+
+4、$f(x)=x^n$在$(1,1)$处的切线与$x$轴交于$x_n$，则
+$\limn f(x_n)=$\underline{\hspace{4cm}}.%$e^{-1}$
+
+\bigskip
+
+5、设$y=y(x)$是由$\sin xy=\ln\df{x+e}y+1$确定的隐函数，则$y''(0)=$
+\underline{\hspace{4cm}}.%$e^3(3e^3-4)$
+
+\bigskip
+
+6、设$y=\ln(1+3^{-x})$，则$\d y=$\underline{\hspace{4cm}}.
+%$-\df{\ln3}{1+3^x}\d x$
+
+\bigskip
+
+7、$f(x)$在$x=a$可导，且$f(a)\ne 0$，则
+$\limn\left[\df{f\left(a+\df1n\right)}{f(a)}\right]^n=$
+\underline{\hspace{4cm}}.%$e^{\frac{f'(a)}{f(a)}}$
+
+\bigskip
+
+8、$f(x)$在$x=1$连续可导，$f'(1)=2$，则
+$\limx{0}\df1x\df{\d}{\d x}f(\cos^22x)=$
+\underline{\hspace{4cm}}.%$-16$
+
+\bigskip
+
+9、$f(x)$是以$5$为周期的连续函数，且在原点附近满足
+$$f(1+\sin x)-3f(1-\sin x)=8x+\circ(x),$$
+已知$f(x)$在$x=1$可导，则$y=f(x)$在$x=6$处的切线斜率为
+\underline{\hspace{4cm}}.%$2$
+
+\bigskip
+
+10、$\left(\df{x+b}{x+a}\right)^{(n)}=$
+\underline{\hspace{4cm}}.%$\df{(-1)^nn!(b-a)^a}{(x+a)^{n+1}}$
+
+\newpage
+
+\begin{center}
+	{\Large\bf 参考解答}
+\end{center}
+
+{\bf 一、选择题}
+
+DBBBD\quad CCABC\quad BCCAA\quad BAABC
+
+{\bf 二、填空题}
+
+1、$te^{2t}(1+2t)$
+
+2、$y+2x-1=0$
+
+3、$(n-1)!e^{n}$
+
+4、$e^{-1}$
+
+5、$-e^4+e^3-e^2+2e$
+
+6、$-\df{\ln3}{1+3^x}\d x$
+
+7、$e^{\frac{f'(a)}{f(a)}}$
+
+8、$-8$
+
+9、$2$
+
+10、$\df{(-1)^nn!(b-a)}{(x+a)^{n+1}}$

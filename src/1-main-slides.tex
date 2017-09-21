@@ -1,0 +1,154 @@
+% !Mode:: "TeX:UTF-8"
+
+%Composed by Y.B. TANG (ybtang21c@gmail.com), spring-2011
+%tex distribution: Texlive / MikTex 2010
+%recommended editer: Eclipse + Texlipse
+%usage: compile with XeLatex
+
+%option: red, brown, blue
+% \documentclass[14pt,mathserif]{beamer}
+% \documentclass[14pt]{beamer}
+\documentclass[usepdftitle=false, 14pt, handout]{beamer} %无动画
+% \documentclass[usepdftitle=false, 14pt]{beamer}
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm,bm}
+% \usepackage{txfonts} %another style of math fonts
+\usepackage{beamerthemesplit,color,graphics}
+\usepackage{ulem} %erase line
+\usepackage{esint} %any type of integral symbol
+% \usepackage{yhmath} %圆弧帽：\wideparen{AB}
+
+\usepackage{bbding}%各种五角星
+% \FiveStar，\FiveStarOpen，\FiveStarLines，\FiveStarShadow
+% \FiveStarOutline，\FiveStarCenterOpen，\FiveStarOpenDotted
+% \FiveStarConvex，\FiveStarOutlineHeavy，\FiveStarOpenCircled
+
+%==============XeCJK==============================
+\usepackage[slantfont,boldfont,CJKchecksingle]{xeCJK}
+\setmainfont{Times New Roman}
+\setCJKmainfont[BoldFont={Adobe Heiti Std},
+	ItalicFont={Adobe Kaiti Std},
+    SlantedFont={Adobe Song Std},
+%     BoldItalicFont={Weibei SC},
+     BoldSlantedFont={Adobe Fangsong Std}
+	]{Adobe Heiti Std}
+\punctstyle{CCT}
+\usepackage{xeCJKfntef}%汉字加点和可断行的下划线
+% 
+% \newCJKfontfamily[Wawa]\Wawati{Wawati SC}
+% \newCJKfontfamily[STLi]\stliti{STLiti}
+
+\usefonttheme{professionalfonts}
+
+\newcommand{\fs}[1]{\fontspec{#1}\CJKfontspec{#1}}
+
+%
+
+% %==============std fontspec settings==============
+% \usepackage[no-math,cm-default]{fontspec}
+% % \newfontfamily\zhfont[BoldFont=Adobe Heiti Std]{Adobe Heiti Std}
+% \newfontfamily\zhfont[BoldFont=Adobe Heiti Std]{Adobe Kaiti Std}
+% % 
+% % %==============spacing of CH in Xetex==============
+% \usepackage{zhspacing}
+% \zhspacing
+
+%==============layout setting==============
+\setlength{\parindent}{0pt}  
+
+%==============beamer configuration==============
+\setbeamertemplate{theorems}[normal font]
+
+%============beamer theme setting #2============
+\mode<presentation>{
+	\usetheme{CambridgeUS} %Copenhagen, Warsaw, CambridgeUS
+  	\usecolortheme{crane} %rose, seahorse, lily, crane
+  	\usefonttheme{serif}
+  	\usefonttheme{structurebold}
+  	\useoutertheme{infolines}
+%   \beamertemplateshadingbackground{brown!5}{yellow!10}
+% 	\setbeamercolor{frametitle}{bg=white}	
+%  	\setbeamercovered{transparent}
+}
+
+%============TOC setting============
+% \AtBeginSection{
+%    \begin{frame}{内容提要}
+%      \tableofcontents[currentsection,hideallsubsections]
+%    \end{frame}
+% }
+% \AtBeginSubsection{
+%    \begin{frame}{内容提要}
+%      \tableofcontents[currentsection,currentsubsection]
+%    \end{frame}
+% }
+% \AtBeginSection{
+%   \frame{\tableofcontents[sections={\thesection}]}
+% }
+
+%===============macros====================
+\newcommand{\bb}{\bf\color{blue}}
+\newcommand{\ba}[1]{\alert{\bf #1}}
+\newcommand*{\e}{\ensuremath{\varepsilon}}
+\renewcommand{\b}{\color{blue}}
+\newcommand*{\p}{\ensuremath{\partial}}
+\newcommand{\limn}{\ensuremath{\lim\limits_{n\to\infty}}}
+\newcommand{\sumn}{\ensuremath{\sum\limits_{n=1}^{\infty}}}
+\newcommand*{\df}[2]{\displaystyle\frac{\,{#1}\,}{\,{#2}\,}}
+\newcommand*{\limx}[1]{\ensuremath{\lim\limits_{x\to{#1}}}}
+\newcommand*{\limdx}{\ensuremath{\lim\limits_{\Delta x\to 0}}}
+\newcommand*{\dx}{\Delta x}
+\newcommand{\dint}{\ensuremath{\displaystyle\int}}
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\ds}{\displaystyle}
+
+%================exampleblock counter===================
+% \newcounter{examplecounter}
+% \usecounter{examplecounter}
+% \setcounter{examplecounter}{1}
+% \newcommand{\exno}{{\bf
+% 例\arabic{examplecounter}}\refstepcounter{examplecounter}}
+
+%================block setting test=====================
+% \definecolor{beamer@blendedred}{rgb}{0.7,0.2,0.2} % use structure theme to change
+% \definecolor{beamer@blendedblue}{rgb}{0.2,0.2,0.7} % use structure theme to change
+% \definecolor{beamer@blendedyellow}{rgb}{0.7,0.7,0.2}
+
+% \setbeamercolor{structure}{fg=beamer@blendedred}
+
+% \setbeamercolor{block title}
+% {use=structure,fg=structure.fg,bg=structure.fg!20!bg}
+% \setbeamercolor{block title alerted}
+% {use=alerted text,fg=alerted text.fg,bg=alerted text.fg!20!bg}
+% \setbeamercolor{block title example}
+% {use=example text,fg=example text.fg,bg=example text.fg!20!bg}
+
+% \setbeamercolor{block body}
+% {parent=normal text,use=block title,bg=block title.bg!50!bg}
+% \setbeamercolor{block body alerted}
+% {parent=normal text,use=block title alerted,bg=block title alerted.bg!50!bg}
+% \setbeamercolor{block body example}
+% {parent=normal text,use=block title example,bg=block title example.bg!50!bg}
+
+% \setbeamercolor{titlelike}{parent=structure,bg=white!90!red}
+%=======================================================
+
+%===============title setting====================
+
+\title{Advanced Mathematics II}
+\author[ybtang@nudt.edu.cn]{唐扬斌\\
+\texttt{\small ybtang21c@gmail.com\\tangyangbin@gfkd.mtn\\CP: 18374857376}}
+\institute[NUDT]{National University of Defense Technology}
+\date[Spring 2017]{Spring 2017}
+
+%===============document begins here==============
+
+\begin{document}
+
+
+%   \input{Ch07-ex-slides.tex} %常微分方程习题课
+% 	\input{Ch08-ex1-slides.tex} %空间直线与平面习题课
+% 	\input{Ch12-ex-slides.tex} %曲线与曲面积分习题课
+	\input{AM-SP-review-slides.tex} %曲线与曲面积分习题课
+
+\end{document}

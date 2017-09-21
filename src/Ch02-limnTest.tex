@@ -1,0 +1,256 @@
+\begin{center}
+	{\Large\bf 单元自测：数列极限}
+	
+	(时间：120分钟)
+\end{center}
+
+{\bf 一、计算以下极限（每题6分）：}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\limn\sqrt[n]{a^n+b^n},\;(a,b>0)$
+%   \item $\limn\df{1+2!+\ldots+n!}{n!}$
+  \item $\limn n\left(\df1{n^2+\pi}+\df1{n^2+2\pi}+\ldots+\df1{n^2+n\pi}\right)$
+  \item $\limn\left(1-\df 1{1+2}\right)\left(1-\df
+  1{1+2+3}\right)\ldots\left(1-\df 1{1+2+\ldots+n}\right)$
+  \item $\limn\left[\df1{1\cdot 2\cdot 3}+\df1{2\cdot 3\cdot 4}+\ldots+
+  \df1{n\cdot (n+1)\cdot (n+2)}\right]$
+  \item $\limn\df{n^5}{2^n}$
+%   \item $\limn\df{n}{\sqrt[n]{n!}}$
+%   \item $\limn\left(1+\df 2n\right)^n$
+%   \item $\limn\left(1-\df 1n\right)^n$
+  \item $\limn\left(1+\df1n+\df 1{n^2}\right)^n$
+\end{enumerate}
+
+{\bf 二、证明以下极限（每题6分）：}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\limn\sqrt[n]n=1$
+  \item $(n+1)^k-n^k\to 0,\;(n\to\infty)$，其中$0<k<1$
+\end{enumerate}
+
+{\bf 三、用定义证明下列极限（每题6分）：}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\limn\df{2^n}{n!}=0$
+  \item $\limn\df{\sqrt{n+1}-1}{n}=0$
+\end{enumerate}
+
+{\bf 四、证明（8分）：}
+若$\lim\limits_{k\to\infty}a_{2k}=\lim\limits_{k\to\infty}a_{2k-1}$，
+则$\{a_n\}$收敛。
+
+{\bf 五、证明（8分）：}若$\limn a_n=a\ne0$，则
+$$\limn\df1{a_n}=\df1a.$$
+
+% {\bf 五、证明（10分）：}若$a_n>0\,(n\in\mathbb{N})$，$\limn a_n=a$，则$\limn\sqrt{a_n}=\sqrt
+% a$。
+% 
+% {\bf 六、证明（10分）：}
+% \begin{enumerate}[(1)]
+%   \setlength{\itemindent}{1cm}
+%   \item $\left\{\left(1+\df 1n\right)^{n+1}\right\}$单调递减趋于$e$
+%   \item $e-\left(1+\df 1n\right)^n<\df 3n$
+% \end{enumerate}
+
+{\bf 六、证明（8分）：}$\left\{\sqrt[n]{n!}\right\}$发散。
+
+% {\bf 七、证明（10分）：}$\{\sin n\}$发散。
+
+{\bf 七、（8分）：}设$x_1=1$，
+$$x_n=1+\df{x_{n-1}}{1+x_{n-1}},\;n=2,3,\ldots,$$
+证明：$\{x_n\}$收敛，并求其极限。
+
+{\bf 八、证明（8分）：}若$a_1>0$，$a_{n+1}=a_n+\df 1{a_n},\,(n=1,2,\ldots)$，则
+$$\limn\df{a_n^2}{2n}=1.$$
+
+\newpage
+
+\begin{center}
+	{\Large\bf 解答与评分标准}
+\end{center}
+
+{\bf 一、解：}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 不妨设$a\leq b$，则
+  $$b<\sqrt[n]{a^n+b^n}\leq\sqrt[n]2b,\eqno{{(+4)}}$$
+  由于$\sqrt[n]2\to 1(n\to\infty)$，故由夹逼定理，原式$=b=\max\{a,b\}$.\hfill{{(+2)}}
+  \item 注意到
+  $$\df{n^2}{n^2+n\pi}<n\left(\df1{n^2+\pi}+\df1{n^2+2\pi}+\ldots+\df1{n^2+n\pi}\right)
+  <\df{n^2}{n^2+\pi},$$
+  \hfill{{(+4)}}
+  
+  且$\limn\df{n^2}{n^2+n\pi}=\limn\df{n^2}{n^2+\pi}=1$，故由夹逼定理，原式$=1$。\hfill{{(+2)}}
+  
+%   由于
+%   $$\limn\df{(n+1)!}{(n+1)!-n!}=\limn\df{(n+1)!}{n\cdot
+%   n!}=\limn\df{n+1}{n}=1,\eqno{{(+3)}}$$ 
+%   故由Stolz定理，原式$=1$.\hfill{{(+2)}}
+  \item
+% %   \begin{eqnarray*}
+% %   	\mbox{原式}&=&\limn\df
+% %   	2{1+2}\cdot\df{2+3}{1+2+3}\ldots\df{2+\ldots+n}{1+2+\ldots+n}\\
+% %   	&=&\limn\prod\limits_{k=2}^n\df{(n-1)(n+2)}{n(n+1)} \tag{12}\\ 
+% %   	&=&\limn\df{(n-1)!\df{(n+2)!}{3!}}{n!\df{(n+1)!}{2!}}\\
+% %   	&=&\limn\df {n+2}{3n}=\df 13
+% %   \end{eqnarray*}
+  \begin{align}
+  	\mbox{原式}&=\limn\df
+  	2{1+2}\cdot\df{2+3}{1+2+3}\ldots\df{2+\ldots+n}{1+2+\ldots+n}\notag\\
+  	&=\limn\prod\limits_{k=2}^n\df{(n-1)(n+2)}{n(n+1)} \tag{{+3}}\\
+  	&=\limn\df{(n-1)!\df{(n+2)!}{3!}}{n!\df{(n+1)!}{2!}}\tag{{+2}}\\
+  	&=\limn\df {n+2}{3n}=\df 13\tag{{+1}}
+  \end{align}
+%   \item 注意到
+%   $$\df{n^2}{n^2+n\pi}<n\left(\df1{n^2+\pi}+\df1{n^2+2\pi}+\ldots+\df1{n^2+n\pi}\right)
+%   <\df{n^2}{n^2+\pi},$$
+%   \hfill{{(+3)}}
+%   
+%   且$\limn\df{n^2}{n^2+n\pi}=\limn\df{n^2}{n^2+\pi}=1$，故由夹逼定理，原式$=1$。\hfill{{(+2)}}
+  \item 
+  \begin{align}
+  	\mbox{原式}&=\df12\limn\sum\limits_{k=1}^n\left(\df 1n-\df 2{n+1}+\df
+  	1{n+2}\right)\tag{{+4}}\\ 
+  	&=\df12\limn\left(1-2\df 1{2}+\df 13+\df 12-2\df13+\df 14+\ldots+\df
+  	1n-2\df 1{n+1}+\df 1{n+2}\right)\notag\\
+  	&=\df12\limn\left(1-\df12-\df1{n+1}+\df 1{n+2}\right)=\df14\tag{{+2}}
+  \end{align}
+  \item
+  记$a_n=\df{n^5}{2^n}$，显然$a_n>0\,(n\in\mathbb{N})$。又当$n>\df{1}{\sqrt[5]2-1}$时，
+  $$\df{a_{n+1}}{a_n}=\left(\df{n+1}{n}\right)^5\cdot\df 12<1,\eqno{(+3)}$$
+  故由单调有界原理，$\{a_n\}$收敛，不妨设其极限为$a$。对递推式
+  $$a_{n+1}=\left(\df{n+1}{n}\right)^5\cdot\df 12a_n$$
+  两端同时取极限，可得$a=\df 12a$，从而可知$\limn a_n=a=0$。\hfill(+3)
+%   \item 注意到$\df{n}{\sqrt[n]{n!}}=\sqrt[n]{\df{n^n}{n!}}$，记$a_n=$
+  \item 注意到
+  $$\left(1+\df 1n\right)^n<\left(1+\df1n+\df 1{n^2}\right)^n<\left(1+\df
+  1{n-1}\right)^n,\eqno{(+4)}$$
+  而$\limn\left(1+\df 1n\right)^n=\limn\left(1+\df1{n-1}\right)^n=e$，故有夹逼定理：
+  原式$=e$。\hfill(+2)
+\end{enumerate}
+
+{\bf 二、证：}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item
+  显然$\sqrt[n]{n}>1$。记$h_n=\sqrt[n]{n}-1\,(n\in\mathbb{N})$，以下只需证明$\limn{h_n}$=0即可。
+  事实上，由
+  $$n=(1+h_n)^n=1+nh_n+\df{n(n-1)}{2}h_n^2+\ldots+h_n^n>\df{n(n-1)}{2}h_n^2,\eqno{(+3)}$$ 可得
+  $$0<h_n^2<\df 2{n-1}$$
+  由夹逼定理可知$h_n^2\to 0(n\to\infty)$，从而$h_n\to
+  0(n\to\infty)$，即证。\hfill(+3)
+  \item 注意到
+  $$0<(n+1)^k-n^k=n^k\left[\left(1+\df 1n\right)^k-1\right]<n^k\left[\left(1+\df
+  1n\right)-1\right]=n^{k-1},\eqno{(+3)}$$
+  由于$0<k<1$，故$n^{k-1}\to 0(n\to\infty)$，故由夹逼定理
+  $\limn[(n+1)^k-n^k]=0$.\hfill(+3)
+\end{enumerate}
+
+{\bf 三、证：未用定义证明不得分！}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item
+  注意到当$n>2$时，$\df{2^n}{n!}<\df4n$，故对$\forall\e>0$，取$N=\mathrm{max}\{4/{\e},3\}$，
+  {\hfill{(+4)}}\\
+  则对$\forall n>N$，有
+  $$\left|\df{2^n}{n!}-0\right|<\df4n<\df 4N\leq\e,\eqno{(+2)}$$
+  即证。
+  \item 对$\forall\e>0$，令$N=1/\e^2$，{\hfill{(+4)}}\\
+  则对$\forall n>N$，有
+  $$\left|\df{\sqrt{n+1}-1}{n}\right|=\df {n+1-1}{(\sqrt{n+1}+1)n}<\df1{\sqrt
+  n}<\df1{\sqrt N}=\e,\eqno{(+2)}$$
+  即证。
+\end{enumerate}
+
+{\bf 四、证：}
+设$\lim\limits_{k\to\infty}a_{2k}=\lim\limits_{k\to\infty}a_{2k-1}=a$，
+则对$\forall\e>0$，$\exists K_1>0,K_2>0$，使对$\forall k>K_1$，
+$$|a_{2k}-a|<\e,$$
+对$\forall k>K_2$，
+$$|a_{2k-1}-a|<\e.\eqno{(+4)}$$
+从而，令$N=\max\{2K_1,2K_2-1\}$，则由以上两式，对$\forall n>N$，皆有
+$$|a_n-a|<\e.\eqno{(+4)}$$
+即证。
+
+{\bf 五、证：}
+% 由极限的保号性可知，$a\geq 0$。\hfill(+2)
+% 
+% （1）若$a=0$。对$\forall\e>0$，令$\e_1=\e^2$。由$\limn a_n=0$，对$\e_1$，$\exists
+% N>0$，对$\forall n>N$，有 $$|a_n-0|=a_n<\e_1,$$
+% 从而
+% $$|\sqrt{a_n}-0|=\sqrt{a_n}<\sqrt{\e_1}=\e,$$
+% 也即$\limn\sqrt{a_n}=0=\sqrt a$。\hfill(+3)
+% 
+% （2）若$a>0$。由$\limn a_n=a$，对$\forall\e>0$，$\exists N>0$，对$\forall n>N$，有
+% $$|a_n-a|<\e,$$
+% 进而
+% $$|\sqrt{a_n}-\sqrt a|=\df{|a_n-a|}{\sqrt{a_n}+\sqrt a}
+% <\df {|a_n-a|}{\sqrt a}<\df 1{\sqrt a}\e,$$
+% 从而$\limn\sqrt{a_n}=\sqrt a$。\hfill(+5)
+由极限的保号性可知，存在$N_1$，对任意$n>N_1$，使得
+$$|a_n|>\df{|a|}2.\eqno{(+3)}$$
+任取$\e>0$，由$\limn a_n=a$，对$\e_1=\df{a^2}2\e$，存在$N_2$，对任意$n>N_2$，恒有
+$$|a_n-a|<\e_1.\eqno{(+3)}$$
+从而，对任意$n>N=\max\{N_1,N_2\}$，总有
+$$\left|\df1{a_n}-\df1a\right|=\df{|a_n-a|}{|a_na|}
+<\df{\e_1}{\df{a^2}2}=\e.\eqno{(+2)}$$
+即证。
+
+{\bf 六、证：}
+% 参见教材第90-91页第17题。\hfill(每小题5分)
+任取$a>0$。记$a_n=\df{a^n}{n!}$，显然$a_n>0$，且当$n>a-1$时，
+$$\df{a_{n+1}}{a_{n}}=\df a{n+1}<1\quad\Rightarrow\quad a_{n+1}<a_n.$$
+故由单调有界原理，$\{a_n\}$收敛，设其极限为$A$。\hfill(+3)
+
+在递推式$a_{n+1}=\df a{n+1}a_{n}$
+两端同时令$n\to\infty$，易得$A=0$。\hfill(+2)
+
+取$\e=1$，由$\limn a_n=0$，可知存在$N$，使当$n>N$时，总有$a_n<\e=1$，也即
+$$a^n<n!\quad\Rightarrow\quad a<\sqrt[n]{n!}.$$
+由$a$的任意性，可知$\{\sqrt[n]{n!}\}$无界，从而必发散。\hfill(+3)
+
+% {\bf 七、证法一：}用反证法。设有$\limn\sin n=a$，则
+% $$\limn[\sin(n+2)-\sin n]=0.$$
+% 进而由
+% $$\sin(n+2)-\sin n=2\sin 1\cos(n+1),$$
+% 可得$\limn\cos(n+1)=0$。又\hfill(+4)
+% $$\cos(n+1)=\cos n\cos 1-\sin n\sin 1,$$
+% 可得$\limn\sin n=0$。如此就有\hfill(+4)
+% $$\limn\sin n=\limn\cos n=0,$$
+% 显然与$\sin^2n+\cos^2n=1$矛盾。\hfill(+2)
+% 
+% {\bf 证法二：}注意到当$x\in[2k\pi+\pi/4,2k\pi+3\pi/4]\,(k\in\mathbb{N})$时，总有
+% $$\sin x>\sqrt2/2.\eqno{(+2)}$$
+% 由于此类区间的长度均超过$1$，故其中必包含至少一个自然数。于是对每个$k\in\mathbb{N}$，
+% 可取自然数$n^{(1)}_k\in[2k\pi+\pi/4,2k\pi+3\pi/4]$，显然$\{\sin{n^{(1)}_k}\}$构成了$\{\sin
+% n\}$的一个子列。\hfill(+2)
+% 
+% 若$\{\sin n\}$收敛，则$\{\sin{n^{(1)}_k}\}$也收敛，且与之极限相同。由极限的保号性，
+% 可知$\{\sin{n^{(1)}_k}\}$的极限不小于$\sqrt2/2$，从而$\{\sin
+% n\}$的极限应大于等于$\sqrt2/2$。\hfill(+4)
+% 
+% \hspace{2em}同理，利用区间$[2k\pi+5\pi/4,2k\pi+7\pi/4]\,(k\in\mathbb{N})$，可构造$\{\sin
+% n\}$的另一个子列 $\{\sin{n^{(2)}_k}\}$。若$\{\sin n\}$收敛，同样利用保号性可证明其极限应小于等于$-\sqrt2/2$。
+% \hfill(+2)
+% 
+% \hspace{2em}以上两方面的结论矛盾，故假设错误，即证。
+
+{\bf 七、证：}对任意$n=1,2,\ldots$，显然$x_n>0$。$x_1=1<\df32=x_2$。设$x_{n-1}<x_n$，则
+$$x_{n+1}-x_n=\df{x_n-x_{n-1}}{(1+x_{n-1})(1+x_n)}>0,$$
+从而可知，$\{x_n\}$单调递增。\hfill(+3)
+
+又$x_n=2-\df1{1+x_{n-1}}<2,n=1,2,\ldots$，故$\{x_n\}$有上界。由单调有界原理，$\{x_n\}$收敛，
+设其极限为$A$。\hfill(+2)
+
+在递推式两边同时令$n\to\infty$，可得
+$$A=1+\df A{1+A},$$
+解得$A=\df{1\pm\sqrt5}2$。由极限的保号性，易知$A\geq0$，从而$\{x_n\}$的极限为$\df{1+\sqrt5}2$。
+\hfill(+3)
+
+{\bf 八、证：}显然$\{a_n\}$为严格单调递增的正数列。假设其收敛于$a$，在递推公式两边取极限可得
+$$a=a+\df1a,$$
+该方程无解，故假设不成立。由此可知$\{a_n\}$必严格单调递增趋于$+\infty$，也即
+$$\limn\df{1}{a_n}=0.\eqno{(+4)}$$
+从而，由Stolz定理
+$$\limn\df{a_n^2}{2n}=\limn\df{a_{n+1}^2-a_n^2}{2}=\df12\limn\left(2+\df1{a_n^2}\right)=1.$$
+即证。\hfill(+4)

@@ -1,0 +1,29 @@
+%===============macros====================
+\newcommand{\bb}{\bf\color{blue}}
+\newcommand{\ba}[1]{\alert{\bf #1}}
+\newcommand*{\e}{\ensuremath{\varepsilon}}
+\renewcommand{\b}{\color{blue!80!yellow}}
+\newcommand*{\p}{\ensuremath{\partial}}
+\newcommand{\limn}{\ensuremath{\lim\limits_{n\to\infty}}}
+\newcommand{\sumn}{\ensuremath{\sum\limits_{n=1}^{\infty}}}
+\newcommand*{\df}[2]{\displaystyle\frac{\,{#1}\,}{\,{#2}\,}}
+\newcommand*{\limx}[1]{\ensuremath{\lim\limits_{x\to{#1}}}}
+\newcommand*{\limdx}{\ensuremath{\lim\limits_{\Delta x\to 0}}}
+\newcommand*{\dx}{\Delta x}
+\newcommand{\dint}{\ensuremath{\displaystyle\int}}
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ps}[1]{$^{[\mbox{\it\footnotesize 注}]}$
+\marginpar{\kaishu\small {[注]：}#1}}
+\renewcommand{\i}{\ensuremath{\displaystyle\int}}
+
+%define tab of .25 textwidth and can auto strech
+%\tab{the word}\tab{another word}\tab{3rd one}
+\newlength{\tabcont}
+\newcommand{\tab}[1]{%
+\settowidth{\tabcont}{#1}%
+\ifthenelse{\lengthtest{\tabcont < .25\linewidth}}%
+{\makebox[.25\linewidth][l]{#1}\ignorespaces}%
+%{\makebox[.5\linewidth][l]{\color{red} #1}\ignorespaces}%
+{\makebox[.5\linewidth][l]{#1}\ignorespaces}%
+}%

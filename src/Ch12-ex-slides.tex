@@ -1,0 +1,430 @@
+\renewcommand{\b}{\color{blue!80!black}}
+
+\begin{frame}{曲线积分与曲面积分}
+	\linespread{1.2}
+	\begin{enumerate}
+	  \item 曲线和曲面积分的计算
+	  \begin{itemize}
+	    \item {\it 第一型：方向无关，第二型：方向敏感}
+	    \item {\it 第一型：质量类应用；第二型：向量场类应用}
+	  \end{itemize}
+	  \item Green公式和Gauss公式
+	  {\it
+	  \begin{itemize}
+	    \item Green公式的证明
+	    \item “补全”和“挖洞”
+	    \item 全微分与原函数（势函数）
+	    \item 散度、旋度、无源场、无旋场、保守场、C-R条件
+	  \end{itemize}
+	  }
+	  \item 对称性在各种积分中的应用
+	  \item 不同类型积分之间的相互转换
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{填空}
+	\linespread{1.5}
+% 	$\star$
+	\ba{1、}设$L$为曲线$x=\df{3at}{1+t^3},y=\df{3at^2}{1+t^3}$上$t$由
+	$0$到$+\infty$的一段，$a>0$，则$\dint_Lx\d y-y\d x=$
+	\underline{\uncover<2->{\;\b{$3a^2$}}\;}.\\[1em]
+	
+% 	\pause\pause
+	\ba{2、}$f(x)$连续可导，$L$为$(3,2/3)$到$(1,2)$的直线，
+	则$\dint_L\df{1+y^2f(xy)}y\d x+\df x{y^2}[y^2f(xy)-1]\d y=$
+	\underline{\uncover<3->{\;\b{$-4$}}\;}.\\[1em]
+	
+% 	\pause\pause
+	\ba{3、}$\ds\iint\limits_{z=\sqrt{a^2-x^2-y^2}}(x+y+z)\d S=$
+	\underline{\uncover<4->{\;\b{$\pi a^3$}}\;}.\\[1em]
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+% 	$\star$
+	\ba{4、}设$\Sigma$为平面$x+y+z=1$在第一卦限的上侧，$f(x,y,z)$连续，则
+	$\ds\iint\limits_{\Sigma}[f(x,y,z)+x]\d y\d z-[2f(x,y,z)-y]\d z\d x+
+	[f(x,y,z)+z]\d x\d y=$
+	\underline{\uncover<2->{\;\b{$\df12$}}\;}.\\[1em]
+	
+% 	\pause\pause
+	\ba{5、}设$\Sigma$为锥面$z=\sqrt{x^2+y^2}(0\leq z\leq 1)$的下侧，则
+	$\ds\iint\limits_{\Sigma}x\d y\d z+2y\d z\d x+3(z-1)\d x\d y=$
+	\underline{\uncover<3->{\;\b{$2\pi$}}\;}.\\[1em]
+	
+% 	\pause\pause
+	\ba{6、}设$L$是摆线$x=t-\sin t-\pi,y=1-\cos t$从$t=0$
+	到$t=2\pi$的一段，则$\dint_L\df{(x-y)\d x+(x+y)\d y}{x^2+y^2}=$
+	\underline{\uncover<4->{\;\b{$-\pi$}}\;}.\\[1em]
+\end{frame}
+
+\begin{frame}{选择}
+	\linespread{1.5}
+	\ba{1、}设$\Gamma$为上半圆周$x^2+y^2=2x$从原点到$(1,1)$的部分，则
+  	$\dint_{\Gamma}P(x,y)\d x+Q(x,y)\d y=$
+	(\underline{\uncover<2->{\;\b{C}}\;})
+	\begin{enumerate}[(A)]
+	  \item $\dint_{\Gamma}\left[P(x,y)(x-1)+Q(x,y)\sqrt{2x-x^2}\right]\d s$
+      \item $\dint_{\Gamma}\left[P(x,y)(1-x)-Q(x,y)\sqrt{2x-x^2}\right]\d s$
+      \item $\dint_{\Gamma}\left[P(x,y)\sqrt{2x-x^2}+Q(x,y)(1-x)\right]\d s$
+      \item $\dint_{\Gamma}\left[-P(x,y)\sqrt{2x-x^2}+Q(x,y)(x-1)\right]\d s$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{2、}若$(x^4+4xy^3)\d x+(ax^2y^2-5y^4)\d y$为全微分，则其原函数为
+	(\underline{\uncover<2->{\;\b{C}}\;})
+	\begin{enumerate}[(A)]
+	  \item $\df15x^5+3x^2y^2-y^5+C$
+      \item $\df15x^5+4x^2y^2-5y^4+C$
+      \item $\df15x^5+2x^2y^3-y^5+C$
+      \item $\df15x^5+2x^2y^3-5y^4+C$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{3、}设$L_1:\df{x^2}{4}+\df{y^2}{9}=1,L_2:
+	\df{x^2}{9}+\df{y^2}{4}=1$，
+	二者所围封闭区域分别为$D_1,D_2$，则下列正确的是
+	(\underline{\uncover<2->{\;\b{C}}\;})
+	\begin{enumerate}[(A)]
+	  \item $\dint_{L_1}(x+y^2)\d s=2\dint_{L_2}y^2\d s$
+	  \item $\dint_{L_1}(x^2+y)\d s=2\dint_{L_2}(x^2+y)\d s$
+	  \item $\ds\iint\limits_{D_1}(x+y^3)\d\sigma=2\ds\iint_{D_2}(x+y^3)\d\sigma$
+	  \item $\ds\iint\limits_{D_1}(x^2+y)\d\sigma=2\ds\iint_{D_2}(x^2+y)\d\sigma$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{4、}$f(x,y)$偏导连续，曲线$L:f(x,y)=1$过第二象限的点$M$
+	  和第四象限的点$N$，$\Gamma$为$L$上从$M$到$N$的一段弧，则下列
+	  小于零的是
+	(\underline{\uncover<2->{\;\b{B}}\;})
+	\begin{enumerate}[(A)]
+	  \item $\dint_{\Gamma}f(x,y)\d x$
+	  \item $\dint_{\Gamma}f(x,y)\d y$
+	  \item $\ds\int_{\Gamma}f(x,y)\d s$
+	  \item $\ds\int_{\Gamma}f\,'_x(x,y)\d x+f\,'_y(x,y)\d y$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{5、}设曲面$S_1:x^2+y^2+z^2=1(z\geq
+	  0)$，$S_2$为$S_1$在第一卦限中的部分，
+	  则以下正确的是
+	(\underline{\uncover<2->{\;\b{C}}\;})
+	\begin{enumerate}[(A)]
+	  \item $\ds\iint_{S_1}x\d S=4\iint_{S_2}x\d S$
+	  \item $\ds\iint_{S_1}y\d S=4\iint_{S_2}x\d S$
+	  \item $\ds\iint_{S_1}z\d S=4\iint_{S_2}x\d S$
+	  \item $\ds\iint_{S_1}xyz\d S=4\iint_{S_2}xyz\d S$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{6、}设$S$是三个坐标面与平面$x=a,y=b,z=c$（其中$a,b,c$均大于零）所围成的
+    封闭曲面的外侧，则$\ds\oiint_S(x^2-yz)\d y\d z+(y^2-zx)\d z\d x
+    +(z^2-xy)\d x\d y=$
+	(\underline{\uncover<2->{\;\b{A}}\;})
+	\begin{enumerate}[(A)]
+	  \item $abc(a+b+c)$
+      \item $a^2b^2c^2(a+b+c)$
+      \item $ab+ac+bc$
+      \item $(a+b+c)^2$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{7、}设$f(r)$二阶连续可微，$r=\sqrt{x^2+y^2+z^2}$，
+  	若$\mathrm{div}(\bigtriangledown\,f(r))=0$，则$f(r)=$
+	(\underline{\uncover<2->{\;\b{B}}\;})
+	\begin{enumerate}[(A)]
+	  \item $C_1r+C_2$
+      \item $C_1/r+C_2$
+      \item $C_1r^2+C_2$
+      \item $C_1/r^2+C_2$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\alert{提示：}{\it\b 几个建议单独记忆的公式 
+	\begin{enumerate}[(1)]
+	  \item \b$\mathrm{div}(\bm{v})=\bigtriangledown\cdot\bm{v}$
+	  \item \b$\mathrm{rot}(\bm{v})=\bigtriangledown\times\bm{v}$
+	  \item \b$\mathrm{div}(u\;\bm{v})=u\;\mathrm{div}\bm{v}
+	  +\bm{v}\cdot\bigtriangledown u$
+	  \item \b$\mathrm{rot}(u\;\bm{v})=u\;\mathrm{rot}\bm{v}
+	  +\bm{v}\times\bigtriangledown u$
+	  \item \b$\mathrm{div}(\bigtriangledown r)=\df2r$，
+	  \hspace{1cm} $(r=\sqrt{x^2+y^2+z^2})$
+	  \item \b$\mathrm{rot}(\bigtriangledown r)=0$，
+	  \hspace{1cm} $(r=\sqrt{x^2+y^2+z^2})$
+	\end{enumerate}
+	}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{例：}计算第一型曲线积分（设$a>0$）
+	\begin{enumerate}[(1)]
+	  \item $\ds\int\limits_{x^{2/3}+y^{2/3}=a^{2/3}}
+	  \left(x^{4/3}+y^{4/3}\right)\d s$
+	  \item $\ds\int\limits_{(x^2+y^2)^2=a^2(x^2-y^2)}|y|\d s$
+	  \item $\ds\int_Cz\d s$
+	  其中$C$为$x^2+y^2=z^2$与$y^2=ax$的交线上从原点到$(a,a,\sqrt2a)$的一段
+	\end{enumerate}
+		
+% 	\bigskip\pause
+% 	\alert{提示：}{\it\b 辅导书-P137-例3}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{例：}计算积分
+	$$I=\int_Ly^2\d x+z^2\d y+x^2\d z,$$
+	其中$C$为曲线$\left\{\begin{array}{l}
+	x^2+y^2+z^2=1 \\ x^2+y^2=x
+	\end{array}\right.$
+	上$z\geq 0$的部分，从$x$轴正向看去为逆时针方向。
+		
+	\bigskip\pause
+	\alert{提示：}{\it\b 曲线的参数方程为 
+	$$x=\cos^2\theta,y=a\cos\theta\sin\theta, z=a|\sin\theta|\;
+	(\theta\in[-\pi/2,\pi/2])$$
+	}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{例：}设$L$为平面上的简单光滑闭曲线，$D$为$L$所围成的有界闭区域，$\bm{n}$
+	为$L$的外法向，$\df{\p u}{\p\bm{n}}$表示函数$u(x,y)$沿$\bm{n}$的方向导数
+	\begin{enumerate}[(1)]
+	  \item 将$\ds\oint_L\df{\p u}{\p\bm{n}}\d s$化为对坐标的曲线积分；
+	  \item 设$u=x^2+y^2$，$L:x^2+y^2=6x$，计算
+	  $$\ds\oint_L\df{\p u}{\p\bm{n}}\d s$$
+	\end{enumerate}
+		
+	\bigskip\pause
+	\alert{提示：}{\it\b 辅导书-P137-例3}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{例：}计算积分
+	$$I=\oint_C\df{\cos(\bm{r},\bm{n})}{r}\d s,$$
+	其中$C$为不包含原点的分段光滑闭曲线，$\bm{r}=(x,y)$，$r=|\bm{r}|$，
+	$\bm{n}$为$C$的外侧单位法向量
+		
+	\bigskip\pause
+	\alert{提示：}{\it\b 根据原点是否在$C$内部讨论。
+	原点不在$C$内时为$0$，直接使用Green公式，结果为$0$；
+	原点在$C$内时，“挖洞”处理，结果为$2\pi$}
+	
+	\alert{参考：教材12.4-例3}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{NUDT-2016春：}已知$C$为不经过原点的简单光滑闭曲线，取逆时针方向，
+	计算曲线积分
+	$$\oint_C\df{(x+y)\d x-(x-y)\d y}{(x^2+y^2)}$$
+	
+	\bigskip\pause
+	\alert{提示：}{\it\b 若$ac-b^2>0$，则
+	$$\df{x\d y-y\d x}{ax^2+2bxy+cy^2}$$
+	为全微分。椭圆$ax^2+2bxy+cy^2=1$的面积为$\df{\pi}{\sqrt{ac-b^2}}$
+	}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{NUDT-2015春：}已知$C$为不经过原点的简单光滑闭曲线，取逆时针方向为正向，
+	$a>b>0$，计算曲线积分
+	$$\oint_C\df{y\d x-x\d y}{ax^2+by^2}$$
+	
+	\bigskip\pause
+	\alert{提示：}{根据原点是否在$C$内部进行讨论。若原点位于$C$外，
+	直接利用Green公式，结果为零；若原点位于$C$内，则在$C$内“挖洞”，
+	洞的边界为
+	$$C_{\e}:\;ax^2+by^2=\e,\quad(\e>0),$$
+	结果为$-\df{2\pi}{\sqrt{ab}}$
+	}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{NUDT-2012春：}计算曲线积分
+	$$\oint_L\left(x-\df{y}{x^2+y^2}\right)\d x
+	+\left(y+\df{x}{x^2+y^2}\right)\d y,$$
+	其中$L:\df{x^2}9+\df{y^2}4=1$为逆时针方向。
+	
+	\bigskip\pause
+	\alert{提示：}{\it\b 利用“挖洞”简化计算，结果为$2\pi$}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{例：}$L$为逆时针的单位圆，计算积分
+	$$\oint_L\df{(x-y)\d x+(x+4y)\d y}
+	{x^2+4y^2}$$
+	
+	\bigskip\pause
+	\alert{提示：}{\it\b 利用“挖洞”简化计算，“洞”为
+	$$C_{\e}:x^2+4y^2=\e^2\quad(0<\e<<1)$$
+	}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{例：}设$f(x)$当$x>0$时可导，$f(1)=2$，对右半平面内的任意封闭曲线$C$，
+	有$\ds\oint_C4x^3y\d x+xf(x)\d y=0$
+	\begin{enumerate}[(1)]
+	  \item 求$f(x)$;
+	  \item 设$L$为从$(1,0)$到$(2,3)$的一段弧，计算
+	  $$\dint_L4x^3y\d x+xf(x)\d y$$
+	\end{enumerate}
+		
+	\bigskip\pause
+	\alert{提示：}{\it\b 
+	由C-R条件（积分与路径无关），可解得$$f(x)=\df{x^4+1}x$$}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{例：}函数$u(x,y),v(x,y)$在单位圆内存在一阶连续偏导数，
+	$$\bm{f}(x,y)=(v(x,y),u(x,y)),$$
+	$$\bm{g}(x,y)=\left(u'_x-u'_y,v'_x-v'_y\right),$$
+	在单位圆上，$u(x,y)=x,v(x,y)=1$，求
+	$$\iint\limits_{x^2+y^2\leq 1}\bm{f}\cdot\bm{g}\d\sigma$$
+
+% 	\bigskip\pause
+% 	\alert{提示：}{\it\b
+% 	由C-R条件（积分与路径无关），可解得$f(x)=\df{x^4+1}x$}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+% 	\ba{例：}函数$u(x,y),v(x,y)$在单位圆内存在一阶连续偏导数，
+% 	$$\bm{f}(x,y)=(v(x,y),u(x,y)),$$
+% 	$$\bm{g}(x,y)=\left(u'_x-u'_y,v'_x-v'_y\right),$$
+% 	在单位圆上，$u(x,y)=x,v(x,y)=1$，求
+% 	$$\iint_{x^2+y^2\leq 1}\bm{f}\cdot\bm{g}\d\sigma$$
+
+% 	\bigskip\pause
+	\alert{提示：}
+	{\it\b
+	\begin{align}
+		&\iint\limits_{x^2+y^2\leq 1}\bm{f}\cdot\bm{g}\d\sigma\notag
+	    =\iint\limits_{x^2+y^2\leq 1}\left[(vu'_x+uv'_x)-
+		(vu'_y+uv'_y)\right]\d\sigma\notag\\
+		&=\iint\limits_{x^2+y^2\leq 1}\left[(uv)'_x-(uv)'_y\right]
+		\d\sigma\notag\\
+		&=\oint_{x^2+y^2=1}(uv)\d x+(uv)\d y
+		=\oint_{x^2+y^2=1}x\d x+x\d y\notag\\
+		&=\iint\limits_{x^2+y^2\leq 1}\d\sigma=\pi\notag
+	\end{align}
+	}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{例：}求上半球面$z=\sqrt{1-x^2-y^2}$被$x^2+y^2=x$所截取的部分的面积与形心。
+		
+	\bigskip\pause	
+	\alert{提示：}{\it\b 面积$\pi-2$，形心
+	$$\left(\df{2}{3(\pi-2)},0,\df{\pi}{4(\pi-2)}\right)$$}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{例：}设$S$为第一卦限中的半径为$a(a>0)$的球面，计算积分
+	$$\oiint\limits_S
+	xyz(y^2z^2+z^2x^2+x^2y^2)\d S$$
+		
+	\bigskip\pause	
+	\alert{提示：}{\it\b 使用轮换对称性，结果为$\df{a^9}{32}$}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{例：}设$\Sigma$为曲面$z=\sqrt{x^2+y^2}$及平面$z=1$和$z=2$
+	所围立体的外表面，求
+	$$\oiint\limits_{\Sigma}\sqrt{x^2+y^2}e^z(\d y\d z+\d z\d x+\d x\d y)$$
+		
+	\bigskip\pause	
+	\alert{提示：}{\it\b }
+\end{frame}
+
+% \begin{frame}
+% 	\linespread{1.2}
+% 	\ba{思考：}找出以下推导中存在的问题
+% 	$\Omega:r\leq R$，$\Sigma=\p\Omega$，取外侧，
+% 	$r=\sqrt{x^2+y^2+z^2}$
+% 	\begin{enumerate}[(1)]
+% 	  \item
+% 	  $\ds\oiint\limits_{\Sigma}\df{x^3}{r^3}\d
+% 	  y\d z+\df{y^3}{r^3}\d z\d x+\df{z^3}{r^3}\d x\d y$\\ 
+% 	  \hspace{2cm}$=\df 1{R^3}\oiint\limits_{\Sigma}x^3\d y\d z+y^3\d z\d x+z^3\d
+% 	  x\d y$\\
+% 	  \hspace{2cm}$=\df 1{R^3}\iiint\limits_{\Omega}3r^2\d V{=\df
+% 	  3R\iiint\limits_{\Omega}\d V} =4\pi R^2$\pause
+% 	  \item
+% 	  $\ds\oiint\limits_{\Sigma}\df{x^3}{r^3}\d
+% 	  y\d z+\df{y^3}{r^3}\d z\d x+\df{z^3}{r^3}\d x\d y$\\
+% 	  \hspace{2cm}$=\ds\iiint\limits_{\Omega}\left[\df{\p}{\p
+% 	  x}\df{x^3}{r^3}+\df{\p}{\p y}\df{y^3}{r^3}+\df{\p}{\p
+% 	  z}\df{z^3}{r^3}\right]\d V$
+% 	\end{enumerate}
+% \end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{例：}设$\Sigma$为$x^2+y^2=R^2$及平面$z=\pm R\,(R>0)$所围立体的外表面，求
+	$$\oiint\limits_{\Sigma}\df{x\d y\d z+y^2\d z\d x+z^2\d x\d y}{x^2+y^2+z^2}$$
+		
+	\bigskip\pause
+	\alert{提示：}{\it\b
+	利用第二型曲面积分的对称性，原式可化为
+	$$\oiint\limits_{\Sigma}\df{x\d y\d z}{x^2+y^2+z^2}$$
+	}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{例：}设$\Sigma$为$2x^2+2y^2+z^2=4$的外侧，求
+	$$\oiint\limits_{\Sigma}\df{x\d y\d z+y\d z\d x+z\d x\d
+	y}{(x^2+y^2+z^2)^{3/2}}$$
+		
+	\bigskip\pause
+	\alert{提示：}{\it\b
+	可以验证，在原点之外旋度为零，“挖洞”后使用Gauss公式！\pause
+	}
+	
+	\alert{思考：}{\it\b如何计算
+	$$\oiint\limits_{\Sigma}\df{x\d y\d z+y\d z\d x+z\d x\d y}
+	{(x^2+2y^2+2z^2)^{3/2}}$$
+	}
+	
+	\pause\alert{提示：}{\it\b
+	挖一个椭圆形的“洞”：$x^2+2y^2+2z^2=\e$
+	}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{例：}在变力$\bm{F}=(yz,zx,xy)$的作用下，质点由原点沿直线运动到椭球面
+	$\df{x^2}{a^2}+\df{y^2}{b^2}+\df{z^2}{c^2}=1$上第一卦限
+	中的某点$M$，问$M$在何位置时，$\bm{F}$所做的功最大，并求出功的最大值。
+		
+	\bigskip\pause
+	\alert{提示：}{\it\b
+	首先验证$\bm{F}$为保守场，再根据$M$在椭球面的位置，求功的最大值
+	}
+\end{frame}

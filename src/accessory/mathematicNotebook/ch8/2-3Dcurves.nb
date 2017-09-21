@@ -1,0 +1,605 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21092,        596]
+NotebookOptionsPosition[     20101,        562]
+NotebookOutlinePosition[     20455,        578]
+CellTagsIndexPosition[     20412,        575]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\:7a7a\:95f4\:66f2\:7ebf\:53ca\:5176\:6295\:5f71", "Title",
+ CellChangeTimes->{{3.636796637837604*^9, 3.636796642584742*^9}, {
+  3.667211519834064*^9, 3.667211526642756*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"1", "-", "Viviani\:66f2\:7ebf"}], "Subtitle"]], "Input",
+ CellChangeTimes->{{3.508234584736642*^9, 3.50823459484616*^9}, {
+  3.636801828898716*^9, 3.6368018434651012`*^9}, {3.636801878284308*^9, 
+  3.6368018785603027`*^9}, {3.667211404858576*^9, 3.6672114050217247`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"f1", "=", 
+   RowBox[{"ContourPlot3D", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"z", "^", "2"}], "\[Equal]", 
+      RowBox[{"4", "-", 
+       RowBox[{"x", "^", "2"}], "-", 
+       RowBox[{"y", "^", "2"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "0", ",", "2"}], "}"}], ",", 
+     RowBox[{"BoxRatios", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"Mesh", "\[Rule]", "False"}], ",", 
+     RowBox[{"ContourStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Opacity", "[", "0.3", "]"}], "]"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f2", "=", 
+   RowBox[{"ContourPlot3D", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"2", "x"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"x", "^", "2"}], "+", 
+       RowBox[{"y", "^", "2"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "0", ",", "2"}], "}"}], ",", 
+     RowBox[{"BoxRatios", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"Mesh", "\[Rule]", "False"}], ",", 
+     RowBox[{"ContourStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Opacity", "[", "0.3", "]"}], "]"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f3", "=", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "+", 
+        RowBox[{"Cos", "[", "t", "]"}]}], ",", 
+       RowBox[{"Sin", "[", "t", "]"}], ",", 
+       RowBox[{"2", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"t", "/", "2"}], "]"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       RowBox[{"2", "Pi"}]}], "}"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Blue", ",", 
+        RowBox[{"Thickness", "[", "0.01", "]"}]}], "}"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", 
+  RowBox[{"f1", ",", "f2", ",", "f3"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.5082229162831717`*^9, 3.508223052602356*^9}, {
+   3.508223103416326*^9, 3.508223164153408*^9}, {3.508223316358409*^9, 
+   3.508223367479168*^9}, 3.508223417707323*^9, {3.636801741960511*^9, 
+   3.636801760498211*^9}}],
+
+Cell[BoxData[
+ StyleBox["Viviani\:66f2\:7ebf\:7684\:6295\:5f71\:66f2\:7ebf", 
+  "Subtitle"]], "Input",
+ CellChangeTimes->{{3.508234807802741*^9, 3.508234808713434*^9}, {
+  3.636801824306987*^9, 3.636801846033251*^9}, {3.636801880667838*^9, 
+  3.636801882599951*^9}, {3.667205406363728*^9, 3.667205418651043*^9}, {
+  3.667211407152068*^9, 3.667211407369328*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"f4", "=", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "+", 
+        RowBox[{"Cos", "[", "t", "]"}]}], ",", 
+       RowBox[{"Sin", "[", "t", "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       RowBox[{"2", "Pi"}]}], "}"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Red", ",", 
+        RowBox[{"Thickness", "[", "0.005", "]"}]}], "}"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f5", "=", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "+", 
+        RowBox[{"Cos", "[", "t", "]"}]}], ",", "2", ",", 
+       RowBox[{"2", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"t", "/", "2"}], "]"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       RowBox[{"2", "Pi"}]}], "}"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Red", ",", 
+        RowBox[{"Thickness", "[", "0.005", "]"}]}], "}"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f6", "=", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "2"}], ",", 
+       RowBox[{"Sin", "[", "t", "]"}], ",", 
+       RowBox[{"2", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"t", "/", "2"}], "]"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       RowBox[{"2", "Pi"}]}], "}"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Red", ",", 
+        RowBox[{"Thickness", "[", "0.005", "]"}]}], "}"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", 
+  RowBox[{"f1", ",", "f2", ",", "f3", ",", "f4", ",", "f5", ",", "f6"}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.508234623721263*^9, 3.5082346638854237`*^9}, {
+  3.508234699827012*^9, 3.508234749549116*^9}, {3.5082347872168283`*^9, 
+  3.50823479060187*^9}, {3.636801774097679*^9, 3.636801778817325*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"2", "-", "\:5706\:67f1\:87ba\:65cb\:7ebf"}], "Subtitle"]], "Input",\
+
+ CellChangeTimes->{{3.6672114101446257`*^9, 3.667211410357675*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"T", "=", "6"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f1", "=", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"2", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"2", "t"}], "]"}]}], ",", 
+       RowBox[{"2", "*", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"2", "t"}], "]"}]}], ",", "t"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "T"}], "}"}], ",", 
+     RowBox[{"PlotStyle", "->", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Thickness", "[", "0.01", "]"}], ",", "Red"}], "}"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f2", "=", 
+   RowBox[{"ContourPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"x", "^", "2"}], "+", 
+        RowBox[{"y", "^", "2"}]}], "\[Equal]", "4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "0", ",", "T"}], "}"}], ",", 
+     RowBox[{"Mesh", "\[Rule]", "False"}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"Axes", "\[Rule]", "None"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"ContourStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Yellow", ",", 
+        RowBox[{"Specularity", "[", 
+         RowBox[{"White", ",", "20"}], "]"}], ",", 
+        RowBox[{"Opacity", "[", "0.3", "]"}]}], "]"}]}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Style", "[", 
+         RowBox[{"X", ",", "Large", ",", "Bold", ",", "Red"}], "]"}], ",", 
+        RowBox[{"Style", "[", 
+         RowBox[{"Y", ",", "Large", ",", "Bold", ",", "Blue"}], "]"}], ",", 
+        RowBox[{"Style", "[", 
+         RowBox[{"Z", ",", "Large", ",", "Bold", ",", "Green"}], "]"}]}], 
+       "}"}]}], ",", 
+     RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"AxesStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Red", ",", " ", "12"}], "]"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f3", "=", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"2", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"2", "t"}], "]"}]}], ",", 
+       RowBox[{"2", "*", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"2", "t"}], "]"}]}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "T"}], "}"}], ",", 
+     RowBox[{"PlotStyle", "->", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Thickness", "[", "0.005", "]"}], ",", "Blue"}], "}"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f4", "=", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"2", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"2", "t"}], "]"}]}], ",", "0", ",", "t"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "T"}], "}"}], ",", 
+     RowBox[{"PlotStyle", "->", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Thickness", "[", "0.005", "]"}], ",", "Green"}], "}"}]}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f5", "=", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       RowBox[{"2", "*", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"2", "t"}], "]"}]}], ",", "t"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "T"}], "}"}], ",", 
+     RowBox[{"PlotStyle", "->", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Thickness", "[", "0.005", "]"}], ",", "Brown"}], "}"}]}], 
+     ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f6", "=", 
+   RowBox[{"ContourPlot3D", "[", 
+    RowBox[{
+     RowBox[{"x", "\[Equal]", 
+      RowBox[{"2", 
+       RowBox[{"Cos", "[", 
+        RowBox[{"2", "z"}], "]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "2.5"}], ",", "2.5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "2.5"}], ",", "2.5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "0", ",", "T"}], "}"}], ",", 
+     RowBox[{"Mesh", "\[Rule]", "False"}], ",", 
+     RowBox[{"ContourStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Blue", ",", 
+        RowBox[{"Specularity", "[", 
+         RowBox[{"White", ",", "20"}], "]"}], ",", 
+        RowBox[{"Opacity", "[", "0.15", "]"}]}], "]"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f7", "=", 
+   RowBox[{"ContourPlot3D", "[", 
+    RowBox[{
+     RowBox[{"y", "\[Equal]", 
+      RowBox[{"2", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"2", "z"}], "]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "2.5"}], ",", "2.5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "2.5"}], ",", "2.5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "0", ",", "T"}], "}"}], ",", 
+     RowBox[{"Mesh", "\[Rule]", "False"}], ",", 
+     RowBox[{"ContourStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Purple", ",", 
+        RowBox[{"Specularity", "[", 
+         RowBox[{"White", ",", "20"}], "]"}], ",", 
+        RowBox[{"Opacity", "[", "0.15", "]"}]}], "]"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", 
+  RowBox[{"f1", ",", "f2", ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.667205700994503*^9, 3.667205780063332*^9}, {
+   3.6672058660265713`*^9, 3.667205873543672*^9}, {3.6672059040949078`*^9, 
+   3.667205910259766*^9}, 3.667205955237702*^9, {3.667210774167322*^9, 
+   3.6672107836908617`*^9}, {3.667210895335889*^9, 3.667210908374975*^9}, {
+   3.667210953584094*^9, 3.667210954831463*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  "\:5706\:67f1\:87ba\:65cb\:7ebf\:7684\:6295\:5f71\:66f2\:7ebf\:4e0e\:6295\
+\:5f71\:67f1\:9762", "Subtitle"]], "Input",
+ CellChangeTimes->{{3.667211171847805*^9, 3.6672111858851852`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{"f1", ",", "f6", ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.66721083637654*^9, 3.667210846818325*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{"f1", ",", "f2", ",", "f6", ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6672057367426023`*^9, 3.667205738560259*^9}, {
+  3.66720578738101*^9, 3.6672057995259457`*^9}, {3.667205919051898*^9, 
+  3.667205920468897*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{"f1", ",", "f7", ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.667210921573702*^9, 3.667210929054496*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{"f1", ",", "f6", ",", "f7", ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.667210921573702*^9, 3.667210929054496*^9}, {
+  3.6672110002711687`*^9, 3.667211002255279*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{"f1", ",", "f3", ",", "f4", ",", "f5", ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.667205731655779*^9, 3.667205734680368*^9}, {
+  3.6672110276629677`*^9, 3.667211092408051*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"3", "-", "\:5706\:9525\:87ba\:65cb\:7ebf"}], "Subtitle"]], "Input",\
+
+ CellChangeTimes->{{3.508236741759943*^9, 3.508236749154969*^9}, {
+  3.6368018715306187`*^9, 3.636801872496509*^9}, {3.636801905390584*^9, 
+  3.636801905599375*^9}, {3.667205698925458*^9, 3.667205715556677*^9}, {
+  3.667211414256914*^9, 3.667211414454062*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"T", "=", "6"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f1", "=", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"t", "*", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"2", "t"}], "]"}]}], ",", 
+       RowBox[{"t", "*", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"2", "t"}], "]"}]}], ",", "t"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "T"}], "}"}], ",", 
+     RowBox[{"PlotStyle", "->", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Thickness", "[", "0.01", "]"}], ",", "Red"}], "}"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f2", "=", 
+   RowBox[{"ContourPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"x", "^", "2"}], "+", 
+        RowBox[{"y", "^", "2"}]}], "\[Equal]", 
+       RowBox[{"z", "^", "2"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "15"}], ",", "15"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "15"}], ",", "15"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "0", ",", "T"}], "}"}], ",", 
+     RowBox[{"Mesh", "\[Rule]", "False"}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"Axes", "\[Rule]", "None"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"ContourStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Blue", ",", 
+        RowBox[{"Specularity", "[", 
+         RowBox[{"White", ",", "20"}], "]"}], ",", 
+        RowBox[{"Opacity", "[", "0.2", "]"}]}], "]"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", 
+  RowBox[{"f1", ",", "f2", ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.508220019395368*^9, 3.50822005368023*^9}, {
+   3.508220109968886*^9, 3.5082202118117533`*^9}, {3.508220253373597*^9, 
+   3.5082202826466293`*^9}, {3.5082205487233887`*^9, 3.508220550720848*^9}, {
+   3.508221163168614*^9, 3.508221169595829*^9}, {3.5082212050693293`*^9, 
+   3.508221223619587*^9}, {3.636801040577145*^9, 3.636801094023199*^9}, 
+   3.636978226987474*^9}],
+
+Cell[BoxData[
+ StyleBox[
+  "\:5706\:9525\:87ba\:65cb\:7ebf\:7684\:6295\:5f71\:66f2\:7ebf\:4e0e\:6295\
+\:5f71\:67f1\:9762", "Subtitle"]], "Input",
+ CellChangeTimes->{{3.667211171847805*^9, 3.6672111858851852`*^9}, {
+  3.667211351098714*^9, 3.667211353460904*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"f3", "=", 
+   RowBox[{"ContourPlot3D", "[", 
+    RowBox[{
+     RowBox[{"x", "\[Equal]", 
+      RowBox[{"z", "*", 
+       RowBox[{"Cos", "[", 
+        RowBox[{"2", "z"}], "]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "15"}], ",", "15"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "15"}], ",", "15"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "0", ",", "T"}], "}"}], ",", 
+     RowBox[{"Mesh", "\[Rule]", "False"}], ",", 
+     RowBox[{"ContourStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Blue", ",", 
+        RowBox[{"Specularity", "[", 
+         RowBox[{"White", ",", "20"}], "]"}], ",", 
+        RowBox[{"Opacity", "[", "0.15", "]"}]}], "]"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f4", "=", 
+   RowBox[{"ContourPlot3D", "[", 
+    RowBox[{
+     RowBox[{"y", "\[Equal]", 
+      RowBox[{"z", "*", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"2", "z"}], "]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "15"}], ",", "15"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "15"}], ",", "15"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "0", ",", "T"}], "}"}], ",", 
+     RowBox[{"Mesh", "\[Rule]", "False"}], ",", 
+     RowBox[{"ContourStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Red", ",", 
+        RowBox[{"Specularity", "[", 
+         RowBox[{"White", ",", "20"}], "]"}], ",", 
+        RowBox[{"Opacity", "[", "0.15", "]"}]}], "]"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", 
+  RowBox[{"f1", ",", "f3", ",", "f4"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.508221613197234*^9, 3.5082216918461637`*^9}, {
+  3.5082217416801987`*^9, 3.508221769405987*^9}, {3.5082218089260597`*^9, 
+  3.5082218287790947`*^9}, {3.508221863188842*^9, 3.508221881904769*^9}, {
+  3.508221933162719*^9, 3.5082219351915627`*^9}, {3.508221981957534*^9, 
+  3.508221984111842*^9}, {3.5082366182485*^9, 3.508236627099372*^9}, {
+  3.508236680506425*^9, 3.5082366843131847`*^9}, {3.636801102009046*^9, 
+  3.6368011048235493`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{"f1", ",", "f3"}], "]"}]], "Input",
+ CellChangeTimes->{{3.508221955115019*^9, 3.508221959992222*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{"f1", ",", "f4"}], "]"}]], "Input",
+ CellChangeTimes->{{3.508221998218833*^9, 3.508222003854206*^9}, {
+  3.636801900145729*^9, 3.636801901114522*^9}}]
+}, Open  ]]
+},
+WindowSize->{840, 949},
+WindowMargins->{{10, Automatic}, {Automatic, 81}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (June 27, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 180, 2, 92, "Title"],
+Cell[763, 26, 307, 5, 45, "Input"],
+Cell[1073, 33, 2706, 75, 148, "Input"],
+Cell[3782, 110, 361, 6, 45, "Input"],
+Cell[4146, 118, 2255, 64, 131, "Input"],
+Cell[6404, 184, 173, 4, 45, "Input"],
+Cell[6580, 190, 6389, 178, 369, "Input"],
+Cell[12972, 370, 213, 4, 45, "Input"],
+Cell[13188, 376, 197, 4, 28, "Input"],
+Cell[13388, 382, 310, 6, 28, "Input"],
+Cell[13701, 390, 198, 4, 28, "Input"],
+Cell[13902, 396, 260, 5, 28, "Input"],
+Cell[14165, 403, 271, 5, 28, "Input"],
+Cell[14439, 410, 366, 7, 45, "Input"],
+Cell[14808, 419, 2338, 61, 148, "Input"],
+Cell[17149, 482, 262, 5, 45, "Input"],
+Cell[17414, 489, 2320, 59, 131, "Input"],
+Cell[19737, 550, 148, 3, 28, "Input"],
+Cell[19888, 555, 197, 4, 28, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

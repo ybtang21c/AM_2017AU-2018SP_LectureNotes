@@ -1,0 +1,393 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12908,        384]
+NotebookOptionsPosition[     11967,        351]
+NotebookOutlinePosition[     12319,        367]
+CellTagsIndexPosition[     12276,        364]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ StyleBox["Taylor\:5c55\:5f00\:7684\:903c\:8fd1\:6548\:679c", 
+  "Title"]], "Input",
+ CellChangeTimes->{{3.6907795673460827`*^9, 3.690779572687324*^9}, {
+  3.6907796211614113`*^9, 3.690779689858388*^9}, {3.690779846905897*^9, 
+  3.6907798692411833`*^9}, {3.690779904171566*^9, 3.690779978452883*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"1", "\:3001", 
+   RowBox[{"\:6c42\:7ed9\:5b9a\:51fd\:6570\:7684Taylor\:5c55\:5f00\:5f0f", 
+    RowBox[{"\:ff08", "\:5e26Peano\:4f59\:9879", "\:ff09"}]}]}], 
+  "Section"]], "Input",
+ CellChangeTimes->{{3.690779703509918*^9, 3.6907797323083076`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Series", "[", 
+  RowBox[{
+   RowBox[{"Sin", "[", "x", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "20"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.690778599662462*^9, 3.6907786062638617`*^9}, {
+   3.690779694773138*^9, 3.6907796989404078`*^9}, 3.690780080035103*^9, {
+   3.690781008628647*^9, 3.690781010006226*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+  "2", "\:3001", 
+   "\:4e0d\:540c\:9636\:6570\:7684\:5c55\:5f00\:5f0f\:7684\:903c\:8fd1\:6548\
+\:679c\:5bf9\:6bd4"}], "Section"]], "Input",
+ CellChangeTimes->{{3.690779742641718*^9, 3.690779757861334*^9}, {
+  3.6907797913221893`*^9, 3.690779797609717*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"Evaluate", "[", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"Normal", "[", 
+       RowBox[{"Series", "[", 
+        RowBox[{
+         RowBox[{"Sin", "[", "x", "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "0", ",", "n"}], "}"}]}], "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", "20"}], "}"}]}], "]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", 
+     RowBox[{"2", "Pi"}]}], "}"}]}], "]"}]], "Input"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"3", "\:3001", "\:52a8\:6001\:7684\:903c\:8fd1\:8fc7\:7a0b"}], 
+  "Section"]], "Input",
+ CellChangeTimes->{{3.6907797715568123`*^9, 3.690779775285926*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"y", "=", 
+   RowBox[{"sin", 
+    RowBox[{"(", "x", ")"}]}]}], "Subsubsection"]], "Input",
+ CellChangeTimes->{{3.690781648731964*^9, 3.690781654261774*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Sin", "[", "x", "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Normal", "[", 
+           RowBox[{"Series", "[", 
+            RowBox[{
+             RowBox[{"Sin", "[", "x", "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "0", ",", "m"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"m", ",", "1", ",", "n"}], "}"}]}], "]"}], "]"}]}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "Pi"}], ",", 
+       RowBox[{"5", "Pi"}]}], "}"}], ",", 
+     RowBox[{"Filling", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"1", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"n", "+", "1"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "2"}], ",", "2"}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", "31", ",", "2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.690778636793316*^9, 3.690778662392083*^9}, {
+  3.69077869288172*^9, 3.690778785127184*^9}, {3.6907789312539797`*^9, 
+  3.690778948352203*^9}, {3.690778983576521*^9, 3.690779042209197*^9}, {
+  3.6907791620290117`*^9, 3.690779299929874*^9}, {3.690779339424882*^9, 
+  3.6907793403682623`*^9}, {3.690779456121681*^9, 3.69077948979014*^9}, {
+  3.690780497020014*^9, 3.690780547528574*^9}, {3.690780613280719*^9, 
+  3.690780614150185*^9}, {3.690780727456987*^9, 3.6907807336466713`*^9}, {
+  3.690780968355775*^9, 3.690780984718996*^9}, {3.690838932731453*^9, 
+  3.6908389439999638`*^9}, {3.690839158485434*^9, 3.6908391605159063`*^9}, {
+  3.690844694930273*^9, 3.69084469576794*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"y", "=", 
+  SuperscriptBox["e", "x"]}]], "Subsubsection",
+ CellChangeTimes->{{3.6907815809941883`*^9, 3.690781601119035*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"E", "^", "x"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Normal", "[", 
+           RowBox[{"Series", "[", 
+            RowBox[{
+             RowBox[{"E", "^", "x"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "0", ",", "m"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"m", ",", "1", ",", "n"}], "}"}]}], "]"}], "]"}]}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "10"}], ",", "3"}], "}"}], ",", 
+     RowBox[{"Filling", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"1", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"n", "+", "1"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "4"}], ",", "10"}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", "31", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.690781979128236*^9, 3.690782011285598*^9}, {
+  3.690839053263838*^9, 3.690839069596382*^9}, {3.690844963823009*^9, 
+  3.6908449643172083`*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"y", "=", 
+   RowBox[{"ln", 
+    RowBox[{"(", 
+     RowBox[{"x", "+", "1"}], ")"}]}]}], "Subsubsection"]], "Input",
+ CellChangeTimes->{{3.690781529946527*^9, 3.690781556222818*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Log", "[", 
+        RowBox[{"x", "+", "1"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Normal", "[", 
+           RowBox[{"Series", "[", 
+            RowBox[{
+             RowBox[{"Log", "[", 
+              RowBox[{"x", "+", "1"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "0", ",", "m"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"m", ",", "1", ",", "n"}], "}"}]}], "]"}], "]"}]}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "2"}], ",", "4"}], "}"}], ",", 
+     RowBox[{"Filling", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"1", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"n", "+", "1"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "4"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", "31", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6907812954557343`*^9, 3.690781346257689*^9}, {
+  3.690781974922077*^9, 3.690781975118383*^9}, {3.690845094458695*^9, 
+  3.69084509499183*^9}, {3.690852738107267*^9, 3.6908527384492817`*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"y", "=", 
+   SqrtBox[
+    RowBox[{"1", "+", "x"}]]}], "Subsubsection"]], "Input",
+ CellChangeTimes->{{3.6907815038571587`*^9, 3.690781516998205*^9}, {
+  3.6908527109591637`*^9, 3.690852714275096*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Sqrt", "[", 
+        RowBox[{"1", "+", "x"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Normal", "[", 
+           RowBox[{"Series", "[", 
+            RowBox[{
+             RowBox[{"Sqrt", "[", 
+              RowBox[{"1", "+", "x"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "0", ",", "m"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"m", ",", "1", ",", "n"}], "}"}]}], "]"}], "]"}]}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "2"}], ",", "4"}], "}"}], ",", 
+     RowBox[{"Filling", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"1", "\[Rule]", 
+        RowBox[{"{", "n", "}"}]}], "}"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "2"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", "31", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6907813865412397`*^9, 3.690781436699615*^9}, {
+  3.690781483114477*^9, 3.69078148746657*^9}, {3.690781959857856*^9, 
+  3.69078196006273*^9}, {3.690845213783239*^9, 3.6908452348975782`*^9}, {
+  3.690852716056164*^9, 3.690852719299304*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"y", "=", 
+   RowBox[{"tan", 
+    RowBox[{"(", "x", ")"}]}]}], "Subsubsection"]], "Input",
+ CellChangeTimes->{{3.690781830339526*^9, 3.690781835673156*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Tan", "[", "x", "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Normal", "[", 
+           RowBox[{"Series", "[", 
+            RowBox[{
+             RowBox[{"Tan", "[", "x", "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "0", ",", "m"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"m", ",", "1", ",", "n"}], "}"}]}], "]"}], "]"}]}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+     RowBox[{"Filling", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"1", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"n", "+", "1"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "10"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", "31", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.690781733156291*^9, 3.690781807584853*^9}, {
+  3.690781963416534*^9, 3.6907819635733643`*^9}, {3.6908452546412477`*^9, 
+  3.690845254974489*^9}, {3.690845341194338*^9, 3.690845344408327*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"y", "=", 
+   RowBox[{"arctan", 
+    RowBox[{"(", "x", ")"}]}]}], "Subsubsection"]], "Input",
+ CellChangeTimes->{{3.690781928742855*^9, 3.690781932935581*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"ArcTan", "[", "x", "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Normal", "[", 
+           RowBox[{"Series", "[", 
+            RowBox[{
+             RowBox[{"ArcTan", "[", "x", "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "0", ",", "m"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"m", ",", "1", ",", "n"}], "}"}]}], "]"}], "]"}]}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+     RowBox[{"Filling", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"1", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"n", "+", "1"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "3"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", "31", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.690781874109192*^9, 3.6907818892289267`*^9}, {
+  3.6907819679444427`*^9, 3.690781968117528*^9}, {3.690845367563751*^9, 
+  3.690845368001741*^9}}]
+}, Open  ]]
+},
+WindowSize->{840, 933},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (June 27, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 314, 5, 66, "Input"],
+Cell[875, 27, 284, 6, 50, "Input"],
+Cell[1162, 35, 365, 8, 28, "Input"],
+Cell[1530, 45, 293, 7, 48, "Input"],
+Cell[1826, 54, 525, 16, 28, "Input"],
+Cell[2354, 72, 190, 4, 48, "Input"],
+Cell[2547, 78, 191, 5, 40, "Input"],
+Cell[2741, 85, 1832, 44, 46, "Input"],
+Cell[CellGroupData[{
+Cell[4598, 133, 149, 3, 32, "Subsubsection"],
+Cell[4750, 138, 1261, 36, 46, "Input"],
+Cell[6014, 176, 216, 6, 40, "Input"],
+Cell[6233, 184, 1305, 35, 46, "Input"],
+Cell[7541, 221, 236, 6, 52, "Input"],
+Cell[7780, 229, 1325, 35, 63, "Input"],
+Cell[9108, 266, 191, 5, 40, "Input"],
+Cell[9302, 273, 1245, 33, 46, "Input"],
+Cell[10550, 308, 194, 5, 40, "Input"],
+Cell[10747, 315, 1204, 33, 63, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

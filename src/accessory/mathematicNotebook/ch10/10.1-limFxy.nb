@@ -1,0 +1,357 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     10345,        348]
+NotebookOptionsPosition[      9582,        321]
+NotebookOutlinePosition[      9934,        337]
+CellTagsIndexPosition[      9891,        334]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ StyleBox["\:4e8c\:91cd\:6781\:9650\:7684\:5b58\:5728\:6027", 
+  "Title"]], "Input",
+ CellChangeTimes->{{3.6676424047406483`*^9, 3.6676424136325483`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Plot3D", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], "-", 
+      RowBox[{"y", "^", "2"}]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], "+", 
+      RowBox[{"y", "^", "2"}]}], ")"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5090108851147957`*^9, 3.5090109215649776`*^9}, {
+  3.667682814433967*^9, 3.6676828378492327`*^9}, {3.6676828871798067`*^9, 
+  3.667682897747258*^9}, {3.667682930292617*^9, 3.667683001523381*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Plot3D", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], "-", 
+      RowBox[{"y", "^", "2"}]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], "+", 
+      RowBox[{"y", "^", "2"}]}], ")"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"MeshFunctions", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"#3", "&"}], "}"}]}], ",", 
+   RowBox[{"Mesh", "\[Rule]", "12"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5090108851147957`*^9, 3.5090109215649776`*^9}, {
+  3.667682814433967*^9, 3.6676828378492327`*^9}, {3.6676828871798067`*^9, 
+  3.667682897747258*^9}, {3.667682930292617*^9, 3.667682975594013*^9}, {
+  3.667683010449209*^9, 3.667683010664506*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ContourPlot", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], "-", 
+      RowBox[{"y", "^", "2"}]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], "+", 
+      RowBox[{"y", "^", "2"}]}], ")"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.667642173459914*^9, 3.6676422407068243`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Plot3D", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], "y"}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], "+", 
+      RowBox[{"y", "^", "2"}]}], ")"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.50901099068548*^9}],
+
+Cell[BoxData[
+ RowBox[{"Plot3D", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], "y"}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], "+", 
+      RowBox[{"y", "^", "2"}]}], ")"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"MeshFunctions", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"#3", "&"}], "}"}]}], ",", 
+   RowBox[{"Mesh", "\[Rule]", "12"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.50901099068548*^9, 3.667683079245887*^9}],
+
+Cell[BoxData[
+ RowBox[{"ContourPlot", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], "*", "y"}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], "+", 
+      RowBox[{"y", "^", "2"}]}], ")"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.667642173459914*^9, 3.667642211832443*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Plot3D", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"x", "*", "y"}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], "+", 
+      RowBox[{"y", "^", "2"}]}], ")"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.509011012426908*^9, 3.509011013354169*^9}, {
+  3.667642285652878*^9, 3.667642286174672*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Plot3D", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"x", "*", "y"}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], "+", 
+      RowBox[{"y", "^", "2"}]}], ")"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"MeshFunctions", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"#3", "&"}], "}"}]}], ",", 
+   RowBox[{"Mesh", "\[Rule]", "12"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.509011012426908*^9, 3.509011013354169*^9}, {
+   3.667642285652878*^9, 3.667642286174672*^9}, 3.667683113868786*^9}],
+
+Cell[BoxData[
+ RowBox[{"ContourPlot", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"x", "*", "y"}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], "+", 
+      RowBox[{"y", "^", "2"}]}], ")"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.6676422948621807`*^9}],
+
+Cell[BoxData[
+ RowBox[{"Plot3D", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"x", "*", "y"}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"x", "+", "y"}], ")"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.667641946950263*^9, 3.66764195032967*^9}, {
+  3.6676421443226013`*^9, 3.667642148995617*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Plot3D", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"x", "*", "y"}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"x", "+", "y"}], ")"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"MeshFunctions", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"#3", "&"}], "}"}]}], ",", 
+   RowBox[{"Mesh", "\[Rule]", "12"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.667641946950263*^9, 3.66764195032967*^9}, {
+   3.6676421443226013`*^9, 3.667642148995617*^9}, 3.667683145842905*^9}],
+
+Cell[BoxData[
+ RowBox[{"ContourPlot", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"x", "*", "y"}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"x", "+", "y"}], ")"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6676419722258463`*^9, 3.667642008208523*^9}, {
+  3.667642052467092*^9, 3.66764214064287*^9}}],
+
+Cell[BoxData[
+ RowBox[{"PolarPlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"0.5", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Cos", "[", "t", "]"}], "+", 
+        RowBox[{"Sin", "[", "t", "]"}]}], ")"}]}], ",", 
+     RowBox[{
+      RowBox[{"Cos", "[", "t", "]"}], "+", 
+      RowBox[{"Sin", "[", "t", "]"}]}], ",", 
+     RowBox[{"1.5", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Cos", "[", "t", "]"}], "+", 
+        RowBox[{"Sin", "[", "t", "]"}]}], ")"}]}], ",", 
+     RowBox[{"2", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Cos", "[", "t", "]"}], "+", 
+        RowBox[{"Sin", "[", "t", "]"}]}], ")"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"-", "0.5"}], 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Cos", "[", "t", "]"}], "+", 
+        RowBox[{"Sin", "[", "t", "]"}]}], ")"}]}], ",", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"Cos", "[", "t", "]"}]}], "-", 
+      RowBox[{"Sin", "[", "t", "]"}]}], ",", 
+     RowBox[{
+      RowBox[{"-", "1.5"}], 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Cos", "[", "t", "]"}], "+", 
+        RowBox[{"Sin", "[", "t", "]"}]}], ")"}]}], ",", 
+     RowBox[{
+      RowBox[{"-", "2"}], 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Cos", "[", "t", "]"}], "+", 
+        RowBox[{"Sin", "[", "t", "]"}]}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", 
+     RowBox[{"2", "Pi"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.667641835919593*^9, 3.667641923474626*^9}, {
+  3.6676423252159986`*^9, 3.667642341421871*^9}}]
+},
+WindowSize->{840, 951},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (June 27, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 168, 3, 68, "Input"],
+Cell[716, 25, 704, 20, 28, "Input"],
+Cell[1423, 47, 896, 25, 46, "Input"],
+Cell[2322, 74, 559, 18, 28, "Input"],
+Cell[2884, 94, 495, 17, 28, "Input"],
+Cell[3382, 113, 660, 21, 28, "Input"],
+Cell[4045, 136, 530, 17, 28, "Input"],
+Cell[4578, 155, 547, 17, 28, "Input"],
+Cell[5128, 174, 713, 21, 28, "Input"],
+Cell[5844, 197, 481, 16, 28, "Input"],
+Cell[6328, 215, 494, 15, 28, "Input"],
+Cell[6825, 232, 660, 19, 28, "Input"],
+Cell[7488, 253, 499, 15, 28, "Input"],
+Cell[7990, 270, 1588, 49, 63, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

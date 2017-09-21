@@ -1,0 +1,891 @@
+\setcounter{chapter}{5}
+
+\chapter{定积分及其应用}
+
+\section{定积分的概念与性质}
+
+\subsection{定义}
+
+{\bf\b 曲边梯形的面积：}由$x$轴，$x=a,x=b$以及曲线$y=f(x)$
+所围平面区域的面积
+
+\begin{center}
+	\resizebox{!}{5.2cm}{\includegraphics{./images/ch6/integral.pdf}}
+	
+	$$S=\dint_a^bf(x)\d x$$
+\end{center}
+
+{\bf 教材-例1：}求由曲线$y=x^2$以及直线$x=0,x=1$和$y=0$所围成的曲边梯形的面积。
+
+{\bf 定义：}函数$y=f(x)$在区间$[a,b]$上（Riemann）可积：
+\ps{重点理解构造思想：{\b\bf “分割取近似，做和求极限”}}
+$$\dint_a^bf(x)\d x=\lim\limits_{\lambda\to
+0}\sum\limits_{k=1}^nf(\xi_k)\Delta x_k$$
+其中，对区间$[a,b]$做任意划分，$\xi_k$取自第$k$个区间的任一点，$\Delta_k$
+为第$k$个区间的长度，$\lambda$为最大的区间的长度，如果以上右侧极限对任意划分和
+任意点的取法都一样，则称$f(x)$在$[a,b]$上（Riemann）{\it 可积}，该极限的值称为
+$f(x)$在$[a,b]$上的{\it 定积分}
+
+{\bf 注：}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item {\b 定积分是一个数值，不定积分是一个函数}
+  \item 两个“任意”
+  \begin{itemize}
+    \item 对$[a,b]$的任意分法
+    \ps{事实上，等分亦可，因为后一个“任意”已经足够了，参见同济教材的定义}
+    \item {\b 给定分法，$\xi_k$的取法应该是任意的}
+  \end{itemize}
+  \item $\lambda\to 0$用于保证分割得足够“细”
+\end{enumerate}
+
+{\bf 定理6.1.1：}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $f(x)$在$[a,b]$上可积，则一定在$[a,b]$上有界 
+  \item $f(x)$在$[a,b]$上连续，则一定在$[a,b]$上可积 
+\end{enumerate}
+
+{\bf 注：}分段连续（只有有限个第一类间断点）的函数是可积的
+
+{\bf 教材-例2：}证明Dirichlet函数在任意区间$[a,b]$上不可积。
+
+\subsubsection{【用定积分的定义计算极限】}
+
+{\bf 教材-习题7：}将下列求和式表示成定积分\ps{\b 常考的内容，注意和
+Stolz定理和夹逼定理适用的问题作区分！}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\limn\df 1n\left[\sin\df{\pi}{n}+\sin\df{2\pi}{n}+\ldots
+  +\sin\df{(n-1)\pi}{n}\right]$ 
+  \item $\limn\left(\df{1}{n^2}+\df{2}{n^2}+\ldots+\df{n-1}{n^2}\right)$
+\end{enumerate}
+
+{\bf 例：}求$\limn\sum\limits_{k=1}^n\df{k}{n^3}\sqrt{n^2-k^2}$。
+
+{\bf 例：}利用定积分定义证明以下极限：
+$$\limn\cos\df x2\cos\df x4\cos\df x8\cdot\cdots\cdot\cos\df x{2^n}
+=\df{\sin x}x,$$
+并证明Vieta's Formula（韦达公式）
+$$\df2\pi=\df{\sqrt2}2\cdot\df{2+\sqrt2}2\cdot\df{\sqrt{2+\sqrt{2+\sqrt2}}}2
+\cdot\cdots$$
+
+[提示]：
+\begin{align}
+	&\cos\df x2\cos\df x4\cos\df x8\cdots\cos\df x{2^n}\notag\\
+	&=\df12\left(\cos\df34x+\cos\df14x\right)\cos\df x8\cdots\cos\df
+	x{2^n}\notag\\
+	&=\df1{2^2}\left(\cos\df78x+\cos\df58x+\cos\df38x+\cos\df18x\right)
+	\cos\df x{16}\cdots\cos\df x{2^n}\notag\\
+	&=\ldots\notag\\
+	&=\df1{2^{n-1}}\left(\cos\df{2^n-1}{2^n}x+\cos\df{2^n-3}{2^n}x+
+	\ldots+\cos\df3{2^n}x+\cos\df1{2^n}x\right)\notag\\
+	&=\dint_0^1\cos(xt)\d t=\df{\sin x}x\notag
+\end{align}
+
+{\bf 例：}$G_n=\sqrt[n]{(n+1)(n+2)\cdots(n+n)},(n=1,2,\ldots)$，求
+$\limn\df{G_n}n$.
+
+[提示]：
+$$\ln\df{G_n}n=\limn\df1n\sum\limits_{k=1}^n\ln\left(1+\df kn\right)
+=\dint_0^1\ln(1+x)\d x=2\ln2-1$$
+
+\subsection{几何意义}
+
+\begin{center}
+	\resizebox{!}{3.12cm}{\includegraphics{./images/ch6/IS1.pdf}} 
+	\resizebox{!}{3.12cm}{\includegraphics{./images/ch6/IS2.pdf}} 
+	\resizebox{!}{3.12cm}{\includegraphics{./images/ch6/IS3.pdf}}
+	
+	{\b\it “带符号的面积” }
+\end{center}
+
+{\bf 约定：}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\dint_a^af(x)\d x=0$
+  \item $\dint_b^af(x)\d x=-\dint_a^bf(x)\d x$ 
+\end{enumerate}
+
+\begin{shaded}
+
+{\bf 例：}$f(x)\in C[0,1]$且严格单调递增，$f(0)=0,f(1)=1$，已知
+$\dint_0^1f(x)\d x=\df23$，求$\dint_0^1f^{-1}(y)\d y$
+
+[提示]：作图易知
+$$\dint_0^1f(x)\d x+\dint_0^1f^{-1}(y)\d y=1$$
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch6/iff-1.pdf}}  
+\end{center}
+
+{\bf 例：}$a>1$，证明：$\dint_1^a\ln x\d x+\dint_0^{\ln a}e^y\d y=a\ln a$
+
+[提示]：与上题同理。
+
+{\bf 命题：}$f(x)\in C[a,b]$严格单调增加，则
+$$\dint_a^bf(x)\d x+\dint_{f(a)}^{f(b)}f^{-1}(y)\d y=bf(b)-af(a)$$
+例如：
+$$\dint_0^{\pi/2}\sin x\d x+\dint_0^1\arcsin x\d x=\df{\pi}2$$
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch6/iff-1ab.pdf}}  
+\end{center}
+
+{\bf 例：}$f(x)\in C[0,+\infty)$且严格单调递增，$f(0)=0,a>0,b>0$，则
+成立如下的Young{\it 不等式}
+$$ab\leq\dint_0^af(x)\d x+\dint_0^bf^{-1}(y)\d y$$
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch6/iff-ab.pdf}}  
+\end{center}
+利用该不等式，可以证明Minkowski{\it 不等式}：设$p>1,q>1,\df1p+\df1q=1$，则
+$$ab\leq\df{a^p}p+\df{b^q}q$$
+[提示]：令$f(x)=x^{p-1}$，则$x=y^{q-1}$(注意到$\df1{p-1}=q-1$)
+
+{\bf 例：}计算$\dint_0^1\left(\sqrt[3]{1-x^7}-\sqrt[7]{1-x^3}\right)\d x$
+
+[提示]：$y=\sqrt[3]{1-x^7}$和$x=\sqrt[7]{1-y^3}$互为反函数！
+
+\end{shaded}
+
+\subsection{基本性质}
+
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item {\bf 线性性：}
+  $$\dint_a^b[\alpha
+  f(x)+\beta g(x)]\d x=\alpha\dint_a^bf(x)\d x+\beta\dint_a^bg(x)\d x$$
+  \item {\bf 区间可加性：}
+  $$\dint_a^bf(x)\d x=\dint_a^cf(x)\d x+\dint_c^bf(x)\d x$$
+  \item {\bf 保号性：}\ps{不定积分不具有保号性！}
+  \begin{itemize}
+    \item $f(x)$在$[a,b]$上可积，且$f(x)\geq 0$，则$\dint_a^bf(x)\d x\geq 0$ 
+    \item $f(x)$在$[a,b]$上连续，非负且不恒为零，则$$\dint_a^bf(x)\d x> 0$$ 
+    \item {\bf 保序性：}设$f(x),g(x)$在$[a,b]$上可积，且$f(x)\leq g(x)$，则
+    $$\dint_a^bf(x)\d x\leq \dint_a^bg(x)\d x$$
+    \item {\bf 绝对值不等式：}$f(x)$在$[a,b]$上可积，则
+    $${\b \dint_a^bf(x)\d x\leq\dint_a^b|f(x)|\d x}$$ 
+    \item {\bf 积分估值：}$f(x)$在$[a,b]$上可积，且$m\leq f(x)\leq M$，则
+    $$m(b-a)\leq\dint_a^bf(x)\d x\leq M(b-a)$$
+  \end{itemize}
+\end{enumerate}
+
+\subsection{定积分中值定理}
+
+{\bf 定理6.1.2：}若函数$f(x)$在区间$[a,b]$上连续，
+则在$[a,b]$上至少存在一点$\xi$，使得
+$$\dint_a^bf(x)\d x=f(\xi)(b-a)$$
+
+{\it\b $f(\xi)$相当于函数$f(x)$
+在$[a,b]$上的均值（注意不是中值）}，这一概念在概率统计中得到了广泛应用！
+
+{\bf 注：}由连续函数的变限积分的可导性（参见6.2.2节），利用Lagrange中值
+定理可以证明定积分中值定理，因此{\it 定积分中值定理与微分中值定理本质上是一样的！}
+
+{\bf 例：}计算如下极限
+$$\limx{+\infty}\sqrt[3]x\dint_x^{x+1}\df{\sin t}{t+\cos t}\d t$$
+
+[提示]：不妨设$x>1$，由定积分中值定理，存在$\xi\in(x,x+1)$
+$$\left|\sqrt[3]x\dint_x^{x+1}\df{\sin t}{t+\cos t}\d t\right|
+=\sqrt[3]x\df{|\sin\xi|}{|\xi+\cos\xi|}\leq\sqrt[3]x\df{1}{x-1}
+\to0\;(x\to\infty)$$
+
+
+\section{微积分基本公式与定积分的计算}
+
+\subsection{微积分基本定理}
+
+{\it 在Newton和Leibniz之前，微分和积分的许多个别结果已经得到，但只有当
+他们发现了这个公式之后，微积分才统计成了一个整体！}
+
+{\bf 定理6.2.1}（{\it 微积分基本定理}）设函数$f(x)$在区间$[a,b]$上可积，$F(x)$是
+$f(x)$在$[a,b]$上的一个原函数，则
+$$\dint_a^bf(x)\d x=F(b)-F(a).$$
+
+{\bf 教材-例1：}计算定积分
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\dint_{0}^{1}x^2 \d x$
+  \item $\dint_{-1}^{\sqrt 3}\df 1{1+x^2}\d x$
+  \item $\dint_{-1}^{-2}\df 1x\d x$
+\end{enumerate}
+
+{\bf 例：}如下的计算过程有什么错误？
+$$\dint_0^{3\pi/4}\df{\sin x}{1+\cos^2x}\d x
+=\left.\arctan(\sec x)\right|_0^{3\pi/4}=-\arctan\sqrt2-\df{\pi}4$$
+正确的方法
+$$\dint_0^{3\pi/4}\df{\sin x}{1+\cos^2x}\d x
+=-\dint_0^{3\pi/4}\df{\d\cos x}{1+\cos^2x}=\arctan\df{\sqrt2}2
++\df{\pi}4$$
+
+{\bf 注：}{\b 定积分计算中使用换元法时，必须同时将积分上下限更改为对应的值，且必须保证
+变换后的变量是连续变化的！！}
+
+{\bf 例：}如下的计算过程有什么错误？
+$$\dint_0^{\pi}\df{\d x}{2+\cos2x}=\df1{\sqrt3}\arctan
+\left(\df{\tan x}{\sqrt3}\right)_0^{\pi}=0$$
+错误：原函数在$x=\pi/2$处有间断点！正确的过程
+\begin{align}
+	\dint_0^{\pi}\df{\d x}{2+\cos2x}&=\dint_0^{\pi}\df{\d x}
+	{3-2\sin^2x}=\dint_0^{\pi}\df{\cot^2x\d x}{3\csc^2x-2}\notag\\
+	&=-\dint_0^{\pi}\df{\d\cot x}{3\cot^2x+1}=\df{\pi}{\sqrt3}\notag
+\end{align}
+
+{\bf 注：}
+\begin{itemize}
+  \setlength{\itemindent}{1cm}
+  \item {\b 可积函数未必有原函数}，例如，有第一类间断点的函数
+  \item {\b 有原函数的函数未必可积}，例如
+  $$f(x)=\left\{\begin{array}{ll}
+  x^2\sin\df1x,& x\ne0,\\ 0,& x=0
+  \end{array}\right.$$
+\end{itemize}
+
+{\bf 例：}设$f(x)$满足方程
+$$f(x)=3x-\sqrt{1-x^2}\dint_0^1f\,^2(x)\d x,$$
+求$f(x)$。
+
+{\bf 例：}求$F(x)=\dint_0^x[\,t\,]\d t,\;(x>0)$的表达式，其中$[\,x\,]$为下取整函数。
+
+\subsection{变限积分}
+
+{\bf 定理6.2.2：}若$f(x)$在$[a,b]$上可积，则{\it 变上限积分}
+$$\Phi(x)=\dint_a^xf(t)\d t$$
+在$[a,b]$上连续。
+
+{\bf 定理6.2.3：}若$f(x)$在$[a,b]$上连续，则$\Phi(x)=\dint_a^xf(t)\d t$在$[a,b]$可导，且
+$$\Phi'(x)=f(x)$$
+
+{\bf 注：}若$f(x)$连续，则变上限积分$\Phi(x)=\dint_a^xf(t)\d t$是$f(x)$的一个原函数
+
+{\bf 思考：}为什么$\Phi(x)$是$f(x)$的“一个”原函数？
+
+$${\b\left[\dint_{\varphi(x)}^{\psi(x)}f(t)\d t\right]'_x
+	=f[\psi(x)]\psi'(x)-f[\varphi(x)]\varphi'(x)}$$
+
+{\bf 教材-例6：}求下列函数的导函数
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $y=\dint_0^{x}e^{-t^2}\d t$
+  \item $y=\dint_0^{x^2}\sqrt{1+t^4}\d t$
+  \item $y=\dint_{-x}^{\sqrt x}\sin t^2\d t$
+\end{enumerate}
+
+{\bf 教材-例13：}设$f(x)$在$[0,+\infty)$内连续，且$f(x)>0$，证明：
+$$F(x)=\df{\dint_0^xtf(t)\d t}{\dint_0^xf(t)\d t}$$
+在$(0,+\infty)$内单调递增。
+
+{\bf 教材-例14：}设$f(x)$在$[0,+\infty)$上可导，$f(0)=0$，且存在反函数$g(x)$，已知
+$$\dint_0^{f(x)}g(t)\d t=(x-1)e^x+x^2+1,$$
+求$f(x)$。
+
+{\bf 例：}设$\limx{0}\df{1}{bx-\sin
+x}\dint_0^x\df{t^2}{\sqrt{a+t}}\d t=1$，求$a,b$。
+
+{\bf 例：}设$\phi(x)=\dint_a^x(x+t)\varphi(t)\d t$，其中$\varphi(x)$可导，求
+$\phi''(x)$。
+
+{\bf 思考：}若$\phi(x)=\dint_a^x(x+t)\varphi(x+t)\d t$，结果如何？
+
+{\bf 例：}$x>0$时，$\cos x\leq 1$，该式从$0$到$x$积分可得
+$$\sin x\leq x$$
+进而
+$$1-\cos x<\df{x^2}2$$
+$$\sin x>x-\df{x^3}6$$
+$$\ldots$$
+最终
+$$\left|\sin x-\sum\limits_{k=0}^n(-1)^k\df{x^{2k+1}}{(2k+1)!}\right|
+\leq\df{|x|^{2n+3}}{(2n+3)!}$$
+$$\left|\cos x-\sum\limits_{k=0}^n(-1)^k\df{x^{2k}}{(2k)!}\right|
+\leq\df{|x|^{2n+2}}{(2n+2)!}$$
+
+\begin{shaded}
+	{\bf 积分中值定理的证明及其应用}
+	
+	利用变限积分的性质和Cauchy中值定理，可以证明定积分中值定理。
+
+	{\bf 例：}设$f(x)$在$[a,b]$上连续，且$g(x)$在$[a,b]$上可积且不变号，证明：存在
+	$\xi\in(a,b)$，使得
+	$$\dint_a^bf(x)g(x)\d x=f(\xi)\dint_a^bg(x)\d x$$
+	
+	[提示]：令$F(t)=\dint_a^tf(x)\d x,\;G(t)=\dint_a^tg(x)\d x$，则
+	由Cauchy中值定理
+	$$\df{F(b)-F(a)}{G(b)-G(a)}=\df{F'(\xi)}{G'(\xi)}=f(\xi)$$
+	
+	{\bf 例：}计算极限$\limn f(n)\sin\df 1n$，其中
+	  $$f(x)=\dint_x^{x^2}\left(1+\df 1{2t}\right)^t\sin\df{1}{\sqrt t}\d t$$
+	
+	[提示]：
+	\begin{align}
+		\limn f(n)\sin\df 1n&=\limn\df1n\dint_n^{n^2}\left(1+\df
+		1{2t}\right)^t\sin\df{1}{\sqrt t}\d t\notag\\
+		&=\limn\df1n\left(1+\df1{2\xi}\right)^{\xi}\dint_n^{n^2}
+		\sin\df1{\sqrt t}\d t\quad(\xi\in(n,n^2))\notag\\
+		&=2e^{1/2}\limn\df1n\dint_{\sqrt n}^n2x\sin\df1x\d x\notag\\
+		&=2e^{1/2}\limn\eta\sin\df1{\eta}\df{n-\sqrt n}n\quad(\eta\in(\sqrt
+		n,n))\notag\\
+		&=2e^{1/2}\notag
+	\end{align}
+	
+	{\bf 例：}设$f(x)$在$[0,2\pi]$上连续，证明：
+	$$\limn\dint_0^{2\pi}f(x)|\sin nx|\d x=\df 2{\pi}\dint_0^{2\pi}f(x)\d x$$
+	
+	{\bf [提示]:}
+	\begin{align}
+	\dint_0^{2\pi}f(x)|\sin nx|\d x
+	&=\sum\limits_{k=1}^n\dint_{2(k-1)\pi/n}^{2k\pi/n}f(x)|\sin nx|\d x\notag\\
+	&=\sum\limits_{k=1}^nf(\xi_k)\dint_{2(k-1)\pi/n}^{2k\pi/n}|\sin nx|\d x\notag
+	\end{align}
+	and
+	$$\dint_{2(k-1)\pi/n}^{2k\pi/n}|\sin nx|\d x=\df4n$$
+	hence
+	$$\dint_0^{2\pi}f(x)|\sin nx|\d x=\df4n\sum\limits_{k=1}^nf(\xi_k)
+	=\df2{\pi}\left(\sum\limits_{k=1}^nf(\xi_k)\df{2\pi}n\right)$$
+\end{shaded}
+
+\subsection{定积分的计算}
+
+{\bf 定理6.3.3}（换元法）
+设$f(x)$在$[a,b]$上连续，函数$x=\varphi(t)$满足：
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\varphi(\alpha)=a,\;\varphi(\beta)=b$;
+  \ps{换元后一定要将积分上下限做对应的修改}
+  \item $\varphi(t)$在$[\alpha,\beta]$上连续可导，且$\varphi(t)\in[a,b]$，则
+\end{enumerate}
+$${\dint_a^bf(x)\d
+x=\dint_{\alpha}^{\beta}f[\varphi(t)]\varphi'(t)\d t}$$
+
+{\bf 定理6.3.4}（分部积分法）
+$${\dint_a^bu(x)\d v(x)=u(x)v(x)|_a^b-\dint_a^bv(x)\d u(x)}$$
+
+{\bf 例：}计算积分
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item  $\dint_9^4\df 1{\sqrt x}\d x$ 
+  \item $\dint_0^1\sqrt{(1-x^2)^3}\d x$ 
+  \item $\dint_0^{\ln 2}\sqrt{1-e^{-2x}}\d x$
+  \item $\dint_0^{2\pi}\sqrt{1+\cos\theta}\d\theta$ 
+  \item $\dint_0^{\pi}(x\sin x)^2\d x$ 
+  \item $\dint_0^{n\pi}x|\sin x|\d x$ 
+  \item $\dint_0^1\df{\ln(1+x)}{1+x^2}\d x$
+\end{enumerate}
+
+{\bf 例：}设$f(x)=\dint_1^x\df{\ln t}{1+t}\d t$，求$f(x)+f
+\left(\df1x\right)$。
+
+{\bf 例：}设$f(\pi)=2$，$\dint_0^{\pi}[f(x)+f''(x)]\sin x\d x=5$，求$f(0)$。
+
+\begin{shaded}
+	{\bf 用定积分的性质证明不等式}
+	
+	{\bf 教材-习题10}({\it Schwarz积分不等式})设$f(x),g(x)$均在$[a,b]$上连续，证明：
+	$$\left[\dint_a^bf(x)g(x)\d x\right]^2
+	\leq\dint_a^bf\,^2(x)\d x\dint_a^bg^2(x)\d x$$
+	
+	[提示]：不妨设$\dint_a^bf^2(x)\d x>0$，对任意$t\in\mathbb{R}$
+	$$\dint_a^b(tf-g)^2\d x=t^2\dint_a^bf^2\d x-2t\dint_a^bfg\d x
+	+\dint_a^bg^2\d x\geq 0$$
+	故必有
+	$$\Delta=\left(\dint_a^bfg\d x\right)^2-\dint_a^bf^2\d x\dint_a^b
+	g^2\d x<0$$
+	若$\dint_a^bf^2\d x=\dint_a^b g^2\d x=0$，则
+	$$\left|\dint_a^bfg\d x\right|\leq\dint_a^b|fg|\d x
+	\leq\dint_a^b\df12(f^2+g^2)\d x=0$$
+	
+	{\bf 注：}类似地方法可证明{\it Cauchy不等式}
+	$$\left(\sum\limits_{i=1}^na_ib_i\right)\leq
+	\sum\limits_{i=1}^na_i^2\sum\limits_{i=1}^nb_i^2$$
+	
+	{\bf 例：}$f(x)\in C[a,b]$，且$f(x)>0$，则
+	$$\dint_a^bf(x)\d x=\dint_a^b\df1{f(x)}\d x\geq(b-a)^2$$
+	
+	{\bf 例：}设$f(x)$在$[a,b]$上连续可微，$f(a)=0$，证明：
+	$$\dint_a^b[f(x)]^2\d x\leq\df{(b-a)^2}{2}\dint_a^b[f\,'(x)]^2\d x$$
+\end{shaded}
+
+{\bf 例：}证明：
+$$\dint_1^af\left(x^2+\df{a^2}{x^2}\right)\df{\d x}{x}
+=\dint_1^af\left(x+\df{a^2}{x}\right)\df{\d x}{x}$$
+
+[提示]：令$y=\df ax$，则
+$$\mbox{left}=\df12\dint_1^{a^2}f\left(y+\df{a^2}y\right)\df{\d y}y$$
+令$y=\df{a^2}x$，则
+$$\dint_a^{a^2}f\left(x+\df{a^2}x\right)\df{\d x}x
+=\dint_1^af\left(y+\df{a^2}y\right)\df{\d y}y$$
+
+\subsection{定积分的一些特殊计算方法}
+
+\subsubsection{【对称区间上的定积分】}
+
+{\bf 命题：}$f(x)$连续，则
+$$\dint_0^af(x)\d x=\dint_0^af(a-x)\d x$$
+利用该结论可以较为简便地计算如下的积分：
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\dint_0^a\df{f(x)\d x}{f(x)+f(a-x)}$
+  \item $\dint_0^3\df{\sqrt x\d x}{\sqrt x+\sqrt{3-x}}$
+  \item $\dint_0^1\df{x\d x}{e^x+e^{1-x}}$
+  \item $\dint_0^{\pi/2}\df{\sin x\d x}{\sin x+\cos x}$
+  \ps{在$[0,\pi/2]$上的积分中$\cos x$和$\sin x$可以相互替换}
+  \item $\dint_0^{\pi/2}\df{\sin^nx\d x}{\sin^nx+\cos^nx}$
+  \item $\dint_0^{\pi}\df{\cos x}{\sqrt{a^2\sin^2x+b^2\cos^2x}}\d
+  x\;\;(a^2+b^2\ne 0)$
+  \item $\dint_0^{\pi}\df{a^n\sin^2x+b^n\cos^2x}
+  {a^{2n}\sin^2x+b^{2n}\cos^2x}\d x$
+  \item $\dint_0^{\pi}\df{x\d x}{1+\cos^2x}$
+  \item $\dint_0^{\pi}\df{x\sin x\d x}{1+\cos^2x}=\df{\pi^2}4$
+  \item $\dint_0^1\df{\ln(1+x)\d x}{1+x^2}=\dint_0^{\pi/4}\ln(1+\tan x)\d x$
+  
+  [提示]:
+  $$\ln\left[1+\tan\left(\df{\pi}4-t\right)\right]=\ln2-\ln(1+\tan t)$$
+  故$\ln(1+\tan t)-\df{\ln2}2$是以$\df{\pi}8$为中心的奇函数。于是$I=\df{\pi}8\ln2$
+\end{enumerate}
+
+{\bf 例：}利用对称性计算下列各题：
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\dint_{-\pi/2}^{\pi/2}\df{\sin^2x}{1+e^{-x}}\d x$
+  \item $\dint_{-1}^1\df{x+\cos x}{1+\sin^2x}\d x$
+  \item $\dint_{0}^{\pi}|\cos x|\sqrt{1+\sin^2x}\d x$
+  \item $\dint_{-2}^2x\ln(1+e^x)\d x$
+\end{enumerate}
+
+\subsubsection{【周期函数的定积分】}
+
+$$\dint_a^{a+T}f(x)\d x=\dint_0^{T}f(x)\d x$$
+
+\subsubsection{【用几何意义计算定积分】}
+
+{\bf 例：}$2\dint_{-1}^1\sqrt{1-x^2}\d x=
+\dint_{-1}^1\df{\d x}{\sqrt{1-x^2}}$
+
+[提示]：左边是面积，右边为周长
+
+\begin{shaded}
+	{\bf 勾股定理的推广}
+	
+	{\bf 命题：}若$a^2+b^2=c^2$，$f(x)$非负连续，
+	$$g(x)=\df acf\left(\df cax\right),\quad 
+	h(x)=\df bcf\left(\df cbx\right)$$
+	则
+	$$\dint_0^xf(x)\d x=\dint_0^xg(x)\d x+\dint_0^xh(x)\d x$$
+	\begin{center}
+		\resizebox{!}{5cm}{\includegraphics{./images/ch6/ggNew.pdf}}  
+	\end{center}
+\end{shaded}
+
+\section{定积分的应用}
+
+{\bf 定积分的构造思路──微元法：}
+
+\begin{enumerate}
+  \item {\bf 分割：}沿$x$轴方向分割曲边梯形 
+  \item {\bf 取近似：}用小矩形的面积$\Delta S$近似小曲边梯形面积 
+  \item {\bf 做和：}求所有小矩形的面积总和$\sum \Delta S$ 
+  \item {\bf 求极限：}$\sum \Delta S\to S$
+\end{enumerate}
+
+\begin{center}
+	\resizebox{!}{5.5cm}{\includegraphics{./images/ch6/sumSSS.pdf}}
+\end{center}
+
+\subsection{几何应用}
+
+\subsubsection{【面积】}
+
+{\bf 例：}计算两条抛物线$y^2=x$和$y=x^2$所围图形的面积。
+
+{\bf 例：}计算两条抛物线$y^2=2x$与直线$y=x-4$所围图形的面积。
+
+{\bf 例：}推导圆和扇形的面积公式。
+
+\subsubsection{【极坐标下的面积】}
+
+{\bf 例：}计算Archimedes螺线$\rho=a\theta\;(a>0)$
+相应于$\theta$从$0$变到$2\pi$的一段弧与极轴所围的图形面积。
+
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch6/Achimedes.pdf}}
+\end{center}
+
+{\bf 例}（老羊三问题）
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 半径为$a$的圆形水池，一只老羊被长为$ka(0<k\leq2)$的绳子拴在水池边缘，求
+  老羊能吃到的草地面积
+  \item 如果将水池围起来，老羊吃草时，绳子因为被绕在栅栏上而不能穿过水池，再求面积
+  \item 在草场中央围一个半径为$a$的区域，要使内外的老羊吃到的草面积一样，$k$如何取
+\end{enumerate}
+
+[提示]：(1)
+$$A=\pi k^2a^2-2\dint_{\arccos\frac k2}^{\pi}\df12(2a\cos\varphi)^2
+\d\varphi$$
+$$A=a^2\left[(k^2-1)\pi+(2-k^2)\arccos\df k2+\df k2
+\sqrt{4-k^2}\right]$$
+(2)
+$$A=\df{\pi k^2a^2}2+2\dint_0^k\df12(ka-a\varphi)^2\d\varphi=k^2a^2
+\left(\df{\pi}2+\df k3\right)$$
+以上的$\varphi$为小园的圆心角
+(3)$k=1.26$
+
+\subsubsection{【平面曲线的弧长】}
+
+{\bf 例：}求以下曲线的弧长 
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $y=\df 23x^{3/2}\;(a\leq x\leq b)$ 
+  \item $x=a(t-\sin t),y=a(1-\cos t)\;(0\leq t\leq 2\pi)$ 
+  \item $\rho=a\theta\;(a>0,\;0\leq t\leq 2\pi)$
+\end{enumerate}
+
+\subsubsection{【旋转体的体积】}
+
+圆盘法：曲线$y=f(x)\;(x\in[a,b])$与$x=a,x=b,y=0$所围区域绕$x$轴旋转一周：
+$$V=\dint_a^b\pi[f(x)]^2\d x$$
+
+{\bf 例：}求椭圆$\df{x^a}{a^2}+\df{y^2}{b^2}=1$绕$x$轴旋转一周所得立体的体积。
+
+圆柱壳法：$y=f(x)\;(x\in[a,b])$与$x=a,x=b,y=0$所围区域绕$y$轴旋转一周
+$$V=2\pi\dint_a^bx|f(x)|\d x$$
+
+{\bf 例：}计算由圆滚线$$x=a(t-\sin t),y=a(1-\cos t)\;(0\leq t\leq 2\pi)$$
+和直线$y=0$所围图形分别绕$x$轴、$y$轴旋转一周所得立体的体积。
+
+\subsubsection{【旋转体的表面积】}
+曲线$y=f(x)\;(x\in[a,b])$绕$x$轴旋转一周：
+$$A=2\pi \dint_a^by\d s=2\pi \dint_a^by\sqrt{1+(y')^2}\d x$$
+
+[提示]:圆台的侧面积
+$$A=\pi(r_1+r_2)l$$
+其中$r_1,r_2$为上下底的半径，$l$为斜高（或母线长度）
+$$\Delta A=2\pi(y+(y+\Delta y))\sqrt{(\Delta x)^2+(\Delta y)^2}
+=2\pi y\sqrt{1+(y')^2}\Delta x+\circ(\Delta x)$$
+
+\subsubsection{【已知截面积的立体体积】}
+
+{\bf 例：}一平面经过半径为$R$的圆柱体的底面圆心，并与底面交角为$\alpha$
+（如图所示），求该平面所截圆柱体
+
+\begin{center}
+	\resizebox{!}{4.5cm}{\includegraphics{./images/ch6/bucket.pdf}}
+\end{center}
+
+{\bf 例：}半径不等的两个木质球体，分别中间凿去一个以直径为轴的正圆柱体以及柱体下方的球冠，
+剩下的环状部分高度均为$h$，问哪一个环状物体的体积更大。
+
+[提示]:
+$$V=\dint_{\sqrt{R^2-h^2}}^R2\pi x\sqrt{R^2-x^2}\d x=\df23\pi h^3$$
+结果表明：剩余部分的体积与球半径无关！
+
+{\bf 例：}试推导球的体积公式和球面上一块面积为$S$的球心锥的体积公式（$rS/3$）
+
+{\bf 例：}开口容器内的水在单位时间内的蒸发量与水的表面积成正比，证明：水的深度以常速率
+下降且与容器形状无关。
+
+[提示]：设水的表面积为$S$，则
+$$\Delta V\approx S\Delta h\Rightarrow
+\df{\Delta V}{\Delta t}\approx S\df{\Delta h}{\Delta t}$$
+即
+$$\df{\d V}{\d t}=S\df{\d h}{\d t}$$
+
+\subsection{物理应用}
+
+\subsubsection{【平面物体的质心】}
+$y=f(x)(a<x<b)$密度均匀，其质心的横坐标为
+$$\bar{x}=\df{\dint_a^bxf(x)\d x}{\dint_a^bf(x)\d x}$$
+
+{\bf 例：}求右半圆的质心坐标。
+
+{\bf 例：}$f(x)\in C[a,b]$且单调递增，证明：
+$$\dint_a^bxf(x)\d x\geq\df{a+b}2\dint_a^bf(x)\d x$$
+[提示]：物理意义：递增函数的形成的曲边梯形质心位于右侧。
+
+证1：由$f(x)$单增，
+$$\left(x-\df{a+b}2\right)\left[f(x)-f\left(
+\df{a+b}2\right)\right]\geq0$$
+两边积分即得。
+
+注：$f\left(\df{a+b}2\right)\dint_a^b\left(x-\df{a+b}2\right)=0$
+
+证2：记$c=\df{a+b}2$
+\begin{align}
+	\dint_a^b&(x-c)f(x)\d x\notag\\
+	&=\left(\dint_a^c+\dint_c^b\right)(x-c)f(x)\d x\notag\\
+	&=f(\xi_1)\dint_a^c(x-c)\d x+f(\xi_2)\dint_c^b(x-c)\d x\notag\\
+	&=[f(\xi_1)-f(\xi_2)]\df{(b-a)^2}2\geq0
+\end{align}
+
+\subsubsection{【变力沿直线做功】}
+
+{\bf 例：}一圆柱形的水桶高$5m$，底半径$3$m，桶内装满水，问要将桶内的水全部抽出，
+需要做多少功（设重力加速度$g=10N/kg$）。
+
+{\bf 例：}在由电量为$+q$的电荷产生的电场中，沿某一轴向将一个单位正电荷由距离
+$a$移动到距离$b$的位置，问在该过程中，电场力共对该电荷做了多少功？
+
+{\bf 电场力：}
+$$F=k\df{q_1q_2}{r^2}$$
+
+\subsubsection{【水压】}
+
+{\bf 例：}某个圆柱形油桶底半径为$R$，所装油密度为$\rho$，
+现将其装满油后横放，求其端面承受的压力。
+
+\subsubsection{【万有引力】}
+
+{\bf 例：}设有一长度为$l$，线密度为$\mu$的均匀细直棒，在其中垂线上距离棒$a$
+处有一质量为$m$的质点$M$，求该棒对质点$M$的引力。
+
+[提示]：
+\begin{align}
+	F&=-\dint_{-\frac l2}^{\frac l2}\df{Gam\mu}{(a^2+y^2)^{\frac32}}\d y
+	=-\dint_{-\arctan\frac l{2a}}^{\arctan\frac l{2a}}\df{Gam\mu}{(a^2+(a\tan
+	t)^2)^{\frac32}}\d (a\tan t)\notag\\
+	&=-\df{Gm\mu}a\dint_{-\arctan\frac l{2a}}^{\arctan\frac
+	l{2a}}\cos t\d t=-\df{Gm\mu}a\left.\sin t\right|_{-\arctan\frac
+	l{2a}}^{\arctan\frac l{2a}}\notag\\
+	&=-\df{2Gm\mu}a\sin\left(\arctan\df l{2a}\right)\notag
+\end{align}
+注意到$\sin x=\df{\tan x}{\sec x}=\df{\tan x}{\sqrt{1+\tan^2 x}}$，故
+$$\sin\left(\arctan\df l{2a}\right)=\df{\frac{l}{2a}}
+{\sqrt{1+\left(\frac{l}{2a}\right)^2}}=\df{l}{\sqrt{4a^2+l^2}}$$
+代回前式即得$F=-\df{2Gm\mu l}{a\sqrt{4a^2+l^2}}$。
+
+\section{反常积分}
+
+{\bf 定积分存在的条件：}
+
+$${I=\dint_a^bf(x)\d x}$$
+
+\begin{enumerate} [(1)]
+  \setlength{\itemindent}{1cm}
+  \item {\bf 有限区间：}$a,b\ne \infty$
+  \item {\bf 分段连续：}$f(x)$最多有限多个第一类间断点 
+  \item {\bf 必要条件：}$f(x)$有界
+\end{enumerate}
+
+\subsection{无穷限的反常积分}
+
+{\bf 定义6.5.1：}
+$${\dint_a^{+\infty}f(x)\d x}
+=\lim\limits_{t\to+\infty}\dint_a^tf(x)\d x$$
+类似地，可以定义${\dint_{-\infty}^af(x)\d x}$和
+${\dint_{-\infty}^{+\infty}f(x)\d x}$
+
+Newton-Leibnitz公式 
+  $$\dint_a^{+\infty}f(x)\d x=F(x)|_{a}^{+\infty}
+  =\limx{+\infty}F(x)-F(a)$$
+  
+{\bf 教材-例1：}计算以下无穷积分
+$$\dint_{-\infty}^{+\infty}\df{1}{1+x^2}\d x$$
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch6/infint.pdf}}
+\end{center}
+
+{\bf 教材-例3-5：}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 讨论$\dint_a^{+\infty}\df{\d x}{x^p},\;a>0, p>0$的敛散性； 
+  \item 证明$$\dint_1^{n+1}\df 1{x^p}\d x<\sum\limits_{k=1}^n\df 1{k^p}
+  <1+\dint_1^n\df{1}{x^p}\d x$$ 
+  \item 根据以上结论给出$p$级数的判敛条件。
+\end{enumerate}
+
+\begin{shaded}
+	{\bf Gabriel's Horn Paradox}
+	
+	\begin{center}
+		\resizebox{!}{5cm}{\includegraphics{./images/ch6/gabrielshorn.jpg}}
+	\end{center}
+	
+	Gabriel是圣经故事中的大天使（Saint Gabriel the Archangel）之一
+	（其他的还有Michael、Raphael等）
+	，他吹奏一支长喇叭让魔鬼坠入地狱。关于长喇叭有如下的一个悖论
+	（据说由Torricelli提出）：设Gabriel喇叭由曲线$y=\df1x(x\geq 1)$
+	围绕$x$轴旋转而成，证明：
+	\begin{enumerate} [(1)]
+  	  \setlength{\itemindent}{1cm}
+	  \item 喇叭的体积是一个有限值
+	  \item 喇叭的表面积为无穷大
+	  \item 有前面的结论应该可以推论出这样的结果：Gabriel喇叭的内部可以被有限数量
+	  的油漆填满，但同时，任何有限数量的漆都无法刷遍其内表面！该如何解释这个悖论呢？
+	\end{enumerate}
+	[提示]:
+	(1)体积为
+	$$V=\dint_1^{+\infty}\pi\left(\df1x\right)^2\d x=\pi$$
+	(2)表面积
+	$$A=2\pi\dint_1^{+\infty}y\sqrt{1+(y')^2}\d x=2\pi\dint_1^{+\infty}
+	\df{\sqrt{x^4+1}\d x}{x^3}>2\pi\dint_1^{+\infty}\df1x\d x=+\infty$$
+	(3)如果涂在表面上的漆的厚度可以是任意小，则任意有限数量的漆都可以刷遍整个喇叭。
+	
+	一个类似的论题：对于平面区域$D:x\geq0,y\in[0,1]$，给定一个单位质量的金箔，
+	只要我们允许金珀铺的任意薄（厚度$h(x)=e^{-x}$），则可以将整个区域$D$铺满。
+\end{shaded}
+
+\subsection{无界函数的反常积分}
+
+{\bf 定义6.5.2：}
+\begin{enumerate} [(1)]
+  \setlength{\itemindent}{1cm}
+  \item {\it 瑕点：}无穷间断点 
+  \item 设$a$为$f(x)$的瑕点，{\it 瑕积分：}
+  $$\dint_a^bf(x)\d x=\limx{a^+}\dint_t^bf(x)\d x$$
+\end{enumerate}
+
+{\bf 教材-例6：}计算
+$$\dint_0^a\df{1}{\sqrt{a^2-x^2}}\d x,\;a>0$$
+
+{\bf 教材-例7：}讨论瑕积分的收敛性
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\dint_{-1}^1\df{\d x}{x^2}$ 
+  \item $\dint_{-1}^1\df{\d x}{x}$
+\end{enumerate}
+
+{\bf 例：}计算
+$$\dint_0^{+\infty}\df{\d x}{\sqrt{x(x+1)^3}}$$
+
+\subsection{反常积分收敛性的判定}
+
+{\bf 定理6.5.3：}（比较判别法）
+设$f(x),g(x)$在$[a,+\infty)$上连续，且
+$$0\leq f(x)\leq g(x),\quad x\in[a,+\infty)$$ 
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item
+  $\dint_a^{+\infty}g(x)\d x$收敛$\Rightarrow\dint_a^{+\infty}f(x)\d x$收敛 
+  \item $\dint_a^{+\infty}f(x)\d x$发散$\Rightarrow\dint_a^{+\infty}g(x)\d x$发散
+\end{enumerate}
+
+{\bf 教材-例1：}讨论以下无穷积分的敛散性
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\dint_2^{+\infty}\df{1+\sin x}{x^2}\d x$ 
+  \item $\dint_1^{+\infty}\df{\d x}{\sqrt[3]{x^4+1}}$
+\end{enumerate}
+
+{\bf 定理}（极限判别法）
+设$f(x),g(x)$在$[a,+\infty)$上连续，$0\leq f(x)\leq g(x)$，且
+$$\limx{+\infty}\df{f(x)}{g(x)}=l$$ 
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $0<l<+\infty$，两个无穷积分同敛散 
+  \item
+  $l=0$，$\dint_a^{+\infty}g(x)\d x$收敛
+  $\Rightarrow\dint_a^{+\infty}f(x)\d x$收敛 
+  \item
+  $l=+\infty$，$\dint_a^{+\infty}f(x)\d x$发散
+  $\Rightarrow\dint_a^{+\infty}g(x)\d x$发散
+\end{enumerate}
+
+{\bf 例：}判定以下反常积分的收敛性
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\dint_1^{+\infty}\df{\d x}{x\sqrt{1+x^2}}$ 
+  \item $\dint_1^{+\infty}\df{x^{3/2}}{1+x^2}\d x$ 
+  \item $\dint_1^{+\infty}\df{\arctan x}{x}\d x$
+\end{enumerate}
+
+{\bf 定理}（绝对收敛性）设$f(x)$在$[a,+\infty)$上连续，
+若$\dint_a^{+\infty}|f(x)|\d x$收敛，则
+$\dint_a^{+\infty}f(x)\d x$收敛。
+
+{\bf 例：}讨论反常积分$\dint_0^{+\infty}e^{-ax}\sin bx\d x\;(a>0)$的敛散性。
+
+{\bf 例：}判定下列积分的敛散性
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\dint_1^3\df{\d x}{\ln x}$ 
+  \item $\dint_0^1\df{\d x}{\sqrt{(1-x^2)(1-k^2x^2)}}\;(k^2<1)$ 
+  \item $\dint_0^1\df 1{\sqrt{x}}\sin\df 1x\d x$
+\end{enumerate}
+
+\subsection{$\Gamma$函数}
+
+$${\Gamma(s)=\dint_0^{+\infty}e^{-x}x^{s-1}\d x\;(s>0)}$$
+
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\Gamma(s+1)=s\Gamma(s)$ 
+  \item $\lim\limits_{s\to 0+}\Gamma(s)= +\infty$ 
+  \item $\Gamma(s)\Gamma(1-s)=\df{\pi}{\sin \pi s}\;(0<s<1)$ 
+  \item $2\dint_0^{+\infty}e^{-x^2}\d x=\Gamma\left(\df 12\right)=\sqrt{\pi}$
+\end{enumerate}
+
+{\bf 例：}证明$\Gamma(s)=\dint_0^{+\infty}e^{-x}x^{s-1}\d x\;(s>0)$是收敛的。
+
+[证]：显然$s=1$时，积分收敛。
+
+当$s\ne1$时，$e^{-x}x^{s-1}<x^{s-1}\;(x>0)$，又$\dint_0^1x^{s-1}\d x=\df1s$，
+故由比较判别法，$I_1=\dint_0^1e^{-x}x^{s-1}\d x$收敛。
+
+由$\limx{+\infty}e^{-\frac x2}x^{s-1}=0$，存在$X>1$，对任意$x>X$，有
+$e^{-\frac x2}x^{s-1}<1$，进而$e^{-x}x^{s-1}<e^{-\frac x2}$，又
+$\dint_X^{+\infty}e^{-\frac x2}\d x=2e^{\frac X2}$，故由比较判别法，
+$I_3=\dint_X^{+\infty}e^{-x}x^{s-1}\d x$收敛。
+
+$I_2=\dint_1^Xe^{-x}x^{s-1}\d x$为定积分。
+
+综上，$\Gamma(s)=I_1+I_2+I_3$收敛。
+
+\newpage
+
+\section*{课后作业}
+\addcontentsline{toc}{section}{课后作业}
+
+{\bf 【必作题】}
+
+\begin{itemize}
+  \item 习题6.1：3(2,4)，4，5(4,5,6)，7
+  \item 习题6.2：1(5-8)，4，6，8，11，12，13
+  \item 习题6.3：4(3,4,5,11,12,15,16)，5，6(6,7,8,9)，7(5,8,12,16)，
+  8，11，12(3,4)，16
+  \item 习题6.4：2，5，6(1)，8，10，11，15，16，19
+  \item 习题6.5：1(4-6)，2，3，6，8
+\end{itemize}
+
+\bigskip
+
+\hrule
+
+\bigskip
+\bigskip
+
+{\bf 【思考题】}
+
+\begin{itemize}
+  \item 习题6.1：9，10
+  \item 习题6.2：3，7，9，10
+  \item 习题6.3：9，17，18
+  \item 习题6.4：1-30其余各题
+  \item 习题6.5：4，5
+\end{itemize}
+
+% {\bf 例：}$a>0,c\in(0,e^a)$，证明：
+% $$\dint_0^a|e^x-c|\dx\geq(e^{\frac a2}-1)^2$$
+
+\newpage
+
+\section*{习题参考解答}
+\addcontentsline{toc}{section}{习题参考解答}
+
+{\bf 习题6.5-8.} 长度为$l$的细杆，均匀带电，总电量为$q\,(q<0)$，若在杆的延长线上，
+距离杆一端$x_0$处有一单位正电荷。现将单位正电荷从$x_0$处移动到无穷远，试求克服
+电场力所作的功。
+
+解：如图，
+\begin{center}
+	\resizebox{!}{2cm}{\includegraphics{./images/ch6/eMove.pdf}}
+\end{center}
+
+当单位正电荷位于$x(x>l)$处时，细杆上位置$t$处长度为$\d t$的一段对其产生的电场（吸引）力为
+$$\d F=\df{kq\d t}{l(x-t)^2},\quad t\in[0,l]$$
+故此时单位正电荷所受的总电场力为
+$$F=\dint_0^l\df{kq\d t}{l(x-t)^2}=\df{kq}l\left(\df1{x-l}-\df1x\right).$$
+克服该力的作用，单位正电荷向远处移动$\d x$，需要做的功为
+$$\d W=F\d x=\df{kq}l\left(\df1{x-l}-\df1x\right)\d x,
+\quad x\in[l+x_0,+\infty)$$
+故所求克服电场力所需做的总功为
+$$W=\dint_{l+x_0}^{+\infty}\df{kq}l\left(\df1{x-l}-\df1x\right)\d x
+=\df{kq}l\ln\left(1+\df{l}{x_0}\right).$$

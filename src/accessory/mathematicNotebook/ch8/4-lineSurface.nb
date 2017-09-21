@@ -1,0 +1,865 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     29163,        856]
+NotebookOptionsPosition[     27917,        816]
+NotebookOutlinePosition[     28269,        832]
+CellTagsIndexPosition[     28226,        829]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\:76f4\:7eb9\:9762", "Title",
+ CellChangeTimes->{{3.636800880034047*^9, 3.636800889347261*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"1", 
+   RowBox[{"\:3001", "\:5706\:9525\:9762"}]}], "Subtitle"]], "Input",
+ CellChangeTimes->{{3.508121666579644*^9, 3.508121675053063*^9}, {
+  3.508121778013791*^9, 3.5081217830884733`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ContourPlot3D", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"x", "^", "2"}], "+", 
+     RowBox[{"y", "^", "2"}]}], "==", 
+    RowBox[{"z", "^", "2"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"z", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Style", "[", 
+       RowBox[{"X", ",", "Large", ",", "Bold", ",", "Red"}], "]"}], ",", 
+      RowBox[{"Style", "[", 
+       RowBox[{"Y", ",", "Large", ",", "Bold", ",", "Blue"}], "]"}], ",", 
+      RowBox[{"Style", "[", 
+       RowBox[{"Z", ",", "Large", ",", "Bold", ",", "Green"}], "]"}]}], 
+     "}"}]}], ",", 
+   RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+   RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+   RowBox[{"AxesStyle", "\[Rule]", 
+    RowBox[{"Directive", "[", 
+     RowBox[{"Red", ",", " ", "12"}], "]"}]}], ",", 
+   RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5081193968812428`*^9, 3.5081194951815567`*^9}, {
+   3.5081216106177*^9, 3.5081216120911407`*^9}, {3.5081216623692102`*^9, 
+   3.508121699817645*^9}, 3.636799748437984*^9, 3.636977868762038*^9}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"2", 
+   RowBox[{"\:3001", "\:65cb\:8f6c\:5355\:53f6\:53cc\:66f2\:9762"}]}], 
+  "Subtitle"]], "Input",
+ CellChangeTimes->{{3.508121768115574*^9, 3.508121787365402*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ContourPlot3D", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"x", "^", "2"}], "+", 
+     RowBox[{"y", "^", "2"}]}], "==", 
+    RowBox[{
+     RowBox[{"z", "^", "2"}], "+", "1"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"z", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Style", "[", 
+       RowBox[{"X", ",", "Large", ",", "Bold", ",", "Red"}], "]"}], ",", 
+      RowBox[{"Style", "[", 
+       RowBox[{"Y", ",", "Large", ",", "Bold", ",", "Blue"}], "]"}], ",", 
+      RowBox[{"Style", "[", 
+       RowBox[{"Z", ",", "Large", ",", "Bold", ",", "Green"}], "]"}]}], 
+     "}"}]}], ",", 
+   RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+   RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+   RowBox[{"AxesStyle", "\[Rule]", 
+    RowBox[{"Directive", "[", 
+     RowBox[{"Red", ",", " ", "12"}], "]"}]}], ",", 
+   RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.508120915413308*^9, 3.508120997555633*^9}, 
+   3.636799743782282*^9, 3.6369778810974483`*^9}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"3", 
+   RowBox[{
+   "\:3001", 
+    "\:65cb\:8f6c\:5355\:53f6\:53cc\:66f2\:9762\:662f\:76f4\:7eb9\:9762"}]}], 
+  "Subtitle"]], "Input",
+ CellChangeTimes->{{3.508121795681004*^9, 3.508121805656556*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ContourPlot3D", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "^", "2"}], "+", 
+       RowBox[{"y", "^", "2"}]}], "==", 
+      RowBox[{
+       RowBox[{"z", "^", "2"}], "+", "1"}]}], ",", 
+     RowBox[{
+      RowBox[{"x", "+", "y"}], "\[Equal]", 
+      RowBox[{"z", "+", "1"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"z", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Style", "[", 
+       RowBox[{"X", ",", "Large", ",", "Bold", ",", "Red"}], "]"}], ",", 
+      RowBox[{"Style", "[", 
+       RowBox[{"Y", ",", "Large", ",", "Bold", ",", "Blue"}], "]"}], ",", 
+      RowBox[{"Style", "[", 
+       RowBox[{"Z", ",", "Large", ",", "Bold", ",", "Green"}], "]"}]}], 
+     "}"}]}], ",", 
+   RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+   RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+   RowBox[{"AxesStyle", "\[Rule]", 
+    RowBox[{"Directive", "[", 
+     RowBox[{"Red", ",", " ", "12"}], "]"}]}], ",", 
+   RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5081210356131487`*^9, 3.508121067260586*^9}, 
+   3.636799739046343*^9, 3.636977895175939*^9}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"ContourPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"x", "^", "2"}], "+", 
+         RowBox[{"y", "^", "2"}]}], "==", 
+        RowBox[{
+         RowBox[{"z", "^", "2"}], "+", "1"}]}], ",", 
+       RowBox[{
+        RowBox[{"x", "+", "z"}], "\[Equal]", 
+        RowBox[{"d", 
+         RowBox[{"(", 
+          RowBox[{"y", "+", "1"}], ")"}]}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Style", "[", 
+         RowBox[{"X", ",", "Large", ",", "Bold", ",", "Red"}], "]"}], ",", 
+        RowBox[{"Style", "[", 
+         RowBox[{"Y", ",", "Large", ",", "Bold", ",", "Blue"}], "]"}], ",", 
+        RowBox[{"Style", "[", 
+         RowBox[{"Z", ",", "Large", ",", "Bold", ",", "Green"}], "]"}]}], 
+       "}"}]}], ",", 
+     RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"AxesStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Red", ",", " ", "12"}], "]"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"d", ",", 
+     RowBox[{"-", "5"}], ",", "5"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.508121133723812*^9, 3.5081211493546658`*^9}, {
+   3.508121236042705*^9, 3.508121246287696*^9}, {3.6367997539437227`*^9, 
+   3.6367997571980553`*^9}, 3.63697791663339*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"bottomDots", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Cos", "[", "t", "]"}], ",", 
+       RowBox[{"Sin", "[", "t", "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       RowBox[{"2", "Pi"}], ",", 
+       RowBox[{"Pi", "/", "12"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"topDots", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Cos", "[", "t", "]"}], ",", 
+       RowBox[{"Sin", "[", "t", "]"}], ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       RowBox[{"2", "Pi"}], ",", 
+       RowBox[{"Pi", "/", "12"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Line", "[", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Cos", "[", "t", "]"}], ",", 
+              RowBox[{"Sin", "[", "t", "]"}], ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Cos", "[", 
+               RowBox[{"t", "+", "xi"}], "]"}], ",", 
+              RowBox[{"Sin", "[", 
+               RowBox[{"t", "+", "xi"}], "]"}], ",", "2"}], "}"}]}], "}"}], 
+          ",", 
+          RowBox[{"{", 
+           RowBox[{"t", ",", "0", ",", 
+            RowBox[{"2", "Pi"}], ",", 
+            RowBox[{"Pi", "/", "18"}]}], "}"}]}], "]"}], "]"}], ",", 
+       RowBox[{"Line", "[", "bottomDots", "]"}], ",", 
+       RowBox[{"Line", "[", "topDots", "]"}]}], "}"}], ",", 
+     RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"xi", ",", "0", ",", "3"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.508392539972694*^9, 3.508392540086494*^9}, {
+   3.636799763485662*^9, 3.6367997761683893`*^9}, {3.636800793012745*^9, 
+   3.636800805091042*^9}, 3.636977949026351*^9}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"4", 
+   RowBox[{
+   "\:3001", 
+    "\:692d\:5706\:5355\:53f6\:53cc\:66f2\:9762\:4e5f\:662f\:76f4\:7eb9\:9762\
+"}]}], "Subtitle"]], "Input",
+ CellChangeTimes->{{3.508121905305934*^9, 3.5081219217649813`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ContourPlot3D", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"x", "^", "2"}], "+", 
+     RowBox[{
+      RowBox[{"y", "^", "2"}], "/", "4"}]}], "==", 
+    RowBox[{
+     RowBox[{"z", "^", "2"}], "+", "1"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "8"}], ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"z", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Style", "[", 
+       RowBox[{"X", ",", "Large", ",", "Bold", ",", "Red"}], "]"}], ",", 
+      RowBox[{"Style", "[", 
+       RowBox[{"Y", ",", "Large", ",", "Bold", ",", "Blue"}], "]"}], ",", 
+      RowBox[{"Style", "[", 
+       RowBox[{"Z", ",", "Large", ",", "Bold", ",", "Green"}], "]"}]}], 
+     "}"}]}], ",", 
+   RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+   RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+   RowBox[{"AxesStyle", "\[Rule]", 
+    RowBox[{"Directive", "[", 
+     RowBox[{"Red", ",", " ", "12"}], "]"}]}], ",", 
+   RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5081213062524967`*^9, 3.5081213221722183`*^9}, 
+   3.6367997876661987`*^9, 3.636977958433879*^9}],
+
+Cell[BoxData[
+ RowBox[{"ContourPlot3D", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "^", "2"}], "+", 
+       RowBox[{
+        RowBox[{"y", "^", "2"}], "/", "4"}]}], "==", 
+      RowBox[{
+       RowBox[{"z", "^", "2"}], "+", "1"}]}], ",", 
+     RowBox[{
+      RowBox[{"x", "+", "z"}], "==", 
+      RowBox[{
+       RowBox[{"y", "/", "2"}], "+", "1"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "8"}], ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"z", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Style", "[", 
+       RowBox[{"X", ",", "Large", ",", "Bold", ",", "Red"}], "]"}], ",", 
+      RowBox[{"Style", "[", 
+       RowBox[{"Y", ",", "Large", ",", "Bold", ",", "Blue"}], "]"}], ",", 
+      RowBox[{"Style", "[", 
+       RowBox[{"Z", ",", "Large", ",", "Bold", ",", "Green"}], "]"}]}], 
+     "}"}]}], ",", 
+   RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+   RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+   RowBox[{"AxesStyle", "\[Rule]", 
+    RowBox[{"Directive", "[", 
+     RowBox[{"Red", ",", " ", "12"}], "]"}]}], ",", 
+   RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.50812133621288*^9, 3.508121371754715*^9}, 
+   3.6367997920266943`*^9, 3.636977968713668*^9}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"ContourPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"x", "^", "2"}], "+", 
+         RowBox[{
+          RowBox[{"y", "^", "2"}], "/", "4"}], "-", 
+         RowBox[{"z", "^", "2"}]}], "==", "1"}], ",", 
+       RowBox[{
+        RowBox[{"x", "+", "z"}], "\[Equal]", 
+        RowBox[{"d", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"y", "/", "2"}], "+", "1"}], ")"}]}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "8"}], ",", "8"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Style", "[", 
+         RowBox[{"X", ",", "Large", ",", "Bold", ",", "Red"}], "]"}], ",", 
+        RowBox[{"Style", "[", 
+         RowBox[{"Y", ",", "Large", ",", "Bold", ",", "Blue"}], "]"}], ",", 
+        RowBox[{"Style", "[", 
+         RowBox[{"Z", ",", "Large", ",", "Bold", ",", "Green"}], "]"}]}], 
+       "}"}]}], ",", 
+     RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"AxesStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Red", ",", " ", "12"}], "]"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"d", ",", 
+     RowBox[{"-", "5"}], ",", "5"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.508121416951639*^9, 3.508121435809453*^9}, 
+   3.636799804794407*^9, {3.636799843701507*^9, 3.63679984722794*^9}, {
+   3.636799890314012*^9, 3.636799899378203*^9}, {3.636799986508175*^9, 
+   3.6368000341007547`*^9}, 3.6369779807332172`*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"bottomDots1", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Cos", "[", "t", "]"}], ",", 
+       RowBox[{"2", 
+        RowBox[{"Sin", "[", "t", "]"}]}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       RowBox[{"2", "Pi"}], ",", 
+       RowBox[{"Pi", "/", "12"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"topDots1", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Cos", "[", "t", "]"}], ",", 
+       RowBox[{"2", 
+        RowBox[{"Sin", "[", "t", "]"}]}], ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       RowBox[{"2", "Pi"}], ",", 
+       RowBox[{"Pi", "/", "12"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Line", "[", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Cos", "[", "t", "]"}], ",", 
+              RowBox[{"2", 
+               RowBox[{"Sin", "[", "t", "]"}]}], ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Cos", "[", 
+               RowBox[{"t", "+", "xi"}], "]"}], ",", 
+              RowBox[{"2", 
+               RowBox[{"Sin", "[", 
+                RowBox[{"t", "+", "xi"}], "]"}]}], ",", "2"}], "}"}]}], "}"}],
+           ",", 
+          RowBox[{"{", 
+           RowBox[{"t", ",", "0", ",", 
+            RowBox[{"2", "Pi"}], ",", 
+            RowBox[{"Pi", "/", "24"}]}], "}"}]}], "]"}], "]"}], ",", 
+       RowBox[{"Line", "[", "bottomDots1", "]"}], ",", 
+       RowBox[{"Line", "[", "topDots1", "]"}]}], "}"}], ",", 
+     RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"xi", ",", "0", ",", "3"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.508390682249876*^9, 3.5083906899685497`*^9}, {
+  3.508392560163964*^9, 3.50839260405589*^9}, {3.636799716568705*^9, 
+  3.636799722512429*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"5", 
+   RowBox[{"\:3001", "\:53cc\:66f2\:629b\:7269\:9762"}]}], 
+  "Subtitle"]], "Input",
+ CellChangeTimes->{{3.508121930796212*^9, 3.508121936704782*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ContourPlot3D", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "^", "2"}], "-", 
+      RowBox[{"y", "^", "2"}]}], "==", "z"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"z", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Style", "[", 
+       RowBox[{"X", ",", "Large", ",", "Bold", ",", "Red"}], "]"}], ",", 
+      RowBox[{"Style", "[", 
+       RowBox[{"Y", ",", "Large", ",", "Bold", ",", "Blue"}], "]"}], ",", 
+      RowBox[{"Style", "[", 
+       RowBox[{"Z", ",", "Large", ",", "Bold", ",", "Green"}], "]"}]}], 
+     "}"}]}], ",", 
+   RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+   RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+   RowBox[{"AxesStyle", "\[Rule]", 
+    RowBox[{"Directive", "[", 
+     RowBox[{"Red", ",", " ", "12"}], "]"}]}], ",", 
+   RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5081206461604557`*^9, 3.508120673793414*^9}, {
+   3.5081219508703337`*^9, 3.508121951026132*^9}, 3.636799711896082*^9, 
+   3.636977991921732*^9}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"6", 
+   RowBox[{
+   "\:3001", "\:53cc\:66f2\:629b\:7269\:9762\:662f\:76f4\:7eb9\:9762"}]}], 
+  "Subtitle"]], "Input",
+ CellChangeTimes->{{3.5081219920512447`*^9, 3.508121997647872*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"ContourPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"x", "^", "2"}], "-", 
+         RowBox[{"y", "^", "2"}]}], "==", "z"}], ",", 
+       RowBox[{"z", "\[Equal]", "d"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Style", "[", 
+         RowBox[{"X", ",", "Large", ",", "Bold", ",", "Red"}], "]"}], ",", 
+        RowBox[{"Style", "[", 
+         RowBox[{"Y", ",", "Large", ",", "Bold", ",", "Blue"}], "]"}], ",", 
+        RowBox[{"Style", "[", 
+         RowBox[{"Z", ",", "Large", ",", "Bold", ",", "Green"}], "]"}]}], 
+       "}"}]}], ",", 
+     RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"AxesStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Red", ",", " ", "12"}], "]"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"d", ",", 
+     RowBox[{"-", "1.1"}], ",", "1.1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.636799637110394*^9, 3.636799641568255*^9}, 
+   3.636799704583684*^9, 3.636978003641827*^9}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"ContourPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"x", "^", "2"}], "-", 
+         RowBox[{"y", "^", "2"}]}], "==", "z"}], ",", 
+       RowBox[{
+        RowBox[{"x", "+", "y"}], "\[Equal]", 
+        RowBox[{"d", "*", "z"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Style", "[", 
+         RowBox[{"X", ",", "Large", ",", "Bold", ",", "Red"}], "]"}], ",", 
+        RowBox[{"Style", "[", 
+         RowBox[{"Y", ",", "Large", ",", "Bold", ",", "Blue"}], "]"}], ",", 
+        RowBox[{"Style", "[", 
+         RowBox[{"Z", ",", "Large", ",", "Bold", ",", "Green"}], "]"}]}], 
+       "}"}]}], ",", 
+     RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"AxesStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Red", ",", " ", "12"}], "]"}]}], ",", 
+     RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"d", ",", 
+     RowBox[{"-", "10"}], ",", "10"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.508120695331389*^9, 3.5081207514240713`*^9}, {
+   3.508121960965287*^9, 3.508121970513413*^9}, 3.508122006553707*^9, 
+   3.636799665467143*^9, 3.636799695905566*^9, 3.636978021540468*^9}],
+
+Cell[BoxData[
+ RowBox[{"ContourPlot3D", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"x", "^", "2"}], "-", 
+     RowBox[{"y", "^", "2"}]}], "\[Equal]", "z"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"z", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"MeshFunctions", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"#1", "-", "#2"}], "&"}], ",", 
+      RowBox[{
+       RowBox[{"#1", "+", "#2"}], "&"}]}], "}"}]}], ",", 
+   RowBox[{"MeshStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"Purple", ",", " ", "Orange"}], "}"}]}], ",", 
+   RowBox[{"Lighting", "\[Rule]", "\"\<Neutral\>\""}], ",", 
+   RowBox[{"ContourStyle", "\[Rule]", "Gray"}], ",", 
+   RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{3.636799675802044*^9}],
+
+Cell[BoxData[
+ RowBox[{"ContourPlot3D", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"x", "^", "2"}], "-", 
+     RowBox[{"y", "^", "2"}]}], "\[Equal]", "z"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"z", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"MeshFunctions", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"#1", "-", "#2"}], "&"}], ",", 
+      RowBox[{
+       RowBox[{"#1", "+", "#2"}], "&"}]}], "}"}]}], ",", 
+   RowBox[{"MeshShading", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"Yellow", ",", "Blue"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Green", ",", "Cyan"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{3.636799680888954*^9}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"7", 
+   RowBox[{"\:3001", "\:5176\:4ed6\:76f4\:7eb9\:9762"}]}], 
+  "Subtitle"]], "Input",
+ CellChangeTimes->{{3.5085769905881157`*^9, 3.508577000047277*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ParametricPlot3D", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"u", 
+      RowBox[{"Sin", "[", "t", "]"}]}], ",", 
+     RowBox[{"u", 
+      RowBox[{"Cos", "[", "t", "]"}]}], ",", "t"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"u", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"BoxRatios", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "1", ",", "1"}], "}"}]}], ",", 
+   RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5085769752749577`*^9, 3.5085769779610987`*^9}, 
+   3.636799686082737*^9}],
+
+Cell[BoxData[
+ RowBox[{"ContourPlot3D", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"x", "*", 
+     RowBox[{"Cos", "[", "z", "]"}]}], "\[Equal]", 
+    RowBox[{"y", "*", 
+     RowBox[{"Sin", "[", "z", "]"}]}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"z", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+   RowBox[{"RegionFunction", "\[Rule]", 
+    RowBox[{"Function", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y", ",", "z"}], "}"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"x", "^", "2"}], "+", 
+        RowBox[{"y", "^", "2"}]}], "<", "1"}]}], "]"}]}], ",", 
+   RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Style", "[", 
+       RowBox[{"X", ",", "Large", ",", "Bold", ",", "Red"}], "]"}], ",", 
+      RowBox[{"Style", "[", 
+       RowBox[{"Y", ",", "Large", ",", "Bold", ",", "Blue"}], "]"}], ",", 
+      RowBox[{"Style", "[", 
+       RowBox[{"Z", ",", "Large", ",", "Bold", ",", "Green"}], "]"}]}], 
+     "}"}]}], ",", 
+   RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+   RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+   RowBox[{"AxesStyle", "\[Rule]", 
+    RowBox[{"Directive", "[", 
+     RowBox[{"Red", ",", " ", "12"}], "]"}]}], ",", 
+   RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6368002468500767`*^9, 3.636800328541239*^9}, {
+   3.6368003964325857`*^9, 3.636800443242486*^9}, {3.63680049092231*^9, 
+   3.6368005247274446`*^9}, {3.636800560443674*^9, 3.6368005678277893`*^9}, 
+   3.6369780857866488`*^9}],
+
+Cell[BoxData[
+ RowBox[{"ParametricPlot3D", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Cos", "[", "t", "]"}], 
+      RowBox[{"(", 
+       RowBox[{"3", "+", 
+        RowBox[{"r", " ", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"t", "/", "2"}], "]"}]}]}], ")"}]}], ",", 
+     RowBox[{
+      RowBox[{"Sin", "[", "t", "]"}], 
+      RowBox[{"(", 
+       RowBox[{"3", "+", 
+        RowBox[{"r", " ", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"t", "/", "2"}], "]"}]}]}], ")"}]}], ",", 
+     RowBox[{"r", " ", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"t", "/", "2"}], "]"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"r", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", 
+     RowBox[{"2", "Pi"}]}], "}"}], ",", 
+   RowBox[{"Mesh", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"5", ",", "10"}], "}"}]}], ",", 
+   RowBox[{"PlotStyle", "\[Rule]", 
+    RowBox[{"FaceForm", "[", 
+     RowBox[{"Red", ",", "Yellow"}], "]"}]}], ",", 
+   RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{3.636799690081109*^9}]
+}, Open  ]]
+},
+WindowSize->{840, 945},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (June 27, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 101, 1, 92, "Title"],
+Cell[671, 25, 227, 5, 45, "Input"],
+Cell[901, 32, 1419, 36, 80, "Input"],
+Cell[2323, 70, 203, 5, 45, "Input"],
+Cell[2529, 77, 1345, 36, 80, "Input"],
+Cell[3877, 115, 236, 7, 45, "Input"],
+Cell[4116, 124, 1493, 41, 97, "Input"],
+Cell[5612, 167, 1843, 49, 97, "Input"],
+Cell[7458, 218, 2154, 61, 114, "Input"],
+Cell[9615, 281, 243, 7, 45, "Input"],
+Cell[9861, 290, 1376, 37, 80, "Input"],
+Cell[11240, 329, 1543, 43, 97, "Input"],
+Cell[12786, 374, 1957, 51, 97, "Input"],
+Cell[14746, 427, 2244, 65, 114, "Input"],
+Cell[16993, 494, 191, 5, 45, "Input"],
+Cell[17187, 501, 1374, 36, 80, "Input"],
+Cell[18564, 539, 221, 6, 45, "Input"],
+Cell[18788, 547, 1595, 42, 97, "Input"],
+Cell[20386, 591, 1747, 45, 97, "Input"],
+Cell[22136, 638, 993, 29, 63, "Input"],
+Cell[23132, 669, 990, 31, 63, "Input"],
+Cell[24125, 702, 193, 5, 45, "Input"],
+Cell[24321, 709, 673, 19, 46, "Input"],
+Cell[24997, 730, 1764, 46, 97, "Input"],
+Cell[26764, 778, 1137, 35, 63, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

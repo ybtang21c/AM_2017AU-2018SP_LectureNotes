@@ -1,0 +1,195 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      5524,        186]
+NotebookOptionsPosition[      5040,        166]
+NotebookOutlinePosition[      5396,        182]
+CellTagsIndexPosition[      5353,        179]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "+", 
+      RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+     RowBox[{"Sin", "[", "x", "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{
+      RowBox[{"-", "4"}], "Pi"}], ",", 
+     RowBox[{"4", "Pi"}]}], "}"}], ",", 
+   RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.558951548218536*^9, 3.558951628525814*^9}, {
+  3.5589516596987267`*^9, 3.558951659925419*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ContourPlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "^", "3"}], "+", 
+       RowBox[{"y", "^", "3"}], "-", 
+       RowBox[{"3", "x", " ", "y"}]}], "==", "0"}], ",", 
+     RowBox[{"y", "\[Equal]", 
+      RowBox[{
+       RowBox[{"-", "x"}], "-", "1"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+   RowBox[{"Axes", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.558951707123782*^9, 3.5589518179878263`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ContourPlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "^", "2"}], 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "x"}], ")"}]}], "\[Equal]", 
+      RowBox[{"x", "^", "3"}]}], ",", 
+     RowBox[{"x", "\[Equal]", "1"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+   RowBox[{"Axes", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.558951846087736*^9, 3.558951870397306*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Sin", "[", 
+        RowBox[{"m", " ", "t"}], "]"}], ",", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"n", " ", "t"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       RowBox[{"4", "Pi"}]}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"m", ",", "1", ",", "10"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", "10"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.558951881034305*^9, 3.558951906913928*^9}, {
+  3.558951954170643*^9, 3.5589520872489357`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         RowBox[{"m", " ", "t"}], "+", 
+         RowBox[{"Sin", "[", "t", "]"}]}], "]"}], ",", 
+       RowBox[{"Cos", "[", 
+        RowBox[{
+         RowBox[{"m", " ", "t"}], "+", 
+         RowBox[{"Cos", "[", "t", "]"}]}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       RowBox[{"8", "Pi"}]}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"m", ",", "1", ",", "10"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.558952128868286*^9, 3.558952188413087*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "t", "]"}], "-", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          RowBox[{"m", " ", "t"}], "]"}], 
+         RowBox[{"Sin", "[", "t", "]"}]}]}], ",", 
+       RowBox[{
+        RowBox[{"2", " ", 
+         RowBox[{"Sin", "[", "t", "]"}]}], "-", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"m", " ", "t"}], "]"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       RowBox[{"8", "Pi"}]}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"m", ",", "1", ",", "10"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.558952254875001*^9, 3.558952286890232*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"PolarPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sin", "[", "t", "]"}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"a", " ", "t"}], "]"}], ")"}], "^", "3"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       RowBox[{"2", "Pi"}]}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "1", ",", "10"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5589523066625433`*^9, 3.558952376839926*^9}}]
+},
+WindowSize->{740, 624},
+WindowMargins->{{Automatic, 21}, {Automatic, 45}},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
+2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 522, 15, 27, "Input"],
+Cell[1082, 37, 656, 20, 27, "Input"],
+Cell[1741, 59, 618, 19, 27, "Input"],
+Cell[2362, 80, 668, 19, 27, "Input"],
+Cell[3033, 101, 681, 20, 43, "Input"],
+Cell[3717, 123, 772, 23, 43, "Input"],
+Cell[4492, 148, 544, 16, 27, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

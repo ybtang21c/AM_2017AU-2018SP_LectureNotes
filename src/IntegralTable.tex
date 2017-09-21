@@ -1,0 +1,381 @@
+% \begin{tabular}{p{5cm}p{9cm}}
+% 	$\i\df{{\d x}}{ax+b}$ & $\df 1a\ln|ax+b|+C$\\
+% 	$\i(ax+b)^{\mu}{\d x}$ & $\df{1}{a(\mu+1)}(ax+b)^{\mu+1}+C\;(u\ne -1)$\\
+% 	$\i\df x{ax+b}{\d x}$ & $\df 1{a^2}(ax+b-b\ln|ax+b|)+C$
+% \end{tabular}
+
+\begin{center}
+	{\bf\Large 常\quad 用\quad 积\quad 分}\\[2ex]
+% 	======（请认真对照练习，熟练掌握各种常用的积分计算方法）======
+\end{center}
+
+{\bf （一）含有$ax+b$的积分}\ps{有理函数积分}
+\begin{enumerate}
+  \setlength{\itemindent}{1cm}
+  \item $\i\df{\d x}{ax+b}\quad=\quad \df 1a\ln|ax+b|+C$ 
+  \item $\i(ax+b)^{\mu}{\d x}\quad=\quad \df{1}{a(\mu+1)}(ax+b)^{\mu+1}+C\;(u\ne
+  -1)$
+  \item $\i\df x{ax+b}{\d x}\quad=\quad \df 1{a^2}(ax+b-b\ln|ax+b|)+C$
+  \item $\i\df{x^2}{ax+b}{\d x} \quad=\quad 
+  \df{1}{a^3}\left[\df 12(ax+b)^2-2b(ax+b)+b^2\ln|ax+b|\right]+C$
+  \item $\i\df{{\d x}}{x(ax+b)} \quad=\quad -\df 1b\ln\left|\df{ax+b}{x}\right|+C$
+  \item
+  $\i\df{{\d x}}{x^2(ax+b)} \quad=\quad -\df{1}{bx}+\df{a}{b^2}\ln\left|\df{ax+b}{x}\right|+C$
+  \item $\i\df{x}{(ax+b)^2}{\d x}  \quad=\quad
+  \df{1}{a^2}\left(\ln|ax+b|+\df{b}{ax+b}\right)+C$
+  \item $\i\df{x^2}{(ax+b)^2}{\d x} \quad=\quad \df 1{a^3}\left(
+  ax+b-2b\ln|ax+b|-\df{b^2}{ax+b}\right)+C$
+  \item $\i\df{{\d x}}{x(ax+b)^2} \quad=\quad \df{1}{b(ax+b)}-\df 1{b^2}\ln\left|
+  \df{ax+b}{x}\right|+C $
+% \end{enumerate}
+
+\bigskip
+{\bf （二）含有$\sqrt{ax+b}$的积分}\ps{$y=\sqrt{ax+b}$}
+% \bigskip
+% \begin{enumerate}
+%   \addtocounter{enumi}{9}
+  \item $\i\sqrt{ax+b} {\d x}\quad=\quad \df 2{3a}\sqrt{(ax+b)^3}+C$
+  \item $\i x\sqrt{ax+b}{\d x}  \quad=\quad \df 2{15a^2}(3ax-2b)\sqrt{(ax+b)^3}+C$
+  \item $\i x^2\sqrt{ax+b}{\d x}  \quad=\quad \df
+  2{105a^3}(15a^2x^2-12abx+8b^2)\sqrt{(ax+b)^3}+C$
+  \item $\i\df{x}{\sqrt{ax+b}}{\d x} \quad=\quad \df 2{3a^2}(ax-2b)\sqrt{ax+b}+C$
+  \item $\i\df{x^2}{\sqrt{ax+b}}{\d x} \quad=\quad
+  \df{2}{15a^3}(3a^2x^2-4abx+8b^2)\sqrt{ax+b}+C$
+  \item $\i\df{{\d x}}{x\sqrt{ax+b}} \quad=\quad \left\{\begin{array}{ll}
+  \df 1{\sqrt b}\ln\left|\df{\sqrt{ax+b}-\sqrt b}{\sqrt{ax+b}+\sqrt b}\right|+C
+  &\quad (b>0)\\
+  \df 2{\sqrt{-b}}\arctan\sqrt{\df{ax+b}{-b}}+C&\quad (b<0)
+  \end{array}
+  \right.$
+  \item
+  $\i\df{{\d x}}{x^2\sqrt{ax+b}} \quad=\quad -\df{\sqrt{ax+b}}{bx}-\df{a}{2b}\i\df{{\d x}}{x\sqrt{ax+b}}$
+  \item $\i\df{\sqrt{ax+b}}{x}{\d x} \quad=\quad 2\sqrt{ax+b}+b\i\df{{\d x}}{x\sqrt{ax+b}}$
+  \item $\i\df{\sqrt{ax+b}}{x^2}{\d x} \quad=\quad -\df{\sqrt{ax+b}}x+\df
+  a2\i\df{{\d x}}{x\sqrt{ax+b}}$
+% \end{enumerate}
+
+\bigskip
+{\bf （三）含有$x^2\pm a^2$的积分}
+% \bigskip
+% \begin{enumerate}
+%   \addtocounter{enumi}{18}
+  \item $\i\df{{\d x}}{x^2+a^2} \quad=\quad \df 1a\arctan\df xa+C$
+  \item $\i\df{{\d x}}{(x^2+a^2)^n} \quad=\quad \df x{2(n-1)a^2(x^2+a^2)^{n-1}}+
+  \df{2n-3}{2(n-1)a^2}\i\df{{\d x}}{(x^2+a^2)^{n-1}}$\\
+  提示：
+  \begin{align}
+  I_n&=\df1{a^2}\dint\df{(x^2+a^2)-x^2}{(x^2+a^2)^n}\d x
+  =\df1{a^2}\left[I_{n-1}+\df1{2(n-1)}\dint
+  x\d\df1{(x^2+a^2)^{n-1}}\right]\notag\\
+  &=\df1{a^2}\left[I_{n-1}+\df1{2(n-1)}\left(\df{x}{(x^2+a^2)^{n-1}}
+  -I_{n-1}\right)\right]\notag
+  \end{align}  
+  \item $\i\df{{\d x}}{x^2-a^2} \quad=\quad \df
+  1{2a}\ln\left|\df{x-a}{x+a}\right|+C$
+% \end{enumerate}
+
+\bigskip
+{\bf （四）含有$ax^2+b\;(a>0)$的积分}\bigskip
+% \begin{enumerate}
+%   \addtocounter{enumi}{21}
+  \item $\i\df{{\d x}}{ax^2+b}\quad=\quad\left\{\begin{array}{ll}
+  \df 1{\sqrt{ab}}\arctan\sqrt{\df ab}x+C & \quad (b>0)\\
+  \df 1{2\sqrt{-ab}}\ln\left|\df{\sqrt ax-\sqrt{-b}}{\sqrt
+  ax+\sqrt{-b}}\right|+C & \quad (b<0) \end{array}\right.$
+  \item $\i\df{x}{ax^2+b}{\d x}\quad=\quad \df 1{2a}\ln|ax^2+b|+C$
+  \item $\i\df{x^2}{ax^2+b}{\d x} \quad=\quad \df xa -\df ba\i\df{{\d x}}{ax^2+b}$
+  \item $\i\df{{\d x}}{x(ax^2+b)}\quad=\quad \df 1{2b}\ln\df{x^2}{|ax^2+b|}+C$
+  \item $\i\df{{\d x}}{x^2(ax^2+b)}\quad=\quad-\df{1}{bx}-\df ab\i\df{{\d x}}{ax^2+b}$
+  \item $\i\df{{\d x}}{x^3(ax^2+b)}\quad=\quad
+  \df{a}{2b^2}\ln\df{|ax^2+b|}{x^2}-\df{1}{2bx^2}+C$
+  \item $\i\df{{\d x}}{(ax^2+b)^2}\quad=\quad\df x{2b(ax^2+b)}+\df
+  1{2b}\i\df{{\d x}}{ax^2+b}$
+% \end{enumerate}
+
+\bigskip
+{\bf （五）含有$ax^2+bx+c\;(a>0)$的积分}
+% \bigskip
+% \begin{enumerate}
+%   \addtocounter{enumi}{28}
+  \item $\i\df{{\d x}}{ax^2+bx+c}\quad=\quad\left\{\begin{array}{ll}
+  \df{2}{\sqrt{4ac-b^2}}\arctan\df{2ax+b}{\sqrt{4ac-b^2}}+C & \quad (b^2<4ac)\\
+  \df{1}{\sqrt{b^2-4ac}}\ln\left|
+  \df{2ax+b-\sqrt{b^2-4ac}}{2ax+b+\sqrt{b^2-4ac}}
+  \right|+C & \quad (b^2>4ac)
+  \end{array}\right.$
+  \item $\i\df{x}{ax^2+bx+c}{\d x}\quad=\quad\df 1{2a}\ln|ax^2+bx+c|-\ln
+  b{2a}\i\df{{\d x}}{ax^2+bx+c}$
+% \end{enumerate}
+
+\bigskip
+{\bf （六）含有$\sqrt{x^2+a^2}\;(a>0)$的积分}\ps{$x=a\tan t$}
+% \bigskip
+% \begin{enumerate}
+%   \addtocounter{enumi}{30}
+  \item $\i\df{{\d x}}{\sqrt{x^2+a^2}}\quad=\quad\mathrm{arsh}\df
+  xa+C_1\quad=\quad\ln(x+\sqrt{x^2+a^2})+C$
+  \item $\i\df{{\d x}}{\sqrt{(x^2+a^2)^3}}\quad=\quad\df{x}{a^2\sqrt{x^2+a^2}}+C$
+  \item $\i\df x{\sqrt{x^2+a^2}}{\d x}\quad=\quad\sqrt{x^2+a^2}+C$
+  \item $\i\df{x}{\sqrt{(x^2+a^2)^3}}{\d x}\quad=\quad-\df{1}{\sqrt{x^2+a^2}}+C$
+  \item $\i\df{x^2}{\sqrt{x^2+a^2}}{\d x}\quad=\quad\df x2\sqrt{x^2+a^2}
+  -\df{a^2}2\ln(x+\sqrt{x^2+a^2})+C$
+  \item $\i\df{x^2}{\sqrt{(x^2+a^2)^3}}{\d x}\quad=\quad-\df{x}{\sqrt{x^2+a^2}}
+	+\ln(x+\sqrt{x^2+a^2})+C$
+  \item $\i\df{{\d x}}{x\sqrt{x^2+a^2}}\quad=\quad\df 1a\ln\df{\sqrt{x^2+a^2}-a}{|x|}+C$
+  \item $\i\df{x^2}{\sqrt{x^2+a^2}}{\d x}\quad=\quad -\df{\sqrt{x^2+a^2}}{a^2x}+C$
+  \item $\i\sqrt{x^2+a^2}{\d x}\quad=\quad\df
+  x2\sqrt{x^2+a^2}+\df{a^2}{2}\ln(x+\sqrt{x^2+a^2})+C$
+  \item $\i\sqrt{(x^2+a^2)^3}{\d x}\quad=\quad\df x8(2x^2+5a^2)\sqrt{x^2+a^2}
+  +\df 38a^4\ln(x+\sqrt{x^2+a^2})+C$
+  \item $\i x\sqrt{x^2+a^2}{\d x}\quad=\quad\df 13\sqrt{(x^2+a^2)^3}+C$
+  \item $\i x^2\sqrt{x^2+a^2}{\d x}\quad=\quad\df
+  x8(2x^2+a^2)\sqrt{x^2+a^2}-\df{a^4}{8}\ln(x+\sqrt{x^2+a^2})+C$
+  \item
+  $\i\df{\sqrt{x^2+a^2}}{x}{\d x}\quad=\quad\sqrt{x^2+a^2}+a\ln\df{\sqrt{x^2+a^2}-a}{|x|}+C$
+  \item
+  $\i\df{\sqrt{x^2+a^2}}{x^2}{\d x}\quad=\quad-\df{\sqrt{x^2+a^2}}{x}+\ln(x+\sqrt{x^2+a^2})+C$
+% \end{enumerate}
+
+\bigskip
+{\bf （七）含有$\sqrt{x^2-a^2}\;(a>0)$的积分}\ps{$x=a\sec t$}
+% \bigskip
+% \begin{enumerate}
+%   \addtocounter{enumi}{44}
+  \item $\i\df{{\d x}}{\sqrt{x^2-a^2}}\quad=\quad\df{x}{|x|}\mathrm{arch}\df{|x|}{a}+C_1
+  \quad=\quad\ln|x+\sqrt{x^2-a^2}|+C$
+  \item $\i\df{{\d x}}{\sqrt{(x^2-a^2)^3}}\quad=\quad-\df{x}{a^2\sqrt{x^2-a^2}}+C$
+  \item $\i\df{x}{\sqrt{x^2-a^2}}{\d x}\quad=\quad\sqrt{x^2-a^2}+C$
+  \item $\i\df{x}{\sqrt{(x^2-a^2)^3}}{\d x}\quad=\quad-\df 1{\sqrt{x^2-a^2}}+C$
+  \item $\i\df{x^2}{\sqrt{x^2-a^2}}{\d x}\quad=\quad\df
+  x2\sqrt{x^2-a^2}+\df{a^2}{2}\ln|x+\sqrt{x^2-a^2}|+C$
+  \item $\i\df{x^2}{\sqrt{(x^2-a^2)^3}}{\d x}\quad=\quad-\df{x}{\sqrt{x^2-a^2}}
+  +\ln|x+\sqrt{x^2-a^2}|-C$
+  \item $\i\df{{\d x}}{x\sqrt{x^2-a^2}}\quad=\quad\df 1a\arccos\df{a}{|x|}+C$
+  \item $\i\df{{\d x}}{x^2\sqrt{x^2-a^2}}\quad=\quad\df{\sqrt{x^2-a^2}}{a^2x}+C$
+  \item $\i\sqrt{x^2-a^2}{\d x}\quad=\quad\df
+  x2\sqrt{x^2-a^2}-\df{a^2}{2}\ln|x+\sqrt{x^2-a^2}|+C$
+  \item $\i\sqrt{(x^2-a^2)^3}{\d x}\quad=\quad\df x8(2x^2-5a^2)\sqrt{x^2-a^2}
+  +\df 38a^4\ln|x+\sqrt{x^2-a^2}|+C$
+  \item $\i x\sqrt{x^2-a^2}{\d x}\quad=\quad\df 13\sqrt{(x^2-a^2)^3}+C$
+  \item $\i x^2\sqrt{x^2-a^2}{\d x}\quad=\quad\df x8(2x^2-a^2)\sqrt{x^2-a^2}
+  -\df{a^4}8\ln|x+\sqrt{x^2-a^2}|+C$
+  \item $\i\df{\sqrt{x^2-a^2}}{x}{\d x}\quad=\quad\sqrt{x^2-a^2}-\arccos\df{a}{|x|}+C$
+  \item $\i\df{\sqrt{x^2-a^2}}{x^2}{\d x}\quad=\quad-\df{\sqrt{x^2-a^2}}{x}
+  +\ln|x+\sqrt{x^2-a^2}|+C$
+% \end{enumerate}
+
+\bigskip
+{\bf （八）含有$\sqrt{a^2-x^2}\;(a>0)$的积分}\ps{$x=a\sin t$}
+% \bigskip
+% \begin{enumerate}
+%   \addtocounter{enumi}{58}
+  \item $\i\df{{\d x}}{\sqrt{a^2-x^2}}\quad=\quad\arcsin\df xa+C$
+  \item $\i\df{{\d x}}{\sqrt{(a^2-x^2)^3}}\quad=\quad\df{x}{a^2\sqrt{a^2-x^2}}+C$
+  \item $\i\df{x}{\sqrt{a^2-x^2}}{\d x}\quad=\quad-\sqrt{a^2-x^2}+C$
+  \item $\i\df{x}{\sqrt{(a^2-x^2)^3}}{\d x}\quad=\quad\df{1}{\sqrt{a^2-x^2}}+C$
+  \item $\i\df{x^2}{\sqrt{a^2-x^2}}{\d x}\quad=\quad-\df x2\sqrt{a^2-x^2}+\df{a^2}2\arcsin\df
+  xa+C$
+  \item $\i\df{x^2}{\sqrt{(a^2-x^2)^3}}{\d x}\quad=\quad\df{x}{\sqrt{a^2-x^2}}-\arcsin\df
+  xa+C$
+  \item $\i\df{{\d x}}{x\sqrt{a^2-x^2}}\quad=\quad\df 1a\ln\df{a-\sqrt{a^2-x^2}}{|x|}+C$
+  \item $\i\df{{\d x}}{x^2\sqrt{a^2-x^2}}\quad=\quad-\df{\sqrt{a^2-x^2}}{a^2x}+C$
+  \item $\i\sqrt{a^2-x^2}{\d x}\quad=\quad\df x2 \sqrt{a^2-x^2}+\df{a^2}2\arcsin\df xa+C$
+  \item $\i\sqrt{(a^2-x^2)^3}{\d x}\quad=\quad\df x8(5a^2-2x^2)\sqrt{a^2-x^2}
+  +\df 38a^4\arcsin\df xa+C$
+  \item $\i x\sqrt{a^2-x^2}{\d x}\quad=\quad-\df 13\sqrt{(a^2-x^2)^3}+C$
+  \item $\i x^2\sqrt{a^2-x^2}{\d x}\quad=\quad\df x8(2x^2-a^2)\sqrt{a^2-x^2}+
+  \df{a^4}{8}\arcsin\df xa+C$
+  \item
+  $\i\df{\sqrt{a^2-x^2}}{x}{\d x}\quad=\quad\sqrt{a^2-x^2}+a\ln\df{a-\sqrt{a^2-x^2}}{|x|}+C$
+  \item $\i\df{\sqrt{a^2-x^2}}{x^2}{\d x}\quad=\quad-\df{\sqrt{a^2-x^2}}{x}-\arcsin\df xa+C$
+% \end{enumerate}
+
+\bigskip
+{\bf （九）含有$\sqrt{\pm ax^2+bx+c}\;(a>0)$的积分}\ps{$ax^2+bx+c=a\left(x+
+\df b{2a}\right)^2+c-\df{b^2}{4a}$}
+% \bigskip
+% \begin{enumerate}
+%   \addtocounter{enumi}{72}
+  \item $\i\df{{\d x}}{\sqrt{ax^2+bx+c}}\quad=\quad\df{1}{\sqrt a}\ln|2ax+b+2\sqrt
+  a\sqrt{ax^2+bx+c}|+C$
+  \item $\i\sqrt{ax^2+bx+c}{\d x}\quad=\quad\df{2ax+b}{4a}\sqrt{ax^2+bx+c}$\\
+  $.\hspace{5cm}+\df{4ac-b^2}{8\sqrt{a^3}}\ln|2ax+b+2\sqrt a\sqrt{ax^2+bx+c}|+C$
+  \item $\i\df{x}{\sqrt{ax^2+bx+c}}{\d x}\quad=\quad\df 1a\sqrt{ax^2+bx+c}$\\
+  $.\hspace{5cm}-\df{b}{2\sqrt{a^3}}\ln|2ax+b+2\sqrt a\sqrt{ax^2+bx+c}|+C$
+  \item $\i\df{{\d x}}{\sqrt{-ax^2+bx+c}}\quad=\quad-\df 1{\sqrt
+  a}\arcsin\df{2ax-b}{\sqrt{b^2+4ac}}+C$
+  \item $\i\sqrt{-ax^2+bx+c}{\d x}\quad=\quad\df{2ax-b}{4a}\sqrt{-ax^2+bx+c}$\\
+  $.\hspace{5cm}+\df{b^2+4ac}{8\sqrt{a^3}}\arcsin\df{2ax-b}{\sqrt{b^2+4ac}}+C$
+  \item $\i\df{x}{\sqrt{-ax^2+bx+c}}{\d x}\quad=\quad-\df 1a\sqrt{-ax^2+bx+c}+\df
+  b{2\sqrt{a^3}}\arcsin\df{2ax-b}{\sqrt{b^2+4ac}}+C$
+% \end{enumerate}
+
+\bigskip
+{\bf （十）含有$\sqrt{\pm\df{x-a}{x-b}}$或$\sqrt{(x-a)(b-x)}$的积分}
+\ps{$t=\sqrt{\df{x-a}{x-b}}$}
+% \bigskip
+% \begin{enumerate}
+%   \addtocounter{enumi}{78}
+  \item
+  $\i\sqrt{\df{x-a}{x-b}}{\d x}\quad=\quad(x-b)\sqrt{\df{x-a}{x-b}}+(b-a)\ln(\sqrt{|x-a|}+\sqrt{|x-b|})+C$
+  \item $\i\sqrt{\df{x-a}{b-x}}{\d x}\quad=\quad(x-b)\sqrt{\df{x-a}{b-x}}
+  +(b-a)\arcsin\sqrt{\df{x-a}{b-a}}+C$
+  \item $\i\df{{\d x}}{\sqrt{(x-a)(b-x)}}\quad=\quad2\arcsin\sqrt{\df{x-a}{b-a}}+C\;(a<b)$
+  \item $\i\sqrt{(x-a)(b-x)}{\d x}\quad=\quad\df{2x-a-b}{4}\sqrt{(x-a)(b-x)}$\\
+  $.\hspace{5cm}+\df{(b-a)^2}{4}\arcsin\sqrt{\df{x-a}{b-a}}+C\;(a<b)$
+% \end{enumerate}
+
+\bigskip
+{\bf （十一）含有三角函数的积分}
+% \bigskip
+% \begin{enumerate}
+%   \addtocounter{enumi}{82}
+  \item $\i\sin x{\d x}\quad=\quad-\cos x+C$
+  \item $\i\cos x{\d x}\quad=\quad\sin x+C$
+  \item $\i\tan x{\d x}\quad=\quad-\ln|\cos x|+C$
+  \item $\i\cot x{\d x}\quad=\quad\ln|\sin x|+C$
+  \item $\i\sec x{\d x}\quad=\quad\ln\left|\tan\left(\df
+  x2+\df{\pi}{4}\right)\right|+C\quad=\quad\ln|\sec x+\tan x|+C$
+  \item $\i\csc x{\d x}\quad=\quad\ln\left|\tan\df x2\right|+C=\ln|\csc x-\cot x|+C$
+  \item $\i\sec^2x{\d x}\quad=\quad\tan x+C$
+  \item $\i\csc^2x{\d x}\quad=\quad-\cot x+C$
+  \item $\i\sec x\tan x{\d x}\quad=\quad\sec x+C$
+  \item $\i\csc x\cot x{\d x}\quad=\quad-\csc x+C$
+  \item $\i\sin^2x{\d x}\quad=\quad\df x2-\df 14\sin 2x+C$
+  \item $\i\cos^2x{\d x}\quad=\quad\df x2+\df 14\sin 2x+C$
+  \item $\i\sin^nx{\d x}\quad=\quad-\df 1n\sin^{n-1}x\cos
+  x+\df{n-1}{n}\i\sin^{n-2}x{\d x}$
+  \item $\i\cos^nx{\d x}\quad=\quad\df 1n\cos^{n-1}x\sin
+  x+\df{n-1}{n}\i\cos^{n-2}x{\d x}$
+  \item $\i\df{{\d x}}{\sin^nx}\quad=\quad-\df{1}{n-1}\cdot\df{\cos x}{\sin^{n-1}x}
+  +\df{n-2}{n-1}\i\df{{\d x}}{\sin^{n-2}x}$
+  \item $\i\df{{\d x}}{\cos^nx}\quad=\quad\df{1}{n-1}\cdot\df{\sin x}{\cos^{n-1}x}
+  +\df{n-2}{n-1}\i\df{{\d x}}{\cos^{n-2}x}$
+  \item
+  $\i\cos^mx\sin^nx{\d x}\quad=\quad\df{1}{m+n}\cos^{m-1}x\sin^{n+1}x+\df{m-1}{m+n}\i\cos^{m-2}x\sin^nx{\d x}$\\
+  $.\hspace{4cm}\quad=\quad-\df{1}{m+n}\cos^{m+1}x\sin^{n-1}x+\df{n-1}{m+n}\i\cos^mx\sin^{n-2}x{\d x}$
+  \item $\i\sin ax\cos
+  bx{\d x}\quad=\quad-\df{1}{2(a+b)}\cos(a+b)x-\df{1}{2(a-b)}\cos(a-b)x+C$
+  \item $\i\sin ax\sin
+  bx{\d x}\quad=\quad-\df{1}{2(a+b)}\sin(a+b)x+\df{1}{2(a-b)}\sin(a-b)x+C$
+  \item $\i\cos ax\cos bx{\d x}\quad=\quad\df{1}{2(a+b)}\sin(a+b)x+\df{1}{2(a-b)}\sin(a-b)x+C$
+  \item $\i\df{{\d x}}{a+b\sin x}\quad=\quad\df 2{\sqrt{a^2-b^2}}\arctan\df{a\tan\df
+  x2+b}{\sqrt{a^2-b^2}}+C\;(a^2>b^2)$
+  \ps{万能公式，$t=\tan\df x2$,\\
+  $\sin x=\df{2t}{1+t^2}$,\\
+  $\cos x=\df{1-t^2}{1+t^2}$}
+  \item $\i\df{{\d x}}{a+b\sin x}\quad=\quad\df{1}{\sqrt{b^2-a^2}}\ln\left|
+  \df{a\tan\df x2+b-\sqrt{b^2-a^2}}{a\tan\df
+  x2+b+\sqrt{b^2-a^2}}\right|+C\;(a^2<b^2)$
+  \item $\i\df{{\d x}}{a+b\cos
+  x}\quad=\quad\df{2}{a+b}\sqrt{\df{a+b}{a-b}}\arctan\left(
+  \sqrt{\df{a-b}{a+b}}\tan\df x2\right)+C\;(a^2>b^2)$
+  \item $\i\df{{\d x}}{a+b\cos x}\quad=\quad\df{1}{a+b}\sqrt{\df{a+b}{b-a}}\ln\left|
+  \df{\tan\df x2+\sqrt{\df{a+b}{b-a}}}{\tan
+  \df x2-\sqrt{\df{a+b}{b-a}}}\right|+C\;(a^2<b^2)$
+  \item $\i\df{{\d x}}{a^2\cos^2x+b^2\sin^2x}\quad=\quad\df{1}{ab}\arctan\left(\df
+  ba\tan x\right)+C$\ps{$t=\tan x$}
+  \item $\i\df{{\d x}}{a^2\cos^2x-b^2\sin^2x}\quad=\quad\df{1}{2ab}\ln\left|
+  \df{b\tan x+a}{b\tan x-a}\right|+C$
+  \item $\i x\sin ax{\d x}\quad=\quad\df{1}{a^2}\sin ax-\df 1ax\cos ax+C$
+  \item $\i x^2\sin ax{\d x}\quad=\quad-\df 1ax^2\cos ax+\df 2{a^2}x\sin ax+\df 2{a^3}\cos
+  ax+C$
+  \item $\i x\cos ax{\d x}\quad=\quad\df{1}{a^2}\cos ax+\df 1a\sin ax+C$
+  \item $\i x^2\cos ax{\d x}\quad=\quad\df 1a x^2\sin ax+\df 2{a^2}x\cos ax-\df 2{a^3}\sin
+  ax+C$
+% \end{enumerate}
+
+\bigskip
+{\bf （十二）含有反三角函数的积分（其中$a>0$）}
+% \bigskip
+% \begin{enumerate}
+%   \addtocounter{enumi}{112}
+  \item $\i\arcsin\df xa{\d x}\quad=\quad x\arcsin\df xa+\sqrt{a^2-x^2}+C$
+  \item $\i x\arcsin\df xa{\d x}\quad=\quad\left(\df{x^2}{2}-\df{a^2}{4}\right)\arcsin\df xa
+  +\df x4\sqrt{a^2-x^2}+C$
+  \item $\i x^2\arcsin\df xa{\d x}\quad=\quad\df{x^2}{3}\arcsin\df xa+\df
+  19(x^2+2a^2)\sqrt{a^2-x^2}+C$
+  \item $\i\arccos\df xa{\d x}\quad=\quad x\arccos\df xa-\sqrt{a^2-x^2}+C$
+  \item $\i x\arccos\df xa{\d x}\quad=\quad\left(\df{x^2}{2}-\df{a^2}{4}\right)\arccos\df xa
+  -\df x4\arccos\sqrt{a^2-x^2}+C$
+  \item $\i x^2\arccos\df xa{\d x}\quad=\quad\df{x^3}{3}\arccos\df xa-\df
+  19(x^2+2a^2)\sqrt{a^2-x^2}+C$
+  \item $\i\arctan\df xa{\d x}\quad=\quad x\arctan\df xa-\df a2\ln(a^2+x^2)+C$
+  \item $\i x\arctan\df xa{\d x}\quad=\quad\df 12(a^2+x^2)\arctan\df xa-\df a2x+C$
+  \item $\i x^2\arctan\df xa{\d x}\quad=\quad\df{x^3}{3}\arctan\df xa-\df
+  a6x^2+\df{a^3}{6}\ln(a^2+x^2)+C$
+% \end{enumerate}
+
+\bigskip
+{\bf （十三）含有指数函数的积分}
+% \bigskip
+% \begin{enumerate}
+%   \addtocounter{enumi}{121}
+  \item $\i a^x{\d x}\quad=\quad\df{1}{\ln a}a^x+C$
+  \item $\i e^{ax}{\d x}\quad=\quad\df 1ae^{ax}+C$
+  \item $\i xe^{ax}{\d x}\quad=\quad\df{1}{a^2}(ax-1)e^{ax}+C$
+  \item $\i x^ne^{ax}{\d x}\quad=\quad\df 1ax^ne^{ax}-\df na\i x^{n-1}e^{ax}{\d x}$
+  \item $\i xa^x{\d x}\quad=\quad\df{x}{\ln a}a^x-\df{1}{(\ln a)^2}a^x+C$
+  \item $\i x^na^x{\d x}\quad=\quad\df{1}{\ln a}x^na^x-\df{n}{\ln a}\i x^{n-1}a^x{\d x}$
+  \item $\i e^{ax}\sin bx{\d x}\quad=\quad\df{1}{a^2+b^2}e^{ax}(a\sin bx-b\cos bx)+C$
+  \item $\i e^{ax}\cos bx{\d x}\quad=\quad\df{1}{a^2+b^2}e^{ax}(b\sin bx+a\cos bx)+C$
+  \item $\i e^{ax}\sin^nbx{\d x}\quad=\quad\df{1}{a^2+b^2n^2}e^{ax}\sin^{n-1}bx(a\sin
+  bx-nb\cos bx)$\\
+  $.\hspace{4cm}+\df{n(n-1)b^2}{a^2+b^2n^2}\i e^{ax}\sin^{n-2}bx{\d x}$
+  \item $\i e^{ax}\cos^nbx{\d x}\quad=\quad\df{1}{a^2+b^2}e^{ax}\cos^{n-1}bx(a\cos bx+nb\sin
+  bx)$\\
+  $.\hspace{4cm}+\df{n(n-1)b^2}{a^2+b^2n^2}\i e^{ax}\cos^{n-2}bx{\d x}$
+% \end{enumerate}
+
+\bigskip
+{\bf （十四）含有对数函数的积分}
+% \bigskip
+% \begin{enumerate}
+%   \addtocounter{enumi}{131}
+  \item $\i\ln x{\d x}\quad=\quad x\ln x-x+C$
+  \item $\i\df{{\d x}}{x\ln x}\quad=\quad\ln|\ln x|+C$
+  \item $\i x^n\ln x{\d x}\quad=\quad\df 1{n+1}x^{n+1}\left(\ln x-\df 1{n+1}\right)+C$
+  \item $\i(\ln x)^n{\d x}\quad=\quad x(\ln x)^n-n\i(\ln x)^{n-1}{\d x}$
+  \item $\i x^m(\ln x)^n{\d x}\quad=\quad\df 1{m+1}x^{m+1}(\ln x)^n-\df{n}{m+1}\i x^m(\ln
+  x)^{n-1}{\d x}$
+% \end{enumerate}
+
+\bigskip
+{\bf （十五）含有双曲函数的积分}
+% \bigskip
+% \begin{enumerate}
+%   \addtocounter{enumi}{136}
+  \item $\i\mathrm{sh}x{\d x}\quad=\quad\mathrm{ch}x+C$
+  \item $\i\mathrm{ch}x{\d x}\quad=\quad\mathrm{sh}x+C$
+  \item $\i\mathrm{th}x{\d x}\quad=\quad\ln\mathrm{ch}x+C$
+  \item $\i\mathrm{sh}^2x{\d x}\quad=\quad -\df x2+\df 14\mathrm{sh}2x+C$
+  \item $\i\mathrm{ch}^2x{\d x}\quad=\quad\df x2+\df 14\mathrm{sh}2x+C$
+% \end{enumerate}
+
+\bigskip
+{\bf （十六）定积分}
+% \bigskip
+% \begin{enumerate}
+%   \addtocounter{enumi}{141}
+  \item $\i_{-\pi}^{\pi}\cos nx{\d x}\quad=\quad\i_{-\pi}^{\pi}\sin nx{\d x}\quad=\quad
+  0$
+  \item $\i_{-\pi}^{\pi}\cos mx\sin nx{\d x}\quad=\quad 0$
+  \item $\i_{-\pi}^{\pi}\cos mx\cos nx{\d x}\quad=\quad \left\{\begin{array}{ll}
+  0,&\quad m\ne n\\ \pi, &\quad m=n
+  \end{array}\right.$
+  \item $\i_{-\pi}^{\pi}\sin mx\sin nx{\d x}\quad=\quad\left\{\begin{array}{ll}
+  0,&\quad m\ne n\\ \pi, &\quad m=n
+  \end{array}\right.$
+  \item $\i_0^{\pi}\sin mx\sin nx{\d x}\quad=\quad\i_0^{\pi}\cos mx\cos nx{\d x}\quad=\quad\left\{\begin{array}{ll}
+  0,&\quad m\ne n\\ \pi/2, &\quad m=n
+  \end{array}\right.$
+  \item $I_n\quad=\quad\i_{0}^{\pi/2}\sin^nx{\d x}\quad
+  =\quad\i_{0}^{\pi/2}\cos^nx{\d x}
+  =\df{n-1}{n}I_{n-2}$\\
+  $.\quad\hspace{8pt}=\quad\left\{\begin{array}{l}
+  \df{n-1}{n}\cdot\df{n-3}{n-2}\cdot\cdots\cdot\df
+  45\cdot\df 23\mbox{（}n\mbox{为大于}1\mbox{的正奇数）},I_1=1\\
+  \df{n-1}{n}\cdot\df{n-3}{n-2}\cdot\cdots\cdot\df
+  34\cdot\df 12\cdot\df{\pi}{2}\mbox{（}n\mbox{为正偶数）},I_0=\df{\pi}{2}
+   \end{array}\right.$
+\end{enumerate}

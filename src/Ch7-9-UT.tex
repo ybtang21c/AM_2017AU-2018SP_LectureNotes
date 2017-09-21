@@ -1,0 +1,209 @@
+\linespread{2}
+
+\begin{center}
+	{\huge
+	\bf 春季学期单元测验一}
+	
+	\it （常微分方程、空间解析几何与向量值函数）
+\end{center}
+
+% \large
+
+{\bf 一、填空题（每题3分）}
+
+\begin{enumerate}
+  \setlength{\itemindent}{2ex}
+  \item 已知一个向量与三个坐标面的夹角分别为$\alpha,\beta,\gamma$，则
+  $\cos^2\alpha+\cos^2\beta+\cos^2\gamma=$\underline{\hspace{2cm}}.
+  \item 异面直线$\left\{\begin{array}{l}
+  x+y+z+1=0\\2x-y+3z+4=0
+  \end{array}\right.$与$(-1+2t,-t,2-2t)\;(t\in\mathbb{R})$
+  之间的距离为\underline{\hspace{2cm}}.
+  \item 方程$yy''+(y')^2=0$满足$y(0)=1,y'(0)=1/2$的解是
+  \underline{\hspace{4cm}}.
+  \item 设$xe^x+e^{2x},xe^x+e^{-x},xe^x+e^{2x}-e^{-x}$均为某二阶非齐次线性微分方程的解，
+  则该方程为\underline{\hspace{4cm}}.
+  \item $\dint_{1}^{\sqrt3}\left(t^2,\df1{1+t^2}\right)\d t=$
+  \underline{\hspace{4cm}}.
+\end{enumerate}
+
+{\bf 二、选择题（每题3分）}
+
+1. 方程$y^{(4)}-2y'''-3y''=e^{-3x}-2e^{-x}+x$的一个特解形式是
+	(\underline{\quad})
+	\begin{enumerate}[(A)]
+      \setlength{\itemindent}{1cm}
+	  \item $Axe^{-3x}+Bxe^{-x}+Cx^3$
+	  \item $Ae^{-3x}+Bxe^{-x}+Cx+D$
+	  \item $Ae^{-3x}+Bxe^{-x}+Cx^3+Dx^2$
+	  \item $Axe^{-3x}+Be^{-x}+Cx^3+Dx$
+	\end{enumerate}
+
+2. 设$\left|\begin{array}{ccc}
+	a_1 & b_1 & c_1\\ a_2 & b_2 & c_2\\ a_3 & b_3 & c_3
+	\end{array}\right|\ne 0$，则
+	直线
+	$\df{x-a_3}{a_1-a_2}=\df{y-b_3}{b_1-b_2}$
+	$=\df{z-c_3}{c_1-c_2}$
+	和
+	$\df{x-a_1}{a_2-a_3}=\df{y-b_1}{b_2-b_3}$
+	
+	\quad\quad$=\df{z-c_1}{c_2-c_3}$
+	(\underline{\quad})
+	\begin{enumerate}[(A)]
+      \setlength{\itemindent}{1cm}
+	  \item 相交于点$(a_2+a_3-a_1,b_2+b_3-b_1,c_2+c_3-c_1)$
+	  \item 相交于点$(a_1+a_3-a_2,b_1+b_3-b_2,c_1+c_3-c_2)$
+	  \item 相交于点$(a_1+a_2-a_3,b_1+b_2-b_3,c_1+c_2-c_3)$
+	  \item 不相交
+	\end{enumerate}
+
+3. 设$f(x),f'(x)$均为连续函数，则方程
+	$y'+f'(x)y=f(x)f'(x)$的通解为
+	(\underline{\quad})
+	\begin{enumerate}[(A)]
+      \setlength{\itemindent}{1cm}
+	  \item $y=f(x)+Ce^{-f(x)}$
+	  \item $y=f(x)+1+Ce^{-f(x)}$
+	  \item $y=f(x)-C+Ce^{-f(x)}$
+	  \item $y=f(x)-1+Ce^{-f(x)}$
+	\end{enumerate}
+
+4. 两条平行直线$\df{x-x_i}{l}=\df{y-y_i}{m}=\df{z-z_i}{n},(i=1,2)$之间的距离为
+	(\underline{\quad})
+	\begin{enumerate}[(A)]
+      \setlength{\itemindent}{1cm}
+	  \item $\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}$
+	  \item $\sqrt{\df{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}{l^2+m^2+n^2}}$
+	  \item $\df{|(x_2-x_1,y_2-y_1,z_2-z_1)\cdot(l,m,n)|}{|(l,m,n)|}$
+	  \item $\df{|(x_2-x_1,y_2-y_1,z_2-z_1)\times(l,m,n)|}{|(l,m,n)|}$
+	\end{enumerate}
+
+5. 设$\bm{c}=A\bm{a}+B\bm{b}$，其中$\bm{a},\bm{b}$均为非零向量，且线性无关。若这三个向量起点相同，终点
+
+	共线，则必有
+	(\underline{\quad})
+	
+	\hspace{1em}(A)\;$AB\geq 0$\quad (B)\;$AB\leq 0$ \quad (C)\;$A+B=1$\quad
+	(D)\;$A^2+B^2=1$
+
+\bigskip
+{\bf 三（6分）、}设一动点的运动轨迹为$\bm{r}(t),(t\in\mathbb{R})$，且$|\bm{r}'(t)|=C$为常数，证明：
+其运动速度与加速度相互垂直。
+
+\bigskip
+{\bf 四（6分）、}求以原点为顶点，轴与向量$(1,1,1)$平行，且半顶角为$\pi/4$的圆锥面方程。
+
+\bigskip
+{\bf 五（6分）、}解方程$xy\d x+(y^4-x^2)\d y=0$.
+
+\bigskip
+{\bf 六（6分）、}解方程$y'=(x+y)^2$.
+
+\bigskip
+{\bf 七（6分）、}解方程$(xy'-y)\arctan\df yx=x$.
+
+\bigskip
+{\bf 八（8分）、}求曲线$\Gamma:\left\{\begin{array}{l}
+x^2+y^2+z^2=4\\ y=x
+\end{array}\right.$在点$(1,1,\sqrt2)$处的法平面方程。
+
+\bigskip
+{\bf 九（8分）、}利用变换$t=e^x$，求解方程$y''-(2e^x+1)y'+e^{2x}y=e^{3x}$.
+
+\bigskip
+{\bf 十（8分）、}求直线$l:\left\{\begin{array}{l}
+x+y-z-1=0\\x-y+z+1=0
+\end{array}\right.$
+在平面$x+y+z=0$上的投影直线的对称式方程。
+
+\bigskip
+{\bf 十一（8分）、}已知点$A(1,0,0)$和$B(0,1,1)$，直线段$AB$绕$z$轴旋转一周所得曲面记为$S$，
+求由$S$及$z=0$和$z=1$所围成的封闭区域的体积。
+
+\bigskip
+{\bf 十二（8分）、}位于上半平面的凹曲线$y=y(x)$在$(0,1)$处的切线斜率为$0$，在$(2,2)$处
+的切线斜率为$1$。已知曲线上任一点处的曲率半径与$\sqrt y$及$[1+(y')^2]$的乘积成正比，求该曲线的方程。
+
+\newpage
+
+\begin{center}
+	{\huge
+	\bf 解答与评分标准}
+\end{center}
+
+{\bf 一、填空题（每题3分）}
+
+1. $2$;\quad 2. $2$;\quad 3. $y^2=x+1$;\quad 4. $y''-y'-2y=e^x(1-2x)$;\quad 
+5. $\left(\sqrt3-\df13,\df{\pi}{12}\right)$
+
+{\bf 二、选择题（每题3分）}
+
+1. C;\quad 2. B \quad 3. D\quad 4. D\quad 5. C
+
+{\bf 三（6分）、}证明：由已知，
+\begin{align}
+	0&=(C^2)'=\left[|\bm{r}'(t)|^2\right]'=\left[\bm{r}'(t)\cdot\bm{r}'(t)\right]'\tag{+3}\\
+	&=2\bm{r}'(t)\cdot\bm{r}''(t)\tag{+3}
+\end{align}
+由此可知速度$\bm{r}'(t)$与加速度$\bm{r}''(t)$相互垂直，即证。
+
+{\bf 四（6分）、}解：任取圆锥上一点$P(x,y,z)$，由题意向量$\vec{OP}$与$(1,1,1)$的夹角为$\pi/4$，也即
+$$\cos\df{\pi}4=\df{(x,y,z)(1,1,1)}{|(x,y,z)||(1,1,1)|},\eqno{(+3)}$$
+整理可得
+$$x^2+y^2+z^2-4xy-4yz-4xz=0.\eqno{(+3)}$$
+即为所求。
+
+{\bf 五（6分）、}通解：$x^2=y^2(C-y^2),(C\in\mathbb{R})$，过程参见辅导书（下）P236-例10-7(2)
+
+{\bf 六（6分）、}通解：$x+y=\tan(x+C),(C\in\mathbb{R})$，过程参见辅导书（下）P238-例10-9(2)
+
+{\bf 七（6分）、}解：令$z=\df yx$，原方程可化为
+$$\arctan z\d z=\df{\d x}x,\eqno{(+2)}$$
+两边分别积分，整理后可得
+$$\df yx\arctan\df yx=C+\ln\sqrt{x^2+y^2},(C\in\mathbb{R})\eqno{(+4)}$$
+
+{\bf 八（8分）、}解：$\Gamma$在$xOz$平面上的投影为$\left\{\begin{array}{l}
+2x^2+z^2=4\\ y=0
+\end{array}\right.$，其参数方程为$x(t)=\sqrt2\cos t,z(t)=2\sin t,(t\in\mathbb{R})$。
+\hfill{(+3)}
+
+将$x(t),z(t)$其带入$\Gamma$的表达式，可得$\Gamma$对应的向量值函数（参数方程）为
+$$\bm{r}(t)=(\sqrt2\cos t,\sqrt2\cos t,2\sin t),(t\in\mathbb{R})\eqno{(+2)}$$
+当$t=\pi/4$时，取$(1,1,\sqrt 2)$，从而该点处的切向量为$\bm{r}'(\pi/4)=(-1,-1,\sqrt
+2)$，进而可求得该点处的法平面方程为 
+$$x+y=\sqrt2z.\eqno{(+3)}$$
+
+{\bf 九（8分）、}解：令$t=e^x$，则
+$$y'_x=ty'_t,\quad y''_{xx}=ty'_t+t^2y''_{tt}.\eqno{(+3)}$$
+原方程化为
+$$y''_{tt}-2y'_t-y=t,\eqno{(+1)}$$
+解之，整理即得
+$$y=(C_1+C_2e^x)e^{e^x}+e^x+2,(C_1,C_2\in\mathbb{R}).\eqno{(+4)}$$
+
+{\bf 十（8分）、}解：过$l$的平面束为
+$$\pi^*:A(x+y-z-1)+B(x-y+z+1)=0.\eqno{(+3)}$$
+令$\pi^*\perp\pi$，则
+$$(1,1,1)\cdot(A+B,A-B,-A+B)=0\;\Rightarrow\;A+B=0.$$
+不妨令$A=-B=1$，可得平面$\pi_1:y-z-1=0$，联立$\pi$和$\pi_1$的方程即得所求投影曲线方程。\hfill{(+3)}
+
+对应的对称式方程为：
+$$\df{x+1}{-1}=\df y1=\df{z+1}1.\eqno{(+2)}$$
+
+{\bf 十一（8分）、}解：直线$AB$的方程为
+$$\df{x-1}{-1}=\df y1=\df z1,\eqno{(+3)}$$
+也即$x=1-z,y=z$。
+
+取定$z$，由$(x,y,z)$绕$z$轴旋转所得圆的半径为
+$$r=\sqrt{x^2+y^2}=\sqrt{1-2z+2z^2}.\eqno{(+2)}$$
+从而体积微元$\d V=\pi r^2\d z=\pi(1-2z+2z^2)\d z,\;(0\leq z\leq 1)$，故所求体积
+$$V=\dint_0^1\pi(1-2z+2z^2)\d z=\df23\pi.\eqno{(+3)}$$
+
+{\bf 十二（8分）、}解：由已知可得初值条件：$y(0)=1,y'(0)=0,y(2)=2,y'(2)=1$。
+$$\df{[1+(y')^2]^{3/2}}{y''}=k\sqrt y[1+(y')^2],$$
+也即$k\sqrt yy''=\sqrt{1+(y')^2}$。\hfill{(+3)}
+
+令$y'=p(y)$，方程化为$k\sqrt ypp'=\sqrt{1+p^2}$，解得$\sqrt{1+(y')^2}=\df2k\sqrt
+y+C,(C\in\mathbb{R})$。带入前述初值条件，可得$k=2,C=0$，于是\hfill{(+3)}
+$$\sqrt{1+(y')^2}=\sqrt y\quad\Rightarrow\quad 2\sqrt{y-1}=x+C_1,$$
+再次利用初值条件可得$C_1=0$，故有$y(x)=\df{x^2}4+1$。\hfill{(+2)}

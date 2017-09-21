@@ -1,0 +1,186 @@
+\begin{center}
+	{\bf\Large 求极限的常用方法及典型例题}\ps{阅读本资料时，建议结合复习已经作过的
+	极限题目一起进行，一方面可以补充每一种方法之下的典型例题，另一方面也可以为已经练习过
+	的极限题目寻找新的解题思路}
+\end{center}
+
+本资料主要总结了一些技巧性较强和方法有一定典型性（例如针对特定类型的极限问题）
+的极限计算方法，一些通用性较强（如夹逼定理、基本极限、有理函数的极限）或过于特殊
+（如利用级数收敛的必要条件）的方法并未列出，建议在阅读本资料时根据需要自行加以复习。
+
+以下的方法排序一定程度上反映了使用的普遍性，适用程度更广的方法尽量列在前面。
+
+\bigskip
+{\bf 【用等价无穷小代换求极限】}\ps{最简单有效的方法，注意和Taylor公式与'Hospital
+法则的结合使用}
+
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\limx{0}\df{\sqrt[n]{1+x^2}-1}{\ln\df{1+x^2}{1-x^2}}
+  =\limx{0}\df{\df1nx^2}{\df{2x^2}{1-x^2}}=\df1{2n}$
+  \item $\limx{0}\df{\cos x\sqrt{\cos 2x}\sqrt[3]{\cos 3x}-1}{\ln\cos x}
+  =\limx{0}\df{\cos x\sqrt{\cos 2x}\sqrt[3]{\cos 3x}-1}{\cos x-1}\\[1ex]
+  .\hspace{1cm}
+  =-2\limx{0}\df{\cos x\sqrt{\cos 2x}\sqrt[3]{\cos 3x}-1}{x^2}\\[1ex]
+  .\hspace{1cm} =-2\limx{0}\df{(\cos x-1)\sqrt{\cos 2x}\sqrt[3]{\cos 3x}
+  +(\sqrt{\cos 2x}-1)\sqrt[3]{\cos 3x}+(\sqrt[3]{\cos 3x}-1)}{x^2}\\
+  .\hspace{1cm} =1-2\limx{0}\df{\df12(\cos2x-1)}{x^2}
+  -2\limx{0}\df{\df13(\cos3x-1)}{x^2}=1+2+3=6$
+  \item $\limx{0}\df{\tan x\ln\cos\sqrt x}{3^{x^2}-2^{-x^2}}
+  =\limx{0}\df{x(\cos\sqrt x-1)}{e^{x^2\ln6}-1}
+  =-\limx0\df{x^2}{2\ln6\cdot x^2}=-\df1{2\ln6}$
+\end{enumerate}
+
+\bigskip
+{\bf 【用L'Hospital法则求极限】}
+
+略。提示：应用L'Hospital求极限，一定要注意两点：
+
+{\it 1）极限必须为$\df00$或$\df{\infty}{\infty}$型；
+
+2）中间步骤及时化简，与其他方法结合使用。}
+
+\bigskip
+{\bf 【用Taylor公式求极限】}\ps{重点掌握，有一定难度！}
+
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\limx{+\infty}\left[x-x^2\ln\left(1+\df 1x\right)\right]\\
+  .\hspace{1cm} =\limx{0^+}\df{x-\ln(1+x)}{x^2}=\limx{0^+}
+  \df{x-\left[x-\df{x^2}2+\circ(x^2)\right]}{x^2}=\df12$
+  \item $\limn n\left[e-\left(1+\df 1n\right)^n\right]
+  =-e\limx{0^+}\df{e^{\frac1x\ln(1+x)-1}-1}{x}
+  =-e\limx{0^+}\df{\df1x\ln(1+x)-1}x\\
+  .\hspace{1cm} =-e\limx{0^+}\df{\df1x\left[x-\df{x^2}2
+  +\circ(x^2)\right]-1}x=\df e2$
+  \item $\limx 0\df{e^{x^3}-1-x^3}{\sin^6x}
+  =\limx0\df{1+x^3+\df{x^6}2+\circ(x^6)-1-x^3}{x^6}=\df12$
+\end{enumerate}
+
+\bigskip
+
+{\bf 【用Stolz定理求数列极限】}\ps{仅适用于数列极限的问题，且必须注意有些情况下是不能使用的}
+
+\bigskip
+{\bf Stolz定理：}设$\limn x_n=+\infty$，且$x_n$从某一项开始严格单调增加，若
+$$\limn\df{y_n-y_{n-1}}{x_n-x_{n-1}}=a\;(a\mbox{为有限值或}\pm\infty)$$
+则$\limn\df{y_n}{x_n}=a$
+
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\limn\df{1!+2!+\ldots+n!}{n!}=\limn\df{n!}{n!-(n-1)!}=1$
+  \item $p>0$，则$\limn\df{1^p+2^p+\ldots+n^p}{n^{p+1}}
+  =\limn\df{n^p}{n^{p+1}-(n-1)^{p+1}}=\df1{p+1}$
+  （最后一步的计算方法参见【用中值定理计算极限】）
+  \item 若$\limn a_n=a$，则下列等式成立
+  \begin{itemize}
+  	\item $\limn\df{a_1+a_2+\ldots+a_n}{n}=a$
+  	\item $\limn\sqrt[n]{a_1a_2\ldots a_n}=a\;(a_i>0,i=1,2,\ldots,n)$
+  \end{itemize}
+  \item $\limn\df{1+\sqrt2+\sqrt[3]3+\ldots+\sqrt[n]n}n=\limn\sqrt[n]n=1$
+  \begin{itemize}
+    \item $\limn\df{1+\sqrt[n]2+\sqrt[n]3+\ldots+\sqrt[n]n}n$不能使用Stolz定理，
+    因为其分子不具有$a_1+a_2+\ldots+a_n$的形式，正确做法是使用夹逼定理
+    $$1<\df{1+\sqrt[n]2+\sqrt[n]3+\ldots+\sqrt[n]n}n<\df{n\sqrt[n]n}n$$
+  \end{itemize}
+\end{enumerate}
+
+\bigskip
+{\bf 【用递推的方法求数列极限】}
+
+{\bf 方法一：}利用$\{a_n\}$的递推公式，两边同时取极限，解出极限值。
+
+{\bf 例：}$\limn\df{2^n}{n!}$
+
+提示：令$a_n=\df{2^n}{n!}$，则$a_{n+1}=\df{2a_n}{n+1}$，设所求极限为$a$，前式
+两边取极限可得$a=0\cdot a$，故$a=0$
+
+{\bf 方法二：}利用如下结论：若$a_n>0$，$\limn\df{a_{n+1}}{a_n}=a$，
+则$\limn\sqrt[n]{a_n}=a$\ps{事实上是对Stolz定理的一个应用}
+
+{\bf 例：} $\limn\df{\sqrt[n]{n!}}{n}$
+
+提示：令$a_n=\df{n^n}{n!}$，容易证明$\limn\df{a_{n+1}}{a_n}=\df1e$，故
+原式$=\limn\sqrt[n]{a_n}=\df1e$
+
+\bigskip
+{\bf 【用定积分的概念求数列极限】}\ps{考试中频繁出现的知识点！}
+$$\lim\limits_{n\to\infty}\df 1n\sum\limits_{k=1}^n
+    f\left(\df kn\right)=\dint_0^1f(x)\d x$$
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\limn\df 1n\left[\sin\df{\pi}{n}+\sin\df{2\pi}{n}+\ldots
+		  +\sin\df{(n-1)\pi}{n}\right]=\df1{\pi}\dint_0^{\pi}\sin x\d x
+		  =\df2{\pi}$
+  \item $\limn\left(\df{1}{n^2}+\df{2}{n^2}+\ldots+\df{n-1}{n^2}\right)
+  =\dint_0^1x\d x=\df12$
+  \item $\limn\sum\limits_{k=1}^n\df k{n^3}\sqrt{n^2-k^2}
+  =\dint_0^1x\sqrt{1-x^2}\d x=\df13$
+  \item $G_n=\sqrt[n]{(n+1)(n+2)\cdots(n+n)},(n=1,2,\ldots)$，求
+	$\limn\df{G_n}n$.\\
+  提示：$\limn\ln\df{G_n}n=\limn\df1n\sum\limits_{k=1}^n\ln\left(1+\df kn\right)
+=\dint_0^1\ln(1+x)\d x=2\ln2-1$
+\end{enumerate}
+
+\bigskip
+{\bf 【用导数的定义求极限】}\ps{较易被忽视，当常常非常简单有效！}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 设$f(x)$在$x=a$的某领域内有定义，$f'(a)$存在，则下述结论均成立：
+	\begin{itemize}
+	  \item $\lim\limits_{h\to+\infty}h\left[f\left(a+\df
+	  1h\right)-f(a)\right]=f'(a)$
+	  \item $\lim\limits_{h\to 0}\df{f(a+2h)-f(a+h)}{h}=f'(a)$
+	  \item $\lim\limits_{h\to 0}\df{f(a+h)-f(a-h)}{2h}=f'(a)$
+	  \item $\lim\limits_{h\to 0}\df{f(a)-f(a-h)}{h}=f'(a)$
+	\end{itemize}
+  \item $a>0$，则$\limn n\left(\sqrt[n] a-1\right)=\limx{0^+}
+  \df{a^x-1}x=\left(a^x\right)'_{x=0}=\ln a$
+  \item $\limn\df{n(\sqrt[n]n-1)}{\ln n}=\limn\df{\sqrt[n]n-1}
+  {\ln\sqrt[n]n-\ln1}=\limx{1^+}\df{x-1}{\ln x-\ln1}
+  =\df1{(\ln x)'_{x=1}}=1$
+  \item $\lim\limits_{x\to \infty} x\left[\sin\ln\left(1+\df 3x\right)
+  -\sin\ln\left(1-\df 3x\right)\right]\\
+  .\hspace{1cm} =6\limx{0}\df{\sin\ln(1+3x)-\sin\ln(1-3x)}{6x}
+  =6(\sin\ln x)'_{x=1}=6$
+  \item 设$f(x)$在$a$点可导，$f(a)>0$，求$\limn\left[\df{f\left(a+\df
+  1n\right)}{f(a)}\right]^n$\\
+  提示：
+  $$\limn\df{\ln f\left(a+\df1n\right)-\ln f(a)}{\df1n}
+  =\limx{0^+}\df{\ln f(a+x)-\ln f(a)}x=(\ln
+  f(x))'_{x=a}=\df{f'(a)}{f(a)}$$
+  故原式$=\exp{\df{f'(a)}{f(a)}}$
+  \item 设$f'(0)\ne 0$，求$\lim\limits_{x\to 0}\df{f(x)e^x-f(0)}{f(x)\cos
+  x-f(0)}$\\
+  提示：
+  $$\mbox{原式}=\limx{0}\df{f(x)e^x-f(0)e^0}x\limx{0}
+  \df{x}{f(x)\cos x-f(0)\cos 0}=\df{[f(x)e^x]'_{x=0}}
+  {[f(x)\cos x]'_{x=0}}$$
+  \item 已知$f'(a)$存在，求$\limn n\left[\sum\limits_{i=1}^kf\left(
+  a+\df in\right)-kf(a)\right]$，其中$k$为确定的正整数\\
+  提示：
+  \begin{align}
+  	\mbox{原式}&=\limn n\sum\limits_{i=1}^k\left[f\left(a+\df in\right)
+  	-f(a)\right]=\sum\limits_{i=1}^k\limn\df {f\left(a+\df in\right)
+  	-f(a)}{\df in}i\notag\\
+  	&=\sum\limits_{i=1}^kif'(a)=\df{k(k+1)}2f'(a)\notag
+  \end{align}
+\end{enumerate}
+
+\bigskip
+{\bf 【用Lagrange中值定理和Cauchy中值定理求极限】}
+\ps{高级技巧，要特别注意正确的表达方式！}
+
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\limx{0}\df{e^x-e^{\tan x}}{x-\tan x}=\limx{0}e^{\xi}
+  =\lim\limits_{\xi\to 0}e^{\xi}=1$，其中$\xi$介于$x$和$\tan x$之间
+  \item $\limx{0}\df{\sin(\tan x)-\sin(\sin x)}{\tan x-\sin x}
+  =\limx{0}\cos\xi=\lim\limits_{\xi\to 0}\cos\xi=1$，其中$\xi$
+  介于$\tan x$和$\sin x$之间
+  \item $a\ne b$，则$\limx{0}\df{e^{ax}-e^{bx}}{\sin ax-\sin bx}
+  =\limx{0}\df{e^{\xi}}{\cos\xi}=\lim\limits_{\xi\to 0}\df{e^{\xi}}{\cos\xi}
+  =1$，其中$\xi$介于$ax$和$bx$之间
+  \item $\limn\df{n^9}{n^{10}-(n-1)^{10}}=\limx{+\infty}
+  \df{x^9}{10\xi^9}=\df1{10}$，其中$x-1<\xi<x$
+\end{enumerate}

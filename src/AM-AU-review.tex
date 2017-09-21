@@ -1,0 +1,440 @@
+\begin{center}
+	{\bf \Large 高等数学（上）复习要点}
+	
+	\vspace{1em}
+	
+	{\it（免责声明：以下内容仅供复习参考，与考试内容若有雷同，纯属巧合）}
+	
+	{\it updateded： 2015-12-29}
+\end{center}
+
+\setlength{\parindent}{-10pt}
+
+{\bf 一、集合与函数}
+\begin{enumerate}
+%   \item 常用不等式
+%   \begin{itemize}
+%     \item 绝对值不等式：$||a|-|b||\leq |a-b|\leq |a|+|b|$
+%     \item 平均值不等式：$\sqrt[n]{\prod\limits_{k=1}^n}a_k
+%     \leq\df 1n{\sum\limits_{k=1}^n}a_k
+%     \quad (a_k\geq 0)$
+% %     \item Bernoouli不等式：$(1+h)^n\geq 1+nh,\;(h\geq -2,\,n\in\mathbb{N})$
+% 	\item Cauchy不等式：$\left(\sum\limits_{i=1}^na_ib_i\right)\leq
+% 	\sum\limits_{i=1}^na_i^2\sum\limits_{i=1}^nb_i^2$
+% 	\item Schwarz积分不等式：$\left[\dint_a^bf(x)g(x)\d x\right]^2
+% 	\leq\dint_a^bf\,^2(x)\d x\dint_a^bg^2(x)\d x$ 
+%   \end{itemize}
+  \item 初等函数
+  \begin{itemize}
+%     \item 基本初等函数：幂函数、指数函数、对数函数、三角函数、反三角函数
+    \item 注意反三角函数的定义域与值域：
+    \begin{itemize}
+      \item $\arcsin x:[-1,1]\to[-\pi/2,\pi/2]$
+      \item $\arccos x:[-1,1]\to[0,\pi]$
+      \item $\arctan x:\mathbb{R}\to[-\pi/2,\pi/2]$
+      \item 例：分别讨论$\sin(\arcsin x)$与$\arcsin(\sin x)$的定义域与值域
+    \end{itemize}
+    \item 熟练掌握三角函数积化和差、和差化积公式，半角/倍角公式，万能公式
+  \end{itemize}
+%     \begin{itemize}
+%       \item $\sin A + \sin B=2\sin\df{A+B}{2}\cos\df{A-B}2$
+%       \item $\sin A\sin B=\df{\cos (A-B)-\cos(A+B)}{2}$
+%       \item 记$t=\tan\df x2$，则$\sin x=\df{2t}{1+t^2},\cos
+%       x=\df{1-t^2}{1+t^2},\tan x=\df{2t}{1-t^2}$
+%     \end{itemize}
+% 	\item 函数的基本性质
+% 	\begin{itemize}
+%       \item 单调性、有界性、奇偶性、对称性、周期性的定义
+%       \item 反面说法：1）“与”和“或”交换；2）“存在”和“任意”互换；3）“大(小)于”和“小(大)于等于”互换，例如：
+%       \begin{itemize}
+%         \item $f(x)$在区间$[a,b]$上有界：存在$M>0$，对任意$x\in[a,b]$，有
+%         $|f(x)|<M$
+%         \item （反面说法）$f(x)$在区间$[a,b]$上无界：对任意$M>0$，总存在$x_0\in[a,b]$，使得
+%         $|f(x_0)|\geq M$
+%       \end{itemize}
+% 	\end{itemize}
+    \item 常用函数
+    \begin{itemize}
+      \item 符号函数：$\mathrm{sgn}\,x$，重要性质：$|x|=x\cdot\mathrm{sgn}\,x$
+%       \item 取整函数（阶梯函数）：$[\,x\,]$
+      \item Dirichlet函数：$D(x)$，掌握如下证明：
+      \begin{itemize}
+	    \item $xD(x)$只在$x=0$连续（习题3.4-14）
+	    \item $D(x)$不可积（P309-例2）
+	  \end{itemize}
+%       \item Riemann函数（了解即可）：$R(x) =\left\{
+% 		\begin{array}{ll}
+% 		1,\;&x=0\\
+% 		\displaystyle\frac 1q,\;&x=\displaystyle\frac pq,\,p,q\mbox{为互素的整数}\\
+% 		0,\;&x\notin\mathbb{Q}
+% 		\end{array}
+% 	  \right. \;x\in[0,1]$
+% 	  \begin{itemize}
+% 	    \item $R(x)$对任意$x_0\in[0,1]$，$\lim\limits_{x\to x_0}R(x)=0$
+% 	    \item $R(x)$在无理数点连续，有理数点不连续
+% 	  \end{itemize}
+    \end{itemize}
+    \item 曲线的参数方程
+    \begin{itemize}
+      \item 熟练掌握极坐标与平面直角坐标的相互转换
+      \item 注意：使用参数方程时，必须明确指出参数的变化范围！
+    \end{itemize}
+\end{enumerate}
+
+\bigskip
+
+{\bf 二、数列极限}
+\begin{enumerate}
+  \item 掌握用极限的$\e-N$定义证明极限的方法
+  \item 极限的性质\ps{注意类比复习函数极限的有关性质}
+  \begin{itemize}
+    \item 掌握极限保号性的不同叙述（各种推论）和证明方法（P53-定理2.1.3，习题2.1-9）
+  \end{itemize}
+  \item 收敛的判定
+  \begin{itemize}
+    \item 单调有界原理：多用于证明递推数列的收敛性
+    \item 子数列的收敛性
+    \begin{itemize}
+      \item 掌握子数列收敛的$\e-N$定义！
+      \item 多用于证明原数列的极限不存在
+    \end{itemize}
+  \end{itemize}
+  \item 极限的计算：参见“求极限的常用方法及典型例题”（重点）
+  \item 递推数列的极限（难点）
+  \begin{itemize}
+    \item 能通过递推式求出极限的，可考虑先使用单调有界原理证明极限存在，
+    再在递推式两端同时取极限，解方程求出极限值（P65-例9）
+    \item 不能通过递推式求出极限的，则必须通过递推式求出数列的通项表达式（习题2.2-8）
+  \end{itemize}
+\end{enumerate}
+
+\bigskip
+
+{\bf 三、无穷级数（难点）}
+\begin{enumerate}
+  \item 级数收敛的定义
+  \begin{itemize}
+    \item 级数$\sumn a_n$收敛等价于其部分和数列$\{S_n\}$收敛：$\sumn a_n=\limn S_n$
+    \item 与反常积分类比：反常积分收敛等价于对应变限积分的极限存在
+    \begin{itemize}
+      \item 无穷积分：
+      $\dint_a^{+\infty}f(x)\d x=\lim\limits_{t\to+\infty}\dint_a^tf(x)\d x$
+%       \item 瑕积分（设$a$为$f(x)$的瑕点）：
+%       $\dint_a^bf(x)\d x=\lim\limits_{t\to a^+}\dint_t^bf(x)\d x$
+    \end{itemize}
+    \item 收敛的必要条件：$\limn a_n=0$，主要用于证明级数发散
+    \begin{itemize}
+      \item 类比：$\dint_a^{+\infty}f(x)\d x$，则必有$\limx{+\infty}f(x)=0$
+    \end{itemize}
+  \end{itemize} 
+  \item 正项级数收敛性的判定：\ps{（{\bf 注意:}（1）以下判别法只对正项级数成立；
+  （2）如无特别说明，判别法均为充分条件）}
+  \begin{itemize}
+    \item 通常首先尝试“比/根植判别法”
+    \begin{itemize}
+      \item 注意不等式形式与极限形式在叙述上的不同：例如：比值判别法的不等式形式：
+      设$a_n\geq 0(n\in\mathbb{N})$，且当$n$充分 大时，总有$\df{a_{n+1}}{a_n}\leq
+      q<1$，则$\sumn a_n$收敛。注意，其中要求两项的比值必须 小于等于某个比$1$小的正数$q$，
+      而不是仅仅要求$\df{a_{n+1}}{a_n}<1$，注意区别。
+    \end{itemize}
+    \item 接下来可以考虑“比较法（不等式形式与极限形式）”：最有用也最难用
+    \begin{itemize}
+      \item 常见的比较对象：$p$-级数、调和级数、几何级数
+    \end{itemize}
+    \item 有些特殊情形可以用到收敛的充要条件：部分和有界，通常需要用到有理分式的分解（见附录）
+    \item 了解Raabe判别法，不推荐使用！
+  \end{itemize}
+  \item 交错级数收敛的Leibnitz判别法：是充分而非必要条件！！
+  \item 变号级数收敛性
+  \begin{itemize}
+    \item 绝对收敛必收敛
+    \item 掌握条件收敛与绝对收敛的关系
+  \end{itemize}
+  \item 无穷级数的积分判别法：
+  \begin{itemize}
+    \item 若$x\to +\infty$时，$f(x)$单调趋于零，则$\sumn
+    f(n)$与$\dint_a^{+\infty}f(x)\d x$同敛散
+  \end{itemize}
+\end{enumerate}
+
+\bigskip
+
+{\bf 四、函数的极限与连续性}
+\begin{enumerate}
+  \item 函数极限
+  \begin{itemize}
+    \item 掌握用极限的$\e-\delta$定义证明极限的方法
+    \item 注意：$\limx{x_0}f(x)$与$f(x_0)$无关
+    \item 掌握极限保号性的不同叙述（推论）、证明方法（P110-定理3.1.4）及其应用（习题6.1-6）
+    \item 掌握极限$\limx{0}\df{\sin
+      x}{x}=1$和$\limx{\infty}\left(1+\df 1x\right)^x=e$（P120-121）的证明
+    \item Heine定理：常用于证明极限不存在（要求能正确理解并能完整叙述该定理）
+  \end{itemize}
+  \item 函数的连续性
+  \begin{itemize}
+    \item 熟练掌握间断点的分类（常见于填空和判断题，讨论铅直渐近线时也有应用）
+    \item 有界闭区间上连续函数的性质
+    \begin{itemize}
+      \item 有界性、最值存在性、介值定理
+      \item 重点：用介值性证明解的存在性
+    \end{itemize}
+  \end{itemize}
+  \item 无穷小代换（重点+熟练掌握）
+  \begin{itemize}
+    \item 熟练掌握$x\to 0$时，常用的等价无穷小
+    \item 了解无穷小相关的运算规则，例如：$x^m\cdot\circ(x^n)=\circ(x^{n+m})$
+    \item 重点掌握用无穷小代换计算极限：几乎可用于任何极限计算问题
+    \begin{itemize}
+      \item 原则：只能代换乘法因子！
+      \item 计算过程中注意与变量替换的结合
+    \end{itemize}
+  \end{itemize}
+\end{enumerate}
+
+\bigskip
+
+{\bf 五、导数与微分}
+\begin{enumerate}
+  \item 导数
+  \begin{itemize}
+    \item 熟悉各种记号：$f'(x_0), y'(x_0),y'_x|_{x=x_0},
+    \left.\df{\d y}{\d x}\right|_{x=x_0},
+    \left.\df{\d f(x)}{\d x}\right|_{x=x_0},\;\df{\d}{\d x}y,\;\df{\d}{\d
+    x}f(x)$
+    \item 高阶导数：$y''_{xx},\;y^{(n)},\;\df{\d^2y}{\d x^2},\;\df{\d^{n}y}{\d
+    x^n},\;\df{\d^{(n)}}{\d x}y$
+  \end{itemize}
+  \item 导数的计算（重点+熟练掌握）
+  \begin{itemize}
+    \item 复合函数求导：链式法则：$[f(g(x))]'_x=f'(g(x))g'(x)$
+    \begin{itemize}
+      \item 注意$f'[g(x)]$与$[f(g(x))]'$的区别
+      \item 参考求导测试（50分钟50题）强化公式记忆
+    \end{itemize}
+    \item 反函数求导：掌握公式推导方法（习题4.2-20），知道如何利用公式验证
+    $e^x$与$\ln x$，以及$\sin x$与$\arcsin x$的导数的关系
+    \item 参数方程求导（难点）：设$x=\varphi(t),y=\psi(t)$，则
+    \begin{itemize}
+      \item $y'_x=\df{\d y}{\d x}=\df{\d y}{\d t}\df{\d t}{\d x}
+      =\df{y'_t(t)}{x'_t(t)}=\df{\psi'(t)}{\varphi'(t)}$
+      \item
+      $y''_{xx}=\df{\d y'_x}{\d x}=\df{\d y'_x}{\d t}\df{\d t}{\d x}
+      =\df{(y'_x)'_t}{x'_t(t)}
+%       =\df{\left[\df{\psi'(t)}{\varphi'(t)}\right]'_t}{\varphi'(t)}
+      =\df{\psi''(t)\varphi'(t)-\psi'(t)\varphi''(t)}{[\varphi'(t)]^3}$
+    \end{itemize}
+    \item 形如$x^x,x^{x^x},\sin x^{\tan x},f(x)^{g(x)}$的导数
+    $$\left[f(x)^{g(x)}\right]'=\left[e^{g(x)\ln f(x)}\right]'
+    =e^{g(x)\ln f(x)}\left[g'(x)\ln f(x)+g(x)\cdot\df{f'(x)}{f(x)}\right]$$
+  \end{itemize}
+  \item 微分
+  \begin{itemize}
+    \item 正确掌握微分的写法！例如：$y=e^x$在$x=1$的微分：由于$(e^x)'_{x=1}=e$，故
+    $$\left.\d y\right|_{x=1}=e\d x$$
+    \item 在微分的表达式中，$x$和$\d x$是两个无关的量！
+  \end{itemize}
+  \item 导数的应用（重点+熟练掌握）
+  \begin{itemize}
+    \item 曲线的切线、法线
+    \item 极值与最值，重点是极值、拐点的判定条件
+    \item 函数的单调性、曲线的凹凸性、渐进线\ps{求渐近线时注意要使用单侧极限}
+    \begin{itemize}
+      \item 用单调性证明不等式（重点）：一阶导数无法比较时，利用更高阶导数进行比较
+    \end{itemize} 
+	\item 弧微分：掌握各种表达式及其推导方法
+	$$\d s=\sqrt{1+(y')^2}\d x=\sqrt{(x'_t)^2+(y'_t)^2}\d t
+	=\sqrt{\rho^2+(\rho')^2}\d\theta$$
+    \item 曲率：$K=\df{|y''|}{[1+(y')^2]^{3/2}}=
+    \df{|x'_ty''_{tt}-x''_{tt}y'_t|}
+	{\{[x'_t]^2+[y'_t]^2\}^{3/2}}$
+%     \item L'Hospital法则：简单易用，但要注意在有些情况下不能使用（{习题5.2-15}）
+  \end{itemize}
+\end{enumerate}
+
+\bigskip
+
+{\bf 六、微分中值定理与Taylor公式（{重点+难点}）}
+\begin{enumerate}
+  \item 中值定理
+  \begin{itemize}
+    \item 为什么Rolle定理的三个条件缺一不可？
+    \item 掌握Lagrange中值定理的证明（体会辅助函数的构造方法）
+    \item 解题时，通常要从结果出发，考虑辅助函数的构造，例如：
+    \begin{itemize}
+      \item $y+\lambda y'=0$：令$F(x)=e^{\lambda x}y$
+	  \item $ny+xy'=0$：令$F(x)=x^ny$
+	  \item $f'(\xi)g(\xi)+f(\xi)g'(\xi)=0$：令$F(x)=f(x)g(x)$
+	  \item $f'(\xi)g(\xi)-f(\xi)g'(\xi)=0$：令$F(x)=\df{f(x)}{g(x)}$
+    \end{itemize}
+  \end{itemize}
+  \item Taylor公式=Taylor多项式+余项
+  \begin{itemize}
+    \item Peano余项：多用于极限的计算（余项的阶数与Taylor公式的阶数相对应
+    \item Lagrange余项：多用于证明题和不等式估值
+    \item 熟练掌握一些常用的Maclaurin公式：
+    $e^x,\;\sin x,\;\cos x,\;\ln(1+x),\;\df{1}{1+x}$
+    \item Taylor展开的方法
+    \begin{itemize}
+      \item 利用变量替换化成常用形式，再套用公式
+      \item 多项式函数的Taylor展开式是其在展开点处对应的截断多项式
+      \item 注意余项的正确写法！
+    \end{itemize}
+  \end{itemize}
+  \item 用Taylor公式证明等式/不等式（难点）
+  \begin{itemize}
+    \item 使用带Lagrange余项的展开
+	\item 展开过程中可能用到的点：区间端点、极（最）值点（$f'(x)=0$）、
+	  区间中点（到两端点距离相同）、相距常数距离的点（如$x,x+1$）、已知条件中提到的点
+  \end{itemize}
+  \item 用Taylor展开计算极限（易错，不推荐使用）
+  \begin{itemize}
+      \item 通过试探性展开确定合适的展开阶数
+      \item 及时将高阶无穷小进行合并
+      \item 注意与无穷小代换、L'Hospital法则等结合使用
+      \item 计算过程中及时化简
+    \end{itemize}
+\end{enumerate}
+
+\bigskip
+
+{\bf 七、不定积分与定积分（重点）}
+\begin{enumerate}
+  \item 不定积分、原函数与变限积分
+  \begin{itemize}
+    \item 掌握变限积分求导公式的推导方法
+    $$\left[\dint_{\varphi(x)}^{\psi(x)}f(t)\d t\right]'_x
+	=f[\varphi(x)]\varphi'(x)-f[\psi(x)]\psi'(x)$$
+	\item 注意：
+	\begin{itemize}
+	  \item 利用以上公式对变限积分求导时，被积式中不能包含$x$
+	  \item 若$x$出现在被积函数中，应通过适当变换将其移到积分符号外或积分限上，要求
+	  掌握对$\dint_a^x(t-x)f(t)\d t$和$\dint_a^xtf(t-x)\d t$求导的方法
+	\end{itemize}
+  \end{itemize}
+  \item 不定积分的计算
+  \begin{itemize}
+    \item 换元的原则：优先替换“最不顺眼”（不易进行运算、推导）的部分，例如：
+    $\sqrt{1-x},\sqrt{1+x^3},\arctan x,\ldots$
+    \item 对照教材上的例题熟练各种积分换元方法
+    \item 积分表（见同济大学教材附录）：要求$90\%$以上达到熟练
+	\item 分部积分法，熟练掌握形如：$\dint x\sin x\d x$，
+	$\dint e^x\sin x\d x$、$\dint x\ln x\d x$的积分
+	\item 有理函数积分（熟练掌握），步骤
+	\begin{itemize}
+	  \item 首先，利用多项式除法将假分式化为多项式和真分式的和
+	  \item 利用待定系数法对真分式进行分解
+	  \item 对分解后得到的分式逐个进行积分
+	\end{itemize}
+  \end{itemize}
+  \item 定积分
+  \begin{itemize}
+    \item 掌握用定积分的定义计算极限的方法（参见“求极限的常用方法及典型例题”）
+    \item 定积分的计算，注意换元后必须修改积分的上下限！
+    \item 熟练掌握定积分计算的一些特殊方法
+  	\begin{itemize} 
+	  \item 利用对称性计算定积分
+	  \item 周期函数的定积分 
+	  \item 利用几何意义计算定积分
+	\end{itemize}
+  \end{itemize}
+  \item 定积分的应用：微元法
+  \begin{itemize} 
+	\item 画图，在图中标出各种相关的量和符号，例如：$\d S,\d x,x,f(x)$
+	\item 写出微元表达式，给出对应的积分变量变化范围，例如：
+	  $\d S=f(x)\d x,x\in[a,b]$
+	\item 计算积分：$\dint_a^bf(x)\d x$
+  \end{itemize}
+  \item 须重点掌握的应用：平面图形的面积（包括极坐标下的）、旋转体的体积、已知
+  截面的立体体积、变力做功和水压问题
+  \item 反常积分
+  \begin{itemize}
+    \item 收敛的判定方法与无穷级数收敛的判定法加以对照记忆
+  \end{itemize}
+\end{enumerate}
+
+\bigskip
+
+{\bf 附录}
+\begin{enumerate}
+  \item 常用不等式
+  \begin{itemize}
+    \item 绝对值不等式：$||a|-|b||\leq |a-b|\leq |a|+|b|$
+    \item 平均值不等式：$\sqrt[n]{\prod\limits_{k=1}^n}a_k
+    \leq\df 1n{\sum\limits_{k=1}^n}a_k
+    \quad (a_k\geq 0)$
+%     \item Bernoouli不等式：$(1+h)^n\geq 1+nh,\;(h\geq -2,\,n\in\mathbb{N})$
+	\item Cauchy不等式：$\left(\sum\limits_{i=1}^na_ib_i\right)\leq
+	\sum\limits_{i=1}^na_i^2\sum\limits_{i=1}^nb_i^2$
+	\item Schwarz积分不等式：$\left[\dint_a^bf(x)g(x)\d x\right]^2
+	\leq\dint_a^bf\,^2(x)\d x\dint_a^bg^2(x)\d x$ 
+  \end{itemize}
+  \item 常用处理技巧
+  \begin{itemize}
+    \item $a^n-b^n=(a-b)(a^{n-1}+a^{n-2}b+\ldots+ab^{n-2}+b^{n-1})$及其
+    常见的变形
+    \begin{itemize}
+      \item $a^n-1=(a-1)(a^{n-1}+a^{n-2}+\ldots+a+1)$
+      \item $\sqrt[n]a-\sqrt[n]b=\df{a-b}{\sqrt[n]{a^{n-1}}
+      +\sqrt[n]{a^{n-2}b}+\ldots+\sqrt[n]{ab^{n-2}}+\sqrt[n]{b^{n-1}}}$
+	\end{itemize}
+	\item “搭桥”（通过“加一项减一项”的方式使公式易于推导），例如：
+      \begin{align}
+      	\limx{0}\df{1-\cos2x\cos x}{x^2}&=\limx0\df{(1-\cos x)+
+      	\cos x(1-\cos2x)}{x^2}\notag\\
+      	&=\limx0\df{1-\cos x}{x^2}+\limx0\cos x
+      \cdot\limx0\df{1-\cos2x}{x^2}=\ldots\notag
+      \end{align}
+    \item 乘法的“搭桥”，例如：
+    $$\cos\df x2\cos\df x{4}\ldots\cos\df x{2^k}
+    =\df{\cos\df x2\cos\df x{4}\ldots\cos\df x{2^k}\sin\df x{2^k}}
+    {\sin\df x{2^k}}=\ldots=\df{\sin x}{2^k\sin\df x{2^k}}$$
+    又比如：参数方程求导时，已知$x=x(t),y=y(t)$，则
+    $$\df{\d y}{\d x}=\df{\d y}{\d t}\cdot\df{\d t}{\d x}=\df{y'_t}{x'_t}$$
+    \item “夹逼”，例如：计算极限$\limn\sqrt[n]a\;(a>0)$（P61-例6）；又例如
+    应用中值定理计算极限的处理技巧（参见“求极限的常用方法及典型例题”）
+    \item 有理分式的分解，例如：设$a,b,c$均不相等
+    $$\df1{(x-a)(x-b)}=\df1{a-b}\cdot\left(\df1{x-a}-\df1{x-b}\right)$$
+    \begin{align}
+    	\df1{(x-a)(x-b)(x-c)}&=\df1{a-b}\cdot\left[\left(\df1{x-a}-\df1{x-b}\right)
+    	\cdot\df1{x-c}\right]\notag\\
+    	&\hspace{-2cm}=\df1{a-b}\left[\df1{a-c}\cdot\left(\df1{x-a}-\df1{x-c}
+    	\right)-\df1{b-c}\cdot\left(\df1{x-b}-\df1{x-c}\right)\right]\notag
+    \end{align}
+  \end{itemize}
+  \item 形如$\sin(\arctan x)$的推导方法，举例如下：
+  \begin{itemize}
+    \item $\sin(\arccos x)=\sqrt{1-\cos^2(\arccos x)}=\sqrt{1-x^2}$
+    \item 注意到$\sin x=\tan x\cos x=\df{\tan x}{\sec x}=\df{\tan x}
+    {\sqrt{1+\tan^2x}}$，故
+    $$\sin(\arctan x)=\df{\tan(\arctan x)}{\sqrt{1+\tan^2(\arctan x)}}
+    =\df{x}{\sqrt{1+x^2}}$$
+    \item 注意到$\tan x=\df{\sin x}{\cos x}=\df{\sin x}{\sqrt{1-\sin^2x}}$，故
+    $$\tan(\arcsin x)=\df{\sin(\arcsin x)}{\sqrt{1-\sin^2(\arcsin x)}}
+    =\df{x}{\sqrt{1-x^2}}$$
+  \end{itemize}
+  \item 形如$a\sin\theta+b\cos\theta\,(a^2+b^2\ne 0)$的处理方法：
+  \begin{itemize}
+    \item 设$\tan\phi=\df ba$，则$\cos\phi=\df a{\sqrt{a^2+b^2}},
+    \sin\phi=\df b{\sqrt{a^2+b^2}}$，从而
+    $$a\sin\theta+b\cos\theta=\sqrt{a^2+b^2}
+    (\cos\phi\sin\theta+\sin\phi\cos\theta)=\sqrt{a^2+b^2}\sin(\theta+\phi)$$
+    \item 类似地，若令$\tan\phi=\df ab$，则$\cos\phi=\df b{\sqrt{a^2+b^2}},
+    \sin\phi=\df a{\sqrt{a^2+b^2}}$，从而
+    $$a\sin\theta+b\cos\theta=\sqrt{a^2+b^2}
+    (\sin\phi\sin\theta+\cos\phi\cos\theta)=\sqrt{a^2+b^2}\cos(\theta-\phi)$$
+    \item 应用举例：令$\tan\phi=\df ba$
+    \begin{align}
+    	\dint&\df{\sin x}{a\sin x+b\cos x}\d x
+    	=\dint\df{\sin x}{\sqrt{a^2+b^2}\sin(x+\phi)}\d x\notag\\
+    	&=\dint\df{\sin [(x+\phi)-\phi]}{\sqrt{a^2+b^2}\sin(x+\phi)}\d (x+\phi)
+    	\quad(\mbox{令}t=x+\phi)\notag\\
+    	&=\df1{\sqrt{a^2+b^2}}\dint\df{\sin(t-\phi)}{\sin t}\d t
+    	=\df1{\sqrt{a^2+b^2}}\dint\df{\sin t\cos\phi-\cos t\sin\phi}
+    	{\sin t}\d t\notag\\
+    	&=\ldots\quad(\mbox{再往下会算了吧：P})\notag
+    \end{align}
+    \item 同样的方法，可以计算所有形如$\dint R(\sin x,\cos x,a\sin x+b\cos x)\d x$
+    的积分
+  \end{itemize}
+  
+\end{enumerate}

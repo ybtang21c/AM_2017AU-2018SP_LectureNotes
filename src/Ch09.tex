@@ -1,0 +1,150 @@
+\setcounter{chapter}{8}
+
+\chapter{向量值函数}
+
+\section{向量值函数及其极限与连续}
+
+$$f:\mathbb{R}\to\mathbb{R}^n$$
+
+例如：
+\begin{itemize}
+  \setlength{\itemindent}{1cm}
+  \item $\bm{r}(t)=(t\sin t, t\cos t),\;t\in\mathbb{R}^+$ 
+  \item
+  $\bm{r}(t)=(a+mt)\bm{i}+(b+nt)\bm{j}+(c+pt)\bm{k},\;t\in\mathbb{R}$ 
+\end{itemize}
+
+{\bf 注：}向量值函数就是曲线的参数方程。
+
+\subsection{极限与连续}
+
+已知向量值函数$\bm{r}(t)=(f(t),g(t))$在$t_0$附近有定义 
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item {\bf $\lim\limits_{t\to t_0}\bm{r}(t)=(a,b)$：}
+  $$\lim\limits_{t\to t_0}f(t)=a,\;\lim\limits_{t\to t_0}g(t)=b$$
+  \item {\bf $\bm{r}(t)$在$t_0$处连续：}
+  $$\bm{r}(t_0)=\lim\limits_{t\to t_0}\bm{r}(t)$$
+\end{enumerate}
+
+{\bf 教材-例3：}设$\bm{r}(t)=\df{\sin 2t}{t}\bm{i}+\ln(1+t)\bm{j}$，求
+$\lim\limits_{t\to 0}\bm{r}(t)$。
+
+{\bf  教材-例4：}设$\bm{r}(t)=e^{-t}\cos 2t\bm{i}+e^{-t}\sin 2t
+\bm{j}+e^{-t}\bm{k}$，求$\lim\limits_{t\to +\infty}\bm{r}(t)$。
+
+\section{向量值函数的导数与微分}
+
+$$\bm{r}'(t_0)=\lim\limits_{\Delta t\to 0}
+\df{\bm{r}(t_0+\Delta t)-\bm{r}(t_0)}{\Delta t}$$
+
+{\bf 注：}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\bm{r}'(t)$是一个向量；
+  \item $\bm{r}(t)$在$t_0$可导，则其每个分量函数在$t_0$可导
+  \item $\bm{r}(t)$在$t_0$可导，则$\bm{r}(t)$在$t_0$连续 
+  \item $\bm{r}'(t_0)$的几何意义：对应曲线在$t_0$处的切向量
+\end{enumerate}
+
+{\bf 曲线$\bm{r}(t)$在区间$I$上光滑：}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\bm{r}'(t)$在$I$上连续
+  \item $\bm{r}'(t)\ne \bm{0}$
+\end{enumerate}
+
+{\bf 教材-例2：}判断曲线$\bm{r}(t)=(1+t^3,t^2)$是否为光滑曲线？
+
+{\bf 注：}二维向量值函数$\bm{r}(t)$可导，不等价于对应函数$y=f(x)$可导。
+
+\begin{itemize}
+  \setlength{\itemindent}{1cm}
+  \item {\bf 向量值函数的微分：}
+  $$\df{\d\bm{r}}{\d t}=\bm{r}'(t)\;\Leftrightarrow\;
+  \d\bm{r}=\bm{r}'(t)\d t$$
+  \item {\bf 向量值函数的高阶导数：}
+  $$\bm{r}^{(n)}(t_0)=\left.\df{\d\bm{r}^{(n-1)}(t)}{\d t}\right|_{t=t_0}$$
+\end{itemize}
+
+{\bf 求导法则：}
+
+\begin{enumerate} 
+  \item $(\bm{C})'=\bm{0}$ 
+  \item $[\bm{u}(t)\pm\bm{v}(t)]'=\bm{u}'(t)\pm\bm{v}'(t)$ 
+  \item $[k\bm{u}(t)]'=k\bm{u}'(t)$ 
+  \item $[f(t)\bm{u}(t)]'=f'(t)\bm{u}(t)+f(t)\bm{u}'(t)$ 
+  \item {$[\bm{u}(t)\cdot\bm{v}(t)]'=\bm{u}'(t)\cdot\bm{v}(t)
+  +\bm{u}(t)\cdot\bm{v}'(t)$} 
+  \item {$[\bm{u}(t)\times\bm{v}(t)]'=\bm{u}'(t)\times\bm{v}(t)
+  +\bm{u}(t)\times\bm{v}'(t)$} 
+  \item $[\bm{u}(f(t))]'=\bm{u}'(f(t))f'(t)$ 
+\end{enumerate}
+
+{\bf 教材-例4：}设$\bm{r}(t)$是可导的向量值函数，且$\bm{r}'(t)\ne 0$，若
+$|\bm{r}(t)|=C$，证明：$\bm{r}(t)$与$\bm{r}'(t)$垂直。
+
+{\bf 教材-例5：}设质量为$m$的质点的位置为$\bm{r}(t)$，速度和加速度分别为
+$\bm{v}(t)$和$\bm{a}(t)$，则其角动量$\bm{L}(t)
+=m\bm{r}(t)\times\bm{v}(t)$，转动力矩$\bm{M}(t)=m\bm{r}(t)
+\times\bm{a}(t)$，证明：$\bm{L}'(t)=\bm{M}(t)$。
+
+{\bf 空间曲线的切线与法平面}
+
+{\bf 教材-例6：}设空间曲线的参数方程为$\Gamma:x=t,y=t^2,z=t^3$在点
+$(1,1,1)$处的切线方程与法平面方程。
+
+\section{向量值函数的不定积分与定积分}
+
+设向量值函数$\bm{r}(t)$在区间$I$上有定义 
+\begin{enumerate}
+  \item {\bf $\bm{R}(t)$是$\bm{r}(t)$在$I$上的一个原函数：} 
+  $$\bm{R}'(t)=\bm{r}(t)\;(t\in I)$$ 
+  \item {\bf $\bm{r}(t)$的不定积分：}
+  $$\dint \bm{r}(t)\d t=\bm{R}(t)+\bm{C}\;(\bm{C}\in\mathbb{R}^n)$$
+\end{enumerate}
+
+\begin{enumerate}
+  \item {\bf 线性性} 
+  \item {\bf 区间可加性} 
+  \item $\dint\bm{r}(t)\d t=\left(\dint f(t)\d t\right)\bm{i}
+  +\left(\dint g(t)\d t\right)\bm{j}+\left(\dint h(t)\d t\right)\bm{k}$ 
+  \item $\dint_a^b\bm{r}(t)\d t=\bm{R}(t)|_a^b=\bm{R}(b)-\bm{R}(a)$
+\end{enumerate}
+
+{\bf 教材-例6：}求解关于向量值函数$\bm{r}(t)$的微分方程
+$$\df{\d\bm{r}}{\d t}=\df 32(t+1)^{1/2}\bm{i}+e^{-t}\bm{j},\;\bm{r}(0)=0$$
+
+{\bf 例：}一枚导弹以初始速度$\bm{v}_0$，仰角$\alpha$发射，假设导弹只受重力作用，
+空气阻力可以忽略不记，求导弹的位置函数$\bm{r}(t)$，并问$\alpha$
+取何值时其射程最远。
+
+\newpage
+
+\section*{课后作业}
+\addcontentsline{toc}{section}{课后作业}
+
+{\bf 【必作题】}
+
+\begin{itemize}
+  \setlength{\itemindent}{1cm}
+  \item 习题9.1：6(2,4)
+  \item 习题9.2：6，7，10(2)，12，13
+  \item 习题9.3：6，8(1,2)
+\end{itemize}
+
+\bigskip
+
+\hrule
+
+\bigskip
+% \bigskip
+
+{\bf 【思考题】}
+
+\begin{itemize}
+  \setlength{\itemindent}{1cm}
+  \item 习题9.1：12
+  \item 习题9.2：10(1)，11
+  \item 习题9.3：8(3)
+\end{itemize}

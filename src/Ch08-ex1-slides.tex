@@ -1,0 +1,261 @@
+\begin{frame}{向量的运算、空间平面与直线}
+	\linespread{1.2}
+	\begin{enumerate}
+	  \item 内积（投影）、外积（面积）、混合积（体积，三线共面）
+	  \item 平面方程中的几何特征
+	  \item 不同直线方程间的相互转换
+	  \item 空间几何问题的一题多解
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{判断}
+	\linespread{1.2}
+	\begin{enumerate}
+	  \item $\bm{a}\cdot\bm{a}\cdot\bm{a}=\bm{a}^3$\quad\pause\ba{$\times$}\pause
+	  \item $\bm{a}\ne 0$时，$\df{\bm{a}}{\bm{a}}=1$\quad\pause\ba{$\times$}\pause
+	  \item $\bm{a}(\bm{a}\cdot\bm{b})=\bm{a}^2\bm{b}$
+	    \quad\pause\ba{$\times$}\pause
+	  \item $(\bm{a}\cdot\bm{b})^2=\bm{a}^2\bm{b}^2$\quad\pause\ba{$\times$}\pause
+	  \item $|\bm{a}\cdot\bm{b}|=|\bm{a}|\cdot|\bm{b}|$
+		\quad\pause\ba{$\times$}\pause
+	  \item $(\bm{a}+\bm{b})\times(\bm{a}-\bm{b})=\bm{a}\times\bm{a}
+  		-\bm{b}\times\bm{b}=0$
+  		\quad\pause\ba{$\times$}\pause
+  	  \item $\bm{a}\ne 0$时，$\bm{a}\cdot\bm{b}
+  	  	=\bm{a}\cdot\bm{c}\Rightarrow\bm{b}=\bm{c}$
+  	  	\quad\pause\ba{$\times$}\pause
+  	  \item  $\bm{a}\ne 0$时，$\bm{a}\times\bm{b}
+  	  	=\bm{a}\times\bm{c}\Rightarrow\bm{b}=\bm{c}$
+  	  	\quad\pause\ba{$\times$}
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{填空}
+	\linespread{1.2}
+	\ba{1.}\;设$(\bm{a}\times\bm{b})\bm{c}=2$，则
+	$[(\bm{a}+\bm{b})\times(\bm{b}+\bm{c})](\bm{c}+\bm{a})=$
+	\underline{\uncover<2->{\;\b{$4$}}\;}.\\[1em]
+	
+	\ba{2.}\;设$\bm{a},\bm{b}$均为非零向量，则
+	其角平分线上的向量为
+	\underline{\uncover<3->{\;\b{$C\left(\df{\bm{a}}{|\bm{a}|}
+	+\df{\bm{b}}{|\bm{b}|}\right),\;(C\in\mathbb{R})$}}\;}.\\[1em]
+	
+	\ba{3.}\;设$\bm{a},\bm{b},\bm{c}$均为非零向量，且$\bm{a}=\bm{b}\times\bm{c}$,
+	$\bm{b}=\bm{c}\times\bm{a}$,
+	$\bm{c}=\bm{a}\times\bm{b}$则
+	$|\bm{a}|+|\bm{b}|+|\bm{c}|=$
+	\underline{\uncover<4->{\;\b{$3$}}\;}.\\[1em]
+\end{frame}
+
+\begin{frame}{填空}
+	\linespread{1.2}
+	\ba{4.}\;设$|\bm{a}|=2,|\bm{b}|=2$，$\bm{a}$和$\bm{b}$
+	的夹角为$\pi/3$，则$|2\bm{a}-3\bm{b}|=$
+	\underline{\uncover<2->{\;\b{$2\sqrt7$}}\;}.\\[1em]
+	
+	\ba{5.}\;设$\bm{a},\bm{b}$均为非零向量，且$|\bm{b}|=1$，$\bm{a}$和$\bm{b}$
+	的夹角为$\pi/4$，则$\limx{0}\df{|\bm{a}+x\bm{b}|-|\bm{a}|}{x}=$
+	\underline{\uncover<3->{\;\b{$\df{\sqrt2}2$}}\;}.\\[1em]
+	
+	\ba{6.}\;平面$Ax+By+Cz+D_i=0\;(i=1,2)$之间的距离为
+	\underline{\uncover<4->{\;\b{$\df{|D_1-D_2|}{\sqrt{A^2+B^2+C^2}}$}}\;}.
+\end{frame}
+
+\begin{frame}{选择}
+	\linespread{1.3}
+	\ba{1.}\;设$\bm{a},\bm{b},\bm{c}$均为非零向量，则与$\bm{a}$不垂直的是
+	(\underline{\uncover<2->{\;\b{D}}\;})
+	\begin{enumerate}[(A)]
+	  \item $(\bm{a}\cdot\bm{c})\bm{b}-(\bm{a}\cdot\bm{b})\bm{c}$
+	  \item $\bm{b}-\left(\df{\bm{a}\cdot\bm{b}}{\bm{|a|}^2}\right)\bm{a}$
+	  \item $\bm{a}\times\bm{b}$
+	  \item $\bm{a}+(\bm{a}\times\bm{b})\times\bm{a}$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{选择}
+	\linespread{1.3}
+	\ba{2.}\;设$\bm{a},\bm{b}$为非零向量，$|\bm{a}-\bm{b}|=|\bm{a}+\bm{b}|$，则
+	(\underline{\uncover<2->{\;\b{C}}\;})
+	\begin{enumerate}[(A)]
+	  \item $\bm{a}-\bm{b}=\bm{a}+\bm{b}$
+	  \item $\bm{a}=\bm{b}$
+	  \item $\bm{a}\cdot\bm{b}=0$
+	  \item $\bm{a}\times\bm{b}=0$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{选择}
+	\linespread{1.3}
+	\ba{3.}\;设$\bm{a},\bm{b}$为非零向量，且满足
+	$(\bm{a}+3\bm{b})\perp(7\bm{a}-5\bm{b})$，
+	$(\bm{a}-4\bm{b})\perp(7\bm{a}+2\bm{b})$，则
+	向量$\bm{a}$和$\bm{b}$的夹角为
+	(\underline{\uncover<2->{\;\b{C}}\;})
+	\begin{enumerate}[(A)]
+	  \item $0$
+	  \item $\pi/2$
+	  \item $\pi/3$
+	  \item $2\pi/3$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{选择}
+	\linespread{1.3}
+	\ba{4.}\;设平面$\pi$位于平面$x-2y+z-2=0$和$x-2y+z-6=0$之间，
+	且与此二平面的距离之比为$1:3$，则$\pi$的方程为
+	(\underline{\uncover<2->{\;\b{A}}\;})
+	\begin{enumerate}[(A)]
+	  \item $x-2y+z-5=0$或$x-2y+z-3=0$
+	  \item $x-2y+z+8=0$
+	  \item $x+2y+4z=0$
+	  \item $x-2y+5z-3=0$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{选择}
+	\linespread{1.3}
+	\ba{5.}\;设$\left|\begin{array}{ccc}
+	a_1 & b_1 & c_1\\ a_2 & b_2 & c_2\\ a_3 & b_3 & c_3
+	\end{array}\right|\ne 0$，则
+	直线
+	$\df{x-a_3}{a_1-a_2}=\df{y-b_3}{b_1-b_2}$
+	$=\df{z-c_3}{c_1-c_2}$
+	和
+	$\df{x-a_1}{a_2-a_3}=\df{y-b_1}{b_2-b_3}=\df{z-c_1}{c_2-c_3}$
+	(\underline{\uncover<2->{\;\b{A}}\;})
+	\begin{enumerate}[(A)]
+	  \item 相交于一点
+	  \item 重合
+	  \item 平行但不重合
+	  \item 异面直线
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{解答}
+	\linespread{1.2}
+	\ba{1.}\;过原点且与
+	$$\left\{\begin{array}{l}
+	x=1\\ y=-1+t\\ z=2+t
+	\end{array}\right.$$
+	和$x+1=\df{y+2}2=z-1$都平行的平面方程。
+	
+	\pause\alert{提示：}\it\b  
+	$$x-y+z=0$$
+\end{frame}
+
+\begin{frame}{解答}
+	\linespread{1.2}
+	\ba{2.}\;求过点$M(3,1,-2)$和直线$\df{x-4}5=\df{y+3}2=\df z1$
+	的平面方程。
+	
+	\pause\ba{法一：}\it\b  
+	$\bm{n}=\bm{s}\times\bm{MM_1}=(-8,9,22)$，平面方程
+	$$8x-9y-22x-59=0$$
+	
+	\pause\ba{法二：}
+	直线的一般式方程：$\left\{\begin{array}{l}x-5y-4=0\\ 
+	y-2z+3=0\end{array}\right.$，进而可得$\lambda=8,\mu=-9$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{3.}\;过直线
+	$\df{x-1}2=\df{y+2}{-3}=\df{z-2}2$且垂直于平面
+	$3x+2y-z=5$的平面方程。
+	
+	\pause\alert{提示：}{\b  
+	$$x-8y-13z+9=0$$}
+	
+	\pause
+	\ba{4.}\;求过直线
+	$$\left\{\begin{array}{l}
+		x+5y+z=0\\
+		x-z+4=0
+	\end{array}\right.$$
+	且与平面$\pi:x-4y-8z+12=0$的夹角为$\pi/4$的平面方程。
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{5.}\;过点$(-1,0,4)$，平行于平面
+	$3x-4y+z=10$，且与直线$x+1=y-3=\df z2$
+	相交的直线方程。
+
+	\pause\alert{提示：}\it\b
+	$$\df{x+1}{16}=\df{y}{19}=\df{z-4}{28}$$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{6.}\;已知$P(3,1,-4)$和$L:\df{x+1}2=\df{y-4}{-2}=z-1$，求
+	\begin{enumerate}
+	  \item $P$到$L$的距离；
+	  \item $P$在$L$上的垂足$Q$的坐标；
+	  \item 设$R(1,2,3)$在$L$上的垂足为$N$，求$QN$的长度。
+	\end{enumerate}
+	
+	\pause\alert{提示：}\it\b
+	$(1)\sqrt{41}$\quad$(2)(1,2,2)$\quad$(3)\df13$  
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{7.}\;已知直线
+	$$L_1:\left\{\begin{array}{l}
+		x+y+z+1=0\\
+		2x-y+3z+4=0
+	\end{array}\right.
+	\quad
+	L_2:\left\{\begin{array}{l}
+		x=-1+2t\\
+		y=-t\quad(t\in\mathbb{R})\\
+		z=2-2t
+	\end{array}\right.
+	$$
+	\begin{enumerate}[(1)]
+% 	  \setlength{\itemindent}{1cm}
+	  \item 证明两直线异面；
+	  \item 求两直线间的距离；
+	  \item 求二者的公垂线方程。
+	\end{enumerate}
+	
+	\pause\alert{提示：}\it\b
+	$L_1,L_2$的标准式方程
+	$$\df{x+3}4=\df{y-1}{-1}=\df{z-1}{-3},\quad
+	\df{x+1}2=\df y{-1}=\df{z-2}{-2}$$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{8.}\;计算由以下平面所围成的立体体积：
+	$$a_ix+b_iy+c_iz=\pm h_i,\;i=1,2,3,$$
+	其中：$a_i,b_i,c_i$为常数，$h_i\ne0(i=1,2,3)$，且
+	$$\Delta=\left|\begin{array}{ccc}
+	a_1 & b_1 & c_1\\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3
+	\end{array}\right|\ne 0$$
+	
+	\pause\alert{提示：}\b
+	$$\left[(\bm{s}_1\times\bm{s}_2)\times
+	(\bm{s}_2\times\bm{s}_3)\right]\cdot(\bm{s}_3\times\bm{s}_1)=
+	\left[(\bm{s}_1\times\bm{s}_2)\cdot\bm{s}_3\right]^2$$ 
+\end{frame}
+
+\begin{frame}{讨论}
+	\linespread{1.2}
+	\begin{enumerate}
+	  \item 证明：$\bm{s}_1\times(\bm{s}_2\times\bm{s}_3)
+	  	=(\bm{s}_1\cdot\bm{s}_3)\bm{s}_2
+		-(\bm{s}_1\cdot\bm{s}_2)\bm{s}_3$\pause
+	  \item 证明：$\left[(\bm{s}_1\times\bm{s}_2)\times
+	  	(\bm{s}_2\times\bm{s}_3)\right]
+		\cdot(\bm{s}_3\times\bm{s}_1)
+		=\left[(\bm{s}_1\times\bm{s}_2)\cdot\bm{s}_3\right]^2$\pause
+	  \item $\bm{s}_1\times(\bm{s}_2\times\bm{s}_3)
+	  =(\bm{s}_1\times\bm{s}_2)\times\bm{s}_3$成立吗？
+	\end{enumerate}
+	\ba{提示：}\it\b 反例：
+	$$\bm{j}\times(\bm{i}\times\bm{i})=0$$
+	$$(\bm{j}\times\bm{i})\times\bm{i}=-\bm{k}\times\bm{i}=-\bm{j}$$
+\end{frame}

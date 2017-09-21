@@ -1,0 +1,12 @@
+#project setting for eclipse
+.project
+*.prefs
+
+#pdf output
+pdf/
+
+#temp files
+tmp/
+
+#texlipse setting
+.texlipse

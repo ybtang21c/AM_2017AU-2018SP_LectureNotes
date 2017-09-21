@@ -1,0 +1,117 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3360,        108]
+NotebookOptionsPosition[      3037,         92]
+NotebookOutlinePosition[      3389,        108]
+CellTagsIndexPosition[      3346,        105]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ StyleBox[
+  "\:8ba1\:7b97\:5e38\:6570e\:7684\:4e24\:79cd\:65b9\:5f0f\:5bf9\:6bd4", 
+  "Title"]], "Input",
+ CellChangeTimes->{{3.6908377874476013`*^9, 3.6908378014988213`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"\:65b9\:5f0f\:4e00", "\:ff1a", 
+  RowBox[{"e", "=", 
+   RowBox[{"lim", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"1", "+", 
+       FractionBox["1", "n"]}], ")"}], "n"]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"\:65b9\:5f0f\:4e8c", "\:ff1a", 
+  RowBox[{"e", "=", 
+   RowBox[{
+    UnderoverscriptBox["\[Sum]", 
+     RowBox[{"k", "=", "0"}], "\[Infinity]"], 
+    FractionBox["1", 
+     RowBox[{"k", "!"}]]}]}]}]}], "Input",
+ CellChangeTimes->{{3.690837811891814*^9, 3.69083787766501*^9}, {
+  3.6908379120606537`*^9, 3.690838017991539*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"ListPlot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"n", ",", "E"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"n", ",", "30"}], "}"}]}], "]"}], ",", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"n", ",", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"1", "+", 
+              RowBox[{"1", "/", "n"}]}], ")"}], "^", "n"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"n", ",", "m"}], "}"}]}], "]"}], ",", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"n", ",", 
+           RowBox[{"1", "+", 
+            RowBox[{"Sum", "[", 
+             RowBox[{
+              RowBox[{"1", "/", 
+               RowBox[{"(", 
+                RowBox[{"i", "!"}], ")"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"i", ",", "n"}], "}"}]}], "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"n", ",", "m"}], "}"}]}], "]"}]}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "3"}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"m", ",", "1", ",", "30"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.69083743212101*^9, 3.6908374679633904`*^9}, {
+  3.6908375302487993`*^9, 3.690837571820581*^9}, {3.690837643135866*^9, 
+  3.6908376466445312`*^9}, {3.690838549286456*^9, 3.6908385582657213`*^9}, {
+  3.690838592244343*^9, 3.690838648000951*^9}, {3.690838694961306*^9, 
+  3.690838740560227*^9}, {3.6908388527938623`*^9, 3.690838885157539*^9}}]
+},
+WindowSize->{800, 517},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (June 27, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 190, 4, 66, "Input"],
+Cell[751, 26, 572, 16, 95, "Input"],
+Cell[1326, 44, 1707, 46, 63, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

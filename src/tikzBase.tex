@@ -1,0 +1,362 @@
+% \begin{tikzpicture}
+% 	\tikzstyle{level 1}=[sibling angle=120]
+% 	\tikzstyle{level 2}=[sibling angle=60]
+% 	\tikzstyle{level 3}=[sibling angle=30]
+% 	\tikzstyle{every node}=[fill]
+% 	\tikzstyle{edge from parent}=[snake=expanding waves,segment length=1mm,
+% 		segment angle=10,draw]
+% 	%grow cyclic无法被识别！
+% 	\tikz [grow cyclic,shape=circle,very thick,level distance=13mm,cap=round]
+% 	  \node {} child [color=\A] foreach \A in {red,green,blue}
+% 	    { node {} child [color=\A!50!\B] foreach \B in {red,green,blue}
+% 	      { node {} child [color=\A!50!\B!50!\C] foreach \C in {black,gray,white}
+% 			{ node {} } 
+% 		  }
+% 		}
+% \end{tikzpicture}
+
+%inline graph
+% 行内的正弦 \tikz \draw[x=1ex,y=1ex] (0,0) sin (1.57,1); 曲线！
+
+% 圆角折线
+% \tikz \draw[thick,rounded corners=8pt]
+% (0,0) -- (0,2) -- (1,3.25) -- (2,2) -- (2,0) 
+% -- (0,2) -- (2,2) -- (0,0) -- (2,0);
+% 
+% 利用控制点画曲线
+% \begin{tikzpicture}
+%   \filldraw [gray] (0,0) circle (2pt)
+%                    (1,1) circle (2pt)
+%                    (2,1) circle (2pt)
+%                    (2,0) circle (2pt);
+%   \draw (0,0) .. controls (1,1) and (2,1) .. (2,0);
+% \end{tikzpicture}
+% 
+% \bigskip
+
+% 带网格的坐标系
+% 
+% \begin{tikzpicture}[scale=3, >=stealth]
+% 	%剪切绘图
+% % 	\clip[draw] (-0.1,-0.2) rectangle (1.1,0.75);
+% 	%自定义样式
+% % 	\tikzstyle help lines=[color=blue!50,very thin]
+% % 	\draw[step=.5cm, help lines] (-1.4,-1.4) grid (1.4,1.4);
+%  	\draw[step=.5cm,gray,very thin] (-1.4,-1.4) grid (1.4,1.4);	
+%   	\draw[->] (-1.5,0) -- (1.5,0);
+%   	\draw[->] (0,-1.5) -- (0,1.5);
+%   	\draw (0,0) circle (1cm);
+%   	\fill[fill=green!20!white, draw=green!50!black] (0,0) -- (3mm,0mm) arc (0:30:3mm) -- cycle;
+%   	%渐变填充
+% %   \shadedraw[left color=gray,right color=green, draw=green!50!black]
+% %   (0,0) -- (3mm,0mm) arc (0:30:3mm) -- cycle;
+% 	\draw[red,very thick]
+% 		(30:1cm) 
+% 			--node[left=1pt,fill=white] {$\sin \alpha$} 
+% 			(30:1cm |- 0,0);
+% 	\draw[blue,very thick] 
+% 		(30:1cm) ++(0,-0.5) 
+% 			--node[below=2pt,fill=white] {$\cos\alpha$} (0,0);
+% 	\draw[very thick,orange]
+% 		(1,0) --node [right=1pt,fill=white]
+%     		{$\displaystyle \tan \alpha \color{black}=
+%       		\frac{{\color{red}\sin \alpha}}{\color{blue}\cos \alpha}$} 
+% 		 	(intersection of 1,0--1,1 and 0,0--30:1cm) coordinate (t);
+% 	\draw (0,0) -- (t);%t为上一行记录下来的坐标
+% 	
+% 	\foreach \x/\xtext in {-1, -0.5/-\frac{1}{2},1}
+%     	\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north east] {$\xtext$};
+%   	\foreach \y/\ytext in {-1, -0.5/-\frac{1}{2}, 0.5/\frac{1}{2}, 1}
+%     	\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=north east] {$\ytext$};
+% \end{tikzpicture}
+
+% \bigskip
+
+% 部分图形的抽离
+% \begin{tikzpicture}[scale=2]
+%   \draw (0,0) -- (90:1cm) arc (90:360:1cm) arc (0:30:1cm) -- cycle;
+%   \draw (60:5pt) -- +(30:1cm) arc (30:90:1cm) -- cycle;
+%   \draw (3,0)  +(0:1cm) -- +(72:1cm) -- +(144:1cm) -- +(216:1cm) --
+%                +(288:1cm) -- cycle;
+% \end{tikzpicture}
+
+% 交叠的图形——sth wrong
+% \begin{tikzpicture}[even odd rule,rounded corners=2pt,x=10pt,y=10pt]
+%   \filldraw[fill=examplefill] (0,0)   rectangle (1,1)
+%     [xshift=5pt,yshift=5pt]   (0,0)   rectangle (1,1)
+%                 [rotate=30]   (-1,-1) rectangle (2,2);
+% \end{tikzpicture}
+
+% 循环语句
+% \begin{tikzpicture}
+%   \foreach \x in {1,2,...,5,7,8,...,12}
+%     \foreach \y in {1,...,5}
+%     {
+%       \draw (\x,\y) +(-.5,-.5) rectangle ++(.5,.5);
+%       \draw (\x,\y) node{\x,\y};
+%     }
+% \end{tikzpicture}
+
+% 带标记的曲线
+% \begin{tikzpicture}
+%   \draw (0,0) .. controls (6,1) and (9,1) ..
+%     node[near start,sloped,above] {near start}
+%     node {midway}
+%     node[very near end,sloped,below] {very near end} (12,0);
+% \end{tikzpicture}
+
+% 精细版本的图形示例
+% 
+% \begin{tikzpicture}[scale=3,cap=round]
+% 	%定义常数：30度角的余弦值
+%   	\def\costhirty{0.8660256}
+% 	%定义会用到的配色
+%   	\colorlet{anglecolor}{green!50!black}%角度的颜色
+%   	\colorlet{sincolor}{red}%正弦的颜色
+%   	\colorlet{tancolor}{orange!80!black}%正切的颜色
+%   	\colorlet{coscolor}{blue}%余弦的颜色
+% 	%定义样式
+%   	\tikzstyle{axes}=[]%坐标轴
+%   	\tikzstyle{important line}=[very thick]%重要的线条
+%   	\tikzstyle{information text 1}%说明文字
+%   		=[rounded corners,fill=red!10,inner sep=1ex]%圆角，淡红填充，内空1ex
+%   	\tikzstyle{information text 2}%说明文字
+%   		=[rounded corners,fill=green!10,inner sep=1ex]%圆角，淡绿填充，内空1ex
+% 	%开始绘图
+%   	%辅助网格
+%   	\draw[style=help lines,step=0.5cm] (-1.4,-1.4) grid (1.4,1.4);
+%   	%单位圆
+%   	\draw (0,0) circle (1cm);
+%   	%样式参数统一为axes
+%   	\begin{scope}[style=axes]
+%     	%x轴
+%     	\draw[->] (-1.5,0) -- (1.5,0) node[right] {$x$} coordinate(x axis);
+%     	%y轴
+%     	\draw[->] (0,-1.5) -- (0,1.5) node[above] {$y$} coordinate(y axis);
+%     	%标记坐标值，循环语句
+%     	\foreach \x/\xtext in {-1, -.5/-\frac{1}{2}, 1}
+%       		\draw[xshift=\x cm] (0pt,1pt) 
+%       			-- (0pt,-1pt) node[below,fill=white]{$\xtext$}; 
+%       	\foreach \y/\ytext in {-1, -.5/-\frac{1}{2}, .5/\frac{1}{2}, 1}
+%       		\draw[yshift=\y cm] (1pt,0pt) 
+%       			-- (-1pt,0pt) node[left,fill=white]{$\ytext$};
+% 	\end{scope}
+%   	%角，填充
+%   	\filldraw[fill=green!20,draw=anglecolor] 
+%   		(0,0) -- (3mm,0pt) arc (0:30:3mm);
+%   	%角标记
+%   	\draw (15:2mm) node[anglecolor] {$\alpha$};
+%   	%正弦、余弦和正切的长度及标记
+%   	\draw[style=important line,sincolor]
+%     	(30:1cm) 
+%     		-- node[left=1pt,fill=white] {$\sin \alpha$}(30:1cm |- x axis);
+%   	\draw[style=important line,coscolor]
+%     	(30:1cm |- x axis) 
+%     		-- node[below=2pt,fill=white] {$\cos \alpha$}(0,0);
+%   	\draw[style=important line,tancolor] 
+%   		(1,0) -- node[right=1pt,fill=white] 
+%   			{$\displaystyle \tan \alpha \color{black}=
+%     		\frac{{\color{sincolor}\sin \alpha}}{\color{coscolor}\cos \alpha}$}
+%     		(intersection of 0,0--30:1cm and 1,0--1,1) coordinate (t);
+%   	%利用记录坐标值，画斜线
+%   	\draw (0,0) -- (t);
+%   	%辅助文字
+%   	\draw[xshift=1.85cm,yshift=0.7cm]
+%     	node[right,text width=6cm,style=information text 1]
+%     	{
+%       		The {\color{anglecolor} angle $\alpha$} is $30^\circ$ in the
+%       		example ($\pi/6$ in radians). The {\color{sincolor}sine of
+%         	$\alpha$}, which is the height of the red line, is
+%       		\[
+%       			{\color{sincolor} \sin \alpha} = 1/2.
+%       		\]
+%       		By the Theorem of Pythagoras ...
+%     	};
+%     \draw[xshift=1.85cm,yshift=-0.6cm]
+%     	node[right,text width=6cm,style=information text 2]
+%     	{
+%     		\bf 这个例子很好地展示了：\it\\
+%     		\quad $\cdot\;$常用的画图语句\\
+%     		\quad $\cdot\;$各种样式选项\\
+%     		\quad $\cdot\;$基本的循环控制语句\\
+%     		\quad $\cdot\;$美观的图形布局\\
+%     		\quad $\cdot\;$enjoy it !
+%     	};
+% \end{tikzpicture}
+
+% Petri网示例
+% 
+% %定义tikz风格，place是petri类型中的node自定义风格
+% \tikzstyle{every place}=[minimum size=6mm,thick,draw=blue!75,fill=blue!20]
+% \tikzstyle{every transition}=[thick,draw=black!75,fill=black!20]
+% \tikzstyle{red place}=[place,draw=red!75,fill=red!20]
+% \tikzstyle{every label}=[red]
+% %进入绘图
+% %设定node间距，箭头类型，转弯角度
+% %auto用于实现node自动安放
+% \begin{tikzpicture}
+% 	[node distance=1.3cm, >=stealth', bend angle=45, auto]
+% 	%变迁前的状态图
+% 	%根据位置关系自动确定node的位置
+% 	\node [place,tokens=1] (w1){};%token表示node中的点数
+% 	\node [place] (c1) [below of=w1]{};
+% 	\node [place] (s) [below of=c1,label=above:$s\le 3$]{};
+% 	\node [place] (c2) [below of =s]{};
+% 	\node [place,tokens=1] (w2) [below of=c2]{};
+% 	%划线，pre和post分别代表向后和向前，bend指明偏转的方向
+% 	\node [transition] (e1) [left of=c1] {}
+% 	  	edge [pre,bend left] (w1)
+% 	  	edge [post,bend right]  (s)
+% 	  	edge [post] (c1);
+% 	\node [transition] (e2) [left of=c2] {}
+% 	  	edge [pre,bend right] (w2)
+% 	  	edge [post,bend left] (s)
+% 	  	edge [post] (c2);
+% 	\node [transition] (l1) [right of=c1] {}
+% 	  	edge [pre] (c1)
+% 	  	edge [pre,bend left] (s)
+% 	  	edge [post,bend right] node[swap] {2} (w1);%swap用于把node放在默认的反方向
+% 	\node [transition] (l2) [right of=c2] {}
+% 	  	edge [pre] (c2)
+% 	  	edge [pre,bend right] (s)
+% 	  	edge [post,bend left]  node {2} (w2);
+% 	%变迁后的状态图，设置公共参数
+% 	\begin{scope}[xshift=6cm]
+%   		%画节点
+%   		\node [place,tokens=1] (w1'){};
+%   		\node [place](c1')[below of=w1']{};
+%   		\node [red place](s1') 
+%   			[below of=c1',xshift=-5mm][label=left:$s$]{};
+% 		\node [red place,tokens=3] (s2') 
+% 			[below of=c1',xshift=5mm][label=right:$\bar s$]{};
+% 		\node [place] (c2') [below of=s1',xshift=5mm]{};
+% 		\node [place,tokens=1] (w2') [below of=c2']{};
+% 		%画线
+% 		\node [transition] (e1') [left of=c1'] {}
+% 			edge [pre,bend left](w1')
+% 			edge [post](s1')
+% 			edge [pre](s2')
+% 			edge [post](c1');
+% 		\node [transition] (e2') [left of=c2'] {}
+% 			edge [pre,bend right](w2')
+% 			edge [post](s1')
+% 			edge [pre](s2')
+% 			edge [post](c2');
+% 		\node [transition] (l1') [right of=c1'] {}
+% 		  	edge [pre](c1')
+% 		  	edge [pre](s1')
+% 		  	edge [post](s2')
+% 		  	edge [post,bend right] node[swap] {2} (w1');
+% 		\node [transition] (l2') [right of=c2'] {}
+% 		    edge [pre] (c2')
+% 		    edge [pre] (s1')
+% 		    edge [post] (s2')
+% 		    edge [post,bend left]  node {2} (w2');
+% 	\end{scope}
+% 	%画蛇形线，标记文字
+% 	%如下两种不同的写法皆可
+% % 	\draw [-to ,decorate,decoration={snake,amplitude=.4mm,
+% % 		segment length=2mm,post length=1mm}]
+% 	\draw [->,thick,snake=snake,
+% 		segment amplitude=.4mm,
+% 		segment length=2mm,line
+% 		after snake=1mm]
+% 		 ([xshift=5mm]s -| l1) -- ([xshift=-5mm]s1' -| e1')
+%     	node [above=1mm,midway,text width=3cm,text centered]
+%       		{replacement of the \textcolor{red}{capacity}
+%       		by \textcolor{red}{two places}};
+%   	
+%   	%画背景框
+%   	\begin{pgfonlayer}{background}%置于底层
+%     	\filldraw [line width=4mm,join=round,black!10]
+%       		(w1.north  -| l1.east)  rectangle (w2.south  -| e1.west)
+%       		(w1'.north -| l1'.east) rectangle (w2'.south -| e1'.west);
+%   	\end{pgfonlayer}
+% \end{tikzpicture}
+
+自定义node，画图
+
+\tikzstyle{int}=[ultra thick, rounded corners,
+	draw=black!40,fill=red!10!white,
+ 	inner sep=1ex,
+	text width=2.5cm,
+% 	text height=5ex,
+	minimum height=1.8cm,
+	text centered]
+\tikzstyle{mint}=[ultra thick, rounded corners,
+	draw=black!40,fill=yellow!10!green!10,
+ 	inner sep=1ex,
+	minimum width=3.5cm,
+% 	text height=5ex,
+	minimum height=1.5cm,
+	text centered]
+\tikzstyle{arrow}=[thick,blue!80]
+\begin{tikzpicture}
+ 	[node distance=4cm, >=stealth', thick, bend angle=45, auto]
+	\node [int] (iiint) 
+		{\large 三重积分\\
+		\small$\ds\iiint\limits_{\Omega}f(x,y,z)\d V$
+	};
+	\node [int, below of=iiint] (iint) 
+		{\large 二重积分\\
+		\small$\ds\iint\limits_Df(x,y)\d\sigma$
+	};
+	\node [int, below of=iint] (int) 
+		{\large 定积分\\
+		\small$\ds\int_a^bf(x)\d x$
+	};
+	\node [mint, right of = int, xshift=2.5cm] (NL)
+% 		{\color{red}Netwon-Lebniz\it 公式};
+		{\small $\dint_A^Bf(\bm{x})\d\bm{x}=F(\bm{x})|_A^B$};
+% 	\node [right of = int, xshift = 3cm, minimum width=5cm,
+% 		minimum height = 1.5cm] (NL)
+% 		{\small$\ds\int_a^bf(x)\d x=F(b)-F(a)$};
+	\begin{scope}[xshift=5.5cm]
+		\node [int] (sint) 
+			{\large 曲面积分
+			};
+		\node [int, below of = sint] (cint)
+			{\large 曲线积分
+			};
+	\end{scope}
+	\begin{scope}[xshift=11cm,yshift=1.6cm]
+		\node [mint] (sint1) 
+			{\small$\ds\iint\limits_{\Sigma}f(x,y,z)\d S$};
+		\node [mint, below of = sint1, yshift=1.5cm] (sint2)
+			{\small$\ds\iint\limits_{\Sigma}f(x,y,z)\d x\d y$};
+		\node [mint, below of = sint2, yshift=2cm] (cint1)
+			{\small$\ds\int_Lf(\bm{x})\d s$};
+		\node [mint, below of = cint1, yshift=1.5cm] (cint2)
+			{\small$\ds\int_LP\d x+Q\d y+R\d z$};
+	\end{scope}
+	\path (iiint) edge[arrow,<->]
+		node [text width=3em]{\it 柱坐标 球坐标} 
+		node[swap, text width=3em,text centered] {“1+2”  “2+1”} (iint)
+		edge[arrow,<->] 
+		node {\color{red}Gauss\it 公式}(sint);
+	\path (iint) edge[arrow,<->] 
+		node[swap, text width=3em,text centered] {“1+1”  \it 定限} 
+		node[text width=4em] {\it 极坐标} (int)
+		edge[arrow,<->] 
+		node {\color{red}Green\it 公式} (cint);
+	\path (sint) edge [arrow,->] 
+		node [sloped,pos=0.2,swap]{\it 投影/曲面方程}(iint)
+		edge[arrow,<->] 
+		node {\color{red}Stokes\it 公式}(cint)
+		edge[arrow] node[sloped,pos=0.8]{\it 对面积} (sint1)
+		edge[arrow] node[sloped,pos=0.2]{\it 对坐标}(sint2);
+	\path (cint) edge [arrow, ->] 
+		node [sloped,near start,swap]{\it 曲线参数化} (int)
+		edge [arrow] node[sloped,pos=0.8]{\it 对弧长}(cint1)
+		edge [arrow] node[sloped,pos=0.2]{\it 对坐标}(cint2);
+	\path (sint1) edge[arrow, <->] 
+		node {\color{red}$\d\sigma_{xy}=|\cos\gamma|\d S$} (sint2);
+	\path (cint1) edge[arrow, <->] 
+		node {\color{red}$\d s=|\bm{r}'(t)|\d t$} (cint2);
+	\path (cint2) edge [arrow, ->, out=-90, in=0, dashed] 
+		node {\it 积分与路径无关条件} (NL);
+	\path (int) edge [arrow, ->, dashed]
+		node {{\color{red}Netwon-Lebniz}}
+		node [swap]{\color{red}\it 公式} (NL);
+% 	\path (int) edge[<->] (NL);
+\end{tikzpicture}

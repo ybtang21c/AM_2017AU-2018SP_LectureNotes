@@ -1,0 +1,116 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      3109,        106]
+NotebookOptionsPosition[      2784,         91]
+NotebookOutlinePosition[      3124,        106]
+CellTagsIndexPosition[      3081,        103]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"ContourPlot3D", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"x", "+", "y"}], ")"}], "^", "2"}], "+", 
+     RowBox[{"z", "^", "2"}]}], "\[Equal]", "4"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"z", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.512363168238134*^9, 3.512363173485798*^9}, {
+  3.5123632677772627`*^9, 3.512363304744995*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ContourPlot3D", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"x", "+", "y"}], ")"}], "^", "2"}], "+", 
+       RowBox[{"z", "^", "2"}]}], "\[Equal]", "4"}], ",", 
+     RowBox[{"x", "\[Equal]", "0"}], ",", 
+     RowBox[{"y", "\[Equal]", "0"}], ",", 
+     RowBox[{"z", "\[Equal]", "0"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"z", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.512363042564323*^9, 3.5123630720122557`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ContourPlot3D", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"x", "+", "y"}], ")"}], "^", "2"}], "+", 
+       RowBox[{"z", "^", "2"}]}], "\[Equal]", "4"}], ",", 
+     RowBox[{"x", "\[Equal]", "0"}], ",", 
+     RowBox[{"y", "\[Equal]", "0"}], ",", 
+     RowBox[{"z", "\[Equal]", "0"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", "0", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"z", ",", "0", ",", "2"}], "}"}], ",", 
+   RowBox[{"Mesh", "\[Rule]", "False"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.512362114871162*^9, 3.512362172523651*^9}, {
+  3.512362371102214*^9, 3.512362376619632*^9}, {3.512363107424696*^9, 
+  3.512363131536058*^9}}]
+},
+WindowSize->{640, 750},
+WindowMargins->{{Automatic, 391}, {Automatic, 0}},
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 629, 19, 27, "Input"],
+Cell[1177, 41, 760, 23, 43, "Input"],
+Cell[1940, 66, 840, 23, 43, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
