@@ -1,6 +1,6 @@
 #project setting for eclipse
-.project
-*.prefs
+#.project
+#*.prefs
 
 #pdf output
 pdf/
@@ -9,4 +9,4 @@ pdf/
 tmp/
 
 #texlipse setting
-.texlipse
+#.texlipse
