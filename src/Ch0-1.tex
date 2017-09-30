@@ -1016,78 +1016,799 @@ x}{\cosh x}, \ldots$$}
 {\bf 注：}双曲函数在很多场合也写作$\mathrm{ch}(x)$和$\mathrm{sh}(x)$
 \ps{运算规律参见教材}
 
-% \section{曲线的参数方程和极坐标方程}
-% 
-% {\bf 问题：}$y=f(x)$能否表示平面上的所有曲线？
+\section{数列的极限}
+
+数列极限是极限问题中最为简单的一类，也是性质非常典型的一类，可以我们后续学习函数极限的基础。
+
+{\bf 数列：}按一定规律排列的无穷多个（相同或不相同的）数，记作：
+\ps{\b 有序性是数列最重要的特征，改变了数列中数的排列顺序将得到不同的数列}
+$$a_1,a_2,\ldots,a_n,\ldots$$
+或者$\{a_n\}$。
+
+$\{a_n\}$的实质是定义在$\mathbb{N}_+$上的函数，即所谓的{\it 整标函数}或{\it 整序函数}，
+因此可记为
+$$a_n:\mathbb{N}_+\mapsto\mathbb{R}.$$
+
+如果在平面直角坐标系内作图，也可以将其视为一个动点随$n$增大所留下的离散的运动轨迹。
+
+{\bf 思考：}数列与集合有哪些区别？\ps{1、有序-无序；\\ 2、无限-可能有限；\\ 3、可重复-不可重复}
+
+{\bf 例：}数列举例
+
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item[(1)] $\left\{\df{n+1}n\right\}:\df 21,\df 32,\df43,\df54,\df65,\ldots$
+  \item[(2)] $\left\{\df{(-1)^n}n\right\}:-1,\df12,-\df13,\df14,-\df15,\df16,\ldots$
+  \item[(3)] $\{n^2\}:1,4,9,16,25,36,\ldots$
+  \item[(4)] $\left\{n^{(-1)^n}\right\}:1,2,\df13,4,\df15,6,\ldots$
+\end{enumerate}
+
+\subsubsection{数列极限的定义}
+
+形象地说，数列$\{a_n\}$的{\bf 极限}
+\ps{现实生活里的极限更类似于我们所说的上限（确界）和下限（确界），例如：人类速度的极限}
+，就是$a_n$的值随$n$的不断增大而趋向的某个稳定的值，
+当然，对于不同的$\{a_n\}$，这个稳定的值不一定都存在！例如：
+\begin{itemize}
+  \item $\left\{\df1n\right\}$
+  的值随着$n$不断增大会越来越趋近于$0$，因此其极限为$0$；
+  \item $\{n\}$的取值会越来越大，甚至可以超过任何给定的值，
+  因此也不会趋于任何稳定的值，极限不存在；
+  \item $\{(-1)^n\}$的取值在$1$和$-1$上反复交替，既不能说它趋近与$1$，也
+  不能说它趋近于$-1$，所以极限也不存在。
+\end{itemize}
+
+在直观理解的基础上，我们集中来关注一个问题，即：{\it 数学上如何表达这种趋向某个稳定值的特征，
+或者说，如何给出数列极限的数学定义？}
+
+以下的定义据说是数学家Weierstrass的发明，是被数学界最广泛接受的一种极限定义：
+
+对于数列$\{a_n\}$，若存在常数$a$，{\b 对任意$\e>0$，不论它有多小，
+都存在$N\in\mathbb{Z}_+$，对任意$n>N$，都有
+$$|a_n-a|<\e$$
+成立}，
+%\ps{可简写为：$\forall\e>0,\exists N,\forall n>N,|a_n-a|<\e$}
+则称{\it 数列$\{a_n\}$存在极限（或收敛）}，常数$a$称为该数列的极限，记为
+$$\b\lim_{n\to\infty}a_n=a$$
+或\ps{\b 使用后面一种记号时，必须要写上$(n\to\infty)$}
+$$\b a_n\to a\;(n\to\infty)$$
+若上述常数$a$不存在，则称数列$\{a_n\}$不存在极限（或{\bf 发散}）。
+
+从几何上看（如下图所示），数列$\{a_n\}$以$a$为极限，意味着随着$n$的增大，$a_n$可以无限地
+靠近$a$。为了表达这种“无限靠近”，数学上可以这样来解释：对于以$a$为中心的任意小的邻域$(a-\e,
+a+\e)$（图上的蓝色阴影部分），只要把$n$取得充分大（$N$的意义就是为了界定这个所谓的充分大
+\ps{\b 显然，$\e$取得越小通常意味着$N$要取得越大，但必须注意的是$N$和$\e$之间并不是简单的函数对应
+关系，因为如果某个$N$可以满足命题要求，则$N$加任意的正常数显然也满足}
+)，则$a_n$都将落在$(a-\e,a+\e)$之内
+\ps{\b 除了有限多个$a_n$外（准确地说是除了至多$\{a_n\}$的前$N$项外）}
+。
+
+\begin{center}
+	\resizebox{!}{3cm}{\includegraphics{./images/ch2/lim-en/en1.jpg}}\quad
+	\resizebox{!}{3cm}{\includegraphics{./images/ch2/lim-en/en2.jpg}}
+	
+	\resizebox{!}{3cm}{\includegraphics{./images/ch2/lim-en/en3.jpg}}\quad
+	\resizebox{!}{3cm}{\includegraphics{./images/ch2/lim-en/en4.jpg}}
 % 	
-% {\bf 或者：}怎样才能更好地表示平面上的曲线？\ps{例如：$x^2+y^2=1,xy=1,x=y^2,\ldots$}
+% 	\resizebox{!}{3cm}{\includegraphics{./images/ch2/lim-en/en5.jpg}}
+\end{center}
+
+\begin{shaded}
+	{\bf 关于数列极限定义的讨论}
+	
+	前述定义更为简洁的写法：（{\it\b 这种纯符号的表述方式固然简洁，但要正确掌握，
+	必须首先对更完整的文字表述有准确的理解，否则不建议随意使用}）
+	
+	$$%\lim_{n\to\infty}a_n=a\quad\Leftrightarrow\quad
+	{\b \forall\e>0,\exists N\in\mathbb{Z}_+,\forall n>N,|a_n-a|<\e}\eqno{(1)}$$
+	
+	{\bf 讨论：}以下说法和$(1)$等价的是：
+
+	\begin{enumerate}
+	  \setlength{\itemindent}{1cm}
+	%   \item[(2)] $\forall\e>0$，$\exists N>0$，$\forall
+	%   n>N$，$|a_n-a|<\e$ \hfill{$\surd$}\\
+	%   \hfill（直接写$\exists N$即可）
+	  \item[(2)] $\forall\e>0$，$\exists N$，$\forall
+	  n>N$，$|a_n-a|\leq\e$ \hfill{$\surd$} 
+	  
+	  \quad 说明：只要强调$n>N$为正整数即可，根据需要$N$总是可以取得更大，
+	  无所谓是不是正整数。
+	  \item[(3)] $\exists N\in\mathbb{Z}_+$，$\forall\e>0$，$\forall
+	  n>N$，$|a_n-a|<\e$ \hfill{$\times$}
+	  
+	  \quad 说明：(3)可以推出(1)，但反之不然。事实上，由(3)可以推出，
+	  $\{a_n\}$仅有有限项的值不等于$a$，但显然不是所有收敛的数列都有此
+	  性质，例如$\{1/n\}$
+	  \item[(4)] $\forall\e>0$，仅有有限多个$n$，使得$|a_n-a|\geq\e$
+	  \hfill{$\surd$}
+	  
+	  \quad 说明：由(4)，仅有有限多个$a_n$不满足$|a_n-a|<\e$，则我们总可以取
+	  其中下标最大的下标作为$N$，则当$n>N$时，总有$|a_n-a|<\e$，即(1)成立；反之，由
+	  (1)，最多有不超过$N$个$a_n$不满足$|a_n-a|<\e$，故(4)成立。
+	  
+	  \item[(5)] $\forall\e>0$，总有无穷多个$n$，使得$|a_n-a|<\e$
+	  \hfill{$\times$} 
+	  
+	  \quad 说明，考虑反例：$a_n=(-1)^n$，取$a=1$。
+	  \item[(6)] $\forall\e>0$，要使$|a_n-a|<\e$，只须$n$充分大 \hfill{$\surd$}
+	  
+	  \quad 注：语序有变化，但逻辑关系和含义并未发生改变。
+	  \item[(7)] $\forall\e>0,\exists N\in\mathbb{Z}_+,\forall
+	  n>N,|a_n-a|<2\e$\hfill{$\surd$}
+	  
+	  {\quad\b\it 注：由于$\e$是任意的，$2\e$和$\e$的取值范围并没有区别，都是
+	  $(0,+\infty)$！事实上，在用定义证明极限时，完全可以使用$C\e$，
+	  其中$C\in\mathbb{R}$为给定的常数，这是数列极限最常用的一种等价定义。}
+	\end{enumerate}
+\end{shaded}
+
+{\bf 例：}证明：
+$$\limn(-1)^n\df1{n^2}=0$$
+
+[证]：对任意$\e>0$，{\b 令$N=\left[1/\sqrt{\e}\right]+1$}
+\ps{不要忘记：\b $[x]\leq x<[x]+1$}
+，则对任意$n>N$，有
+$$\left|(-1)^n\df1{n^2}-0\right|=\df1{n^2}<\df1{N^2}=\e,$$
+由极限的定义，即证。\ps{\b 用定义证明数列极限，说明$N$的存在性是关键，为此主要有两种方式：\\
+1、直接给出$N$的取值，例如$N=1/\e$\\
+2、利用已知极限间接说明$N$存在，如$N=N_1$}
+
+{\bf 例：}证明：
+$$\limn\left(\df n{n+1}\right)^2=1$$
+
+[证]：对任意$\e>0$，{\b 令$N=\left[2/\e\right]+1$}，则对任意$n>N$，有
+$$\left|\left(\df
+n{n+1}\right)^2-1\right|=\df{2n+1}{(n+1)^2}<\df{2(n+1)}{(n+1)^2}
+<\df2{n+1}<\df2n<\df2N=\e,$$
+由极限的定义，即证。
+
+{\bf 例：}证明：若$\limn a_n=a$，则$\limn|a_n|=|a|$
+
+[证]：对任意$\e>0$，由$\limn a_n=a$可知，存在$N_1\in\mathbb{Z}_+$，
+对任意$n>N_1$，有
+$$|a_n-a|<\e.$$
+于是{\b 令$N=N_1$}，则对任意$n>N$，有\ps{\b 利用$N_1$的存在性间接说明了$N$的存在性}
+$$||a_n|-|a||\leq|a_n-a|<\e,$$
+由极限的定义，即证。
+
+{\bf 课堂练习：}证明：若$|q|<1$，则$\{q^n\}$收敛。
+
+[提示]：令$N=\left[\log_{|q|}\e\right]+1$
+
+% {\bf 思考：}已知$|q|>1$时，$\{q^n\}$发散，请问该如何证明？
 % 
+% {\bf 注：}利用有界性，也可以证明发散。
+
+\begin{shaded}
+	{\bf 【极限定义的反面说法】}
+	
+	参照上一节对反面说法的介绍，由数列$\{a_n\}$以$a$为极限的定义：
+	$$\limn a_n= a\quad\Leftrightarrow\quad\forall\e_0>0,
+	\exists N\in\mathbb{Z}_+,\forall n>N,|a_n-a|<\e_0$$
+	可以写出{\it 数列$\{a_n\}$不以$a$为极限}的定义：
+	$$\limn a_n\neq a\quad\Leftrightarrow\quad\exists\e_0>0,
+	\forall N\in\mathbb{Z}_+,\exists n_0>N,|a_{n_0}-a|\geq\e_0$$
+	
+	下面用这个定义来证明几个例子：
+	
+	{\bf 例：}证明：$\limn\df 1n\neq 1$
+	
+	[证]：取$\e=\df12$，对任意$N\in\mathbb{Z}_+$，令$n_0=\max\{3,[N]+1\}>N$，
+	从而
+	$$\left|\df1{n_0}-1\right|=1-\df1{n_0}\geq 1-\df13=\df23>\e,$$
+	由极限的反面定义，即证。
+	
+	{\bf 例：}证明$\{(-1)^n\}$发散。
+	
+	[证]：任取$a\in\mathbb{R}$，只需证明$\limn(-1)^n\ne a$。以下不妨设$a>0$。
+	
+	取$\e=1$，对任意$N\in\mathbb{Z}_+$，令$n_0=\max\{2[N]+1,1\}>N$，则
+	$$\left|(-1)^{n_0}-a\right|=|-1-a|=a+1>\e,$$
+	由极限的反面定义，即证。
+	
+	相对于使用的反证法，用反面定义证明极限不存在，形式上更简洁，但
+	却不是特别直观和容易理解。
+	
+	需要提醒的是，数列不以某个值为极限和数列发散是两个不同的概念，后者意味着
+	数列不以任何的值为极限。
+	
+	{\bf 思考：}数列发散可能有哪些不同的情形？\hfill（{\it 趋向无穷，或反复振荡不收敛}）
+\end{shaded}
+
+\subsubsection{数列极限的性质}
+
+以下三个性质的证明，可以作为用极限定义证明命题的典型例子，应重点理解、掌握。
+
+{\bf 唯一性：}数列极限若存在，必唯一。\ps{可以说，是唯一性的要求决定了当前的极限定义。
+从这个意义上说，目前使用的极限定义其实也是一种约定。}
+%“记录重大技术突破的技术发展史其实就是一部人类社会发展的技术选择史”
+
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch2/1-0.9n.jpg}}
+	
+	一个不收敛的数列
+\end{center}
+
+下面的证明需要用到如下的命题：设$a,b\in\mathbb{R}$,若对任意$\e>0$，
+有$|a-b|<\e$，当且仅当$a=b$
+\ps{\b 两个确定的数如果可以无限靠近（小于任意给定的距离），则意味着它们相等。}
+
+[证]：设$a,b$均为数列$\{a_n\}$的极限。
+
+对任意$\e>0$，由$\limn a_n=a$，存在$N_1\in\mathbb{Z}_+$，对任意$n>N_1$，有$|a_n-a|<\e$；
+
+同理，由$\limn a_n=b$，存在$N_2\in\mathbb{Z}_+$，对任意$n>N_2$，有$|a_n-b|<\e$。
+
+令{\b $N=\max\{N_1,N_2\}$}，则当$n>N$时，有
+$${\b |a-b|\leq|a_n-a|+|a_n-b|<2\e},$$
+由此可知，必有$a=b$，即证。
+
+{\bf 有界性：}数列$\{a_n\}$若收敛，则{\it $\{a_n\}$有界}，即：存在$M>0$，对任意
+$n\in\mathbb{Z}_+$，恒有$|a_n|\leq M$。
+
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch2/sin2nn.jpg}}
+	
+	一个收敛的数列
+\end{center}
+
+思路：{\b 利用$\e$的特定取值“控制”无穷的部分，剩余的有限多个数构成的集合自然是有界的}
+
+[证]：记$\limn a_n=a$。由极限的定义，对{\b$\e=1$}，存在$N\in\mathbb{Z}_+$，
+对任意$n>N$，有
+$$|a_n-a|<\e=1\quad\Rightarrow\quad |a_n|<|a|+1.$$
+记{\b$M=\max\{|a|+1,|a_1|,|a_2|,\ldots,|a_{[N]+1}|\}$}，则对
+任意$n\in\mathbb{Z}_+$，均有
+$$|a_n|\leq M,$$
+即证。
+
+该性质的一个显然的推论是：{\b 如果数列无界，则必发散。}
+
+{\bf 例：}讨论$\{\sqrt[n]{n!}\}$的敛散性。
+
+思路：对任意$M>0$，当$n$充分大时，总有$n!>M^n$，故$\{\sqrt[n]{n!}\}$无界，
+从而发散。
+
+{\bf 证：}对任意$M>0$，令$N=[2M]+1$，则当$n>N$时，总有$n>2M$。此时
+$$\df{n!}{M^n}=\df{N!}{M^N}\cdot\df{N+1}{M}
+\cdot\df{N+2}{M}\ldots\df{n}{M}<\df{N!}{M^N}\cdot2^{n-N+1}.$$
+注意到$\df{N!}{M^N}$为有限值，而$2^{n-N+1}$随着$n$的增大趋于正无穷，
+故当$n$充分大时，必有
+$$\df{n!}{M^n}=\df{N!}{M^N}\cdot2^{n-N+1}>1,$$
+从而$\sqrt[n]{n!}>M$，也即$\{\sqrt[n]{n!}\}$无界，故发散。
+
+{\bf 保号性：}设$\lim\limits_{n\to\infty}a_n=a>0$，则存在$N$，
+对任意$n>N$，$a_n>0$
+
+[证]：由$\lim\limits_{n\to\infty}a_n=a>0$，对$\e=a/2$，存在
+$N$，对任意$n>N$，
+$$|a_n-a|<\e=a/2\quad\Rightarrow\quad \df32a>a_n>a/2>0,$$
+即证。
+		
+{\bf 保号性常见的几种形式（几个推论）：}
+\begin{enumerate}
+  \setlength{\itemindent}{1cm}
+  \item 对任意$n\in\mathbb{N}$，$a_n\geq
+  0$， $\lim\limits_{n\to\infty}a_n=a$， 则$a\geq 0$
+%    \ps{\b 保号性可以理解为极限运算保持不等号的方向不变，即：
+%    若$\{a_n\}$收敛，则由$a_n\geq 0$可推出$\limn a_n\geq0$} 
+  \item 设$\lim\limits_{n\to\infty}a_n=a\ne
+  0$， 则$\exists N$，当$n>N$时，$|a_n|>|a|/2$
+  \item  设$\lim\limits_{n\to\infty}a_n=a$， 且最多有有限
+  个$a_n$小于零， 则$a\geq 0$
+\end{enumerate}	
+
+{\bf 注：}{\b 保号性的实质，是{\it 极限运算保持不等号的方向
+\ps{但严格大（小）于可能变成大（小）于等于}不变}，
+若已知$\limn a_n=a,\limn b_n=b$，则
+$$a_n\geq b_n\,(n\in\mathbb{Z}_+)\quad\Rightarrow
+\quad\limn a_n\geq\limn b_n$$
+}
+
+{\bf 收敛数列与其子数列的关系：}数列$\{a_n\}$收敛，当且仅当它的所有
+子列均收敛到相同的极限。
+
+{\it 子数列：}从原数列中按一定顺序选取数，所构成的一个新的数列，通常记为
+$\{a_{n_k}\}$，其中$\{n_k\}$是一个严格单调递增的正整数列。显然，
+对{\b 任意$k\in\mathbb{Z}_+$，$n_k\geq k$。}
+
+数列$\{a_n\}$的{\it 奇子列}和{\it 偶子列}可记为$\{a_{2k}\}$、$\{a_{2k-1}\}$，
+有时也直接写为$\{a_{2n}\}$、$\{a_{2n-1}\}$。
+
+{\it 子数列$\{a_{n_k}\}$以$a$为极限}，
+也即：对任意$\e>0$，存在$K\in\mathbb{Z}_+$，使对任意$k>K$，总有
+$$|a_{n_l}-a|<\e.$$
+记为\ps{强调$k$变化而不是$n$变化，事实上$n_k$可以视为整序函数的复合函数中的中间变量}
+$$\b\lim\limits_{k\to\infty}a_{n_k}=a,\quad 
+\mbox{或}\quad a_{n_k}\to a\;{(k\to\infty)}$$
+
+下面证明上述性质：
+
+[证]：充分性是显然的，因为$\{a_n\}$可以看成是自身的一个子列。
+
+下面证明必要性。设$\limn a_n=a$，则对任意$\e>0$，存在$N\in\mathbb{Z}_+$，
+使对任意$n>N$，有$|a_n-a|<\e$。
+
+设$\{a_{n_k}\}$为$\{a_n\}$的任一子列。令$K=N$，则由$\{n_k\}$严格单调递增，
+可知对任意$k>K$，都有$n_k>n_K\geq K=N$，从而 
+$$|a_{n_k}-a|<\e.$$
+也即$\lim\limits_{k\to\infty}a_{n_k}=a$。因为$\{a_{n_k}\}$是任意的，即证。
+
+% 该性质的另一种表述方法：
+% $$\limn a_n=a\quad\Leftrightarrow\quad
+% \mbox{对任意严格单调递增的正整数数列}\{n_k\},
+% \lim_{k\to\infty}a_{n_k}=a.$$
+
+这个性质的一个明显用途，是判定一些数列的发散。
+
+{\bf 例：}证明数列$\{(-1)^n\}$发散。
+
+[证]：取该数列的欧子列和奇子列，分别即为$\{a_{2k}\}$和$\{a_{2k-1}\}$。显然，
+对任意$k\in\mathbb{Z}_+$，都有
+$$a_{2k}\equiv 1,\quad a_{2k-1}\equiv -1,$$
+因此
+$$\lim\limits_{k\to\infty}a_{2k}=1,\quad
+\lim\limits_{k\to\infty}a_{2k-1}=-1.$$
+由二者极限不相等可知原级数发散，即证。
+
+这种方法证明发散，比前面使用数列收敛的反面定义要更加简洁，也更加直观。
+
+{\bf 例：}\ps{KD教材2.2.2节-例4}
+证明数列$\left\{n^{(-1)^n}\right\}$发散。
+
+[提示]：原数列存在发散子列$\left\{(2n)^{(-1)^{2n}}\right\}=\{2n\}$。
+
+{\bf 例：}证明$\left\{\left(1+\df1{\sqrt n}\right)\sin\df{\pi\sqrt n}2\right\}$
+发散。
+
+[提示]：取$n_k=k^2$。 
+
+\begin{shaded}
+	{\bf 例：}证明：$\{\sin n\}$发散。
+	
+	{\bf 证法一：}用反证法。设有$\limn\sin n=a$，则
+	$$\limn[\sin(n+2)-\sin n]=0.$$
+	进而由
+	$$\sin(n+2)-\sin n=2\sin 1\cos(n+1),$$
+	可得$\limn\cos(n+1)=0$。又
+	$$\cos(n+1)=\cos n\cos 1-\sin n\sin 1,$$
+	可得$\limn\sin n=0$。如此就有
+	$$\limn\sin n=\limn\cos n=0,$$
+	显然与$\sin^2n+\cos^2n=1$矛盾。
+	
+	{\bf 证法二：}注意到当$x\in[2k\pi+\pi/4,2k\pi+3\pi/4]\,(k\in\mathbb{N})$时，总有
+	$$\sin x>\sqrt2/2.$$
+	由于此类区间的长度均超过$1$，故其中必包含至少一个自然数。于是对每个$k\in\mathbb{N}$，
+	可取自然数$n^{(1)}_k\in[2k\pi+\pi/4,2k\pi+3\pi/4]$，显然$\{\sin{n^{(1)}_k}\}$构成了$\{\sin
+	n\}$的一个子列。
+	
+	若$\{\sin n\}$收敛，则$\{\sin{n^{(1)}_k}\}$也收敛，且与之极限相同。由极限的保号性，
+	可知$\{\sin{n^{(1)}_k}\}$的极限不小于$\sqrt2/2$，从而$\{\sin
+	n\}$的极限应大于等于$\sqrt2/2$。
+	
+	同理，利用区间$[2k\pi+5\pi/4,2k\pi+7\pi/4]\,(k\in\mathbb{N})$，可构造$\{\sin
+	n\}$的另一个子列 $\{\sin{n^{(2)}_k}\}$。若$\{\sin n\}$收敛，同样利用保号性可证明其极限应小于等于$-\sqrt2/2$。
+	
+	
+	以上两方面的结论矛盾，故假设错误，即证。
+\end{shaded}
+
+该性质的一个常见推论称为{\bf 拉链定理}：若某个数列的奇子列和偶子列收敛到相同的极限，
+则该数列收敛。
+
+请自行尝试证明该定理。此外，还请想一想，这个定理可以进一步推广吗？
+
+{\bf 注：}更一般性的推广：如果选择的多个子列按顺序合并起来能够完全覆盖原数列，
+或最多不能覆盖原数列中有限多个数，且这些子列均收敛于相同的极限，则原数列收敛。
+例如：{\it 若子数列$\{a_{3n}\},\{a_{3n-1},\{a_{3n-2}\}\}$都收敛于$a$，
+则$\{a_{n}\}$收敛于$a$。}
+
+\section{函数的极限}
+
+\subsection{函数极限的定义}
+
+函数极限是我们后续定义导数、积分的概念的基础。从形式上看，可以将它视为数列极限的推广，
+但从直观意义上看，二者存在很大的不同。
+
+不同于数列极限只有单一的$n\to\infty$一种（自变量的变化）趋势，
+函数极限共有{\it 六种可能的（自变量变化）趋势}，分为两大类：
+
+\begin{itemize}
+  \setlength{\itemindent}{1cm}
+  \item {\it 自变量趋于无穷}
+  $$\b x\to\infty,\quad x\to+\infty,\quad x\to-\infty$$
+  \item {\it 自变量趋于有限值}
+  $$\b x\to x_0,\quad x\to x_0^+,\quad x\to x_0^-$$
+\end{itemize}
+
+{\bf 思考：} $\limn f(n)=A\Leftrightarrow\limx{+\infty}f(x)=A$成立吗？
+
+答：显然，{\b$\limx{+\infty}f(x)=A$可以推出$\limn f(n)=A$，但反之不然}，
+\ps{事实上，$f(n)$的值域是$f(x)$值域的子集}
+
+例如：$y=\sin\pi x$当$x\to+\infty$时不收敛，但$\limn\sin n\pi=0$。
+
+{\bf 【趋于无穷时的函数极限】}
+
+{\bf 定义：}
+\ps{\b 和$\limn a_n=a$的定义做类比，进行形式推广}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\limx{+\infty}f(x)=A\Leftrightarrow\forall \e>0,\exists X,\forall
+  x>X,|f(x)-A|<\e$
+  \item $\limx{-\infty}f(x)=A\Leftrightarrow\forall \e>0,\exists X,\forall
+  x<X,|f(x)-A|<\e$
+  \item $\limx{\infty}f(x)=A\Leftrightarrow\forall \e>0,\exists X,\forall
+  |x|>X,|f(x)-A|<\e$
+\end{enumerate}
+
+{\bf 注：}和数列极限类似，在函数极限的定义中，最后不等式右端的$\e$可以改写为$C\e$，
+其中$C>0$为常数，所得命题与原定义等价。
+
+{\bf 例：}证明$\limx{+\infty}\df1{\sqrt x}=0$.
+
+[证]：对任意$\e>0$，取$X=\df1{\e^2}$，则对任意的$x>X$，都有
+$$\left|\df1{\sqrt x}-0\right|=\df1{\sqrt x}<\df1{1/\e}=\e,$$
+由函数极限的定义，即证。
+
+{\b 趋于无穷的函数极限存在，意味着函数存在{\it 水平渐近线}}，需要注意的是，
+水平渐近线最多可以有两条，例如：
+
+% \begin{center}
+% 	\resizebox{!}{4cm}{\includegraphics{./images/ch3/arctan.pdf}}
+% \end{center}
+
+\begin{center}
+	\begin{overpic}[scale=0.3]{./images/ch3/arctan.pdf}
+		\put(0,10){\b $\limx{-\infty}\arctan x=-\df{\pi}2$}
+		\put(65,53){\b $\limx{+\infty}\arctan x=\df{\pi}2$}
+	\end{overpic}
+	
+	$y=\arctan x$的图像与两条水平渐近线
+\end{center}
+
+{\bf 【趋于有限值时的函数极限】}
+
+{\bf 定义：}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\limx{x_0}f(x)=A\Leftrightarrow\forall \e>0,\exists\delta>0,\forall
+  x\in U_0(x_0,\delta),|f(x)-A|<\e$
+  \item $\limx{x_0^+}f(x)=A\Leftrightarrow\forall \e>0,\exists\delta>0,\forall
+  x\in(x_0,x_0+\delta),|f(x)-A|<\e$
+  \item $\limx{x_0^-}f(x)=A\Leftrightarrow\forall \e>0,\exists\delta>0,\forall
+  x\in(x_0-\delta,x_0),|f(x)-A|<\e$
+\end{enumerate}
+
+{\bf 例：}\ps{KD教材习题3.1-1}
+根据图形判断极限的存在性
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch3/limxf.pdf}}
+	
+	$\limx{1}f(x)$\underline{不存在}
+	\quad $\limx{2}f(x)$\underline{$=1$}
+	\quad $\limx{1}f(x)$\underline{$=0$}
+\end{center}
+
+{\bf 思考：}{\b
+	\begin{itemize}
+	  \setlength{\itemindent}{1cm}
+	  \item 为什么在定义中要求$0<|x-x_0|<\delta$，而不是$|x-x_0|<\delta$？
+	  
+	   \quad ({\it 因为极限表示的自变量趋于改点的过程中（而不是在该电上）函数值的变化趋势，
+	   与函数在该点处的取值无关})
+	  \item 符号$f(x_0+0),f(x_0-0)$与$f(x_0)$是何关系？
+	  
+	  \quad （{\it前两者分别表示左、右极限，最后一个是函数值，三者相互无关}）
+	\end{itemize}
+}
+
+{\bf 例：}证明：$\limx{x_0}\sin x=\sin x_0$。
+
+[证]：对任意$\e>0$，令{\b$\delta=\e$}，则当$0<|x-x_0|<\delta$时，有
+$$|\sin x-\sin x_0|=2\left|\cos\df{x+x_0}2\right|
+\left|\sin\df{x-x_0}2\right|\leq|x-x_0|<\delta=\e,$$
+由函数极限定义，即证。
+
+{\bf 例：}证明：$\limx{1}x^2=1$。
+
+对任意$\e>0$，令{\b$\delta=\min\left\{\df12,\e\right\}$}，
+\ps{令$\delta\leq\df12$，作用在于使得$|x+1|$有界}
+则当$0<|x-1|<\delta$时，有
+$$|x^2-1|=|(x+1)(x-1)|<\df32\cdot\delta<\df32\e,$$
+由函数极限定义，即证。
+
+{\bf 例：}设$\limx{x_0}f(x)=A$，用定义证明：$\limx{x_0}[f(x)]^3=A^3$
+
+{\bf 证：}对任意$\e>0$，由$\limx{x_0}f(x)=A$，存在$\delta>0$，对任意
+$0<|x-x_0|<\delta$，有
+$$|f(x)-A|<\e.$$
+不妨设$\e<1$，由上式可知$0<|x-x_0|<\delta$时，有$|f(x)|<|A|+1$。
+
+综上，记$C=(|A|+1)^2+(|A|+1)|A|+A^2$，则当$0<|x-x_0|<\delta$时，总有
+\begin{align}
+	|f^3(x)-A^3|&=|f(x)-A||f^2(x)+f(x)A+A^2|\notag\\
+	&\leq |f(x)-A|[|f^2(x)|+|f(x)||A|+A^2]\notag\\
+	&<\e[(|A|+1)^2+(|A|+1)|A|+A^2]=C\e\notag,
+\end{align}
+有极限的定义，即证。
+
+\begin{shaded}
+	{\bf 【函数极限的反面说法】}
+	
+	\begin{itemize}
+	  \item {\it 当$x\to x_0$时$f(x)$不以$A$为极限：} 
+	    $\exists\e_0>0,\forall\delta>0, \exists x^*\in
+	    U_0(x_0,\delta),|f(x^*)-A|\geq\e_0$ 
+	  \item {\it 当$x\to x_0$时$f(x)$无极限：}
+		$\forall A\in\mathbb{R},\exists\e_0>0,\forall\delta>0, \exists x^*\in
+	    U_0(x_0,\delta),|f(x^*)-A|\geq\e_0$ 
+	\end{itemize}
+	
+	{\bf 例：}证明：Dirichlet函数在任意点处无极限。
+	
+	[证]：任取$x_0,A\in\mathbb{R}$，不妨设$A\ne 0$（$A\ne 1$的情况同理可证）。
+	
+	令$\e_0=\df{|A|}2$，对任意$\delta>0$，由有理数的稠密性，总可以在
+	$U_0(x_0,\delta)$内取得某个有理数$x^*$，从而$D(x^*)=0$，于是
+	$$|D(x^*)-A|=|A|>\e_0,$$
+	由上述的定义，可知当$x\to x_0$时$D(x)$无极限，又由$x_0$的任意性，可知
+	$D(x)$处处无极限。
+\end{shaded}
+
+\subsubsection{函数极限的基本性质}
+
+参考数列极限的性质，可以类似地证明函数极限的下列性质。
+
+{\bf 唯一性:}函数极限若存在，必唯一。
+
+{\bf 有界性：}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 若$\limx{+\infty}f(x)=A$，则$f(x)$当$x$充分大时有界
+  \ps{当$x$充分大时，等价于，存在$X$，当$x>X$时}
+  \item 若$\limx{x_0}f(x)=A$，则$f(x)$当$x$充分靠近$x_0$时有界
+  \ps{当$x$充分靠近$x_0$时，等价于，存在$\delta>0$，
+  当$x\in U_0(x_0,\delta)$时}
+\end{enumerate}
+
+{\bf 注意：}函数极限有界性和数列极限有界性的叙述存在的差异：
+{\it\b 数列收敛则数列整体有界\ps{数列极限中的数列整体都有界，
+是由数列自身的“稀疏”特性所决定的}，
+函数收敛只能说明在趋近的过程中（或者充分靠近目标时）有界！}请思考一下这是为什么？
+
+[提示]：极限$\limx{+\infty}\df1x=0$，但$\df1x$在定义域上无界；
+类似地，$\limx{1}x=1$，但$x$显然也是无界的。
+
+{\bf 保号性：}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 若$\limx{+\infty}f(x)=A>0$，则当$x$充分大时，$f(x)>0$
+  \item 若$\limx{x_0}f(x)=A>0$，则当$x$充分靠近时$x_0$时，$f(x)>0$
+\end{enumerate}
+
+{\bf 函数极限与数列极限的关系：}（{\it Henie定理}）
+已知$\limx{x_0}f(x)=A$，若若数列$\{x_n\}$取值在$f(x)$的定义域内，
+且满足：$x_n\to x_0(n\to$ $\infty)$，$x_n\ne 0\;(n\in\mathbb{Z}_+)$，
+则必有$\limn f(x_n)=A$。
+
+[证]：已知$\limx{x_0}f(x)=A$，故对任意$\e>0$，存在$\delta>0$，
+使对任意$x\in U_0(x_0,\delta)$，都有$|f(x)-A|<\e$。
+
+设$\limn x_n=x_0$，则以上的$\delta>0$，存在$N\in\mathbb{Z}_+$，
+使对任意$n>N$，都有$|x_n-x_0|<\delta$。从而，当$n>N$时，必有
+$$|f(x_n)-A|<\e.$$
+即证。
+
+对于$x\to x_0^+$和$x\to x_0^-$的情形，该定理显然也成立。
+
+与上一节子数列有关收敛性质的用途一样，Henie定理的用途更多地是证明函数极限不存在。
+当然，有时遇到一些不方便计算的数列极限，将其转化为对应的函数极限来计算
+\ps{由于计算函数极限有类似L'Hospital法则和Taylor公式这样的工具，相对来说
+比计算数列极限方法更多样}。
+
+{\bf 例：}{\b 证明：$f(x)=\sin\df 1x$当$x\to 0$时无极限。}\ps{KD教材3.2.2节-例8}
+
+{\bf 证}：令
+$$x^{(1)}_n=\df1{n\pi},\quad
+x^{(2)}_n=\df1{2n\pi+\df{\pi}2},\quad n\in\mathbb{Z}_+$$ 
+显然，$\limn x^{(1)}_n=\limn x^{(2)}_n=0$，且
+$$f(x^{(1)}_n)\equiv0,\quad f(x^{(2)}_n)\equiv1,$$
+进而
+$$\limn f(x^{(1)}_n)=0\ne1=\limn f(x^{(2)}_n),$$
+由Henie定理，即知极限不存在。
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch3/sin1x.pdf}}
+	
+	{\it 以上所取的$x^{(1)}_n$和$x^{(2)}_n$分别取自图上绿色和黄色水平线与
+	函数$\sin\df1x$的交点，事实上，对于任意的$a\in[-1,1]$（红色水平线），
+	都可以取得类似的点列，用于构造证明所需的收敛到不同值得函数值数列，请思考以下如何写
+	出其表达式？
+	$$x^{(a)}_n=\df1{2n\pi+\arcsin a},\quad n\in\mathbb{Z}_+$$}
+\end{center}
+
 % \begin{shaded}
-% 	\begin{center}
-% 		\includegraphics[width=5.5cm]{./images/ch1/dicartesCurve.pdf}
-% 
-% 		{\bf Descartes叶形线}
-% 	\end{center}
-% 	\bigskip
-% 	\begin{itemize}
-% 	  \item {\bf 参数方程：}
-% 	  	$$\left\{\begin{array}{l}
-% 	  		x=\df{3at}{1+t^3},\\[1em] y=\df{3at^2}{1+t^3}
-% 	  	\end{array}\right.\;(t\in\mathbb{R})$$
-% 	  	\vspace{-1em}
-% 	  \item {\bf 隐函数方程：}
-% 	  	$$x^3+y^3-3axy=0$$
-% 	\end{itemize}
-% \end{shaded}
-% 
-% {\bf 例：}求过平面上两点$P_i(x_i,y_i)\,(i=1,2)$的直线方程
-% 		  
-% $$k=\df{y_2-y_1}{x_2-x_1}=\df{y_2-y_1}{x_2-x_1}$$
-% 由此可给出直线的平面直角方程。若参数化
-% $$\df{y_2-y_1}{y_2-y_1}=\df{x_2-x_1}{x_2-x_1}=t$$
-% 则有
-% $$y=ty_2+(1-t)y_1,\quad x=tx_2+(1-t)x_1,\quad (t\in\mathbb{R})$$
-% 		  
-% {\b {\bf 注：}
-% \begin{itemize}
-%   \setlength{\itemindent}{1cm}
-%   \item 参数方程必须标明参数的取值范围！！！
-%   \item {利用参数方程可以表示平面上的任意曲线}
-%   \item {任意曲线的参数方程均不唯一}
-% \end{itemize}
-% }
-% 
-% \subsubsection{【极坐标】}
-% 
-% $$(x,y)\;\to\;(\rho\cos\theta,\rho\sin\theta)\quad
-% (\rho>0,\theta\in\mathbb{R})$$
-% 其中
-% $$x=\rho\cos\theta,\quad y=\rho\sin\theta,$$
-% 或者反之（假设$\theta\in(-\pi,\pi]$）
-% $$\rho=\sqrt{x^2+y^2},\quad 
-% \theta=\left\{\begin{array}{ll}
-% 	\arctan\df yx,& x>0\\
-% 	\df{\pi}2,& x=0,y>0\\
-% 	-\df{\pi}2,& x=0,y<0\\
-% 	\pi+\arctan\df yx,& x<0,y>0\\
-% 	-\pi+\arctan\df yx,& x<0,y<0\\
-% 	\pi,& x<0,y=0\\
-% 	\mbox{无定义},& x=y=0
-% \end{array}\right.$$
+	{\bf 例：}用Henie定理证明Dirichlet函数在任意点处无极限。
+	
+% 	{\bf 命题：}对任意$x_0\in\mathbb{R}$，都存在这样的两个数列
+% 	$\{x_n^{(1)}\}$和$\{x_n^{(2)}\}$，满足
+% 	$$x_n^{(1)}\in\mathbb{Q},\;x_n^{(2)}\notin\mathbb{Q}\;(n\in\mathbb{Z}_+),$$
+% 	且
+% 	$$\limn x_n^{(1)}=\limn x_n^{(2)}=x_0.$$
 % 	
-% {\bf 例：}求以下曲线的极坐标方程\ps{教材1.3.2节例9}
-% 		
+% 	{\bf 思考：}试给出$\{x_n^{(1)}\}$和$\{x_n^{(2)}\}$的通项表达式。
+	
+	[证]：
+% 	1）若$x_0\in\mathbb{Q}$，可令
+% 	$$x_n^{(1)}=x_0+\df1n,\quad
+% 	x_n^{(2)}=x_0+\df{\sqrt2}n,\;(n\in\mathbb{Z}_+)$$
+% 	2）若$x_0\notin\mathbb{Q}$，可令
+% 	$$x_n^{(1)}=[x_0]+x_0\mbox{\it 小数部分的前}n\mbox{\it 位},
+% 	\;(n\in\mathbb{Z}_+)$$
+% 	例如$x_0=\pi=3.1415926\ldots$，则
+% 	$$x_1^{(1)}=3.1,\;x_2^{(1)}=3.14,\;x_3^{(1)}=3.141,\;
+% 	x_4^{(1)}=3.1415,\;\ldots$$
+% 	另，
+% 	$$x_n^{(2)}=x_0+\df1n,\;(n\in\mathbb{Z}_+)$$
+% 	
+% 	{\bf 又解：}
+	对任意$x_0$，定义
+	$$x_n=[x_0]+x_0\mbox{\it 小数部分的前}n\mbox{\it 位},$$
+	$$x_n^{(1)}=x_n+\df1n,$$
+	$$x_n^{(2)}=x_n+\df{\sqrt2}n,$$
+	显然$\{x_n^{(1)}\}$和$\{x_n^{(2)}\}$分别为趋于$x_0$的有理和无理数列，而
+	$$\limn D(x_n^{(1)})=1\ne0=\limn D(x_n^{(2)}),$$
+	从而由Hiene定理，即证。
+% \end{shaded}
+
+{\bf 例：}设在$(0,+\infty)$上，恒有$f(x^2)=f(x)$，且
+$$\limx{0^+}f(x)=\limx{+\infty}f(x)=f(1)$$
+证明：$f(x)=f(1)\,(x\in(0,+\infty))$
+
+[提示]：对任意$x_0>1$，都有
+$$f(x_0)=f(x_0^2)=f(x_0^4)=\ldots=\limn f(x_0^{2^n})=\limx{+\infty}f(x)=f(1).$$
+对任意$x_0<1$，都有
+$$f(x_0)=f(x_0^2)=f(x_0^4)=\ldots=\limn f(x_0^{2^n})=\limx{0^+}f(x)=f(1).$$
+
+\section{无穷小与无穷大}
+
+\subsection{无穷小}
+
+以下$\Delta$表示$x_0,x_0^+,x_0^-,\infty,+\infty,-\infty$中的任意一个。
+
+若$\limx{\Delta}f(x)=0$，则称{\it $f(x)$为$x\to\Delta$时的无穷小}，记为
+$${\b f(x)=\circ(1),\;(x\to\Delta).}$$
+
+注意，{\b 谈到无穷小，一定是和某个变化过程相对应的}。例如：$f(x)=x-1$是$x\to 1$时的
+无穷小，但不是$x\to 2$时的无穷小。
+
+显然，常值函数$f(x)\equiv 0$是任何过程中的无穷小。
+
+利用函数极限和无穷小的定义，容易证明：
+$\limx{\Delta}f(x)=A\Leftrightarrow f(x)=A+\alpha$，其中$\alpha$
+  是$x\to\Delta$时的无穷小。
 % \begin{enumerate}[(1)]
 %   \setlength{\itemindent}{1cm}
-%   \item $y=kx,(k\in\mathbb{R})$
-%   \item $x+y=1$
-%   \item $x^2+y^2=R^2,\,(R>0)$
-%   \item $(x^2+y^2)^2=2a^2xy$
+%   \item 
+%   \item $\limx{\Delta}f(x)=A$，$\alpha$是$x\to\Delta$时的无穷小，则$\alpha f(x)$
+%   也是$x\to\Delta$时的无穷小，也即：{\it 在同一过程中，无穷小和有界函数的乘积仍为无穷小}。
 % \end{enumerate}
-	
-% {\bf 思考：}将极坐标方程化为平面直角方程应注意些什么？
 
+\subsection{无穷大}
 
+无穷大意味着在某个过程中，函数的绝对值会无限增大，这同时也就意味着其倒数会趋于零。
+
+若$\limx{\Delta}\df1{f(x)}=0$，则称{\it $f(x)$为$x\to\Delta$时的无穷大}。
+\ps{这里我们的定义和同济的教材上略有区别，但是完全等价}。
+
+需要注意的是，无穷大和无界是不同的。例如：$f(x)=x$和$g(x)=x\sin x$都是$x\to\infty$时
+的无界量（即：只要$x$充分远离原点，则函数值可以超过任何事先给定的值），但前者是该过程中的
+无穷大，后者不是。
+
+此外，{\b 要注意无穷大有正负之分，而无穷小没有。}
+
+无穷大的等价定义：$f(x)$为$x\to\Delta$时的无穷大，也即：
+对于任意$M>0$，当$x$充分靠近$\Delta$时，总有$|f(x)|>M$。
+下面就$x\to x_0$的情况给出证明。
+
+{\bf 例：}证明：$f(x)$为$x\to x_0$时的无穷大，也即：
+对于任意$M>0$，存在$\delta>0$，使对任意$x\in U_0(x_0,\delta)$，总有$|f(x)|>M$。
+
+[证]：任取$M>0$，令$\e=\df1M$。由无穷大的定义，$\limx{\Delta}\df1{f(x)}=0$，故对
+此$\e$，存在$\delta>0$，使对任意$x\in U_0(x_0,\delta)$，总有
+$$\left|\df1{f(x)}\right|<\e\quad\Rightarrow |f(x)|>\df1{\e}=M.$$
+即证。
+
+{\b$x\to x_0$或$x_0^+,x_0^-$时的无穷大对应的是函数曲线的{\it 铅直渐近线}}。例如：
+$\limx{0}\df1x=0$，故$x=0$是$f(x)=\df1x$的铅直渐近线；
+$\limx{\pi/2^+}\tan x=-\infty$，故$x=\pi/2$是$f(x)=\tan x$的铅直渐近线。
+
+\section{极限运算法则}
+
+以下讨论的所有性质都是指在同一个$x\to\Delta$的极限过程中。
+
+\subsection{极限的四则运算}
+
+{\bf 定理：}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 有限个无穷小的和也是无穷小；
+  \item 有界函数与无穷小的乘积是无穷小；
+  \item 有限多个无穷小的乘积是无穷小。
+\end{enumerate}
+
+{\bf 推论：}若相关极限都有意义，且符合代数运算的基本条件，则极限运算总可以
+和有限多次的四则运算交换次序。
+
+{\bf 以上的结论都可以直接套用于数列的极限。}
+
+{\bf 例：}计算极限
+$$\limx{\infty}\df{3x^3+2x-1}{4x^3+6x^2+9}$$
+
+[解]：
+\begin{align}
+	\limx{\infty}&\df{3x^3+2x-1}{4x^3+6x^2+9}
+	=\limx{\infty}\df{3+2\frac1{x^2}-\frac1{x^3}}
+	{4+6\frac1x+9\frac1{x^3}}
+	=\df{\limx{\infty}\left(3+2\frac1{x^2}-\frac1{x^3}\right)}
+	{\limx{\infty}\left(4+6\frac1x+9\frac1{x^3}\right)}\notag\\
+	&=\df{\limx{\infty}3+\limx{\infty}2\frac1{x^2}-\limx{\infty}\frac1{x^3}}
+	{\limx{\infty}4+\limx{\infty}6\frac1x+\limx{\infty}9\frac1{x^3}}
+	=\df{\limx{\infty}3+\limx{\infty}2\limx{\infty}\frac1{x^2}
+	-\limx{\infty}\frac1{x^3}}
+	{\limx{\infty}4+\limx{\infty}6\limx{\infty}\frac1x
+	+\limx{\infty}9\limx{\infty}\frac1{x^3}}\notag\\
+	&=\df{3+2\cdot 0-0}{4+6\cdot 0+9\cdot 0}=\df34\notag
+\end{align}
+
+在日常的解题中，计算过程显然不必都如此详细。
+
+对于与该例类似的极限问题，我们有如下的结论，在今后的极限计算中可以直接应用：
+
+{\b 设$P(x)$和$Q(x)$分别为$m$和$n$次多项式函数，且其最高次项系数分别为
+$a,b$，$ab\ne 0$，则
+$$
+	\limx{+\infty}\df{P(x)}{Q(x)}=
+	\left\{\begin{array}{ll}
+		a/b, & m=n;\\
+		0, & m<n;\\
+		\mbox{不存在}, & m>n.
+	\end{array}\right.
+$$
+}
+
+{\bf 课堂思考：}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 若$x\to x_0$时，$f(x)$有极限，$g(x)$无极限，则当$x\to x_0$时，以下哪些函数必无极限：
+  $$f(x)g(x),\quad [g(x)]^2,\df{g(x)}{f(x)}, f(x)+g(x)$$ 
+  \item 若$\limx{x_0}g(x)=A,\lim\limits_{u\to A}f(u)=B$，是否必有
+  $$\limx{x_0}f[g(x)]=B\;?$$
+  \item 若$\limx{x_0}f(x)g(x)=0$，则当$x\to
+  x_0$时， $f(x),$ $g(x)$之一必趋于$0$ ({$\times$})
+\end{enumerate}
+
+\subsection{复合函数的极限}
+
+设有复合函数$y=f[g(x)]$，其中\ps{对比Henie定理}
+$$\limx{x_0}g(x)=u_0,\quad\lim\limits_{u\to u_0}f(u)=A,$$
+且在$x_0$附近$g(x)\ne u_0$，则
+$$\limx{x_0}f[g(x)]=A.$$
+
+{\bf 注：}{\b 为什么要求“在$x_0$附近$g(x)\ne u_0$”？}
+  
+  答：因为$f(x)$可能在$x_0$处的定义与极限值无关，例如：
+  $$f(x)=\left\{\begin{array}{ll}
+  1,&x\ne0\\0,&x=0
+  \end{array}\right.$$
+  $g(x)\equiv 0$，则$f(g(x))\equiv0$，从而$\limx{0}f(g(x))=0$，
+  而不是如定理所述$\limx{0}f(g(x))=1$
+
+直观的理解，以上的结论告诉我们：若相关极限都存在，则极限运算可以和函数运算交换次序。
+
+显然，这个结论可以类似地推广到$x\to\infty$的情形。
 
 \newpage
 
@@ -1142,167 +1863,3 @@ x}{\cosh x}, \ldots$$}
   \item 习题5.2：3
   \item 阅读：李开复，《给未来的你》
 \end{itemize}
-
-% \newpage
-% 
-% \section*{部分习题参考解答}
-% 
-% 1. 习题1.1：10，证明：
-% $$\df{a_1+a_2+\cdots+a_n}n\geq\sqrt[n]{a_1a_2\cdots a_n},$$
-% 其中$a_i(i=1,2,\ldots,n)$均为非负实数。
-% 
-% 证法一：易证$n=2$时不等式成立。假设对$n=2^k(k\in\mathbb{Z}_+)$不等式成立，则
-% 当$n=2^{k+1}$时，
-% \begin{eqnarray*}
-% 	a_1+a_2+\cdots+a_{2^{k+1}}&\leq&2^k\sqrt[2^k]{a_1a_2\cdots a_{2^k}}
-% 	+2^k\sqrt[2^k]{a_{2^k+1}+a_{2^k+2}+\cdots+a_{2^{k+1}}}\\
-% 	&\geq&2\cdot 2^k\sqrt{\sqrt[2^k]{a_1a_2\cdots a_{2^k}}\cdot
-% 	\sqrt[2^k]{a_{2^k+1}+a_{2^k+2}+\cdots+a_{2^{k+1}}}}\\
-% 	&=&2^{k+1}\sqrt[2^{k+1}]{a_1a_2\cdots a_{2^{k+1}}}
-% \end{eqnarray*}
-% 由数学归纳法，可知当$n$取$2$的整数次幂时，不等式成立。
-% 
-% 若$n$不等于$2$
-% 的某个整数次幂，不妨设$2^{k-1}<n<2^k(k\in\mathbb{N})$，于是
-% \begin{eqnarray*}
-% 	& &a_1+a_2+\cdots+a_n+\left(2^k-n\right)\sqrt[n]{a_1a_2\cdots a_n}\\
-% 	& & \quad\geq 2^k\sqrt[2^k]{a_1a_2\cdots a_n\left(\sqrt[n]{a_1a_2\cdots
-% 	a_n}\right)^{2^k-n}}\\
-% 	& &\quad =2^k\sqrt[n]{a_1a_2\cdots a_n}
-% \end{eqnarray*}
-% 以上不等式稍加整理即证。
-% 
-% 证法二：易证$n=2$时不等式成立。以下假设$n=k$时不等式也成立，即
-% $$\df{a_1+a_2+\cdots+a_k}{k}\geq\sqrt[k]{a_1a_2\cdots a_k}.$$
-% 当$n=k+1$时，记$t=a_1+a_2+\cdots+a_k$，且不妨设$a_{k+1}=\max\{a_1,a_2,
-% \cdots,a_{k+1}\}$，即$ka_{k+1}\geq t$，也是
-% \begin{eqnarray*}
-% 	\left(\df{a_1+a_2+\cdots+a_{k+1}}{k+1}\right)^{k+1}
-% 	&=&\left(\df{t+a_{k+1}}{k+1}\right)^{k+1}
-% 	=\left[\df tk+\df{ka_{k+1}-t}{k(k+1)}\right]^{k+1}\\
-% 	&\geq&C_{k+1}^0\left(\df tk\right)^{k+1}+C_{k+1}^1\left(\df tk\right)^k
-% 	\df{ka_{k+1}-t}{k(k+1)}\\
-% 	&=&\left(\df tk\right)^ka_{k+1}\geq a_1a_2\cdots a_{k+1}
-% \end{eqnarray*}
-% 即证。
-% \bigskip
-% 
-% 2.给出P9例6中二维球极投影映射中：
-%   
-% （1）$Q$的极坐标与$P$的横坐标的对应关系；
-%   
-% （2）$Q$的坐标与$P$的坐标的对应关系；
-%   
-% （3）描述如何将一个单位球面映射为一个二维平面，给出相应的坐标对应关系。
-% 
-% 解：
-% \begin{center}
-% 	\resizebox{!}{5cm}{\includegraphics{./images/ch1/answer/sphereline2D.pdf}}\quad
-% 	\resizebox{!}{5cm}{\includegraphics{./images/ch1/answer/sphereline3D.pdf}}
-% \end{center}
-% (1)(2) 如左图，设$P,Q$的坐标分别$(x_P,0),(x_Q,y_Q)$，则有
-% $$
-% \left\{
-% \begin{array}{l}
-% 	x^2_Q+y^2_Q=1\\
-% 	\df{x_Q}{x_P}+y_Q=1
-% \end{array}
-% \right.
-% $$
-% 由此可解得
-% $$y_Q=\df{x^2_P-1}{1+x^2_P},\quad x_Q=\df{2x_P}{1+x^2_P}.$$
-% 进而可知$Q$的极坐标为$(1,\theta)$，其中
-% $$\theta=
-% \left\{
-% \begin{array}{ll}
-% 	\arccos\df{x^2_P-1}{1+x^2_P},& x_P\geq 0\\
-% 	\pi-\arctan\df{x^2_P-1}{1+x^2_P}, & x_P<0
-% \end{array}
-% \right.
-% $$
-% (3)如右图，设$P,Q$的坐标分别$(x_P,y_P,0),(x_Q,y_Q,z_Q)$，则有
-% $$
-% \left\{
-% \begin{array}{l}
-% 	x^2_Q+y^2_Q+z^2_Q=1\\
-% 	\df{x_Q}{x_P}=\df{y_Q}{y_P}=1-z_Q
-% \end{array}
-% \right.
-% $$
-% 由此可解得
-% $$
-% \left\{
-% \begin{array}{l}
-% 	x_Q=\df{2x_P(x^2_P+y^2_P)}{1+x^2_P+y^2_P}\\
-% 	y_Q=\df{2y_P(x^2_P+y^2_P)}{1+x^2_P+y^2_P}\\
-% 	z_Q=\df{1-x^2_P-y^2_P}{1+x^2_P+y^2_P}
-% \end{array}
-% \right.
-% $$
-% 
-% \bigskip
-% 
-% 3.习题1.2：8，题略
-% 
-% \begin{center}
-% 	\resizebox{!}{5cm}{\includegraphics{./images/ch1/answer/lx.pdf}}
-% 	
-% 	$y=\ln(x+\sqrt{1+x^2})$的函数图像
-% \end{center}
-% 
-% 证明要点：容易验证该函数为奇函数。故若可以证明$x>0$时函数严格单调递增，则可断言
-% 函数整体是严格单调递增的。事实上，设$x_2>x_1>0$，则
-% \ps{证明中用到的{\b 分子有理化}是处理无理分式的常用技巧}
-% \begin{align}
-% 	f(x_2)-f(x_1)&=\ln\df{x_2+\sqrt{1+x_2^2}}{x_1+\sqrt{1+x_1^2}}
-% 	=\ln\left(x_2+\sqrt{1+x_2^2}\right)\left(\sqrt{1+x_1^2}-x_1\right)\notag\\
-% 	&>\ln\left(x_1+\sqrt{1+x_1^2}\right)\left(\sqrt{1+x_1^2}-x_1\right)=\ln1=0\notag
-% \end{align}
-% 
-% \bigskip
-% 
-% 4.习题1.2：17，题略
-% 
-% 参考答案：
-% $$f_c(x)=\df12\left(|f(x)+C|-|f(x)-C|\right)$$
-% 
-% \bigskip
-% 
-% 5. 习题5.2：3，证明恒等式
-% 
-% (1)$3\arccos x-\arccos(3x-4x^3)=\pi,\left(|x|\leq\df12\right)$
-% 
-% (2)$2\arctan x+\arcsin\df{2x}{1+x^2}=\pi,(x>1)$
-% 
-% 证：(1)注意到
-% $$\cos(3\arccos x)=4[\cos(\arccos x)]^3-3\cos(\arccos
-% x)=4x^3-3x=\cos[\pi-\arccos(3x-4x^3)].$$
-% 由此可知
-% $$3\arccos x=2k\pi+\pi-\arccos(3x-4x^3)\quad(k\in\mathbb{Z})$$
-% 或
-% $$3\arccos x=2k\pi-\pi+\arccos(3x-4x^3)\quad(k\in\mathbb{Z}).$$
-% 容易验证，当$x=0$时后一等式不成立，故只有前一等式成立。
-% 又当$|x|\leq\df12$时，$|3x-4x^3|\leq 1$，进而
-% $$\pi+\arccos(3x-4x^3)\in[\pi,2\pi],\quad 3\arccos x\in[\pi,2\pi].$$
-% 从而可知必有
-% $$3\arccos x=\pi+\arccos(3x-4x^3),$$
-% 即证。
-% 
-% (2)由于
-% $$\sin(2\arctan x)=\df{2\tan(\arctan x)}{1+\tan^2(\arctan
-% x)}=\df{2x}{1+x^2}=\sin\left(\pi-\arcsin\df{2x}{1+x^2}\right)$$
-% 从而可知
-% $$2\arctan x=2k\pi+\pi-\arcsin\df{2x}{1+x^2}\quad(k\in\mathbb{Z}).$$
-% 又当$x>1$时，$2\arctan x\in\left(\df{\pi}2,\pi\right),\df{2x}{1+x^2}\in(0,1)$，进而
-% $$\pi-\arcsin\df{2x}{1+x^2}\in\left(\df{\pi}2,\pi\right),$$
-% 由此可知必有
-% $$2\arctan x=\pi-\arcsin\df{2x}{1+x^2},$$
-% 即证。
-% 
-% {\bf Note:} Similar equations, like:
-% $$\df{\pi}4=3\arctan\df14+\arctan\df5{99}$$ 
-% $$\df{\pi}4=4\arctan\df15+\arctan\df1{239}$$
-% $$\pi=48\arctan\df1{18}+32\arctan\df1{57}-20\arctan1{239}$$  
-% noticed that
-% $$\arctan x=x-\df{x^3}3+\df{x^5}5+\ldots+(-1)^{n+1}\df{x^{2n-1}}{2n-1}
-% +\ldots,\;x\in[-1,1]$$
