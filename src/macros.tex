@@ -14,19 +14,19 @@
 \renewcommand{\d}{\mathrm{d}}
 \newcommand{\ds}{\displaystyle}
 \newcommand{\ps}[1]{$^{[\mbox{\it\footnotesize 注}]}$
-\marginpar{\it\small {注：}#1}}
+\marginpar{\kaiti\small {注：}#1}}
 \renewcommand{\i}{\ensuremath{\displaystyle\int}}
 
 %define tab of .25 textwidth and can auto strech
 %\tab{the word}\tab{another word}\tab{3rd one}
 \newlength{\tabcont}
 \newcommand{\tab}[1]{%
-\settowidth{\tabcont}{#1}%
-\ifthenelse{\lengthtest{\tabcont < .25\linewidth}}%
-{\makebox[.25\linewidth][l]{#1}\ignorespaces}%
-%{\makebox[.5\linewidth][l]{\color{red} #1}\ignorespaces}%
-{\makebox[.5\linewidth][l]{#1}\ignorespaces}%
+	\settowidth{\tabcont}{#1}%
+	\ifthenelse{\lengthtest{\tabcont < .25\linewidth}}%
+	{\makebox[.25\linewidth][l]{#1}\ignorespaces}%
+	%{\makebox[.5\linewidth][l]{\color{red} #1}\ignorespaces}%
+	{\makebox[.5\linewidth][l]{#1}\ignorespaces}%
 }%
 
 %set fontsize with number of points
-\newcommand{\fs}[1]{\fontsize{#1 pt}{5pt}\selectfont}
+% \newcommand{\fs}[1]{\fontsize{#1 pt}{5pt}\selectfont}
