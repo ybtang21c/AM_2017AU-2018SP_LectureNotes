@@ -8,13 +8,17 @@
 我们所说的高等数学，在国外一般就叫做{\it 微积分}，而且通常分为{\it 一元函数微积分}
 和{\it 多元（高维）微积分}两个部分。而国外所说的{\it 高等数学}就是我们说的工程数学。
 
-我们一般认为，微积分诞生于17世纪，当时的两位数学巨匠Newton和Leibniz分别独立
+我们一般认为，微积分诞生于17世纪初，当时的两位数学巨匠Newton(1642-1726)和
+Leibniz(1646-1716)分别独立
 创立了微积分的理论，并最终被视为微积分的共同创始人。但是，我们必须认识到的是，
 一门系统、复杂的理论，不可能仅仅是极个别人的创造。正如Newton的名言，“{\it If 
 I have seen further, it is by standing on the shoulders of
 giants.}”，在两位大师身前和身后，众多杰出的数学家都为微积分的作出了
-关键性的贡献，其中包括Fermat、Baro、 Decartes等人的奠基性工作，也包括Cauchy、
-Lagrange、Weierstrass、Taylor、Euler、Bernoulli、Laplace等对这一理论
+关键性的贡献，其中包括Fermat(1607-1665)、Barrow(1630-1677)、
+Descartes(1596-1650)等人的奠基性工作，也包括Cauchy(1789-1857)、
+D.Bernoulli(1700-1782)、Lagrange(1736-1913)、Weierstrass(1815-1897)、
+Dirichlet(1805-1859)、Taylor(1685-1731)、Euler(1707-1783)、R
+iemann(1826-1866)、d'Alembert(1717-1783)等对这一理论
 体系的不断完善和深入挖掘。今天我们所学习的微积分，虽然只是这一学科
 \ps{更准确的说法应该叫分析学，它和几何学、代数学并称现代数学的三大分支，
 三者各自拥有庞大的理论体系，在它们的交汇处诞生了众多重要而又生机勃勃的
@@ -29,7 +33,9 @@ Lagrange、Weierstrass、Taylor、Euler、Bernoulli、Laplace等对这一理论
 	  	derivatives, integrals, and infinite series}} 
   	  \item {\it widespread application in \underline{science, economics,} 
   	  and \underline{engineering}} 
-% 		  \item {\it constitues a major part of modern mathematics} 
+	  \item {\it constitues a major part of modern mathematics}
+	  \item {\it 微}的意思是很小的东西，如微生物，{\it 积}就是加起来的意思，
+	  {\it 积分}的意思就是把极小的东西加起来。微，是积的相反。 
 	\end{itemize}
 	\item {\bf John von Neumann} （{\small\it The Mathematician, 1947}）
 	\begin{itemize}
@@ -177,6 +183,7 @@ Lagrange、Weierstrass、Taylor、Euler、Bernoulli、Laplace等对这一理论
 		\end{itemize} 
 		\item {\bf 扩展阅读}\dotfill{\it\b 读一些课外书，让学习显得不那么枯燥}
 		\begin{itemize}
+		  \item 基斯.德夫林，数学思维导论，人民邮电出版社，2016，北京
 		  \item G.波利亚，怎样解题：数学思维的新方法，上海科技教育出版社，2011，上海
 		  \item 李学数，数学与数学家的故事（1-5），上海科学技术出版社，2015，上海
 		  \item 塞德里克·维拉尼\,等，一个定理的诞生：我与菲尔茨奖的一千个日夜，人民邮电出版社，2016，北京
@@ -248,9 +255,24 @@ Lagrange、Weierstrass、Taylor、Euler、Bernoulli、Laplace等对这一理论
   \end{itemize}
   \item {\bf 作业}
   \begin{itemize}
-    \item 正确、规范、工整
+    \item 作业书写的规范
+    \begin{enumerate}
+      \item 写清楚作业日期（对应讲课的日期）和习题所在单元；
+      \item 作业必须抄题，写清楚题号
+	  \item 解题过程以“证：”或“解：”开始，以$\#$号结束；
+	  \item 公式整体居中书写；
+	  \item 无论大题小题，两题之间空一行；
+	  \item 不允许使用铅笔、红笔书写作业，可以用铅笔画图；
+	  \item 作业本不许分栏使用；
+	  \item 文字、符号书写清晰规范，尽量少涂改。
+    \end{enumerate}    
     \item no copy ？？！
-    \item 订正错误，永不再犯！
+    \item 及时订正错误，补上缺漏
+  \begin{center}
+  	\includegraphics[width=\textwidth]{./images/00/hw-sample.jpg}
+  	
+  	作业书写参考样式（{\it 以黑色字体为准，彩色部分为格式说明}）
+  \end{center}
   \end{itemize}
 	\item {\bf 答疑}
 	  \begin{itemize}
@@ -359,7 +381,7 @@ Lagrange、Weierstrass、Taylor、Euler、Bernoulli、Laplace等对这一理论
 $$\b\mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}
 \subset\mathbb{R}\subset\mathbb{C}$$
 \quad（{\it 依次为：自然数集\ps{\b 国内教材一般约定，自然数集包含数$0$}、
-整数集、有理数集、有理数集和复数集}）
+整数集\ps{德语Zahlen（数）的首字母}、有理数集、无理数集和复数集}）
 
 
 通过集合的{\it 笛卡尔积}“$\times$” 可以定义更{\it
@@ -553,6 +575,11 @@ $$\{x\in\mathbb{R}|a<x<a+\delta\}$$
 	根据常用极限\ps{稍后就会学到}
 	$$e=\lim\limits_{n\to\infty}\left(1+\df1n\right)^n,$$
 	不难看出$e=\mathrm{sup}A$。由于$e\notin\mathbb{Q}$，故有理数集不满足连续性公理。
+	
+	又比如下面的例子：
+	
+	{\bf 例：}$A=\{x\in\mathbb{Q}|x\geq 0,\;x^<2\}$，显然，
+	$\mathrm{sup}A=\sqrt2\notin\mathbb{Q}$。
 	
 	{\bf 思考：}任给一个实数，如何构造一个有理数集合，使得该实数恰好为
 	该有理数集合的上（下）确界？
@@ -809,7 +836,7 @@ $$z=x^2+y^2,\;(x,y)\in\mathbb{R}^2.$$
 	$$x_M>\df{M}{2\pi}\cdot2\pi+\df{\pi}2>M,\quad\mbox{且}\quad \sin x_M=1,$$
 	故
 	$$x_M\sin x_M=x_M>M.$$
-	从而根据函数无上界的定义，可知该函数无上界，从而无界。
+	从而根据函数无上界的定义，可知该函数无上界，从而无界。\hfill $\Box$
 	
 	注：有界是指既有上界又有下界，故无上界或无下界都可推出无界！
 
@@ -846,6 +873,7 @@ $$f(x_2)-f(x_1)>(x_2-x_1)-2\left|\sin\df{x_2-x_1}{2}\right|
 >(x_2-x_1)-2\df{x_2-x_1}{2}=0.$$
 
 综上所述，对任意$x_2>x_1$，恒有$f(x_2)-f(x_1)>0$，故$f(x)$严格单调递增。
+\hfill $\Box$
 
 
 {\b{\bf 问：}严格单调的函数一定是一一映射，故一定存在反函数。如果反之，
@@ -992,6 +1020,7 @@ y=\df1{\pi}\arccos(\cos\pi x)$$
 五类{\it 基本初等函数}：
 
 \begin{enumerate}
+  \setlength{\itemindent}{1cm}
   \item {\it 幂函数：} $y=x^a,\; (a\in\mathbb{R})$
   \ps{只有整数次幂的函数可以手工计算！！！}
   \item {\it 指数函数：} $y=a^x,\; (a>0,a\ne 1)$
@@ -1028,6 +1057,7 @@ $$\arcsin(\sin x),\quad \sin(\arcsin x)$$
 $$\tan x=\df{\sin x}{\cos x}=\df{\sin x}{\sqrt{1-\sin^2x}},$$
 故
 $$\mbox{原式}=\df x{\sqrt{1-x^2}},\quad x\in(-1,1).$$
+\hfill $\Box$
 
 {\bf 【($n$次)多项式（函数）】}
 
@@ -1111,7 +1141,8 @@ $$a_n:\mathbb{N}_+\mapsto\mathbb{R}.$$
 在直观理解的基础上，我们集中来关注一个问题，即：{\it 数学上如何表达这种趋向某个稳定值的特征，
 或者说，如何给出数列极限的数学定义？}
 
-以下的定义据说是数学家Weierstrass的发明，是被数学界最广泛接受的一种极限定义：
+以下的定义据说由数学家Weierstrass最终完成（注意，不是发明）\ps{现行的极限符号
+$\lim$据说由数学家Hardy(1877-1947)引入}，是被数学界最广泛接受的一种极限定义：
 
 对于数列$\{a_n\}$，若存在常数$a$，{\b 对任意$\e>0$，不论它有多小，
 都存在$N\in\mathbb{Z}_+$，对任意$n>N$，都有
@@ -1202,6 +1233,7 @@ $$\left|(-1)^n\df1{n^2}-0\right|=\df1{n^2}<\df1{N^2}=\e,$$
 由极限的定义，即证。\ps{\b 用定义证明数列极限，说明$N$的存在性是关键，为此主要有两种方式：\\
 1、直接给出$N$的取值，例如$N=1/\e$\\
 2、利用已知极限间接说明$N$存在，如$N=N_1$}
+\hfill $\Box$
 
 {\bf 例：}证明：
 $$\limn\left(\df n{n+1}\right)^2=1$$
@@ -1210,7 +1242,7 @@ $$\limn\left(\df n{n+1}\right)^2=1$$
 $$\left|\left(\df
 n{n+1}\right)^2-1\right|=\df{2n+1}{(n+1)^2}<\df{2(n+1)}{(n+1)^2}
 <\df2{n+1}<\df2n<\df2N=\e,$$
-由极限的定义，即证。
+由极限的定义，即证。\hfill $\Box$
 
 {\bf 例：}证明：若$\limn a_n=a$，则$\limn|a_n|=|a|$
 
@@ -1219,7 +1251,7 @@ n{n+1}\right)^2-1\right|=\df{2n+1}{(n+1)^2}<\df{2(n+1)}{(n+1)^2}
 $$|a_n-a|<\e.$$
 于是{\b 令$N=N_1$}，则对任意$n>N$，有\ps{\b 利用$N_1$的存在性间接说明了$N$的存在性}
 $$||a_n|-|a||\leq|a_n-a|<\e,$$
-由极限的定义，即证。
+由极限的定义，即证。\hfill $\Box$
 
 {\bf 课堂练习：}证明：若$|q|<1$，则$\{q^n\}$收敛。
 
@@ -1243,10 +1275,10 @@ $$||a_n|-|a||\leq|a_n-a|<\e,$$
 	
 	{\bf 例：}证明：$\limn\df 1n\neq 1$
 	
-	[证]：取$\e=\df12$，对任意$N\in\mathbb{Z}_+$，令$n_0=\max\{3,[N]+1\}>N$，
+	[证]：取$\e=\df12$，对任意$N\in\mathbb{Z}_+$，令$n_0=\max\{3,N+1\}>N$，
 	从而
 	$$\left|\df1{n_0}-1\right|=1-\df1{n_0}\geq 1-\df13=\df23>\e,$$
-	由极限的反面定义，即证。
+	由极限的反面定义，即证。\hfill $\Box$
 	
 	{\bf 例：}证明$\{(-1)^n\}$发散。
 	
@@ -1254,7 +1286,7 @@ $$||a_n|-|a||\leq|a_n-a|<\e,$$
 	
 	取$\e=1$，对任意$N\in\mathbb{Z}_+$，令$n_0=\max\{2[N]+1,1\}>N$，则
 	$$\left|(-1)^{n_0}-a\right|=|-1-a|=a+1>\e,$$
-	由极限的反面定义，即证。
+	由极限的反面定义，即证。\hfill $\Box$
 	
 	相对于使用的反证法，用反面定义证明极限不存在，形式上更简洁，但
 	却不是特别直观和容易理解。
@@ -1291,7 +1323,7 @@ $$||a_n|-|a||\leq|a_n-a|<\e,$$
 
 令{\b $N=\max\{N_1,N_2\}$}，则当$n>N$时，有
 $${\b |a-b|\leq|a_n-a|+|a_n-b|<2\e},$$
-由此可知，必有$a=b$，即证。
+由此可知，必有$a=b$，即证。\hfill $\Box$
 
 {\bf 有界性：}数列$\{a_n\}$若收敛，则{\it $\{a_n\}$有界}，即：存在$M>0$，对任意
 $n\in\mathbb{Z}_+$，恒有$|a_n|\leq M$。
@@ -1310,7 +1342,7 @@ $$|a_n-a|<\e=1\quad\Rightarrow\quad |a_n|<|a|+1.$$
 记{\b$M=\max\{|a|+1,|a_1|,|a_2|,\ldots,|a_{[N]+1}|\}$}，则对
 任意$n\in\mathbb{Z}_+$，均有
 $$|a_n|\leq M,$$
-即证。
+即证。\hfill $\Box$
 
 该性质的一个显然的推论是：{\b 如果数列无界，则必发散。}
 
@@ -1319,13 +1351,13 @@ $$|a_n|\leq M,$$
 思路：对任意$M>0$，当$n$充分大时，总有$n!>M^n$，故$\{\sqrt[n]{n!}\}$无界，
 从而发散。
 
-{\bf 证：}对任意$M>0$，令$N=[2M]+1$，则当$n>N$时，总有$n>2M$。此时
+[证]：对任意$M>0$，令$N=[2M]+1$，则当$n>N$时，总有$n>2M$。此时
 $$\df{n!}{M^n}=\df{N!}{M^N}\cdot\df{N+1}{M}
 \cdot\df{N+2}{M}\ldots\df{n}{M}<\df{N!}{M^N}\cdot2^{n-N+1}.$$
 注意到$\df{N!}{M^N}$为有限值，而$2^{n-N+1}$随着$n$的增大趋于正无穷，
 故当$n$充分大时，必有
 $$\df{n!}{M^n}=\df{N!}{M^N}\cdot2^{n-N+1}>1,$$
-从而$\sqrt[n]{n!}>M$，也即$\{\sqrt[n]{n!}\}$无界，故发散。
+从而$\sqrt[n]{n!}>M$，也即$\{\sqrt[n]{n!}\}$无界，故发散。\hfill $\Box$
 
 {\bf 保号性：}设$\lim\limits_{n\to\infty}a_n=a>0$，则存在$N$，
 对任意$n>N$，$a_n>0$
@@ -1333,7 +1365,7 @@ $$\df{n!}{M^n}=\df{N!}{M^N}\cdot2^{n-N+1}>1,$$
 [证]：由$\lim\limits_{n\to\infty}a_n=a>0$，对$\e=a/2$，存在
 $N$，对任意$n>N$，
 $$|a_n-a|<\e=a/2\quad\Rightarrow\quad \df32a>a_n>a/2>0,$$
-即证。
+即证。\hfill $\Box$
 		
 {\bf 保号性常见的几种形式（几个推论）：}
 \begin{enumerate}
@@ -1383,6 +1415,7 @@ $$\b\lim\limits_{k\to\infty}a_{n_k}=a,\quad
 可知对任意$k>K$，都有$n_k>n_K\geq K=N$，从而 
 $$|a_{n_k}-a|<\e.$$
 也即$\lim\limits_{k\to\infty}a_{n_k}=a$。因为$\{a_{n_k}\}$是任意的，即证。
+\hfill $\Box$
 
 % 该性质的另一种表述方法：
 % $$\limn a_n=a\quad\Leftrightarrow\quad
@@ -1399,7 +1432,7 @@ $$a_{2k}\equiv 1,\quad a_{2k-1}\equiv -1,$$
 因此
 $$\lim\limits_{k\to\infty}a_{2k}=1,\quad
 \lim\limits_{k\to\infty}a_{2k-1}=-1.$$
-由二者极限不相等可知原级数发散，即证。
+由二者极限不相等可知原级数发散，即证。\hfill $\Box$
 
 这种方法证明发散，比前面使用数列收敛的反面定义要更加简洁，也更加直观。
 
@@ -1416,7 +1449,7 @@ $$\lim\limits_{k\to\infty}a_{2k}=1,\quad
 \begin{shaded}
 	{\bf 例：}证明：$\{\sin n\}$发散。
 	
-	{\bf 证法一：}用反证法。设有$\limn\sin n=a$，则
+	[证一]：用反证法。设有$\limn\sin n=a$，则
 	$$\limn[\sin(n+2)-\sin n]=0.$$
 	进而由
 	$$\sin(n+2)-\sin n=2\sin 1\cos(n+1),$$
@@ -1424,9 +1457,9 @@ $$\lim\limits_{k\to\infty}a_{2k}=1,\quad
 	$$\cos(n+1)=\cos n\cos 1-\sin n\sin 1,$$
 	可得$\limn\sin n=0$。如此就有
 	$$\limn\sin n=\limn\cos n=0,$$
-	显然与$\sin^2n+\cos^2n=1$矛盾。
+	显然与$\sin^2n+\cos^2n=1$矛盾。\hfill $\Box$
 	
-	{\bf 证法二：}注意到当$x\in[2k\pi+\pi/4,2k\pi+3\pi/4]\,(k\in\mathbb{N})$时，总有
+	[证二]：注意到当$x\in[2k\pi+\pi/4,2k\pi+3\pi/4]\,(k\in\mathbb{N})$时，总有
 	$$\sin x>\sqrt2/2.$$
 	由于此类区间的长度均超过$1$，故其中必包含至少一个自然数。于是对每个$k\in\mathbb{N}$，
 	可取自然数$n^{(1)}_k\in[2k\pi+\pi/4,2k\pi+3\pi/4]$，显然$\{\sin{n^{(1)}_k}\}$构成了$\{\sin
@@ -1439,8 +1472,7 @@ $$\lim\limits_{k\to\infty}a_{2k}=1,\quad
 	同理，利用区间$[2k\pi+5\pi/4,2k\pi+7\pi/4]\,(k\in\mathbb{N})$，可构造$\{\sin
 	n\}$的另一个子列 $\{\sin{n^{(2)}_k}\}$。若$\{\sin n\}$收敛，同样利用保号性可证明其极限应小于等于$-\sqrt2/2$。
 	
-	
-	以上两方面的结论矛盾，故假设错误，即证。
+	以上两方面的结论矛盾，故假设错误，即证。\hfill $\Box$
 \end{shaded}
 
 该性质的一个常见推论称为{\bf 拉链定理}：若某个数列的奇子列和偶子列收敛到相同的极限，
@@ -1499,7 +1531,7 @@ $$\lim\limits_{k\to\infty}a_{2k}=1,\quad
 
 [证]：对任意$\e>0$，取$X=\df1{\e^2}$，则对任意的$x>X$，都有
 $$\left|\df1{\sqrt x}-0\right|=\df1{\sqrt x}<\df1{1/\e}=\e,$$
-由函数极限的定义，即证。
+由函数极限的定义，即证。\hfill $\Box$
 
 {\b 趋于无穷的函数极限存在，意味着函数存在{\it 水平渐近线}}，需要注意的是，
 水平渐近线最多可以有两条，例如：
@@ -1558,19 +1590,19 @@ $$\left|\df1{\sqrt x}-0\right|=\df1{\sqrt x}<\df1{1/\e}=\e,$$
 [证]：对任意$\e>0$，令{\b$\delta=\e$}，则当$0<|x-x_0|<\delta$时，有
 $$|\sin x-\sin x_0|=2\left|\cos\df{x+x_0}2\right|
 \left|\sin\df{x-x_0}2\right|\leq|x-x_0|<\delta=\e,$$
-由函数极限定义，即证。
+由函数极限定义，即证。\hfill $\Box$
 
 {\bf 例：}证明：$\limx{1}x^2=1$。
 
-对任意$\e>0$，令{\b$\delta=\min\left\{\df12,\e\right\}$}，
+[证]：对任意$\e>0$，令{\b$\delta=\min\left\{\df12,\e\right\}$}，
 \ps{令$\delta\leq\df12$，作用在于使得$|x+1|$有界}
 则当$0<|x-1|<\delta$时，有
 $$|x^2-1|=|(x+1)(x-1)|<\df32\cdot\delta<\df32\e,$$
-由函数极限定义，即证。
+由函数极限定义，即证。\hfill $\Box$
 
 {\bf 例：}设$\limx{x_0}f(x)=A$，用定义证明：$\limx{x_0}[f(x)]^3=A^3$
 
-{\bf 证：}对任意$\e>0$，由$\limx{x_0}f(x)=A$，存在$\delta>0$，对任意
+[证]：对任意$\e>0$，由$\limx{x_0}f(x)=A$，存在$\delta>0$，对任意
 $0<|x-x_0|<\delta$，有
 $$|f(x)-A|<\e.$$
 不妨设$\e<1$，由上式可知$0<|x-x_0|<\delta$时，有$|f(x)|<|A|+1$。
@@ -1581,7 +1613,7 @@ $$|f(x)-A|<\e.$$
 	&\leq |f(x)-A|[|f^2(x)|+|f(x)||A|+A^2]\notag\\
 	&<\e[(|A|+1)^2+(|A|+1)|A|+A^2]=C\e\notag,
 \end{align}
-有极限的定义，即证。
+有极限的定义，即证。\hfill $\Box$
 
 \begin{shaded}
 	{\bf 【函数极限的反面说法】}
@@ -1603,7 +1635,7 @@ $$|f(x)-A|<\e.$$
 	$U_0(x_0,\delta)$内取得某个有理数$x^*$，从而$D(x^*)=0$，于是
 	$$|D(x^*)-A|=|A|>\e_0,$$
 	由上述的定义，可知当$x\to x_0$时$D(x)$无极限，又由$x_0$的任意性，可知
-	$D(x)$处处无极限。
+	$D(x)$处处无极限。\hfill $\Box$
 \end{shaded}
 
 \subsubsection{函数极限的基本性质}
@@ -1648,7 +1680,7 @@ $$|f(x)-A|<\e.$$
 设$\limn x_n=x_0$，则以上的$\delta>0$，存在$N\in\mathbb{Z}_+$，
 使对任意$n>N$，都有$|x_n-x_0|<\delta$。从而，当$n>N$时，必有
 $$|f(x_n)-A|<\e.$$
-即证。
+即证。\hfill $\Box$
 
 对于$x\to x_0^+$和$x\to x_0^-$的情形，该定理显然也成立。
 
@@ -1659,14 +1691,14 @@ $$|f(x_n)-A|<\e.$$
 
 {\bf 例：}{\b 证明：$f(x)=\sin\df 1x$当$x\to 0$时无极限。}\ps{KD教材3.2.2节-例8}
 
-{\bf 证}：令
+[证]：令
 $$x^{(1)}_n=\df1{n\pi},\quad
 x^{(2)}_n=\df1{2n\pi+\df{\pi}2},\quad n\in\mathbb{Z}_+$$ 
 显然，$\limn x^{(1)}_n=\limn x^{(2)}_n=0$，且
 $$f(x^{(1)}_n)\equiv0,\quad f(x^{(2)}_n)\equiv1,$$
 进而
 $$\limn f(x^{(1)}_n)=0\ne1=\limn f(x^{(2)}_n),$$
-由Henie定理，即知极限不存在。
+由Henie定理，即知极限不存在。\hfill $\Box$
 
 \begin{center}
 	\resizebox{!}{5cm}{\includegraphics{./images/ch3/sin1x.pdf}}
@@ -1709,7 +1741,7 @@ $$\limn f(x^{(1)}_n)=0\ne1=\limn f(x^{(2)}_n),$$
 	$$x_n^{(2)}=x_n+\df{\sqrt2}n,$$
 	显然$\{x_n^{(1)}\}$和$\{x_n^{(2)}\}$分别为趋于$x_0$的有理和无理数列，而
 	$$\limn D(x_n^{(1)})=1\ne0=\limn D(x_n^{(2)}),$$
-	从而由Hiene定理，即证。
+	从而由Hiene定理，即证。\hfill $\Box$
 % \end{shaded}
 
 {\bf 例：}设在$(0,+\infty)$上，恒有$f(x^2)=f(x)$，且
@@ -1768,7 +1800,7 @@ $\limx{\Delta}f(x)=A\Leftrightarrow f(x)=A+\alpha$，其中$\alpha$
 [证]：任取$M>0$，令$\e=\df1M$。由无穷大的定义，$\limx{\Delta}\df1{f(x)}=0$，故对
 此$\e$，存在$\delta>0$，使对任意$x\in U_0(x_0,\delta)$，总有
 $$\left|\df1{f(x)}\right|<\e\quad\Rightarrow |f(x)|>\df1{\e}=M.$$
-即证。
+即证。\hfill $\Box$
 
 {\b$x\to x_0$或$x_0^+,x_0^-$时的无穷大对应的是函数曲线的{\it 铅直渐近线}}。例如：
 $\limx{0}\df1x=0$，故$x=0$是$f(x)=\df1x$的铅直渐近线；
@@ -1837,6 +1869,7 @@ $$\limx{\infty}\df{3x^3+2x-1}{4x^3+6x^2+9}$$
 	+\limx{\infty}9\limx{\infty}\frac1{x^3}}\notag\\
 	&=\df{3+2\cdot 0-0}{4+6\cdot 0+9\cdot 0}=\df34\notag
 \end{align}
+\hfill $\Box$
 
 在日常的解题中，计算过程显然不必都如此详细。
 
@@ -1956,7 +1989,7 @@ $$0<\sqrt{n+1}-\sqrt{n}={\b\df1{\sqrt{n+1}+\sqrt{n}}
 \leq\df 1{\sqrt{n}}},$$
 又
 $$\limn 0=\limn\df 1{\sqrt{n}}=0,$$
-故由夹逼准则，可知$\limn (\sqrt{n+1}-\sqrt{n})=0$。
+故由夹逼准则，可知$\limn (\sqrt{n+1}-\sqrt{n})=0$。\hfill $\Box$
 
 对比一下用定义证明的过程：
 
@@ -1964,7 +1997,7 @@ $$\limn 0=\limn\df 1{\sqrt{n}}=0,$$
 $$\left|\sqrt{n+1}-\sqrt{n}-0\right|
 ={\b\df1{\sqrt{n+1}+\sqrt{n}}\leq\df 1{\sqrt{n}}}
 <\df 1{\sqrt{N}}<\df 1{\sqrt{1/\e^2}}=\e,$$
-由此可知$\limn (\sqrt{n+1}-\sqrt{n})=0$。
+由此可知$\limn (\sqrt{n+1}-\sqrt{n})=0$。\hfill $\Box$
 
 不难发现，两个证明中最关键的放缩步骤是完全一致的，而使用夹逼准则时，可以直接
 使用一些已知的或“简单的”极限结论，避免了推导$N$的繁琐过程，因此过程显得更加
@@ -2029,7 +2062,7 @@ $$\limx{x_0}f(x)=A.$$
 {\bf 例：}\ps{KD教材3.2.3节-例11}（重要极限）证明：
 $$\b\limx{0}\df {\sin x}x=1$$
 
-{[提示]}：
+[提示]：
 \begin{center}
 	\resizebox{!}{5cm}{\includegraphics{./images/ch3/xsintan.pdf}}
 \end{center}
@@ -2072,7 +2105,7 @@ $$A-\e<a_N\leq A.$$
 
 $\{a_n\}$单调递增，故对任意$n>N$，恒有$a_n\geq a_N$，又$a_n\leq A$，从而
 $$a_n\leq a_n\leq A\quad\Rightarrow\quad |a_n-A|<\e,$$
-由极限的定义，即证。
+由极限的定义，即证。\hfill $\Box$
 
 单调有界原理可以证明极限的存在性（或数列的收敛性），但常常无法给出具体的极限值。
 例如下面的重要极限：
@@ -2184,7 +2217,7 @@ $$\b\left(1+\df1n\right)^n<e<\left(1+\df1n\right)^{n+1}$$
 利用前述的一些性质，结合夹逼准则，我们可以推广以上的极限得到{\it 第二个重要极限}：
 $$\b\limx{\infty}\left(1+\df1x\right)^x=e.$$
 
-[提示]：先证明$\limx{+\infty}\left(1+\df1x\right)^x=e$。
+[证]：先证明$\limx{+\infty}\left(1+\df1x\right)^x=e$。
 
 以下$[x]$表示对$x$下取整。
 
@@ -2208,9 +2241,10 @@ $\limx{+\infty}\left(1+\df1x\right)^x=e$。
 	&=\lim\limits_{y\to+\infty}\left(1+\df1{y-1}\right)^{y-1}
 	\lim\limits_{y\to+\infty}\left(1+\df1{y-1}\right)=e\cdot1=e
 \end{align*}
+\hfill $\Box$
 
 \begin{shaded}
-{\bf 另一种证明思路：}
+另一种证明思路：
 令$f_u(x)=x^ue^{-x}(x\geq 0)$，对于确定的$u$，证明：
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
@@ -2220,6 +2254,7 @@ $\limx{+\infty}\left(1+\df1x\right)^x=e$。
   \item $\df u{u+1}e<\left(\df{u+1}u\right)^u<e$，由此推出
   $$\lim\limits_{u\to+\infty}\left(1+\df 1u\right)^u=e$$
 \end{enumerate}
+\hfill $\Box$
 \end{shaded}
 
 {\b{\bf 例：}从重要极限$\limx{\infty}\left(1+\df1x\right)^x=e$
@@ -2259,7 +2294,7 @@ $$b_{n+1}=\df{(n+1)^2}{n^2a}b_n,$$
 $$A=\df1aA\quad\Rightarrow\quad A=0,$$
 即为所求。
 
-(2)\;类似解法，略。
+(2)\;类似解法，略。\hfill $\Box$
 
 {\bf 注：}{\b 若极限存在，可由通项公式反推递推式，然后两边取极限，解方程求得极限值}
 
@@ -2401,7 +2436,7 @@ $$|a_{m_0}-a_{n_0}|\geq\e_0.$$
 	&>\underbrace{\df1{2N}+\df1{2N}\ldots+\df1{2N}}
 	_{N\mbox{\footnotesize 个}}=\df12=\e_0,
 \end{align*}
-即证。
+即证。\hfill $\Box$
 
 \subsection{Stolz定理}
 
@@ -2879,7 +2914,7 @@ $$F(2)=f(3)-f(2)=f(0)-f(2)<f(1)-f(2)=-F(1)<0,$$
 同样由连续函数的介值定理可知必有$\xi\in[1,2]$，
 使得$F(\xi)=0$。
 
-综上，必有$\xi\in[0,2]$，使得$F(\xi)=0$，也即$f(\xi+1)=f(\xi)$。
+综上，必有$\xi\in[0,2]$，使得$F(\xi)=0$，也即$f(\xi+1)=f(\xi)$。\hfill $\Box$
 
 {\bf 例：}设$G$是第一象限内的一个有界区域（其边界为连续的简单闭曲线），$ABCD$表示
 它的一个外接矩形。矩形的一条边与$x$轴的夹角记为$\theta$，如果对于任意$\theta\in
