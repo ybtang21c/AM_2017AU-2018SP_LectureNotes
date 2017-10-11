@@ -1,1348 +1,1210 @@
 \setcounter{chapter}{1}
 
-\chapter{数列极限与数值级数}
+\chapter{导数与微分}
 
-极限的概念是整个微积分理论体系的基础。本章所要学习的数列极限是极限问题中最为简单的一类，
-也是性质非常典型的一类。
+导数刻画了函数关于自变量的变化率，在现实问题中有很多对应的实例，例如：
+速度、密度、压强、出生率、死亡率、曲线斜率，等等。导数的引入，极大
+增强了用数学工具刻画现实问题的能力，可以说其作用是飞跃式的。
 
-本门课教材的一大“特色”，是将数值级数由常见的放在全书最后提前到了数列极限之后，这样
-做的优点在于能够紧密结合数列极限的有关性质，来拓充得到级数的一些基本性质。然而，
-“特色”未必等于优点，这是我的个人观点。不妨把它作为对学习者智力的一次挑战和检验吧。
+\section{导数的概念}
 
-\section{数列极限}
+\subsection{函数在一点处的导数}
 
-\subsection{数列}
+函数$y=f(x)$在$x_0$的某领域内有定义，若
+$$\limdx\df{f(x_0+\dx)-f(x_0)}{\dx}$$
+存在， 则称{$f(x)$在$x_0$处可导}，该极限称为{\it $f(x)$在$x_0$处的导数}， 记为
+$${\b f\,'(x_0),\quad \left.\df{\d y}{\d x}\right|_{x=x_0},\quad\left.\df{\d
+}{\d x}y\right|_{x=x_0},\quad \left.\df{\d }{\d x}f(x)\right|_{x=x_0}\quad
+y'_x|_{x=x_0},\quad \dot{y}(x_0)}$$
 
-{\bf 教材：}
-
-\section{数列极限的性质与判敛}
-
-\subsection{四则运算的性质}
-
-{\bf 定理2.2.1：}
-设数列$\{a_n\},\{b_n\}$分别以$a,b(b\neq 0)$为极限，则
-数列$\{a_n\pm b_n\},\{a_nb_n\},\left\{\df{a_n}{b_n}\right\}$均收敛，且
-\begin{enumerate}
+{\bf 例：}假设$f\,'(x_0)$存在，则
+\begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item $\limn(a_n\pm b_n)=a\pm b$
-  \item $\limn a_nb_n=ab$
-  \item $\limn\df{a_n}{b_n}=\df ab$
+  \item $\limdx\df{f(x_0-\Delta x)-f(x_0)}{\Delta
+  x}=$ \underline{\quad{$-f\,'(x_0)$}\quad} 
+  \item $\lim\limits_{h\to 0}\df{f(x_0+2h)-f(x_0)}{h}=$
+   \underline{\quad{$2f\,'(x_0)$}\quad} 
+  \item $\lim\limits_{h\to 0}\df{f(x_0+h)-f(x_0-h)}{h}=$ 
+  \underline{\quad{$2f\,'(x_0)$}\quad}
 \end{enumerate}
+以上哪个极限存在，与$f(x)$在$x_0$可导等价？
 
-{\bf 注：}{\b 极限运算和四则运算可以交换次序——前提是
-所有相关的极限均存在，且为有限次四则运算}
+答：只有(3)与可导的定义不等价，因为其中没有提到$f(x_0)$，换言之，{\b 即便$f(x_0)$
+没有定义，(3)也可能成立，但这样一来导数的定义就没有意义了！}
 
-{\bf 注意：}{\b 典型错误
-\begin{eqnarray*}
-	1&=&\limn \underbrace{\left(\df 1n+\df 1n+\cdots+\df 1n\right)}_{n}\\
-	&=&\underbrace{\limn\df1n+\limn\df1n+\cdots+\limn\df1n}_{n}\\
-	&=&n\limn\df1n=0
-\end{eqnarray*}}
-相当于$n$落在了极限符号之外，显然错误！！
+\subsubsection{导数的实际意义（应用背景）}
 
-{\bf 教材2.2.1节-例2：}计算极限
-$$\limn\df{2n^6+3n^4-n+10}{n^6+n^4+1}$$
+从导数的定义不难看出，导数本质上是一种变化率，严格地说，是某一点附近的
+函数平均变化率的极限，在现实的问题中，有大量这种平均变化率的例子，
+但有了导数，我们把这种变化率精确地与某个点（位置、时刻）对应了起来。
 
-{\bf 解：}
-\begin{align}
-	\mbox{原式}&=\limn\df{2+3\df1{n^2}-\df1{n^5}+10\df1{n^6}}
-	{1+\df1{n^2}+\df1{n^6}}\notag\\
-	&=\limn\df{2+3\limn\df1{n^2}-\limn\df1{n^5}+10\limn\df1{n^6}}
-	{1+\limn\df1{n^2}+\limn\df1{n^6}}=2\notag
-\end{align}
+{\b 函数关于自变量的变化率！}
+\ps{当自变量发生变化时，函数值发生的相应变化与之的比率}
 
-{\bf 注：}{\b 对于有理函数列求极限，可以参照如下公式计算（设：$s,t\in\mathbb{Z}_+,a_s\cdot b_t\ne 0$）
-$$\limn\df{\sum\limits_{i=1}^s a_in^i}{\sum\limits_{i=1}^t b_in^i}
-=\left\{\begin{array}{ll}
-\mbox{发散},& s>t\\
-0,&s<t\\
-\df{a_s}{b_t},&s=t
-\end{array}\right.$$}
+\begin{itemize}
+  \setlength{\itemindent}{1cm}
+  \item {\it 切线斜率：}
+  $$k(x_0)=\lim\limits_{x\to x_0}\df{f(x)-f(x_0)}{x-x_0}$$
+  \item {\it 瞬时速度：}\ps{在现实中，无法测量所谓的瞬时速度！}
+  $$v(t_0)=\lim\limits_{t\to t_0}\df{S(t)-S(t_0)}{t-t_0}$$
+  \item {\it 出生率：}
+  $$\gamma(s_0)=\lim\limits_{s\to s_0}\df{[s_0,s]\mbox{内出生的人口总数}}{s-s_0}$$
+  \item \item {\it 经济的增长率：}
+  $$S_e=\lim\limits_{y\to y_0}\df{y\mbox{年的经济总量}
+  -y_0\mbox{年的经济总量}}{y-y_0}$$
+\end{itemize}
 
-% {\bf P58-例1：}设$\limn(a_n+b_n)=1$，$\limn(a_n-b_n)=3$，证明$\{a_n\},\{b_n\}$收敛，并求其值。
+% {\bf 导数：函数关于自变量的变化率！}
 
-% {\bf 例：}设$a_n>0(n\in\mathbb{N})$，$\limn a_n=a$，证明：
-% $$\limn\sqrt{a_n}=\sqrt a$$
+{\bf 例：}已知函数$f(x)$在点$x_0$处可导，求曲线$y=f(x)$在该点的切线和法线方程。
+
+\begin{itemize}
+  \setlength{\itemindent}{1cm}
+  \item {\it\b 切线：\quad $y=f(x_0)+f'(x_0)(x-x_0)$}
+  \item {\it\b 法线：\quad $y=f(x_0)-\df1{f'(x_0)}(x-x_0)\quad(f'(x_0)\ne 0)$}
+\end{itemize}
+
+{\bf 例：}若抛物线$y=x^2$上有三个不同号点处的法线交于一点，这三个点的横坐标需要满足什么条件？
+
+[提示]： 设三个点的横坐标分别是$a_1,a_2,a_3$。
+
+情形一：若某个$a_i=0$（不妨为$a_1=0$），显然由对称性可知，必有$a_2=-a_3$。
+
+情形二：若$a_1,a_2,a_3$均非零，我们可以给出$a_i(i=1,2,3)$处的法线方程
+$$y=a_i^2-\df1{2a_i}(x-a_i)$$
+化简后可得
+$$\df{a_1+a_2}{a_3}=\df{a_1+a_3}{a_2}=\df{a_2+a_3}{a_1}$$
+进而
+$$\df{a_1+a_2+a_3}{a_3}=\df{a_1+a_2+a_3}{a_2}=\df{a_1+a_2+a_3}{a_1}$$
+显然$a_,a_2,a_3$相互不同，故必有$a_1+a_2+a_3=0$。
+
+{\b {\bf 思考：}可导等价于有切线吗？（{\it 否，若切线是铅直方向的，则导数没有意义！}）}
+
+{\bf 例：}讨论函数$f(x)=\sqrt[3]x$在点$x=0$是否可导？
+
+\subsubsection{导数存在的条件}
+
+为了讨论的方便，我们有时会使用“{\it 左（右）导数}”的概念，对应于导数定义中分别取
+左（右）导数的情形，记为$f'_-(x_0)$和$f'_+(x_0)$\ps{\b 注意和导函数的左右极限的区别}，
+显然由导数的定义，$f(x)$在$x_0$可导，当且仅当在该点的左、右导数存在且相等。
+
+
+% {\bf 定理：}初等函数在其定义域内是处处可导的。\ps{而且其任意阶导函数也是可导的！}
 % 
-% {\bf hint:} 若$a=0$，对$\e^2$，取$N$即可。
+% 这个定理我们
 
-{\bf 补充例题：}
+不难证明，函数在一点连续是在该点可导的一个必要条件。
 
-% 1、计算极限：$\limn\left(\df12+\df3{2^2}+\ldots+\df{2n-1}{2^n}\right)$
-% 
-% [提示]：let $x_n=\df12+\df3{2^2}+\ldots+\df{2n-1}{2^n}$, then
-% $$\df12x_n=\df12\left(\df12+\df1{2^2}+\ldots+\df1{2^n}\right)
-% -\df{2n-1}{2^{n+1}}\to\df32\;(n\to\infty)$$
+{\bf 定理：}$f(x)$在一点可导，则一定在该点连续。
 
- 
+[证]：设$f(x)$在$x_0$可导，导数为$A$，则
+\begin{align*}
+	\limx{x_0}[f(x)-f(x_0)]
+	&=\limx{x_0}\df{f(x)-f(x_0)}{x-x_0}\cdot(x-x_0)\\
+	&=\limx{x_0}\df{f(x)-f(x_0)}{x-x_0}\limx{x_0}(x-x_0)\\
+	&=A\cdot 0=0,
+\end{align*}
+从而可知$\limx{x_0}f(x)=f(x_0)$，也即$f(x)$在$x_0$连续。
+\hfill$\Box$
 
-\subsection{夹逼（迫敛）定理}
+{\bf 例：}已知$f(x)$在$x=0$连续，且$\limx{0}\df{f(x)}x=A$，
+证明$f(x)$在$x=0$可导，并求$f'(0)$。
 
-{\bf 定理2.2.4：}设对任意$n\in\mathbb{N}$，$x_n\le a_n\le y_n$，
-且$\{x_n\},\{y_n\}$收敛于相同的极限$a$，则$\limn a_n=a$。
+[解]：由$f(x)$在$x=0$连续，
+$$f(0)=\limx0f(x)=\limx0\df{f(x)}x\cdot x
+=\limx0\df{f(x)}x\cdot\limx0x=A\cdot 0=0,$$
+从而
+$$A=\limx{0}\df{f(x)}x=\limx{0}\df{f(x)-f(0)}{x-0}=f'(0),$$
+由此可知$f(x)$在$x=0$可导，且$f'(0)=A$。
+\hfill$\Box$
 
+当然，连续并不是可导的充分条件，例如$f(x)=|x|$在$x_0$处连续，但不可导，
+其左右导数分别为$\pm 1$。
+
+{\bf 讨论：}函数在一点不可导，可能有哪些不同的形态？
+
+[提示]：无定义、不连续或尖点以及下面的这种情况：
+
+{\bf 例：}函数$f(x)=x^2D(x)$在$x=0$可导，但在其他地方都不连续。
+
+[证]：注意到$0\leq x^2D(x)\leq x^2$，故对任意$x\ne 0$，
+$$0\leq \df{x^2D(x)}{x}\leq x,$$
+从而由夹逼定理，可知
+$$\limx{0}\df{f(x)-f(0)}{x-0}=\limx{0}\df{x^2D(x)}{x}=0,$$
+即证。
+\hfill$\Box$
+
+连续但不可导最极端的情况是如下的{\kaishu Weierstrass函数}，
+可以证明\ps{涉及函数项级数的一些性质，在此不作证明}它在处处连续但处处不可导：	
+$$W(x)=\sum\limits_{n=0}^{\infty}a^n\cos(b^n\pi x),$$
+其中$a\in(0,1)$，$b$为正的奇数，满足$ab>1+\df32\pi$
 \begin{center}
-	\resizebox{!}{5cm}{\includegraphics{./images/ch2/xay_n.jpg}}
+	\resizebox{!}{6cm}{\includegraphics{./images/ch4/WFunc.pdf}}
+	
+	\kaishu Weierstrass函数具有某种“分形”的特征，对其任何一个微小的局部
+	进行放大，都会呈现处相似的锯齿状形态，它是一个真正在任一段上都不光滑的函数
 \end{center}
 
-{\bf 例：}证明$\limn [(n+1)^k-{n}^k]=0$，其中$0<k<1$。
+{\bf 例：}确定常数$a,b$的值，使得函数
+$$f(x)=\left\{\begin{array}{ll}ax+b,& x>0\\
+e^x,& x\leq 0\end{array}\right.$$
+在$x=0$可导。
 
-[提示]：$n^k\left[\left(1+\df1n\right)^k-1\right]
-<n^k\left(1+\df1n-1\right)=n^{k-1}\to 0\;(n\to\infty)$
+{\bf 注：}{\b 计算分段定义的函数的导数，在分段的点上的左右导数要分别计算，
+其他（可导区间上的）部分直接利用常用的求导公式即可！}\ps{\b 常见考点！}
 
-\bigskip
-
-{\bf 教材2.2.3节-例6：}{\b 设$a>0$为常数，证明$\limn \sqrt[n]{a}=1$。}
-\ps{重点掌握结论！}
-
-{\bf 例：}计算极限
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\limn\sqrt[n]{n^5}=1$
-  \item $\limn\sqrt[n^2]{5^n+1}=1$
-  \item 已知$a>b>0$，$\limn\sqrt[n]{\df1{a^n}+\df1{b^n}}=\df1b$
-  \item 设$a_k\geq0,\;(k=1,2,\ldots)$，则$\limn\sqrt[n]
-  {\sum\limits_{k=1}^na_k^n}=\max\limits_{1\leq k\leq n}a_k$
-\end{enumerate}
- 
 {\bf 补充例题：}
 
-{\bf 例：} $\limn\df{\sqrt{n+\sqrt n}-\sqrt n}{\sqrt[n]{3^n+5^n+7^n}}=\df1{14}$
+{\bf 例：}确定$a$的值，使$y=ax^2$与$y=\ln x$相切。
 
-% {\bf 例：} 已知$\limn a_n=A$，
-% \begin{enumerate}[(1)]
-%   \setlength{\itemindent}{1cm}
-%   \item 证明：$\limn\df{[na_n]}n=A$
-%   \item 若$\lambda\in(0,1)$，计算：
-%   $$\limn(a_n+\lambda a_{n-1}+\lambda^2a_{n-2}+\ldots+\lambda^na_0)=\df
-%   A{1-\lambda}$$
-% \end{enumerate}
-
-{\bf 例：} $\limn\sqrt[n]{n^5+5^n}=5$
-
-{\bf 例：} 设$x\geq 0$，则
-$\limn\sqrt[n]{1+x^n+\left(\df{x^2}2\right)^n}=
-\left\{\begin{array}{ll}
-1&x\in[0,1]\\ x & x\in(1,2]\\ \frac{x^2}2& x>2
+{\bf 例：}已知$f(x)=\left\{\begin{array}{ll}
+\sin x,& x<0\\ x,& x\geq 0
 \end{array}\right.$
+求$f'(x)$
 
-{\bf 例：} $\limn\left(\df1{n+1}+\df1{\sqrt{n^2+1}}+\ldots
-+\df1{\sqrt[n]{n^n+1}}\right)=1$
-
-{\bf 例：}已知$k\in\mathbb{Z}_+$，计算：$\limn n^2\left(\df kn-\df1{n+1}-\df1{n+2}
--\ldots-\df1{n+k}\right)$
-
-[提示]：
-$$\df kn-\df1{n+1}-\df1{n+2}-\ldots-\df1{n+k}=\sum\limits_{i=1}^k\df{i}{n+i}$$
-$$\df i{n(n+k)}\leq\df{i}{n+i}\leq\df i{n(n+1)}$$
-
-\subsection{单调有界原理}
-
-{\bf 定理2.2.5：}{\b 单调有界的数列必收敛。}\ps{只要数列从某一项开始单调即可！！！}
-
-
-
-\subsection{递推数列的判敛}
-
-
-
-
-
-\newpage
-
-\section{数值级数}
-
-\subsection{无穷和的定义}
-
-{\bf 级数（无穷和）：}无穷多个数按照一定{\it 次序}求和
-\ps{更严谨的说法应该是：\b 对给定的数列按照顺序求和（所形成的部分和数列）}
-$$\sum\limits_{k=1}^{\infty}a_k
-=\lim_{n\to\infty}\left(\sum_{k=1}^na_k\right)$$  
-其中$a_k\in\mathbb{R}\,(k\in\mathbb{N})$。
-\ps{正确理解级数的定义是理解其各种性质的关键}
-
-\begin{itemize}
-  \item {\bf 部分和（数列）：}
-  $$S_n=\sum\limits_{k=1}^na_k$$
-  \item {\bf 级数收敛}$\Leftrightarrow\{S_n\}$收敛
-\end{itemize}
-
-{\bf 例：}判断下列级数的收敛性
+{\bf 例：}问题讨论
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item $\sumn q^n\quad (q>0)$ \quad（{\it\b 几何级数，$|q|<1$时收敛}） 
-  \item $\sumn\df{1}{n(n+1)}=1$\quad\ps{“裂项”——有理函数分解}
-  \item $\sumn\df 1n$ \quad（{\it\b 调和级数，发散}）\\ 
-  提示：$$S_{2n}-S_n=\df1{2n}+\df1{2n-1}+\ldots+\df1n
-  >n\cdot\df1{2n}=\df12$$
-  由此进而易知$\{S_n\}$无界，从而发散！
-% 		  \item $\sumn\df 1n^2$
-  \item $\sumn (-1)^n$ \quad（{\it 发散}）
+  \item 若$f(x),g(x)$在$x_0$均不可导，是否$f(x)+g(x),$ $f(x)g(x)$必不可导？
+  （{$\times$}） 
+  \item 若对任意$x\in (a,b)$，恒有$f(x)<g(x)$，且$f(x),g(x)$均在$(a,b)$内
+  可导，问是否必有$f\,'(x)<g'(x)$？ （{$\times$}） 
+  \item $f(x)$可导，则$|f(x)|$可导？反之呢？（{$\times$}）
+  \item 若$f(x)$在$\mathbb{R}$上可导，且$\limx{+\infty}f(x)=\infty$，是否
+  必有$\limx{+\infty}f\,'(x)=\infty$？反之呢？ （{$\times$}）
+  \item 若$f(x)$在$(a,b)$内可导，且$\limx{a^+}f(x)=\infty$，是否
+  必有$\limx{a^+}f\,'(x)=\infty$？ 反之呢？（{$\times$}） 
+  \item {\b 若$f(x)$可导且为奇（偶）函数，则$f\,'(x)$也有奇偶性？ 
+  （相应的$f'(0)$有什么特点？偶函数，$f'(0)=0$）（{$\surd$}）} 
+  \item {\b 若$f(x)$可导且为周期函数，则$f\,'(x)$也是周期函数？ （{$\surd$}）}
 \end{enumerate}
+
+{\bf 例：}设$f(x)=\sum\limits_{i=1}^na_i\sin
+ix$，其中$a_i(i=1,2,\ldots,n)$为常数，且对任意$x\in\mathbb{R}$， 
+$|f(x)|\leq |\sin x|$，证明：
+$$\left|a_1+2a_2+\ldots+na_n\right|\leq 1$$
+
+[提示]：$f(0)=0$，于是
+$$|f'(0)|=\limx{0}\df{|f(x)|}{|x|}\leq\limx{0}\df{|\sin x|}{|x|}=1$$
+事实上$f'(0)=a_1+2a_2+\ldots+na_n$.
+
+{\bf 思考：}
+\begin{enumerate} 
+  \setlength{\itemindent}{1cm}
+  \item {\b $f'(x_0)$和$[f(x_0)]'$，$f'(x)$和$[f(x)]'$有何异同？}
+  \item {\b $f'_+(x_0)$和$f'(x_0+0)$有何区别？}
+  \ps{有些书上也把$f'(x_0+0)$记为$f'(x_0^+)$}
+  \item $f(x)=g(x)$可推出$f'(x)=g'(x)$？反之呢？
+  \item 圆的面积$S(r)$关于直径的导数$S'(r)=l(r)$为圆周长，
+  球体积关于直径的导数为表面积，如何解释？类似的，（定长）圆柱体的体积关于截面半径的导数
+  等于其与侧面积？矩形的体积关于各边长的导数等于其对应的截面积？
+\end{enumerate}
+
+\subsection{导函数}
+
+有了函数在一点的导数概念，可以很容易地将其扩展到所谓的{\it 导函数}，也即由函数
+在不同点处的导数值所构成的函数。为了今后的讨论方便，不加证明地引入如下定理：
+
+{\bf 定理：}所有初等函数在其定义域内均是处处可导的。
+
+
+例如导数的定义和基本的极限运算，可以很容易地求出一些常用初等函数的导函数：
+
+{\bf 例}（{\it 一些常用函数的导函数}）
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $f(x)=C\;(C\mbox{为常数})$ \hfill $f\,'(x)=0$ 
+  \item $f(x)=x^n\;(n\in\mathbb{Z})$ \hfill $f\,'(x)=nx^{n-1}\,(n\ne
+  0)$ 
+  \item $f(x)=e^x$ \hfill $f\,'(x)=e^x$ 
+  \item $f(x)=\ln|x|$ \hfill $f\,'(x)=\df 1x$ 
+  \item $f(x)=\sin x$ \hfill $f\,'(x)=\cos x=\sin\left(x+\df{\pi}2\right)$ 
+  \item $f(x)=\cos x$ \hfill $f\,'(x)=-\sin x=\cos\left(x+\df{\pi}2\right)$
+\end{enumerate}
+
+\section{函数的求导法则}
+
+\subsection{四则运算的求导法则}
+
+设$u(x),v(x)$均在$x$可导，则
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $[u(x)\pm v(x)]'=u'(x)\pm v'(x)$ 
+  \item $[u(x)v(x)]' =u'(x)v(x)+u(x)v'(x)$ \ps{自行推导$(uvx)'$的公式}
+  \item {\b$\left[\df{u(x)}{v(x)}\right]'
+  =\df{u'(x)v(x)-u(x)v'(x)}{v^2(x)}\;(v(x)\ne 0)$}
+\end{enumerate}
+
+{\bf 例：}计算以下函数的导函数
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $f(x)=2x^3+3x-4x+5-\df 6x$ 
+  \item $f(x)=e^x\sin x$ 
+  \item $f(x)=\df{x-1}{x+1}$ 
+  \item $f(x)=\df 1{\ln x}$ 
+  \item {\b$f(x)=\tan x$ \hfill $f\,'(x)=\sec^2 x$ }
+  \item {\b$f(x)=\sec x$ \hfill $f\,'(x)=\sec x\tan x$}
+\end{enumerate}
+
+{\bf 例：}已知$f(x)$可导，且无零点，证明：$y=f(x)$和$y=f(x)\sin x$
+在相交的位置必相切。
 
 \begin{shaded}
-
-% \begin{figure}[!htp]
-% 	\centering
-% 	\begin{minipage}[b]{0.2\textwidth}
-% 		\resizebox{!}{4cm}{\includegraphics{./images/ch2/Euler.jpg}}
-% 	\end{minipage}\quad
-% 	\begin{minipage}[b]{0.7\textwidth}
-% 		{\bf 【关于调和级数】}
-% 		
-% 		调和级数发散的速度慢得让人有些不可思议，其前$1000$项的和约为$7.485$，
-% 		前$100$万项的和约为$14.357$，前$10$亿项的和约为$21$，前一万亿项和约为$28$，
-% 		当它的和超过$100$时，如果每一项在纸带上只占$1$毫米，我们必须使用$10^{43}$毫米长
-% 		的纸带，这大约是$10^{25}$光年，而宇宙估计尺寸只有$10^{12}$光年，
-% 		因此也难怪大家都会认为它是收敛的。
-% 	\end{minipage}
-% \end{figure}
-% \begin{wrapfigure}{r}{2cm}
-% 	\includegraphics{./images/ch2/Euler.jpg}
-% % 	\caption{Leonhard Euler\,(1707-1783)}
-% % 	\label{fig:Euler}
-% \end{wrapfigure}
-
-% \begin{tabular}{p{0.2\textwidth}p{0.7\textwidth}}
-% 	\resizebox{!}{4cm}{\includegraphics{./images/ch2/Euler.jpg}}
-% 	&
-% 	{\bf 【关于调和级数】}
-% 	
-% 	调和级数发散的速度慢得让人有些不可思议，其前$1000$项的和约为$7.485$，
-% 	前$100$万项的和约为$14.357$，前$10$亿项的和约为$21$，前一万亿项和约为$28$，
-% 	当它的和超过$100$时，如果每一项在纸带上只占$1$毫米，我们必须使用$10^{43}$毫米长
-% 	的纸带，这大约是$10^{25}$光年，而宇宙估计尺寸只有$10^{12}$光年，
-% 	因此也难怪大家都会认为它是收敛的。
-% \end{tabular}
-
-{\bf 【关于调和级数】}
-
-调和级数发散的速度慢得让人有些不可思议，其前$1000$项的和约为$7.485$，
-前$100$万项的和约为$14.357$，前$10$亿项的和约为$21$，前一万亿项和约为$28$，
-当它的和超过$100$时，如果每一项在纸带上只占$1$毫米，我们必须使用$10^{43}$毫米长
-的纸带，这大约是$10^{25}$光年，而宇宙估计尺寸只有$10^{12}$光年，
-因此也难怪大家都会认为它是收敛的。
-
-% \begin{center}
-% 	\resizebox{!}{4cm}{\includegraphics{./images/ch2/Euler.jpg}}
-% \end{center}
-
-{\bf 【Euler常数】}
-
-Euler常数最先由瑞士数学家莱昂哈德·欧拉(Leonhard Euler)
-在1735年发表的文章 De Progressionibus harmonicus observationes 中定义。
-欧拉曾经使用C作为它的符号，并计算出了它的前6位小数。1761年他又将该值计算到了16位小数。
-$$\gamma=\limn\left[\sum\limits_{k=1}^n\df1k-\ln n\right]
-=\int_1^{\infty}\left(\df1{[x]}-\df1x\right)\d x$$
-由不等式$\ln(1+x)<x,(x\in(-1,+\infty),x\ne 0)$，
-$$S_n=\sum\limits_{k=1}^n\df1k-\ln n>\sum\limits_{k=1}^n
-\ln\left(1+\df1k\right)-\ln n=\ln(n+1)-\ln n>0.$$
-$$S_n-S_{n+1}=\ln(n+1)-\ln n-\df1{n+1}>-\left(-\df1{n+1}\right)
--\df1{n+1}=0.$$
-由单调有界原理可知$\{S_n\}$收敛。
+	{\bf 关于$f(x)\sin x$的图像}
+	
+	在本门课程中，形如$f(x)\sin x$的函数常常用来作为讨论的示例，为此，了解一下
+	有关函数的大致形态是很有必要的。请自行分析一下这些函数的图像有什么共性和差异。
+	\begin{center}
+		\resizebox{!}{4cm}{\includegraphics{./images/ch4/x3Sinx.pdf}}\quad
+		\resizebox{!}{4cm}{\includegraphics{./images/ch4/xSinx.pdf}}
+		
+		$y=x^{1/3}\sin x$\hspace{5cm}$y=x\sin x$
+		
+		\resizebox{!}{4cm}{\includegraphics{./images/ch4/1xSinx.pdf}}\quad
+		\resizebox{!}{4cm}{\includegraphics{./images/ch4/rxSinx.pdf}}
+		
+		$y=\df1x\sin x$\hspace{5cm}$y=[x]\sin x$
+		
+		\resizebox{!}{4cm}{\includegraphics{./images/ch4/lnxSinx.pdf}}\quad
+		\resizebox{!}{4cm}{\includegraphics{./images/ch4/11xSinx.pdf}}
+		
+		$y=\ln x\sin x$\hspace{5cm}$y=1.1^x\sin x$
+	\end{center}
 \end{shaded}
 
-\subsection{收敛级数的性质}
+\subsection{反函数求导法则}
 
-\begin{enumerate}[{\bf 【性质1】}]
-  \item {\bf 定理2.3.1}（级数收敛的必要条件） 
-  $$\sumn a_n\mbox{收敛}\Rightarrow\limn a_n=0$$
-  
-  {常用于判定级数发散：\b 若$\{a_n\}$不以$0$为极限，则$\sumn a_n$发散}
-  \item {\b$\sumn
-  a_n$收敛$\Leftrightarrow\sum\limits_{n=k}^{\infty}a_n$收敛$(k\in\mathbb{N})$}\\
-  （因此，讨论收敛性时只需考虑“最后部分”的部分和）
-  \ps{类似于数列的收敛性只与其“尾部”的数字有关}
-  \item {\bf 教材2.3.1节-例2：}$\{a_n\}$收敛$\Leftrightarrow\sumn(a_{n+1}-a_n)$收敛
-  \item {\bf 定理2.3.2-3：}两个收敛级数的线性组合仍然收敛
-  \ps{类似于收敛数列的线性组合仍收敛}  
-  \item {\bf 定理2.3.4：}{\b 增加、减少或改变级数中的有限项不影响其敛散性} 
-  \ps{与性质2类似，增减或改变数列中的有限项不改变其敛散性}
-  \item {\bf 定理2.3.5：}若$\sumn a_n$收敛，不改变求和顺序，
-  任意合并其中的项，所得新的级数仍收敛 
-  \begin{itemize}
-    \item {\bf 推论：}合并收敛级数中的相邻项，所得级数仍收敛 
-    \ps{\b 合并相邻项相当于取$\{S_n\}$的偶子列$\{S_{2n}\}$}
-    \item {{对发散级数，该性质不成立}} 
-    {例：$\sumn(-1)^n$}
-    \item {{\b 改变求和次序，可能改变级数的收敛和}}，例：$\sumn\df{(-1)^n}n$
-  \end{itemize}
-%   \item (Cauchy原理)级数$\sumn a_n$收敛当且仅当：$\forall\e$，
-%   $\exists N\in\mathbb{Z}$，使对$\forall n>N$和$\forall p\in\mathbb{Z}^+$，
-%   都有
-%   $$|a_{n+1}+a_{n+2}+\ldots+a_{n+p}|<\e.$$
-\end{enumerate}
+自变量和因变量（函数）是一种相对的关系，将原来的因变量视为自变量，通过反函数来研究
+原来原来的自变量的变化规律，是一种常见的数学手段。为此，讨论反函数的变化率（导数）就显得非常
+有必要了。
 
-% {\bf 例：}判断以下级数的敛散性；若收敛，求其和
-% 
-% \begin{enumerate}[(1)]
-%   \setlength{\itemindent}{1cm}
-%   \item $\sumn\ln\left(1+\df 1n\right)$
-%   \item
-%   $\sumn\left[\prod\limits_{k=0}^p(\alpha+n+k)\right]^{-1},\;(p\in\mathbb{N})$
-%   \item $\sumn\df{x^{2^{n-1}}}{1-x^{2n}}$
-%   \item $\sumn\df{1}{\sqrt n}$
-% \end{enumerate}
+假设函数$y=f(x)$可逆，其反函数为$x=g(y)$。设$\Delta x$和$\Delta y$
+为自变量和因变量在$x$处对应的变化量。若$f(x)$可导，则必连续，从而
+$$\lim\limits_{\Delta x\to 0}\Delta y=0,$$
+又$f(x)$可逆，故必为一一映射，从而可知$\Delta x\to0\Leftrightarrow\Delta y\to0$。
+于是由
+$$f'(x)=\lim\limits_{\Delta x\to 0}\df{\Delta y}{\Delta x},$$
+如果$f'(x)\ne 0$，则上式两边求倒数可得
+$$
+	\df1{f'(x)}=\lim\limits_{\Delta x\to 0}\df{\Delta x}{\Delta y}
+	=\lim\limits_{\Delta y\to 0}\df{\Delta x}{\Delta y}
+$$
+再由导数的定义，上式右端就是$g'(y)$。
 
-% {\bf 例：}利用Cauchy原理证明$\sumn\df1{n^2}$收敛
-% 
-% \begin{align}
-% 	&|a_{n+1}+a_{n+2}+\ldots+a_{n+p}|\notag\\
-% 	&<\df1{(n+1)(n+2)}+\df1{(n+2)(n+3)}+\ldots+\df1{(n+p-1)(n+p)}\notag\\
-% 	&=\df1n-\df1{n+p}<\df1n\notag
-% \end{align}
+至此，我们可以得到如下的结论：
 
-{\bf 注：}直接使用比较判别法证明更为简洁
+{\b 设$y=f(x)$和$x=g(y)$互为反函数，若$f(x)$可导，且$f'(x)\ne 0$，则}
+$$\b g'(y)=\df1{f'(x)}.$$
+注意，{\b 使用反函数的求导公式时，必须注意原函数和反函数的自变量是不同的，
+因此求导的时候$f'(x)$和$g'(y)$实际上分别是$f'_x(x)$和$g'_y(y)$。}
 
-{\bf 例：}判断正误：
+{\bf 例：}考虑函数$y=e^x$，我们已知$(e^x)'_{\b x}=e^x$，故
+$$(\ln y)'_{\b y}=\df1{(e^x)'_{\b x}}=\df1{e^x}=\df1y$$
+
+{\bf 例：}计算下列函数的导函数
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item $\{a_n\}$与$\sumn a_n$同敛散\hfill$\times$
-  \item $k\ne 0$则$\sumn a_n$与$\sumn ka_n$同敛散\hfill$\surd$
-  \item $\sumn a_n$收敛，$\sumn b_n$发散，则$\sumn(a_n+b_n)$发散\hfill$\surd$
-  \item $\sumn a_n$与$\sumn b_n$均发散，则$\sumn(a_n+b_n)$发散\hfill$\times$
-  \item 若$\sum\limits_{n=1}^{\infty}a_{2n}$和
-  $\sum\limits_{n=1}^{\infty}a_{2n-1}$均收敛，则$\sumn a_n$收敛\hfill$\surd$
-  \item 若$\sum\limits_{n=1}^{\infty}(a_{2n}+a_{2n-1})$收敛，则
-  $\sumn a_n$收敛\hfill$\times$
+  \item {\b$f(x)=\arcsin x$ \hfill $f\,'(x)=\df{1}{\sqrt{1-x^2}}$} 
+  \item {\b$f(x)=\arctan x$ \hfill $f\,'(x)=\df{1}{1+x^2}$}
 \end{enumerate}
 
-{\bf 例：} 求和$\sumn\df1{n(n+1)(n+2)}=\df14$
+[提示]：记$y=\sin x$，则
+$$(\arcsin x)'_{\b x}=\df1{(\sin y)'_{\b y}}=\df1{\cos y}
+=\df1{\sqrt{1-\sin y}}=\df1{\sqrt{1-x^2}}.$$
 
-{\bf 例：}求和 $\sumn\df{n}{3^n}$
-
-[提示]：记$S_n=\df13+\df2{3^2}+\ldots+\df n{3^n}$，则
-$$\df13S_n=\left(\df1{3^2}+\df2{3^3}+\ldots
-+\df{n-1}{3^n}\right)+\df{n}{3^{n+1}}$$
-因此
-$$\df23S_n=\df12\left(1-\df1{3^n}\right)-\df{n}{3^{n+1}}\to\df12
-(n\to\infty)$$
-
-\section{同号级数的收敛性}
-
-\subsection{同号级数收敛的充要条件}
-
-{\bf 定理2.4.1：}正项级数收敛，当且仅当其部分和数列有界。\ps{相当于数列收敛的单调有界原理}
-
-{\bf 教材2.4.1-例1：}证明$\sumn\df1{n!}$收敛。
-
-解答略。
-
-\subsection{比较判别法}
-
-{\bf 定理2.4.2}（比较判别法的不等式形式）若对充分大的$n$，总有$0\leq a_n\leq b_n$，则
-% \ps{相当于数列收敛的夹逼定理}
-\begin{enumerate}
-  \setlength{\itemindent}{1cm}
-  \item 若$\sumn b_n$收敛，则$\sumn a_n$收敛
-  \item 若$\sumn a_n$发散，则$\sumn b_n$发散
-\end{enumerate}
-
-{\bf 注：}{\b 对于变号（非同号）级数，比较判别法不成立}，例：
-$$a_n=-\df1n+\df{(-1)^n}{\sqrt n}<\df{(-1)^n}{\sqrt n}=b_n,$$
-可以证明$\sumn b_n$收敛，但$\sumn a_n$发散。
-
-{\bf P66-例3：}证明：$p$-级数\ps{$p$-级数常常用作与其他级数比较判敛的“标杆”}
+{\bf 例：}设$f(x)=x^5+2x^3+4x,(-\infty<x<+\infty)$
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item[(1)] $p>1$时，$\sumn\df1{n^p}$收敛；
-  \item[(2)] $0<p\leq 1$时，$\sumn\df1{n^p}$发散。
+  \item 证明$f$可逆；
+  \item 设$g=f^{-1}$，计算$g(7)$
+  \item 计算$g'(7)$
 \end{enumerate}
 
-[提示]：(2)，$p=1$时，显然发散。又因为
-$$0<\df 1n<\df 1{n^p},\quad (0<p<1),$$
-已知调和级数发散，故$p$-级数发散；
+\subsection{复合函数的求导法则}
 
-\begin{shaded}
-(1)由以下推导可知$p>1$时，$p$-级数的部分和数列有界
-\begin{eqnarray*}
-	S_{(2^k)^p}&=&1+\df 1{2^p}+\underbrace{\left(\df1{3^p}+\df1{(2^2)^p}\right)}_2
-				+\underbrace{\left(\df1{5^p}+\ldots+\df1{(2^3)^p}\right)}_{2^2}+\ldots\\
-				&&+\underbrace{\left[\df1{(2^{k-1}+1)^p}+\ldots+\df1{(2^k)^p}\right]}_{2^{k-1}}\\
-			  &\leq &1+\df 1{2^p}+2\cdot\df1{2^p}+2^2\cdot\df1{(2^2)^p}
-			    +\ldots+2^{k-1}\cdot\df1{(2^{k-1})^p}\\
-			  &=&1+\df 1{2^p}+\left[\df1{2^{p-1}}+\left(\df1{2^{p-1}}\right)^2+
-			    \ldots+\left(\df1{2^{p-1}}\right)^{k-1}\right]\\
-			  &=&1+\df 1{2^p}+\df1{2^{p-1}}\df{1-\left(\df1{2^{p-1}}\right)
-			    ^{k-1}}{1-\df1{2^{p-1}}}<1+\df 1{2^p}+\df1{2^{p-1}-1}
-\end{eqnarray*}
-\end{shaded}
+利用函数的复合运算来构造新的函数，或者说将一些函数看成是常见函数的复合，
+也是常见的一种情况，这时我们常常需要讨论复合函数的极限。
 
+假设$u=f(x),y=g(u)$均可导，于是若将$y$视为$x$的复合函数，设
+$\Delta x,\Delta u,\Delta y$为相对应的三个变化量，则有
+\begin{align*}
+	\lim\limits_{\Delta x\to 0}\df{\Delta y}{\Delta x}
+	&=\lim\limits_{\Delta x\to 0}\df{\Delta y}{\Delta u}
+	\cdot\df{\Delta u}{\Delta x}
+	=\lim\limits_{\Delta x\to 0}\df{\Delta y}{\Delta u}
+	\cdot\lim\limits_{\Delta x\to 0}\df{\Delta u}{\Delta x}\\
+	&=\lim\limits_{\Delta u\to 0}\df{\Delta y}{\Delta u}
+	\cdot\lim\limits_{\Delta x\to 0}\df{\Delta u}{\Delta x}
+	=g'(u)f'(x)=g'(f(x))f'(x),
+\end{align*}
+于是，我们得到了如下的关于复合函数的求导法则
+$$\b [g(f(x))]'=g'(f(x))\cdot f'(x).$$
+试想一下，如果是三个可导的函数相互复合，则由
+$$[h(g(f(x))0]'=h'(g(f(x)))\cdot g'(f(x))\cdot f'(x),$$
+这很类似于一环一环地解开一个相互连接的链条，因此该法则也被称为{\it 链式法则}。
 
-{\bf 例：}讨论下列级数的敛散性
+{\bf 例：}计算下列函数的导函数
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item[(1)] $\sumn\df{1}{3^{\ln n}}$
-  \hfill（{[提示]：$a^{\ln b}=b^{\ln a},\;(a,b>0)$}）
-  \item[(2)] $\sum\limits_{n=2}^{\infty}\df 1{(\ln n)^{\ln n}}$
-  \item[(3)] $\sum\limits_{n=3}^{\infty}\df 1{(\ln n)^{\ln\ln n}}$
+  \item {\b$y=a^x\;(a>0,a\ne 1)$ \hfill $y'=a^x\ln a$} 
+  \item {\b$y=x^a$ \hfill $y'=ax^{a-1}$}
 \end{enumerate}
-	
-[提示]: (2)\;当$n>e^{e^2}$时，
-$$(\ln n)^{\ln n}=n^{\ln\ln n}>n^2.$$
-
-(3)\;注意到$n$充分大时，$\ln n<\sqrt{n}$，进而$(\ln\ln n)^2<\ln n$，故有
-  $$\df 1{(\ln n)^{\ln\ln n}}=\df 1{e^{(\ln\ln
-  n)^2}}>\df 1n$$
-
-\begin{shaded}
-	{\bf 一点“常识”}
-	
-	{\b 设$\e>0, a>1$，则对于充分大的$n$，总成立如下关系
-	$$\ln n<<n^{\e}<<a^n<<n!<<n^n$$}
-
-	学习了函数极限的L'Hospital法则后，能够比较容易地验证以上结论。
-	
-	{\bf 例：} 对于充分大的$x$，$e^x>2x^4$，故对充分大的$n$，
-	有$e^{\sqrt[3]n}>2n^{\frac 43}$，从而可知$\sumn e^{-\sqrt[3]n}$收敛
-\end{shaded}
-
-{\bf 教材2.4.2节-例4：}设$a_n\leq c_n\leq b_n\;(n\in\mathbb{N})$，$\sumn a_n,\sumn
-b_n$均收敛， 则$\sumn c_n$收敛。
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item 类似于数列收敛的“夹逼定理”
-  \item {\b 该结论不要求必须是正项级数}
-\end{itemize}
-
-{\bf 推论}（定理2.5.2）若级数$\sumn|a_n|$收敛，则$\sumn a_n$也收敛。
 
 [提示]：
-$$-|a_n|\leq a_n\leq|a_n|$$
+$$(a^x)'=[e^{x\ln a}]'=e^{x\ln a}\cdot (x\ln a)'=a^x\ln a.$$
 
-{\bf 定理2.4.3}(比较判别法的极限形式)已知$a_n,b_n$均非负$(n\in\mathbb{Z}_+)$，
-且$\limn\df{a_n}{b_n}=l$，则 
-\begin{enumerate}
-  \setlength{\itemindent}{1cm}
-  \item 若$0<l<+\infty$，$\sumn a_n,\sumn b_n$同敛散 \hfill({\it 随着$n$的增大，
-  $a_n,b_n$的比值趋于常数})
-  \item 若$l=0$，$\sumn b_n$收敛$\Rightarrow\sumn a_n$收敛 
-  \hfill({\it 随着$n$的增大，$a_n$的值远小于$b_n$})
-  \item 若$l=+\infty$，$\sumn a_n$收敛$\Rightarrow\sumn b_n$收敛
-  \hfill({\it 随着$n$的增大，$a_n$的值远大于$b_n$})
-\end{enumerate}
+请注意，到目前为止，我们终于得到了所有基本初等函数的求导公式。接下来，我们可以利用
+这些基本的公式，结合求导法则，来求各种函数的导函数了。
 
-{\bf 教材2.4.2节-例5-6：}判断以下级数的收敛性
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\sumn\df 1{2^n}\df{n^2+1}{2n^2-1}$ 
-  \item $\sumn\df{n+1}{n^k+2}\quad (k=1,2,\ldots)$ 
-  \item $\sumn\df{1}{n\sqrt[n]{n}}$ 
-  \item $\sumn\df{1}{1+x^n}\quad(x>0)$
-\end{enumerate}
-
-{\bf 推论}（$p$-判别法）设$a_n\geq 0\;(n=1,2,\ldots)$，则\ps{指定$p$-级数作为比较的对象} 
-\begin{enumerate}
-  \setlength{\itemindent}{1cm}
-  \item 若存在$p>1$，使得$\limn n^pa_n$存在，则$\sumn a_n$收敛 
-  \item 若$0<p\leq 1$，使得$\limn n^pa_n>0$，则$\sumn a_n$发散
-\end{enumerate}
-
-{\bf 例：}判断以下级数的收敛性
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\sumn\df{\arctan n}{n^{3/2}}$
-  \item $\sumn\df{\ln n}{n^{5/4}}$\ps{任何正幂次函数的增长速度最终都比任意对数函数快}
-\end{enumerate}
-
-{\bf 例：}$\sumn a_n$、$\sumn b_n$均为正项级数，若对充分大的$n$，总有
-$$\df{a_{n+1}}{a_n}\leq\df{b_{n+1}}{b_n},$$
-则若$\sumn b_n$收敛，$\sumn a_n$收敛。
+{\bf 例：}若$f$可导，且$[f(x^2)]'=[f^2(x)]'$，则$f(1)=1$或$f'(1)=0$.
 
 [提示]：
-$$a_{n+1}\leq\df{a_1}{b_1}b_{n+1}$$
+$$[f(x^2)]'=f'(x^2)\cdot (x^2)'=2xf'(x),
+\quad [f^2(x)]'=2f(x)\cdot f'(x).$$
+令$x=1$，代入比较即得。
 
-{\bf 补充例题：}
-
-{\bf 例：}（2012年全国大学生数学竞赛）
-$\sumn a_n$和$\sumn b_n$均为正项级数，证明：
-\begin{enumerate}
+{\bf 例：}计算下列函数的导函数
+\begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item 若$\limn\left(\df{a_n}{a_{n+1}b_n}-\df 1{b_{n+1}}\right)>0$，
-  则$\sumn a_n$收敛；
-  \item 若$\limn\left(\df{a_n}{a_{n+1}b_n}-\df 1{b_{n+1}}\right)<0$,
-  且$\sumn b_n$发散，则$\sumn a_n$发散。
+  \item $y=e^{x^2}$ 
+  \item $y=\sin (3x+2)$ 
+  \item $y=\cos^2(1-2x)$ 
+  \item $y=\ln\sin e^{-x}$ 
+  \item $y=(1-30x)^{50}$ 
+  \item $y=\ln(1+x^2)$ 
+  \item $y=e^{\sqrt{1-3x}}$ 
+  \item $y=x^x$ 
+  \item $y=e^{\tan\frac 1x}$
 \end{enumerate}
 
-[提示]：1. 由已知，存在$q>0$和$N\in\mathbb{Z}_+$，对任意$n\geq N$，有
-$$\df{a_n}{a_{n+1}b_n}-\df 1{b_{n+1}}>q,$$
-从而
-$$a_{n+1}<\df1q\left(\df{a_n}{b_n}-\df{a_{n+1}}{b_{n+1}}\right).$$
-利用递推关系可得
-$$\sum\limits_{k=N}^na_k<a_N+\df1q\left(\df{a_N}{b_N}-\df{a_n}{b_n}\right)
-<a_N+\df1q\df{a_N}{b_N},$$
-故$\sumn a_n$部分和有界，从而收敛。
-
-2.$n$充分大（$n>N$）时，有
-$$a_{n+1}>\df{b_{n+1}}{b_n}a_n>\ldots>
-\df{b_{n+1}}{b_n}\df{b_{n}}{b_{n-1}}\ldots\df{b_{N+1}}{b_N}a_N
-=\df{a_N}{b_N}b_{n+1},$$
-由比较判别法，$\sumn b_n$发散，则$\sumn a_n$发散。
-
-{\bf 例：} $\sumn\left(\cot\df{n\pi}{4n-2}-\sin\df{n\pi}{2n+1}\right)$
-
-[提示]：考虑$\sumn\left(1-\cot\df{n\pi}{4n-2}\right)$和
-$\sumn\left(1-\sin\df{n\pi}{2n+1}\right)$，注意到
-$$\limn\df{1-\sin\df{n\pi}{2n+1}}{\df1n}=\df{\pi}4,
-\quad\limn\df{1-\sin\df{n\pi}{2n+1}}{\df1{n^2}}=\df{\pi^2}{32},$$
-故以上级数一个发散一个收敛，从而原级数发散。
-
-{\b\bf 牢记：比较判别法仅对同号级数有效！！！}
-
-\subsection{比值判别法}
-
-{\bf 定理2.4.4}（d'Alembert判别法）
-设$a_n\geq 0(n=1,2,\ldots)$，$\limn\df{a_{n+1}}{a_n}=q$，则
-\ps{极限形式，掌握结论，不要求会证明} 
-\begin{enumerate}
+{\b{\bf 例：}形如$y=u^v$的函数求导，其中$u,v$均可导\ps{难点！注意这类函数并不属于基本的初等函数}
+\begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item $0\leq q<1\Rightarrow\sumn a_n$收敛 
-  \item $q>1\Rightarrow\sumn a_n$发散
+  \item $y=x^x$
+  $$(x^x)'=(e^{x\ln x})'=e^{x\ln x}\left(\ln x+x\cdot\df1x\right)=x^x(1+\ln x)$$
+  \item $y=x^{x^x}$
+  \item $y=\left(x^x\right)^x$
 \end{enumerate}
-
-{\bf 注：}$q=1$时，比值判别法无法给出确定的结论，例如：$\sumn\df 1n$
-和$\sumn\df 1{n^2}$都对应于$q=1$，但前者发散，后者收敛
-
-{\bf 教材2.4.3节-例5-7：}判断下列级数的收敛性
-\begin{enumerate} [(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\sumn\df 1{2^n}\df{n^2+1}{2n^2-1}$ 
-  \item $\sumn\df{n^2}{2^n}$ 
-  \item $\sumn\df{(2n)!}{(n!)^2}$
-%   \item $\sumn n!\left(\df{x}{n}\right)^n\quad (x>0)$
-\end{enumerate}
-
-{\bf 例：}设$t>0$，讨论级数$\sumn\df{t^nn!}{n^n}$的敛散性。
-
-[提示]：若$t=e$，
-$$\df{a_{n+1}}{a_n}=\df{e}{\left(1+\df1n\right)^n}>1,$$
-故$\{a_n\}$必不以$0$为极限，可知$\sumn a_n$发散；
-
-$t\ne e$的情况利用比值判别法即可判断。
-
-{\bf 注：}考虑$\sumn\df{n^n}{e^nn!}$，
-则以上推导不再成立，该如何判定其敛散性呢？
-
-[提示]：因为$\left(1+\df1n\right)^n<e<\left(1+\df1n\right)^{n+1}$，故
-$$\df{a_{n+1}}{a_n}=\df{\left(1+\df1n\right)^n}{e}>\df1{1+\frac1n}=\df n{n+1},$$
-于是
-$$a_n>\df{n-1}na_{n-1}>\df{n-1}n\cdot\df{n-2}{n-1}\ldots\df12a_1=\df{a_1}n,$$
-由此易知原级数发散。
-
-{\bf 定理2.4.4‘}（习题2.4-11：比值判别法的不等式形式）
-设$a_n\geq 0\,(n=1,2,\ldots)$，则 
-\begin{enumerate}
-  \setlength{\itemindent}{1cm}
-  \item 若$n$充分大时，有$\df{a_{n+1}}{a_n}\leq r<1$，则$\sumn a_n$收敛 
-  \item 若$n$充分大时，有$\df{a_{n+1}}{a_n}\geq 1$，则$\sumn a_n$发散 
-\end{enumerate}
-
-{\b {\bf 思考：}为什么以上第一个判定条件中要求$r<1$？
-
-{\bf 答：}因为若仅要求$\df{a_{n+1}}{a_n}<1$，不能避免出现$\limn\df{a_{n+1}}{a_n}=1$
-的情况，从而导致无法判定}
-
-{\bf 教材2.4.3节-例：}判断以下级数的收敛性
-$$\sumn\df{2+(-1)^n}{5^n}$$
-
-[提示]：本例适合使用根植判别法，或者比值判别法的不等式形式
-
-% {\bf 例：} $\sqrt2+\sqrt{2-\sqrt2}+\sqrt{2-\sqrt{2-\sqrt2}}
-% +\sqrt{2-\sqrt{2-\sqrt{2-\sqrt2}}}$
-% 
-% [提示]：
-% $$\sqrt2=2\cos\df{\pi}4=2\sin\df{\pi}4$$
-% $$\sqrt{2-\sqrt2}=\sqrt{2\left(1-\cos\df{\pi}4\right)}=2\sin\df{\pi}8$$
-% $$\sqrt{2-\sqrt{2-\sqrt2}}=\ldots=2\sin\df{\pi}{16}$$
-% 故$a_n=2\sin\df{\pi}{2^{n+1}}$。记$b_n=\df{\pi}{2^{n}}$，注意到
-% \ps{此处用到了重要极限$\limx{0}\df{\sin x}x=1$}
-% $$\limn\df{a_n}{b_n}=1,$$
-% 且$\sumn b_n$收敛，故原级数收敛。
-
-\subsection{根值判别法}
-
-{\bf 定理2.4.5}（Cauchy判别法）\ps{极限形式}
-设$a_n\geq 0(n=1,2,\ldots)$，$\limn\sqrt[n]{a_n}=q$，则
-\begin{enumerate}
-  \setlength{\itemindent}{1cm}
-  \item $0\leq q<1\Rightarrow\sumn a_n$收敛
-  \item $q>1\Rightarrow\sumn a_n$发散
-\end{enumerate}
-
-{\bf 注：}
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item 和比值法类似，$q=1$时，无法判定级数的敛散性
-  \item
-  由$\limn\df{a_{n+1}}{a_n}=q$可以推出$\limn\sqrt[n]{a_n}=q$（
-  {\it 反之不然}），请问：这意味着{\b 比值和根植法哪一个的适用范围更广？（{\it 答：根植}）}
-%   \ps{利用该结论可以证明$\df{\sqrt[n]n}n\to e$}
-\end{itemize}
-
-% \newpage
-
-% \begin{shaded}
-% Assume $a_n\geq 0(n\in\mathbb{Z}+)$, if $\limn\df{a_{n+1}}{a_n}=q$, then
-% $\limn\sqrt[n]{a_n}=q$.
-% 
-% {\bf proof:} For $\limn\df{a_{n+1}}{a_n}=q$, $\forall \e>0$, $\exists
-% N\in\mathbb{Z}$, $\forall n\geq N$, such that
-% $$\left|\df{a_{n+1}}{a_n}-q\right|<\e,$$
-% hence
-% $$0<a_{n+1}<(q+\e)a_n<(q+\e)^2a_{n-1}<\ldots<(q+\e)^{n-N+1}a_N.$$
-% Then
-% $$\sqrt[n+1]{a_{n+1}}<\sqrt[n+1]{(q+\e)^{n-N+1}a_N}=(q+\e)
-% \sqrt[n+1]{(q+\e)^Na_N}\to(q+\e)\;(n\to\infty),$$
-% that is
-% $$|\sqrt[n+1]{a_{n+1}}-q|<\e.$$
-% Thus we know $\limn\sqrt[n]{a_n}=q$.
-% \end{shaded}
-% 
-% % \newpage
-% 
-% {\bf [hint]:} let $x_n=\df{n^n}{n!}$, we have
-% $$\df{x_{n}}{x_{n+1}}\to e(n\to\infty)$$
-
-{\bf 教材2.4.3节-例8：}判断下列级数的收敛性
-\begin{enumerate} [(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\sumn\df{2+(-1)^n}{5^n}$
-  \item $\sumn\df{n^2}{\left(2+\df 1n\right)^n}$
-  \item $\df 12+\df 1{3^2}+\df 1{2^3}+\df 1{3^4}+\df 1{2^5}+\df 1{3^6}+\ldots$
-\end{enumerate}
-
-% {\bf EX:}$a_n=\df{n^{n+\frac1n}}{\left(n+\df1n\right)^n}
-% \geq\df{n^n\cdot n^{\frac1n}}{(n+1)^n}\to\df1e$
-% hence $\sumn\df{n^{n+\frac1n}}{\left(n+\df1n\right)^n}$ diverge
-
-{\bf 思考：}根植判别法的不等式形式该如何表述？
-
-{\bf 例：}判断下列级数的收敛性
-\begin{enumerate} [(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\sumn\df1{3^n}\left[\sqrt2+(-1)^n\right]^n$
-  \item $\sumn\df{n^{n+\frac1n}}{\left(n+\df1n\right)^n}$\\
-  提示：$\df{n^{n+\frac1n}}{\left(n+\df1n\right)^n}\geq\df{n^n\cdot
-  n^{\frac1n}}{(n+1)^n}\to\df1e\ne0$，故发散
-\end{enumerate}
-
-{\it 注：另解：
-$$\limn\df{n^{n+\frac1n}}{\left(n+\df1n\right)^n}
-=\limn\df{\sqrt[n]n}{\left(1+\df1{n^2}\right)^n},$$
-其中
-$$\limn\left(1+\df1{n^2}\right)^n=
-\left\{\limn\left(1+\df1{n^2}\right)^{n^2}\right\}^{\limn\frac1n}=e^0=1,$$
-故以上极限$=1\ne0$，级数不满足收敛的必要条件！
 }
 
-\begin{shaded}
+{\bf 例：}设$f(x)$可导，且$f\,'\left(\df{\pi}{4}\right)=1$，求
+$$\varphi(x)=f\left(\arctan\df{1+x}{1-x}\right)$$
+在$x=0$处的导数。
 
-\subsection{其他判别法}
+\section{高阶导数}
 
-\subsection*{Raabe判别法}
+高阶导数就是导函数的导数，并且可以依次递推，{\it $f(x)$在$n$阶导数}：
+$${\b f^{\,(n)}(x)=\df{\d^nf(x)}{\d x^n}=\left[f^{\,(n-1)}(x)\right]'_x}$$
 
-{\bf Raabe判别法：}设$a_n\geq 0\,(n=1,2,\ldots)$，且
-$$\limn n\left(\df{a_n}{a_{n+1}}-1\right)=r,$$
-则当$r>1$时，$\sumn a_n$收敛；$r\leq 1$时，$\sumn a_n$发散。	
+{\bf 例：}求函数$f(x)=x^3+2x^2-3x+10$的各阶导函数。
 
-{\bf 例：}判断以下级数的敛散性
+多项式函数在可导性方面具有非常“优良”的性质：任意阶可导，且若求导阶数高于其次数
+（最高次幂的幂次），则对应的高阶导数恒为零。也即，{\b 若$P(x)$为$n$次多项式，
+则$P^{(n+1)}(x)\equiv0$}。
+
+对于一般的函数，如果要求出其各阶导函数，则需要通过观察寻找规律，而大多数函数的高阶导数
+是很难找到通用的表示的。下面一些高阶导数有比较明显规律的例子：
+
+{\bf 例：}求以下函数的$n$阶导数
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item $\sumn\df{(2n-1)!!}{(2n)!!}\df 1{2n+1}$
-  \item $\sumn\df{n!}{(x+1)\ldots(x+n)}\;(x>0)$
-  \item $\sumn\df{p(p+1)\ldots(p-n+1)}{n!n^q}$
-  \item $\df ab+\df{a(a+d)}{b(b+d)}++\df{a(a+d)(a+2d)}{b(b+d)(b+2d)},(a,b,d>0)$
-\end{enumerate}
-
-[提示]：(1)
-$$R_n=n\left[\df{(2n+2)(2n+3)}{(2n+1)(2n+1)}-1\right]
-=\df{n(6n+5)}{(2n+1)^2}\to\df32>1\;(n\to\infty)$$
-(2)
-$$R_n=n\left[\df{n+x}{n+1}-1\right]=\df{n(x-1)}{n+1}$$
-
-{\bf 不等式形式：}设$a_n\geq 0\,(n=1,2,\ldots)$，定义
-$$R_n=n\left(\df{a_n}{a_{n+1}}-1\right),$$
-若存在$r>1$，当$n$充分大时，总有$R_n\geq r$，则$\sumn a_n$收敛；
-若当$n$充分大时，总有$R_n\leq 1$，则$\sumn a_n$发散。
-
-{\bf 例：}判断以下级数的敛散性
-$$\sumn\df{\sqrt{n!}}{(2+\sqrt 1)(2+\sqrt 2)\ldots(2+\sqrt n)}$$
-
-[提示]：记$a_n=\df{\sqrt{n!}}{(2+\sqrt 1)(2+\sqrt 2)\ldots(2+\sqrt n)}$，
-从而
-$$n\left(\df{a_n}{a_{n+1}}-1\right)=\df{2n}{\sqrt{n+1}}\to\infty\;(n\to\infty)$$
-从而易知该级数收敛。
-
-\subsection*{Bertrand判别法}
-
-$\{a_n\}$非负，
-$$\limn\ln n\left[n\left(\df{a_n}{a_{n+1}}-1\right)-1\right]=b,$$
-则：$b>1$时，$\sumn a_n$收敛；$b<1$时，发散。
-
-
-\subsection*{Gauss判别法}
-
-$\{a_n\}$非负，
-$$\df{a_n}{a_{n+1}}=1+\df{\mu}n+\mathrm{O}\left(\df1{n^{1+\e}}\right),\;\e>0,$$
-则：$\mu>1$时，$\sumn a_n$收敛；$\mu<1$时，发散。
-
-\subsection*{对数判别法}
-
-$\{a_n\}$非负，
-
-1、
-$$\limn\df{\ln\df1{a_n}}{\ln n}=r,$$
-则：$r>1$时，$\sumn a_n$收敛；$r<1$时，发散。
-
-2、
-$$\limn\df{\ln\df1{na_n}}{\ln\ln n}=r,$$
-则：$r>1$时，$\sumn a_n$收敛；$r<1$时，发散。
-
-{\bf 例：}证明级数$\sumn\left(\df{\sqrt n}{1+\sqrt n}\right)^n$收敛。
-
-\subsection*{Cauchy积分判别法}
-
-设$f(x)$在$x\geq 1$上单调递减，则$\sumn f(n)$和$\dint_1^{+\infty}f(x)\d x$
-同敛散。
-
-\subsection*{Sapagof判别法}
-
-$\{a_n\}$单调趋于零，当且仅当$\sumn\left(1-\df{a_{n+1}}{a_n}\right)$
-发散。
-
-\end{shaded}
-
-\section{变号级数收敛的判定方法}
-
-\subsection{交错级数的收敛性}
-
-{\bf 交错级数：}相邻各项符号相反，设$a_n\geq 0,(n\in\mathbb{Z}_+)$
-$$\sumn(-1)^na_n$$
-
-{\bf 定理2.5.1}（Leibniz判别法）若数列$\{a_n\}$单调趋于$0$，则交错级数$\sumn (-1)^na_n$收敛，且
-其和的绝对值不超过$|a_1|$。
-
-{\bf 注：}{\b Leibniz判别法只是一个充分条件，将其作为必要条件使用是最常见的一种错误！}
-
-反例：$\df12-\df13+\df1{2^2}-\df1{3^2}+\df1{2^3}-\df1{3^3}+\ldots$收敛，
-但其通项取极限后不具有单调性
-
-{\bf 例：}判断下列级数的敛散性
-\begin{enumerate} [(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\sumn(-1)^{n-1}\df{2^nn!}{n^n}$ 
-  \item $\sumn(-1)^n\df{\sqrt{n}}{n+100}$\hfill{($n>100$时$a_n$单调递减趋于$0$)}
-  \item $\sumn\sin\left(\pi\sqrt{n^2+k^2}\right),(k\in\mathbb{Z}_+)$
-\end{enumerate}
-
-{\bf 例：} 设$a_n=(-1)^n\ln\left(1+\df1n\right)$，是否 
-$\sumn a_n$和$\sumn a^2_n$均收敛？
-
-[提示]：$\left\{\ln\left(1+\df1n\right)\right\}$单调递减趋于零，
-故由Leibniz判别法，$\sumn a_n$收敛。
-
-注意到\ps{$\df1{n+1}<\ln\left(1+\df1n\right)<\df1n$}
-$$0<\ln\left(1+\df1n\right)<\df1n\quad\Rightarrow\quad
-\left[\ln\left(1+\df1n\right)\right]^2<\df1{n^2},$$
-由比较判别法，级数$\sumn a^2_n$收敛。
-
-{\bf 思考：}{\b 若级数$\sumn a_n$收敛，$\sumn a^2_n$必收敛？}
-
-答：错！若$a_n$均非负，由级数收敛的必要条件，必有$\limn a_n=0$，
-从而可知，当$n$充分大时，必有$a_n<1$，进而有$0<a^2_n<a_n$，由比较
-判别法，级数$\sumn a^2_n$收敛。\ps{也可以利用比较法的极限形式：$\limn\df{a^2_n}{a_n}=0$}
-
-但若$a_n$可能变号，以上结论将不再成立。事实上，存在反例：$a_n=(-1)^n\df1{\sqrt n}$
-
-% {\bf 例：}求和
-% \begin{enumerate}[(1)]
-%   \setlength{\itemindent}{1cm}
-%   \item $\sum\limits_{n=2}^{\infty}\df{(-1)^n}{\sqrt n+(-1)^n}
-%   =\df{(-1)^n\sqrt n}{n-1-\df1{n-1}}$
-%   \item $\sum\limits_{n=2}^{\infty}\df{(-1)^n}{\sqrt{n+(-1)^n}}
-%   =\left(\df1{\sqrt 3}-\df1{\sqrt 2}\right)+\left(\df1{\sqrt 5}-\df1{\sqrt
-%   4}\right)+\ldots+\left(\df1{\sqrt{2n+1}}-\df1{\sqrt{2n}}\right)$
-% \end{enumerate}
-% 
-% $$\df1{\sqrt{2n+1}}-\df1{\sqrt{2n}}=-\df1{\sqrt{2n(2n+1)}
-% (\sqrt{2n}+\sqrt{2n+1})}$$
-
-\subsection{绝对收敛与条件收敛}
-
-{\bf 定理2.5.2：}若$\sumn |a_n|$收敛，则$\sumn a_n$收敛；反之不然。
-
-{\bf 定理2.5.3-2.5.4}（绝对收敛级数的性质）
-
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item {\bf 绝对收敛：}$\sumn |a_n|$收敛\ps{这样已经隐含了$\sumn a_n$收敛}
-  \item {\bf 条件收敛：}$\sumn |a_n|$发散，但$\sumn a_n$收敛
-\end{itemize}
-
-{\b{\bf 注意：}绝对收敛和条件收敛都可以推出$\sumn a_n$收敛！}
-
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item {\bf 交换律：}绝对收敛级数求和项任意交换次序和不变\ps{强调：交换次序意味着新的级数}
-  \item {\bf 级数的Cauchy乘积：}设$\sumn a_n,\sumn
-	  b_n$绝对收敛，则$\sum\limits_{i,j=1}^na_ib_j$绝对收敛，且
-	  $$\sum\limits_{i,j=1}^{\infty}a_ib_j=\sumn a_n\sumn b_n$$
-\end{enumerate}
-
-% {\bf 例：}已知$0\leq a_n\leq\df1n$，以下哪个级数必收敛？\hfill（D）
-% 
-% \quad(A)\;$\sumn a_n$\quad(B)$\sumn (-1)^na_n$
-% \quad(C)$\sumn \sqrt{a_n}$\quad(D)$\sumn (-1)^na^2_n$
-
-\begin{shaded}
-
-\subsection{特殊判别法}
-
-{\bf Dirichlet判别法：}若数列$\{a_n\}$单调趋于$0$，$\sumn b_n$
-  的部分和有界，则$\sumn a_nb_n$收敛。
-  
-{\bf 例：}判断以下级数的敛散性
-$$\sumn\df{\sin nx}n$$
+  \item $y=\df 1x$ \hfill $y^{(n)}(x)=(-1)^n\df{n!}{x^{n+1}}$ 
+  \item {\b$y=\sin x$ \hfill
+  $y^{(n)}(x)=\sin\left(\df{n\pi}{2}+x\right)$} 
+  \item {\b$y=xe^x$ \hfill $y^{(n)}(x)=(n+x)e^x$}
+  \item $y=e^{ax}\sin bx$
 
 [提示]：
-设$a_n=\df1n,b_n=\sin nx$，注意到
-\begin{eqnarray*}
-&&\sin\df x2(\sin x+\sin2x+\cdots+\sin nx)\\
-&=&\df12\left[\left(\cos\df x2-\cos\df{3x}2\right)+
-\left(\cos\df {3x}2-\cos\df{5x}2\right)+\cdots+
-\left(\cos\df {2n-1}2x-\cos\df{2n+1}2x\right)\right]\\
-&=&\df12\left(\cos\df{x}2-\cos\df{2n+1}2x\right),
-\end{eqnarray*}
-故对给定$x$
-$$\left|\sum\limits_{i=1}^n\sin ix\right|
-\leq\df{\left|\cos\df{3x}2-\cos\df{2n+1}2x\right|}{2\left|\sin\df x2\right|}
-\leq\df1{\left|\sin\df x2\right|},$$
-有界。
+$$y'=e^{ax}(a\sin bx+b\cos
+bx)=\sqrt{a^2+b^2}e^{ax}\sin(bx+\varphi),
+\;\tan\varphi=\df ba$$
+$$y^{(n)}=\left(a^2+b^2\right)^{n/2}e^{ax}\sin(bx+n\varphi)$$ 
+\end{enumerate}
 
-又由
-$$\left|\df{\sin nx}n\right|\geq\df{\sin^2nx}n=\df1{2n}-\df{\cos2nx}{2n},$$
-且$\sumn\df1{2n}$发散，$\sumn\df{\cos2nx}{2n}$收敛，可知
-$$\sumn\df{\sin nx}n$$是条件收敛的。
+\subsection{Leibnitz公式}
 
-{\bf Abel判别法：}若数列$\{a_n\}$单调有界，$\sumn b_n$收敛，则$\sumn a_nb_n$收敛。
+对于形如$u(x)v(x)$构造的函数，有如下的求高阶导数的公式：
 
-{\bf 例：}判断以下级数的敛散性
+$${\b{\left[u(x)v(x)\right]^{(n)}=
+\sum\limits_{k=0}^nC_n^ku^{(n-k)}(x)v^{(k)}(x)}}.$$
 
-$$\sumn(-1)^n\left(1+\df 1n\right)^n\df{1}{\sqrt n}$$ 
+{\bf 例：}设$y=x^3e^x$，求$y^{(10)}$。
 
-\subsection{条件收敛的有趣性质}
+[解]：记$u(x)=x^3,v(x)=e^x$，则
+\begin{align*}
+	& u'=3x^2, \; u''=6x, \; u'''=6, \; u^{(k)}\equiv 0\;(k\geq 4)\\
+	& v^{(k)}\equiv e^x\;(k=1,2,3,\ldots)
+\end{align*}
+于是由Leibniz公式，
+\begin{align*}
+	(xe^x)^{(10)}
+	&=uv^{(10)}+C_{10}^1u'v^{(9)}+C_{10}^2u''v^{(8)}+u'''v^{(7)}\\
+	&=x^3e^x+10\cdot 3x^2e^x+45\cdot 6xe^x+120\cdot 6e^x\\
+	&=(x^3+30x^2+270x+720)e^x
+\end{align*}
+\hfill$\Box$
 
-{\bf Riemann定理：}若级数$\sumn a_n$条件收敛，则对任意给定的数$A$，都可以通过对该级数的
-重新排列，使得新的级数以$A$为其和。
+类似这样的例子还有很多，比如：
 
-\begin{itemize}
-  \item 对条件收敛的级数进行重排可能改变其和
-  \item 重排后的级数可能发散
-\end{itemize}
+$$(x^2\sin x)^{(80)}=(x^2-6320)\sin x-160x\cos x,$$
+
+$$\left(\df{2x}{1-x^2}\right)^{(n)}=n!\left[\df1{(1-x)^{n+1}}
+-\df{(-1)^n}{(1+x)^{n+1}}\right].$$
+
+有时，也存在求特定点处的高阶导数的一些特殊方法，例如：
+
+{\bf 例：}设$y=\arctan x$，求$y^{(n)}(0)$
+
+[解]：
+$$y'=\df1{1+x^2}\quad \Rightarrow\quad (1+x^2)y'=1,$$
+利用Leibniz公式，右式两边同时求$n-1$阶导数，可得
+$$(1+x^2)y^{(n)}(x)+2(n-1)xy^{(n-1)}(x)+(n-1)(n-2)y^{(n-2)}(x)=0,$$
+令$x=0$，可得
+$$y^{(n)}(0)+(n-1)(n-2)y^{(n-2)}(0)=0\quad
+\Rightarrow\quad y^{(n)}(0)=-(n-1)(n-2)y^{(n-2)}(0)$$
+注意到$y'(0)=1,y''(0)=0$，故
+$$y^{(n)}(0)=\left\{\begin{array}{ll}
+0,\quad& n=2k\\
+(-1)^k(2k)!,\quad& n=2k+1
+\end{array}\right.\;k=0,1,2,\ldots$$
+\hfill$\Box$
+
+\begin{shaded}
+以上的例子还有如下一种解法，概要如下：
+\begin{align*}
+	y'&=\df1{1+x^2}=\cos^2y=\cos y\sin\left(y+\df{\pi}2\right),\\
+	y''&=\cos^2y\cos\left(2y+\df{\pi}2\right)
+	=\cos^2y\sin2\left(y+\df{\pi}2\right),\\
+	y'''&=2\cos^3y\sin3\left(y+\df{\pi}2\right),
+\end{align*}
+进而可以推测并验证
+$$y^{(n)}=(n-1)!\cos^ny\sin n\left(y+\df{\pi}2\right).$$
+记$z=\arctan\df1x=\df{\pi}2-y$，于是
+$$y^{(n)}=(n-1)!\df1{(1+x^2)^{n/2}}\sin n(\pi-z)=
+(n-1)!\df1{(1+x^2)^{n/2}}\sin n\arctan\df1x.$$
+
+学习了Taylor公式和幂级数之后，还将会有如下一种更为“常规”的解法：
+$$(\arctan x)'=\df1{1+x^2}=\sum\limits_{n=0}^{\infty}(-1)^nx^{2n},
+\quad (|x|<1).$$ 
+通过幂级数的逐项积分，可得对任意$|x|<1$
+\begin{align*}
+	\arctan x&=\dint_0^x\sum\limits_{n=0}^{\infty}(-1)^nt^{2n}\d t
+	=\sum\limits_{n=0}^{\infty}(-1)^n\dint_0^xt^{2n}\d t\\
+	&=\sum\limits_{n=0}^{\infty}(-1)^n\df{x^{2n+1}}{2n+1},
+\end{align*}
+记$a_{2n}=0,a_{2n+1}=\df{(-1)^n}{2n+1}$，于是由Taylor公式可知，
+$$(\arctan x)^{(n)}|_{x=0}=a_n\cdot n!
+=\left\{\begin{array}{ll}
+	0,& n=2k;\\ (-1)^k(2k)!, & n=2k+1.
+\end{array}\right.\;k=0,1,2,\ldots$$
+\end{shaded}
+
+{\bf 例：}设$y=(\arcsin x)^2$，求$y^{(n)}(0)$
+
+[提示]：
+$$y'=2\arcsin x\df1{\sqrt{1-x^2}}\quad
+\Rightarrow\quad \sqrt{1-x^2}y'=2\arcsin x,$$
+两边同时求导得
+$$-\df1{\sqrt{1-x^2}}y'+\sqrt{1-x^2}y''=2\df1{\sqrt{1-x^2}}\quad
+\Rightarrow\quad-xy'+(1-x^2)y''=2,$$
+两边同时再求$n$次导数，然后令$x=0$，得
+$$y^{(n+2)}(0)=n^2y^{(n)}(0).$$
+易得$y'(0)=0,y''(0)=2$，从而
+$$y^{(n)}(0)=\left\{\begin{array}{ll}
+2[(n-2)!!]^2,& n\mbox{为偶数}\\
+0,& n\mbox{为奇数}
+\end{array}\right.$$
+
+{\bf 注：}以上结果中出现了{\it 双阶乘}，其定义如下：
+$$(2n)!!=2n(2n-2)(2n-4)\ldots2,\;(2n+1)!!=(2n+1)(2n-1)\ldots3\cdot1.$$
+
+关于高阶导数，有一个看起来很奇怪的结论：
+
+{\bf 例：}设$y=f(x)$和$x=g(y)$互为反函数，二者均可导。证明：
+$$\b g''(y)=-\df{f''(x)}{[f'(x)]^3}.$$
+利用该结果，继续推导$g'''(y)$关于$x$的表达式。
+
+[解]：由反函数求导公式$g'(y)=\df1{f'(x)}$，于是
+\begin{align*}
+	g''(y)&=\left[g'(y)\right]'_y=\left[\df1{f'(x)}\right]'_y
+	=\left[\df1{f'(g(y))}\right]'_y\\
+	&=-\df{1}{[f'(g(y))]^2}[f'(g(y))]'_y
+	=-\df{1}{[f'(g(y))]^2}f''(g(y))g'(y)\\
+	&=-\df{1}{[f'(x)]^2}f''(x)\df1{f'(x)}
+	=-\df{f''(x)}{[f'(x)]^3}.
+\end{align*}
+\begin{shaded}
+	{\bb 一个重要的注记，注意看清楚了！}
+	
+	这里暂停一下，看一看是否还有更为简洁的方法。事实上，有一种非常“形式化”
+	的推导方法，在求解此类问题中有着广泛的应用。例如，对本题而言，可以这样表示
+	\begin{align*}
+		g''(y)&=\df{\d^2x}{\d y^2}
+		=\df{\d }{\d y}\left(\df{\d x}{\d y}\right)
+		=\df{\d }{\d y}\left(\df1{f'(x)}\right)\\
+		&=\df{\d }{\b\d x}\left(\df1{f'(x)}\right)\cdot\df{\b\d x}{\d y}
+		=-\df{f''(x)}{[f'(x)]^2}\cdot\df1{f'(x)}
+		=-\df{f''(x)}{[f'(x)]^3}.
+	\end{align*}
+	在上面的推导中，$\d x,\d y$都变成了某种可以被直接代换的“量”（学习了微分之后，
+	我们知道，如果按照导数作为微商的定义，其上下的这两个部分可以分别视为$x,y$的微分，
+	微分没有数量上的意义，但可以用来刻画无穷小量之间的比值），从而使得推导过程变得
+	非常简单清晰。
+	
+	类似的推导方式如果用来推导反函数和复合函数的求导公式，结果也会惊人地简单：
+	\begin{itemize}
+	  \item 反函数求导公式：设$y=f(x)$和$x=g(y)$互为反函数，则
+	  $$g'(y)=\df{\d x}{\d y}=\df1{\df{\d y}{\d x}}=\df1{f'(x)};$$
+	  \item 链式法则：设$u=f(x),y=g(u)$，则
+	  $$[g(f(x))]'=\df{\d y}{\d x}
+	  =\df{\d y}{\d u}\cdot \df{\d u}{\d x}
+	  =g'(u)f'(x)=g'(f(x))f'(x).$$
+	\end{itemize}
+	
+	接下来，我们使用该方法继续推导本例中$g'''(y)$的表达式：
+\end{shaded}
+
+\begin{align*}
+	g'''(y)
+	&=\df{\d^3 x}{\d y^3}
+	=\df{\d }{\d y}\left(\df{\d^2 x}{\d y^2}\right)\\
+	&=\df{\d }{\d y}\left(-\df{f''(x)}{[f'(x)]^3}\right)
+	=\df{\d }{\d x}\left(-\df{f''(x)}{[f'(x)]^3}\right)
+	\cdot\df{\d x}{\d y}\\
+	&=-\df{f'''(x)[f'(x)]^3-f''(x)3[f'(x)]^2f''(x)}{[f'(x)]^6}
+	\cdot\df1{f'(x)}\\
+	&=-\df{f'''(x)f'(x)-3[f''(x)]^2}{[f'(x)]^5}
+\end{align*}
+\hfill$\Box$
+
+\section{隐函数与参数方程求导}
+
+函数一种刻画运动的手段，一元函数主要用于表示一维（一个自变量）的运动，
+其轨迹是平面山的一条曲线。然而，正如我们所知，形如$y=f(x)$的函数
+无法表达平面上所有的曲线，甚至连刻画圆这样一个简单规则的曲线都有些
+“力不从心”，不得不将其分成上下两个部分，用两个函数来表达。从这个意义
+上说，形如$y=f(x)$的函数在表达平面曲线的能力上是存在一定缺陷的，或者
+说，它的{\it 表达能力不够强}。
+
+幸运的是，在数学上，早已出现了比$y=f(x)$表达能力更强的函数形式，
+其中的代表就是本节要讨论的隐函数和参数方程。
+
+\subsection{隐函数求导}
+
+所谓{\it 隐函数}，通常就是关于一个或多个变量的等式（或者叫方程），
+具体来说，和一元函数对应的隐函数就是一个关于变量$x,y$的方程（从这个
+意义上说，$y=f(x)$显然也可以看作一种特殊的隐函数方程）。例如单位圆的
+方程$x^2+y^2=1$，从它可以推导出圆的上下两个部分对应的函数
+$y=\pm\sqrt{1-x^2}$，但从形式上看，它显然比后者更为简洁，而且几何
+意义也更加明确（圆是到原点距离相同的点的集合）。和后者一个很大的不同还
+在于，隐函数方程中往往不必实现指定那个（些）变量是自变量，哪个（些）是
+因变量（函数），这虽然看似不利于计算所谓的函数值，但实际上并不会构成
+是指的问题，因为它已经很好地表达了变量之间的对应关系，同时还去除了函数
+必须是“一对一”或“多对一”这种人为的约束。
+
+那么对于用隐函数形式给出的函数，该如何求导呢？来看下面的例子
+
+{\bf 例：}设$y=y(x)$是由方程
+$$x^3+y^3=3xy$$
+所确定的隐函数，满足$y(3/2)=3/2$，求其
+在点$(3/2,3/2)$处的切线方程。
+
+[分析]：这个方程表示的是著名的{\kaishu Descartes叶形线}，形如下图：
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch4/x3y33xy.jpg}}
+\end{center}
+如果用形如$y=f(x)$的函数表示这条曲线，显然会相当复杂。
+
+设我们所要求切线的点所在的一段曲线可以表示为$y=y(x)$，带入到方程中可得
+$$x^3+y^3(x)=3xy(x),$$
+这个方程左右都是关于$x$的函数，于是可以考虑两边求导，然后利用求导后的
+结果来推导出$y'(x)$的表达式。
+
+[解]：将$y$视为$x$的函数，对已知方程两边关于$x$求导，可得
+\ps{\b 在隐函数方程求导的结果中，允许同时包含$x$和$y$}
+$$3x^2+3y^2y'=3y+3xy'\quad\Rightarrow\quad
+y'=\df{x^2-y}{x-y^2},$$
+带入$(x,y)=(3/2,3/2)$可得$y'(3/2)=-1$，故所求切线方程为
+$$y=-x+3.$$
+\hfill$\Box$
+
+总结一下，{\it\b 由隐函数方程$f(x,y)=0$解出变量$y$关于$x$的导数大致的过程如下：
+首先假设$y$为$x$的函数$y(x)$，则原方程即为
+$$f(x,y(x))=0;$$
+接下来两边同时关于$x$求导，然后利用求导后的方程解出$y'_x$。}
+
+{\bf 补充例题：}\ps{下面几个例子都来自KD教材}
+
+{\bf 例：}设$y=y(x)$是由方程$y^2=x^2-\cos y$所确定的隐函数，求$y''(x)$。
+
+\begin{center}
+	\resizebox{!}{6cm}{\includegraphics{./images/ch4/y2x2-cosy.jpg}}
+\end{center}
+
+{\bf 例：}求函数$y=(x^2+1)\sqrt[3]{(x-2)^2(x^2+x)}$的导数。
+
+{\bf 例：}设$x^2+xy+y^2=1$，则
+$$y'=-\df{2x+y}{x+2y},\quad y''=-\df6{(x+2y)^3}$$
+$$y'''=-\df{54x}{(x+2y)^5}$$
+$x+2y=0$恰好与经过角度旋转（逆时针$\pi/6$）的椭圆的交点出切线与$y$轴平行。
+
+\begin{shaded}
+	下面这道题有很多精彩的解法，这是其一：
+	
+	{\bf 例：}证明椭圆上任一点处的法线平分该点与两个焦点的连线所夹角。
+
+	[提示]：{\it 如图
+	\begin{center}
+		\resizebox{!}{5cm}{\includegraphics{./images/ch4/rollEc.pdf}}
+	\end{center}
+	只需证明上半椭圆上任一点有此性质即可。通过旋转椭圆，总可以是点$P(x,y)$处的切线为水平的，
+	即$y'(x)=0$。
+	此时，设椭圆的两个焦点分别为$(0,0)$和$(h,k)$，则由椭圆的几何性质，有
+	$$\sqrt{x^2+y^2}+\sqrt{(x-h)^2+(y-k)^2}=L,$$
+	其中$L$为某个确定的值。两端同时对$x$求导，并带入$y'(x)=0$，可得
+	$$\df{x}{\sqrt{x^2+y^2}}=\df{h-x}{\sqrt{(x-h)^2+(y-k)^2}}.$$
+	由图上不难看出该式也即$\sin\alpha=\sin\beta$，即证。}
+		
+[又解]:
+设椭圆为$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$，左右焦点分别为$F_1,F_2$，椭圆上任意一点$P(x_0,y_0)$。
+$P$点处法线平分$\angle F_1PF_2$的充分必要条件为$P$点处切线平分$\angle F_1PF_2$的外角。
+$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$两边同时关于$x$求导，有
+$$\frac{2x}{a^2}+\frac{2yy’}{b^2}=0,$$
+得
+$$y’=-\frac{b^2x}{a^2y}$$
+所以$P$处的切线斜率$k=-\frac{b^2x_0}{a^2y_0}$。
+又$\angle 1,\angle 2\in(0,\pi/2)$，且
+$$\tan\angle 1=-\frac{b^2y_0}{a^2y_0}-\frac{y_0}{x_0}-c=\frac{b^2}{cy_0},$$
+同理$\tan\angle 2= \frac{b^2}{cy_0}$，
+故$\angle 1=\angle 2$。
 
 \end{shaded}
+
+\subsection{参数方程求导法则}
+
+参数方程也是一种常见的表示几何对象（例如平面曲线）的方式，而且和
+隐函数方程具有一样强的表示能力。平面曲线的参数方程通常形如：
+$$
+	\left\{\begin{array}{l}
+		x=x(t),\\
+		y=y(t),
+	\end{array}\right.\;t\in [a,b].
+$$
+
+在此，我们假设$x(t),y(t)$均可导，来考虑一下$y$关于$x$的导数。
+参考上一节中的“形式化”推导方法，可以发现
+$${\b y'(x)}=\df{\d y}{\d x}=\df{\d y}{\d t}\df{\d t}{\d x}
+=\df{\df{\d y}{\d t}}{\df{\d t}{\d x}}={\b \df{y'(t)}{x'(t)}}$$
+给出某个点$(x,y)$对应的$t$，利用上式右端的公式就可以求出在该点处
+$y$关于$x$的导数（或者说切线斜率）了——当前不要忘记一个必要的前提，
+$x'(t)\ne 0$\ps{事实上，如果将$x$视为自变量，显然必须要求$x(t)$是可逆的，
+也即$x'(t)\ne 0$}。
+
+不妨再进一步，考虑$y$关于$x$的二阶导数。
+\begin{align*}
+	{\b y''(x)}&=\df{\d^2y}{\d x^2}=\df{\d}{\d x}y'(x)
+	=\df{\d}{\d x}\left(\df{y'(t)}{x'(t)}\right)\\
+	&=\df{\d}{\d t}\left(\df{y'(t)}{x'(t)}\right)\cdot\df{\d t}{\d x}
+	=\df{y''(t)x'(t)-y'(t)x''(t)}{[x'(t)]^2}\cdot\df1{x'(t)}\\
+	&={\b \df{y''(t)x'(t)-y'(t)x''(t)}{[x'(t)]^3}}
+\end{align*}
+掌握这种推导方法，对于更好地推导计算各类求导公式是非常重要的。
+
+{\bf 例：}求抛物线$x=y^2$在$(1,1)$和$(4,-2)$处的切线方程。
+
+{\bf 例：}已知$\left\{\begin{array}{l}x=t-\sin t\\
+y=1-\cos t\end{array}\right.$，求$y''(x)$。
+\begin{center}
+	\resizebox{!}{3.2cm}{\includegraphics{./images/ch4/sphereRoll.jpg}}
+\end{center}
+
+{\bf 例：}设$\left\{\begin{array}{l}x=f\,'(t)\\ y=tf\,'(t)-f(t)
+\end{array}\right.$，求$\df{\d^2y}{\d x^2}$，其中$f\,''(x)$存在且不为零。
+
+{\bf 例：}由$x^2+xy+y^2=1$的参数方程
+$$x=\df2{\sqrt3}\cos t,\quad y=\sin t-\df1{\sqrt3}\cos t$$
+求$y$关于$x$的一至三阶导数。
+[提示]：
+$$y'_x=-\df{\sqrt3}2\cot t-\df12$$
+$$y''_{xx}=-\df34\csc^3t$$
+$$y'''_{xxx}=-\df{9\sqrt3}8\df{\cos t}{\sin^5t}$$
+事实上，$t=\arccos\df{\sqrt3}2x$，当$\sin t\ne0$，也即$t\ne2k\pi-\df{\pi}6$
+时以上导数才有意义。
+
+\begin{shaded}
+	{\bf 例：}{\kaishu Archimedes螺线}
+	$\rho=a\theta$与双曲螺线$\rho=a/\theta$相交处相互垂直。
+
+	\begin{center}
+		\resizebox{!}{8cm}{\includegraphics{./images/ch4/arCurve.pdf}}
+		
+		{\kaishu$\rho=\theta$和$\rho=1/\theta$\quad($\theta\in(0,10\pi)$)
+		
+		两曲线的交点为$\theta(k)=-k\pi+\sqrt{k^2\pi^2+1},(k\in\mathbb{N})$
+		
+		但是注意到只有当$k=0$时，曲线交点处的$\theta$值才对两个函数来说才是相同的，
+		
+		因此，两条曲线真正意义上的交点只有$\theta=1$
+		}
+	\end{center}
+	
+	[提示]：两曲线的参数方程分别为
+	$$
+	\left\{\begin{array}{l}
+		x=a\theta\cos\theta\\
+		y=a\theta\sin\theta
+	\end{array}\right.
+	\quad\quad\quad
+	\left\{\begin{array}{l}
+		x=\df{a}{\theta}\cos\theta\\
+		y=\df{a}{\theta}\sin\theta
+	\end{array}\right.
+	$$
+	相应的曲线斜率分别为
+	$$y'_x=\df{\sin\theta+\theta\cos\theta}{\cos\theta-\theta\sin\theta}
+	\quad\quad\quad
+	y'_x=-\df{\theta\cos\theta-\sin\theta}{\theta\sin\theta+\cos\theta}
+	$$
+	显然$\theta=1$时二者的乘积为$-1$，这意味着两条曲线在交点处垂直！
+	
+	{\bf 问：}$k\ne0$时，从图像上看两条曲线也是相互垂直的，如何证明呢？
+\end{shaded}
+
+\section{相关变化率}
+
+{\it 变化率}可以定义为，一个变量随另一个变量变化过程中，相对于后者发生变化的速率，或者
+二者的相关的变化量的比值。对于连续变化的函数而言，导数所刻画的正是函数值关于自变量
+的变化率。常见的变化率的例子包括：
+
+\begin{itemize}
+  \setlength{\itemindent}{1cm}
+  \item {\it 曲线的斜率}：函数值关于自变量的变化率 
+  \item {\it 速度}：位移关于时间的变化率 
+  \item {\it 密度}：质量关于体积的变化率 
+  \item {\it 电流强度}：电量关于时间的变化率 
+  \item {\it 边际收益}：收益关于投入的变化率 
+  \item 等等{\ldots\ldots} 
+\end{itemize}
+
+在现实问题中，许多变量之间都存在着千丝万缕的联系，从它们基本的数量关系出发，
+往往能够进一步去研究它们的变化率（导数）之间的关系。
+
+在学习掌握了导数的概念和计算方法之后，本节所讨论的相关变化率问题是对导数
+的一个初步应用。
+
+{\bf 例：}有一深度$8$m，上底直径$8$m的圆锥形容器，
+以$4$m$^3$/min的速率向其中注水，当容器中水深$5$m时，水面上升的速度是多少？
+
+{\bf 例：}甲乙两船分别向南和向东航行。在初始时刻，甲船恰位于乙船北方
+$40$km处，后来在某一时刻测得甲船向南航行了20km，此时速度为15km/h；
+乙船向东航行了15km，此时速度为25km/h。问该时刻两船是在相互靠近还是远离，
+二者的相对速度是多少？
+
+{\bf 例：}质点$P$沿抛物线$x=y^2(y>0)$移动。$P$的横坐标$x$的变化速度为$5$cm/s。
+当$x=9$cm时，点$P$到原点的距离的变化速率是多少？
+
+[提示]：
+$$\df{\d}{\d t}\sqrt{x^2+y^2}=\left(\sqrt{x^2+x}\right)'_xx'_t
+=\df{5(2x+1)}{\sqrt{x^2+x}}$$
+代入$x=9$，可得其值为$\df{95}{6\sqrt10}$(cm/s)
+
+{\bf 例：}钟表的时针和分针长度分别为$a$(cm)和$b$(cm)，求$12:20$分，两针端点分离的速率。
+
+[提示]：两针的夹角变化速率$\theta'_t=\df{\pi}{30}-\df{\pi}{360}
+=\df{11}{360}\pi$(弧度/分钟)。12:20时，$\theta=\df23\pi-\df{\pi}{18}
+=\df{11}{18}\pi$。利用余弦定理
+$$s^2=a^2+b^2-2ab\cos\theta$$
+答案$0.38$(cm/min)
+
+{\bf 例：}圆形广场中央立着高度为$h$的灯柱，灯$A$位于灯柱顶端。
+广场上任一点$P$处的照明强度$I$与该点到灯的距离的平方成反比，与光线与灯柱的
+夹角的余弦成正比。一个人从距离灯柱$x$m处以速度$v$m/s沿径向离开柱子，求
+其脚部的光照强度关于时间的变化率。
+
+[提示]：由已知
+$$I=k\df{h}{(x^2+h^2)^{\frac32}}.$$
+从而
+$$I'_t=I'_xx'_t=vI'_x=-\df{xvkh}{(x^2+h^2)^{\frac52}}$$
+
+{\bf 例：}一个长度为$l$的杆，一段连接半径为$r$的转轮，一段位于$x$轴上。转轮的中心
+位于原点，以每分钟$m$转的速度逆时针旋转，求：杆位于$x$轴上的一端的运动速率。
+
+[提示]：如图
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch4/rollbar.pdf}}
+\end{center}
+$$\sin\theta=\df{|AQ|}r,\quad \sin\alpha=\df{|AQ|}{l}$$
+从而$\sin\alpha=\df rl\sin\theta$，进而$\alpha=\arcsin\left(
+\df rl\sin\theta\right)$。
+$$x=r\cos\theta+l\cos\alpha=r\cos\theta+l\cos
+\left[\arcsin\left(\df rl\sin\theta\right)\right]$$
+$x'_t=x'_{\theta}\theta'_t=2m\pi x'_{\theta}$，其中
+$$x'_{\theta}
+% =-r\sin\theta-r^2\sin\theta\cos\theta
+% \df1{\sqrt{l^2-r^2\sin^2\theta}}
+=-r\sin\theta\left(1-\df{r\cos\theta}{\sqrt{l^2-r^2\sin^2\theta}}\right)$$
+
+{\bf 例：}边长$s$的正方体冰块在空气中融化，已知冰块的融化速度（体积减少速度）
+与其表面积成正比，比例系数为$k(k>0)$。假设冰块融化的过程中始终保持正方体形状。经过
+一个小时，其体积减少了四分之一，求其完全融化需要的时间。
+
+[提示]：设冰块体积为$V(t)$，由已知其融化速度为
+$$V'(t)=-k(6s^2).$$
+又$V=s^3$，故
+$$V'(t)=3s^2s'(t).$$
+从而可得$s'(t)=-2k$，解得$s=-2kt+s(0)$。令$t=1$，可得$s(1)-s(0)=-2k$。
+
+注意到$s$递减的速度与$t$无关，故冰块完全融化需要的时间
+$$T=\df{s(0)}{2k}=\df{s(0)}{s(0)-s(1)}=\df1{1-\df{s(1)}{s(0)}}.$$
+其中
+$$\df{s(1)}{s(0)}=\left[\df{V(1)}{V(0)}\right]^{\frac13}=
+\left(\df34\right)^{\frac13}\approx0.91(h)$$
+代入前式计算可得$T\approx11(h)$
+
+类似本节的示例都可以说是微积分的应用，对于这类应用问题，在解题时一般可以参考如下
+的步骤：
+\begin{enumerate}
+  \setlength{\itemindent}{1cm}
+  \item {{\it 画图：}}理解题意，画出示意图
+  \item {{\it 定义变量：}}给出相关变量的数学表示
+  \item {{\it 建立数量关系：}}根据已知，建立方程
+  \item {{\it 数学推导：}}例如方程两边求导（或者积分）
+  \item {{\it 求得结果：}}整理推导后的结果，得出解答
+\end{enumerate}
+
+\begin{shaded}
+	{\bf 万有引力定律的推导}
+	
+	关于变化率和相关变化率最好的实例是Newton从Kepler三定律推导出万有引力定律的过程。
+	下面的推导过程较长，能够看完并且理解，相信也是对导数这一章知识掌握情况一种很好的测试。
+
+	在牛顿的工作之前，德国天文学家、物理学家和数学家Johannes Kepler（1571-1630）
+	通过多年的天文观察，得到所谓的{\it 行星运动三大定律}——这三大定律使Kepler
+	赢得了“天空立法者”的美名：
+	\begin{enumerate}
+	  \item {\it 轨道定律：}所有行星分别都运行在椭圆轨道上，其对应的“太阳”位于
+	  椭圆的一个焦点上
+	  \item {\it 面积定律：}在同样的时间内，行星{\it 向径（极径）}（即由“太阳”位置
+	  指向行星位置的向量）在轨道平面上扫过的面积相等
+	  \item {\it 周期定律：}行星的公转周期的平方与它同太阳最远距离的立方成正比 
+	\end{enumerate}
+	
+	\begin{center}
+		\resizebox{!}{5cm}{\includegraphics{./images/ch4/Kepler.pdf}}
+	\end{center}
+	
+	如图，绿色曲线为行星的椭圆轨道，极坐标系的原点$O$表示“太阳”的位置，点$P$为行星的位置。
+	椭圆的极坐标方程为
+	$$r=\df{p}{1-e\cos\theta},$$
+	其中：
+	\begin{itemize}
+	  \item {\it 焦参数}：$p=\df{b^2}a$
+	  \item {\it 离心率}：$e=\sqrt{1-\df{b^2}{a^2}}$
+	  \item $a,b$分别为椭圆的半长轴和半短轴长度
+	\end{itemize}
+	
+	在$t$时刻，行星的位置可用其向径来表示（注:在印刷体中，向量默认使用粗体字母表示，在手写体
+	中，则使用在字母上方画箭头的记号来表示）：
+	$$\bm{r}(t)=r(t)(\cos\theta,\sin\theta),$$
+	其中：
+	\begin{itemize}
+	  \item $r(t)=|\bm{r}(t)|$（$|\bm{r}|$表示向量$\bm{r}$的模，
+	  或者说，长度）为向径的长度，也即行星到太阳的{\it 距离}
+	  \item $\theta=\theta(t)$如图所示，为当前位置对应的{\it 极角}
+	  \item 记$\bm{r}_0=(\cos\theta,\sin\theta)$为$\bm{r}(t)$对应的
+	  {\it 单位向量，也称为方向向量}
+	\end{itemize}
+	
+	根据Newton第二定律，行星所受的力（注：对向量求导等价于对其每个分量分别求导，
+	例如：$\bm{r}=(x(t),y(t))$，则$\bm{r}'_t=(x'_t,y'_t)$）
+	\begin{align}
+		\bm{F}&=m\bm{a}=m\bm{r}''_{tt}\notag\\
+		&=m\left(\df{\d^2(r\cos\theta)}{\d t},\df{\d^2(r\sin\theta)}{\d
+		t}\right)\notag\\
+		&=m((r''-r\omega^2)\cos\theta-(2r'\omega+r\omega')\sin\theta,
+		(2r'\omega+r\omega')\cos\theta+(r''-r\omega^2)\sin\theta)\notag\\
+		&=m(r''-r\omega^2)\bm{r}_0+m\left(\df{2r'\omega+r\omega'}
+		{\omega}\right)\bm{r}'_0\tag{N.1}
+	\end{align}
+	其中：
+	\begin{itemize}
+	  \item $m$为{\it 行星质量}
+	  \item $\bm{a}$为行星的{\it 加速度向量}
+	  \item {\it 角速度}：$\omega=\theta'_t$
+	  \item {\it 径向速度（率）}：$r'=\df{\d r}{\d t}$
+	  \item {\it 径向加速度（率）}：$r''=\df{\d^2 r}{\d t^2}$
+	\end{itemize}
+	
+	记$\d A$为向径转过角度$\d\theta$所对应的椭圆面积，则
+	$$\d A=\df12r^2\d\theta,$$
+	由Kepler第二定律，单位时间内向径扫过的面积为常数（记为$c$），即
+	$$c=\df{\d A}{\d t}=\df12r^2\omega.\eqno{(\mbox{N}.2)}$$
+	
+	记行星的公转周期为$T$，则经过$T$时间向径扫过的面积恰为整个椭圆的面积$\pi ab$，
+	也即
+	$$\pi ab=\dint_0^T\df{\d A}{\d t}\d t=cT=\df12r^2\omega T,$$
+	由此可解出
+	$$r^2\omega=\df{2\pi ab}T.$$
+	
+	式(N.2)两边求导，可得
+	% \ps{事实上，若记行星的公转周期为$T$，容易解得$r^2\omega=\df{2\pi ab}T$}
+	$$0=(r^2\omega)'=r(2r'\omega+r\omega'),$$
+	由此可见(N.1)式中的第二部分恒为零，从而
+	$$\bm{a}=\bm{r}''_{tt}=(r''-r\omega^2)\bm{r}_0,$$
+	这表明{\it 行星在任一点处的加速度方向（也即受力方向）是沿着其向径方向，或者
+	是与其和“太阳”连线相一致的}！
+	
+	下面回到椭圆方程，其可以改写成
+	$$p=r(1-e\cos\theta),$$
+	两边求二阶导数，可得
+	\begin{align}
+		0&=p''=r''-e(r^2\cos\theta)''\notag\\
+		&=(r''-r\omega^2)(1-e\cos\theta)+r\omega^2\notag\\
+		&=\df{r''-r\omega^2}rp+r\omega^2\notag
+	\end{align}
+	于是
+	$$r''-r\omega^2=-\df{(r^2\omega)^2}{r^2p}=-4\pi^2\df{a^3}{T^2r^2}$$
+	
+	根据Kepler第三定律，$\df{a^3}{T^2}$为常数，记太阳的质量为$M$，则
+	$$\bm{F}=m\bm{a}=m(r''-r\omega^2)\bm{r}_0
+	=-\left(\df{4\pi^2a^3}{MT^2}\right)\df{Mm}{r^2}\bm{r}_0,$$
+	记{\it 万有引力常数}
+	$$G=\df{4\pi^2a^3}{MT^2}\approx 6.67\times 10^{-11}
+	(\mbox{m}^3/\mbox{kg}\cdot\mbox{s}^2),
+	$$
+	也即
+	$$\bm{F}=-G\df{Mm}{r^2}\bm{r}_0$$
+	
+	% \begin{shaded}
+	
+	万有引力定律说明了宇宙万物之间都存在相互的引力，且引力的作用方向在二者的连线上，
+	其大小与二者的质量乘积成正比，与二者的距离平方成反比，比例系数为{\it 绝对常数}（
+	即在宇宙范围内为常数，相对而言，前述推导中出现的常数如$c$,$a^3/T^2$都
+	是和所处的“太阳-行星”系统相关的）。
+	
+	% \end{shaded}
+	
+	以上的论证及其结果，并不就是Newton个人所完整发现的，事实上也不是Newton最初的论证
+	（发表在Newton的巨著《自然哲学的数学原理》一书上）。
+	Kepler已经证明了，如果行星的轨迹是圆形，则符合万有引力定律。但如果轨道是椭圆形的，
+	Kepler由于没能像Newton发明了微积分那样，拥有更合适的数学工具，因此得不出所要的结果。
+	
+	另一方面，Newton最初的论证，只是说明了以上规律对我们所处的“太阳-行星”系统是正确的，
+	是其后的科学家进一步证实了这一规律”放之四海而皆准“，适用于从一切天体运动到微观
+	世界的广泛范围，而所有后续论证的基础是大量的实验观测。例如，万有引力常数$G$的值于
+	1789年由Henry Cavendish（1731-1810）利用他所发明的{\it 扭称}得出的。
+	
+	基于万有引力定律，诞生了一些非常著名的天文学成果，例如：
+	
+	\begin{itemize}
+	  \item 计算出哈雷彗星的轨道和运动周期
+	  \item 发现了海王星和冥王星
+	  \item 解释了潮汐的起因和规律
+	  \item 计算出第一、第二和第三宇宙速度，从而开启了人类航天活动的历史
+	\end{itemize}
+	
+	利用万有引力定律，可以反向推导出Kepler的行星运动三定律。其中第二和第三定理
+	的推导相对容易，下面给出由万有引力定律推导Kepler第一定律的大致过程。
+	
+	Newton第二定律的极坐标形式
+	$$
+	\left\{\begin{array}{l}
+		F(r)=m(r''-r(\theta')^2)\\
+		F(\theta)=m(r\theta''+2r'\theta')
+	\end{array}\right.
+	$$
+	
+	Binet公式：（参见Wikipedia关于Binet Equation的条目）
+	$$F=-mh^2u^2\left(u''_{\theta\theta}+u\right)$$
+	其中：$u=\df1r$，$h=\df Lm=r^2\theta'$，由角动量守恒定律，为常数。
+	
+	万有引力方程可以写为
+	$$F=-mk^2u^2,$$
+	其中$k^2=GM$（称为{\kaishu Guass常数}，是一个与行星无关，而只与太阳有关的量）。综合以上
+	两式，可得
+	$$u''_{\theta\theta}+u=\df{k^2}{h^2},$$
+	以下解方程。令$u=\xi+\df{k^2}{h^2}$，则方程化为
+	$$\xi''_{\theta\theta}+\xi=0,$$
+	这是一个波动方程，其解具有如下形式
+	$$\xi=A\cos(\theta-\theta_0),$$
+	进而
+	$$r=\df1u=\df{h^2/k^2}{1+A[\cos(\theta-\theta_0)]h^2/k^2}$$
+	这实质上就是椭圆的极坐标方程。
+\end{shaded}
+
+\section{微分}
+
+计算函数的值从来都是一个简单问题，这一点大多数刚学习微积分不就的人都不会意识到。
+例如一个段子：你被判了无期，假释的唯一可能是算出$\sin 1$的近似值，要求精确到小数点后
+100位，而你的工具只有无限量使用的笔和纸。就你现在的知识，你觉得可能在有生之年
+完成吗？或者改换一下任务，算算$\ln 3$？
+
+微积分的发明者显然也意识到了这个问题，在想给出了用导数刻画变化率的办法之后，
+他们很快发现了它与{\it 近似计算}之间的联系。请注意，这个故事很长，本节只是开篇，
+等到下一章学习了Taylor公式后才能真正告一段落。
+
+\subsection{局部线性化和“以直代曲”}
+
+对于任意给定的函数，如果已知它在某点的函数值，能否给出它附近其他点处的函数值，
+并且尽可能精确\ps{在现实里，绝对的精确是不存在的，数学上中的计算其实也是一样}？
+
+一个自然的想法是，用一条尽可能简单，而且易于计算函数值的曲线来近似给定的曲线，
+由于没有比{\it 直线}（或者叫"{\it 线性函数"}）更简单的函数形式，因此它就成了第一个
+尝试的对象，对应的想法被称为“{\it 以直代曲}”\ps{后面我们还将学习它的“高级版本”——“以曲代曲”}，
+数学上这样定义：
+设已知函数$f(x)$在$x_0$附近有定义，记$\Delta y=f(x_0+\Delta x)-f(x_0)$，
+如果存在某个与$\Delta x$无关的常数，使得
+$$\Delta y=A\cdot\Delta x+\circ(\Delta x),\;(\Delta x\to 0),$$
+则称$f(x)$可以被以直代曲，或者更规范的说法是{\it $f(x)$在$x_0$处可微}，还有
+一种说法是$f(x)$在$x_0$附近可以“{\it 局部线性化}”。此时，我们称
+$$\left.\d y\right|_{x=x_0}=A\cdot\Delta x$$
+为{\it $f(x)$在$x_0$处的微分}，当$x$是自变量时，一般认为$\d x=\Delta x$，故
+上式一般就记为：
+$$\b\left.\d y\right|_{x=x_0}=A\cdot\d x.$$
+
+\begin{center}
+	\resizebox{!}{6cm}{\includegraphics{./images/ch4/dy.pdf}}
+
+	\it $f(x)$在$x_0$可微，意味着在$x_0$附近，$f(x)$可以近似地表示为一个线性函数： 
+	$$f(x)\approx y= f(x_0)+f\,'(x_0)(x-x_0)$$
+\end{center}
+
+不难看出，$f(x)$在$x_0$可微时，用于和$f(x)$近似的线性函数所对应的
+恰好就是$y=f(x)$在$x_0$处的切线，因此$A$就是切线的斜率，换句话说，
+$A=f'(x_0)$。下面我们从代数上推导一下可微和可导的关系。
+
+{\bf 定理：}$f(x)$在$x_0$可微与$f(x)$在$x_0$可导等价，且
+$$\d y =f'(x_0)\d x.$$
+
+[证]：设$f(x)$在$x_0$可微，则存在$A$，使得
+$$f(x)-f(x_0)=A(x-x_0)+\circ(x-x_0),\;(x\to x_0),$$
+该式进行恒等变形可得
+$$\df{f(x)-f(x_0)}{x-x_0}=A+\circ(1),\;(x\to x_0),$$
+也即
+$$A=\lim\limits_{x\to x_0}\df{f(x)-f(x_0)}{x-x_0},$$
+故$f(x)$在$x_0$可导，且$f'(x)=A$。
+
+又，设$f(x)$在$x_0$可导，则有
+$$f'(x_0)=\lim\limits_{x\to x_0}\df{f(x)-f(x_0)}{x-x_0},$$
+从而易得
+$$\lim\limits_{x\to x_0}\df{f(x)-f(x_0)
+-f'(x_0)(x-x_0)}{x-x_0}=0,$$
+故
+$$f(x)-f(x_0)-f'(x_0)(x-x_0)=\circ(x-x_0),\;(x\to x_0),$$
+也即
+$$f(x)-f(x_0)=f'(x_0)(x-x_0)+\circ(x-x_0),\;(x\to x_0),$$
+由此可知$f(x)$在$x_0$可微，且
+$$\d y =f'(x_0)\d x.$$
+\hfill$\Box$
+
+导数也做{\it 微商}，有了上面的定理不难理解这是为什么。
+
+{\bf 例：}设$f(x)=x^3+2x^2-3x+6$，求$\d f(x)$和$\d f(x)|_{x=1}$，
+并求其在$(1,6)$处的{\b 局部线性化函数$L(x)$}。
+
+\subsection{微分的运算法则}
+
+了解了导数和微分之间的密切联系，就可以很容易地有各种求导法则
+推出下面的微分运算法则：
+
+{\it 微分与四则运算：}设$u(x),v(x)$可微（导），则
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\d (u\pm v)=\d u\pm \d v$
+  \item $\d(uv)=v\d u+u\d v$
+  \item $\d\df uv=\df{v\d u-u\d v}{v^2}$
+\end{enumerate}
+
+{\it 复合函数的微分：}设$y=g(u),u=f(x)$均可微，
+则$y=g[f(x)]$可微，
+$$\d y=g'(u)\d u=g'(u)f'(x)\d x$$
+
+从形式上看，复合函数的微分运算规则更有链式法则的“环环相扣”的味道，
+事实上，对于一阶的微分运算（与一阶导数对应），我们不必关心每个
+变量究竟是因变量还是自变量，或者是中间变量，从结果上看都具有类似
+$$\d y=y'_x\d x$$
+的形式，比如在上面的结论中
+$$\d y=f'(u)f'(x)\d x,$$
+其中的$f'(u)g'(x)$就是$y$关于$x$的导数$y'_x$。
+这种性质非常有利于我们计算各种（一阶）微分，被称为{\it 一阶微分的
+形式不变性。}\ps{高阶微分不具有此性质}
+
+{\bf 例：}求函数$y=e^{2x-1}\sin x$的微分。
+
+[解]：
+\begin{align*}
+	\d y
+	&=\d(e^{2x-1}\sin x)
+	=e^{2x-1}\d\sin x+\sin x\d e^{2x-1}\\
+	&=e^{2x-1}\cos x\d x+\sin x 2e^{2x-1}\d x
+	=(\cos x+2\sin x)e^{2x-1}\d x.
+\end{align*}
+\hfill$\Box$
+
+\subsection{微分的应用}
+
+有了微分这种对函数的局部近似，我们就可以对一些已知函数值附近的函数值进行
+有效的逼近，或者，对于可能产生的计算误差进行分析。
+
+{\bf 例：}\ps{同济教材例7}
+有一批半径为$1$cm的球，为了提高球面的光洁度，准备镀上一层铜，
+厚度为$0.01$cm，试估计每只球需要的用铜量（铜的密度为$8.9$g/cm$^3$）。
+
+[提示]：所需的铜量
+$$M=8.9\cdot\Delta V,$$
+其中$\Delta V$为镀铜前后球的体积差，利用微分进行近似，
+$$\Delta V\approx \d V=\d\left(\df43\pi R^3\right)
+=4\pi R^2\d R=4\pi R^2\Delta R,$$
+将$R=1,\Delta R=0.01$带入计算，可得
+$$\Delta V\approx 0.13(\mbox{cm}^3),$$
+最终每个球所需铜量约为$1.16$g。
+
+同样是这个例子，我们换一个角度来提问：
+
+{\bf 例：}如果上述的球体在加工时，半径最大允许$0.01$cm的误差，
+估计一下球的体积的绝对误差和相对误差分别有多大。
+
+[提示]：利用微分进行估计
+$$\Delta V\approx \d V=\d\left(\df43\pi R^3\right)
+=4\pi R^2\d R=4\pi R^2\Delta R,$$
+将$R=1,\Delta R=0.01$带入计算，可得
+$$\Delta V\approx 0.13(\mbox{cm}^3),$$
+注意到$\Delta$关于$\Delta R$是严格单调的，故以上就是所求的
+体积的{\it 绝对误差}的近似值。进而相对误差
+$$e_r=\df{\Delta V}{V}\approx 3\df{\Delta R}{R}=3\%.$$
 
 \section{小结}
 
+导数即函数的{\it 变化率}\ps{变化率的另一种定义是单位自变量对应的函数改变量，例如：
+单位水平位移对应的垂直位移——即斜率（或坡度），单位长度对应的质量——即线密度}，
+或者说是函数值的改变量关于自变量的改变量的比率，
+代数上将其定义为自变量为特定取值时以上比率的极限。现实世界里的速度、
+斜率和密度等都可以用导数来加以描述。
 
+本章的重点是{\it 导数的计算}，其中涉及众多{\it 基本初等函数的求导公式}和{\it 四则运算、
+复合运算、函数逆运算的求导法则}，这些都必须熟练掌握，作到{\it “倒背如流”}。
+高阶导数的计算是本章的一个难点，正确地进行归纳和使用Leibniz{\it 公式}常常
+是解题的关键。
 
-数值级数，难度在微积分理论的各部分堪称第一，能使人深深感受到学习高数的“沉重”。
-能够正确理解级数的种种性质、熟练应用各种判别法，前提是对其概念的本质（部分和数列）
-有着清醒的认识。对数列敛散的有关性质了然于胸，并且能够相当熟练地运用一些基本的技巧，
-是这一份学习的要求。事实上，级数的判敛问题和数列的判敛常常被很多人所混淆。
+微分的概念比较抽象，但就一元函数而言，可导和可微是等价的，因此可以简单
+地将微分理解为求导的另一种形式——虽然两者有着不同的解释和物理、几何意义。
+微分的计算公式都有等价的求导公式。
 
-在和级数判敛相关众多定理和方法中，{\it 比较判别法}最为重要，不仅因为其广泛的用途，更
-因为其不“平凡”的使用方法（必须构造作为比较对象的级数）。因此，毫无疑问，这是个会被反复
-考察和测试的重点。
-
-最后的几点提醒：不要忘记{\it 级数收敛的必要条件}，它是判定发散的常用工具；
-{\it 绝对收敛和条件收敛都意味着收敛}，而不是前者蕴含后者；{\it
-判别法都是充分条件}，不能反着用——什么 叫反着用，你懂的！
-
-\newpage
-
-\section*{小结与补充例题}
-
-
-\begin{center}
-	\resizebox{!}{10cm}{\includegraphics{./images/ch2/seriesCre/010.jpg}}
-	
-	{\it 级数判敛的大致思路}
-\end{center}
-
-{\bf 例：}判断正误：
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 若$a_n>0(n=1,2,\ldots)$，则\\
-  \centerline{$a_1-a_1+a_2-a_2+a_3-a_3+\ldots $}
-  收敛 \hfill ({$\times$})
-  \item 若以上$\limn a_n=0$，则以上级数收敛 \hfill
-  ({$\surd$})
-  \item $\sumn a_n$收敛，$\limn b_n=1\Rightarrow\sumn
-  a_nb_n$收敛\ps{本例可以作为{\b 比较判别法不适用于变号级数}的反例} \hfill ({$\times$})
-  $${\b \mbox{反例：}a_n=\df{(-1)^n}{\sqrt n},\quad b_n=1+a_n}$$
-  \item $\sumn a_n$部分和有界，$\limn b_n=0\Rightarrow\sumn a_nb_n$收敛
-  \hfill ({$\times$})
-  $$\mbox{反例：}a_n=(-1)^n,\quad b_n=\df{(-1)^n}n$$
-  \item 若$\limn\df{a_n}{b_n}=1$，则若$\sumn a_n$绝对收敛，$\sumn b_n$必收敛 \hfill
-  ({$\surd$})
-  \item $\sumn a_n,\sumn b_n$绝对收敛$\Rightarrow\sumn (a_n+b_n)$绝对收敛 \hfill
-  ({$\surd$})
-  \item $\sumn a_n,\sumn b_n$条件收敛$\Rightarrow\sumn (a_n+b_n)$条件收敛 \hfill
-  ({$\times$})
-  \item 若$\sumn a_n^2$收敛，则$\sumn a_n^3$收敛 \hfill
-  ({$\surd$})
-\end{enumerate}
-
-% {\bf 例：}判断下列级数的敛散性
-% \begin{enumerate}[(1)]
-%   \setlength{\itemindent}{1cm}
-%   
-%   \item $\df 1{a+b}+\df 1{2a+b}+\df 1{3a+b}+\ldots\quad (a>0,b>0)$
-%   \item $\sumn\df {a_n}{(1+a_1)(1+a_2)\ldots(1+a_n)}\quad(a_n\geq
-% 	  0,n\in\mathbb{N})$
-% %   \item $\sumn\df{1!+2!+\ldots+n!}{n!}$
-%   
-% %   \item $\sumn\df{\sqrt{n!}}{(2+\sqrt 1)(2+\sqrt 2)\ldots(2+\sqrt n)}$
-%   \item $\sumn\df{\sqrt{n+1}-\sqrt{n}}{n^p}\quad(p>0)$
-%   \item $\sumn\df{n^{n+\frac 1{\,n\,}}}{\left(n+\df 1n\right)^n}$\\
-% %   {[提示]：}
-% %   $$a_n=\df{n^{\df1n}}{\left(1+\df1{n^2}\right)^n}\to1\;(n\to\infty)$$
-%   \item $\sumn\df{2^nn!}{n^n}$
-%   \item $\sumn n!\left(\df{x}{n}\right)^n\quad (x>0)$\\
-% %   {\bf [hint]:} When $x=e$
-% %   $$\df{a_{n+1}}{a_n}=\df e{\left(1+\df1n\right)^n}>1.$$
-%   \item $\sumn\left[\df 1n-\ln\left(1+\df 1n\right)\right]$
-% %   \item $\sumn\df{n^{n+\frac 1{\,n\,}}}{\left(n+\df 1n\right)^n}$
-% \end{enumerate}
-
-{\bf 例：}已知级数$\sumn(-1)^n\sqrt n\tan\df1{n^a}$绝对收敛，级数
-$\sumn\df{(-1)^n}{n^{3-a}}$条件收敛，则（D）
-
-\quad (A)\;$0<a\leq \df12$\quad(B)\;$1<a<\df52$
-\quad (C)\;$1<a<3$\quad(D)\;$\df52<a<3$
-
-{\bf 例：}设$a_n=\cos n\pi\cdot\ln\left(1+\df1{\sqrt n}\right),\;n=1,2,\ldots$，
-则（C）
-\begin{enumerate}[(A)]
-  \setlength{\itemindent}{1cm}
-  \item $\sumn a_n$和$\sumn a_n^2$都收敛
-  \item $\sumn a_n$和$\sumn a_n^2$都发散
-  \item $\sumn a_n$收敛，$\sumn a_n^2$都发散
-  \item $\sumn a_n$发散，$\sumn a_n^2$都收敛
-\end{enumerate}
-
-{\bf 例：}下列命题中正确的是（D）
-\begin{enumerate}[(A)]
-  \setlength{\itemindent}{1cm}
-  \item 若$u_n<v_n\;(n=1,2,\ldots)$，则$\sumn u_n\leq \sumn v_n$
-  \item 若$u_n<v_n\;(n=1,2,\ldots)$，且$\sumn v_n$收敛，则$\sumn u_n$收敛
-  \item 若$\limn\df{u_n}{v_n}=1$，且$\sumn v_n$收敛，则$\sumn u_n$收敛
-  \item 若$w_n<u_n<v_n\;(n=1,2,\ldots)$，且$\sumn w_n,\sumn v_n$收敛，
-  则$\sumn u_n$收敛
-\end{enumerate}
-
-{\bf 例：}下列命题中错误的是（D）
-\begin{enumerate}[(A)]
-  \setlength{\itemindent}{1cm}
-  \item 若$\sumn u_n$与$\sumn v_n$均收敛，则$\sumn u_n+v_n$必收敛
-  \item 若$\sumn u_n$收敛，$\sumn v_n$发散，则$\sumn u_n+v_n$必发散
-  \item 若$\sumn u_n$与$\sumn v_n$均发散，则$\sumn u_n+v_n$未必发散
-  \item 若$\sumn u_n+v_n$收敛，则$\sumn u_n$与$\sumn v_n$均收敛
-\end{enumerate}
-
-
-{\bf 例：}对于级数$\sumn(-1)^{n-1}u_n$，其中$u_n>0\;(n=1,2,\ldots)$，
-下列命题正确的是（B）
-\begin{enumerate}[(A)]
-  \setlength{\itemindent}{1cm}
-  \item 若$\sumn(-1)^{n-1}u_n$收敛，则必为条件收敛
-  \item 若$\sumn u_n$收敛，则$\sumn(-1)^{n-1}u_n$绝对收敛
-  \item 若$\sumn u_n$发散，则$\sumn(-1)^{n-1}u_n$发散
-  \item 若$\sumn (-1)^{n-1} u_n$收敛，则$\sumn u_n$收敛
-\end{enumerate}
-
-{\bf 例：}设$0\leq u_n\leq \df1n$，则下列级数中一定收敛的是（D）
-
-\quad (A)\;$\sumn u_n$\quad(B)\;$\sumn (-1)^n u_n$
-\quad (C)\;$\sumn \sqrt{u_n}$\quad(D)\;$\sumn (-1)^nu_n^2$
-
-{\bf 例：}已知$a>0$，则$\sumn(-1)^n\left(1-\cos\df an\right)$（A）
-
-\quad (A)\;绝对收敛\quad(B)\;条件收敛
-\quad (C)\;发散\quad(D)\;敛散性与$a$有关
-
-{\bf 例：}级数$\sumn(-1)^n\ln\left(1+\df1n\right)$（C）
-
-\quad (A)\;收敛\quad(B)\;发散
-\quad (C)\;条件收敛\quad(D)\;绝对收敛
-
-{\bf 例：}已知$a$为常数，则$\sumn(-1)^n\sin\df{\pi}{\sqrt n}$（D）
-
-\quad (A)\;绝对收敛\quad(B)\;条件收敛
-\quad (C)\;发散\quad(D)\;敛散性与$a$有关
-
-{\bf 例：}已知级数$\sumn a_n^2$和$\sumn b_n^2$均收敛，则级数$\sumn a_nb_n$（A）
-
-\quad (A)\;绝对收敛\quad(B)\;条件收敛
-\quad (C)\;发散\quad(D)\;敛散性无法判定
-
-{\bf 例：}已知$a_n\geq 0\;(n=1,2,\ldots)$，级数$\sumn a_n^2$收敛，
-$\sumn b_n^2$发散，（C） 
-
-\quad (A)\;$\sumn a_nb_n$收敛\quad(B)\;$\sumn a_nb_n$发散
-\quad (C)\;$\sumn a_n^3$收敛\quad(D)\;$\sumn b_n^3$发散
-
-{\bf 例：}设$u_n\ne0\;(n=1,2,\ldots)$，且$\limn\df n{u_n}=1$，则
-级数$\sumn(-1)^n\left(\df1{u_n}+\df1{u_{n+1}}\right)$（B）
-
-\quad (A)\;绝对收敛\quad(B)\;条件收敛
-\quad (C)\;发散\quad(D)\;敛散性无法判定
-
-
-{\bf 例：}判断下列级数的敛散性
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\sumn\left(1-\df12+\df13-\df14+\ldots+\df{(-1)^{n+1}}n\right)$
-%   \hfill({\it 通项不趋于零，发散})
-  \item $\df12+\df1{10}+\df1{2^2}+\df1{20}+\ldots+\df1{2^n}+\df1{10n}+\ldots$
-  \item $\df 1{a+b}+\df 1{2a+b}+\df 1{3a+b}+\ldots\quad (a>0,b>0)$
-  \item $\sumn\df {a_n}{(1+a_1)(1+a_2)\ldots(1+a_n)}\quad(a_n\geq
-	  0,n\in\mathbb{N})$
-  \item $\sumn\df{\sqrt{n+1}-\sqrt{n}}{n^p}\quad(p>0)$
-  \item $\sumn\df{n^{n+\frac 1{\,n\,}}}{\left(n+\df 1n\right)^n}$
-  \item $\sumn n!\left(\df{x}{n}\right)^n\quad (x>0)$
-  \item $\sumn\left[\df 1n-\ln\left(1+\df 1n\right)\right]$
-  \item $\sumn\sin(\pi\sqrt{n^2+a^2})$
-  \item $\sum\limits_{n=2}^{\infty}\df{(-1)^n}{\sqrt n+(-1)^n}$
-%   \item 
-\end{enumerate}
-
-{\bf 例：}证明$\sum\limits_{n=2}^{\infty}\df{(-1)^n}{\sqrt{n+(-1)^n}}$条件收敛
-
-[提示]：与$\sumn\df1{\sqrt{n+1}}$比较易知，该级数不绝对收敛。又
-$$S_{2n}=\left(\df1{\sqrt{3}}-\df1{\sqrt{2}}\right)
-+\left(\df1{\sqrt{5}}-\df1{\sqrt{4}}\right)+\ldots
-+\left(\df1{\sqrt{2n+1}}-\df1{\sqrt{n}}\right)<0,$$
-且
-$$S_{2n}>\left(\df1{\sqrt{4}}-\df1{\sqrt{2}}\right)
-+\left(\df1{\sqrt{6}}-\df1{\sqrt{4}}\right)+\ldots
-+\left(\df1{\sqrt{2n+2}}-\df1{\sqrt{n}}\right)
-=\df1{\sqrt{2n+2}}-\df1{\sqrt{2}}>-\df1{\sqrt{2}},$$
-故$\{S_{2n}\}$收敛。注意到
-$$\limn S_{2n+1}=\limn S_{2n}+\limn\df{(-1)^n}{\sqrt{n+(-1)^n}}=\limn S_{2n},$$
-由拉链定理，$\{S_n\}$收敛。
-
-综上，原级数条件收敛。
-
-{\bf 例：}设$\sumn u_n$和$\sumn v_n$均为正项级数，证明：
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 若$\sumn u_n$收敛，则$\sumn\sqrt{u_nu_{n+1}}$收敛
-  \item 若$\sumn\sqrt{u_nu_{n+1}}$收敛，且$\{u_n\}$单调递减，则$\sumn u_n$收敛
-  \item 若$\sumn u_n$和$\sumn v_n$均收敛，则$\sumn u_nv_n$收敛
-  \item 若$\sumn u_n$收敛，则$\sumn \df{u_n}n$收敛
-\end{enumerate}
-
-{\bf 例：}设$u_1=2,\;u_{n+1}=\df12\left(u_n+\df1{u_n}\right),\;(n=1,2,\ldots)$，
-证明：级数$\sumn\left(\df{u_n}{u_{n+1}}-1\right)$收敛。
-
-[提示]：易证$u_n\geq 1$且单调递减，故$\limn u_n$存在，且$u_n$均非负，进而
-$$0\leq\df{u_n}{u_{n+1}}-1=\df{u_n-u_{n+1}}{u_{n+1}}\leq u_n-u_{n+1}.$$
-注意到$\sumn(u_n-u_{n+1})$收敛，由比较判别法，原级数收敛。
-
-{\bf 例：}判断级数$\sum\limits_{n=2}^{\infty}\sin\left(n\pi+\df1{\ln n}\right)$
-的敛散性。
-
-[提示]：原级数即为$\sum\limits_{n=2}^{\infty}(-1)^n\sin\df1{\ln n}$。
-
-由$\df1{\ln n}>\df1n$，原级数不绝对收敛。
-
-又$\left(\sin\df1{\ln x}\right)'=-\df1{x(\ln x)^2}\cos\df1{\ln x}<0,$
-故通项单调递减，注意到$\limn\sin\df1{\ln n}=0$，
-故由Leibniz判别法可知原级数收敛。
-
-综上，原级数条件收敛。
+本章中有专门的一节讨论与导数相关的应用问题——{\it 变化率与相关变化率}，
+这些问题看似平常，却常常称为学习掌握的难点，正确解题的关键在于
+如何正确用数学的符号和语言去描述实际问题，用更专业的话来说，
+就是如何做好数学建模。
 
 \newpage
 
 \section*{课后作业}
 \addcontentsline{toc}{section}{课后作业}
 
-{\bf 【必作题】}
-
 \begin{itemize}
-  \item 习题2.1：2，6(1,3)，7，9
-  \item 证明：$\sqrt[n]n\to 1\,(n\to\infty)$
-  \item 习题2.2：1(4,6)，2(2,3)，3，7，9，11
-  \item 习题2.3：4，5
-  \item 习题2.4：1(3,4)，3，5(2,4)，6(1-3)，8，9
-  \item 习题2.5：2(1,3,6,7,8)，3，6，7，8
+  \item 习题2-1：3，11，13，16（2），20
+  \item 习题2-2：1，9，11，13，14
+  \item 习题2-3：4，10，11（2），12
+  \item 习题2-4：2，3（3,4），4（1,4），5（2），7（2），8（2,4），10
+  \item 习题2-5：1，4，6，8（2），10（1），11
+  \item 总习题：8，10（2），14，15，16
 \end{itemize}
-
-\bigskip
-
-\hrule
-
-\bigskip
-\bigskip
-
-{\bf 【思考题】}
-
-\begin{itemize}
-  \item 习题2.1：12，15
-  \item 习题2.2：8，10，12，17，18
-  \item 已知数列$\{a_n\}$单调递增，它的一个子列$\{a_{n_k}\}$收敛于$a$，
-  证明：$\limn a_n=a$。
-  \item 设$0<a_1<2$，且$(2-a_n)a_{n+1}=1\,(n\in\mathbb{N})$，
-  	证明$\{a_n\}$收敛，求其极限。\ps{辅导书（上）-P31-例22}\\
-%   {\bf [hint]:} If $a_n=1$, then $a_{n+1}=1$. If $a_n<1$, then $a_{n+1}<1$.
-%   If $a_n>2$, then $a_{n+1}<0$, thus $a_{n+2}<\df12$. If $a_n>1$, then 
-%   $a_{n+1}>1$. So we have $a_n\in(0,2)$ for sufficient large $n$.\\
-%   On the other hand, we have
-%   $$a_{n+1}=\df{1-a_{n+1}}{1-a_n}.$$
-%   Hence, we can deduce that $a_{n+1}<a_n$, whenever $a_n\in(0,1)$ or 
-%   $a_n>1$. So $\{a_n\}$ is mono-increase with upper bound.\\
-%   Let $a=\limn a_n$, we can find $a=1$.
-  \item 设$x_1=\df 12$，$x_{n+1}=x_n^2+x_n\,(n\in\mathbb{N})$，求
-	$$\limn\left(\df 1{x_1+1}+\df 1{x_2+1}+\ldots+\df
-	1{x_n+1}\right)$$
-%   {\bf [hint]:}$\df1{x_{n+1}}=\df1{x_n}-\df1{x_n+1}$, so we have
-%   $$\df1{x_n+1}=\df1{x_n}-\df1{x_{n+1}}$$
-%   \item 已知$0<x<1$，数列$\{a_n\}$定义如下：
-% 	$$a_1=\df x2,\;a_n=\df x2-\df{a_{n-1}^2}2.$$
-% 	证明$\{a_n\}$收敛，并求其极限。
-  \item 已知$0<x<1$，数列$\{a_n\}$定义如下：\ps{辅导书（上）-P30-例21}
-	$$a_1=\df x2,\;a_n=\df x2+\df{a_{n-1}^2}2.$$
-	证明$\{a_n\}$收敛，并求其极限。
-% 	\ps{参考辅导书（上）-P30-例21，是不是题目抄错了？应该是$\df x2+\df{a_{n-1}^2}2$}\\
-%   {\bf [hint]:} It's easy to find $a_2\in(0,a_1)$. Assume $a_{n}\in
-%   (0,a_{n-1})$, then
-%   $$a_n=\df x2-\df{a_{n-1}^2}2<\df x2-\df{a_{n}^2}2=a_{n+1}.$$
-%   We can find $\limn a_n=\sqrt{x+1}-1$.  
-  \item 习题2.3：6，7，8
-  \item 习题2.4：10-15,17
-  \item 习题2.5：4,10,13
-\end{itemize}
-% 
-\newpage
-
-\section*{习题参考解答}
-\addcontentsline{toc}{section}{习题参考解答}
-
-{\bf
-习题2.1-2：}（3）设$b_n=0.\underbrace{888\ldots8}_{n\mbox{个}},
-\;n=1,2,\ldots$，问：当$n\to\infty$时，是否$b_n\to0.9$？
-
-解：否。事实上，
-$$\limn{b_n}=8\cdot\sumn
-10^{-n}=0.8\cdot\limn\df{1-10^{-n-1}}{1-10^{-1}}=\df89\ne 0.9.$$
-
-注：{\it 如果用极限的（反面）定义证明，可以令$\e_0=0.01$，则对任意$N\in\mathbb{Z}_+$，
-总可以取$n_0=\max\{N,3\}$，使得}
-$$|b_n-0.9|>|0.888-0.9|=0.012>0.01.$$
-{\it 即证。}
-
-\bigskip
-
-{\bf 习题2.1-6：}用数列极限的定义证明：
-
-\bigskip
-
-（1）$\limn\df{2n+1}{3n+2}=\df23$
-
-证：对任意$\e>0$，令$N=\left[\df1{\e}\right]+1$，则对任意$n>N$，总有
-$$\left|\df{2n+1}{3n+2}-\df23\right|=\df1{3(3n+2)}<\df1n<\df1N<\e,$$
-由极限的定义，即证。
-
-\bigskip
-
-（3）$\limn\df{\sqrt{n^2+a^2}}n=1$
-
-证：对任意$\e>0$，令$N=\left[\df{a^2}{\e}\right]+1$，则对任意$n>N$，总有
-$$\left|\df{\sqrt{n^2+a^2}}n-1\right|
-=\df{\sqrt{n^2+a^2}-n}n=\df{a^2}{n(\sqrt{n^2+a^2}+n)}
-<\df{a^2}n<\df{a^2}N<\e,$$
-由极限的定义，即证。
-
-\bigskip
-
-{\bf 习题2.1-6：}设数列$\{a_n\}$有界，又$\limn b_n=0$，证明：$\limn a_nb_n=0$
-
-证：由$\{a_n\}$有界，存在$M>0$，对任意$n\in\mathbb{Z}_+$，有
-$$|a_n|\leq M.$$
-
-对任意$\e>0$，由$\limn b_n=0$，存在$N\in\mathbb{Z}_+$，对任意$n>N$有
-$$|b_n-0|<\e,$$
-从而当$n>N$时，有
-$$|a_nb_n-0|<M\e,$$
-由极限的定义，即证。
-
-\bigskip
-
-{\bf 习题2.1-9：}设$\limn a_n=a\ne0$，证明存在$N\in\mathbb{Z}_+$，对任意$n>N$有
-$|a_n|>\df{|a|}2.$
-
-证：由$\limn a_n=a\ne0$，对$\e=\df{|a|}2$，存在$N\in\mathbb{Z}_+$，对任意$n>N$有
-\ps{$|a|-|a_n|\leq|a_n-a|$}
-$$|a_n-a|<\e=\df{|a|}2\quad\Rightarrow\quad |a_n|>\df{|a|}2,$$
-即证。
-
-\bigskip
-
-{\bf 习题2.2-2：}试用夹逼定理证明：
-
-（2）$\limn\sqrt[n]{a_1^n+a_2^n+\ldots+a_m^n}=
-\max\{a_1,a_2,\ldots,a_m\}$，其中$a_1,a_2,\ldots,a_m$均为正数。
-
-证：设$a=\max\{a_1,a_2,\ldots,a_m\}$，则
-$$a<\sqrt[n]{a_1^n+a_2^n+\ldots+a_m^n}\leq\sqrt[n]{m}\cdot a,$$
-注意到$\limn\sqrt[n]m=1$，故上式两端当$n\to\infty$时极限均为$a$，由
-夹逼定理，即证。
-
-\bigskip
-
-{\bf 补充题：}证明：$\limn\sqrt[n]{n}=1$
-
-证：设$h_n=\sqrt[n]{n}-1$，显然$h_n>0$，从而
-$$n=(1+h_n)^n=1+n\cdot h_n+\df{n(n-1)}2h^2_n+\ldots+h_n^n>\df{n(n-1)}2h^2_n,$$
-进而可得
-$$0<h_n<\sqrt{\df2{n-1}}.$$
-注意到$\limn\sqrt{\df2{n-1}}=0$，故由夹逼定理，$\limn h_n=0$，也即$\limn\sqrt[n]{n}=1$.
-
-\bigskip
-
-{\bf 习题2.2-3：}试证明：极限$\limn\sin\df{n\pi}2$不存在。
-
-证：记$a_n=\sin\df{n\pi}2$，则
-$$a_{2n}=\sin n\pi\equiv 0,\quad 
-a_{4n+1}=\sin\left(2n\pi+\df{\pi}2\right)\equiv 1,$$
-由此易知$\{a_n\}$的子数列$\{a_{2n}\}$和$\{a_{4n+1}\}$分别收敛到$0$和$1$，
-从而由子数列收敛与数列收敛的关系，可知数列$\{a_n\}$发散，即证。
-
-\bigskip
-
-{\bf 习题2.2-11：}证明：若$a_1+a_2+\ldots+a_k=0$，则
-$$\limn\left(a_1\sqrt{n+1}+a_2\sqrt{n+2}+\ldots
-+a_k\sqrt{n+k}\right)=0.$$
-
-证：
-\begin{align}
-	\mbox{原式}
-	&=\limn\left[a_1\sqrt{n+1}+a_2\sqrt{n+2}+\ldots+a_k\sqrt{n+k}
-	-(a_1+a_2+\ldots+a_k)\sqrt n\right]\notag\\
-	&=\limn\left[a_1(\sqrt{n+1}-\sqrt n)+a_2(\sqrt{n+2}-\sqrt
-	n)+\ldots+a_k(\sqrt{n+k} -\sqrt n)\right]\notag\\
-	&=a_1\limn(\sqrt{n+1}-\sqrt n)+a_2\limn(\sqrt{n+2}-\sqrt
-	n)+\ldots+a_k\limn(\sqrt{n+k} -\sqrt n).\notag
-\end{align}
-注意到对任意$i\in\{1,2,\ldots,k\}$，
-$$\limn(\sqrt{n+i}-\sqrt n)=\limn\df{i}{\sqrt{n+i}+\sqrt n}=0,$$
-故$\mbox{原式}=0$，即证。
-
-% 
-% $$\df1{x^3(1+x^4)}=\df{Ax^2+Bx+C}{x^3}+\df{Dx^3+Ex^2+Fx+G}{1+x^4}$$
-
-\newpage
-
-\section*{附加讨论题}
-\addcontentsline{toc}{section}{附加讨论题}
-
-{\bf 例：}已知数列$\{a_n\}$单调递增，它的一个子列$\{a_{n_k}\}$收敛于$a$，
-  证明：$\limn a_n=a$。
-  
-  {\bf 证1：} 由$a_{n_k}\to a(k\to\infty)$，对$\forall\e>0$，$\exists K$，
-  $\forall k>K$，$|a_{n_k}-a|<\e$，或
-  $$a_{n_k}\in U(a,\e).$$
-  令$N=n_{[K]+1}$，则对$\forall n>N$，注意到$\{a_n\}$单调递增，故一定
-  $\exists k>K$，使得$a_na_{n_k}\leq n<a_{n_{k+1}}$，进而
-  $$a_n\in[a_{n_k},a_{n_{k+1}})\subset U(a,\e),$$
-  即证。\\
-  {\bf 证2：} 由$\{a_n\}$单调递增，对$\forall n\in\mathbb{Z}_+$，
-  $\exists k\in\mathbb{Z}_+$，使得
-  $$a_{n_k}\leq n<a_{n_{k+1}}.$$
-  定义两个数列
-  $$a_n^{(1)}=a_{n_k},\;\mbox{若}a_{n_k}\leq n<a_{n_{k+1}},$$
-  $$a_n^{(2)}=a_{n_{k+1}},\;\mbox{若}a_{n_k}\leq n<a_{n_{k+1}},$$
-  则
-  $$a_n^{(1)}\leq a_n<a_n^{(2)}.$$
-  注意到$\{a_n^{(1)}\},\{a_n^{(2)}\}$的取值范围和$\{a_{n_k}\}$完全相同，
-  且均单调递增，故易知其极限均为$a$。进而，有夹逼定理可知$a_n\to a(n\to\infty)$
-
-\bigskip
-
-{\bf 命题：}若$\{a_n\}$有界，且$\{a_n-a_{n-1}\}$收敛于$0$，则$\{a_n\}$收敛。
-
-{\bf 反例：}
-
-（1）$\sin\sqrt n$
-
-（2）$\left\{\left(\sum\limits_{k=1}^n\df1k\right)\mod
-2-1\right\}(-1)^{\left[\frac12{\sum\limits_{k=1}^n\frac1k}\right]}$
-
-\bigskip
-
-{\bf 例：}已知$0<x<1$，数列$\{a_n\}$定义如下：
-$$a_1=\df x2,\;a_n=\df x2-\df{a_{n-1}^2}2.$$
-证明$\{a_n\}$收敛，并求其极限。
-
-{\bf 证}: 若极限存在，易求得$\limn a_n=1+\sqrt{1+x}$。以下证明$\{a_n\}$收敛。
-
-显然$x_n\in\left(0,\df x2\right),(n\in\mathbb Z_+)$。由递推公式可得
-
-% 显然，$x_n<\df x2\;(n\in\mathbb{Z}_+)$。
-% \begin{align}
-% 	a_n-a_{n-1}&=-\df12(a_{n-1}-a_{n-2})(a_{n-1}+a_{n-2})\notag\\
-% 	&=\left(-\df12\right)^2(a_{n-2}-a_{n-3})(a_{n-2}+a_{n-3})(a_{n-1}+a_{n-2})\notag\\
-% 	&=\ldots=\left(-\df12\right)^{n-2}(a_2-a_1)(a_2+a_1)\ldots
-% 	(a_{n-2}+a_{n-3})(a_{n-1}+a_{n-2})\notag
-% \end{align}
-% 注意到对任意$n\in\mathbb{Z}_+$
-% $$a_n+a_{n-1}=\df{1+x}2-\df12(a_n-1)^2<\df{1+x}2<1,$$
-% 故有
-% $$|a_n-a_{n-1}|<|a_2-a_1|\left(\df{1+x}4\right)^{n-2}\to0,
-% \;(n\to\infty)$$
-
-$$a_n-a_{n-1}=-\df12(a_{n-1}-a_{n-2})(a_{n-1}+a_{n-2}),$$
-由此可知若$a_{n-1}>a_{n-2}$，则$a_n<a_{n-1}$。又
-$$a_n+a_{n-1}=\df{1+x}2-\df12(a_n-1)^2<\df{1+x}2<1,$$
-故
-$$|a_n-a_{n-1}|<\df12|a_{n-1}-a_{n-2}|.$$
-从而，若$a_{n-1}>a_{n-2}$，则必有$a_{n-2}<a_n<a_{n-1}$，进而
-可以证明$a_n<a_{n+1}<a_{n-1}$，也即$[a_n,a_{n+1}]\subset[a_{n-2},a_{n-1}]$。
-注意到$x_2<x_1$，故可以断言$\{a_n\}$的偶子列和奇子列分别是单调递增
-和单调递减的，从而区间序列$\{[a_{2n},a_{2n-1}]\}$构成了一个区间套，也即
-$$[a_{2n+2},a_{2n+1}]\subset[a_{2n},a_{2n-1}],\;(n\in\mathbb Z_+).$$
-
-另一方面，由
-\begin{align}
-	a_n-a_{n-1}&=-\df12(a_{n-1}-a_{n-2})(a_{n-1}+a_{n-2})\notag\\
-	&=\left(-\df12\right)^2(a_{n-2}-a_{n-3})(a_{n-2}+a_{n-3})(a_{n-1}+a_{n-2})\notag\\
-	&=\ldots=\left(-\df12\right)^{n-2}(a_2-a_1)(a_2+a_1)\ldots
-	(a_{n-2}+a_{n-3})(a_{n-1}+a_{n-2}),\notag
-\end{align}
-可得
-$$|a_n-a_{n-1}|<|a_2-a_1|\left(\df{1+x}4\right)^{n-2}\to0,
-\;(n\to\infty),$$
-从而必有$\limn(a_n-a_{n-1})=0$，进而$\limn(a_{2n}-a_{2n-1})=0$。
-
-综上，区间序列$\{[a_{2n},a_{2n-1}]\}$满足区间套定理（习题2.2-12）条件，
-从而$\{a_{2n}\}$和$\{a_{2n-1}\}$收敛于相同的极限，由拉链定理，$\{a_n\}$收敛。
-
-\bigskip
-
-{\bf 例：}设$\limn a_n=a>0$，判断级数$\sumn\left(\df{a}{a_n}\right)^n$
-的敛散性
-
-[提示]：由条件不能判定！
-
-（1）若$a_n=a$，显然级数发散。
-
-（2）设$a_n=\df{1+\sqrt n}{\sqrt n}\to1=a(n\to\infty)$，则
-$$\sumn\left(\df{a}{a_n}\right)^n=\sumn\left(\df{\sqrt n}
-{1+\sqrt n}\right)^n,$$
-由对数判别法
-$$-\limn\df{\ln \left(\df{\sqrt n}{1+\sqrt n}\right)^n}
-{\ln n}=\limn\df{n[\ln(\sqrt n+1)-\ln\sqrt n]}{\ln n}
-=\limn\df{\sqrt n}{\ln n}=+\infty>1,$$
-故级数收敛。
