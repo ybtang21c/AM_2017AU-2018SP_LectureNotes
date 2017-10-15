@@ -1306,32 +1306,32 @@ $${\b \forall\e>0,\exists N\in\mathbb{Z}_+,\forall n>N,|a_n-a|<\e}\eqno{(1)}$$
   \item[(2)] $\forall\e>0$，$\exists N$，$\forall
   n>N$，$|a_n-a|\leq\e$ \hfill{$\surd$} 
   
-  \quad 说明：只要强调$n>N$为正整数即可，根据需要$N$总是可以取得更大，
+  \quad [提示]：只要强调$n>N$为正整数即可，根据需要$N$总是可以取得更大，
   无所谓是不是正整数。
   \item[(3)] $\exists N\in\mathbb{Z}_+$，$\forall\e>0$，$\forall
   n>N$，$|a_n-a|<\e$ \hfill{$\times$}
   
-  \quad 说明：(3)可以推出(1)，但反之不然。事实上，由(3)可以推出，
+  \quad [提示]：(3)可以推出(1)，但反之不然。事实上，由(3)可以推出，
   $\{a_n\}$仅有有限项的值不等于$a$，但显然不是所有收敛的数列都有此
   性质，例如$\{1/n\}$
   \item[(4)] $\forall\e>0$，仅有有限多个$n$，使得$|a_n-a|\geq\e$
   \hfill{$\surd$}
   
-  \quad 说明：由(4)，仅有有限多个$a_n$不满足$|a_n-a|<\e$，则我们总可以取
+  \quad [提示]：由(4)，仅有有限多个$a_n$不满足$|a_n-a|<\e$，则我们总可以取
   其中下标最大的下标作为$N$，则当$n>N$时，总有$|a_n-a|<\e$，即(1)成立；反之，由
   (1)，最多有不超过$N$个$a_n$不满足$|a_n-a|<\e$，故(4)成立。
   
   \item[(5)] $\forall\e>0$，总有无穷多个$n$，使得$|a_n-a|<\e$
   \hfill{$\times$} 
   
-  \quad 说明，考虑反例：$a_n=(-1)^n$，取$a=1$。
+  \quad [提示]：考虑反例：$a_n=(-1)^n$，取$a=1$。
   \item[(6)] $\forall\e>0$，要使$|a_n-a|<\e$，只须$n$充分大 \hfill{$\surd$}
   
-  \quad 注：语序有变化，但逻辑关系和含义并未发生改变。
+  \quad [提示]：语序有变化，但逻辑关系和含义并未发生改变。
   \item[(7)] $\forall\e>0,\exists N\in\mathbb{Z}_+,\forall
   n>N,|a_n-a|<2\e$\hfill{$\surd$}
   
-  {\quad\b\it 注：由于$\e$是任意的，$2\e$和$\e$的取值范围并没有区别，都是
+  {\quad\b\kaishu [注]：由于$\e$是任意的，$2\e$和$\e$的取值范围并没有区别，都是
   $(0,+\infty)$！事实上，在用定义证明极限时，完全可以使用$C\e$，
   其中$C\in\mathbb{R}$为给定的常数，这是数列极限最常用的一种等价定义。}
 \end{enumerate}
@@ -1342,7 +1342,8 @@ $$\limn(-1)^n\df1{n^2}=0$$
 [证]：对任意$\e>0$，{\b 令$N=\left[1/\sqrt{\e}\right]+1$}
 \ps{不要忘记：\b $[x]\leq x<[x]+1$}
 ，则对任意$n>N$，有
-$$\left|(-1)^n\df1{n^2}-0\right|=\df1{n^2}<\df1{N^2}=\e,$$
+$$\left|(-1)^n\df1{n^2}-0\right|=\df1{n^2}<\df1{N^2}
+<\df1{(\sqrt{\e})^2}=\e,$$
 由极限的定义，即证。\ps{\b 用定义证明数列极限，说明$N$的存在性是关键，为此主要有两种方式：\\
 1、直接给出$N$的取值，例如$N=1/\e$\\
 2、利用已知极限间接说明$N$存在，如$N=N_1$}
@@ -1354,7 +1355,7 @@ $$\limn\left(\df n{n+1}\right)^2=1$$
 [证]：对任意$\e>0$，{\b 令$N=\left[2/\e\right]+1$}，则对任意$n>N$，有
 $$\left|\left(\df
 n{n+1}\right)^2-1\right|=\df{2n+1}{(n+1)^2}<\df{2(n+1)}{(n+1)^2}
-<\df2{n+1}<\df2n<\df2N=\e,$$
+<\df2{n+1}<\df2n<\df2N<\e,$$
 由极限的定义，即证。\hfill $\Box$
 
 {\bf 例：}证明：若$\limn a_n=a$，则$\limn|a_n|=|a|$
@@ -1597,6 +1598,56 @@ $$\lim\limits_{k\to\infty}a_{2k}=1,\quad
 或最多不能覆盖原数列中有限多个数，且这些子列均收敛于相同的极限，则原数列收敛。
 例如：{\it 若子数列$\{a_{3n}\},\{a_{3n-1},\{a_{3n-2}\}\}$都收敛于$a$，
 则$\{a_{n}\}$收敛于$a$。}
+
+\begin{shaded}
+
+{\bf 思考题：}证明：若$\limn a_n=a$，则$\limn\df{a_1+a_2+\ldots+a_n}n=a$。
+
+[证]：对任意$\e>0$，由$\limn a_n=a$，存在$N_1$，对任意$n>N_1$，总有
+$$|a_n-a|<\e.$$
+记
+$$M_{N_1}=|(a_1-a)+(a_2-a)+\ldots+(a_N-a)|,$$
+显然$M_{N_1}$的值只与$N_1$有关，而与$n$无关，故令$N_2=\df{M_{N_1}}{\e}$，
+则对任意$n>N_2$，总有
+$$\df{M_{N_1}}{n}<\e.$$
+
+至此，令$N=\max\{N_1,N_2\}$，则对任意$n>N$，均有
+\begin{align*}
+	&\left|\df{a_1+a_2+\ldots+a_n}n-a\right|\\
+	&=\df1n|(a_1-a)+(a_2-a)+\ldots+(a_n-a)|\\
+	&\leq\df1n\left[M_{N_1}
+	+|(a_{N+1}-a)+(a_{N+2}-a)+\ldots+(a_n-a)|\right]\\
+	&<\e+\df1n\left[|a_{N+1}-a|+|a_{N+2}-a|
+	+\ldots+|a_n-a|\right]\\
+	&<\e+\df1n(n-N)\e<2\e,
+\end{align*}
+由数列极限的定义，即证。\hfill$\Box$
+
+这个结论也称为Cauchy{\it 极限定理}，有着非常重要的应用，例如，今后我们会学习
+下面的极限$\limn\sqrt[n]a=1,\,(a>0)$，于是立即可以得到
+$$\limn\df1n(a+\sqrt[2]a+\sqrt[3]a+\ldots+\sqrt[n]a)=1.$$
+
+此外，我们今后还会学习到极限运算和初等函数运算可以交换次序，进而可以证明如下的命题：
+
+{\bf 例：}设$a_n$均大于零，且$\limn\df{a_{n+1}}{a_n}=q$，则
+$\limn\sqrt[n]{a_n}=q$。
+
+[证]：记$b_1=a_1$，$b_n=\df{a_n}{a_{n-1}}\;(n>1)$，则
+% $$a_n=\df{a_n}{a_{n-1}}\cdot\df{a_{n-1}}{a_{n-2}}
+% \cdots\df{a_2}{a_1}\cdot a_1$$
+$$a_n=b_n\cdot b_{n-1}\cdots b_1,$$
+进而
+$$\ln a_n=\ln b_n+\ln b_{n-1}+\ldots+\ln b_1,$$
+已知$\limn b_n=q$，根据初等函数的性质，可得$\limn\ln b_n=\ln q$，
+于是由Cauchy极限定理，
+$$\limn\ln \sqrt[n]{a_n}=\limn\df1n\ln a_n=\limn\df1n\left(
+\ln b_n+\ln b_{n-1}+\ldots+\ln b_1\right)=\ln q,$$
+进而可得$\limn\sqrt[n]{a_n}=q$。\hfill$\Box$
+
+有了这个定理，我们很容易得到下面的结论：若$\limn a_n=a\geq 0$，则
+$$\limn\sqrt[n]{a_1a_2\ldots a_n}=a.$$
+
+\end{shaded}
 
 \section{函数的极限}
 
