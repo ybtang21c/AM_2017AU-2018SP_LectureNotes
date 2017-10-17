@@ -259,6 +259,11 @@ Lebesgue(1875-1941)、Fourier(1772-1837)以及后世许多数学家对以之为�
     \item \ldots
   \end{itemize}
   \item {\bf 作业}
+  \begin{center}
+  	\includegraphics[width=0.95\textwidth]{./images/00/hw-sample.jpg}
+  	
+  	作业书写参考样式（{\it 以黑色字体为准，彩色部分为格式说明}）
+  \end{center}
   \begin{itemize}
     \item 作业书写的规范
     \begin{enumerate}
@@ -273,11 +278,6 @@ Lebesgue(1875-1941)、Fourier(1772-1837)以及后世许多数学家对以之为�
     \end{enumerate}    
     \item no copy ？？！
     \item 及时订正错误，补上缺漏
-  \begin{center}
-  	\includegraphics[width=0.95\textwidth]{./images/00/hw-sample.jpg}
-  	
-  	作业书写参考样式（{\it 以黑色字体为准，彩色部分为格式说明}）
-  \end{center}
   \end{itemize}
 	\item {\bf 答疑}
 	  \begin{itemize}
@@ -2280,8 +2280,8 @@ $$a_n\leq a_n\leq A\quad\Rightarrow\quad |a_n-A|<\e,$$
 {\bf 例：}\ps{KD教材2.2.4节-例7，重点掌握结论}
 证明：数列$\left\{\left(1+\df1n\right)^n\right\}$收敛。
 
-该数列的极限通常记为$e$，称为{\it Napier常数}\ps{同济教材称之为Euler常数，
-我们沿用的是维基百科和国际上通行的叫法}。
+该数列的极限通常记为$e$，称为{\kaishu Napier常数}\ps{同济教材称之为Euler常数，
+我们沿用的是维基百科和国际上通行的叫法；Napier是公认的计算过程“机械化”的先驱}。
 
 \begin{shaded}
 
@@ -2324,6 +2324,11 @@ $$a_n\leq a_n\leq A\quad\Rightarrow\quad |a_n-A|<\e,$$
 	\ldots\left(1-\df{n-2}{n-1}\right)\notag\\
 	&=\left(1+\df1{n-1}\right)^{n-1}\notag
 \end{align}
+
+关于单调性，也可以用平均值不等式来证明：
+$$\left(1+\df1n\right)^n\cdot 1<
+\left[\df{n\left(1+\frac1n\right)+1}{n+1}\right]^{n+1}
+=\left(1+\df1{n+1}\right)^{n+1}.$$
 
 \end{shaded}
 
@@ -2617,7 +2622,7 @@ $$\limn\df{x_n}{y_n}=\limn\df{x_n-x_{n-1}}{y_n-y_{n-1}}$$
 
 % {\bf 注：}Stolz定理主要用于计算"$\df{\infty}{\infty}$型"的极限
 
-由Stolz定理可以很容易地得出如下的{\b{\bf Cauchy极限定理}：若$\{a_n\}$收敛，则}
+由Stolz定理也可以很容易地得出{\b{\kaishu Cauchy极限定理}：若$\{a_n\}$收敛，则}
 $$\b\limn\df{a_1+a_2+\ldots+a_n}n=\limn a_n$$
 
 {\bf 例：}计算以下极限
@@ -2686,7 +2691,7 @@ $$\df{\sum\limits_{i=1}^np_i}{\sum\limits_{i=1}^nq_i}\in(a,b)$$
 
 {\bf 例：}若$\limn x_n=a$，极限$\limn\df{x_{n+1}}{x_n}$是否一定存在
 
-{\bf 答：}不一定。反例：$x_n=\df1{3^{[\frac{n+1}2]}}$ （也即
+[答]：不一定。反例：$x_n=\df1{3^{[\frac{n+1}2]}}$ （也即
 $\df13, \df13, \df 1{3^2}, \df1{3^2}, \df1{3^3}, \df1{3^3},\ldots$）
 
 {\bf 讨论：}若$\limn x_n=a\ne 0$，则极限$\limn\df{x_{n+1}}{x_n}$一定存在！

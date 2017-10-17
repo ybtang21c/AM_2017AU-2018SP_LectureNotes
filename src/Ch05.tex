@@ -2,11 +2,7 @@
 
 \chapter{导数的应用}
 
-微分学最初是独立于积分学的，因为其自身已经可以解决许多的应用问题。
-本章讨论的极值、最值、单调性和曲率等，都是微分学的独立应用，其中
-中值定理和Taylor公式又可以说是整个微分学的“制高点”，集成和融汇
-了导数与微分的绝大部分思想与概念，正确地理解和熟练掌握这部分的知识
-是对微积分有一个全面深刻认识的基础。
+
 
 % \begin{shaded}
 % 	{\bf 多项式函数的拐点、极值点的判定：}设
@@ -69,89 +65,7 @@
 \vspace{-2em}
 $$f(-2)=35,\quad f(3)=30,\quad f(2)=-29$$
 
-{\bf 定理5.1.1}（Fermat引理）：若函数$f(x)$在$x_0$处可导，且在$x_0$的某邻域内，有
-$$f(x)\geq f(x_0)\quad (\mbox{或}\quad f(x)\leq f(x_0))$$
-则$f'(x_0)=0$。\ps{掌握费马引理的证明方法}
 
-\begin{shaded}
-	{\bf 关于Fermat和Fermat's Last Theorem}
-	
-	Pierre de Fermat（1601-1665），法国律师和业余数学家。
-	他在数学上的成就不比职业数学家差，他似乎对数论最有兴趣，亦对现代微积分的建立有所贡献。
-	\begin{itemize}
-	  \item 微积分：{\it 费马引理}
-	  \item 将阿波罗尼奥斯的几何分析中用代数方法来重新建立，开出{\it 解析几何}之路。
-	  （费马只使用一轴，只接受正数的答案。后世多以笛卡尔为解析几何的创立者，
-	  主因是费马没有发表其作品。）
-	  \item 1654年，和Pascal在书信中的讨论，被认为是{\it 概率论}的开端，
-	  1656年和概率论的正式创立者Christiaan Huygens（1629-1695）的交流，
-	  使后者增加了对概率论的兴趣
-	\end{itemize}
-	
-	Fermat{\it 小定理}：假设$a\in\mathbb{Z}$，$p$为素数，则$a^p-a$可以整除$p$，
-	或者写为
-	$$a^p\equiv a(\mathrm{mod}p),$$
-	特别低，若$a$不是$p$的倍数，则上式可写为$a^{p-1}\equiv 1(\mathrm{mod} p)$
-	
-	Fermat{\it 大定理}（也称Fermat最后定理）：对于大于$2$的正整数$n$，以下方程
-	无正整数解
-	$$x^n+y^n=z^n.$$
-	这个定理造成了数学史上最大的悬案：1637年，费马在阅读丢番图《算术》拉丁文译本时，
-	曾在第11卷第8命题旁写道：
-	{\it 将一个立方数分成两个立方数之和，或一个四次幂分成两个四次幂之和，
-	或者一般地将一个高于二次的幂分成两个同次幂之和，这是不可能的。
-	关于此，我确信已发现了一种美妙的证法，可惜这里空白的地方太小，写不下。}
-	
-	一直被称为“费马猜想”，直到英国数学家Andrew John Wiles及其学生Richard
-	Taylor于1995年将他们的证明出版后，才称为“费马大定理”。
-	经过数学家们三个多世纪的努力，猜想才变成了定理。在冲击这个数论世纪难题的过程中，
-	无论是不完全的还是最后完整的证明，都给数学界带来很大的影响；很多的数学结果、
-	甚至数学分支在这个过程中诞生了，包括代数几何中的{\it 椭圆曲线}和{\it 模形式}，
-	以及{\it	伽罗瓦理论}和{\it 赫克代数}等。这也令人怀疑
-	当初费马是否真的找到了正确证明。
-	
-	\begin{itemize}
-	  \item 1770年，Euler证明 $n=3$时定理成立
-	  \item 1823年，Legendre证明$n=5$时定理成立
-      \item 1832年，Dirichlet试图证明$n=7$失败，但证明$n=14$时定理成立
-	  \item 1839年，Gabriel Lamé证明$n=7$时定理成立
-	  \item 1850年，Ernst Eduard Kummer证明$2<n<100$时除$37$、$59$、$67$三数外定理成立
-	  \item 1955年，Harry Vandiver以电脑计算证明了对所有不超过$2521$的素数定理成立
-	  \item 1976年，Samuel Wagstaff以电脑计算证明对所有不超过$125000$的素数定理成立
-	  \item 1985年，电脑计算证明了对所有小于$4$百万的素数定理成立
-	  \item 1987年，格朗维尔以电脑计算证明了$2<n<10^{{1800000}}$时定理成立
-	  \item 1995年，Wiles证明$n>2$时定理成立。
-	\end{itemize}
-	
-	怀尔斯证明费马大定理的过程亦甚具戏剧性。他用了七年时间，在不为人知的情况下，
-	得出了证明的大部分；然后于1993年6月在一个学术会议上宣布了他的证明，并瞬即
-	成为世界头条。但在审批证明的过程中，专家发现了一个极严重的错误。怀尔斯和泰勒
-	然后用了近一年时间尝试补救，终在1994年9月以一个之前怀尔斯抛弃过的方法得到成功。
-	
-	为什么Fermat大定理在数学史上的地位如此重要？有三个主要的原因：一是问题基本，长时间
-	（350年）悬而未决，吸引了众多数学大师对其加以研究；二是研究问题的过程中产生了新的思想和方法，
-	带动了数学很多领域的发展；三是涉及{\it 谷山—志村猜想}，是现代数学大热门{\it 朗兰兹纲领}
-	的重要组成部分。1967年提出的朗兰兹纲领（Langlands program）指出三个
-	相对独立发展起来的数学分支	：数论、代数几何和群表示论，实际上是密切相关的，
-	而连接这些数学分支的纽带是一些特别的函数，被称为L-函数。L-函数可以说是朗兰兹纲
-	领的中心研究对象。数学界著名的七个	{\it “千禧年大奖问题”}中有两个就是关
-	于L-函数的，它们分别是{\it 黎曼假设}和{\it BSD猜想}。
-	
-	延伸阅读：
-	
-	[1] 知乎：为什么费马大定理在数学史上的地位如此重要？
-	
-	[2] 知乎：为什么费马大定理表述起来这么简单，证明却这么复杂？
-	
-	[3] https://en.wikipedia.org/wiki/Fermat's\_Last\_Theorem
-	
-	[4] https://zh.wikipedia.org/wiki/费马大定理
-	
-	[5] https://en.wikipedia.org/wiki/Andrew\_Wiles
-	
-	[6] https://en.wikipedia.org/wiki/Pierre\_de\_Fermat
-	
-\end{shaded}
 
 \subsection{极值}
 
@@ -351,200 +265,17 @@ $$R'(\alpha)=\df{2v_0^2}{g\cos^2\theta}\cos(2\alpha+\theta),$$
 
 \subsection{Rolle定理}
 
-{\bf 定理5.2.1：}若函数$f(x)$满足：
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 在区间$[a,b]$上连续
-  \item 在区间$(a,b)$内可导
-  \item $f(a)=f(b)$
-\end{enumerate}
-则：存在$\xi\in(a,b)$，使得$f\,'(\xi)=0$。
 
-{\bf 注：}{\b 三个条件缺一不可！！}\ps{为什么？每种情况给出相应的反例！}
-
-{\bf 例：}证明：对函数$f(x)=(x-1)(x-2)(x-3)$，至少存在一点
-$\xi\in(1,3)$，使得$f\,''(\xi)=0$。
-
-{\bf 例}（Darboux定理）设$f(x)$在$[a,b]$上可导，且$f\,'_+(a)f\,'_-(b)<0$，
-则存在$\xi\in(a,b)$，使得$f\,'(\xi)=0$。
-
-[提示]：不妨设$f'_+(a)>0$，且$f(a)>f(b)$，则可以证明必存在$c\in(a,b)$，
-使得$f(c)=f(a)$，然后使用Rolle定理。
-
-{\bf 例：}设$f(x)$在$[a,b]$上满足Rolle定理条件，
-且$f\,'_+(a)f\,'_-(b)>0$，则$f\,'(0)=0$在$(a,b)$内至少有两个根。
-
-[提示]：利用极限的保号性，说明在$a,b$附近各有一点，两点函数值反号，然后利用
-介值定理和Rolle定理。
-
-{\bf 例：}设$\df{a_0}{n+1}+\df{a_1}{n}+\ldots+a_n=0$，证明：方程
-$$a_0x^n+a_1x^{n-1}+\ldots+a_n=0$$
-在区间$(0,1)$内至少有一个根。
-
-[提示]：令
-$$F(x)=\df{a_0}{n+1}x^{n+1}+\df{a_1}{n}x^n+\ldots+a_nx$$
-
-{\bf 推论}（Rolle定理的高阶推广）
-设$f(x)$在$[x_0,x_n]$上有$n-1$阶连续导数，在$(x_0,x_n)$内
-$n$阶可导，且
-$$f(x_0)=f(x_1)=\ldots=f(x_n),\quad(x_0<x_1<\ldots<x_n),$$
-则存在$\xi\in(x_0,x_n)$，使得$f^{(n)}(\xi)=0$。
-
-[提示]：反复使用Rolle定理。
-
-{\bf 例：}设$f(x)\in C[a,b]$，在$(a,b)$内可导，且$f(a)=f(b)=0$，证明：存在
-$\xi\in(a,b)$，使得：
-$$f'(\xi)+f(\xi)=0.$$
-
-[提示]：$F(x)=f(x)e^x$
-
-{\bf 注：}{\b 辅助函数的构造可以从不定积分中获得一些启发
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item $f(\xi)+\lambda f'(\xi)=0$：令$F(x)=e^{\lambda x}f(x)$
-  \item $f'(\xi)+f(\xi)g'(\xi)=0$： 令$F(x)=e^{\lambda g(x)}f(x)$
-  \item $nf(\xi)+xf'(\xi)=0$： 令$F(x)=x^nf(x)$ 
-  \item $f'(\xi)g(\xi)+f(\xi)g'(\xi)=0$：令$F(x)=f(x)g(x)$
-  \item $f'(x)g(x)-f(x)g'(x)=0$： 令$F(x)=\df{f(x)}{g(x)}$
-\end{itemize}
-}
 
 
 \subsection{Lagrange中值定理}
 
-{\bf 定理5.2.2：}若函数$f(x)$满足： 
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 在区间$[a,b]$上连续 
-  \item 在区间$(a,b)$内可导 
-\end{enumerate}
-则：{\b 存在$\xi\in(a,b)$，使得 
-$$f\,'(\xi)=\df{f(b)-f(a)}{b-a}.$$}
 
-[证明概要]：结论即为\ps{\b 从结论出发构造辅助函数是证明中值问题的常用思路}
-$$f'(\xi)(b-a)-[f(b)-f(a)]=0,$$
-考虑
-$$F'(x)=f'(x)(b-a)-[f(b)-f(a)],$$
-从而
-$$F(x)=f(x)(b-a)-[f(b)-f(a)]+C,$$
-不妨令$C=0$，可以验证$F(b)=F(a)$，在利用Rolle定理即可。
 
-{\bf 注：}Lagrange中值定理的几种常见形式
-$${\b f(b)-f(a)=f'(\xi)(b-a)}$$
-$${\b f(x+\Delta x)=f(x)+f'(x+\theta\Delta x)\Delta x,
-\quad (\theta\in(0,1))}$$
 
-{\bf 推论（教材-例1）}
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 导数恒为零的函数取值恒为常数。
-  \item 导数恒大于零的函数严格单调递增。
-\end{enumerate}
-
-{\bf 教材-例3：}证明方程$x^5+x-1=0$只有唯一实根。
-
-{\bf 例：}证明：$\df{\ln x-\ln x_1}{x-x_1}<\df 1{x_1},\quad (0<x_1<x)$
-
-{\bf 教材-例2：}证明不等式：$\df{x}{1+x}<\ln(1+x)<x,\;x>0$
-
-{\bf 注：}在证明Eular常数
-$$\gamma=\limn\left(1+\df12+\ldots+\df1n-\ln n\right)$$
-时，用到了这个不等式。
-
-{\bf 教材-例4：}设$f(x)\in C[a,b]$，且$f(x)$在$(a,b)$内二阶可导，
-连接函数曲线两端点的直线在$(a,b)$内至少与曲线存在一个交点，
-则存在$\xi\in(a,b)$，使得$f\,''(\xi)=0$。
-
-{\bf 思考：}{\b 若光滑曲线的端点连线与函数曲线存在多个交点，能够得到什么结论？}
-
-利用与Lagrange中值定理相似的思想，可以证明：
-
-{\bf 例：}设$f(x)$在$[a,b]$上二阶可导，$f(a)=f(b)=0$，证明：对任意
-$c\in(a,b)$，存在$\xi\in(a,b)$，使得
-$$f(c)=\df{f\,''(\xi)}{2}(c-a)(c-b)$$
-[提示]：设
-$$F''(x)=f''(x)-\df{2f(c)}{(c-a)(c-b)},$$
-则可得
-$$F(x)=f(x)-\df{f(c)}{(c-a)(c-b)}x^2+C_1x+C_2,$$
-其中$C_1,C_2$为常数。不妨令$C_1=C_2=0$，以下可以验证：
-$$\df{F(c)-F(a)}{c-a}=\df{F(b)-F(c)}{b-c}
-=-\df{f(c)}{(c-a)(c-b)}(a+b),$$
-由Lagrange中值定理，存在$\xi_1\in(a,c),\xi_2\in(c,b)$，使得
-$$F'(\xi_1)=F'(\xi_2)=-\df{f(c)}{(c-a)(c-b)}(a+b),$$
-进而再由Rolle定理，存在$\xi\in(\xi_1,\xi_2)$，使得$F''(\xi)=0$，即证。
-
-{\bf 注：}直接令辅助函数
-$$F(x)=f(x)-\df{(x-a)(x-b)}{(c-a)(c-b)}f(c)$$
-亦可，这个辅助函数的右半部分事实上是过$(a,0),(b,0),(c,f(c))$
-三点的Lagrange插值多项式！
-
-\begin{shaded}
-{\bf 过$n$个点$(x_i,f(x_i))(i=1,2,\ldots,n)$的Lagrange插值多项式}
-$$L_n(x)=\sum\limits_{i=1}^n\prod_{j=1,j\ne i}^{n}
-\df{x-x_j}{x_i-x_j}f(x_i)$$
-
-{\bf 例：}过点$(0,0),(1,2),(2,-1),(3,-2)$的Lagrange插值多项式为
-$$L(x)=\df{x^3}6-8x^2+\df{41}6x$$
-
-\begin{center}
-	\resizebox{!}{5cm}{\includegraphics{./images/ch5/L4x.pdf}}
-\end{center}
-
-%% code of Mathematica 
-% f[x_] := 7/6*x^3 - 6 x^2 + 41/6*x;
-% CCurve = Plot[f[x], {x, -0.5, 3.5}];
-% DCurve = ListPlot[Table[{n, f[n]}, {n, 0, 3}], Filling -> Axis];
-% Show[CCurve, DCurve]
-
-\end{shaded}
 
 \subsection{Cauchy中值定理}
 
-{\bf 定理5.2.3：}若函数$f(x),\varphi(x)$满足： 
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 在$[a,b]$上连续 
-  \item 在$(a,b)$内可导，且$\varphi'(x)\ne 0$ 
-\end{enumerate}
-则：存在$\xi\in(a,b)$， 使得
-$$\df{f(b)-f(a)}{\varphi(b)-\varphi(a)}=\df{f'(\xi)}{\varphi'(\xi)}$$
-
-[证明概要]：结论即为
-$$[f(b)-f(a)]\varphi'(\xi)-[\varphi(b)-\varphi(a)]f'(\xi)=0,$$
-因此考虑
-$$F'(x)=[f(b)-f(a)]\varphi'(x)-[\varphi(b)-\varphi(a)]f'(x),$$
-从而
-$$F(x)=[f(b)-f(a)]\varphi(x)-[\varphi(b)-\varphi(a)]f(x)+C.$$
-不妨令$C=0$，可以验证$F(b)=F(a)$，利用Rolle定理即可。
-
-{\bf 注：}Cauchy中值定理可视为{\it 参数化}的Lagrange中值定理，即：
-由$\varphi'(x)\ne 0$可知，$\varphi(x)$为单调（可逆）函数，从而设
-$A=\varphi(a),B=\varphi(b)$，故由Lagrange中值定理，存在$\xi\in(a,b)$，
-也即$C=\varphi(\xi)$介于$A,B$之间，使得
-$$\df{f(b)-f(a)}{\varphi(b)-\varphi(a)}
-=\df{f(\varphi^{-1}(B))-f(\varphi^{-1}(A))}{B-A}
-=[f(\varphi^{-1}(x))]'_{x=\xi}=\df{f'(\xi)}{\varphi'(\xi)}.$$
-
-{\bf 例：}设$0<a<b$，$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，证明：
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 存在$\xi\in(a,b)$，使得：
-	$$f(b)-f(a)=\ln\df ba\cdot \xi f\,'(\xi)$$
-  \item 存在$\eta\in(a,b)$，使得：
-    $$2\eta[f(b)-f(a)]=(b^2-a^2)f\,'(\eta)$$
-  \item 存在$x_1,x_2,x_3\in(a,b)$，使得
-	$$f\,'(x_1)=(b+a)\df{f\,'(x_2)}{2x_2}=(a^2+ab+b^2)
-	\df{f\,'(x_3)}{3x_3^2}$$ 
-  \item 若$f\,'(x)\ne 0$，则存在$\xi,\eta\in(a,b)$，使得
-	$$\df{f'(\xi)}{f'(\eta)}=\df{e^b-e^a}{b-a}e^{-\eta}$$
-  \item 存在$c\in(a,b)$，使得
-	$$\df{1}{a-b}\left|\begin{array}{cc}
-	a & b\\ f(a) & f(b)
-	\end{array}\right|=f(c)-cf'(c).$$
-\end{enumerate}
-
-{\bf 注：}通过对结论适当地变形整理，以上问题都可以使用
-Rolle定理证明。
 
 \subsection{L'Hospital法则}
 
