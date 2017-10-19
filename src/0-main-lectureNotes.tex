@@ -38,6 +38,9 @@
 
 \usepackage{flushend,cuted}
 
+\usepackage{tcolorbox} %各种自定义的盒子
+\tcbuselibrary{skins, breakable, theorems}
+
 %============== Chinese Font Config 1 ===================
 
 % \setCJKmainfont[BoldFont={Adobe Heiti Std}, ItalicFont={Adobe Kaiti Std},
@@ -115,14 +118,12 @@ angle=90,contents=NUDT-2017-S3]{background}
 % \input{cover-II.tex}
 
 %==========table of Content=============
-% \setcounter{tocdepth}{3}%控制目录显示的层级
-% \tableofcontents
-% \newpage
+\setcounter{tocdepth}{3}%控制目录显示的层级
+\tableofcontents
+\newpage
 %=======================================
 
 \setcounter{page}{1}
-
-% \input{testTikz.tex}
 
 % \input{selfTest/st-ch1.tex}
 % 
@@ -131,7 +132,6 @@ angle=90,contents=NUDT-2017-S3]{background}
 % \input{Ch0-1.tex}
 
 % \input{Ch02.tex}
-
 
 % \input{UnitTest/UT-Ch01-lim-cont.tex}
 

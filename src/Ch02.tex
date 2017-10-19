@@ -10,12 +10,14 @@
 
 \subsection{函数在一点处的导数}
 
-函数$y=f(x)$在$x_0$的某领域内有定义，若
-$$\limdx\df{f(x_0+\dx)-f(x_0)}{\dx}$$
-存在， 则称{$f(x)$在$x_0$处可导}，该极限称为{\it $f(x)$在$x_0$处的导数}， 记为
-$${\b f\,'(x_0),\quad \left.\df{\d y}{\d x}\right|_{x=x_0},\quad\left.\df{\d
-}{\d x}y\right|_{x=x_0},\quad \left.\df{\d }{\d x}f(x)\right|_{x=x_0}\quad
-y'_x|_{x=x_0},\quad \dot{y}(x_0)}$$
+\begin{thx}
+	函数$y=f(x)$在$x_0$的某领域内有定义，若
+	$$\limdx\df{f(x_0+\dx)-f(x_0)}{\dx}$$
+	存在， 则称{\bf $f(x)$在$x_0$处可导}，该极限称为{\bf $f(x)$在$x_0$处的导数}， 记为
+	$$f\,'(x_0),\quad \left.\df{\d y}{\d x}\right|_{x=x_0},\quad\left.\df{\d
+	}{\d x}y\right|_{x=x_0},\quad \left.\df{\d }{\d x}f(x)\right|_{x=x_0}\quad
+	y'_x|_{x=x_0},\quad \dot{y}(x_0)$$
+\end{thx}
 
 \begin{shaded}
 	Newton把连续的量统称为{\it 流量}(fluent)，把变化率称为{\it 流数}(fluxion)，
@@ -66,12 +68,13 @@ y'_x|_{x=x_0},\quad \dot{y}(x_0)}$$
 
 {\bf 例：}已知函数$f(x)$在点$x_0$处可导，求曲线$y=f(x)$在该点的切线和法线方程。
 
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item {\it\b 切线：\quad $y=f(x_0)+f'(x_0)(x-x_0)$}
-  \item {\it\b 法线：\quad $y=f(x_0)-\df1{f'(x_0)}(x-x_0)\quad(f'(x_0)\ne 0)$}
-\end{itemize}
-
+\begin{thx}
+	\begin{itemize}
+% 	  \setlength{\itemindent}{1cm}
+	  \item {\it 切线：\quad $y=f(x_0)+f'(x_0)(x-x_0)$}
+	  \item {\it 法线：\quad $y=f(x_0)-\df1{f'(x_0)}(x-x_0)\quad(f'(x_0)\ne 0)$}
+	\end{itemize}
+\end{thx}
 {\bf 例：}若抛物线$y=x^2$上有三个不同号点处的法线交于一点，这三个点的横坐标需要满足什么条件？
 
 [提示]： 设三个点的横坐标分别是$a_1,a_2,a_3$。
@@ -103,7 +106,9 @@ $$\df{a_1+a_2+a_3}{a_3}=\df{a_1+a_2+a_3}{a_2}=\df{a_1+a_2+a_3}{a_1}$$
 
 不难证明，函数在一点连续是在该点可导的一个必要条件。
 
-{\bf 定理：}$f(x)$在一点可导，则一定在该点连续。
+\begin{thx}
+	{\bf 定理：}$f(x)$在一点可导，则一定在该点连续。
+\end{thx}
 
 [证]：设$f(x)$在$x_0$可导，导数为$A$，则
 \begin{align*}
@@ -142,23 +147,25 @@ $$\limx{0}\df{f(x)-f(0)}{x-0}=\limx{0}\df{x^2D(x)}{x}=0,$$
 即证。
 \hfill$\Box$
 
-连续但不可导最极端的情况是如下的{\kaishu Weierstrass函数}，
-可以证明\ps{涉及函数项级数的一些性质，在此不作证明}它在处处连续但处处不可导：	
-$$W(x)=\sum\limits_{n=0}^{\infty}a^n\cos(b^n\pi x),$$
-其中$a\in(0,1)$，$b$为正的奇数，满足$ab>1+\df32\pi$
-\begin{center}
-	\resizebox{!}{6cm}{\includegraphics{./images/ch4/WFunc.pdf}}
+\begin{shaded}
+	连续但不可导最极端的情况是如下的{\kaishu Weierstrass函数}，
+	可以证明（涉及函数项级数的一些性质，在此不作证明）它在处处连续但处处不可导：	
+	$$W(x)=\sum\limits_{n=0}^{\infty}a^n\cos(b^n\pi x),$$
+	其中$a\in(0,1)$，$b$为正的奇数，满足$ab>1+\df32\pi$
+	\begin{center}
+		\resizebox{!}{6cm}{\includegraphics{./images/ch4/WFunc.pdf}}
+		
+		\kaishu Weierstrass函数具有某种“分形”的特征，对其任何一个微小的局部
+		进行放大，都会呈现处相似的锯齿状形态，它是一个真正在任一段上都不光滑的函数。
+	\end{center}
 	
-	\kaishu Weierstrass函数具有某种“分形”的特征，对其任何一个微小的局部
-	进行放大，都会呈现处相似的锯齿状形态，它是一个真正在任一段上都不光滑的函数。
-\end{center}
-
-这个反例的引入对数学界造成了巨大的震动，但同时也产生了无可替代的巨大意义。
-《微积分的历程》一书中\ps{P.169}的一段评述可以给我们启发：{\it 在持续不断的起伏中，数学家们建立起
-雄伟的理论体系，然后寻找足以揭示他们的思想界限的恰当反例。这种理论与反例的对照
-成为正确推理的引擎，凭借这种工具，数学得以进步。因为{\b 我们唯有知道某些特性是如何
-丧失的，方能了解它们是怎样发挥作用的。同样，我们唯有认清直觉是如何把人引入歧途
-的，方能如实地评价推理的威力。}}
+	这个反例的引入对数学界造成了巨大的震动，但同时也产生了无可替代的巨大意义。
+	《微积分的历程》一书中（P.169）的一段评述可以给我们启发：{\it 在持续不断的起伏中，数学家们建立起
+	雄伟的理论体系，然后寻找足以揭示他们的思想界限的恰当反例。这种理论与反例的对照
+	成为正确推理的引擎，凭借这种工具，数学得以进步。因为{\b 我们唯有知道某些特性是如何
+	丧失的，方能了解它们是怎样发挥作用的。同样，我们唯有认清直觉是如何把人引入歧途
+	的，方能如实地评价推理的威力。}}
+\end{shaded}
 
 {\bf 例：}确定常数$a,b$的值，使得函数
 $$f(x)=\left\{\begin{array}{ll}ax+b,& x>0\\
@@ -220,35 +227,49 @@ $$|f'(0)|=\limx{0}\df{|f(x)|}{|x|}\leq\limx{0}\df{|\sin x|}{|x|}=1$$
 有了函数在一点的导数概念，可以很容易地将其扩展到所谓的{\it 导函数}，也即由函数
 在不同点处的导数值所构成的函数。为了今后的讨论方便，不加证明地引入如下定理：
 
-{\bf 定理：}所有初等函数在其定义域内均是处处可导的。
+\begin{thx}
+	{\bf 初等函数的可导性：}所有初等函数在其定义域内均是处处可导的。
+\end{thx}
 
+事实上，经过本章稍后的讨论，我们会发现，初等函数的导函数都是初等函数。
+但是，需要提醒一句的是，并非只有初等函数的导函数才是初等函数。例如没有一个
+初等函数的导函数是$e^{x^2}$或者$\df{\sin x}x$。
 
-例如导数的定义和基本的极限运算，可以很容易地求出一些常用初等函数的导函数：
+接下来我们的主要任务就是给出所有初等函数的导函数。
 
-{\bf 例}（{\it 一些常用函数的导函数}）
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $f(x)=C\;(C\mbox{为常数})$ \hfill $f\,'(x)=0$ 
-  \item $f(x)=x^n\;(n\in\mathbb{Z})$ \hfill $f\,'(x)=nx^{n-1}\,(n\ne
-  0)$ 
-  \item $f(x)=e^x$ \hfill $f\,'(x)=e^x$ 
-  \item $f(x)=\ln|x|$ \hfill $f\,'(x)=\df 1x$ 
-  \item $f(x)=\sin x$ \hfill $f\,'(x)=\cos x=\sin\left(x+\df{\pi}2\right)$ 
-  \item $f(x)=\cos x$ \hfill $f\,'(x)=-\sin x=\cos\left(x+\df{\pi}2\right)$
-\end{enumerate}
+利用导数的定义和基本的极限运算，可以很容易地求出一些常用初等函数的导函数：
+
+\begin{thx}
+	{\bf 一些常用函数的导函数}
+	\begin{enumerate}[(1)]
+% 	  \setlength{\itemindent}{1cm}
+	  \item $f(x)=C\;(C\mbox{为常数})$ \hfill $f\,'(x)=0$ 
+	  \item $f(x)=x^n\;(n\in\mathbb{Z})$ \hfill $f\,'(x)=nx^{n-1}\,(n\ne
+	  0)$ 
+	  \item $f(x)=e^x$ \hfill $f\,'(x)=e^x$ 
+	  \item $f(x)=\ln|x|$ \hfill $f\,'(x)=\df 1x$ 
+	  \item $f(x)=\sin x$ \hfill $f\,'(x)=\cos x=\sin\left(x+\df{\pi}2\right)$ 
+	  \item $f(x)=\cos x$ \hfill $f\,'(x)=-\sin x=\cos\left(x+\df{\pi}2\right)$
+	\end{enumerate}
+\end{thx}
+
 
 \section{函数的求导法则}
 
 \subsection{四则运算的求导法则}
 
-设$u(x),v(x)$均在$x$可导，则
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $[u(x)\pm v(x)]'=u'(x)\pm v'(x)$ 
-  \item $[u(x)v(x)]' =u'(x)v(x)+u(x)v'(x)$ \ps{自行推导$(uvx)'$的公式}
-  \item {\b$\left[\df{u(x)}{v(x)}\right]'
-  =\df{u'(x)v(x)-u(x)v'(x)}{v^2(x)}\;(v(x)\ne 0)$}
-\end{enumerate}
+\begin{thx}
+	设$u(x),v(x)$均在$x$可导，则
+	\begin{enumerate}[(1)]
+	  \setlength{\itemindent}{1cm}
+	  \item $[u(x)\pm v(x)]'=u'(x)\pm v'(x)$ 
+	  \item $[u(x)v(x)]' =u'(x)v(x)+u(x)v'(x)$ 
+	  \item $\left[\df{u(x)}{v(x)}\right]'
+	  =\df{u'(x)v(x)-u(x)v'(x)}{v^2(x)}\;(v(x)\ne 0)$
+	\end{enumerate}
+\end{thx}
+
+{\bf 思考：}自行推导$(uvw)'$的公式，并给出类似函数的求导规律。
 
 {\bf 例：}计算以下函数的导函数
 \begin{enumerate}[(1)]
@@ -257,8 +278,10 @@ $$|f'(0)|=\limx{0}\df{|f(x)|}{|x|}\leq\limx{0}\df{|\sin x|}{|x|}=1$$
   \item $f(x)=e^x\sin x$ 
   \item $f(x)=\df{x-1}{x+1}$ 
   \item $f(x)=\df 1{\ln x}$ 
-  \item {\b$f(x)=\tan x$ \hfill $f\,'(x)=\sec^2 x$ }
-  \item {\b$f(x)=\sec x$ \hfill $f\,'(x)=\sec x\tan x$}
+  \item \tcbox[tcbox raise base,colframe=blue!40!black,colback=white]
+  {$f(x)=\tan x$ \hspace{8cm}  $f\,'(x)=\sec^2 x$}
+  \item \tcbox[tcbox raise base,colframe=blue!40!black,colback=white]
+  {$f(x)=\sec x$ \hspace{7.5cm} $f\,'(x)=\sec x\tan x$}
 \end{enumerate}
 
 {\bf 例：}已知$f(x)$可导，且无零点，证明：$y=f(x)$和$y=f(x)\sin x$
@@ -308,19 +331,25 @@ $$
 
 至此，我们可以得到如下的结论：
 
-{\b 设$y=f(x)$和$x=g(y)$互为反函数，若$f(x)$可导，且$f'(x)\ne 0$，则}
-$$\b g'(y)=\df1{f'(x)}.$$
+\begin{thx}
+	设$y=f(x)$和$x=g(y)$互为反函数，若$f(x)$可导，且$f'(x)\ne 0$，则
+	$$g'(y)=\df1{f'(x)}.$$
+\end{thx}
 注意，{\b 使用反函数的求导公式时，必须注意原函数和反函数的自变量是不同的，
 因此求导的时候$f'(x)$和$g'(y)$实际上分别是$f'_x(x)$和$g'_y(y)$。}
 
 {\bf 例：}考虑函数$y=e^x$，我们已知$(e^x)'_{\b x}=e^x$，故
-$$(\ln y)'_{\b y}=\df1{(e^x)'_{\b x}}=\df1{e^x}=\df1y$$
+\begin{thx}
+	$$(\ln y)'_{\b y}=\df1{(e^x)'_{\b x}}=\df1{e^x}=\df1y$$
+\end{thx}
 
 {\bf 例：}计算下列函数的导函数
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item {\b$f(x)=\arcsin x$ \hfill $f\,'(x)=\df{1}{\sqrt{1-x^2}}$} 
-  \item {\b$f(x)=\arctan x$ \hfill $f\,'(x)=\df{1}{1+x^2}$}
+  \item \tcbox[tcbox raise base,colframe=blue!40!black,colback=white]
+  {$f(x)=\arcsin x$ \hspace{6.9cm} $f\,'(x)=\df{1}{\sqrt{1-x^2}}$} 
+  \item \tcbox[tcbox raise base,colframe=blue!40!black,colback=white]
+  {$f(x)=\arctan x$ \hspace{7.2cm} $f\,'(x)=\df{1}{1+x^2}$}
 \end{enumerate}
 
 [提示]：记$y=\sin x$，则
@@ -353,17 +382,22 @@ $\Delta x,\Delta u,\Delta y$为相对应的三个变化量，则有
 	=g'(u)f'(x)=g'(f(x))f'(x),
 \end{align*}
 于是，我们得到了如下的关于复合函数的求导法则
-$$\b [g(f(x))]'=g'(f(x))\cdot f'(x).$$
+\begin{thx}
+	$$[g(f(x))]'=g'(f(x))\cdot f'(x).$$
+\end{thx}
 试想一下，如果是三个可导的函数相互复合，则由
-$$[h(g(f(x))0]'=h'(g(f(x)))\cdot g'(f(x))\cdot f'(x),$$
+$$[h(g(f(x))]'=h'(g(f(x)))\cdot g'(f(x))\cdot f'(x),$$
 这很类似于一环一环地解开一个相互连接的链条，因此该法则也被称为{\it 链式法则}。
 
-{\bf 例：}计算下列函数的导函数
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item {\b$y=a^x\;(a>0,a\ne 1)$ \hfill $y'=a^x\ln a$} 
-  \item {\b$y=x^a$ \hfill $y'=ax^{a-1}$}
-\end{enumerate}
+
+{\bf 例：}幂函数和指数函数的导函数
+\begin{thx}
+	\begin{enumerate}[(1)]
+	%   \setlength{\itemindent}{1cm}
+	  \item $y=a^x\;(a>0,a\ne 1)$ \hfill $y'=a^x\ln a$ 
+	  \item $y=x^a$ \hfill $y'=ax^{a-1}$
+	\end{enumerate}
+\end{thx}
 
 [提示]：
 $$(a^x)'=[e^{x\ln a}]'=e^{x\ln a}\cdot (x\ln a)'=a^x\ln a.$$
@@ -408,8 +442,12 @@ $$\varphi(x)=f\left(\arctan\df{1+x}{1-x}\right)$$
 
 \section{高阶导数}
 
-高阶导数就是导函数的导数，并且可以依次递推，{\it $f(x)$在$n$阶导数}：
-$${\b f^{\,(n)}(x)=\df{\d^nf(x)}{\d x^n}=\left[f^{\,(n-1)}(x)\right]'_x}$$
+高阶导数就是导函数的导数，并且可以依次递推，
+\begin{thx}
+	{\bf $f(x)$的$n$阶导数}：
+	$$f^{\,(n)}(x)=\df{\d^nf(x)}{\d x^n}=\left[f^{\,(n-1)}(x)\right]'_x$$
+	
+\end{thx}
 
 {\bf 例：}求函数$f(x)=x^3+2x^2-3x+10$的各阶导函数。
 
@@ -440,8 +478,10 @@ $$y^{(n)}=\left(a^2+b^2\right)^{n/2}e^{ax}\sin(bx+n\varphi)$$
 
 对于形如$u(x)v(x)$构造的函数，有如下的求高阶导数的公式：
 
-$${\b{\left[u(x)v(x)\right]^{(n)}=
-\sum\limits_{k=0}^nC_n^ku^{(n-k)}(x)v^{(k)}(x)}}.$$
+\begin{thx}
+	$${\left[u(x)v(x)\right]^{(n)}=
+	\sum\limits_{k=0}^nC_n^ku^{(n-k)}(x)v^{(k)}(x)}.$$
+\end{thx}
 
 {\bf 例：}设$y=x^3e^x$，求$y^{(10)}$。
 
@@ -531,7 +571,9 @@ $$y^{(n)}(0)=\left\{\begin{array}{ll}
 \end{array}\right.$$
 
 {\bf 注：}以上结果中出现了{\it 双阶乘}，其定义如下：
-$$(2n)!!=2n(2n-2)(2n-4)\ldots2,\;(2n+1)!!=(2n+1)(2n-1)\ldots3\cdot1.$$
+\begin{thx}
+	$$(2n)!!=2n(2n-2)(2n-4)\ldots2,\;(2n+1)!!=(2n+1)(2n-1)\ldots3\cdot1.$$
+\end{thx}
 
 关于高阶导数，有一个看起来很奇怪的结论：
 
@@ -549,18 +591,20 @@ $$\b g''(y)=-\df{f''(x)}{[f'(x)]^3}.$$
 	=-\df{f''(x)}{[f'(x)]^3}.
 \end{align*}
 \begin{shaded}
-	{\bb 一个重要的注记，注意看清楚了！}
+	{\bf\b 一个重要的注记，千万看清楚了！}
 	
 	这里暂停一下，看一看是否还有更为简洁的方法。事实上，有一种非常“形式化”
 	的推导方法，在求解此类问题中有着广泛的应用。例如，对本题而言，可以这样表示
-	\begin{align*}
-		g''(y)&=\df{\d^2x}{\d y^2}
-		=\df{\d }{\d y}\left(\df{\d x}{\d y}\right)
-		=\df{\d }{\d y}\left(\df1{f'(x)}\right)\\
-		&=\df{\d }{\b\d x}\left(\df1{f'(x)}\right)\cdot\df{\b\d x}{\d y}
-		=-\df{f''(x)}{[f'(x)]^2}\cdot\df1{f'(x)}
-		=-\df{f''(x)}{[f'(x)]^3}.
-	\end{align*}
+	\begin{tcolorbox}[colframe=red!80!black]
+		\begin{align*}
+			g''(y)&=\df{\d^2x}{\d y^2}
+			=\df{\d }{\d y}\left(\df{\d x}{\d y}\right)
+			=\df{\d }{\d y}\left(\df1{f'(x)}\right)\\
+			&=\df{\d }{\b\d x}\left(\df1{f'(x)}\right)\cdot\df{\b\d x}{\d y}
+			=-\df{f''(x)}{[f'(x)]^2}\cdot\df1{f'(x)}
+			=-\df{f''(x)}{[f'(x)]^3}.
+		\end{align*}
+	\end{tcolorbox}
 	在上面的推导中，$\d x,\d y$都变成了某种可以被直接代换的“量”（学习了微分之后，
 	我们知道，如果按照导数作为微商的定义，其上下的这两个部分可以分别视为$x,y$的微分，
 	微分没有数量上的意义，但可以用来刻画无穷小量之间的比值），从而使得推导过程变得
@@ -708,21 +752,26 @@ $$
 
 在此，我们假设$x(t),y(t)$均可导，来考虑一下$y$关于$x$的导数。
 参考上一节中的“形式化”推导方法，可以发现
-$${\b y'(x)}=\df{\d y}{\d x}=\df{\d y}{\d t}\df{\d t}{\d x}
-=\df{\df{\d y}{\d t}}{\df{\d t}{\d x}}={\b \df{y'(t)}{x'(t)}}$$
+\begin{thx}
+	$${\b y'(x)}=\df{\d y}{\d x}=\df{\d y}{\d t}\df{\d t}{\d x}
+	=\df{\df{\d y}{\d t}}{\df{\d t}{\d x}}={\b \df{y'(t)}{x'(t)}}$$
+\end{thx}
 给出某个点$(x,y)$对应的$t$，利用上式右端的公式就可以求出在该点处
 $y$关于$x$的导数（或者说切线斜率）了——当前不要忘记一个必要的前提，
 $x'(t)\ne 0$\ps{事实上，如果将$x$视为自变量，显然必须要求$x(t)$是可逆的，
 也即$x'(t)\ne 0$}。
 
 不妨再进一步，考虑$y$关于$x$的二阶导数。
-\begin{align*}
-	{\b y''(x)}&=\df{\d^2y}{\d x^2}=\df{\d}{\d x}y'(x)
-	=\df{\d}{\d x}\left(\df{y'(t)}{x'(t)}\right)\\
-	&=\df{\d}{\d t}\left(\df{y'(t)}{x'(t)}\right)\cdot\df{\d t}{\d x}
-	=\df{y''(t)x'(t)-y'(t)x''(t)}{[x'(t)]^2}\cdot\df1{x'(t)}\\
-	&={\b \df{y''(t)x'(t)-y'(t)x''(t)}{[x'(t)]^3}}
-\end{align*}
+\begin{thx}
+	\begin{align*}
+		{\b y''(x)}&=\df{\d^2y}{\d x^2}=\df{\d}{\d x}y'(x)
+		=\df{\d}{\d x}\left(\df{y'(t)}{x'(t)}\right)
+		=\df{\d}{\d t}\left(\df{y'(t)}{x'(t)}\right)\cdot\df{\d t}{\d x}\\
+		&=\df{y''(t)x'(t)-y'(t)x''(t)}{[x'(t)]^2}\cdot\df1{x'(t)}
+		={\b \df{y''(t)x'(t)-y'(t)x''(t)}{[x'(t)]^3}}
+	\end{align*}
+\end{thx}
+
 掌握这种推导方法，对于更好地推导计算各类求导公式是非常重要的。
 
 {\bf 例：}求抛物线$x=y^2$在$(1,1)$和$(4,-2)$处的切线方程。
@@ -905,7 +954,7 @@ $$\df{s(1)}{s(0)}=\left[\df{V(1)}{V(0)}\right]^{\frac13}=
 	\end{enumerate}
 	
 	\begin{center}
-		\resizebox{!}{5cm}{\includegraphics{./images/ch4/Kepler.pdf}}
+		\resizebox{!}{4cm}{\includegraphics{./images/ch4/Kepler.pdf}}
 	\end{center}
 	
 	如图，绿色曲线为行星的椭圆轨道，极坐标系的原点$O$表示“太阳”的位置，点$P$为行星的位置。
@@ -1054,7 +1103,7 @@ $$\df{s(1)}{s(0)}=\left[\df{V(1)}{V(0)}\right]^{\frac13}=
 100位，而你的工具只有无限量使用的笔和纸。就你现在的知识，你觉得可能在有生之年
 完成吗？或者改换一下任务，算算$\ln 3$？
 
-微积分的发明者显然也意识到了这个问题，在想给出了用导数刻画变化率的办法之后，
+数学家们显然也意识到了这个问题，在想给出了用导数刻画变化率的办法之后，
 他们很快发现了它与{\it 近似计算}之间的联系。请注意，这个故事很长，本节只是开篇，
 等到下一章学习了Taylor公式后才能真正告一段落。
 
@@ -1067,15 +1116,17 @@ $$\df{s(1)}{s(0)}=\left[\df{V(1)}{V(0)}\right]^{\frac13}=
 由于没有比{\it 直线}（或者叫"{\it 线性函数"}）更简单的函数形式，因此它就成了第一个
 尝试的对象，对应的想法被称为“{\it 以直代曲}”\ps{后面我们还将学习它的“高级版本”——“以曲代曲”}，
 数学上这样定义：
-设已知函数$f(x)$在$x_0$附近有定义，记$\Delta y=f(x_0+\Delta x)-f(x_0)$，
-如果存在某个与$\Delta x$无关的常数，使得
-$$\Delta y=A\cdot\Delta x+\circ(\Delta x),\;(\Delta x\to 0),$$
-则称$f(x)$可以被以直代曲，或者更规范的说法是{\it $f(x)$在$x_0$处可微}，还有
-一种说法是$f(x)$在$x_0$附近可以“{\it 局部线性化}”。此时，我们称
-$$\left.\d y\right|_{x=x_0}=A\cdot\Delta x$$
-为{\it $f(x)$在$x_0$处的微分}，当$x$是自变量时，一般认为$\d x=\Delta x$，故
-上式一般就记为：
-$$\b\left.\d y\right|_{x=x_0}=A\cdot\d x.$$
+\begin{thx}
+	设已知函数$f(x)$在$x_0$附近有定义，记$\Delta y=f(x_0+\Delta x)-f(x_0)$，
+	如果存在某个与$\Delta x$无关的常数，使得
+	$$\Delta y=A\cdot\Delta x+\circ(\Delta x),\;(\Delta x\to 0),$$
+	则称$f(x)$可以被以直代曲，或者更规范的说法是{\bf $f(x)$在$x_0$处可微}，还有
+	一种说法是$f(x)$在$x_0$附近可以“{\bf 局部线性化}”。此时，我们称
+	$$\left.\d y\right|_{x=x_0}=A\cdot\Delta x$$
+	为{\bf $f(x)$在$x_0$处的微分}，当$x$是自变量时，一般认为$\d x=\Delta x$，故
+	上式一般就记为：
+	$$\left.\d y\right|_{x=x_0}=A\cdot\d x.$$
+\end{thx}
 
 \begin{center}
 	\resizebox{!}{6cm}{\includegraphics{./images/ch4/dy.pdf}}
@@ -1088,8 +1139,10 @@ $$\b\left.\d y\right|_{x=x_0}=A\cdot\d x.$$
 恰好就是$y=f(x)$在$x_0$处的切线，因此$A$就是切线的斜率，换句话说，
 $A=f'(x_0)$。下面我们从代数上推导一下可微和可导的关系。
 
-{\bf 定理：}$f(x)$在$x_0$可微与$f(x)$在$x_0$可导等价，且
-$$\d y =f'(x_0)\d x.$$
+\begin{thx}
+	{\bf 可导与可微的关系：}$f(x)$在$x_0$可微与$f(x)$在$x_0$可导等价，且
+	$$\d y =f'(x_0)\d x.$$
+\end{thx}
 
 [证]：设$f(x)$在$x_0$可微，则存在$A$，使得
 $$f(x)-f(x_0)=A(x-x_0)+\circ(x-x_0),\;(x\to x_0),$$
@@ -1122,17 +1175,19 @@ $$\d y =f'(x_0)\d x.$$
 了解了导数和微分之间的密切联系，就可以很容易地有各种求导法则
 推出下面的微分运算法则：
 
-{\it 微分与四则运算：}设$u(x),v(x)$可微（导），则
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\d (u\pm v)=\d u\pm \d v$
-  \item $\d(uv)=v\d u+u\d v$
-  \item $\d\df uv=\df{v\d u-u\d v}{v^2}$
-\end{enumerate}
-
-{\it 复合函数的微分：}设$y=g(u),u=f(x)$均可微，
-则$y=g[f(x)]$可微，
-$$\d y=g'(u)\d u=g'(u)f'(x)\d x$$
+\begin{thx}
+	{\bf 微分与四则运算：}设$u(x),v(x)$可微（导），则
+	\begin{enumerate}[(1)]
+	  \setlength{\itemindent}{1cm}
+	  \item $\d (u\pm v)=\d u\pm \d v$
+	  \item $\d(uv)=v\d u+u\d v$
+	  \item $\d\df uv=\df{v\d u-u\d v}{v^2}$
+	\end{enumerate}
+	
+	{\bf 复合函数的微分：}设$y=g(u),u=f(x)$均可微，
+	则$y=g[f(x)]$可微，
+	$$\d y=g'(u)\d u=g'(u)f'(x)\d x$$		
+\end{thx}
 
 从形式上看，复合函数的微分运算规则更有链式法则的“环环相扣”的味道，
 事实上，对于一阶的微分运算（与一阶导数对应），我们不必关心每个
@@ -1193,7 +1248,7 @@ $$e_r=\df{\Delta V}{V}\approx 3\df{\Delta R}{R}=3\%.$$
 \begin{center}
 	\includegraphics[width=0.75\textwidth]{./images/ch2/archBridge-1.jpg}
 	
-	\includegraphics[width=0.85\textwidth]{./images/ch2/zhaozhouqiao.jpg}
+	\includegraphics[width=0.75\textwidth]{./images/ch2/zhaozhouqiao.jpg}
 	
 	\it 赵州桥
 \end{center}
