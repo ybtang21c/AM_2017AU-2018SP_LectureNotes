@@ -233,8 +233,10 @@ Darboux定理说明导函数具有{\it 介值性}，即可以证明：介于区�
 
 \subsection{Lagrange中值定理}
 
+下面这个定理据说实际上是由Cauchy证明的：
+
 \begin{thx}
-	{\bf Lagrange中值定理}：若函数$f(x)$满足：\ps{这个定理据说实际上是由Cauchy证明的}
+	{\bf Lagrange中值定理}：若函数$f(x)$满足：
 	\begin{enumerate}[(1)]
 	  \setlength{\itemindent}{1cm}
 	  \item 在区间$[a,b]$上连续 
@@ -389,13 +391,989 @@ $$\df{f(b)-f(a)}{\varphi(b)-\varphi(a)}
 
 \section{L'Hospital法则}
 
+在第一章的“无穷小比较”一节，我们曾讨论过一些不定式极限，这类极限的特点是
+从其自身的构造特定，无法直接看出极限的结果，因此成为极限计算问题中一类
+颇有难度的问题。和用无穷小代换的方法计算极限相比，L'Hospital法则在用法
+上显得更为简单，应用的范围也非常广泛，因此可以被称为是“最受欢迎”的的
+一类极限计算方法。
+
+常见的不定式（型）极限包括如下一些类型：\ps{$0,1,\infty$在此均表示一种趋势，而不是具体的值}
+$$\bm{\df{0}{0}}, \quad \bm{\df{\infty}{\infty}}, \quad
+\bm{1^{\infty}}, \quad \bm{0\cdot\infty}, \quad
+\bm{\infty-\infty}, \quad \bm{\infty^0}, \bm{\quad 0^0}$$
+\begin{center}
+	\resizebox{!}{3.5cm}{\includegraphics{./images/ch5/lim00.pdf}}
+\end{center}
+通过与各种函数运算相结合，它们之间可以实现互相的转化，因此和此前类似，在此
+我们只讨论前两种情形的极限计算方法即可。
+
+% {\bf 举例：}
+% \begin{enumerate}[(1)]
+%   \setlength{\itemindent}{1cm}
+%   \item $\limx{0}\df{x-\sin x}{x}$ 
+%   \item $\limx{+\infty}\df{\ln x}{x}$ 
+%   \item $\limx{1}(1-x^2)\tan\df{\pi}2x$ 
+%   \item $\limx{0}(x^2+2^x)^{1/x}$
+% \end{enumerate}
+
+L'Hospital是一个“著名”的数学爱好者，他为John Bernoulli提供赞助，并获得
+对方一些最新的研究结果。以下的求极限法则最初由后者发现，而由前者发表并命名，
+Bernoulli后来为此感到非常后悔，曾想要回这个本属于自己的定理。
+
+\begin{thx}
+	{\bf 计算$\df00$型不定式极限的L'Hospital法则（I）：}设
+	\begin{enumerate}[(1)]
+	  \item $\limx{a}f(x)=\limx{a}F(x)=0$；
+	  \item $f(x)$和$F(x)$在$a$的某去心邻域内可导，且$F'(x)\ne0$；
+	  \item $\limx{a}\df{f'(x)}{F'(x)}$存在，或为无穷大，
+	\end{enumerate}
+	则
+	$$\limx{a}\df{f(x)}{F(x)}=\limx{a}\df{f'(x)}{F'(x)}.$$
+\end{thx}
+
+[证]：由条件（1），不妨设$f(a)=F(a)=0$，任取$x$为条件（2）所述$a$的去心邻域内一点，
+则$f(x)$和$F(x)$在$a$到$x$的区间内满足Cauchy中值定理条件，从而
+存在$\xi$介于$a$和$x$之间，使得
+$$\df{f(x)}{F(x)}=\df{f(x)-f(a)}{F(x)-F(a)}
+=\df{f'(\xi)}{F'(\xi)},$$
+在该式两端{\b 令$x\to a$，由$\xi$的特性可知，必有$\xi\to a$}，进而由
+条件（3）即证。\hfill$\Box$
+
+以上结论可以直接推广到$\infty/\infty$不定式的情形，事实上：
+若条件（1）改为$\limx{a}f(x)=\limx{a}F(x)=+\infty$，则
+$\limx{a}\df1{f(x)}=\limx{a}\df1{F(x)}=0$；由条件（2）
+可得$\df1{f(x)}$和$\df1{F(x)}$均可导，且$[1/F(x)]'\ne 0$；
+条件（3）不变，对$\df1{f(x)}$和$\df1{F(x)}$直接使用以上定理的结论，可得
+$$
+	\limx{a}\df{f(x)}{F(x)}
+	=\limx{a}\df{1/F(x)}{1/f(x)}
+	=\limx{a}\df{[1/F(x)]'}{[1/f(x)]'}
+	=\limx{a}\df{F'(x)}{f'(x)}\limx{a}\df{f^2(x)}{F^2(x)},
+$$
+稍加整理，即得结论。关于这个结论有一个形象的解释：两个物体都飞向无穷远处，
+他们所经历的路程之比最终取决于他们的速度之比。
+
+在使用L'Hospital法则时，特别需要注意的是
+{\b 由$\limx{\Delta}\df{f'(x)}{g'(x)}=A$可以推出
+$\limx{\Delta}\df{f(x)}{g(x)}=A$，但反之不然。}反例如下：
+$\limx{+\infty}\df{x+\sin x}x=1$，
+但$\limx{+\infty}(1+\cos x)$不存在！
+
+最后，对于$x$趋于无穷时的极限，也有类似的结论，证明在此略过。
+
+\begin{thx}
+	{\bf 计算$\df00$型不定式极限的L'Hospital法则（II）：}设
+	\begin{enumerate}[(1)]
+	  \item $\limx{\infty}f(x)=\limx{\infty}F(x)=0$；
+	  \item $f(x)$和$F(x)$在当$x$充分大时可导，且$F'(x)\ne0$；
+	  \item $\limx{\infty}\df{f'(x)}{F'(x)}$存在，或为无穷大，
+	\end{enumerate}
+	则
+	$$\limx{\infty}\df{f(x)}{F(x)}=\limx{\infty}\df{f'(x)}{F'(x)}.$$
+\end{thx}
+
+{\bf 例：}计算如下极限
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\limx{0}\df{x-\sin x}{x^3}$ 
+  \item $\limx{0}\df{e^x-e^{-x}-2x}{\tan^3x}$ 
+  \item $\limx{0}\df{(1+x)^{1/x}-e}{x}$ 
+  \item $\limx{+\infty}\df{x^n}{e^{\lambda
+  x}}(n\in\mathbb{N},\lambda>0)$ 
+  \item $\limx{+\infty}\df{\ln x}{x^\alpha}(\alpha>0)$ 
+  \item $\limx{\infty}\df{x+\sin x}{x+\cos x}$
+  \item $\limx{1}(1-x^2)\tan\df{\pi}{2}x$ 
+  \item $\limx{0}\left(\df 1{x^2}-\df 1{x\tan x}\right)$ 
+  \item $\limx{0^+}x^x$
+  \item $\limx{0}(x^2+2^x)^{1/x}$ 
+  \item $\limx{0}\left(\cot x-\df 1x\right)$ 
+  \item $\limn\sqrt[n]n$
+\end{enumerate}
+
+{\b{\bf 讨论：}设$f(x)$在$x_0$附近存在二阶连续导函数，则
+$$\lim\limits_{h\to 0}\df{f(x_0+h)+f(x_0-h)-2f(x_0)}{h^2}=f\,''(x_0).$$
+若条件减弱为“$f(x)$在$x=x_0$处二阶可导”，结论是否仍然成立？\ps{难点！}
+
+[答]：成立，如果条件是$f(x)$在$x_0$附近存在二阶连续导函数，可以如下进行推导，
+\begin{align}
+	\lim\limits_{h\to 0}&\df{f(x_0+h)+f(x_0-h)-2f(x_0)}{h^2}
+	=\lim\limits_{h\to 0}\df{f'(x_0+h)-f'(x_0-h)}{2h}\notag\\
+	&=\lim\limits_{h\to 0}\df{f''(x_0+h)+f''(x_0-h)}{2}
+	=f''(0)\notag
+\end{align}
+但如果条件减弱为$f(x)$在$x=x_0$处二阶可导，这样的推导就是不对的。
+其中的错误在于，此时不能保证$f(x)$在$x_0$以外的点（例如$x_0\pm h$）
+处存在二阶导数，更谈不上二阶导数连续，因此最后的两个等号都是不成立的！
+
+事实上，正确的推导应该是
+\begin{align}
+	\lim\limits_{h\to 0}&\df{f(x_0+h)+f(x_0-h)-2f(x_0)}{h^2}
+	=\lim\limits_{h\to 0}\df{f'(x_0+h)-f'(x_0-h)}{2h}\notag\\
+	&=\df12\lim\limits_{h\to 0}\df{f'(x_0+h)-f'(x_0)}{h}
+	+\df12\lim\limits_{h\to 0}\df{f'(x_0-h)-f'(x_0)}{-h}
+	=f''(0)\notag
+\end{align}
+其中最后一个等号只用到了二阶导数的定义。}
+
+在L'Hospital法则的证明中，“令$x\to a$时，由于$\xi$介于$x$和$a$之间，进而
+有$\xi\to a$”，这是一个非常有用的技巧，利用这一技巧，可以证明类似如下的结论：
+
+{\bf 例：}设$\limx{+\infty}f(x)$和$\limx{+\infty}f\,'(x)$均存在，证明：
+$$\limx{+\infty}f\,'(x)=0.$$
+
+[证]：由Lagrange中值定理，对任意$x\in\mathbb{R}$，存在$\xi\in[x,x+1]$，满足
+$$f(x+1)-f(x)=f'(\xi),$$
+注意到{\b$x\to+\infty\Leftrightarrow\xi\to+\infty$}，
+$\limx{+\infty}f(x+1)=\limx{+\infty}f(x)$，故
+$$0=\limx{+\infty}[f(x+1)-f(x)]=\limx{+\infty}f'(\xi)
+=\lim\limits_{\xi\to+\infty}f'(\xi)=\limx{+\infty}f'(x)$$
+即证。
+
+{\bf 例：}设$f(x)$在$U(x_0)$内连续，在$U^0(x_0)$内可导，
+且$\limx{x_0}f\,'(x)=l$，则$$f\,'(x_0)=l.$$
+
+[证]：由Lagrange中值定理，对任意$\Delta x\in\mathbb{R}$，存在
+$\xi\in[x_0,x_0+\Delta x]$，使得
+$$\df{f(x_0+\Delta x)-f(x_0)}{\Delta x}=f'(\xi),$$
+注意到{\b$\Delta x\to 0\Leftrightarrow\xi\to0$}，故
+$$f'(x_0)=\lim\limits_{\Delta x\to 0}\df{f(x_0+\Delta x)-f(x_0)}{x_0}
+=\lim\limits_{\Delta x\to 0}f'(\xi)=\lim\limits_{\xi\to 0}f'(\xi)=l,$$
+即证。
+
+{\bf 例：}
+设$f(0)=1$，且
+$$\limx{0}\df{\ln(1-x)+f(x)\sin x}{e^{x^2}-1}=0,$$
+证明：$f(x)$在$x=0$处可导，求$f\,'(0)$。
+
 \section{Taylor公式}
+
+Taylor公式直观地说是对给定函数的一种{\it 多项式逼近}，也即用一个多项式函数
+近似地表示某个给定的函数。相对于微分所体现的“以直代曲”，这种逼近方式可以称为
+“以曲代曲”，不难想到，由于多项式函数的类型比线性函数（事实上就是$1$阶的多项式）
+更加丰富，这样的逼近效果应该会更好。下面，我们首先从“以曲代曲”
+的角度引入Taylor多项式的概念，然后分析其逼近的效果，最后给出Taylor公式
+的有关应用。可以说，Taylor公式是整个微分学的“制高点”，其中蕴含了微分学中
+的众多结论，或者说，微分学中的众多结论其实都只是它的推论而已。
+
+“以曲代曲”的核心是所谓的{\it $n$阶相切}：
+
+\begin{thx}
+	$P_n(x)$称为{\bf $f(x)$在点$x_0$处的$n$阶Taylor多项式}，若
+	\begin{itemize}
+% 	  \setlength{\itemindent}{1cm}
+	  \item $P_n(x)$是$n$次多项式，形如：$\sum\limits_{k=0}^na_k(x-x_0)^k$；
+	  \item $y=P_n(x)$在$x_0$处与$y=f(x)$处至少{\bf $n$阶相切}，即
+	  对任意$k=0,1,2,\ldots,n$，有
+	  $$P^{(k)}_n(x_0)=f^{(k)}(x_0).$$
+	%   \begin{enumerate}[(1)]
+	%     \item $P_n(x_0)=f(x_0)$
+	%     \item $P'_n(x_0)=f'(x_0)$
+	%     \item $P''_n(x_0)=f''(x_0)$
+	%     \item \ldots
+	%     \item $P^{(n)}_n(x_0)=f^{(n)}(x_0)$
+	%   \end{enumerate} 
+	\end{itemize}
+	特别地，若$x_0=0$，$P_n(x)$称为{\bf $f(x)$的$n$阶Maclaurin多项式}
+\end{thx}
+
+根据以上定义，可设
+$$P_n(x)=a_0+a_1(x-x_0)+a_2(x-x_0)^2+\ldots+a_n(x-x_0)^n,$$
+对其两边逐次求导（直至$n$阶导数），然后令$x=x_0$，不难得到
+\begin{align*}
+	P_n(x_0)&=a_0,\\
+	P'_n(x_0)&=a_1,\\
+	P''_n(x_0)&=2a_2,\\
+	P^{(3)}_n(x_0)&=3!a_3,\\
+	\ldots&\ldots\\
+	P^{(n)}_n(x_0)&=n!a_n.\\
+\end{align*}
+利用以上定义中的第二个条件，解得
+$$a_k=\df{f^{(n)}(x_0)}{k!},\;k=0,1,2,\ldots,n.$$
+至此就得到了
+\begin{thx}
+	{\bf $f(x)$在点$x_0$处的$n$阶Taylor多项式：}
+	$$P_n(x)=\sum\limits_{k=0}^n\df{f^{\,(k)}(x_0)}{k!}(x-x_0)^k$$
+\end{thx}
+这个公式说明，给定$f(x)$、$x_0$和$n$，$P_n(x)$是唯一确定的。更直观地说，
+{\it\b 要在给定点处，按照指定的（相切）阶数，近似表示给定的函数，
+只有唯一的一个多项式可以满足条件}。
+
+{\bf 例：}求下列函数的Maclaurin多项式
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $f(x)=e^x$ 
+  $${P_n(x)=1+x+\df{x^2}{2!}+\ldots+\df{x^n}{n!}}$$ 
+  \item $f(x)=\cos x$ 
+  $${P_{2m}(x)=1-\df{x^2}{2!}+\df{x^4}{4!}-\ldots+(-1)^m\cdot\df{x^{2m}}{(2m)!}}$$
+\end{enumerate}
+
+\subsection{误差估计}
+
+有了Taylor多项式，接下来需要确认它是否是一个好的逼近。为此，我们首先给出余项和
+Taylor公式的概念。
+
+\begin{thx}
+	\begin{itemize}
+% 	  \setlength{\itemindent}{1cm}
+	  \item {\bf 余项：}
+	  $$R_n(x)=|f(x)-P_n(x)|$$ 
+	  \item {\bf 带Peano余项的$n$阶Taylor公式：}
+	  $$f(x)=P_n(x)+\circ[(x-x_0)^n]$$
+	\end{itemize}
+\end{thx}
+
+可以看到Taylor公式由Taylor多项式和余项两个部分构成，今后如果允许使用“{\it 无穷次}”
+的多项式（也就是{\it 幂级数}），则可以进一步得到所谓的{\kaishu Taylor级数}。
+
+
+下面的定理说明多项式逼近是一种{\it 有效}的逼近，其在给定的点附近与给定函数的误差，
+是自变量改变量的高次幂（取决于展开的阶数）一个高阶无穷小。
+
+\begin{thx}
+	{\bf Taylor公式的误差：}设函数$f(x)$在$x_0$处$n$阶可导，$P(x)$是$f(x)$在点$x_0$处
+	的$n$阶Taylor多项式，则当$x\to x_0$时
+	$${|f(x)-P_n(x)|=\circ[(x-x_0)^n]}$$
+\end{thx}
+
+需要特点指出一点，Taylor公式的{\b 阶数是多少，关键看余项！}例如$\sin x$的7阶和8阶Maclaurin公式分别为
+$$\sin x=x-\df{x^3}{3!}+\df{x^5}{5!}-\df{x^7}{7!}+{\b\circ(x^7)},$$
+$$\sin x=x-\df{x^3}{3!}+\df{x^5}{5!}-\df{x^7}{7!}+{\b\circ(x^8)}.$$
+
+高阶无穷小形式的余项从理论意义上确保了Taylor多项式的逼近效果，但对于需要具体估计
+逼近误差的场合，还是不够的，因此就有了所谓的{\kaishu Lagrange余项}，对应的
+Taylor公式也称为Taylor中值定理：
+
+\begin{thx}
+	{\bf Taylor中值定理：}设$f(x)$在$x_0$的某邻域内$n+1$阶可导，
+	对该邻域内任一点$x$，存在介于$x_0$和$x$之间的一点$\xi$，满足
+	$$f(x)=P_n(x)+\df{f^{(n+1)}(\xi)}{\,(n+1)!}(x-x_0)^{n+1}$$
+\end{thx}
+
+上式称为{\bf 带Lagrange余项的$n$阶Taylor公式}，有时也写为
+$${\b f(x_0+h)=P_n(x_0+h)+\df{f^{\,(n+1)}(x_0+\theta
+h)}{(n+1)!}h^{n+1},(0<\theta<1)}$$
+不难看出，Taylor中值定理是对Lagrange中值定理的推广。
+
+[证]：
+先考虑$x>x_0$的情况，其余情况可以类似地证明。注意到$P^{(n+1)}(x)=0$，
+$f^{(k)}(x_0)=P^{(k)}_n(x_0),k=0,1,2,\ldots,n$，
+反复利用Cauchy中值定理，存在$x_0<\xi<\xi_n<\xi_{n-1}
+<\ldots<\xi_2<\xi_1<x$，使得
+\begin{align}
+	\df{f(x)-P_n(x)}{(x-x_0)^{n+1}}
+	&=\df{f'(\xi_1)-P'_n(\xi_2)}{(n+1)(\xi_1-x_0)^{n}}
+	=\df{f''(\xi_2)-P''_n(\xi_2)}{(n+1)n(\xi_2-x_0)^{n-1}}\notag\\
+	&=\ldots=\df{f^{(n)}(\xi_n)-P^{(n)}_n(\xi_n)}{(n+1)!(\xi_n-x_0)}
+	=\df{f^{(n+1)}(\xi)}{(n+1)!}\notag
+\end{align}
+即证。\hfill$\Box$
+
+利用以上定理，立即可以得到如下推论：
+\begin{thx}
+	{\bf Taylor公式的误差估计：}若存在常数$C>0$，使当$x\in(a,b)$时，恒有
+	$$|f^{\,(n+1)}(x)|\leq C,\;n=0,1,2,\ldots$$
+	则
+	$$\limn [f(x)-P_n(x)]=0.$$
+\end{thx}
+该推论告诉我们，{\it 在一定条件下}（各阶导数有界），Taylor多项式的次数越高，逼近精度就越高。
+
+\begin{shaded}
+	{\bf Taylor公式的适用条件}
+	
+	以下内容主要引自《数学桥》P92。
+	
+	除了要求被展开的函数应该具有高阶导数之外，在运用Taylor公式的时候，有一个
+	条件特别我们需要注意。如果所讨论的函数的导数值增加得太快的话，这个结论就
+	不成立了，因为我们无法让给定点附近的各阶导数都被某个确定值所界定。
+	例如，下面的函数
+	$$f(x)=\left\{\begin{array}{ll}
+		\exp\left(-\df1{x^2}\right),&x\ne 0;\\
+		0,& x=0.
+	\end{array}\right.$$
+	\begin{center}
+		\includegraphics[width=0.6\textwidth]{./images/ch3/e-1x2.pdf}
+	\end{center}
+	通过计算，不难发现，对任意$n\in\mathbb{Z}^+$，均有
+	$$f^{(n)}(0)=0.$$
+	因此，$f(x)$在$x=0$处的Taylor公式就是
+	$$f(x)=\sum\limits_{k=0}^n\df{0}{k!}x^k+\circ(x^n)
+	=0+\circ(x^n).$$
+	（更进一步说，$f(x)$的Taylor级数应该表示为$f(x)=0$。）
+	这显然和原函数存在较大“出入”，问题出在哪里呢？
+	
+	问题在于$f(x)$的$n$阶导函数都包含如下的一部分
+	$$\df{2^n}{x^{2n}}\exp\df1{-x^2}.$$
+	对于任意给定的实数$C$，只要$|x|<1$，当$n$充分大时，该值总会超过$C$。
+	由于这个原因，我们无法把原点任何邻域内的所有导数值都限定在一定的范围内，
+	这意味着前面关于Taylor公式误差估计的结论不再有效，换言之，此时的
+	Taylor多项式已经不是给定函数的一个有效逼近了。
+\end{shaded}
+
+\begin{thx}
+	{\bf 一些常用的Maclaurin公式}
+	\begin{enumerate}[(1)]
+% 	  \setlength{\itemindent}{1cm}
+	  \item $e^x =\sum\limits_{k=0}^n\df{x^k}{k!}
+	  +\df{e^{\theta x}}{(n+1)!}x^{n+1}\;
+	  (0<\theta<1,x\in\mathbb{R})$
+	  \item $\sin x
+	  =\sum\limits_{k=1}^m(-1)^{k-1}\df{x^{2k-1}}{(2k-1)!} 
+	  +(-1)^m\df{\cos\theta x}{(2m+1)!}x^{2m+1}\;
+	  (0<\theta<1,x\in\mathbb{R})$
+	  \item $\cos x= \sum\limits_{k=0}^m(-1)^{k}\df{x^{2k}}{(2k)!}
+	  +(-1)^{m+1}\df{\sin\theta
+	  x}{(2m+2)!}x^{2m+2}\; (0<\theta<1,x\in\mathbb{R})$
+	  \item
+	  $\ln(1+x) =\sum\limits_{k=1}^n(-1)^{k-1}\df{x^k}{k}
+	  +\df{(-1)^nx^{n+1}}{(n+1)(1+\theta
+	  x)^{n+1}}\; (0<\theta<1,x>-1)$
+	  \item
+	  $(1+x)^\alpha =\sum\limits_{k=0}^n
+	  \df{\alpha(\alpha-1)\ldots(\alpha-k+1)}{k!}x^k$
+
+		\hspace{2cm}$+\df{\alpha(\alpha-1)\ldots(\alpha-n)}{(n+1)!}\df{x^{n+1}}{(1+\theta
+		x)^{n+1-\alpha}}\quad (0<\theta<1,x\ne -1)$
+	\end{enumerate}
+\end{thx}
+
+\begin{shaded}
+	{\bf Taylor公式：等价无穷小的“宝库”}
+	
+	从Taylor公式出发，可以很容易地得到一些等价无穷小，例如，由
+	$$\sin x=x-\df{x^3}{3!}+\df{x^5}{5!}-\df{x^7}{7!}+
+	\ldots+(-1)^n\df{x^{2n+1}}{(2n+1)!}+\circ(x^{2n+1}).$$
+	两边同时除以$x$，再令$x\to 0$，可得
+	\begin{align*}
+		\limx{0}\df{\sin x}x&=1+\limx{0}\df1x\left[-\df{x^3}{3!}+
+		\df{x^5}{5!}-\df{x^7}{7!}+ 
+		\ldots+(-1)^n\df{x^{2n+1}}{(2n+1)!}+\circ(x^{2n+1})\right]\\
+		&=1+\limx{0}\left[-\df{x^2}{3!}+
+		\df{x^4}{5!}-\df{x^6}{7!}+ 
+		\ldots+(-1)^n\df{x^{2n}}{(2n+1)!}+\circ(x^{2n})\right]=1,
+	\end{align*}
+	故$x\to 0$时，
+	$$\sin x\sim x.$$
+	
+	类似地，注意到
+	$$\sin x-x=-\df{x^3}{3!}+\df{x^5}{5!}-\df{x^7}{7!}+
+	\ldots+(-1)^n\df{x^{2n+1}}{(2n+1)!}+\circ(x^{2n+1}).$$
+	两边同时除以$x^3$，再令$x\to 0$，可得
+	\begin{align*}
+		\limx0\df{\sin x-x}{x^3}
+		&=-\df1{3!}+\limx0\df1{x^3}\left[\df{x^5}{5!}-\df{x^7}{7!}+ 
+		\ldots+(-1)^n\df{x^{2n+1}}{(2n+1)!}+\circ(x^{2n+1})\right]\\
+		&=-\df16+\limx0\left[\df{x^2}{5!}-\df{x^4}{7!}+ 
+		\ldots+(-1)^n\df{x^{2n-2}}{(2n+1)!}+\circ(x^{2n-2})\right]
+		=-\df16.
+	\end{align*}
+	由此可知，当$x\to 0$时，
+	$$\sin x-x\sim -\df16x^3.$$
+	
+	依此类推，从$\sin x$的Taylor公式中可以得到许许多多的等价无穷小关系（当$x\to 0$时）：
+% 	\begin{tcolorbox}[breakable]
+		\begin{align*}
+			\sin x&\sim  x\\
+			\sin x-x&\sim  -\df16x^3\\
+			\sin x-x+\df{x^3}{3!} & \sim  \df{x^5}{5!}\\
+			\sin x-x+\df{x^3}{3!}+\df{x^5}{5!} & \sim  -\df{x^7}{7!}\\
+			\ldots & \sim  \ldots\\
+			\sin x-\sum\limits_{k=0}^n(-1)^n\df{x^{2n+1}}{(2n+1)!}
+			&\sim  (-1)^{n+1}\df{x^{2n+3}}{(2n+3)!}
+		\end{align*}
+% 	\end{tcolorbox}
+\end{shaded}
+
+\subsection{函数的Taylor展开}
+
+求给定函数的Taylor公式（或Taylor级数）的过程称为对该函数的{\kaishu Taylor展开}。
+求一个函数的Taylor展开，除了直接求各阶导数然后套用公式的“{\it 直接法}”\ps{有时计算可能很复杂}，
+更多的很多时候我们可以尝试利用幂级数的一些解析性质，通过间接的方法进行。
+
+% {\bf 问题：}{ 给定函数$f(x)$，求其在$x_0$的$n$阶Taylor公式} 
+% \begin{enumerate}[(1)]
+%   \setlength{\itemindent}{1cm}
+%   \item {\bf 直接法（公式法）} 
+%   \begin{itemize}
+%     \item 逐个计算Taylor系数，给出相应的公式 
+%   \end{itemize}
+%   \item {\bf 间接法} \ps{能够使用间接法求展开的根本原因是Taylor展开具有唯一性！}
+%   \begin{itemize}
+%     \item 利用已知函数的Maclaurin公式 
+%     \item 利用级数和多项式的性质
+%   \end{itemize}
+% \end{enumerate}
+
+我们首先考虑最简单的一类初等函数，多项式函数的Taylor展开：
+
+\begin{thx}
+	{\bf 多项式函数的Taylor展开：}
+	多项式函数$P_n(x)=\sum\limits_{k=0}^na_kx^k$的$m$阶Maclaurin多项式
+	为其$m$次 {\it 截断多项式：} 
+	$$P_m(x)=\sum\limits_{k=0}^ma_kx^k$$
+\end{thx}
+
+{\bf 例：}求$f(x)=x^3+3x^2-2x+4$的各阶Maclaurin多项式和在
+$x=1$处的Taylor多项式。
+
+[提示]：{\b$f(x)$自身已经是一个Maclaurin多项式，但若所求展开式是在某个$x_0$处，
+则应该使用形如$t=x-x_0$的变化先求对应的Maclaurin公式，再代回即可。}
+
+\begin{thx}
+	{\bf 幂级数的解析性质}
+	
+	若在区间$I$内，$f(x)=\sum\limits_{n=0}^{\infty}a_nx^n$，
+	$g(x)=\sum\limits_{n=0}^{\infty}b_nx^n$，则对任意$x\in I$，
+	\begin{enumerate}[(1)]
+% 	  \setlength{\itemindent}{1cm}
+	  \item {\it 变量替换：}若$x\to 0$与$u\to 0$等价，则
+	  $$f(u)=\sum\limits_{n=0}^{\infty}a_nu^n$$
+	  \item {\it 线性性：}对任意$\lambda,\mu\in\mathbb{R}$，
+	  $$\lambda f(x)+\mu g(x)=\sum\limits_{n=0}^{\infty}(\lambda a_n+\mu
+	  b_n)x^n$$ 
+	  \item {\it 逐项求导：}
+	  $$f\,'(x)=\sum\limits_{n=0}^{\infty}na_{n}x^{n-1}$$ 
+	  \item {\it 逐项积分：} 
+	  $$\displaystyle\int f(x)dx=\sum\limits_{n=0}^{\infty}
+	  \df{a_{n}}{n+1}x^{n+1}$$
+	\end{enumerate}
+\end{thx}
+
+{\bf 例：}求$f(x)=\df 12\ln\df{1+x}{1-x}$的各阶带有Peano余项的Maclaurin公式。
+
+[解]：当$|x|<1$时，
+$$\ln(1+x)=\sum\limits_{k=1}^n(-1)^k\df{x^k}k+\circ(x^n)
+=x-\df{x^2}2+\df{x^3}3+\ldots+(-1)^n\df{x^n}n+\circ(x^n).$$
+注意到，$x\to0\Leftrightarrow-x\to 0$，故
+\begin{align*}
+	\ln(1-x)&=\sum\limits_{k=1}^n(-1)^k\df{(-x)^k}k+\circ((-x)^n)\\
+	&=-x-\df{(-x)^2}2+\df{(-x)^3}3+\ldots+(-1)^n\df{(-x)^n}n+\circ((-x)^n)\\
+	&=-x-\df{x^2}2-\df{x^3}3-\ldots-\df{-x^n}n+\circ(x^n).
+\end{align*}
+综上，
+\begin{align*}
+	f(x)&=\df12\ln(1+x)-\df12\ln(1-x)\\
+	&=x+\df{x^3}3+\df{x^5}5+\ldots+\df{x^{2n+1}}{2n+1}+\circ(x^{2n+1})\\
+	&=\sum\limits_{k=0}^n\df{x^{2k+1}}{2n+1}+\circ(x^{2n+1}).
+\end{align*}
+即为所求。\hfill$\Box$
+
+{\bf 注：}利用变量代换进行Taylor展开时，经常会遇到高阶无穷小的变换与合并，例如本例中
+$\circ((-x)^n)$可以直接改写成$\circ(x^n)$，而两个$\circ(x^n)$合并后仍写作
+$\circ(x^n)$，其背后的原因其实很简单。前者是因为有界量乘以无穷小仍为无穷小，并且
+不改变其阶数，后者是因为两个同阶无穷小合并（即使是相减），至少会得到一个仍然是该
+阶数的无穷小（也可能是更高阶的）。
+
+在使用非直接的方法进行Taylor展开时，一个常见的顾虑是不知道展开后的式子是否就是我们要求
+的，其实检验的方法非常简单。不要忘记，对于给定的函数，在给定点处，按照指定阶数，其Taylor
+公式具有唯一性。也就是说，{\b 如果有一个关于$(x-x_0)$的$n$阶多项式函数$P(x)$，与指定函数$f(x)$只相差
+$(x-x_0)^n$的一个高阶无穷小，那么毫无疑问，这个$P(x)$就是$f(x)$在$x_0$处的$n$阶
+Taylor多项式，相应地$f(x)$在$x_0$处的$n$阶Taylor公式就是$f(x)=P(x)+\circ((x-x_0)^n)$。
+总结一下，我们可以说，只要展开后的公式具备Taylor公式的正确形式，那么结果就必然是正确的。}
+
+{\bf 例：}求$f(x)=\df 1{2+x}$在$x=1$处的$7$阶Taylor多项式，并求$f^{(7)}(1)$。
+
+[解]：
+$$f(x)=\df13\cdot\df1{1+(x-1)/3}.$$
+记$u=\df{x-1}3$，则$x-1\to0\Leftrightarrow u\to0$，又
+$$\df1{1+x}=\sum\limits_{k=0}^n(-1)^kx^k+\circ(x^n).$$
+故
+\begin{align*}
+	f(x)&=\df13\df1{1+u}
+	=\df13\sum\limits_{k=0}^n(-1)^ku^k+\circ(u^n)\\
+	&=\df13\sum\limits_{k=0}^n(-1)^k\left(\df{x-1}3\right)^k
+	+\circ\left(\left(\df{x-1}3\right)^n\right)\\
+	&=\sum\limits_{k=0}^n\df{(-1)^k}{3^{k+1}}x^k
+	+\circ((x-1)^3).
+\end{align*}
+注意到$a_7=\df{(-1)^7}{3^8}=-\df1{3^8}$，故
+$$f^{(7)}(1)=7!\cdot a_7=-\df{7!}{3^8}.$$
+以上即为所求。\hfill$\Box$
+
+{\bf 思考：}以上对$f(x)$的展开方式是唯一的吗？结果呢？
+为什么不能直接将$f(x)$改写成$\df1{1+(x+1)}$展开？
+
+[答]：Taylor展开在给定了$f(x)$、展开的位置和阶数后就是唯一确定的，至于展开的
+过程可能存在不同的方式。如果按照$\df1{1+(x+1)}$展开，所得到的不是$x=1$
+处而是$x=-1$处的Taylor公式，不符合题意的要求。
+
+{\bf 例：}\ps{KD教材习题5.3-4}
+求带有Peano余项的Maclaurin公式\ps{请特别注意高阶无穷小的简化}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $f(x)=\ln(2+x)=\ln2+\ln\left(1+\df x2\right)
+  =\ln2+\sum\limits_{k=1}^n\df{(-1)^{k-1}}{k2^k}x^k+\circ(x^n)$ 
+  \item $f(x)=e^{-x^2}=\sum\limits_{k=0}^n\df{(-1)^k}{k!}x^{2k}
+  +\circ(x^{2n})$
+  \item $f(x)=x\sin x=\sum\limits_{k=0}^{n}\df{(-1)k}{k!}x^{2k+2}
+  +\circ(x^{2n+2})$ 
+  \item $f(x)=\df{x^2}{1+x}=\sum\limits_{k=0}^n(-1)^kx^{k+2}
+  +\circ(x^{n+2})$ 
+  \item $f(x)=\df{1}{\sqrt{1-x^2}}=\sum\limits_{k=0}^n\left(
+  \begin{array}{c}
+  -\frac12\\ k
+  \end{array}\right)(-1)^kx^{2k}+\circ(x^{2n})$ 
+  \item $f(x)=\cos^2x=\df{1+\cos2x}2=\df12+
+  \sum\limits_{k=0}^{n}\df{(-1)^k2^k}{(2k)!}x^{2k}+\circ(x^{2n})$
+\end{enumerate}
+
+{\bf 例：}设$y=\arctan x$，求$y^{(n)}(0)$。
+\ps{介绍求高阶导数的Leibniz公式时曾做过此题}
+
+[解]：注意到
+$$y'=\df1{1+x^2}$$
+而当$|x|<1$时
+$$\df1{1+x}=\sum\limits_{k=0}^{\infty}(-1)^kx^k.$$
+又$x\to0\Leftrightarrow x^2\to0$，故
+$$\df1{1+x^2}=\sum\limits_{k=0}^{\infty}{(-1)^k}x^{2k},\quad (|x|<1),$$
+上式两边积分\ps{这里涉及到收敛幂级数的有关性质，先使用结论即可}，可得
+\begin{align*}
+	\arctan x&=\dint_0^x\df1{1+t^2}\d t
+	=\dint_0^x\sum\limits_{k=0}^{\infty}{(-1)^k}t^{2k}\d t\\
+	&=\sum\limits_{k=0}^{\infty}{(-1)^k}\dint_0^xt^{2k}\d t
+	=\sum\limits_{k=0}^{\infty}\df{(-1)^k}{2k+1}x^{2k+1},
+	\quad (|x|<1),
+\end{align*}
+从而可知
+$$y^{(n)}(0)=\left\{\begin{array}{ll}
+0,& n=2k,\\ {(-1)^k}(2k)!,& x=2k+1
+\end{array}\right.$$
+\hfill$\Box$
+
+\subsection{Taylor公式的应用}
+
+\subsubsection{近似计算}
+
+{\bf 例：}计算$\sin 1$的值，误差不超过$10^{-5}$。
+
+[解]：对任意$x\in\mathbb{R}$，存在$\theta\in(0,1)$，使得
+$$\sin x=x-\df{x^3}{3!}+\df{x^5}{5!}-+\ldots
++(-1)^{n-1}\df{x^{2n-1}}{(2n-1)!}
++(-1)^{n}\df{\cos\theta x}{(2n+1)!}x^{2n+1}.$$
+注意到
+$$\left|(-1)^{n}\df{\cos\theta x}{(2n+1)!}x^{2n+1}\right|
+\leq\df{|x|^{2n+1}}{(2n+1)!},$$
+故要使$x=1$时的误差小于$10^{-5}$，只需
+$$\df1{(2n+1)!}\leq 10^{-5},$$
+计算不难发现
+$$\df1{9!}=\df1{362880}<10^{-5}<\df1{5040}=\df1{7!},$$
+故当$n=4$时，即可满足精度要求，此时
+$$\sin 1\approx 1-\df1{3!}+\df1{5!}-\df1{7!}=\df{4241}{5040}\approx 0.841468.$$
+\hfill$\Box$
+
+{\bf 例：}计算$e$的值，误差不超过$10^{-5}$。
+
+\begin{center}
+	\resizebox{!}{5.5cm}{\includegraphics{./images/ch5/exse1.pdf}}\quad
+	\resizebox{!}{5.5cm}{\includegraphics{./images/ch5/exse2.pdf}}
+\end{center}
+
+\subsubsection{计算不定式极限}
+
+要证明Taylor公式的强大，用它来计算各种不定式极限无疑是最好的途径。某种意义上说，
+没有用Taylor公式无法解决的极限问题，关键的问题是，值不值得动用这个“{\it 牛刀杀鸡}”。
+
+{\bf 例：}计算以下极限
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\limx{0}\df{x-\sin x}{x^3}
+  =\limx0\df{x-[x-\frac{x^3}3!+\circ(x^3)]}{x^3}=\df16$
+  \item $\limx{0}\df{\cos x-e^{-x^2/2}}{x^4}
+  =\limx0\df{1-\frac{x^2}2+\frac{x^4}{4!}-[1-\frac{x^2}2+
+  \frac{x^4}8]+\circ(x^4)}{x^4}=-\df1{12}$ 
+  \item $\limx{0}\df{\df{x^2}{2}+1-\sqrt{1+x^2}}{x^2\sin x^2}
+  =\limx0\df{\frac{x^2}2+1-[1+\frac12{x^2}-\frac18x^4+\circ(x^4)]}{x^4}
+  =\df18$ 
+  \item $\limx{0}\df{e^x-1-x}{\df{1}{\sqrt{1+x}}-\cos\sqrt x}
+  =\limx0\df{\frac{x^2}2+\circ(x^2)}{1-\frac12x+\frac38x^2-[1-\frac{x}2+\frac{x^2}{4!}]+\circ(x^2)}
+  =\df32$ 
+  \item $\limx{0}\df{\cos(\sin x)-\cos x}{x^4}
+  =-2\limx0\df{\sin\frac{\sin x+x}2\sin\frac{\sin x-x}2}{x^4}=\df16$
+  \item $\limx{+\infty}\left[x-x^2\ln\left(1+\df 1x\right)\right]
+  \xlongequal{u=1/x}\lim\limits_{u\to0}\df{u-\ln(1+u)}{u^2}$
+\end{enumerate}
+
+从解题的过程来看，对于各种“$\df{\bm0}{\bm0}$”型的不定式极限，都可以先将分子分母
+都展开成Taylor公式，然后通过简单的有理函数极限运算求得结果。因此，在此类极限问题上，
+我们说Taylor是“{\it 万能}”的也并不为过。
+
+然而，Taylor公式“{\it 天生}”比我们此前接触的计算工具更复杂
+（这完全是因为它推广或者说蕴含了过去的大部分结论），因此在使用它时也需要加倍地谨慎。
+在对分子分母进行Taylor展开时，一般都需要作一些“试探性”地尝试，
+确定上下各展开到多少阶合适（太低解决不了问题，太高计算过于复杂），当然，
+最重要的是，必须确保每一个展开式都精确无误。
+
+最后，提醒一点，在Taylor展开中，灵活地进行高阶无穷小的合并，也是非常重要的。
+
+{\bf 例：}设$f(x)$在$x=0$附近二次可导，且
+$$\limx{0}\left(1+x+\df{f(x)}{x}\right)^{1/x}=e^3,$$
+求：
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $f(0),f\,'(0),f\,''(0)$;
+  \item $\limx{0}\left(1+\df{f(x)}{x}\right)^{1/x}$.
+\end{enumerate}
+
+[解]：注意到$1/x\to\infty\;(x\to0)$，故已知极限存在，当且仅当
+$$\limx0\left(1+x+\df{f(x)}x\right)=1
+\quad\Rightarrow\quad f(0)=\limx0f(x)=0.$$
+又原式即为
+$$\left\{\limx0\left(1+x+\df{f(x)}{x}\right)
+^{\frac{x}{x^2+f(x)}}\right\}^{\limx0\frac{x^2+f(x)}{x^2}}=e^3,$$
+故必有
+$$\limx0\frac{x^2+f(x)}{x^2}=3\quad\Rightarrow\quad
+\limx0\df{f(x)}{x^2}=2,$$
+进而
+$$f'(0)=\limx0\df{f(x)-f(0)}x=\limx0\df{f(x)}{x^2}\limx0x=0.$$
+至此，由Taylor公式，可设$f(x)=\df{f''(0)}2x^2+\circ(x^2)$，于是
+$$2=\limx0\df{f(x)}{x^2}=\df{f''(0)}2\quad\Rightarrow\quad
+f''(0)=4.$$
+综上，$f(x)=2x^2+\circ(x^2)$，
+\begin{align}
+	\limx{0}\left(1+\df{f(x)}{x}\right)^{1/x}
+	&=\limx0(1+2x+\circ(x))^{\frac1x}\notag\\
+	&=\left\{\limx0(1+2x+\circ(x))^{\frac1{2x+\circ(x)}}\right\}
+	^{\limx0{[2+\circ(1)]}}=e^2.\notag	
+\end{align}
+\hfill$\Box$
+
+\subsubsection{证明等式或不等式}
+
+{\bf 例：}证明：$x>0$时，$e^x>1+x+\df{x^2}{2}$
+
+[证]：$x>0$时，由Taylor公式，存在$\xi\in(0,x)$，使得
+$$e^x=1+x+\df{x^2}2+\df{e^{\xi}}{3!}x^3>1+x+\df{x^2}2.$$
+即证。\hfill$\Box$
+
+{\bf 例：}设$f(x)$在$(a,+\infty)$内具有二阶导数，
+且$f(x),f\,''(x)$在$(a,+\infty)$
+有界，证明：$f\,'(x)$在$(a,+\infty)$有界。
+
+[证]：由$f(x)$和$f''(x)$有界，可知存在$M>0$，对任意$x>a$，均有
+$$|f(x)|\leq M,\quad |f''(x)|\leq M.$$
+对任意$x>a$，有如下的Taylor公式：存在$\xi\in(x,x+1)$，使得
+$$f(x+1)=f(x)+f'(x)+\df12f''(\xi).$$
+从而可知
+$$f'(x)=f(x+1)-f(x)-\df12f''(\xi),$$
+进而有
+\begin{align*}
+	|f'(x)|&=|f(x+1)-f(x)-\df12f''(\xi)|
+	\leq |f(x+1)|+|f(x)|+\df12|f''(\xi)|\\
+	&\leq M+M+\df12M=\df52M.
+\end{align*}
+这意味着$f'(x)$当$x>a$时有界，即证。\hfill$\Box$
+
+从上面的例题不难看出，{\b 用Taylor公式证明等式和不等式，因为涉及到具体的估计和放缩，
+都必须使用Lagrange余项}。
+
+{\bf 例：}证明：若在$(a,b)$内，$f''(x)>0$，则对任意$a<x_1<x_2<b$，恒有
+$$f\left(\df{x_1+x_2}{2}\right)<\df{f(x_1)+f(x_2)}{2}.$$
+
+[证]：记$c=\df{x_1+x_2}2$，则由Taylor公式，存在$\xi_1\in(x_1,c),
+\xi_2\in(c,x_2)$，使得
+$$f(x_1)=f(c)+f'(c)\df{x_1-x_2}2+f''(\xi_1)
+\left(\df{x_1-x_2}2\right)^2$$
+$$f(x_2)=f(c)+f'(c)\df{x_2-x_1}2+f''(\xi_2)
+\left(\df{x_2-x_1}2\right)^2$$
+两式相加，且由$f''(x)>0$，可得
+$$f(x_1)+f(x_2)=2f(c)+[f''(\xi_1)+f''(\xi_2)]
+\left(\df{x_2-x_1}2\right)^2>2f(c),$$
+即证。\hfill$\Box$
+
+{\bf 思考：}本例的结论可以进一步推广为：对任意$\lambda\in(0,1)$，
+$$f(\lambda x_1+(1-\lambda)x_2)<\lambda
+f(x_1)+(1-\lambda)f(x_2).$$
+请考虑该如何证明。
+
+{\bf 例：}设在$f(x)$在$[0,a]$上二阶连续可导，
+$|f\,''(x)|\leq M$，且$|f(x)|$在$(0,a)$内可取到最大值，证明：
+$$|f\,'(0)+f\,'(a)|\leq Ma.$$
+
+[提示]：将$f'(0)$和$f'(a)$在最大值点处展开，然后将两个展开式合并即可。
+
+{\bf 例：}设$f(x)$在$[0,1]$上二阶连续可导，且$f(0)=f(1)$，
+$|f\,''(x)|\leq A$，证明：对任意$x\in(0,1)$，恒有
+$$|f\,'(x)|\leq\df A4.$$
+
+[证]：由Taylor公式，对任意$x\in(0,1)$，存在$\xi_1\in(0,x),
+\xi_2\in(x,1)$，使得
+$$f(0)=f(x)+f'(x)(-x)+\df{f''(\xi_1)}2x^2,$$
+$$f(1)=f(x)+f'(x)(1-x)+\df{f''(\xi_2)}2(1-x)^2,$$
+两式相减，且由$f(0)=f(1)$，可得
+$$0=f'(x)+\df12\left[f''(\xi_2)(1-x)^2-f''(\xi_1)x^2\right],$$
+由$|f''(x)|\leq A$，故
+$$|f'(x)|\leq\df A2[(1-x)^2+x^2],$$
+注意到当$x\in(0,1)$时，$(1-x)^2+x^2\leq1$，故$|f'(x)|\leq\df A2$，即证。
+\hfill$\Box$
+
+通过上面的例题，可以总结一下使用Taylor公式证明等式和不等式的一些规律：
+{\b
+\begin{itemize}
+  \item 如果同时涉及到多个不同阶的导数，可以考虑使用Taylor公式；
+  \item 必须使用带Lagrange余项的Taylor公式；
+  \item 展开和被展开点的常见选择： 区间端点、 极（最）值点、
+  区间中点、 距离为常数的点、 已知条件中提到的特殊点。
+\end{itemize}
+}
+
+{\bf 例：}设$f(x)\in C^3[-1,1]$，且$f(-1)=0,f(1)=1,f'(0)=0$，
+证明：存在$\xi\in(-1,1)$，使得$f'''(\xi)=3$.
+
+[提示]：将$f(-1),f(1)$在$x=0$处展开到三阶带Lagrange余项的Taylor公式，
+然后利用介值定理。
+
+{\bf 例：}\ps{辅导书P153-例37}
+设$f(x)$在$[a,b]$上二阶连续可导，且$f_+'(a)=f_-'(b)=0$，则至少存在一点
+$c\in(a,b)$，使得
+$$|f\,''(c)|\geq \df 4{(b-a)^2}|f(b)-f(a)|.$$
+
+[提示]：将$f\left(\df{a+b}2\right)$在$x=a,b$展开，取绝对值放缩后，
+利用介值定理。
 
 \section{函数的单调性与凹凸性}
 
 \subsection{单调性的判定}
 
+利用Lagrange中值定理，可以很容易地证明如下结论：若$f(x)$在$[a,b]$上连续，
+$(a,b)$内可导，且$f\,'(x)$恒大（小）于零，则$f(x)$在$[a,b]$上严格单调递增（减）。
+
+需要注意的是，这仅仅是判定可导函数严格单调的充分条件，而非充要条件
+（例如：$f(x)=x+\sin x$严格单调递增，但导数可能为零）。
+当然，如果定理中的“大（小）于”改成“大（小）于等于”，
+且结论改为（非严格的）单调递增（减）情形，则为充要条件。
+
+仔细观察可以发现，如果定理中的“大（小）于”改成“大（小）于等于”，且导数不可能在任何一段
+连续区间内恒等于零，则可推出函数为{\it 严格}单调的。
+
+\begin{thx}
+	{\bf 可导函数严格单调的充要条件：}设$f(x)$在$[a,b]$上连续，$(a,b)$内可导，
+	则$f(x)$在$[a,b]$上严格单调递增，当且仅当：
+	\begin{enumerate}[(1)]
+% 	  \setlength{\itemindent}{1cm}
+	  \item $f\,'(x)\geq 0,\;x\in(a,b)$
+	  \item 在$(a,b)$的任意子区间上$f\,'(x)$不恒为零
+	\end{enumerate}
+\end{thx}
+
+利用该结论，可以很方便地证明类似如下的例子：
+
+{\bf 例：}讨论$y=x-\sin x$的单调性。
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch5/xpmSinx.pdf}}
+	
+	{\it $y=x\pm\sin x$的函数图形}
+\end{center}
+
+\subsubsection{单调性的应用}
+
+证明不等式是单调性最常见的一种应用：
+
+\begin{thx}
+	{\bf 推论1：}设$\varphi(x),\psi(x) $均在$[a,b]$上可导，且：
+	\begin{enumerate}[(1)]
+% 	  \setlength{\itemindent}{1cm}
+	  \item $\varphi'(x)>\psi'(x),\;x\in(a,b)$；
+	  \item $\varphi(a)\geq\psi(a)$，
+	\end{enumerate}
+	则在$(a,b)$上，恒有$\varphi(x)>\psi(x)$。
+\end{thx}
+
+{\bf 例：}证明：当$x>0$时，恒有
+$$x-\df 16x^3<\sin x<x.$$
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch5/xSinxx3.pdf}}
+\end{center}
+
+很多时候，为了证明不等式，需要多次应用以上的结论，从而有如下的推论：
+
+\begin{thx}
+	{\bf 推论2：}设$\varphi(x),\psi(x) $均在$[a,b]$上$n$阶可导，且：
+	\begin{enumerate}[(1)]
+% 	  \setlength{\itemindent}{1cm}
+	  \item $\varphi^{(n)}(x)>\psi^{(n)}(x),\;x\in(a,b)$；
+	  \item $\varphi^{(k)}(a)\geq\psi^{(k)}(a),k=0,1,2,\ldots,n-1$，
+	\end{enumerate}
+	则在$(a,b)$上，恒有$\varphi(x)>\psi(x)$。
+\end{thx}
+
+
+{\bf 例：}证明下列不等式
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\ln(1+x)>\df{\arctan x}{1+x},\;(x>0)$
+  \item $e^x>1+x+\df
+  {x^2}{2!}+\df{x^3}{3!}+\ldots+\df{x^n}{n!},\;(x>0,n\in\mathbb{N})$
+\end{enumerate}
+
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/lnxArctanx.pdf}}\quad
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/exTaylor.pdf}}
+\end{center}
+
+此外，单调性也常常用来判定解的唯一性，例如：
+
+{\bf 例：}已知$x>0$时，
+$$kx+\df1{x^2}=1$$
+有且仅有一个根，求$k$的取值范围。\ps{此类题目的叙述一定要注意逻辑表达，
+既要避免过于繁琐，也要防止遗漏重要的论证}
+
+解：令$f(x)=kx^3-x^2+1\;(x>0)$。显然原方程在$x>0$内有且仅有一个根，
+当且仅当$f(x)$在$x>0$内有唯一零点。
+
+（1）$k\leq 0$时，$f(+\infty)=-\infty$，注意到$f(0+0)=1$，
+故由介值定理，$f(x)$在$x>0$上至少有一个零点。又当$x>0$时，
+$f'(x)=(3kx-2)x<0$，故$f(x)$严格单调递减，从而以上零点唯一；
+
+（2）$k>0$时，$f(+\infty)=+\infty$，令$f'(x)=0$，可得$x=\df2{3k}$
+为$f(x)$的在$x>0$内的唯一驻点，又$f''\left(\df2{3k}\right)=2>0$，
+故$x=\df2{3k}$为$f(x)$的最小值点。$f_{\min}=f\left(\df2{3k}\right)=1
+-\df4{27k^2}$，由此可知：
+
+若$k<\df29\sqrt3$，则$f_{\min}<0$，由介值定理，$f(x)$至少有两个零点；
+
+若$k>\df29\sqrt3$，则$f_{\min}>0$，则当$x>0$时$f(x)>0$，无零点；
+
+若$k=\df29\sqrt3$，则$x=\df2{3k}$为$f(x)$的唯一零点。
+
+综上，当$k\leq 0$或$k=\df29\sqrt3$即为所求。\hfill$\Box$
+
 \subsection{凹凸性与拐点}
+
+任给一条平面曲线，从几何的角度我们可能会这样看待它，它是平直的还是弯曲的？
+它向什么方向弯曲和倾斜？它的平滑程度如何？它有多长？
+
+通过前面的学习，我们已经了解了，导数可以用来刻画曲线的倾斜程度（斜率），
+同时告诉我们曲线本身是否平滑。但是，这还只是部分地回答了上面的问题。
+本小结我们将关注的焦点集中在曲线弯曲的问题上，从凹凸的角度来刻画曲线
+的几何特征。对于剩余的问题，我们将会再本章稍后的内容中继续加以讨论。
+
+% {\bf 约定：}以下的凹凸均指“上凹”和“上凸”\ps{\b 目前的教材上对于函数的凹凸和
+% 曲线的凹凸定义有所不同，并且刚好相反：K}
+
+对于凹凸这样的几何特征，通过观察我们可以这样加以描述，以凹为例：一段曲线称为
+是凹的，可以理解为{\it 连接其上任意两点的曲线段总是位于连接两点的线段的下方}（可以重叠）。
+
+\begin{center}
+ 	\includegraphics[width=0.9\textwidth]{./images/ch3/convexCurve.jpg}
+
+	\kaishu 凹弧的几何特征
+\end{center}
+
+对于这一性质在数学上可以表达为：
+
+\begin{thx}
+	设函数$f(x)$在区间$I$上有定义，若对任意$x_1,x_2\in I$，
+	以及任意$\lambda\in(0,1)$，有
+% 	\ps{\b 直观地说，就是割线上的取值大于函数值，则称为凹，反之为凸}
+	$$f[\lambda x_1+(1-\lambda)x_2]\leq\lambda f(x_1)+(1-\lambda)f(x_2)$$
+	则称$f(x)$的图形在区间$I$上的是{\bf 凹弧}。若上式中的等号严格成立，则称其为
+	{\bf 严格的凹弧}。类似地，可以定义{\bf 凸弧}和{\bf 严格的凸弧}。
+\end{thx}
+{\bf 注：}同济教材中的定义相当于取定$\lambda=\df12$，考虑到$x_1,x_2$的任意性，
+其定义和以上的定义是完全等价的。请思考一下如何证明这一点？
+
+显然，从定义上看，一段曲线是否为凹（凸）弧，与其是否是光滑的无关。事实上，由多段
+折线连接而成的一段曲线也可能是凹（凸）的，但不可能是严格凹（凸）的（想想为什么？）。
+而如果一段曲线具有较好的光滑性（可导性），能够对我们判定其凹（凸）提供更大的便利。
+
+\begin{thx}
+	{\bf 凹弧判定的充要条件：}
+	设$f(x)$在$(a,b)$内可导，则$f(x)$的曲线在$(a,b)$是凹弧，当且仅当：
+	对任意$x_1,x_2\in(a,b)$，恒有
+	$$f(x_2)\geq f(x_1)+f\,'(x_1)(x_2-x_1). $$
+	不等号严格成立时，对应于严格凹函数的情形。
+\end{thx}
+这个定理的含义是：{\it 凹弧上任意点处的切线总是位于曲线的下方}。
+
+[证]：若$f(x)$的曲线为凹的，则对任意$x_1,x_2\in(a,b)$和任意$t\in[x_1,x_2]$，有
+$$f(t)\leq\df{x_2-t}{x_2-x_1}f(x_1)+\df{t-x_1}{x_2-x_1}f(x_2)
+=f(x_1)+\df{f(x_2)-f(x_1)}{x_2-x_1}(t-x_1),$$
+从而
+$$\df{f(t)-f(x_1)}{t-x_1}\leq\df{f(x_2)-f(x_1)}{x_2-x_1},$$
+由极限的保号性，令$t\to x_1^+$，可得
+$$f'(x_1)\leq\df{f(x_2)-f(x_1)}{x_2-x_1},$$
+也即
+$$f(x_2)\geq f(x_1)+f\,'(x_1)(x_2-x_1).$$
+
+另一方面，由Lagrange中值定理，对任意$x_1,x_2\in(a,b)$，存在
+$\xi\in(a,b)$，使得
+$$\df{f(x_2)-f(x_1)}{x_2-x_1}=f'(\xi),$$
+也即
+$$f(x_2)=f(x_1)+f'(\xi)(x_2-x_1).$$
+
+于是由
+$$f(x_2)\geq f(x_1)+f\,'(x_1)(x_2-x_1)$$
+可得
+$$f'(x_1)\leq\df{f(x_2)-f(x_1)}{x_2-x_1}=f'(\xi).$$
+从而
+$$f(x_2)\geq f(x_1)+f'(x_1)(x_2-x_1).$$
+\hfill$\Box$
+
+这个定理虽然给出了凹弧判定的充要条件，但从结论的形式上看，是非常不易验证的。
+如果进一步知道$f(x)$是二阶可导的，可以使用如下更为简单的判定方法：
+
+\begin{thx}
+	{\bf 凹凸性判定的充分条件：}
+	设$f(x)$在$(a,b)$二阶可导，则
+	\begin{enumerate}[(1)]
+% 	  \setlength{\itemindent}{1cm}
+	  \item 若$f\,''(x)$恒不小于零，$f(x)$为凹函数；
+	  \item 若$f\,''(x)$恒不大于零，$f(x)$为凸函数。
+	\end{enumerate}
+\end{thx}
+
+这个定理的证明需要用到Taylor公式，在第3.3节我们已经以例题的形式证明过，在此
+不再重复。
+
+一段曲线常常是由多段凹弧和凸弧相接构成的，例如：$y=x^3$的曲线在$x<0$的部分
+是凸的，在$x>0$的部分是凹的。位于凹、凸弧交界处的点，我们一般称之为曲线的{\bf 拐点}，
+如果曲线在改点是二阶可导的，容易推出在该点处二阶导数为零。例如$x=0$就是$y=x^3$
+对应曲线的拐点。但特别需要注意的是，二阶导数为零的点，不一定都是曲线的拐点。例如
+$y=x^4$在$x=0$处二阶导数为零，但该点并不是对应曲线的拐点，而是一个{\it 极小值点}。
+
+事实上，{\it\b 要判定一个点是否为曲线的拐点，只需判断一下在该点左右的二阶导数是否符号是相异的}。
+
+\begin{shaded}
+	{\bf 讨论：}由$f''(x_0)=0$是否可以推出$x=x_0$为拐点？
+
+	[答]：不能！例如$y=x^3$和$y=x^4$，在$x=0$处，前者为拐点，后者是极值点！
+	具体可参照如下的分析方法：
+	\begin{center}
+	\begin{tabular}{c||c|c|c|c}
+		\hline 
+		$f(x)=x^3$ & $x<0$ & $x=0$ & $x>0$ & \\ 
+		\hline 
+		$f(x)$ & - & 0 & + & \\ 
+		\hline 
+		$f'(x)$ & + & 0 & + & 拐点\\ 
+		\hline 
+		$f''(x)$ & - & 0 & + & \\ 
+		\hline 
+		$f'''(x)$ & + & + & + & \\ 
+		\hline 
+		 &  &  &  &  \\ 
+		\hline 
+	\end{tabular} 
+	\begin{tabular}{c||c|c|c|c}
+		\hline 
+		$f(x)=x^4$ & $x<0$ & $x=0$ & $x>0$ & \\ 
+		\hline 
+		$f(x)$ & + & 0 & + & 极小值\\ 
+		\hline 
+		$f'(x)$ & - & 0 & + & \\ 
+		\hline 
+		$f''(x)$ & + & 0 & + & \\ 
+		\hline 
+		$f'''(x)$ & - & 0 & + & \\ 
+		\hline 
+		$f^{(4)}(x)$ & + & + & + & \\ 
+		\hline 
+	\end{tabular} 
+	\end{center}
+	
+	综合来看，$f''(x)=0$的点只能作为可能的拐点，并且，拐点也可能出现在不可导点处。
+\end{shaded}
 
 \section{函数的极值与最值}
 
