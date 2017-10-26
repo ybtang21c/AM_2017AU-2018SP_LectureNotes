@@ -1,8 +1,61 @@
+\begin{center}
+	{\bf\Large 格式说明}
+\end{center}
+
+\bigskip\bigskip
+
+为了突出重点内容，区分不同要求，本讲义通过使用不同字体、色彩、背景
+和文本框对内容加以区分，说明如下：
+
+\bigskip\bigskip
+
+宋体字：正文；
+
+\bigskip\bigskip
+
+{\kaishu 楷体字：}专有名词或概念；
+
+\bigskip\bigskip
+
+{\bf 黑体字}：重要概念或结论，各类标题；
+
+\bigskip\bigskip
+
+{\b 蓝色字体}：重要的附注或说明；
+
+\bigskip\bigskip
+
+{\color{red} 红色字体：}重要说明，务必重视；
+
+\bigskip\bigskip
+
+\begin{thx}
+	深蓝色边框，白色底色文本框：重要概念或结论；
+\end{thx}
+
+\bigskip\bigskip
+
+\begin{ext}
+	深绿色边框，绿色底色文本框：课后作业或练习题；
+\end{ext}
+
+\bigskip\bigskip
+
+\begin{shaded}
+	黑色背景文本框：扩展阅读知识，了解即可，不要求掌握；
+\end{shaded}
+
+\bigskip\bigskip
+
+边栏文本：\ps{附注和说明。}
+
+\newpage
+
 \section{课程简介}
 
 \subsection{学什么}
 
-高等数学是大学工科专业必修的数学基础课，通常和线性代数、概率论与数理统计统称
+高等数学是大学工科专业必修的数学基础课，通常和{\it 线性代数}、{\it 概率论与数理统计}统称
 为{\it 工程数学}。
 
 我们所说的高等数学，在国外一般就叫做{\it 微积分}，而且通常分为{\it 一元函数微积分}
@@ -13,20 +66,20 @@ Leibniz(1646-1716)分别独立
 创立了微积分的理论，并最终被视为微积分的共同创始人。但是，我们必须认识到的是，
 一门系统、复杂的理论，不可能仅仅是极个别人的创造。正如Newton的名言，“{\it If 
 I have seen further, it is by standing on the shoulders of
-giants.}”，在两位大师身前和身后，众多杰出的数学家都为微积分理论的发展作出了
-关键性的贡献，其中既包括Fermat(1607-1665)、Barrow(1630-1677)、
+giants.}”，在两位大师生前和生后，众多杰出的数学家都为微积分理论的发展作出了
+贡献，其中既包括Fermat(1607-1665)、Barrow(1630-1677)、
 Descartes(1596-1650)%、Huygens(1629-1695)、Wallis(1616-1703)
 等人的奠基性工作，也包括Cauchy(1789-1857)、D.Bernoulli(1700-1782)、
 Lagrange(1736-1913)、Weierstrass(1815-1897)、Cantor(1845-1918)、
 Taylor(1685-1731)、Euler(1707-1783)、d'Alembert(1717-1783)
 %、Laplace(1749-1827)、Agnesi(1718-1799)
-等对这一理论体系的完善和丰富，更包括Dirichlet(1805-1859)、Riemann(1826-1866)、
-Lebesgue(1875-1941)、Fourier(1772-1837)以及后世许多数学家对以之为基础的分析
-数学的深入探索和发展。今天我们所学习的微积分，虽然只是这一学科
+使之严谨化以和完善，更包括Dirichlet(1805-1859)、Riemann(1826-1866)、
+Lebesgue(1875-1941)、Fourier(1772-1837)以及后世很多数学家在{\it 分析
+学}上的深入探索。今天我们所学习的微积分，虽然只是这一学科
 \ps{更准确的说法应该叫分析学，它和几何学、代数学并称现代数学的三大分支，
 三者各自拥有庞大的理论体系，在它们的交汇处诞生了众多重要而又生机勃勃的
-数学前沿分支}的基础部分，但要说其中融汇了200多年来众多近现代数学家
-的杰出成就，是毫不为过的。
+数学前沿分支}的基础部分，但要说其中融汇了300多年来众多近现代数学家
+的杰出成就，是绝对实至名归的。
 
 % \begin{figure}[htbp]
 % 	\centering\scalebox{0.3}{\includegraphics{./images/ch1/AM_architecture.jpg}}
@@ -2535,35 +2588,31 @@ $$\limn\sqrt[n]a=\limn\sqrt[n]{\df1b}
 	$$\limn\sqrt[n]n=1.$$
 \end{thx}
 
-{\bf 补充例题：}
-
 {\bf 例：}计算极限
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\limn\sqrt[n]{n^5}=1$
+  
+  [提示]：$\mbox{原式}=\left(\limn\sqrt[n]{n}\right)^5$.
+  \item $\limn\sqrt[n]{3^n+5^n}=1^5=1$.
+  
+  [提示]：$5=\sqrt[n]{5^n}<\sqrt[n]{3^n+5^n}
+  <\sqrt[n]{2\cdot 5^n}=\sqrt[n]2\sqrt[n]{5^n}=\sqrt[n]2\cdot5$.
+  
+  \begin{thx}
+	  {\bf 常用极限：}设$a_k\geq0,\;(k=1,2,\ldots)$，则$\limn\sqrt[n]
+	  {\sum\limits_{k=1}^na_k^n}=\max\limits_{1\leq k\leq n}a_k.$
+  \end{thx}
+  
   \item $\limn\sqrt[n^2]{5^n+1}=1$
   \item 已知$a>b>0$，$\limn\sqrt[n]{\df1{a^n}+\df1{b^n}}=\df1b$
-  \item 设$a_k\geq0,\;(k=1,2,\ldots)$，则$\limn\sqrt[n]
-  {\sum\limits_{k=1}^na_k^n}=\max\limits_{1\leq k\leq n}a_k$
   \item $\limn\sqrt[n]{n^5+5^n}=5$
   \item $\limn\df{\sqrt{n+\sqrt n}-\sqrt n}{\sqrt[n]{3^n+5^n+7^n}}=\df1{14}$
+  \item $\limn\left(\df1{n+1}+\df1{\sqrt{n^2+1}}+\ldots
+	+\df1{\sqrt[n]{n^n+1}}\right)=1$
+  \item $\limn n^2\left(\df kn-\df1{n+1}-\df1{n+2}
+	-\ldots-\df1{n+k}\right),\;k\in\mathbb{Z}_+$
 \end{enumerate}
-
-% {\bf 例：} 设$x\geq 0$，则
-% $\limn\sqrt[n]{1+x^n+\left(\df{x^2}2\right)^n}=
-% \left\{\begin{array}{ll}
-% 1&x\in[0,1]\\ x & x\in(1,2]\\ \frac{x^2}2& x>2
-% \end{array}\right.$
-
-{\bf 例：} $\limn\left(\df1{n+1}+\df1{\sqrt{n^2+1}}+\ldots
-+\df1{\sqrt[n]{n^n+1}}\right)=1$
-
-{\bf 例：}已知$k\in\mathbb{Z}_+$，计算：$\limn n^2\left(\df kn-\df1{n+1}-\df1{n+2}
--\ldots-\df1{n+k}\right)$
-
-% [提示]：
-% $$\df kn-\df1{n+1}-\df1{n+2}-\ldots-\df1{n+k}=\sum\limits_{i=1}^k\df{i}{n+i}$$
-% $$\df i{n(n+k)}\leq\df{i}{n+i}\leq\df i{n(n+1)}$$
 
 \begin{thx}
 	{\bf 准则I'：}设在$x_0$的某邻域内，恒有
@@ -2574,20 +2623,30 @@ $$\limn\sqrt[n]a=\limn\sqrt[n]{\df1b}
 
 {\bf 注：}该准则显然可以推广到$x$趋于无穷的情形。
 
-{\bf 例：}\ps{KD教材3.2.3节-例11}（重要极限）证明：
+{\bf 例：}（重要极限）证明：（{\color{red}以下$x$取弧度值！}）
 \begin{thx}
 	$$\limx{0}\df {\sin x}x=1$$
 \end{thx}
 
-[提示]：
+[证]：
 \begin{center}
 	\resizebox{!}{5cm}{\includegraphics{./images/ch3/xsintan.pdf}}
 \end{center}
 
-如图，显然弧$AB$的长度大于直线$BD$，即$\sin\theta<\theta$；又扇形$ABO$的面积
-$\df12\theta$小于三角形$ACO$的面积$\df12\tan\theta$，从而$\theta<\tan\theta$
+如图，$\theta>0$时，显然弧$AB$的长度大于直线$BD$，即$\sin\theta<\theta$；
+又扇形$ABO$的面积$\df12\theta$小于三角形$ACO$的面积$\df12\tan\theta$，
+从而$\theta<\tan\theta$。由
+$$\sin\theta<\theta<\tan\theta,$$
+两边都除以$\sin\theta$，然后倒置，可得
+$$1<\df{\sin\theta}{\theta}<\cos\theta,$$
+注意到当$\theta\to 0^+$时，不等式左右极限都为$1$，故
+$\lim\limits_{\theta\to0^+}\df{\sin\theta}{\theta}=1$。
+又$\df{\sin x}x$为偶函数，故立即可得
+$\lim\limits_{\theta\to0^-}\df{\sin\theta}{\theta}=1$。
 
-从重要极限$\limx{0}\df{\sin x}x=1$出发可得到的一些常用的极限：
+综上即证。\hfill$\Box$
+
+从这个极限出发可得到的一些常用的极限：
 \begin{thx}
 	\begin{enumerate}[(1)]
 % 	  \setlength{\itemindent}{1cm}
@@ -2851,8 +2910,6 @@ $$A=\df1aA\quad\Rightarrow\quad A=0,$$
 
 {\bf 注：}{\b 若极限存在，可由通项公式反推递推式，然后两边取极限，解方程求得极限值}
 
-{\bf 补充例题：}
-
 {\bf 例：}$x_1=\df c2$，$x_{n+1}=\df c2+\df{x_n^2}2\,(n\in\mathbb{Z}_+)$，
 证明：若$c>1$，则$\{x_n\}$发散。
 
@@ -2892,74 +2949,76 @@ $$x_{n+1}-x_n=\df{\sqrt{x_n}(3-2x_n)}{\sqrt{x_n(3-x_n)}+\sqrt{x_n}}\geq 0.$$
 \end{align}
 由夹逼定理可知$|x_{n+1}-a|\to0\;(n\to\infty)$，即证。
 
-% \begin{shaded}
-% 	{\bf 特征根法求解求解二阶常系数齐次递推}
-% 	
-% 	{\bf 例：}已知$a_1,a_2$为常数，数列$\{a_n\}$满足：
-% 	$$a_n=\df 12({a_{n-1}+a_{n-2}})\quad(n>2).$$
-% 	证明$\{a_n\}$收敛，并求其极限。\ps{\b 熟练掌握此类递推！！！}
-% 	
-% 	{\bf 解：}原递推式可改写为
-% 	$$a_n-a_{n-1}=-\df12(a_{n-1}-a_{n-2})\quad(n>2),$$
-% 	由此递推，易得
-% 	$$a_n-a_{n-1}=\left(-\df12\right)^{n-2}(a_2-a_1),$$
-% 	进而
-% 	\begin{align}
-% 		a_n&=a_{n-1}+\left(-\df12\right)^{n-2}(a_2-a_1)\notag\\
-% 		&=a_{n-2}+\left[\left(-\df12\right)^{n-3}+\left(-\df12\right)^{n-2}\right]
-% 		(a_2-a_1)\notag\\
-% 		&=\ldots\notag\\
-% 		&=a_2+\left[\left(-\df12\right)+\ldots+\left(-\df12\right)^{n-3}
-% 		+\left(-\df12\right)^{n-2}\right](a_2-a_1)\notag\\
-% 		&=a_2-\df12\df{1-\left(-\df12\right)^{n-2}}{1+\df12}(a_2-a_1)\notag\\
-% 		&\to\df13a_1+\df23a_2\;(n\to\infty)\notag
-% 	\end{align}
-% 	即证。
-% 	
-% 	{\bf 注：}中学阶段，有些同学接触过所谓的特征根法求递推公式，具体过程如下，其背后
-% 	的原理与上面一个例子中的方法是完全一致的。
-% 	
-% 	已知$a_1,a_2$和如下的递推式：
-% 	
-% 	$$a_{n+2}=Aa_{n+1}+Ba_n\quad (AB\ne 0, A+B\ne 1),$$
-% 	求$\{a_n\}$的通项公式。
-% 	
-% 	考虑特征方程：
-% 	$$r^2=Ar+B$$
-% 	\begin{enumerate}[(1)]
-% 	  \setlength{\itemindent}{1cm}
-% 	  \item 若特征方程有相异实根$p,q$，则
-% 	  $$a_n=C_1p^n+C_2q^n$$
-% 	  其中系数$C_1,C_2$由方程
-% 	  $$\left\{\begin{array}{l}
-% 	  a_1=C_1p+C_2q\\
-% 	  a_2=C_1p^2+C_2q^2
-% 	  \end{array}\right.$$
-% 	  可解得
-% 	  $$C_1=\df{a_1q-a_2}{p(q-p)},\quad 
-% 	  C_2=\df{a_1p-a_2}{q(p-q)}$$
-% 	  \item 若有两个相等的实根$r$，则
-% 	  $$a_n=[C_1r+C_2(n-1)]r^{n-1}$$
-% 	  与（1）类似地可求出系数$C_1,C_2$
-% 	\end{enumerate}
-% 	
-% 	{\bf 例：}Fibonacci数列：$a_{n+2}=a_n+a_{n+1},\;a_1=a_2=1$
-% 	
-% 	$$a_n=\df1{\sqrt5}\left[\left(\df{1+\sqrt5}2\right)^n
-% 	-\left(\df{1-\sqrt5}2\right)^n\right]$$
-% 	
-% \end{shaded}
+\begin{shaded}
+	{\bf 特征根法求解求解二阶常系数齐次递推}
 
-{\bf 小结：}求解递推数列的极限问题，注意以下几点：{\b
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item 递推式两边同时取极限，解方程求得极限的值，是最便利的计算递推数列极限的方法
-  \item 若通过以上方法可以求出极限的值，通常只需证明数列单调有界即可
-  \item 若该方法无法求得极限的值，则只能利用递推式推导数列通项，进而证明其收敛并计算极限
-\end{itemize}}
+	{\bf 例：}已知$a_1,a_2$为常数，数列$\{a_n\}$满足：
+	$$a_n=\df 12({a_{n-1}+a_{n-2}})\quad(n>2).$$
+	证明$\{a_n\}$收敛，并求其极限。
+
+	{\bf 解：}原递推式可改写为
+	$$a_n-a_{n-1}=-\df12(a_{n-1}-a_{n-2})\quad(n>2),$$
+	由此递推，易得
+	$$a_n-a_{n-1}=\left(-\df12\right)^{n-2}(a_2-a_1),$$
+	进而
+	\begin{align}
+		a_n&=a_{n-1}+\left(-\df12\right)^{n-2}(a_2-a_1)\notag\\
+		&=a_{n-2}+\left[\left(-\df12\right)^{n-3}+\left(-\df12\right)^{n-2}\right]
+		(a_2-a_1)\notag\\
+		&=\ldots\notag\\
+		&=a_2+\left[\left(-\df12\right)+\ldots+\left(-\df12\right)^{n-3}
+		+\left(-\df12\right)^{n-2}\right](a_2-a_1)\notag\\
+		&=a_2-\df12\df{1-\left(-\df12\right)^{n-2}}{1+\df12}(a_2-a_1)\notag\\
+		&\to\df13a_1+\df23a_2\;(n\to\infty)\notag
+	\end{align}
+	即证。
+
+	{\bf 注：}中学阶段，有些同学接触过所谓的特征根法求递推公式，具体过程如下，其背后
+	的原理与上面一个例子中的方法是完全一致的。
+
+	已知$a_1,a_2$和如下的递推式：
+
+	$$a_{n+2}=Aa_{n+1}+Ba_n\quad (AB\ne 0, A+B\ne 1),$$
+	求$\{a_n\}$的通项公式。
+
+	考虑特征方程：
+	$$r^2=Ar+B$$
+	\begin{enumerate}[(1)]
+	  \setlength{\itemindent}{1cm}
+	  \item 若特征方程有相异实根$p,q$，则
+	  $$a_n=C_1p^n+C_2q^n$$
+	  其中系数$C_1,C_2$由方程
+	  $$\left\{\begin{array}{l}
+	  a_1=C_1p+C_2q\\
+	  a_2=C_1p^2+C_2q^2
+	  \end{array}\right.$$
+	  可解得
+	  $$C_1=\df{a_1q-a_2}{p(q-p)},\quad
+	  C_2=\df{a_1p-a_2}{q(p-q)}$$
+	  \item 若有两个相等的实根$r$，则
+	  $$a_n=[C_1r+C_2(n-1)]r^{n-1}$$
+	  与（1）类似地可求出系数$C_1,C_2$
+	\end{enumerate}
+
+	{\bf 例：}Fibonacci数列：$a_{n+2}=a_n+a_{n+1},\;a_1=a_2=1$
+
+	$$a_n=\df1{\sqrt5}\left[\left(\df{1+\sqrt5}2\right)^n
+	-\left(\df{1-\sqrt5}2\right)^n\right]$$
+
+\end{shaded}
 
 \begin{thx}
-{\bf 准则II'：}设$f(x)$在某个单调且在某个趋势下有界，则
+	{\bf 求解递推数列的极限问题的几个要点：}
+	\begin{itemize}
+% 	  \setlength{\itemindent}{1cm}
+	  \item 递推式两边同时取极限，解方程求得极限的值，是最便利的计算递推数列极限的方法
+	  \item 若通过以上方法可以求出极限的值，通常只需证明数列单调有界即可
+	  \item 若该方法无法求得极限的值，则只能利用递推式推导数列通项，进而证明其收敛并计算极限
+	\end{itemize}
+\end{thx}
+
+\begin{thx}
+{\bf 准则II'：}设$f(x)$在单侧单调且在某个趋势下有界，则
 $f(x)$在该趋势下的极限存在。
 \end{thx}
 
@@ -3014,53 +3073,70 @@ Stolz定理类似于函数极限中的L'Hospital法则，例如：
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\limn\df{1+\sqrt 2+\sqrt[3]{3}+\ldots+\sqrt[n]{n}}{n}$ 
-  \item $\limn\df{1^k+2^k+\ldots+n^k}{n^{k+1}},\quad(k\in\mathbb{N})$ 
-  \item $\limn\left(\df{1^k+2^k+\ldots+n^k}{n^{k}}-\df
-  n{k+1}\right),\quad(k\in\mathbb{N})$
+  \item $\limn\df{1!+2!+\ldots+n!}{n!}$
+  \item $\limn\df{\ln n}{1+\frac12+\ldots+\frac1n}=1$
 \end{enumerate}
-  
-  [提示]：（3）以下$P^{(*)}_k(n)$表示以$n$为变量的$k$次多项式，
-  \begin{eqnarray*}
-  	\mbox{原式}&=&\limn\df{(k+1)(1^k+2^k+\cdots+n^k)-n^{k+1}}{n^k(k+1)}\\
-  	&=&\limn\df{(k+1)(n+1)^k-[(n+1)^{k+1}-n^{k+1}]}{(k+1)[(n+1)^k-n^k]}\\
-  	&=&\limn\df{(k+1)[n^k+kn^{k-1}+P_{k-2}^{(1)}(n)]
-  	-\left[(n+1)^k+(n+1)^{k-1}n+\cdots+n^k\right]}{(k+1)
-  	\left[(n+1)^{k-1}+(n+1)^{k-2}n+\cdots+n^{k-1}\right]}\\
-  	&=&\limn\df{(k+1)[n^k+kn^{k-1}+P_{k-2}^{(1)}(n)]-(k+1)n^k
-  	-\df{k(k+1)}2n^{k-1}-P_{k-2}^{(2)}(n)}
-  	{(k+1)\left[\df{k(k+1)}{2}n^{k-1}+P_{k-2}^{(3)}(n)\right]}\\
-  	&=&\df12
-  \end{eqnarray*}
 
-{\bf 例：}设$\limn a_n=\alpha,\limn b_n=\beta$，则
-$$\limn\df{a_1b_n+a_2b_{n-1}+\ldots+a_nb_1}n=\alpha\beta$$
+{\bf 例：} 设$\limn a_n=a$，证明：
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\limn\df{a_0+a_1+\ldots+na_n}{n^2}=\df a2$
+  \item $\limn\df{a_1+\frac12a_2+\ldots\frac1na_n}{\ln n}=a$
+\end{enumerate}
 
-[证]：$\{b_n\}$收敛，故有界，从而存在$M>0$，对任意$n\in\mathbb{Z}^+$，
-$|b_n|\leq M$。
+\begin{shaded}
+	{\bf 例：}计算以下极限
+	\begin{enumerate}[(1)]
+% 	  \setlength{\itemindent}{1cm}
+	%   \item $\limn\df{1+\sqrt 2+\sqrt[3]{3}+\ldots+\sqrt[n]{n}}{n}$ 
+	  \item $\limn\df{1^k+2^k+\ldots+n^k}{n^{k+1}},\quad(k\in\mathbb{N})$ 
+	  \item $\limn\left(\df{1^k+2^k+\ldots+n^k}{n^{k}}-\df
+	  n{k+1}\right),\quad(k\in\mathbb{N})$
+	\end{enumerate}
+	  [提示]：（2）以下$P^{(*)}_k(n)$表示以$n$为变量的$k$次多项式，
+	  \begin{eqnarray*}
+	  	\mbox{原式}&=&\limn\df{(k+1)(1^k+2^k+\cdots+n^k)-n^{k+1}}{n^k(k+1)}\\
+	  	&=&\limn\df{(k+1)(n+1)^k-[(n+1)^{k+1}-n^{k+1}]}{(k+1)[(n+1)^k-n^k]}\\
+	  	&=&\limn\df{(k+1)[n^k+kn^{k-1}+P_{k-2}^{(1)}(n)]
+	  	-\left[(n+1)^k+(n+1)^{k-1}n+\cdots+n^k\right]}{(k+1)
+	  	\left[(n+1)^{k-1}+(n+1)^{k-2}n+\cdots+n^{k-1}\right]}\\
+	  	&=&\limn\df{(k+1)[n^k+kn^{k-1}+P_{k-2}^{(1)}(n)]-(k+1)n^k
+	  	-\df{k(k+1)}2n^{k-1}-P_{k-2}^{(2)}(n)}
+	  	{(k+1)\left[\df{k(k+1)}{2}n^{k-1}+P_{k-2}^{(3)}(n)\right]}\\
+	  	&=&\df12
+	  \end{eqnarray*}
+	
+	{\bf 例：}设$\limn a_n=\alpha,\limn b_n=\beta$，则
+	$$\limn\df{a_1b_n+a_2b_{n-1}+\ldots+a_nb_1}n=\alpha\beta$$
+	
+	[证]：$\{b_n\}$收敛，故有界，从而存在$M>0$，对任意$n\in\mathbb{Z}^+$，
+	$|b_n|\leq M$。
+	
+	由Cauchy命题，显然
+	$$\limn\df{|a_1-\alpha|+|a_2-\alpha|+\ldots+|a_n-\alpha|}n
+	=\limn|a_n-\alpha|=0.$$
+	注意到
+	$$
+		\df1n|(a_1-\alpha)b_n+(a_2-\alpha)b_{n-1}+\ldots+(a_n-\alpha)b_1|
+		\leq \df Mn[|a_1-\alpha|+|a_2-\alpha|+\ldots+|a_n-\alpha|],
+	$$
+	由夹逼定理可知
+	$$\limn\df{(a_1-\alpha)b_n+(a_2-\alpha)b_{n-1}+\ldots+(a_n-\alpha)b_1}n
+	=0.$$
+	
+	又由Cauchy命题
+	$$\limn\df{b_1+b_2+\ldots+b_n}n=\beta.$$
+	
+	综上可得
+	\begin{align*}
+		\df{a_1b_n+a_2b_{n-1}+\ldots+a_nb_1}n
+		&=\df{(a_1-\alpha)b_n+(a_2-\alpha)b_{n-1}+\ldots+(a_n-\alpha)b_1}n\\
+		&\quad+\alpha\df{b_1+b_2+\ldots+b_n}n\\
+		&\to 0+\alpha\beta=\alpha\beta\quad(n\to\infty).
+	\end{align*}
+	\hfill$\Box$
+\end{shaded}
 
-由Cauchy命题，显然
-$$\limn\df{|a_1-\alpha|+|a_2-\alpha|+\ldots+|a_n-\alpha|}n
-=\limn|a_n-\alpha|=0.$$
-注意到
-$$
-	\df1n|(a_1-\alpha)b_n+(a_2-\alpha)b_{n-1}+\ldots+(a_n-\alpha)b_1|
-	\leq \df Mn[|a_1-\alpha|+|a_2-\alpha|+\ldots+|a_n-\alpha|],
-$$
-由夹逼定理可知
-$$\limn\df{(a_1-\alpha)b_n+(a_2-\alpha)b_{n-1}+\ldots+(a_n-\alpha)b_1}n
-=0.$$
-
-又由Cauchy命题
-$$\limn\df{b_1+b_2+\ldots+b_n}n=\beta.$$
-
-综上可得
-\begin{align*}
-	\df{a_1b_n+a_2b_{n-1}+\ldots+a_nb_1}n
-	&=\df{(a_1-\alpha)b_n+(a_2-\alpha)b_{n-1}+\ldots+(a_n-\alpha)b_1}n\\
-	&\quad+\alpha\df{b_1+b_2+\ldots+b_n}n\\
-	&\to 0+\alpha\beta=\alpha\beta\quad(n\to\infty).
-\end{align*}
-\hfill$\Box$
 
 由Cauchy极限（命题），进一步可以得到如下两个推论：
 
@@ -3077,12 +3153,6 @@ $$\limn\sqrt[n]{a_1a_2\ldots a_n}=\limn a_n$$
 [提示]：记$b_n=\df{n!}{n^n}$，由以上推论
 $$\limn\sqrt[n]{b_n}=\limn\df{b_{n+1}}{b_n}=\df1e$$
 
-{\bf 例：}计算$\limn\df{1!+2!+\ldots+n!}{n!}=1$
-
-% [提示]：证明中用到如下不等式：若$\df{p_i}{q_i}\in(a,b)\;(q_i>0,i=1,2,\ldots,n,)$
-% 则
-% $$\df{\sum\limits_{i=1}^np_i}{\sum\limits_{i=1}^nq_i}\in(a,b)$$
-
 {\bf 例：}设$a>1$，证明：$\limn\df{n}{a^n}=0$。
 
 [提示]：由Stolz定理，
@@ -3096,15 +3166,6 @@ $$
 \end{thx}
 这个结论告诉我们，当$n$充分大时，$n$的任意幂次都远远小于一个底数超过$1$的
 $n$的指数函数。
-
-{\bf 例：}$\limn\df{\ln n}{1+\frac12+\ldots+\frac1n}=1$
-
-{\bf 例：} 设$\limn a_n=a$，证明：
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\limn\df{a_0+a_1+\ldots+na_n}{n^2}=\df a2$
-  \item $\limn\df{a_1+\frac12a_2+\ldots\frac1na_n}{\ln n}=a$
-\end{enumerate}
 
 Stolz定理还有所谓的$\df{\bm0}{\bm0}$型的形式：
 \ps{类似于L'Hospital法则的$\df{\bm0}{\bm0}$型形式}
@@ -3432,19 +3493,27 @@ $$\b\limx{x_0}f(x)=f(\limx{x_0}x).$$
 
 [提示]：先证明$xD(x)$仅在$x=0$处极限存在。
 
-{\bf 例：}\ps{KD教材3.4.1节-例3}
+{\bf 例：}
 设$f(x)$在$(-\infty,+\infty)$上有定义，
 且对任意$x,y\in (-\infty,+\infty)$，有
 $$f(x+y)=f(x)+f(y),$$
 则$f(x)$在$(-\infty,+\infty)$上连续，当且仅当$f(x)$在$x=0$连续。
 
-% \begin{center}
-% 	\resizebox{!}{4cm}{\includegraphics{./images/ch3/notCont.pdf}}
-% \end{center}
+[证]：在已知等式中同时令$x=y=0$，可得$f(0)=0$。
+
+对任意$x_0,\Delta x\in\mathbb{R}$，由已知
+$$f(x_0+\Delta x)=f(x_0)+f(\Delta x).$$
+由连续的定义，$f(x)$在$x_0$连续，当且仅当
+$$\lim\limits_{\Delta x\to 0}f(x_0+\Delta x)=f(x_0),$$
+等价于
+$$\lim\limits_{\Delta x\to 0}f(\Delta x)
+=\lim\limits_{\Delta x\to 0}f(x_0+\Delta x)-f(x_0)=0=f(0),$$
+即证。\hfill$\Box$
+
 
 \subsection{函数的间断点}
 
-{\b 间断点}即不连续点，根据前述函数连续的必要条件，可以对间断点作出如下的分类：
+{\bf 间断点}即不连续点，根据前述函数连续的必要条件，可以对间断点作出如下的分类：
 
 设$x_0$是$f(x)$的间断点（不连续点），对其分类定义如下：
 \ps{此处的第一类、第二类间断点的分类，沿用了KD教材的定义}
