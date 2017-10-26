@@ -22,14 +22,14 @@
 \begin{shaded}
 	Newton把连续的量统称为{\it 流量}(fluent)，把变化率称为{\it 流数}(fluxion)，
 	把自变量理解为时间，	时间的一个微小改变量称为{\it 瞬}(moment)。他将流量$x$的流数
-	记为$\dot{x}$，二阶流数记为$\ddot{x}$，这种符号有时在动力系统（已时间为自变量的系统）
+	记为$\dot{x}$，二阶流数记为$\ddot{x}$，这种符号有时在{\it 动力系统}（以时间为自变量的系统）
 	的讨论中还会使用，但更多的时候我们都使用现在的这套符号，它们（包括积分的符号）
 	都是由Leibniz最初引入的。
-	
-	在形如$\df{\d y}{\d x}$和$\df{\d}{\d x}$的导数符号中，$\df{\d}{\d x}$可以
-	被理解为所谓的{\it 求导算子}，表示对其右方的函数求导。求导算子的优先级高于四则运算
-	和一般的函数运算。
 \end{shaded}
+
+在形如$\df{\d y}{\d x}$和$\df{\d}{\d x}$的导数符号中，$\df{\d}{\d x}$可以
+被理解为所谓的{\it 求导算子}，表示对其右方的函数求导。求导算子的优先级高于四则运算
+和一般的函数运算。
 
 {\bf 例：}假设$f\,'(x_0)$存在，则
 \begin{enumerate}[(1)]
@@ -48,12 +48,9 @@
 
 \subsubsection{导数的实际意义（应用背景）}
 
-从导数的定义不难看出，导数本质上是一种变化率，严格地说，是某一点附近的
+从导数的定义不难看出，导数本质上是一种{\it 变化率}，严格地说，是某一点附近的
 函数平均变化率的极限，在现实的问题中，有大量这种平均变化率的例子，
 但有了导数，我们把这种变化率精确地与某个点（位置、时刻）对应了起来。
-
-{\b 函数关于自变量的变化率！}
-\ps{当自变量发生变化时，函数值发生的相应变化与之的比率}
 
 \begin{itemize}
   \setlength{\itemindent}{1cm}
@@ -67,6 +64,10 @@
   $$S_e=\lim\limits_{y\to y_0}\df{y\mbox{年的经济总量}
   -y_0\mbox{年的经济总量}}{y-y_0}$$
 \end{itemize}
+
+{\bf 注：}导数是函数关于自变量的变化率，也就是当自变量发生变化时，函数值发生的相应变化
+与之的比率。变化率的另一种理解是{\b\it 与自变量的单位变化量对应的函数值的改变量}，
+例如：速度是单位时间内的位移，密度是单位体积对应的质量。
 
 % {\bf 导数：函数关于自变量的变化率！}
 
@@ -93,14 +94,16 @@ $$\df{a_1+a_2}{a_3}=\df{a_1+a_3}{a_2}=\df{a_2+a_3}{a_1}$$
 $$\df{a_1+a_2+a_3}{a_3}=\df{a_1+a_2+a_3}{a_2}=\df{a_1+a_2+a_3}{a_1}$$
 显然$a_,a_2,a_3$相互不同，故必有$a_1+a_2+a_3=0$。
 
-{\b {\bf 思考：}可导等价于有切线吗？（{\it 否，若切线是铅直方向的，则导数没有意义！}）}
+{\bf 思考：}可导等价于存在切线吗？
 
-{\bf 例：}讨论函数$f(x)=\sqrt[3]x$在点$x=0$是否可导？
+[答]：否，可导则必存在切线，反之不然。若切线是铅直方向的，则导数没有意义！
+例如：函数$f(x)=\sqrt[3]x$在点$x=0$不可导（导数为$\infty$），
+但存在切线（铅直方向）。
 
 \subsubsection{导数存在的条件}
 
 为了讨论的方便，我们有时会使用“{\it 左（右）导数}”的概念，对应于导数定义中分别取
-左（右）导数的情形，记为$f'_-(x_0)$和$f'_+(x_0)$\ps{\b 注意和导函数的左右极限的区别}，
+左（右）导数的情形，记为{\b$f'_-(x_0)$}和{\b$f'_+(x_0)$}，
 显然由导数的定义，$f(x)$在$x_0$可导，当且仅当在该点的左、右导数存在且相等。
 
 
@@ -140,7 +143,11 @@ $$A=\limx{0}\df{f(x)}x=\limx{0}\df{f(x)-f(0)}{x-0}=f'(0),$$
 
 {\bf 讨论：}函数在一点不可导，可能有哪些不同的形态？
 
-[提示]：无定义、不连续或尖点以及下面的这种情况：
+[提示]：不连续、切线为铅直方向或尖点，如图
+
+\begin{center}
+	\includegraphics[width=0.9\textwidth]{./images/ch2/nDeri.jpg}
+\end{center}
 
 {\bf 例：}函数$f(x)=x^2D(x)$在$x=0$可导，但在其他地方都不连续。
 
@@ -177,33 +184,43 @@ e^x,& x\leq 0\end{array}\right.$$
 在$x=0$可导。
 
 {\bf 注：}{\b 计算分段定义的函数的导数，在分段的点上的左右导数要分别计算，
-其他（可导区间上的）部分直接利用常用的求导公式即可！}\ps{\b 常见考点！}
+其他（可导区间上的）部分直接利用常用的求导公式即可！}
 
 {\bf 例：}问题讨论
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item 若$f(x),g(x)$在$x_0$均不可导，是否$f(x)+g(x),$ $f(x)g(x)$必不可导？
   （{$\times$}） 
+  
+  [反例]：$f(x)=D(x)$，$g(x)=1-D(x)$。
   \item 若对任意$x\in (a,b)$，恒有$f(x)<g(x)$，且$f(x),g(x)$均在$(a,b)$内
-  可导，问是否必有$f\,'(x)<g'(x)$？ （{$\times$}） 
+  可导，问是否必有$f\,'(x)<g'(x)$？ （{$\times$}）
+  
+  [反例]：$f(x)=\sin x$，$g(x)=2$。 
   \item $f(x)$可导，则$|f(x)|$可导？反之呢？（{$\times$}）
+  
+  [反例]：都错误，$f(x)=x$，$|f(x)|=|x|$在$x=0$不可导；反之，考虑$f(x)=D(x)-\df12$。
   \item 若$f(x)$在$\mathbb{R}$上可导，且$\limx{+\infty}f(x)=\infty$，是否
   必有$\limx{+\infty}f\,'(x)=\infty$？反之呢？ （{$\times$}）
+  
+  [反例]：$f(x)=x$。
   \item 若$f(x)$在$(a,b)$内可导，且$\limx{a^+}f(x)=\infty$，是否
-  必有$\limx{a^+}f\,'(x)=\infty$？ 反之呢？（{$\times$}） 
+  必有$\limx{a^+}f\,'(x)=\infty$？ 反之呢？（{$\times$}）
+  
+  [反例]：$f(x)=\df1x+\sin\df1x$。 
   \item {\b 若$f(x)$可导且为奇（偶）函数，则$f\,'(x)$也有奇偶性？ 
   （相应的$f'(0)$有什么特点？偶函数，$f'(0)=0$）（{$\surd$}）} 
   \item {\b 若$f(x)$可导且为周期函数，则$f\,'(x)$也是周期函数？ （{$\surd$}）}
 \end{enumerate}
 
-{\bf 例：}设$f(x)=\sum\limits_{i=1}^na_i\sin
-ix$，其中$a_i(i=1,2,\ldots,n)$为常数，且对任意$x\in\mathbb{R}$， 
-$|f(x)|\leq |\sin x|$，证明：
-$$\left|a_1+2a_2+\ldots+na_n\right|\leq 1$$
-
-[提示]：$f(0)=0$，于是
-$$|f'(0)|=\limx{0}\df{|f(x)|}{|x|}\leq\limx{0}\df{|\sin x|}{|x|}=1$$
-事实上$f'(0)=a_1+2a_2+\ldots+na_n$.
+% {\bf 例：}设$f(x)=\sum\limits_{i=1}^na_i\sin
+% ix$，其中$a_i(i=1,2,\ldots,n)$为常数，且对任意$x\in\mathbb{R}$， 
+% $|f(x)|\leq |\sin x|$，证明：
+% $$\left|a_1+2a_2+\ldots+na_n\right|\leq 1$$
+% 
+% [提示]：$f(0)=0$，于是
+% $$|f'(0)|=\limx{0}\df{|f(x)|}{|x|}\leq\limx{0}\df{|\sin x|}{|x|}=1$$
+% 事实上$f'(0)=a_1+2a_2+\ldots+na_n$.
 
 {\bf 思考：}
 \begin{enumerate} 
@@ -242,7 +259,7 @@ $$|f'(0)|=\limx{0}\df{|f(x)|}{|x|}\leq\limx{0}\df{|\sin x|}{|x|}=1$$
 	  \item $f(x)=x^n\;(n\in\mathbb{Z})$ \hfill $f\,'(x)=nx^{n-1}\,(n\ne
 	  0)$ 
 	  \item $f(x)=e^x$ \hfill $f\,'(x)=e^x$ 
-	  \item $f(x)=\ln|x|$ \hfill $f\,'(x)=\df 1x$ 
+	  \item $f(x)={\color{red}\ln|x|}$ \hfill $f\,'(x)=\df 1x$ 
 	  \item $f(x)=\sin x$ \hfill $f\,'(x)=\cos x=\sin\left(x+\df{\pi}2\right)$ 
 	  \item $f(x)=\cos x$ \hfill $f\,'(x)=-\sin x=\cos\left(x+\df{\pi}2\right)$
 	\end{enumerate}
@@ -260,18 +277,29 @@ $$|f'(0)|=\limx{0}\df{|f(x)|}{|x|}\leq\limx{0}\df{|\sin x|}{|x|}=1$$
 % 	  \item 求曲线$y=\cos x$在$\left(\df{\pi}3,\df12\right)$处的切线和
 % 	  法线方程。
 	  \item 证明：曲线$xy=a^2$上任一点处的切线与两坐标轴构成的三角形面积不变。
-	  \item 讨论下列函数在$x=0$处的连续性、可导性以及导函数的连续性
-	  \begin{enumerate}[(1)]
-	    \item $y=\left\{\begin{array}{ll}
-	    	x\sin\df1x,& x\ne0;\\ 0, & x=0.
-	    \end{array}\right.$
-	    \item $y=\left\{\begin{array}{ll}
+	  \item 讨论函数
+	  	$y=\left\{\begin{array}{ll}
 	    	x^2\sin\df1x,& x\ne0;\\ 0, & x=0.
 	    \end{array}\right.$
-	  \end{enumerate}
+	  在$x=0$处的连续性、可导性以及导函数的连续性。
+	  \item 设对任意$x\in\mathbb{R}$，均有$f(x+2)=f(x)$，已知$f'(0)=1$，
+	  证明$f(x)$在$x=2$可导，并求$f'(2)$。
+	  \item 已知曲线$y=f(x)$和曲线$y=\sin x$在原点相切（即二者的切线相同），
+	  求$\limx0\df{f(3x)}x$。
+% 	  \begin{enumerate}[(1)]
+% 	    \item 
+% 	    \item $y=\left\{\begin{array}{ll}
+% 	    	x^2\sin\df1x,& x\ne0;\\ 0, & x=0.
+% 	    \end{array}\right.$
+% 	  \end{enumerate}
 	  \item （选作）已知函数$g(x)$在$x=a$连续，问函数$f(x)=|(x-a)|g(x)$
 	  在$x=a$是否可导？若可导，证明之；若不可导，讨论增加什么样的条件可以使之可导。
 	  利用以上讨论的结果，判断$f(x)=(x^2-4)|x^2+3x+2|$有几个不可导的点。
+	  \item （选作）已知$f'(a)f(a)\ne 0$，求
+	  $\limx0\left[\df{f(a+x)}{f(a)}\right]^{\frac1{\sin x}}.$
+	  \item （选作）设对任意$x,y\in\mathbb{R}$，有
+	  $$f(x+y)=f(x)+f(y)+x^2y+xy^2,$$
+	  且当$x\to$是$f(x)$与$x$是等价无穷小，证明$f(x)$处处可导，并求其导函数。
 	\end{enumerate}
 \end{ext}
 
@@ -280,13 +308,13 @@ $$|f'(0)|=\limx{0}\df{|f(x)|}{|x|}\leq\limx{0}\df{|\sin x|}{|x|}=1$$
 \subsection{四则运算的求导法则}
 
 \begin{thx}
-	设$u(x),v(x)$均在$x$可导，则
+	{\bf 四则运算求导公式：}设$u(x),v(x)$均在$x$可导，则
 	\begin{enumerate}[(1)]
 	  \setlength{\itemindent}{1cm}
 	  \item $[u(x)\pm v(x)]'=u'(x)\pm v'(x)$ 
 	  \item $[u(x)v(x)]' =u'(x)v(x)+u(x)v'(x)$ 
 	  \item $\left[\df{u(x)}{v(x)}\right]'
-	  =\df{u'(x)v(x)-u(x)v'(x)}{v^2(x)}\;(v(x)\ne 0)$
+	  =\df{u'(x)v(x)-u(x)v'(x)}{v^2(x)}\;\;(\mbox{假设}v(x)\ne 0)$
 	\end{enumerate}
 \end{thx}
 
@@ -328,13 +356,15 @@ $$|f'(0)|=\limx{0}\df{|f(x)|}{|x|}\leq\limx{0}\df{|\sin x|}{|x|}=1$$
 		\resizebox{!}{4cm}{\includegraphics{./images/ch4/11xSinx.pdf}}
 		
 		$y=\ln x\sin x$\hspace{5cm}$y=1.1^x\sin x$
+		
+		\kaishu $y=f(x)$和$y=f(x)\sin x$的图像在相交的位置必相切
 	\end{center}
 \end{shaded}
 
 \subsection{反函数求导法则}
 
 自变量和因变量（函数）是一种相对的关系，将原来的因变量视为自变量，通过反函数来研究
-原来原来的自变量的变化规律，是一种常见的数学手段。为此，讨论反函数的变化率（导数）就显得非常
+原来的自变量的变化规律，是一种常见的数学手段。为此，讨论反函数的变化率（导数）就显得非常
 有必要了。
 
 假设函数$y=f(x)$可逆，其反函数为$x=g(y)$。设$\Delta x$和$\Delta y$
@@ -353,7 +383,7 @@ $$
 至此，我们可以得到如下的结论：
 
 \begin{thx}
-	设$y=f(x)$和$x=g(y)$互为反函数，若$f(x)$可导，且$f'(x)\ne 0$，则
+	{\bf 反函数求导公式：}设$y=f(x)$和$x=g(y)$互为反函数，若$f(x)$可导，且$f'(x)\ne 0$，则
 	$$g'(y)=\df1{f'(x)}.$$
 \end{thx}
 注意，{\b 使用反函数的求导公式时，必须注意原函数和反函数的自变量是不同的，
@@ -447,26 +477,60 @@ $$[f(x^2)]'=f'(x^2)\cdot (x^2)'=2xf'(x),
   \item $y=e^{\tan\frac 1x}$
 \end{enumerate}
 
-{\b{\bf 例：}形如$y=u^v$的函数求导，其中$u,v$均可导\ps{难点！注意这类函数并不属于基本的初等函数}
+{\bf 例：}形如$y=u^v$的函数求导，其中$u,v$均可导
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $y=x^x$
-  $$(x^x)'=(e^{x\ln x})'=e^{x\ln x}\left(\ln x+x\cdot\df1x\right)=x^x(1+\ln x)$$
+  
+  [提示]：
+  $${\b (x^x)'=(e^{x\ln x})'=e^{x\ln x}\left(\ln x+x\cdot\df1x\right)
+  =x^x(1+\ln x)}$$
   \item $y=x^{x^x}$
   \item $y=\left(x^x\right)^x$
 \end{enumerate}
-}
+
+计算此类题目，必须注意的一点形如$u^v$的函数并不属于任何一类基本初等函数，因此必须首先将其
+转换为基本初等函数的复合函数形式，再用复合函数的求导法则来求导。
+
+对于这类题目，另一个常见的求导方法是所谓的“{\it 对数求导法}”，
+先对函数取对数，然后再求导，例如：
+$$\ln(u^v)=v\ln u,$$
+两边分别求导
+$$[\ln(u^v)]=\df{(u^v)'}{u^v},
+\quad (v\ln u)'=\ln u+\df vu,$$
+故
+$$(u^v)'=u^v\left(\ln u+\df vu\right).$$
+对于多个函数相乘构成的函数求导，采用先取对数再求导的方式也是非常高效的。
+
+{\bf 例：}求下列函数的导函数
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $y=x\sqrt{\df{1-x}{1+x}}$,
+  \item $y=\df{x^2}{1-x}\sqrt[3]{\df{3-x}{(3+x)^2}}$. 
+\end{enumerate}
 
 \begin{ext}
 	{\centering\bf 课后作业}
 	
 	\begin{enumerate}  
-	  \item 同济教材习题2-2：7，8
-	  \item 自行完成不少于100道各种求导计算题（{\it\b 可不写在作业本上}）。
+	  \item 同济教材-习题2-2：7，8；
+	  \item 计算如下函数的导函数
+	  \begin{enumerate}[(1)]
+	    \item $y=\arcsin\sqrt{1-x^2}$,
+	    \item $y=\ln(e^x+\sqrt{1+e^2x})$,
+	    \item $y=\arctan\sqrt{x^2-1}-\df{\ln x}{\sqrt{x^2-1}}$,
+	    \item $y=\ln\tan\df x2-\cos x\ln\tan x$,
+	    \item $y=\left(1+\df1x\right)^x$,
+	    \item $y=x^2+2^x+x^x+2^2$,
+	    \item $y=\sqrt{x+\sqrt{x+\sqrt x}}$.
+	  \end{enumerate}
 	  \item 设$f(x)$可导，且$f\,'\left(\df{\pi}{4}\right)=1$，求
-		$$\varphi(x)=f\left(\arctan\df{1+x}{1-x}\right)$$
-		在$x=0$处的导数。
-	  \item 求$\left(1+\df1x\right)^x$和$x\sqrt{\sin x\sqrt{1-e^x}}$的导函数。 
+		$$\left.f'\left(\arctan\df{1+x}{1-x}\right)\right|_{x=0}
+		\quad\mbox{和}\quad  
+		\left[f\left(\arctan\df{1+x}{1-x}\right)\right]'_{x=0}.$$
+% 		在$x=0$处的导数。
+% 	  \item 求$\left(1+\df1x\right)^x$和$x\sqrt{\sin x\sqrt{1-e^x}}$的导函数。
+	  \item 自行完成不少于100道各种求导计算题（{\it\b 不用写在作业本上}）。 
 	\end{enumerate}
 \end{ext}
 
@@ -671,13 +735,20 @@ $$\b g''(y)=-\df{f''(x)}{[f'(x)]^3}.$$
 \begin{ext}
 	{\centering\bf 课后作业}
 	
-	\begin{enumerate}  
+	\begin{enumerate}
+	  \item 设$y=\ln\sqrt{\df{1-x}{1+x}}$，求$y''(0)$。
+	  \item 已知$f(x)$二阶可导，设$y=\df{f(x)}{x}$，求$\df{\d^2y}{\d x}$。
+	  \item 已知$f(x)=\left\{\begin{array}{ll}
+	  	\ln(1+2x),& x>0, \\ x^2+2x, & x\leq 0,
+	  \end{array}\right.$
+	  求$f''(x)$。
 	  \item 求下列函数的$n$阶导函数
-	  \begin{enumerate}
+	  \begin{enumerate}[(1)]
 	    \item $y=\sin^2x$；
-	    \item $y=x\ln x$。
+	    \item $y=x\ln x$；
+	    \item $y=\df{x^2}{1-x}$。
 	  \end{enumerate}
-	  \item 已知$f(x)=x^2\ln(1+x)$，求$f^{(n)}(0)$。
+	  \item （选作）已知$f(x)=x^2\ln(1+x)$，求$f^{(n)}(0)$。
 	\end{enumerate}
 \end{ext}
 
@@ -886,13 +957,17 @@ $$y'''_{xxx}=-\df{9\sqrt3}8\df{\cos t}{\sin^5t}$$
 	  \item 对下列函数，求$y''(x)$
 	  \begin{enumerate}[(1)]
 	    \item $y=\tan(x+y)$；
-	    \item $y=1+xe^y$；
-	    \item $x=t(1-\sin t),\;y=t\cos t$。
+	    \item $y=1+xe^y$。
+% 	    \item $x=t(1-\sin t),\;y=t\cos t$。
 	  \end{enumerate}
 	  \item 求曲线$\left\{\begin{array}{l}
 	  	x=\df{3t}{1+t^2},\\ y=\df{3t^2}{1+t^2}.
 	  \end{array}\right.$在$(0,0)$和$\left(\df32,\df32\right)$
 	  处的切线方程。
+	  \item 已知$\left\{\begin{array}{l}
+	  	x=e^x\cos t\\ y=e^x\sin t
+	  \end{array}\right.$，求$\left.\df{\d y}{\d x}\right|_{t=\frac{\pi}2}$
+	  和$\left.\df{\d^2 y}{\d x^2}\right|_{t=\frac{\pi}2}$。
 	  \item （选作）设$x(t),y(t)$均三阶可导，试给出$y'''_{xxx}$关于$t$的表达式。
 	  \item （选作）设曲线的极坐标方程为$\rho=\rho(\theta)$，求其对应的直角指标
 	  方程$y=y(x)$相关的导数$y'_x$和$y''_{xx}$关于$\theta$的表达式。
@@ -1168,10 +1243,10 @@ $$\df{s(1)}{s(0)}=\left[\df{V(1)}{V(0)}\right]^{\frac13}=
 	{\centering\bf 课后作业}
 	
 	\begin{enumerate}  
-	  \item 圆形广场中央立着高度为$15$米的灯柱，有一盏灯位于灯柱顶端。
-		广场上任一点处的照明强度$I$与该点到灯的距离的平方成反比，与光线与灯柱的
-		夹角的余弦成正比。一个人从距离灯柱$10$米处以速度$1.5$米每秒沿径向离开柱子，求
-		其脚部的光照强度关于时间的变化率。
+% 	  \item 圆形广场中央立着高度为$15$米的灯柱，有一盏灯位于灯柱顶端。
+% 		广场上任一点处的照明强度$I$与该点到灯的距离的平方成反比，与光线与灯柱的
+% 		夹角的余弦成正比。一个人从距离灯柱$10$米处以速度$1.5$米每秒沿径向离开柱子，求
+% 		其脚部的光照强度关于时间的变化率。
 	  \item 质点$P$沿抛物线$x=y^2(y>0)$移动。$P$的横坐标$x$的变化速度为$5$cm/s。
 		当$x=9$cm时，点$P$到原点的距离的变化速率是多少？
 	  \item 垂直向上发射一枚火箭，在其起飞点100km外设置一个观察站，在观察仰角
@@ -1183,6 +1258,8 @@ $$\df{s(1)}{s(0)}=\left[\df{V(1)}{V(0)}\right]^{\frac13}=
 	    \item 由梯子、墙面和地面构成的三角形的面积随时间的变化率是多少？
 	    \item 梯子和地面的夹角的以怎样的速率变化？
 	  \end{enumerate}
+	  \item 半径为$a$的圆球渐渐沉入盛有水的半径为$b(b>a)$的圆柱形容器中，若
+	  球的下降速度恒为$c$，求球浸没入水中恰好一半时，容器内水面上升的速率。
 % 	  \item （选作）设曲线的极坐标方程为$\rho=\rho(\theta)$，求其对应的直角指标
 % 	  方程$y=y(x)$相关的导数$y'_x$和$y''_{xx}$关于$\theta$的表达式。
 	\end{enumerate}
@@ -1355,8 +1432,15 @@ $$e_r=\df{\Delta V}{V}\approx 3\df{\Delta R}{R}=3\%.$$
 	  	0.01$时的$\Delta y$和$\d y$；
 	    \item 写出$x=2$时$y$的微分表达式。
 	  \end{enumerate}
-	  \item 统计教材习题2-5：4
-	  \item 设$a>0$，$|x|<<a$（表示$|x|$远远小于$a$），证明近似公式
+	  \item 已知$2^{xy}=x-y$，求$\d y|_{x=0}$。
+	  \item 同济教材习题2-5：4
+	  \item 设
+	  $f(x)=\lim\limits_{t\to\infty}t^2
+	  \left[e^{x+\frac2t}-e^x\right]\sin\df xt$，求$\d f(x)$。
+	  \item 已知当$h\to 0$时，
+	  $$f(x+2h)-f(x)=h\sqrt{x^2+2x}+\circ(h),$$
+	  求$\d\left[f\left(\df1x\right)\right]$。
+	  \item （选作）设$a>0$，$|x|<<a$（表示$|x|$远远小于$a$），证明近似公式
 	  $$\sqrt[n]{a^n+x}\approx a+\df{x}{na^{n-1}}.$$
 	\end{enumerate}
 \end{ext}
