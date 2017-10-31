@@ -1,0 +1,215 @@
+% !Mode:: "TeX:UTF-8"
+
+\titlepage
+
+\begin{frame}{说在前面}
+	\linespread{1.5}
+	  \begin{itemize}[<+-|alert@+>]
+	    \item 作业中打$\color{red}\times$的必须订正，否则下次不予批改，
+		默认评分为$C$以下；
+	    \item 写过的作业不许撕掉，除非重写；
+	    \item 不要忘记贴照片，作业本封面注明学员队和班号；
+	    \item 作业本不要分栏写；
+	    \item 抄作业也要动脑子，不要当“复印机”！
+	    \item {\b 今后每周一交作业，按照单双周对应学号尾数为单双号的同学分别上交，
+	    平均每人两周交一次作业。} 
+	  \end{itemize}
+\end{frame}
+
+\begin{frame}{出现的问题}
+	\linespread{1.5}
+	  \begin{itemize}[<+-|alert@+>]
+	    \item 解题过程叙述不清，无用的话太多，未说明推理的依据；
+	    \item 概念使用不熟练，例如：一道题里出现多个$\e$，不会正确地表达无界，无穷大；
+	    \item 放缩不熟练，例如：$N$的取值太复杂；
+	    \item 使用了不存在或无意义的极限，例如：$\limx0\sin\df1x$；
+	    \item 符号书写不规范，如：$\mathbb{Z},\;\e,\;\delta$；
+	    \item 书写脏乱，字迹难以辨认。
+	  \end{itemize}
+\end{frame}
+
+\section{习题1-1}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{5.用定义证明极限：（1）$\limn\df{\sqrt{n^2+a^2}}n=1$}\pause
+	
+	\bigskip
+	
+	证：\it 对任意$\e>0$，令$N=\left[\df{a^2}{\e}\right]+1>\df{a^2}{\e}$，
+	则对任意$n>N$，均有
+	$$\left|\df{\sqrt{n^2+a^2}}n-1\right|
+	=\df{a^2}{n(\sqrt{n^2+a^2}+n)}<\df{a^2}n<\df{a^2}N<\e,
+	$$
+	由数列极限的定义，即证。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{5.用定义证明极限：（4）$\limn0.\underbrace{99\ldots9}
+	_{n\mbox{\footnotesize 个}}=1.$}\pause
+	
+	\bigskip
+	
+	证：\it 对任意$\e>0$，令$N=[-\lg\e]+1$，则对任意$n>N$，均有
+	$$|0.\underbrace{99\ldots9}_{n\mbox{\footnotesize 个}}-1|
+	=\df1{10^n}<\df1{10^N}
+	<\df1{10^{-\lg\e}}=\e,$$
+	由数列极限的定义，即证。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{7.数列$\{x_n\}$有界，$\limn y_n=0$，证明：$\limn x_ny_n=0$。}\pause
+	
+	\bigskip
+	
+	证：\it $\{x_n\}$有界，故存在$M>0$，对任意$n\in\mathbb{Z}_+$，均有
+	$$|x_n|\leq M.$$\pause
+	对任意$\e>0$，令$\e_1=\df{\e}M$，由$\limn y_n=0$，存在$N$，对任意$n>N$有
+	$$|y_n-0|<\e_1.$$\pause
+	综上，当$n>N$时，总有
+	$$|x_ny_n-0|\leq M\e_1=\e,$$
+	由数列极限的定义，即证。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{8.对于数列$\{x_n\}$，若$x_{2k-1}\to a\,(k\to\infty)$，
+	$x_{2k}\to a\,(k\to\infty)$，证明：
+	$x_n\to a\,(n\to\infty)$。}\pause
+	
+	\bigskip
+	
+	证：\it 对任意$\e>0$，由$x_{2k-1}\to a\,(k\to\infty)$，存在$K_1$，
+	对任意$k>K_1$，有$|x_{2k-1}-a|<\e$；\pause
+	对以上的$\e>0$，由$x_{2k}\to a\,(k\to\infty)$，存在$K_2$，
+	对任意$k>K_2$，有$|x_{2k}-a|<\e$。\pause
+	
+	综上，令$N=\max\{2K_1-1,2K_2\}$，则对任意$n>N$，均有
+	$$|a_n-a|<\e.$$
+	由数列极限的定义，即证。\hfill$\Box$
+\end{frame}
+
+\section{习题1-3}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{5.根据函数极限的定义证明：(3)$\limx{-2}\df{x^2-4}{x+2}=-4$.}\pause
+	
+	\bigskip
+	
+	证：\it 对任意$\e>0$，令$\delta=\e$，则对任意$x\in U_0(-2,\delta)$，总有
+	$$\left|\df{x^2-4}{x+2}-(-4)\right|=|x+2|<\delta=\e.$$
+	由函数极限的定义，即证。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{6.根据函数极限的定义证明：
+	(2)$\limx{+\infty}\df{\sin x}{\sqrt x}$.}\pause
+	
+	\bigskip
+	
+	证：\it 对任意$\e>0$，令$X=\df1{\e^2}$，则对任意$x>X$，总有
+	$$\left|\df{\sin x}{\sqrt x}-0\right|\leq\df1{\sqrt x}
+	<\df1{\sqrt X}=\e.$$
+	由函数极限的定义，即证。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{7.当$x\to2$时，$y=x^2\to 4$，问$\delta$等于多少，使当$|x-2|<\delta$时，
+	$|y-4|<0.001$？}\pause
+	
+% 	\bigskip
+	
+	解：\it $$|y-4|<0.001\quad\Leftrightarrow\quad 3.999<x^2<4.001.$$
+	进而当$x>0$时，必有
+	$\sqrt{3.999}<x<\sqrt{4.001}$。	由此可知须
+	$$|x-2|<\min\{2-\sqrt{3.999},\sqrt{4.001}-2\}$$
+	时，方能满足题目要求。注意到$2-\sqrt{3.999}>\sqrt{4.001}-2$，故
+	取$\delta=\sqrt{4.001}-2$，即为所求。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{8.当$x\to\infty$时，$y=\df{x^2-1}{x^2+3}\to1$，问$X$等于多少，使当
+	$|x|>X$时，$|y-1|<0.01$？}\pause
+	
+	\bigskip
+	
+	解：\it 由题意
+	$$|y-1|=\left|\df{x^2-1}{x^2+3}-1\right|=\df4{x^2+3}<0.01,$$
+	由此可解得$|x|>\sqrt{397}$，故$X=\sqrt{397}$即为所求。\hfill$\Box$
+\end{frame}
+
+\section{习题1-4}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{7.证明：函数$y=\df1x\sin\df1x$在区间$(0,1]$内无界，但不是$x\to0^+$
+	时的无穷大。}\pause
+	
+	\bigskip
+	
+	证：\it 先证该函数无界。对任意$M>0$，总可令$x_M=\df1{2([M]+1)\pi+\frac{\pi}2}$，
+	则
+	$$
+	y(x_M)=2([M]+1)\pi+\frac{\pi}2>M.$$
+	由函数无界的定义，即证。
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{7.证明：函数$y=\df1x\sin\df1x$在区间$(0,1]$内无界，但不是$x\to0^+$
+	时的无穷大。}\pause
+	
+	\bigskip
+	
+	\it 下证该函数不是$x\to0^+$时的无穷大。用反证法，若该函数是$x\to0^+$时的
+	无穷大，则
+	$$\limx{0^+}\df1y=\limx{0^+}x\df1{\sin\frac1x}=0.$$
+	考虑数列$x_n=\frac1{n\pi}$，显然$\limn x_n=0$，且$\sin\df1{x_n}=0$，
+	此时$\df1{y(x_n)}$无定义，故$\left\{\df1{y(x_n)}\right\}$
+	必不收敛，从而由Henie定理，前述极限不成立，
+	假设错误，即证。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{8.求函数$f(x)=\df4{2-x^2}$的渐近线。}\pause
+	
+	\bigskip
+	
+	解：\it 由$\limx{\pm\sqrt 2}\df1{f(x)}=\df{2-x^2}4=0$，可知$f(x)$
+	是$x\to\pm\sqrt2$时的无穷大，故$x=\pm\sqrt2$为$f(x)$的两条铅直渐近线；
+	
+	又$\limx{\infty}f(x)=0$，故$y=0$是$f(x)$的水平渐近线。\hfill$\Box$
+\end{frame}
+
+\section{习题1-5}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{3.计算下列极限：(1)$\limx0x^2\sin\df1x$}\pause
+	
+	\bigskip
+	
+	解：\it 因为$\limx0x^2=0$，$|\sin\df1x|\leq1$，由无穷小的性质（无穷小
+	乘以有界量仍为无穷小），可知
+	$$\limx0x^2\sin\df1x=0.$$
+	\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{3.计算下列极限：(2)$\limx{\infty}\df{\arctan x}x$}\pause
+	
+	\bigskip
+	
+	解：\it 因为$\limx{\infty}\df1x=0$，$|\arctan x|\leq\df{\pi}2$，故
+	无穷小的性质，可知
+	$$\limx{\infty}\df{\arctan x}x=0.$$
+	\hfill$\Box$
+\end{frame}

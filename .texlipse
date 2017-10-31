@@ -1,5 +1,5 @@
 #TeXlipse project settings
-#Thu Sep 21 17:15:15 CST 2017
+#Mon Oct 30 18:18:05 CST 2017
 markTmpDer=true
 builderNum=7
 outputDir=pdf
@@ -8,7 +8,7 @@ bibrefDir=
 outputFormat=pdf
 tempDir=tmp
 mainTexFile=0-main-lectureNotes.tex
-outputFile=output.pdf
+outputFile=0-main-lectureNotes.pdf
 langSpell=en
 markDer=true
 srcDir=src
