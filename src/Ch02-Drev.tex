@@ -292,14 +292,11 @@ e^x,& x\leq 0\end{array}\right.$$
 % 	    	x^2\sin\df1x,& x\ne0;\\ 0, & x=0.
 % 	    \end{array}\right.$
 % 	  \end{enumerate}
-	  \item （选作）已知函数$g(x)$在$x=a$连续，问函数$f(x)=|(x-a)|g(x)$
-	  在$x=a$是否可导？若可导，证明之；若不可导，讨论增加什么样的条件可以使之可导。
-	  利用以上讨论的结果，判断$f(x)=(x^2-4)|x^2+3x+2|$有几个不可导的点。
 	  \item （选作）已知$f'(a)f(a)\ne 0$，求
 	  $\limx0\left[\df{f(a+x)}{f(a)}\right]^{\frac1{\sin x}}.$
 	  \item （选作）设对任意$x,y\in\mathbb{R}$，有
 	  $$f(x+y)=f(x)+f(y)+x^2y+xy^2,$$
-	  且当$x\to$是$f(x)$与$x$是等价无穷小，证明$f(x)$处处可导，并求其导函数。
+	  且当$x\to0$时$f(x)$与$x$是等价无穷小，证明$f(x)$处处可导，并求其导函数。
 	\end{enumerate}
 \end{ext}
 
@@ -524,6 +521,9 @@ $$(u^v)'=u^v\left(\ln u+\df vu\right).$$
 	    \item $y=x^2+2^x+x^x+2^2$,
 	    \item $y=\sqrt{x+\sqrt{x+\sqrt x}}$.
 	  \end{enumerate}
+	  \item 已知函数$g(x)$在$x=a$连续，问函数$f(x)=|(x-a)|g(x)$
+	  在$x=a$是否可导？若可导，证明之；若不可导，讨论增加什么样的条件可以使之可导。
+	  利用以上讨论的结果，判断$f(x)=(x^2-4)|x^2+3x+2|$有几个不可导的点。
 	  \item 设$f(x)$可导，且$f\,'\left(\df{\pi}{4}\right)=1$，求
 		$$\left.f'\left(\arctan\df{1+x}{1-x}\right)\right|_{x=0}
 		\quad\mbox{和}\quad  
@@ -1467,16 +1467,280 @@ $$e_r=\df{\Delta V}{V}\approx 3\df{\Delta R}{R}=3\%.$$
 如何正确用数学的符号和语言去描述实际问题，用更专业的话来说，
 就是如何做好数学建模。
 
-% \newpage
-% 
-% \section*{课后作业}
-% \addcontentsline{toc}{section}{课后作业}
-% 
-% \begin{itemize}
-%   \item 习题2-1：3，11，13，16（2），20
-%   \item 习题2-2：1，9，11，13，14
-%   \item 习题2-3：4，10，11（2），12
-%   \item 习题2-4：2，3（3,4），4（1,4），5（2），7（2），8（2,4），10
-%   \item 习题2-5：1，4，6，8（2），10（1），11
-%   \item 总习题：8，10（2），14，15，16
-% \end{itemize}
+\newpage
+
+\section*{作业参考解答}
+% \addcontentsline{toc}{section}{作业参考解答}
+
+\begin{center}
+	\bf 1.2 导数的概念
+\end{center}
+
+\bigskip
+
+1.已知$f(x)=\left\{\begin{array}{ll}
+2e^x+b,& x\leq0\\ ax+\sin x,& x> 0
+\end{array}\right.$
+试确定$a,b$的值，使得$f(x)$在$x=0$处可导。
+
+[解]：$f(x)$在$x=0$处可导，故必连续，从而
+$$f(0-0)=2+b=f(0+0)=0,\quad\Rightarrow \quad b=-2.$$
+又
+$$f'_-(0)=(2e^x+b)'|_{x=0}=2.$$
+$$f'_+(0)=\limx{0+}\df{ax+\sin x-(2+b)}{x}
+=a+\limx{0+}\df{\sin x}x=a+1.$$
+故要使$f(x)$在$x=0$处可导，必有$2=a+1$，从而$a=1$。
+\hfill$\Box$
+
+\bigskip
+
+2.证明：曲线$xy=a^2$上任一点处的切线与两坐标轴构成的三角形面积不变。
+
+[解]：在已知曲线上任一点$(x_0,y_0)$处，切线斜率为
+$$k=\left(\df{a^2}{x}\right)'_{x=x_0}=-\df{a^2}{x_0^2}.$$
+于是过该点的切线为
+$$y=y_0-\df{a^2}{x_0^2}(x-x_0).$$
+其在$x$轴和$y$轴上的截距分别为（注意：$y_0=\df{a^2}{x_0}$）
+$$X=\df{y_0x_0^2}{a^2}+x_0=2x_0,\quad
+Y=y_0+\df{a^2}{x_0^2}x_0=2y_0.$$
+故该切线与两坐标轴所围三角形面积为
+$$S=\df12XY=2x_0y_0=2a^2.$$
+由$(x_0,y_0)$的任意性，即证。\hfill$\Box$
+
+\bigskip
+
+3.讨论函数
+$y=\left\{\begin{array}{ll}
+	x^2\sin\df1x,& x\ne0;\\ 0, & x=0.
+\end{array}\right.$
+在$x=0$处的连续性、可导性以及导函数的连续性。
+
+[解]：当$x\ne 0$时，
+$$f'(x)=2x\sin\df1x-\sin\df1x.$$
+当$x=0$时，
+$$f'(0)=\limx0\df{x^2\sin\df1x-0}{x-0}=0.$$
+由此可知$f(x)$在$x=0$处可导，且连续。
+
+又因为
+$$\limx02x\sin\df1x=0,\quad \limx0\sin\df1x\mbox{不存在},$$
+故$\limx0f'(x)$不存在。由此可知$f(x)$的导函数在$x=0$处不连续。\hfill$\Box$
+
+\bigskip
+
+4.设对任意$x\in\mathbb{R}$，均有$f(x+2)=f(x)$，已知$f'(0)=1$，
+证明$f(x)$在$x=2$可导，并求$f'(2)$。
+
+[解]：因为$f(x+2)=f(x)$，故
+$$\lim\limits_{\Delta x\to0}\df{f(2+\Delta x)-f(2)}{\Delta x}
+=\lim\limits_{\Delta x\to0}\df{f(\Delta x)-f(0)}{\Delta x}
+=f'(0)=1,$$
+由此即知$f(x)$在$x=2$可导，且$f'(2)=1$。
+\hfill$\Box$
+
+\bigskip
+
+5.已知曲线$y=f(x)$和曲线$y=\sin x$在原点相切（即二者的切线相同），
+求$\limx0\df{f(3x)}x$。
+
+[解]：曲线$y=f(x)$和曲线$y=\sin x$在原点相切，故
+$$f(0)=\sin 0=0,\quad f'(0)=(\sin x)'|_{x=0}=1.$$
+于是
+$$\limx0\df{f(3x)}x=3\limx0\df{f(3x)}{3x}=3f'(0)=3.$$
+\hfill$\Box$
+
+\bigskip
+
+6.已知$f'(a)f(a)\ne 0$，求
+$\limx0\left[\df{f(a+x)}{f(a)}\right]^{\frac1{\sin x}}.$
+
+[解]：
+\begin{align*}
+	\mbox{原式}&=\limx0\left[1+\df{f(a+x)-f(a)}{f(a)}\right]^{\frac1{\sin x}}\\
+	&=\limx0\left[1+\df{f(a+x)-f(a)}{f(a)}\right]^{\frac{f(a)}{f(a+x)-f(a)}
+	\frac{f(a+x)-f(a)}{f(a)}\frac1{\sin x}}\\
+	&=\left\{\limx0\left[1+\df{f(a+x)-f(a)}{f(a)}\right]^{\frac{f(a)}{f(a+x)-f(a)}}\right\}
+	^{\limx0\frac{f(a+x)-f(a)}x\frac{x}{\sin x}\frac1{f(a)}}\\
+	&=e^{\frac{f'(a)}{f(a)}}
+\end{align*}
+\hfill$\Box$
+
+\bigskip
+
+7.设对任意$x,y\in\mathbb{R}$，有
+$$f(x+y)=f(x)+f(y)+x^2y+xy^2,$$
+且当$x\to0$时$f(x)$与$x$是等价无穷小，证明$f(x)$处处可导，并求其导函数。
+
+[解]：令$x=y=0$，由已知等式可得$f(0)=0$。
+
+对任意$x_0\in\mathbb{R}$，由已知等式及$\limx{0}\df{f(x)}x=1$，
+\begin{align*}
+	\lim\limits_{\Delta x\to0}\df{f(x_0+\Delta x)-f(x_0)}{\Delta x}
+	&=\lim\limits_{\Delta x\to0}\df{f(\Delta x)+x_0^2\Delta x+x_0\Delta x^2}
+	{\Delta x}\\
+	&=\lim\limits_{\Delta x\to0}\df{f(\Delta x)}{\Delta x}+x_0^2
+	=1+x_0^2.
+\end{align*}
+由此可知$f(x)$在$x_0$处可导。因为$x_0$是任意的，故$f(x)$处处可导，其导函数为
+$f'(x)=1+x^2$。\hfill$\Box$
+
+\begin{center}
+	\bf 2.2 函数的求导法则
+\end{center}
+
+\bigskip
+
+3.已知函数$g(x)$在$x=a$连续，问函数$f(x)=|(x-a)|g(x)$
+在$x=a$是否可导？若可导，证明之；若不可导，讨论增加什么样的条件可以使之可导。
+利用以上讨论的结果，判断$f(x)=(x^2-4)|x^2+3x+2|$有几个不可导的点。
+
+[解]：
+$$\lim\limits_{\Delta x\to0}\df{f(a+\Delta x)-f(a)}{\Delta x}
+=\lim\limits_{\Delta x\to0}\df{|\Delta x|g(a+\Delta x)}{\Delta x}
+=\lim\limits_{\Delta x\to0}\df{|\Delta x|}{\Delta x}g(a+\Delta x),$$
+该极限存在当且仅当$\lim\limits_{\Delta x\to0}g(a+\Delta x)=0$，也即
+$\limx{a}g(x)=0$。
+
+函数$f(x)=(x^2-4)|x^2+3x+2|$也即
+$$f(x)=|(x+2)(x+1)|(x+2)(x-2),$$
+根据前述的结论，在$x=-2$处$f(x)$可导，在$x=-1$处$f(x)$不可导。\hfill$\Box$
+
+\bigskip
+
+4.设$f(x)$可导，且$f'\left(\df{\pi}{4}\right)=1$，求
+$$\left.f'\left(\arctan\df{1+x}{1-x}\right)\right|_{x=0}
+\quad\mbox{和}\quad  
+\left[f\left(\arctan\df{1+x}{1-x}\right)\right]'_{x=0}.$$
+
+[解]：
+$$\left.f'\left(\arctan\df{1+x}{1-x}\right)\right|_{x=0}
+=f'(\arctan 1)=f'\left(\df{\pi}{4}\right)=1.$$
+
+\begin{align*}
+	\left[f\left(\arctan\df{1+x}{1-x}\right)\right]'_{x=0}
+	&=\left.f'\left(\arctan\df{1+x}{1-x}\right)
+	\df{1}{1+\left(\frac{1+x}{1-x}\right)^2}
+	\df{(1-x)+(1+x)}{(1-x)^2}
+	\right|_{x=0}\\
+	&=1\cdot\df12\cdot2=1.
+\end{align*}
+\hfill$\Box$
+
+\begin{center}
+	\bf 2.3 高阶导数
+\end{center}
+
+\bigskip
+
+1.设$y=\ln\sqrt{\df{1-x}{1+x}}$，求$y''(0)$。
+
+[解]：$y=\df12[\ln(1-x)-\ln(1+x)]$，
+$$y'=\df12\left(-\df1{1-x}-\df1{1+x}\right)
+=-\df1{1-x^2},$$
+$$y''=-\df{-2x}{(1-x^2)^2}=\df{2x}{(1-x^2)^2}.$$
+故$y''(0)=0$.\hfill$\Box$
+
+\bigskip
+
+2.已知$f(x)$二阶可导，设$y=\df{f(x)}{x}$，求$\df{\d^2y}{\d x}$。
+
+[解]：
+$$y'=\df{f'(x)x-f(x)}{x^2},$$
+$$y''=\df{f''(x)x^3-2x[f'(x)x-f(x)]}{x^4}=\df{f''(x)x^2-2f'(x)x+f(x)}{x^3},$$
+即为所求。\hfill$\Box$
+
+\bigskip
+
+3.已知$f(x)=\left\{\begin{array}{ll}
+  	\ln(1+2x),& x>0, \\ x^2+2x, & x\leq 0,
+  \end{array}\right.$
+求$f''(x)$。
+
+[解]：$x>0$时，$f'(x)=\df2{1+2x}$；$x<0$时，$f'(x)=2x+2$，
+又
+$$f'_-(0)=\lim\limits_{\Delta x\to0^-}\df{\Delta x^2+2\Delta x-0}{\Delta x}=2.$$
+$$f'_+(0)=\lim\limits_{\Delta x\to0^+}\df{\ln(1+2\Delta x)-0}{\Delta x}=2.$$
+故$f'(0)=2$。
+
+进而，当$x>0$时，$f''(x)=-\df4{(1+2x)^2}$；当$x<0$时，$f''(x)=2$，
+又
+$$f''_+(0)=\lim\limits_{\Delta x\to0^+}
+\df{\frac2{1+2\Delta x}-2}{\Delta x}
+=\lim\limits_{\Delta x\to0^+}
+\df{-4}{1+2\Delta x}=-4,$$
+$$f''_+(0)=\lim\limits_{\Delta x\to0^+}
+\df{2\Delta x+2-2}{\Delta x}=2,
+$$
+故$f''(0)$不存在。综上
+$$f''(x)=\left\{\begin{array}{ll}
+	-\df4{(1+2x)^2}, & x>0;\\
+	2, & x<0.
+\end{array}\right.$$
+\hfill$\Box$
+
+\bigskip
+
+4.求下列函数的$n$阶导函数
+  \begin{enumerate}[(1)]
+    \setlength{\itemindent}{1cm}
+    \item $y=\sin^2x$；
+    \item $y=x\ln x$；
+    \item $y=\df{x^2}{1-x}$。
+  \end{enumerate}
+  
+[解]：（1）$y=\df12(1-\cos2x)$，从而
+\begin{align*}
+	y'&=\df12\cdot 2\sin2x,\\
+	y''&=\df12\cdot 2^2\cos2x=2\sin\left(2x+\df{\pi}2\right),\\
+	y'''&=2^2\cos\left(2x+\df{\pi}2\right)=2^2\sin\left(2x+2\cdot\df{\pi}2\right),\\
+	\ldots&\ldots\\
+	y^{(n)}&=2^{n-1}\sin\left(2x+(n-1)\cdot\df{\pi}2\right)
+\end{align*}
+
+(2)
+\begin{align*}
+	y'&=\ln x+1,\\
+	y''&=\df1x,\\
+	y'''&=-\df1{x^2},\\
+	y^{(4)}&=\df2{x^3},\\
+	\ldots&\ldots\\
+	y^{(n)}&=(-1)^n\df{(n-2)!}{x^{n-1}}.
+\end{align*}
+
+(3)$y=-(x+1)+\df1{1-x}$，
+\begin{align*}
+	y'&=-1+\df1{(1-x)^2},\\
+	y''&=\df2{(1-x)^3},\\
+	y'''&=\df{2\cdot 3}{(1-x)^4},\\
+	\ldots&\ldots\\
+	y^{(n)}&=\df{n!}{(1-x)^{n+1}}.
+\end{align*}
+\hfill$\Box$
+
+\bigskip
+
+5.已知$f(x)=x^2\ln(1+x)$，求$f^{(n)}(0)$。
+
+[解]：
+% $$f'(x)=2x\ln(1+x)+\df{x^2}{1+x},$$
+% 当$x\ne 0$时，
+% $$\df{f'(x)}{2x}=\ln(1+x)+\df{x}{2(1+x)},$$
+% 两边对$x$求导，可得
+% $$\df{f''(x)x-f'(x)}{2x^2}=\df1{1+x}+\df12\df1{(1+x)^2},$$
+% 也即
+% $$f''(x)x(1+x)^2-f'(x)(1+x)^2=\left(\df32+x\right)x^2.$$
+由Leibniz公式，当$n\geq3$时，
+\begin{align*}
+	f^{(n)}(x)&=x^2[\ln(1+x)]^{(n)}+n2x[\ln(1+x)]^{(n-1)}
+	+\df{n(n-1)}22[\ln(1+x)]^{(n-2)}\\
+	&=x^2\df{(-1)^{n-1}n!}{(1+x)^n}+2nx\df{(-1)^{n-2}(n-1)!}{(1+x)^{n-1}}
+	+n(n-1)\df{(-1)^{n-3}(n-2)!}{(1+x)^{n-2}}.
+\end{align*}
+令$x=0$，可得
+$$f^{(n)}(0)=(-1)^{n-1}n!.$$
+\hfill$\Box$
+
+\begin{center}
+	\bf 2.4 隐函数与参数方程求导
+\end{center}
+
+\bigskip
