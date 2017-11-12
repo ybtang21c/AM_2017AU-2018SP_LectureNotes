@@ -37,7 +37,7 @@ $$f'(x_0)\geq 0,\quad\mbox{且}\quad f'(x_0)\leq 0,$$
 	Pierre de Fermat（1601-1665），法国律师和业余数学家。
 	他在数学上的成就不比职业数学家差，他似乎对数论最有兴趣，亦对现代微积分的建立有所贡献。
 	\begin{itemize}
-	  \setlength{\itemindent}{1cm}
+% 	  \setlength{\itemindent}{1cm}
 	  \item 微积分：Fermat引理给出了求极值的必要条件；
 	  \item 将Apollonius of Perga（公元前262-190）的几何分析中用代数
 	  方法来重新建立，开辟了{\it 解析几何}之路。
@@ -166,9 +166,6 @@ $$f'(\xi_1)=f'(\xi_2)=0.$$
 利用Rolle定理证明可以证明一些有趣的结论，也可以构造出很多看似花样百出
 的{\it 存在性问题}：
 
-[提示]：利用极限的保号性，说明在$a,b$附近各有一点，两点函数值反号，然后利用
-介值定理和Rolle定理。
-
 {\bf 例：}设$\df{a_0}{n+1}+\df{a_1}{n}+\ldots+a_n=0$，证明：方程
 $$a_0x^n+a_1x^{n-1}+\ldots+a_n=0$$
 在区间$(0,1)$内至少有一个根。
@@ -194,42 +191,48 @@ $$f'(\xi)+f(\xi)=0.$$
 	\end{itemize}
 \end{thx}
 
-{\bf 例}（{\kaishu Darboux定理}）设$f(x)$在$[a,b]$上可导，
-且$f\,'_+(a)f\,'_-(b)<0$，则存在$\xi\in(a,b)$，使得$f\,'(\xi)=0$。
+\begin{shaded}
 
-\begin{center}
-	\includegraphics[width=0.8\textwidth]{./images/ch3/Darboux.jpg}
+	{\bf 例}（{\kaishu Darboux定理}）设$f(x)$在$[a,b]$上可导，
+	且$f\,'_+(a)f\,'_-(b)<0$，则存在$\xi\in(a,b)$，使得$f\,'(\xi)=0$。
 	
-	\it Darboux定理的证明思路
-\end{center}
-
-[证]：不妨设$f'_+(a)>0$，且$f(a)>f(b)$（如左图）。
-
-由$f'_+(a)>0$，也即$\limx{a^+}\df{f(x)-f(a)}{x-a}>0$，
-由极限的保号性，必存在某个$a'>a$，使得$\df{f(a')-f(a)}{a'-a}>0$，
-进而$f(a')>f(a)$。
-
-显然$f(x)$在$[a',b]$上连续，$f(a)\in(f(b),f(a'))$，故由介值定理，
-必存在$c\in(a',b)$，使得$f(c)=f(a)$。
-注意到$f(x)$在$[c,b]$上满足Rolle定理条件，故必存在$\xi\in(c,b)\subset(a,b)$，
-使得$f'(\xi)=0$。\hfill$\Box$
-
-Darboux定理说明导函数具有{\it 介值性}，即可以证明：介于区间端点处的导数值之间的所有
-导数值，都可以在区间内部的某点上取到\ps{请自行尝试证明}。
-介值性和连续性的关系一度是微积分理论中的难题，人们曾经猜想介值性和连续性是等价的，
-直到发现不连续的导函数（例如：$f(x)=x^2\sin\frac1x$的导函数在$x=0$不连续），
-并且通过Darboux定理验证了导函数的介值性，才发现这个猜想是错误的。
-
-{\bf 思考题：}设$f(x)$在$[a,b]$上满足Rolle定理条件，
-且$f\,'_+(a)f\,'_-(b)>0$，则$f\,'(x)=0$在$(a,b)$内至少有两个根。
-
-\begin{center}
-	\includegraphics[width=0.5\textwidth]{./images/ch3/Darboux2.jpg}
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{./images/ch3/Darboux.jpg}
+		
+		\kaishu Darboux定理的证明思路
+	\end{center}
 	
-	\it 示意图
-\end{center}
-[提示]：先利用Rolle定理证明存在$\xi_1$，再根据$f(\xi_1)$与$f(a)$的大小关系，
-采用与证明Darboux定理类似的方法证明$\xi_2$的存在。
+	[证]：不妨设$f'_+(a)>0$，且$f(a)>f(b)$（如左图）。
+	
+	由$f'_+(a)>0$，也即$\limx{a^+}\df{f(x)-f(a)}{x-a}>0$，
+	由极限的保号性，必存在某个$a'>a$，使得$\df{f(a')-f(a)}{a'-a}>0$，
+	进而$f(a')>f(a)$。
+	
+	显然$f(x)$在$[a',b]$上连续，$f(a)\in(f(b),f(a'))$，故由介值定理，
+	必存在$c\in(a',b)$，使得$f(c)=f(a)$。
+	注意到$f(x)$在$[c,b]$上满足Rolle定理条件，故必存在$\xi\in(c,b)\subset(a,b)$，
+	使得$f'(\xi)=0$。\hfill$\Box$
+	
+	Darboux定理说明{\it\b 导函数具有介值性}，即可以证明：介于区间端点处的导数值之间的所有
+	导数值，都可以在区间内部的某点上取到（请自行尝试证明）。
+	介值性和连续性的关系一度是微积分理论中的难题，人们曾经猜想介值性和连续性是等价的，
+	直到发现不连续的导函数（例如：$f(x)=x^2\sin\frac1x$的导函数在$x=0$不连续），
+	并且通过Darboux定理验证了导函数的介值性，才发现这个猜想是错误的。
+	
+	采用与证明Darboux定理类似的方法，可以证明如下的结论：
+	
+	{\bf 例：}设$f(x)$在$[a,b]$上满足Rolle定理条件，
+	且$f\,'_+(a)f\,'_-(b)>0$，则$f\,'(x)=0$在$(a,b)$内至少有两个根。
+	
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{./images/ch3/Darboux2.jpg}
+		
+		\it 示意图
+	\end{center}
+	
+	[提示]：先利用Rolle定理证明存在$\xi_1$，再根据$f(\xi_1)$与$f(a)$的大小关系，
+	采用与证明Darboux定理类似的方法证明$\xi_2$的存在。
+\end{shaded}
 
 \subsection{Lagrange中值定理}
 
@@ -264,7 +267,7 @@ $$F(x)=f(x)(b-a)-[f(b)-f(a)]x+C,$$
 
 Lagrange中值定理的结论有时也写作：
 \begin{thx}
-	存在$(\theta\in(0,1))$，使得
+	{\bf Lagrange中值定理的另一种形式：}存在$(\theta\in(0,1))$，使得
 	$$f(x+\Delta x)=f(x)+f'(x+\theta\Delta x)\Delta x.$$
 \end{thx}
 
@@ -336,6 +339,27 @@ $$F(x)=f(x)-\df{(x-a)(x-b)}{(c-a)(c-b)}f(c)$$
 	% Show[CCurve, DCurve]
 \end{shaded}
 
+{\bf 例：}证明：$\df{e^a-e^b}{b-a}<\df{e^a+e^b}2,\;(a\ne b)$
+
+分析：不妨$a<b$，令$f(x)=\df{e^a+e^x}2-\df{e^a-e^x}{b-a}$
+
+{\bf 例：}$f(x)$在$[0,1]$上二阶可导，$f(0)=0,f(1)=1$，$f''(0)<0$，则
+$\df{f(x)}x$在$(0,1]$上严格单调递减
+
+{\bf 例：}$y=f(x)\in C^2(-1,1)$，$f''(x)\ne 0$，则：
+\begin{enumerate}[1)]
+  \setlength{\itemindent}{1cm}
+  \item 对于任意$x\in(-1,1),x\ne 0$，存在唯一的$\theta(x)\in(0,1)$，使得
+  $f(x)=f(0)+xf'(\theta(x)x)$成立
+  \item $\limx{0}\theta(x)=\df12$
+\end{enumerate}
+
+分析：1）Lagrange中值定理，若$\theta(x)$不唯一，则与$f''(x)\ne 0$矛盾；
+
+2）
+$$\df{f'(\theta(x)x)-f'(0)}{x}=\df{f(x)-f(0)-xf'(0)}{x^2}\to\df12f''(0),(x\to0)$$
+$$\df{f'(\theta(x)x)-f'(0)}{x}=f''(0)\limx{0}\theta(x)$$
+
 \subsection{Cauchy中值定理}
 
 \begin{thx}
@@ -368,26 +392,47 @@ $$\df{f(b)-f(a)}{\varphi(b)-\varphi(a)}
 =\df{f(\varphi^{-1}(B))-f(\varphi^{-1}(A))}{B-A}
 =[f(\varphi^{-1}(x))]'_{x=\xi}=\df{f'(\xi)}{\varphi'(\xi)}.$$
 
-{\bf 综合练习}：
-{\bf 例：}设$0<a<b$，$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，证明：
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 存在$\xi\in(a,b)$，使得：
-	$$f(b)-f(a)=\ln\df ba\cdot \xi f\,'(\xi)$$
-  \item 存在$\eta\in(a,b)$，使得：
-    $$2\eta[f(b)-f(a)]=(b^2-a^2)f\,'(\eta)$$
-  \item 存在$x_1,x_2,x_3\in(a,b)$，使得
-	$$f\,'(x_1)=(b+a)\df{f\,'(x_2)}{2x_2}=(a^2+ab+b^2)
-	\df{f\,'(x_3)}{3x_3^2}$$ 
-  \item 若$f\,'(x)\ne 0$，则存在$\xi,\eta\in(a,b)$，使得
-	$$\df{f'(\xi)}{f'(\eta)}=\df{e^b-e^a}{b-a}e^{-\eta}$$
-  \item 存在$c\in(a,b)$，使得
-	$$\df{1}{a-b}\left|\begin{array}{cc}
-	a & b\\ f(a) & f(b)
-	\end{array}\right|=f(c)-cf'(c).$$
-\end{enumerate}
-
 通过对结论适当变形整理，以上结论都可以使用Rolle定理证明。
+
+\begin{ext}
+	{\bf 课后作业}
+	
+	\begin{enumerate}
+	  \item 设$0<a<b$，$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，证明：
+		\begin{enumerate}[(1)]
+% 		  \setlength{\itemindent}{1cm}
+		  \item 存在$\xi\in(a,b)$，使得：
+			$$f(b)-f(a)=\ln\df ba\cdot \xi f\,'(\xi)$$
+		  \item 存在$\eta\in(a,b)$，使得：
+		    $$2\eta[f(b)-f(a)]=(b^2-a^2)f\,'(\eta)$$
+		  \item 存在$x_1,x_2,x_3\in(a,b)$，使得
+			$$f\,'(x_1)=(b+a)\df{f\,'(x_2)}{2x_2}=(a^2+ab+b^2)
+			\df{f\,'(x_3)}{3x_3^2}$$ 
+		  \item 若$f\,'(x)\ne 0$，则存在$\xi,\eta\in(a,b)$，使得
+			$$\df{f'(\xi)}{f'(\eta)}=\df{e^b-e^a}{b-a}e^{-\eta}$$
+		  \item 存在$c\in(a,b)$，使得
+			$$\df{1}{a-b}\left|\begin{array}{cc}
+			a & b\\ f(a) & f(b)
+			\end{array}\right|=f(c)-cf'(c).$$
+		  \item （选作）若$f(a)=0$，则存在$\mu\in(a,b)$，使得
+		  $$f'(\mu)=\df{a}{a+b-2\mu}f(\mu).$$
+		\end{enumerate}
+	  \item （选作）$f(x)\in C^1[a,b]$，$f(a)=f(b)=0$，$f'_+(a)f'_-(b)>0$，
+	  证明：$f(x)$在$(a,b)$内至少有一个零点。
+	  （利用极限的保号性，说明在$a,b$附近各有一点，两点函数值反号，然后利用介值定理）
+	  \item 证明：$(x^2-1)\ln x\geq(x-1)^2,(x>0)$。
+	  \item $e<a<b<e^2$，证明：$\ln^2b-\ln^2a>\df4{e^2}(b-a)$
+% 		分析：$f(x)=\ln^2x$，由Lagrange中值定理，存在$\xi\in(a,b)$，
+% 		$$\df{\ln^2b-\ln^2a}{b-a}=\df{2\ln\xi}{\xi},$$
+% 		再证明$\df{\ln\xi}{\xi}>\df2{e^2},\xi\in(a,b)\in(e,e^2)$
+	  \item （选作）$f(x)$在$x>0$二阶可导，$f''(x)>0$，令$u_n=f(n)\;
+	  (n\in\mathbb{Z}_+)$，证明：若$u_1<u_2$，则$\{u_n\}$必发散；
+	  问：若$u_1>u_2$，$\{u_n\}$是否必收敛？（若正确，证明之；否则给出反例。）
+% 	  分析：$u_1<u_2$，则$\exists\xi\in(1,2)$，$f'(\xi)>0$，
+% 		又$x>\xi$时，$f'(x)>f'(\xi)$，故
+% 		$$f(x)>f(\xi)+f'(\xi)(x-\xi)\to+\infty\;(x\to+\infty)$$
+	\end{enumerate}
+\end{ext}
 
 \section{L'Hospital法则}
 
@@ -477,18 +522,23 @@ $\limx{+\infty}\df{x+\sin x}x=1$，
   \setlength{\itemindent}{1cm}
   \item $\limx{0}\df{x-\sin x}{x^3}$ 
   \item $\limx{0}\df{e^x-e^{-x}-2x}{\tan^3x}$ 
-  \item $\limx{0}\df{(1+x)^{1/x}-e}{x}$ 
+%   \item $\limx{0}\df{(1+x)^{1/x}-e}{x}$ 
   \item $\limx{+\infty}\df{x^n}{e^{\lambda
   x}}(n\in\mathbb{N},\lambda>0)$ 
   \item $\limx{+\infty}\df{\ln x}{x^\alpha}(\alpha>0)$ 
   \item $\limx{\infty}\df{x+\sin x}{x+\cos x}$
-  \item $\limx{1}(1-x^2)\tan\df{\pi}{2}x$ 
-  \item $\limx{0}\left(\df 1{x^2}-\df 1{x\tan x}\right)$ 
+%   \item $\limx{1}(1-x^2)\tan\df{\pi}{2}x$ 
+%   \item $\limx{0}\left(\df 1{x^2}-\df 1{x\tan x}\right)$ 
   \item $\limx{0^+}x^x$
-  \item $\limx{0}(x^2+2^x)^{1/x}$ 
-  \item $\limx{0}\left(\cot x-\df 1x\right)$ 
+%   \item $\limx{0}(x^2+2^x)^{1/x}$ 
+%   \item $\limx{0}\left(\cot x-\df 1x\right)$ 
   \item $\limn\sqrt[n]n$
+  \item $\limx0\left(\df{\sin x}x\right)^{\frac1{1-\cos x}}=-\df13$
 \end{enumerate}
+
+{\bf 注：}在使用L'Hospital法则时，一个重要的原则是及时化简，同时注意和其他
+计算极限的方法（例如无穷小代换）结合使用，避免对函数反复求导，导致分子分母的表达式
+越来越复杂，无法化简得到结果。
 
 {\b{\bf 讨论：}设$f(x)$在$x_0$附近存在二阶连续导函数，则
 $$\lim\limits_{h\to 0}\df{f(x_0+h)+f(x_0-h)-2f(x_0)}{h^2}=f\,''(x_0).$$
@@ -514,6 +564,10 @@ $$\lim\limits_{h\to 0}\df{f(x_0+h)+f(x_0-h)-2f(x_0)}{h^2}=f\,''(x_0).$$
 	=f''(0)\notag
 \end{align}
 其中最后一个等号只用到了二阶导数的定义。}
+
+{\bf ：}设$f(x)$在$x=a$处二阶可导，且$f'(a)\ne0$，证明：
+$$\limx{a}\left[\df1{f(x)-f(a)}-\df1{(x-a)f'(a)}\right]
+=-\df12\df{f''(a)}{[f'(a)]^2}.$$
 
 在L'Hospital法则的证明中，“令$x\to a$时，由于$\xi$介于$x$和$a$之间，进而
 有$\xi\to a$”，这是一个非常有用的技巧，利用这一技巧，可以证明类似如下的结论：
@@ -544,6 +598,38 @@ $$f'(x_0)=\lim\limits_{\Delta x\to 0}\df{f(x_0+\Delta x)-f(x_0)}{x_0}
 设$f(0)=1$，且
 $$\limx{0}\df{\ln(1-x)+f(x)\sin x}{e^{x^2}-1}=0,$$
 证明：$f(x)$在$x=0$处可导，求$f\,'(0)$。
+
+\begin{ext}
+	{\bf 课后作业}
+	
+	\begin{enumerate}
+	  \item 计算如下极限
+		\begin{enumerate}[(1)]
+% 		  \setlength{\itemindent}{1cm}
+		  \item $\limx{0^+}\df{\ln\tan 7x}{\ln\sin 3x}$
+		  \item $\limx{+\infty}\df{\ln\left(1+\df1n\right)}{\arctan x}$
+		  \item $\limx{0^+}x^{\sin x}$
+		  \item $\limx{\infty}x^2e^{\frac1{x^2}}$
+		  \item $\limx{\infty}\df{x^2-\cos x}{x^2+\sin x}$
+		  \item $\limx{0}\df{x^2-\sin x}{x^2+\cos x}$
+		  \item $\limx{0}\df{\ln(1+x^2)}{\sec x-\cos x}$
+  		  \item $\limx{0}\df{(1+x)^{1/x}-e}{x}$ 
+   		  \item $\limx{1}(1-x^2)\tan\df{\pi}{2}x$ 
+  		  \item $\limx{0}\left(\df 1{x^2}-\df 1{x\tan x}\right)$ 
+  		  \item $\limx{0}(x^2+2^x)^{1/x}$ 
+  		  \item $\limx0\df{e^{\tan x}-e^x}{\tan x-x}$
+  		  \item $\limx{0}\left(\cot x-\df 1x\right)$ 
+  		  \item $\limx{\infty}\left[\df1n\left(a_1^{\frac1x}+a_2^{\frac1x}
+  		  +\ldots+a_n^{\frac1x}\right)\right]^{nx}$，其中$a_1,a_2,\ldots,a_n>0$
+		\end{enumerate}
+	  \item 讨论函数
+	  $$f(x)=\left\{\begin{array}{ll}
+	  	\left[\df{(1+x)^{\frac1x}}e\right]^{\frac1x},& x>0,\\
+	  	e^{-\frac12},& x\leq 0.
+	  \end{array}\right.$$
+	  在$x=0$处的连续性。
+	\end{enumerate}
+\end{ext}
 
 \section{Taylor公式}
 
@@ -1036,6 +1122,24 @@ f''(0)=4.$$
 \end{align}
 \hfill$\Box$
 
+{\bf 例：}设$x\to 0$时，$e^{\tan x}-e^x$与$x^n$为同阶无穷小，则$n$=（C）
+\ps{Taylor展开}
+
+\quad
+(A)\;$1$\hspace{2cm}
+(B)\;$2$\hspace{2cm}
+(C)\;$3$\hspace{2cm}
+(D)\;$4$ 
+
+% {\bf 例：}设$x\to 0$时，$x-\sin ax$与$x^2\ln(1-bx)$为同阶无穷小，则（A）
+% \ps{Taylor展开}
+% 
+% \quad
+% (A)\;$a=1,b=-\df16$\hspace{1em}
+% (B)\;$a=1,b=\df16$\hspace{1em}
+% (C)\;$a=-1,b=-\df16$\hspace{1em}
+% (D)\;$a=-1,b=\df16$
+
 \subsubsection{证明等式或不等式}
 
 {\bf 例：}证明：$x>0$时，$e^x>1+x+\df{x^2}{2}$
@@ -1084,11 +1188,11 @@ $$f(\lambda x_1+(1-\lambda)x_2)<\lambda
 f(x_1)+(1-\lambda)f(x_2).$$
 请考虑该如何证明。
 
-{\bf 例：}设在$f(x)$在$[0,a]$上二阶连续可导，
-$|f\,''(x)|\leq M$，且$|f(x)|$在$(0,a)$内可取到最大值，证明：
-$$|f\,'(0)+f\,'(a)|\leq Ma.$$
-
-[提示]：将$f'(0)$和$f'(a)$在最大值点处展开，然后将两个展开式合并即可。
+% {\bf 例：}设在$f(x)$在$[0,a]$上二阶连续可导，
+% $|f\,''(x)|\leq M$，且$|f(x)|$在$(0,a)$内可取到最大值，证明：
+% $$|f\,'(0)+f\,'(a)|\leq Ma.$$
+% 
+% [提示]：将$f'(0)$和$f'(a)$在最大值点处展开，然后将两个展开式合并即可。
 
 {\bf 例：}设$f(x)$在$[0,1]$上二阶连续可导，且$f(0)=f(1)$，
 $|f\,''(x)|\leq A$，证明：对任意$x\in(0,1)$，恒有
@@ -1128,6 +1232,49 @@ $$|f\,''(c)|\geq \df 4{(b-a)^2}|f(b)-f(a)|.$$
 
 [提示]：将$f\left(\df{a+b}2\right)$在$x=a,b$展开，取绝对值放缩后，
 利用介值定理。
+
+\begin{ext}
+	{\bf 课后作业}
+	
+	\begin{enumerate}
+	  \item 求$f(x)=x^4+x^3-2x-4$在$x=0$和$x=2$处的三阶Taylor多项式。
+	  \item 求函数$f(x)=\df1{x-1}$按$(x-2)$的幂展开的带有Peano余项的
+	  $n$阶Taylor公式。
+	  \item 求如下函数带Peano余项的Maclaurin公式
+		\begin{enumerate}[(1)]
+% 		  \setlength{\itemindent}{1cm}
+		  \item $\ln(2+x^2)$
+		  \item $e^{\frac{x^2}2}$
+		  \item $x\cos x^2$
+		  \item $\df{1+x^2}{1-x^2}$
+		  \item $\df1{\sqrt{4-x^2}}$
+		  \item $\sin^2x-x^3$
+		  \item $(1+x)e^{x}$
+		\end{enumerate}
+	  \item 计算如下极限
+	  \begin{enumerate}[(1)]
+% 		\setlength{\itemindent}{1cm}
+		\item $\limx{+\infty}(\sqrt[3]{x^3+3x^2}-\sqrt[4]{x^4-2x^3})$
+		\item $\limx0\df{\cos x-e^{-\frac{x^2}2}}{x^2[x+\ln(1-x)]}$
+		\item $\limx0\df{1+\frac12x^2-\sqrt{1+x^2}}{(\cos x-e^{x^2})\sin x^2}$
+		\item $\limx{+\infty}\left[\left(x^3-x^2+\df{x}2\right)e^{\frac1x}
+		-\sqrt{x^6+1}\right]$
+	  \end{enumerate}
+	  \item 应用$3$阶Taylor公式计算$\sqrt[3]{30}$的近似值，并估计其误差。
+	  \item 设$x\to 0$时，$x-\sin ax$与$x^2\ln(1-bx)$为同阶无穷小，求$a,b$的值。
+	  \item 已知$f(x)$在$x=0$附近二阶可导，且
+	  $$\limx0\left[\df{\sin x}{x^3}+\df{f(x)}{x^2}\right]=0,$$
+	  求$\limx0\left[\df3{x^2}+\df{f(x)}{x^2}\right]$。
+	  \item （选作）证明：若在$(a,b)$内，$f''(x)>0$，则对任意$a<x_1<x_2<b$，恒有：
+	  对任意$\lambda\in(0,1)$，
+		$$f(\lambda x_1+(1-\lambda)x_2)<\lambda
+		f(x_1)+(1-\lambda)f(x_2).$$
+	  \item （选作） 设在$f(x)$在$[0,a]$上二阶连续可导，
+		$|f\,''(x)|\leq M$，且$|f(x)|$在$(0,a)$内可取到最大值，证明：
+		$$|f\,'(0)+f\,'(a)|\leq Ma.$$		
+		[提示]：将$f'(0)$和$f'(a)$在最大值点处展开，然后将两个展开式合并即可。
+	\end{enumerate}
+\end{ext}
 
 \section{函数的单调性与凹凸性}
 
@@ -1375,19 +1522,869 @@ $y=x^4$在$x=0$处二阶导数为零，但该点并不是对应曲线的拐点�
 	综合来看，$f''(x)=0$的点只能作为可能的拐点，并且，拐点也可能出现在不可导点处。
 \end{shaded}
 
+{\bf 例：}证明一个三次多项式对应的曲线只有唯一的拐点，如果它有三个根$x_1,x_2,x_3$，
+则拐点的横坐标一定是$\df13(x_1+x_2+x_3)$。
+
+\begin{ext}
+	{\bf 课后作业}
+	
+	\begin{enumerate}
+	  \item 证明下列不等式
+		\begin{enumerate}[(1)]
+% 		  \setlength{\itemindent}{1cm}
+		  \item 当$x\in(0,\pi/2)$时，$\sin x+\tan x>2x$
+		  \item 当$x>0$时，$1+x\ln(x+\sqrt{1+x^2})>\sqrt{1+x^2}$
+		\end{enumerate}
+	  \item 求下列函数图形的拐点
+	  \begin{enumerate}[(1)]
+% 		\setlength{\itemindent}{1cm}
+		\item $y=(x+1)^4-e^x$
+		\item $y=e^{\arctan x}$
+		\item $y=xe^{-x}$
+	  \end{enumerate}
+	  \item 设$x,y>0$，证明如下不等式
+	  \begin{enumerate}[(1)]
+		\item $x^{100}+y^{100}\geq\df{(x+y)^{100}}{2^{99}}$
+		\item $x\ln x+y\ln y\geq (x+y)\ln\df{x+y}2$
+	  \end{enumerate}
+	  \item 设$f(x)$当$x\geq a$时二阶可导，且$f''(x)>0$，证明：
+	  $F(x)=\df{f(x)-f(a)}{x-a}$当$x>a$时单调递增。
+	\end{enumerate}
+\end{ext}
+
 \section{函数的极值与最值}
+
+在现实中，最值问题无处不在，应用广泛。从数学的角度，很多时候可以抽象为所谓
+的极值和最值问题。
+
+{\bf 例：}画出函数$f(x)=3x^4-4x^3-12x^2+3$在区间$[-2,3]$上的图形，通过
+观察求其最大和最小值。
+
+如图
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch5/fmm_pt.pdf}}
+	
+	$f(-2)=35,\quad f(3)=30,\quad f(2)=-29$
+\end{center}
+
+从图上不难看出一些“潜在”的极值和最值点，通过对这些点处的函数值加以比较，
+能容易得出函数的最大和最小值。而图上标出的“波峰”和“波谷”，则对应于我们
+所说的极值点。
 
 \subsection{极值}
 
-\subsection{最值问题}
+我们这里所说的极值，也即{\it 局部唯一的最值}，其定义如下：
+
+\begin{thx}
+	设在$x_0$的某去心邻域内，恒有
+	$$f(x)<f(x_0)\quad (\mbox{或}\quad f(x)>f(x_0)),$$
+	则称$f(x_0)$是$f(x)$的一个{\bf 极大（小）值}，$x_0$称为
+	$f(x)$的一个{\bf 极值点}。
+\end{thx}
+
+显然，
+\begin{itemize}
+  \setlength{\itemindent}{1cm}
+  \item 函数在极值点处未必可导； 
+  \item 可导函数极值点处的导数为零——{\kaishu Fermat引理}；
+  \ps{Fermat引理也称为{\bf 极值判定的必要条件}} 
+  \item 导数为零的点（称为{\bf 驻点}）未必是极值点。
+\end{itemize}
+
+关于最后一条，结合几何图形进行观察，
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/edge_pt.pdf}}
+\end{center}
+不难发现，驻点可能是极值点，也可能不是（这时称为{\bf 拐点}）。
+
+\begin{thx}
+	{\bf 连续函数极值的充分条件：}设$f(x)$在$x_0$附近连续，
+	若$f(x)$在$x_0$两侧单调性相反，则$f(x)$在$x_0$取极值。
+\end{thx}
+
+{\bf 思考：}以上定理表明，{\it 连续函数单调性的分界点是函数的极值点。}
+那么，这个条件是充要的吗？
+
+[答]：函数的极值点可能在不连续的点上取到，这时不必要求在极值点两侧的单调性不同。
+例如：$f(x)=x-[x]$，在每个整数点上都取极小值，但在极值点两侧都是严格单调递增的。
+
+\begin{thx}
+	{\bf 可导函数极值的第一充分条件：}设$f(x)$在$x_0$附近可导，
+	且$f'(x)$在$x_0$两侧符号相反，则$f(x)$在$x_0$处取极值。
+\end{thx}
+
+结合几何图形，不难看出，如果$f'(x)$在$x_0$左侧为正，右侧为负，则$x_0$
+为$f(x)$的极大值点；反之为极小值点。
+
+{\bf 例：}讨论以下函数的极值
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $f(x)=2-|x^3-1|$
+  \item $f(x)=\left(1+x+\df{x^2}{2!}+\ldots+\df{x^n}{n!}\right)e^{-x}$ 
+\end{enumerate}
+
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/2x3.pdf}}\quad
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/1xxe-x.pdf}}
+	
+	{\it 蓝色和黄色分别为函数和导函数的曲线}
+\end{center}
+
+\begin{thx}
+	{\bf 可导函数极值的第二充分条件：}设$f(x)$在$x_0$处二阶可导，
+	且$f'(x_0)=0$，$f''(x_0)\ne 0$，则
+	\begin{enumerate}[(1)]
+	  \item 若$f''(x_0)<0$，则$x_0$为$f(x)$的极大值点；
+	  \item 若$f''(x_0)>0$，则$x_0$为$f(x)$的极小值点；
+	\end{enumerate}
+\end{thx}
+
+注意，{\b 对于$f'(x_0)=f''(x_0)=0$的情况，定理中没有涉及，其结论并不是
+$x_0$不是$f(x)$的极值点，而应该说此时无法判定$x_0$是不是$f(x)$的极值点！}
+
+例如考虑$f_1(x)=x^3$和$f_2(x)=x^4$，在$x=0$处，两个函数的一二阶导数
+都为零，但是从图像上很容易看出，$x=0$是后者的极小值点，而不是前者的极值点。
+要给出这样的判断，方法其实并不复杂，通常使用可导函数极值的第一充分条件即可，
+如果仍然无法判定，再考虑其他特殊的方法。
+
+\begin{shaded}
+	{\it（参见： 明万元，黄香蕉，一种判断多项式函数极值点和拐点个数的简单方法，
+	大学数学，2011年，第27卷第6期，161-163）
+	
+	http://www.doc88.com/p-0651660157725.html}
+	$$P(x)=\prod_{i=1}^n(x-a_i)^{p_i}$$
+	其中$a_i\in\mathbb{R}$，$p_i\in\mathbb{Z}^+\;(i=1,2,\ldots,n)$
+	且$a_1<a_2<\ldots<a_n$。
+	
+	记$a_{i_1},\ldots,a_{i_k}$为$P(x)$的重根，$l$为其中三重根的个数。
+	
+	{\bf 命题：}{\bf 多项式函数的拐点、极值点判定}
+	\begin{enumerate}
+  	  \setlength{\itemindent}{1cm}
+	  \item $P(x)$有且仅有$k+(n-1)$个驻点，包括：
+	  \begin{itemize}
+	    \setlength{\itemindent}{0.5cm}
+	    \item $k$个重根：$a_{i_1},\ldots,a_{i_k}$
+	    \item 介于两个零点之间的：$\xi_i\in(a_i,a_{i+1}),\;i=1,2,\ldots,n-1$
+	  \end{itemize}
+	  \item 以上所有的驻点中
+	  \begin{itemize}
+	    \setlength{\itemindent}{0.5cm}
+	    \item 若$p_{i_j}(j=1,2,\ldots,k)$为偶数，则$a_{i_j}$为$P(x)$的极值点
+	    \item 若$p_{i_j}(j=1,2,\ldots,k)$为奇数，则$a_{i_j}$为$P(x)$的拐点
+	    \item $\xi_i\in(a_i,a_{i+1}),\;i=1,2,\ldots,n-1$均为极值点
+	  \end{itemize}
+	  \item $P''(x)$有且仅有$l+(k+n-2)$个零点
+	  \begin{itemize}
+	    \setlength{\itemindent}{0.5cm}
+	    \item $l$个三重根
+	    \item 介于每两个相邻驻点之间的：$\eta_i,\;i=1,2,\ldots,k+n-2$
+	  \end{itemize}
+	\end{enumerate}
+	
+	综上，对于前述的多项式函数，可以得出这样一些常用的{\it 判定准则}：
+	\begin{tcolorbox}
+		{\bf 多项式函数极值与拐点的判定：}
+		\begin{enumerate}[(1)]
+% 	  	  \setlength{\itemindent}{1cm}
+		  \item 所有二次以上的重根均为驻点，其中偶数次的为极值点，奇数次的为拐点；
+		  \item 两个相邻零点之间有且仅有一个极值点；
+		  \item 两个相邻驻点之间有且仅有一个拐点。
+		\end{enumerate}
+	\end{tcolorbox}	
+	
+	{\bf 例：}$y=(x-1)(x-2)^2(x-3)^3$有几个极值点和拐点？
+	
+	\begin{center}
+		\resizebox{!}{5cm}{\includegraphics{./images/ch5/x123.pdf}}
+	\end{center}
+	
+	{\bf 解：}利用前述的判定准则：
+	\begin{enumerate}[(1)]
+  	  \setlength{\itemindent}{1cm}
+	  \item $x=2$为$2$重根，故为驻点兼极值点
+	  \item $x=3$为$3$重根，故为驻点兼拐点
+	  \item 在$(1,2)$和$(2,3)$中各有一个驻点兼极值点，记为$\xi_1,\xi_2$
+	  \item $4$个驻点由小到大的排列为
+	  $$\xi_1<2<\xi_2<3,$$
+	  故在其间有且仅有$3$个拐点
+	\end{enumerate}
+	
+	综上，该函数共有$3$个极值点，$4$个拐点。
+	
+	{\bf 例：}$y=2(x+1)^5(x-2)^8(x-4)^3+9$有几个极值点和拐点？
+	
+	\begin{center}
+		\resizebox{!}{5cm}{\includegraphics{./images/ch5/x124.pdf}}
+	\end{center}
+	
+	{\bf 解：}注意到该函数和
+	$$y=2(x+1)^5(x-2)^8(x-4)^3,$$
+	的极值点和拐点完全相同，故我们只需研究后者的极值点和拐点个数：
+	\begin{enumerate}[(1)]
+  	  \setlength{\itemindent}{1cm}
+	  \item $x=-1$为$5$重根，故为驻点兼拐点
+	  \item $x=2$为$8$重根，故为驻点兼极值点
+	  \item $x=4$为$3$重根，故为驻点兼拐点
+	  \item 在$(-1,2)$和$(2,4)$中各有一个驻点兼极值点，记为$\xi_1,\xi_2$
+	  \item $5$个驻点由小到大的排列为
+	  $$-1<\xi_1<2<\xi_2<4,$$
+	  故在其间有且仅有$4$个拐点
+	\end{enumerate}
+	
+	综上，该函数共有$3$个极值点，$6$个拐点。
+	
+\end{shaded}
+
+{\bf 例：}讨论以下函数的极值
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $f(x)=x^3-6x^2+5$\hfill (教材-例4)
+  \item $f(x)=\cos x+\df12\cos 2x$
+\end{enumerate}
+
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/x36x2-5.pdf}}\quad
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/cosxcos2x.pdf}}
+	
+	{\it 蓝色、黄色和绿色分别为函数、导函数和二阶导函数的曲线}
+\end{center}
+
+\begin{thx}
+	{\bf 求给定函数极值的一般步骤}
+	\begin{enumerate}[(1)]
+	  \item 在$f(x)$的可导区间上，求解$f'(x)=0$，找出其所有的驻点；
+	  \item 利用可导函数极值的第二充分条件，找出驻点中的极值点；
+	  \item 对于$f(x)$的所有不可导点，以及上一步中无法判定的点（$f''(x)=0$），
+	  如果$f(x)$在这些点附近连续或可导，则利用连续函数极值的
+	  充分条件或可导函数极值的第一充分条件，判定其是否为极值；
+	  \item 如果仍存在无法判定的情况，可考虑使用极值的定义，或引入其他特殊
+	  的方法进行判定。	  
+	\end{enumerate}
+\end{thx}
+
+{\bf 例：}求函数$f(x)=(x^2-1)^3$的极值。
+
+{\bf 例：}判断正误
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item {\b 函数的极大值一定是最大值\quad  ({$\times$})} 
+  \item {\b 函数的最大值一定是极大值\quad  ({$\times$})} 
+  \item {\b 函数的极大值一定比极小值大\quad  ({$\times$})} 
+\end{enumerate}
+
+{\bf 例：}函数$f(x)$对满足
+$$xf\,''(x)+3x[f\,'(x)]^2=1-e^{-x}$$
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 若$f(x)$在$x=c\ne 0$处有极值，证明其必为极小值；
+  \item 若$f(x)$在$x=0$处有极值，该极值为极大还是极小？
+\end{enumerate}
+
+{\bf 例：}求数列$\sqrt[n]n$中最大的一项。
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch5/x1x.pdf}}
+\end{center}
+
+{\bf 例：}求$a$的取值范围，使$y=a^x$与$y=x$必相交。
+
+[提示]：充要条件是存在$x_0>0$，满足$a^{x_0}=x_0$，也即$a$位于$g(x)=x^{x}$
+的值域中。结果$a\in(0,e^{\frac1e}]$
+
+{\bf 例：}判定方程$2^x-2x=1$有几个实根。
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch5/2x2x.pdf}}
+\end{center}
+
+{\bf 例：}设$a,b$均为正数，证明：$a(1-b)$和$b(1-a)$不可能同时大于$\df14$。
+
+[提示]：令$f(x)=x(1-x)$，可求得其最大值为$\df14$。若以上两数都大于$1/4$，则
+$$a(1-b)b(1-a)>\df1{16},$$
+这与前述最大值的性质矛盾。
+
+{\bf 注：}更直观的解法是，假设结论不成立，则
+$$a>\df14+ab,b>\df14+ab\quad\Rightarrow\quad
+ab>\left(\df14+ab\right)^2,$$
+进而可得
+$$\left(\df14-ab\right)^2<0,$$
+出现错误，故假设不成立。
+
+% {\bf 例：}当$a$取何值时，$a^x\geq1+x$恒成立。
+% 
+% [提示]：两条曲线总有交点$(0,1)$，又$(a^x)''=a^x\ln^2x>0$，故$y=a^x$上凹。
+% 要使之位于$y=x+1$上方，只需后者为其切线，由此易得$a=e$.
+
+\begin{shaded}
+{\bf 证明平均值不等式}
+
+{\bf 例：}证明：$\df{x_1+x_2+\ldots+x_n}n\geq\sqrt[n]{x_1x_2\ldots x_n}$，
+其中$x_1,x_2,\ldots,x_n$均为正数。
+
+[证]：$n=2$时，设$f(x)=\df{x_1+x}2-\sqrt{x_1x}$，则
+$$f'(x)=\df12\left(1-\sqrt{x_1}x\right),$$
+$x=x_1$为唯一驻点，又$f''(x_1)>0$，故$f(x_1)$为最小值点。
+
+设$n=k$时，命题成立。令
+$$f(x)=\df{x_1+x_2+\ldots+x_k+x}{k+1}-\sqrt[k+1]{x_1x_2\ldots x_kx},$$
+于是
+$$f'(x)=\df1{k+1}\left[1-\df{{x_1x_2\ldots x_k}^{\frac1{k+1}}}
+{x^{\frac k{k+1}}}\right],$$
+$x_0=\sqrt[k]{x_1x_2\ldots x_k}$为唯一驻点，且$f''(x_0)>0$，故$f(x_0)$为最小值。
+$$f(x_0)=\df1{k+1}(x_1+x_2+\ldots+x_k-k\sqrt[k]{x_1x_2\ldots x_k})\geq 0$$
+即证。
+\end{shaded}
+
+% {\bf 例：}$a$取何值时，$f(x)=2x^3-9x^2+12-a$恰有两个零点（B）
+% 
+% A)$2$\quad B)$4$\quad C)$6$\quad D)$8$
+
+[提示]：$f'(x)=6(x-2)(x-1)$，$x=1,2$为极值点，若$f(1)$或$f(2)$为零，即有结论成立。
+
+{\bf 例：}$f(x)=|x(1-x)|$，则$x=0$（C）
+\begin{enumerate}[A)]
+  \setlength{\itemindent}{1cm}
+  \item 是极值点，但不是拐点
+  \item 不是极值点，但是拐点
+  \item 是极值点，也是拐点
+  \item 不是极值点，也不是拐点
+\end{enumerate}
+
+% {\bf 例：}$f(x)$二阶导数连续，$f'(0)=0$，$\limx{0}\df{f''(x)}{|x|}=1$，
+% 则（B）
+% \begin{enumerate}[A)]
+%   \setlength{\itemindent}{1cm}
+%   \item $f(0)$是$f(x)$的极大值点
+%   \item $f(0)$是$f(x)$的极小值点
+%   \item $f(0)$是$f(x)$的拐点
+%   \item $f(0)$不是极值点，也不是拐点
+% \end{enumerate}
+
+\subsection{最值（最优化）问题}
+
+显然，所有极值点都可以视为“候选”的最值点。幸运的是，由于最大和最小值的判定
+是非常直观的（直接比较函数值的大小），最值的问题通常显得比极值问题更为简单。
+
+给定一个区间$I$，要求给定函数$f(x)$在其上的最值，首先需要找出所有可能的
+最值点。
+
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/mm1.pdf}}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/mm2.pdf}}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/mm3.pdf}}
+\end{center}
+
+\begin{thx}
+	{\bf 求连续函数$f(x)$在闭区间$[a,b]$上的最值：}
+	\begin{enumerate}[(1)]
+% 	  \setlength{\itemindent}{1cm}
+	  \item 确定函数在区间内的所有{\it 驻点}和{\it 不可导点}：
+	  $x_1,x_2,$ $\ldots,x_n$ 
+	  \item 逐个计算
+	  $f(a),f(x_1),f(x_2),\ldots,f(x_n),f(b)$，
+	  比较以上函数值，确定最大和最小值。
+	%   \ps{之所以不考虑其他的点，是因为这些点没有考虑的价值}
+	\end{enumerate}
+\end{thx}
+
+{\bf例：}求函数$f(x)=3x^4-4x^3-12x^2+3$在区间$[-2,3]$上的最大和最小值。
+
+\begin{shaded}
+	{\bf 优化问题：}
+	
+	最值问题的另一个名称是优化问题，通常是指，在给定条件下
+	求特定函数的最值（最优解）的问题。形式上，可以这样来描述：
+	
+	\begin{tcolorbox}
+		{\bf 目标：}求函数$f(x_1,x_2,\ldots,x_n)$的最值；
+	
+		{\bf 约束：}变量$x_1,x_2,\ldots,x_n$所需满足的条件，
+		例如：取值范围或者需要满足的方程（不等式）
+	\end{tcolorbox}
+	现实中的优化问题多不胜数，例如：	
+	\begin{itemize}
+% 	  \setlength{\itemindent}{1cm}
+	  \item 给定边长，求所能围成的矩形区域的最大面积？
+	  \item 给定一块正方形薄片，所能制成的无盖容器的最大容积？
+	  \item 求给定圆中面积最大的正多边形，或者反之，求给定多边形中最大的内接圆？
+	  \item 给定一定的原材料，组合生产各种商品所能获得最大利润？
+	  \item 为了达到特定生产收益，最少需要投入多少资源？
+	  \item 给定燃料总量，规划最优路线，使得行驶距离最远？
+	  \item \ldots \ldots
+	\end{itemize}
+	
+	本章我们所讨论的是优化问题中最简单的一类，即{\it 单变量单目标的优化问题}，
+	在现实的优化问题中，常常涉及大量的变量，变量之间可能存在错综复杂的约束关系，
+	优化的目标也不是单一的变量（所谓的{\it 多目标优化}）。	更多地时候，
+	优化问题本身是作为一门学科或一个研究领域，而不是一个单一的问题而存在的。
+\end{shaded}
+
+\begin{thx}
+	{\bf 求解最值（优化）问题的一般步骤：}
+	\begin{enumerate}[(1)]
+% 	  \setlength{\itemindent}{1cm}
+	  \item 理解题意：画图、定义变量；
+	  \item 建立关系：给出目标函数和约束条件的表达式；
+	  \item 求解最值：推理（或仿真）求解。
+	\end{enumerate}
+\end{thx}
+
+
+{\bf 例：}一个边长为$a$的方形铁皮，在四角各剪去一个边长为$x$的小正方形，然后折成
+一个无盖的长方体容器，问当$x$取何值时，长方体容器的容积最大？
+
+{\bf 例：}半径为$R$的圆形纸张上剪去一个扇形，剩余部分做成一个圆锥形容器，求该容器的最大
+容量。
+
+[提示]：设余下的圆心角为$2\pi-\theta$，于是圆锥的底边长伟$\theta R$，从而
+底面半径为$r=\df{\theta}{2\pi}R$，圆锥的高$h$满足
+$$h^2=R^2-r^2=R^2\left(1-\df{\theta^2}{4\pi^2}\right),$$
+圆锥体积的平方为
+$$V^2(\theta)=\df{\pi^2R^6}9\left(\df{\theta^2}{4\pi^2}\right)^2
+\left(1-\df{\theta^2}{4\pi^2}\right)$$
+记$x=\df{\theta^2}{4\pi^2},c=\df{\pi^2R^6}9$，从而$V=cx^2(1-x)$，显然$x\in[0,1]$，
+计算可得其驻点$x_0=\df23$，易证其也是最大值点，此时$V_{\max}=\df{2\pi R^3}{9\sqrt3}$
+
+[例]：用输油管连接离海岸12km的钻井平台和沿岸往下20km处的炼油厂。已知水下和陆上铺设
+管道的成本分别是每公里50万元和30万元，问该如何设计线路，使总的建设成本最低？
+
+{\bf 例（地质勘探）：}通常情况下，声波上层岩石中的传播速度$c_1$小于在下层岩石中的传播速度$c_2$。
+如图所示，求
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 用$d,h,c_1,c_2$和$\theta$表示$T_1,T_2,T_3$
+  \item 证明$\sin\theta=\df{c_1}{c_2}$时，$T_2$最小
+  \item 假设$d=1km,T_1=0.26s,T_2=0.32s,T_3=0.34s$，求$c_1,c_2,h$
+\end{enumerate}
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/eWave.pdf}}
+\end{center}
+
+[提示]：（1）
+$$T_1=\df d{c_1}$$
+$$T_2=\df{2h}{c_1}\sec\theta-\df{2h}{c_2}\tan\theta+\df d{c_2}$$
+$$T_3=\df2{c_1}\sqrt{h^2+\left(\df d2\right)^2}$$
+
+
+（2）
+$$\df{\d T_2}{\d\theta}=\df{2h(c_2\sin\theta-c_1)}{c_1c_2\cos^2\theta}$$
+唯一驻点$\sin\theta=\df{c_1}{c_2}$，此时
+$$T_2=\df{2h}{c_1c_2}\sqrt{c_2^2-c_1^2}+\df d{c_2}$$
+
+（3）
+$$c_1=\df{d}{T_1}\approx3.846km/s$$
+$$h=\sqrt{\left(\df{c_1}2T_3\right)^2-\left(\df d2\right)^2}\approx0.4213km$$
+又
+$$(T_2c_2-d)^2=\df{4h^2}{c_1^2}(c_2^2-c_1^2)$$
+解得$c_2=4.1024$或$7.6619$。
+
+{\bf 例：}高度$h$的水桶，顶端不断注水使桶内总是保持水满的状态。在桶的侧面开个小孔，使水喷出。
+若小孔距地面高度为$y$，则水喷出的速度为$8\sqrt{h-y}$。问小孔放在多高的位置，能使水喷出的距离
+最远。
+
+[提示]：$y\in(0,h)$，水落地的时间为$\sqrt{2y/g}$，从而喷出的距离
+$$s(y)=\df{8\sqrt{2}}{\sqrt g}\sqrt{y(h-y)},$$
+$s'(y)=\df{8\sqrt{2}}{\sqrt g}\df{h-2y}{2\sqrt{y(h-y)}}$，唯一驻点$y=\df h2$。
+显然其为最大值点，$s_{\max}=\df{4\sqrt 2}{\sqrt{g}}h$
+
+{\bf 例：}同一维度上两座建筑物，间隔$l=50$(m)，高度分别为$h_1=60$(m)和
+$h_2=30$(m)，在两个建筑物间修一座太阳能
+站，如何选址方为最优？
+
+[提示]：使
+$$\theta=\pi-\arctan\df{h_1}{x}-\arctan\df{h_2}{l-x}$$
+最大。
+$$\theta'_x=\df{h_1}{h_1^2+x^2}-\df{h_2}{h_2^2+(l-x)^2}$$
+$$\left(x-\df{lh_1}{h_1-h_2}\right)^2-h_1h_2\left(\df{l^2}
+{(h_1-h_2)^2}+1\right)=0$$
+
+能保证最长的日照时间应为最优。结果为距较高的一侧约29.5m。
+
+{\bf 例：}如图，从原点处发出的炮弹，求
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 炮弹轨迹的参数方程
+  \item 何时炮弹的射程最远
+  \item 如果坡面是向上的呢？
+\end{enumerate}
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch5/bFly.pdf}}
+\end{center}
+
+[提示]：（1）以时间$t$为参数，则
+$$x=(v_0\cos\alpha)t,\quad y=(v_0\sin\alpha)t-\df12gt^2$$
+消去$t$，可得$y=x\tan\alpha-\df{gx^2}{2v_0^2\cos^2\alpha}$。落点处满足
+$y=-x\tan\theta$，联立解得
+$$x=\df{2v_0^2\cos^2\alpha}g(\tan\alpha+\tan\theta),$$
+从而炮弹的飞行时间
+$$T=\df x{v_0\cos\alpha}=\df{2v_0\cos\alpha}g(\tan\alpha+\tan\theta),$$
+从而参数$t\in[0,T]$。
+
+（2）射程
+$$R(\alpha)=x\sec\theta=\df{2v_0^2}{g\cos^2\theta}\cos\alpha\sin(\alpha+\theta),$$
+$$R'(\alpha)=\df{2v_0^2}{g\cos^2\theta}\cos(2\alpha+\theta),$$
+驻点$\alpha=\df12\left(\df{\pi}2-\theta\right)$
+
+（3）使用$-\theta$替换$\theta$，最大值点$\alpha=\df12\left(\df{\pi}2+\theta\right)$
+
+\begin{shaded}
+{\bf 关于$\left(1+\df1n\right)^n\to e(n\to\infty)$的另一个证明}
+
+{\bf 例：}$f_u(x)=x^ue^{-x}(x\geq0)$，对于确定的$u>0$，证明
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $f_u(x)$在$x=u$处达到最大值；
+  \item 由$f_u(u)>f_u(u+1)$和$f_{u+1}(u+1)>f_u(u)$推出
+  $$\left(\df{u+1}u\right)^u<e<\left(\df{u+1}u\right)^{u+1}$$
+  \item 由$\df{u}{u+1}<\left(\df{u+1}u\right)^u<e$推出
+  $\lim\limits_{u\to+\infty}\left(1+\df1u\right)^u=e$
+\end{enumerate}
+\end{shaded}
+
+% {\bf 例：}$a>1$，$x\in[0,1]$，证明：
+% $$\df1{2^{a-1}}\leq x^a+(1-x)^a\leq 1$$
+% 
+% [提示]：令$f(x)=x^a+(1-x)^a$
+
+% {\bf 例：}证明$x>0,y>0$时，$xy\leq x\ln x+e^{y-1}$
+% 
+% [提示]：证明$f(x)=\ln x+\df{e^{y-1}}x$最小值大于$y$即可。
+
+{\bf 例：}$f_n(x)=\sin x+\sin^2x+\ldots+\sin^nx$，证明：
+\begin{enumerate}[1)]
+  \setlength{\itemindent}{1cm}
+  \item $f_n(x)=1$在$\left(\df{\pi}6,\df{\pi}2\right)$内有且仅有一个根
+  \item 设$x_n\in\left(\df{\pi}6,\df{\pi}3\right)$是以上的根，则$\limn x_n=\df{\pi}6$
+\end{enumerate}
+
+[提示]：1）介值定理，且$f(x)$严格单增；
+
+2）$f_n\left(\df{\pi}{6}\right)=1-\df1{2^n}$,
+$f'_n\left(\df{\pi}{6}\right)>\sqrt
+3>1$，$n$充分大时 $$f'_n\left(\df{\pi}{6}+\df1{2^{n-1}}\right)
+=f_n\left(\df{\pi}{6}\right)+f'_n\left(\df{\pi}{6}\right)\df1{2^{n-1}}
++\circ\left(\df1{2^{n-1}}\right)>1+\df1{2^n},$$
+故$x_n\in\left(\df{\pi}{6},\df{\pi}{6}+\df1{2^{n-1}}\right)$
+
+{\bf 例：}证明$x>0$时，$\df1{x(x+1)}>\ln^2(1+1/x)$
+
+[提示]：令$y=1/x$，证明
+$$y-\sqrt{1+y}\ln(1+y)>0$$
+
+% {\bf 例：}证明：$\df{\tan x}x>\df x{\sin x}$，$x\in(0,\pi/2)$
+% 
+% 分析：$f(x)=\sin x\tan x-x^2$，$f(0)=f'(0)=f''(0)=0$，$f'''(x)>0$
+
+{\bf 例：}$t\in[0,x]$，证明：$e^{-t}\geq\left(1-\df tx\right)^x$
+
+[提示]：$t=0,x$时，显然成立。此外，设$f(x)=x\ln\left(1-\df tx\right)+t$，
+则$\limx{+\infty}=0$，证明$f'(x)=\ln\left(1-\df tx\right)+\df t{x-t}>0$即可。
+
+$u>0$时，$u>\ln(1+x)$，故
+$$\df t{t-x}>\ln\left(1+\df t{x-t}\right)=-\ln\left(1-\df tx\right)$$
+
+% {\bf 例：}比较$\pi^e$和$e^{\pi}$
+% 
+% 分析：令$f(x)=x-e\ln x$
+
+\begin{ext}
+	{\bf 课后作业}
+	
+	\begin{enumerate}
+	  \item 求函数$f(x)=e^x+e^{-x}+\cos x$的极值。
+	  \item 当$a$取何值时，$a^x\geq1+x$恒成立。
+	  \item $a$取何值时，$f(x)=2x^3-9x^2+12-a$恰有两个零点。
+	  \item 已知$f(x)$二阶导函数连续，$f'(0)=0$，$\limx{0}\df{f''(x)}{|x|}=1$，
+	  证明$f(0)$是$f(x)$的极小值。
+	  \item （选作）设$f(x)$在$x_0$处$n$阶可导，且
+	  $$f'(x_0)=f''(x_0)=\ldots=f^{(n-1)}(x_0)=0,\;f^{(n)}(x_0)\ne 0,$$
+	  证明：
+	  \begin{enumerate}[(1)]
+		\item 当$n$为奇数时，$f(x)$在$x_0$处不取极值；
+		\item 当$n$为偶数时，$f(x)$在$x_0$处取极值，并且若$f^{(n)}>0$，
+		$f(x_0)$为极小值，反之为极大值。
+	  \end{enumerate}
+% 	\end{enumerate}
+% 	\tcblower
+% 	\begin{enumerate}
+	  \item 建造一个体积为$V$的圆柱体油罐，问该油罐的地面直径与高的比例为多少时，
+	  所需要的建造材料最少。
+	  \item 求曲线$x^2-xy+y^2=3$上横坐标最大和最小的点。
+	  \item $a>1$，$x\in[0,1]$，证明：
+	  $$\df1{2^{a-1}}\leq x^a+(1-x)^a\leq 1.$$
+	  \item 比较$\pi^e$和$e^{\pi}$的大小。
+	  \item 证明：$\df{\tan x}x>\df x{\sin x}$，$x\in(0,\pi/2)$。
+	  \item （选作）证明$x>0,y>0$时，$xy\leq x\ln x+e^{y-1}$。
+	\end{enumerate}
+\end{ext}
 
 \section{分析绘图}
 
+{\bf 例：}已知多项式函数$f(x)$恰有两个极大值点和一个极小值点
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 画出$f(x)$一个可能的图像
+  \item 它最多有几个零点\hfill(4)
+  \item 最少呢？\hfill(0)
+  \item $f(x)$是奇数次还是偶数次的？\hfill(偶)
+  \item 至少是多少次的？此时最多能有几个拐点？\hfill(4，4)
+  \item 试给出一个它的表达式。\hfill($f(x)=(x-1)(x-2)(x-3)(x-4)$)
+\end{enumerate}
+
+% {\bf 例：}设函数$y=f(x)$具有如下性质，试作出其草图
+% \begin{enumerate}[(1)]
+%   \setlength{\itemindent}{1cm}
+%   \item $f(x)$在$\mathbb{R}$上连续
+%   \item $f(-4)=-3,f(0)=0,f(3)=2$
+%   \item $f'(-4)=0,f'(3)=0$，且当$x\in(-\infty,-4)\cup(-4,-3)$时，$f'(x)>0$；
+%   当$x\in(3,+\infty)$时，$f'(x)<0$
+%   \item $f''(-4)=0,f''(0)=0$，切当$x\in(-\infty,-4)\cup(0,+\infty)$时，
+%   $f''(x)<0$；$x\in(-4,0)$时，$f''(x)>0$
+% \end{enumerate}
+
+{\bf 例：}作出函数$y=\df{x}{1+x^2}$的图形。
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch5/x1x2.pdf}}
+\end{center}
+
+\begin{thx}
+	{\bf 分析绘图的一般步骤}
+	\begin{enumerate}[(1)]
+% 	  \setlength{\itemindent}{1cm}
+	  \item {\bf 分析函数的简单性质：}定义域、值域、奇偶性、周期性、与坐标轴的交点；
+	  \item {\bf 计算一、二阶导函数：}确定不可导点；
+	  \item {\bf 列表分析：}标记出单调、凸凹区间，极值点和拐点；
+	  \item {\bf 画出渐进线：}水平、铅直和斜渐进线；
+	  \item {\bf 描点作图}。
+	\end{enumerate}
+\end{thx}
+
+{\bf 例：}函数作图：$y=xe^{1/x}$
+\begin{itemize}
+  \setlength{\itemindent}{1cm}
+  \item 极值点：$y(1)=e$
+  \item 渐近线：$y=x+1$
+\end{itemize}
+
+\begin{center}
+	\resizebox{!}{7cm}{\includegraphics{./images/ch5/xe1x.pdf}}
+\end{center}
+
+\begin{ext}
+	{\bf 课后作业}
+	
+	\begin{enumerate}
+	  \item 设函数$y=f(x)$具有如下性质，试作出其草图
+	  \begin{enumerate}[(1)]
+% 		  \setlength{\itemindent}{1cm}
+		  \item $f(x)$在$\mathbb{R}$上连续
+		  \item $f(-4)=-3,f(0)=0,f(3)=2$
+		  \item $f'(-4)=0,f'(3)=0$，且当$x\in(-\infty,-4)\cup(-4,-3)$时，$f'(x)>0$；
+		  当$x\in(3,+\infty)$时，$f'(x)<0$
+		  \item $f''(-4)=0,f''(0)=0$，切当$x\in(-\infty,-4)\cup(0,+\infty)$时，
+		  $f''(x)<0$；$x\in(-4,0)$时，$f''(x)>0$
+	  \end{enumerate}
+	  \item 描绘下列函数的图形
+	  \begin{enumerate}[(1)]
+		\item $y=x^3+\df1x$
+		\item $y=e^{-(x-1)^2}$
+	  \end{enumerate}
+	\end{enumerate}
+\end{ext}
+
 \section{曲率}
+
+导数和二阶导数能够用于刻画曲线的倾斜程度和弯曲方向，进而可以研究曲线的极值、最值、
+拐点等重要的几何特征。本节要介绍的弧微分和曲率是对以上刻画方式的补充，前者用于
+计算曲线的长度，后者则是曲线弯曲程度的度量（量化）。特别要指出的是，这两个重要
+的概念是“纯几何”的，也就是说其计算所得到的结果（弧长和曲率）都和坐标的选取无关！
 
 \subsection{弧微分}
 
+% \ps{严谨的推导过程请参考同济教材第三章第七节}
+\begin{thx}
+	{\bf 弧微分：}曲线$y=f(x)$的弧长关于自变量$x$的微分
+	$$\d s=\sqrt{1+(y')^2}\d x =\sqrt{(\d x)^2+(\d y)^2}$$
+	\begin{itemize}
+% 	  \setlength{\itemindent}{1cm}
+	  \item 参数方程形式 
+	  $$\d s=\sqrt{[x'(t)]^2+[y'(t)]^2}\d t$$ 
+	  \vspace{-3ex}
+	  \item 极坐标形式 
+	  $$\d s=\sqrt{\rho^2(\theta)+[\rho'(\theta)]^2}\d\theta$$
+	\end{itemize}
+\end{thx}
+不难想到，如果给定积分的区间，对弧微分进行积分，可以得到对应的弧长（曲线长度）。
+
 \subsection{曲率的定义}
+
+\begin{center}
+	\resizebox{!}{7cm}{\includegraphics{./images/ch5/rw1.pdf}}
+	
+	{\it 铁路设计中的问题：列车从直线轨道进入圆弧轨道时，在转换的瞬间，
+	
+	离心力由零变为一个常数，如果车速较快，会车体和乘客产生很大的冲击。
+	
+	能否/如何通过更合理的设计，减缓冲击，保证列车运行的安全、舒适？}
+\end{center}
+
+\subsubsection{概念}
+
+{\bf 问题：}如何刻画曲线的弯曲程度？
+
+\begin{center}
+	\resizebox{!}{5.5cm}{\includegraphics{./images/ch5/curves/c101.pdf}}\quad
+	\resizebox{!}{5.5cm}{\includegraphics{./images/ch5/curves/c201.pdf}}
+\end{center}
+
+\begin{itemize}
+  \setlength{\itemindent}{1cm}
+  \item 长度相同的曲线，切线转角越大弯曲程度越大
+  \item 切线转角相同的曲线，弧长越短弯曲程度越大
+\end{itemize}
+
+{\it 曲线的弯曲程度与切线的转角成正比，与弧长成反比}
+
+\begin{thx}
+	设曲线$C$光滑且可求长度。 从其上一点$M_0$出发，
+	到另一点$M$的弧长为$\Delta s$，切线转角为$\Delta\alpha$。
+	 若极限$\lim\limits_{\Delta s\to
+	0}\left|\df{\Delta\alpha}{\Delta s}\right|$存在，
+	则称之为{\bf 曲线$C$在$M_0$处的曲率：}
+	$${K=\lim\limits_{\Delta s\to
+	0}\left|\df{\Delta\alpha}{\Delta s}\right|
+	=\left|\df{\d\alpha}{\d s}\right|}$$ 
+\end{thx}
+
+曲率是曲线上某一点处的切线转角关于弧长的变化率。
+
+% $$K=\df{|y''|}{(1+(y')^2)^{\frac32}}$$
+
+设$y=f(x)$在$x_0$的某邻域内二阶可导，则
+\begin{thx}
+	$$K=\left|\df{\d\alpha}{\d s}\right|
+	 =\df{|y''_{xx}|}{[1+(y'_x)^2]^{3/2}}$$
+\end{thx}
+ 
+{\bf 例：}求直线与圆的曲率。
+
+{\bf 例：}求椭圆$x=3\cos t,y=2\sin t\,(0\leq t\leq 2\pi)$
+上任意点处的曲率，并指出其中曲率最大的点。
+
+\begin{center}
+	\resizebox{!}{4.5cm}{\includegraphics{./images/ch5/ec/newEC/ec01.pdf}}
+\end{center}
+
+\begin{thx}
+	{\bf 参数方程下的曲率公式：}
+	$${K=\df{|x'_ty''_{tt}-x''_{tt}y'_t|}
+	{\{[x'_t]^2+[y'_t]^2\}^{3/2}}}$$
+	
+	{\bf 极坐标下的曲率公式：}
+	$$K=\df{|\rho^2+2(\rho')^2-2\rho\rho''|}{[\rho^2+(\rho')^2]^{3/2}}$$
+\end{thx}
+
+{\bf 思考：}如何推导出极坐标下的曲率公式？
+
+\subsubsection{曲率圆与曲率的应用}
+
+{\bf 曲率圆：}与给定曲线在凹侧相切，且曲率相同的圆
+\ps{曲率圆的圆心称为{\bf 曲率中心}}
+
+\begin{thx}
+	{\bf 曲率圆的性质}：曲率圆与给定曲线二阶相切。
+\end{thx}
+
+{\bf 思考：}{\b 与已知曲线在给定点处二阶相切的圆一定是其曲率圆吗？(${\bm{\surd}}$)}
+
+{\bf 例：}求曲率圆的方程
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch5/curveSphere.pdf}}
+\end{center}
+
+[提示]：如图，设曲率圆的圆心为$(a,b)$，$(x,y)$处的导数和二阶导数记为$y',y''$，
+显然曲率半径$R=\df1K=\df{[1+(y')^2]^{3/2}}{|y''|}$，为了保持和曲线的凹向一致，
+我们将曲率半径定义为有方向的$R=\df{[1+(y')^2]^{3/2}}{y''}$\ps{凹侧的半径为正，
+凸侧为负！}。记$(x,y)$处的切线与$x$轴夹角为$A$，则
+\begin{align}
+	a&=x-R\sin A=x-\df{[1+(y')^2]^{3/2}}{y''}\df{y'}{[1+(y')^2]^{1/2}}
+	=x-\df{y'[1+(y')^2]}{y''}\notag\\
+	b&=y+R\cos A=y+\df{[1+(y')^2]^{3/2}}{y''}\df1{[1+(y')^2]^{1/2}}
+	=y+\df{1+(y')^2}{y''}\notag
+\end{align}
+
+\begin{center}
+	\resizebox{!}{5.5cm}{\includegraphics{./images/ch5/SE/S01.pdf}}
+\end{center}
+
+{\bf 例：}(加工问题)已知某工件内侧的截痕曲线为椭圆$\df{x^2}9+\df{y^2}4=1$，
+若用圆形砂轮对其进行打磨，问该如何选择砂轮的尺寸？
+
+{\bf 注：}利用砂轮磨削一般工件的内表面时，砂轮的半径不应超过工件内表面
+的截线上各点处的曲率半径的最小值
+
+{\bf 定律：}质量为$m$的质点以速度$v$通过光滑曲线上一点，所受向心力为
+$$F=\df{mv^2}{R},$$
+其中$R$为曲线在该点处的曲率半径。
+
+\begin{center}
+	\resizebox{!}{3cm}{\includegraphics{./images/ch5/flip.pdf}}
+\end{center}
+
+{\bf 例：}$\Gamma_1$为射线$y=0,x\leq0$，$\Gamma_2$为椭圆$\df{4(x-2)^2}9+y^2=1$。
+使找出一条次数尽可能低的多项式函数曲线$\Gamma_2$，连接$(0,0)$和$(2,1)$，使得最终
+完整的曲线曲率连续。
+
+[提示]：$\Gamma_2$在$(2,1)$处的曲率为$-\df49$。
+设新的曲线为$\Gamma_3:y=y(x)$，显然
+$$y(0)=0,\;y'(0)=0,\;y''(0)=0,$$
+$$y(2)=1,\;y'(2)=0,\;y''(2)=-\df49$$
+六个条件，意味着至少需要一个$5$次多项式。考虑到$y(0)=y'(0)=y''(0)=0$，
+可设$y=ax^3+bx^4+cx^5$，于是
+$$
+\left\{
+\begin{array}{l}
+1=8a+16b+32c\\
+0=12a+32b+80c\\
+-\df49=12a+48b+160c
+\end{array}
+\right.
+$$
+行列式非零，方程组解唯一。
+
+\subsubsection{铁路中的缓和曲线}
+
+\begin{center}
+	\resizebox{!}{9cm}{\includegraphics{./images/ch5/railway.pdf}}
+\end{center}
+
+{\bf 设计要求：}为了确保列车行驶安全，尽可能保证列车运行时所受向心力的平稳变化
+
+{\bf 常用的缓和曲线：}三次多项式、渐开螺旋线、双纽线、\ldots
+
+{\bf 例：}如图，列车匀速行进，经过一段直线轨道后，将进入半径为$R$的圆弧轨道。为
+尽量减少列车行驶中所受的向心力冲击，试确定一个三次多项式函数实现两段轨道的连接。
+
+\begin{center}
+	\resizebox{!}{5.2cm}{\includegraphics{./images/ch5/rc01.pdf}}
+\end{center}
+
+\begin{itemize}
+  \item 匀速行驶$v=108km/h$
+  \item 列车重量$m=500t$
+  \item 圆弧半径$R=1000m$
+  \item 缓和曲线长$l=90m$
+\end{itemize}
+
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/f01.pdf}}\quad
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/f02.pdf}}
+\end{center}
+
+类似的问题广泛存在于高速公路、过山车，甚至是飞行器表面的设计中。
 
 \subsection{曲率的应用}
 
@@ -1398,287 +2395,40 @@ $y=x^4$在$x=0$处二阶导数为零，但该点并不是对应曲线的拐点�
 的定义和性质，从很多方面来看都是相似的，只是由于函数极限的类型更为丰富，相对而言
 有关结论也更为多样，有些性质是数列极限所不具备的。
 
-\section{函数极限的概念与性质}
-
-函数极限是我们后续定义导数、积分的概念的基础，因此可以说函数极限的理论也是整个
-微积分学的基础。
-
-
-
-\section{函数极限的判敛}
-
-\subsection{四则运算}
-
-{\bf 定理3.2.1：}若函数极限存在，则极限运算可以和四则运算交换次序。
-
-{\bf 注：}把握两点
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item 有限次四则运算
-  \item 可以推广到初等函数
-\end{itemize}
-
-
-
-
-
-
-
-\subsection{夹逼定理}
-
-
-\section{无穷大、无穷小和函数的渐近线}
-
-在求解（函数）极限的问题中，分子分母同时趋于零
-\ps{所谓不定是相对诸如有界量乘以无穷小（趋于零）、有界量除以无穷大一类容易确定的形式而言的}
-（例如：$\limx{0}\df{\cos
-x-\cos2x}{x^2}$），或者一个趋于零的函数和一个趋于无穷的函数的乘积（例如：$\limx{+\infty}x^2e^-x$）
-的极限通常是较难求解的，这类问题我们称之为“$\df00$”和“$0\cdot\infty$” 型的{\it 不定式（极限）}！
-
-
-{\bf 思考：}除了“$\df00$”和“$0\cdot\infty$”型的不定式，还可能有其他形式的不定式吗？
-
-{\bf 答：}有，型如：“$\df{\infty}{\infty}$”、“$1^{\infty}$”、“$0^0$”，例如：
-$\limx{+\infty}\df{\ln x}{x}$，$\limx{\infty}\left(1+\df1{x}\right)^{\sin
-x}$，$\limx{0}x^{2x}$
-
-\subsection{无穷大和无穷小}
-
-{\bf 定义3.3.1：}$f(x)$是$x\to\Delta$时的无穷小$\Leftrightarrow\limx{\Delta}f(x)=0$
-
-{\bf 注：}$\Delta$可任意代表$\infty,\;+\infty,\;-\infty,\;x_0,\;x_0^+,\;x_0^-$之一
-
-{\bf 定理3.3.1-3.3.2}（无穷小的性质）
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\limx{\Delta}f(x)=A\in\mathbb{R}\Leftrightarrow
-  f(x)-A$是$x\to\Delta$时的无穷小
-  \item $x\to\Delta$时的有界函数与无穷小之积仍为$x\to\Delta$时的无穷小
-  \item $x\to\Delta$时的有限个无穷小之和（积）仍为$x\to\Delta$时的无穷小
-\end{enumerate}
-
-{\bf 定义3.3.2：}$f(x)$是$x\to\Delta$时的无穷大$\Leftrightarrow\limx{\Delta}\df 1{f(x)}=0$，
-可记为：
-$$\limx{\Delta}f(x)=\pm\infty$$
-
-{\bf 注：}{\b 无穷大有正负之分！！}
-
-{\bf 【渐近线】}\ps{具体内容请阅读教材自学！}
-
-$x\to x_0$时的无穷大意味着存在{\it 铅直渐近线}；$x\to\pm\infty$时的无穷大
-{\it 可能}意味着存在{\it 斜渐近线}，例如：若$y=f(x)$当$x\to+\infty$时的
-存在斜渐近线$y=kx+b$，则
-$$k=\limx{+\infty}\df{f(x)}x,\quad b=\limx{+\infty}[f(x)-kx].$$
-注意，{\b $x\to\pm\infty$时的斜渐近线可能是不同的！}例如：$y=x\arctan x$趋于
-$x\to\pm\infty$时的斜渐近线分别为$y=\pm\df{\pi}2x$.
-
-% {\bf P129-例4：}证明：$x+\sin x$是$x\to\infty$时的无穷大
-
-{\bf 定理3.3.3：}在$x\to\Delta$的同一过程中：
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 有界函数与无穷大之和仍为无穷大
-  \item 有限个无穷大之乘积仍为无穷大（{\it 但可能反号}）
-\end{enumerate}
-
-{\bf 例：}证明：$f(x)=a_0x^n+a_1x^{n-1}+\ldots+a_n(n\in\mathbb{N})$
-是$x\to\infty$时的无穷大，其中：$a_0,a_1,\ldots,a_n\in\mathbb{R},a_0\ne 0$
-
-\begin{shaded}
-	{\bf 无穷大之间的比较！}
+\begin{ext}
+	{\bf 课后作业}
 	
-	当$x\to+\infty$时，存在如下的大小关系：设$a>0$，
-	$$\ln x<<x^a<<e^x<<\Gamma(x)<<x^x$$
-	其中$\Gamma-$函数定义为$\Gamma(x)=\dint_0^{+\infty}t^{x-1}e^{-t}\d t$，
-	满足$\Gamma(n)=(n-1)!,\;(n\in\mathbb{Z}_+)$
-\end{shaded}
+	\begin{enumerate}
+	  \item 求曲线$y=\ln\cos x$的最小曲率半径。
+	  \item 求曲线$x=a\cos^3t,y=b\sin^3t$在$t=t_0$对应点处的曲率。
+	  \item 求曲线$x^2+xy+y^2=3$在点$(1,1)$处的曲率半径。
+	  \item （选作）推导极坐标形式下曲线$\rho=\rho(\theta)$的曲率公式。
+	\end{enumerate}
+\end{ext}
 
-\subsection{无穷小的比较}
+\section{小结}
 
+导数为我们提供了研究函数和平面曲线的新的工具。Newton正是因为发明了{\it 流数法
+\ps{导数的前身}}，才从Kepler三定律推导出了万有引力定律。
 
+本章的内容包含两个大的方面：一是对函数几何形态的研究，涉及：{\it 单调性、最值、极值、
+凹凸性、弧长、曲率等}多个方面，由此最终可以对给定的函数给出一个相对
+全面的几何刻画，其中很多是在大学之前所不曾接触的；二是{\it 中值定理与Taylor公式}，特别是
+后者，可以说是微分学中的集大成者，其中蕴含了几乎所有的微分学理论与技巧，从Rolle定理、
+Lagrange中值定理、Cauchy中值定理到Taylor中值定理，以及L'Hospital法则，其
+内在的统一是学习中需要把握的重点。
 
-\subsection{斜渐近线}
+在极值、最值、凹凸性等问题中，涉及一些相近而不同的概念，例如：极值点、最值点、拐点、
+驻点等，这些概念既相互联系，又有重要的区别，琢磨弄懂它们的异同，能够结合实例有效
+地加以区分和应用，是学习的关键。当然，既然是讨论几何问题，对于几何意义和几何特征
+的正确把握也是非常重要的。
 
-若$y=f(x)$当$x\to+\infty$时以$y=kx+b$为斜渐进线，则有
-$$k=\limx{+\infty}\df{f(x)}{x}=k,\quad b=\limx{+\infty}[f(x)-kx]$$
+中值定理的证明问题是本章的难点，从结论出发，构造辅助函数，再验证条件应用中值定理，
+是解题的一般思路，但有时如何将结果转换成可以还原的形式，会是相当大的挑战，
+为此，有必要掌握一些特定形式（例如：$f'(\xi)+\lambda f(x)$）所对应的辅助函数。
+此外，本章两个部分的内容本身并不是相互独立的，事实上，很多结论的推导和证明都需要
+同时应用两个部分的结果，特别是从几何上看，中值定理也通常有自身明确的含义，而能够
+结合几何意义解决中值问题，可以说才是本章解题的最高境界。
 
-{\bf 例：}求曲线$y^2-x^2=2x$的渐近线。
-
-{\bf 教材3.3.4节-例10：}求函数$f(x)=\df{2x^2-3}{x+1}$的渐近线。
-
-\begin{center}
-	\resizebox{!}{5cm}{\includegraphics{./images/ch3/asyx.pdf}}
-\end{center}
-
-\section{函数的连续性}
-
-
-
-\subsection{基本性质}
-
-{\bf 定理3.4.1-3.4.4：}
-
-
-\subsection{连续函数在有界闭区间上的性质}
-
-\subsubsection{【最值定理】}
-
-
-\subsubsection{【介值定理】}
-
-
-
-% \section*{补充例题}
-% \addcontentsline{toc}{section}{补充例题}
-% 
-% {\bf 例}：证明函数$f(x)=\left\{\begin{array}{ll}
-% x,\;&x\in\mathbb{Q}\\ 0,\;&\mathrm{else}
-% \end{array}\right.$
-% 仅在$x=0$连续
-% 
-% {\bf 证：}显然$f(0)=0$。注意到
-% $$0<|f(x)|\leq |x|,$$
-% 而$\lim\limits_{x\to 0}|x|=0$，故由夹逼定理
-% $$\lim\limits_{x\to 0}f(x)=0=f(0),$$
-% 也即$f(x)$在$x=0$连续。
-% 
-% \bigskip
-% 
-% 设$x_0\ne 0$，下证$\lim\limits_{x\to x_0}f(x)$不存在，进而可知
-% $f(x)$在$x_0$处不连续。事实上，若设$\lim\limits_{x\to x_0}f(x)$存在，
-% 则
-% $$\lim\limits_{x\to x_0}D(x)=\frac{\lim\limits_{x\to x_0}f(x)}
-% {\lim\limits_{x\to x_0}x}$$
-% 也存在，从而与$D(x)$在任意点处极限不存在矛盾。
-% 
-% 综上，$f(x)$仅在$x=0$连续。
-% 
-% \newpage
-% 
-% \newpage
-
-
-
-\newpage
-
-\section*{课后作业}
-\addcontentsline{toc}{section}{课后作业}
-
-{\bf 【必作题】}
-
-\begin{itemize}
-  \item 习题3.1：4(1,3)，7，15
-  \item 习题3.2：2，3，4，5
-  \item 习题3.3：2，4，5，7(2,6)，8，9，10(3,4)
-  \item 习题3.4：5(1-3)，9，15，17
-\end{itemize}
-
-\bigskip
-
-\hrule
-
-\bigskip
-\bigskip
-
-{\bf 【思考题】}
-\begin{itemize}
-  \item 习题3.1：10，11，12
-  \item 习题3.2：6，7
-  \item 证明：$$\limn\left\{\lim\limits_{m\to\infty}\left[\cos^{2m}(n!\pi
-	x)\right]\right\}=D(x)$$
-	其中$D(x)$为Dirichlet函数
-%   \item 自学3.3.3节：渐近线 
-  \item 习题3.3：1，6，12，13
-  \item  计算极限
-  \item 习题3.4：1，3，13，14，16，19
-  \item 设$a_1<a_2<\ldots<a_n$，证明以下方程有$n-1$个实根
-	$$\df 1{x-a_1}+\df 1{x-a_2}+\ldots+\df 1{x-a_n}=0.$$
-\end{itemize}
-
-\newpage
-
-\section*{补充例题}
-\addcontentsline{toc}{section}{补充例题}
-
-
-
-{\bf 例：}设$f(x)$在$x_0$的某邻域内有定义，且$x_0$为其间断点，则下列函数
-必以$x_0$为间断点的是（B）
-
-\quad
-(A)\;$f(x)\sin x$\hspace{2cm}
-(B)\;$f(x)+\sin x$\hspace{2cm}
-(C)\;$f^2(x)$\hspace{2cm}
-(D)\;$|f(x)|$ 
-
-{\bf 例：}设$x\to 0$时，$e^{\tan x}-e^x$与$x^n$为同阶无穷小，则$n$=（C）
-\ps{Taylor展开}
-
-\quad
-(A)\;$1$\hspace{2cm}
-(B)\;$2$\hspace{2cm}
-(C)\;$3$\hspace{2cm}
-(D)\;$4$ 
-
-{\bf 例：}设$x\to 0$时，$x-\sin ax$与$x^2\ln(1-bx)$为同阶无穷小，则（A）
-\ps{Taylor展开}
-
-\quad
-(A)\;$a=1,b=-\df16$\hspace{1em}
-(B)\;$a=1,b=\df16$\hspace{1em}
-(C)\;$a=-1,b=-\df16$\hspace{1em}
-(D)\;$a=-1,b=\df16$
-
-{\bf 例：}若$f(x)=\df{\sqrt[3]{x}}{\lambda-e^{-kx}}$在$(-\infty,+\infty)$
-上连续，且$\limx{+\infty}f(x)=0$，则（D）
-
-\quad
-(A)\;$\lambda<0,k<0$\hspace{1cm}
-(B)\;$\lambda<0,k>0$\hspace{1cm}
-(C)\;$\lambda\geq0,k<0$\hspace{1cm}
-(D)\;$\lambda\leq0,k>0$
-
-% \begin{tabbing}
-% 	\hspace{3cm}\=\hspace{3cm}\=\hspace{3cm}\=\kill
-% 	\quad\quad\quad
-% 	(A)\;$\lambda<0,k<0$\>  
-% 	\quad\quad\quad
-% 	(B)\;$\lambda<0,k>0$\>
-% 	\quad\quad\quad  
-% 	(C)\;$\lambda\geq0,k<0$\>
-% 	\quad\quad\quad 
-% 	(D)\;$\lambda\leq0,k>0$
-% \end{tabbing} 
-
-{\bf 例：}设$f(x)$在$(a,b)$内均有定义且单调有界，则$f(x)$在$(a,b)$内的间断点类型只能是（C）
-\begin{tabbing}
-	\hspace{8cm}\=\kill
-	\quad\quad\quad
-	(A)\;可去间断点 \> 
-	(B)\;第二类间断点 \\ 
-	\quad\quad\quad
-	(C)\;跳跃间断点\>
-	(D)\;不能确定
-\end{tabbing}
-
-
-
-{\bf 例：}
-
-
-
-{\bf 例：}设$x\in(0,1]$时，$f(x)=x^{\sin x}$，且对任意$x$
-$$f(x)+k=2f(x+1),$$
-求常数$k$的值，使得极限$\limx0f(x)$存在。
-
-[提示]：易知$\limx{0^+}f(x)=1$，有$x\in(-1,0]$时，
-$$f(x)=2(x+1)^{\sin(x+1)}-k,$$
-故$\limx{0^-}f(x)=2-k$，从而可得$k=1$.
-
-{\bf 例：}设$f(x)$在$[a,b]$上连续，$\{x_n\}$为$[a,b]$上任一数列，求
-$\limn\sqrt[n]{\df1n\sum\limits_{k=1}^ne^{f(x_k)}}$
-
-[提示]：$e^{f(x)}$在$[a,b]$上连续且非负，故可设$m,M$分别为其在$[a,b]$上的最大和最小值，
-从而由夹逼定理
-$$\sqrt[n]m\leq\sqrt[n]{\df1n\sum\limits_{k=1}^ne^{f(x_k)}}\leq\sqrt[n]M,$$
-由此易知原式$=1$。
+最后，提醒一句，不要迷恋Taylor公式，还是那句话，万能工具虽然万能，但往往不是
+效率最高和用起来最简单的一个。

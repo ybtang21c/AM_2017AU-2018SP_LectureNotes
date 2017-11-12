@@ -184,6 +184,34 @@ $\df12(a+b+|a-b|)=\max\{a,b\}$
 (1)\;$\df18$\quad\quad(2)\;$-3$\quad\quad
 (3)\;$\df2{1+\sqrt5}$\quad\quad(4)\;$-\df1{32}$
 
+[提示]：（1）该极限存在且不为零，当且仅当分子分母的最高次幂相同，故$\alpha=4$，
+相应地极限的结果就是分子分母最高次幂的系数的比值，也即$\df2{2^4}=\df18$；
+
+（2）$x\to0$时，
+$$\ln\df{1-ax^2}{1+ax^2}\sim\df{1-ax^2}{1+ax^2}-1
+=\df{-2ax^2}{1+ax^2}\sim-2ax^2,$$
+$$\df1{10000}x^4+\sin^2{\sqrt6x}\sim6x^2,$$
+故$a=-3$；
+
+（3）
+\begin{align*}
+	\limn\df{F_n}{F_{n+1}}
+	&=\limn\df{\left(\df{1+\sqrt5}2\right)^{n+1}
+	-\left(\df{1-\sqrt5}2\right)^{n+1}}
+	{\left(\df{1+\sqrt5}2\right)^{n+2}
+	-\left(\df{1-\sqrt5}2\right)^{n+2}}\\
+	&=\limn\df{1-\left(\df{1-\sqrt5}{1+\sqrt5}\right)^{n+1}}
+	{\df{1+\sqrt5}2-\df{1-\sqrt5}2\left(\df{1-\sqrt5}{1+\sqrt5}\right)^{n+1}}\\
+	&=\df2{1+\sqrt5}.
+\end{align*}
+
+（4）记$y=x-\pi$，则$x\to\pi$等价于$y\to0$，此时
+$$\sqrt[4]{\sin\df x2}-1=\sqrt[4]{\sin\left(\df y2+\df{\pi}2\right)}-1
+=\sqrt[4]{\cos\df y2}-1\sim\df14\left(\cos\df y2-1\right)
+\sim-\df1{32}y^2.$$
+$$A(x-\pi)^k=Ay^k.$$
+故$A=-\df1{32}.$
+
 {\bf 三、计算以下极限（每题4分）}\ps{\b 用L'Hospital法则求解一律不得分！}
 
 (1)
@@ -273,7 +301,7 @@ $$1=\df{1+1+\ldots+1}n<\df{1+\sqrt[n]2+\ldots+\sqrt[n]n}n<\df{n\cdot\sqrt[n]n}n,
 \begin{align}
 	\mbox{原式}&=\limx0\df{\df1{1+x^2}-1}{x^2}+\limx0\df{1-\cos
 	x}{x^2}\tag{{+3\;\mbox{分}}}\\
-	&=\limx0\df{-x^2}{x^2}-\limx0\df{\df12x^2}{x^2}=-1-\df12=-\df32
+	&=\limx0\df{-x^2}{x^2}+\limx0\df{\df12x^2}{x^2}=-1+\df12=-\df12
 	\tag{{+3\;\mbox{分}}}
 \end{align}
 
