@@ -3854,16 +3854,33 @@ $$|\psi(x)-\psi(x_0)|=|\min\{f(x),g(x)\}-\psi(x_0)|,$$
 也即$\varphi(x)$在$x_0$连续。\hfill$\Box$
 
 [证法二]：注意到
-$$\min\{f(x),g(x)\}=f(x)+g(x)-\max\{f(x),g(x)\},$$
-由连续函数的性质易知，若$\max\{f(x),g(x)\}$在$x_0$连续，
-$\min\{f(x),g(x)\}$也一定在$x_0$连续。以下证明
-$\max\{f(x),g(x)\}$在$x_0$连续即可。
-
-事实上，
 $$\max\{f(x),g(x)\}=\df12[f(x)+g(x)+|f(x)-g(x)|],$$
-由$f(x),g(x)$在$x_0$连续，易知$f(x)-g(x)$在$x_0$连续，
-进而可知$|f(x)-g(x)|$在$x_0$连续，从而由连续函数的性质，
-$\max\{f(x),g(x)\}$在$x_0$连续。\hfill$\Box$
+$$\min\{f(x),g(x)\}=\df12[f(x)+g(x)-|f(x)-g(x)|],$$
+由$f(x),g(x)$在$x_0$连续可知，
+$$\limx{x_0}f(x)=f(x_0),\quad
+\limx{x_0}g(x)=g(x_0),$$
+进而由极限的性质可得
+$$\limx{x_0}[f(x)\pm g(x)]=f(x_0)\pm g(x_0)\;
+\Rightarrow\;
+\limx{x_0}|f(x)-g(x)|=|f(x_0)-g(x_0)|,$$
+综上，
+\begin{align*}
+	\limx{x_0}\varphi(x)&=\limx{x_0}\max\{f(x),g(x)\}\\
+	&=\limx{x_0}\df12[f(x)+g(x)+|f(x)-g(x)|]\\
+	&=\df12\left[\limx{x_0}f(x)+\limx{x_0}g(x)+\limx{x_0}|f(x)-g(x)|\right]\\
+	&=\df12[f(x_0)+g(x_0)+|f(x_0)-g(x_0)|]=\varphi(x_0).
+\end{align*}
+同理可证$\limx{x_0}\psi(x)=\psi(x_0)$。即证。
+% $$\min\{f(x),g(x)\}=f(x)+g(x)-\max\{f(x),g(x)\},$$
+% 由连续函数的性质易知，若$\max\{f(x),g(x)\}$在$x_0$连续，
+% $\min\{f(x),g(x)\}$也一定在$x_0$连续。以下证明
+% $\max\{f(x),g(x)\}$在$x_0$连续即可。
+% 
+% 事实上，
+% 由$f(x),g(x)$在$x_0$连续，易知$f(x)-g(x)$在$x_0$连续，
+% 进而可知$|f(x)-g(x)|$在$x_0$连续，从而由连续函数的性质，
+% $\max\{f(x),g(x)\}$在$x_0$连续。
+\hfill$\Box$
 
 \bigskip
 
@@ -4053,7 +4070,7 @@ $k\ne 0$时，称$L$为斜渐近线。
 	\includegraphics[width=8cm]{./images/ch1/kxb.jpg}
 \end{center}
 
-如图，显然
+先证必要性：如图，显然
 $$d(M,L)=d_y(M,L)\cos\theta,$$
 其中$\theta=\arctan k$为常数，故$d(M,L)\to 0$当且仅当
 $d_y(M,L)\to 0$。
@@ -4067,6 +4084,9 @@ $$\limx{+\infty}[f(x)-kx]=b.$$
 $$\limx{+\infty}\df{f(x)-kx}x=\limx{+\infty}\df bx=0.$$
 也即
 $$\limx{+\infty}\df{f(x)}x=k.$$
+
+再证充分性。由$b=\limx{+\infty}[f(x)-kx]$，可知
+$$\limx{+\infty}d_y(M,L)=\limx{+\infty}[f(x)-kx)]-b=0.$$
 即证。
 
 （2）由于

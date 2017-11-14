@@ -1,0 +1,301 @@
+% !Mode:: "TeX:UTF-8"
+
+\titlepage
+
+\begin{frame}{说在前面}
+	\linespread{1.5}
+	  \begin{itemize}[<+-|alert@+>]
+	    \item 过往的作业只画$\color{red}\times$和划线，不画$\color{red}\surd$，
+	    最后写{\bb “查”}；
+	    \item 就近订正，方便查阅，用不同颜色的笔；
+	    \item 不要忘记贴照片，作业本封面注明学员队和班号！
+	    \item 作业本不要分栏写！
+	    \item 不要当“复印机”！
+	    \item 作业晚交、进度过慢或缺题过多最高得$\b B$，
+	    不交默认为$\b C$！
+% 	    \item {\b 今后每周一交作业，按照单双周对应学号尾数为单双号的同学分别上交，
+% 	    平均每人两周交一次作业。} 
+	  \end{itemize}
+\end{frame}
+
+\begin{frame}{出现的问题}
+	\linespread{1.5}
+	  \begin{itemize}[<+-|alert@+>]
+	    \item 口语化的表达
+	    \begin{itemize}
+	      \item {\it\b $f(x)$在\ldots附近，两头收敛}
+	      \item {\it\b $x=0$附近的情况与$x=2$附近的情况相同}
+	    \end{itemize}
+	    \item 概念错误
+	    \begin{itemize}
+	      \item {\it\b $\limx0f(x)=\limx0\sin x$，故$\limx0\df{f(x)}{\sin x}=1$}
+	      \item {\it\b $f'_+(0)=\limx{0^+}f'(x)$} 
+	    \end{itemize}
+	    \item 自己发明符号
+		$$\b y'_{x\to 0^+},\quad f'(x)_{\mbox{\footnotesize\it 左}},
+		\quad f\left.\left(\arctan\df{1+x}{1-x}\right)'\right|_{x=0}$$
+	  \end{itemize}
+\end{frame}
+
+\section{习题1-9}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{2.设函数$f(x)$与$g(x)$在点$x_0$连续，证明函数
+	$$\varphi(x)=\max\{f(x),g(x)\},\quad
+	\psi(x)=\min\{f(x),g(x)\}$$
+	在$x_0$也连续。}\pause
+	
+% 	\bigskip
+	
+	证：\it
+	$$\max\{f(x),g(x)\}=\df12[f(x)+g(x)+|f(x)-g(x)|],$$
+% 	$$\min\{f(x),g(x)\}=\df12[f(x)+g(x)-|f(x)-g(x)|],$$
+	\pause 由已知，$\limx{x_0}f(x)=f(x_0),
+	\limx{x_0}g(x)=g(x_0),$
+	\pause 进而由极限的性质可得
+	$$\limx{x_0}|f(x)-g(x)|=|f(x_0)-g(x_0)|,$$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+% 	\ba{2.设函数$f(x)$与$g(x)$在点$x_0$连续，证明函数
+% 	$$\varphi(x)=\max\{f(x),g(x)\},\quad
+% 	\psi(x)=\min\{f(x),g(x)\}$$
+% 	在$x_0$也连续。}\pause
+	
+% 	\bigskip
+	
+	\it\small 于是
+	\begin{align*}
+		\limx{x_0}\varphi(x)&=\limx{x_0}\max\{f(x),g(x)\}\\
+		&=\limx{x_0}\df12[f(x)+g(x)+|f(x)-g(x)|]\\
+		&=\df12\left[\limx{x_0}f(x)+\limx{x_0}g(x)+\limx{x_0}|f(x)-g(x)|\right]\\
+		&=\df12[f(x_0)+g(x_0)+|f(x_0)-g(x_0)|]\\
+		&=\max\{f(x_0),g(x_0)\}=\varphi(x_0).
+	\end{align*}
+	\pause 也即 $\varphi(x)$在$x_0$连续。
+	\pause
+	$$\psi(x)=\min\{f(x),g(x)\}=\df12[f(x)+g(x)-|f(x)-g(x)|],$$
+	同理可证$\psi(x)$在$x_0$连续。\hfill$\Box$
+\end{frame}
+
+\section{习题1-10}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{7.证明：若$f(x)$在$(-\infty,+\infty)$内连续，且$\limx{\infty}f(x)$
+	存在，则$f(x)$必在$(-\infty,+\infty)$内有界。}\pause
+	
+% 	\bigskip
+	
+	证：\it
+	$\limx{\infty}f(x)$存在，由极限的有界性，$\exists M_1>0$和$X>0$，
+	对$\forall |x|>X$，均有$|f(x)|\leq M_1$。
+	\pause
+	注意到$f(x)\in C[-X,X]$，故$\exists M_2>0$，对$\forall x\in[-X,X]$，
+	均有$|f(x)|\leq M_2$。
+	\pause
+	综上，对任意$x\in(-\infty,+\infty)$，均有
+	$$|f(x)|\leq M=\max\{M_1,M_2\}.$$
+	即证。\hfill$\Box$
+\end{frame}
+
+\section{总习题一}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{14.如果存在直线$L:y=kx+b$，使当$x\to+\Delta$时
+	（$\Delta$表示$\infty,+\infty,-\infty$之一），
+	曲线$y=f(x)$上的动点$M(x,y)$到直线$L$的距离
+	$d(M,L)\to 0$，那么称$L$为直线$y=f(x)$的渐近线。当直线$L$的斜率
+	$k\ne 0$时，称$L$为斜渐近线。
+	\begin{enumerate}[(1)]
+% 	  \setlength{\itemindent}{1cm}
+	  \item 证明：直线$L:y=kx+b$为曲线$y=f(x)$的渐近线的充分必要条件是
+	  $$k=\limx{\Delta}\df{f(x)}x,\quad
+	  b=\limx{\Delta}[f(x)-kx].$$
+	  \item 求曲线$y=(2x-1)e^{\frac1x}$的斜渐近线。
+	\end{enumerate}}
+\end{frame}
+
+\section{1.2 导数的概念}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.已知$f(x)=\left\{\begin{array}{ll}
+	2e^x+b,& x\leq0\\ ax+\sin x,& x> 0
+	\end{array}\right.$
+	试确定$a,b$的值，使得$f(x)$在$x=0$处可导。}\pause
+	
+% 	\bigskip
+	
+	\small 证：\it
+	$f(x)$在$x=0$处可导，故必连续，从而
+	$$f(0-0)=2+b=f(0+0)=0\quad\Rightarrow \quad b=-2.$$
+	\pause 又
+	$$f'_-(0)=(2e^x+b)'|_{x=0}=2.$$
+	$$f'_+(0)=\limx{0^+}\df{ax+\sin x-(2+b)}{x}
+	=a+\limx{0^+}\df{\sin x}x=a+1.$$
+	故要使$f(x)$在$x=0$处可导，必有$2=a+1$，从而$a=1$。
+	\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{3.讨论函数
+	$y=\left\{\begin{array}{ll}
+		x^2\sin\df1x,& x\ne0;\\ 0, & x=0.
+	\end{array}\right.$
+	在$x=0$处的连续性、可导性以及导函数的连续性。}\pause
+	
+% 	\bigskip
+	
+	\small 证：\it
+	当$x\ne 0$时，
+	$$y'(x)=2x\sin\df1x-\sin\df1x.$$
+	\pause 当$x=0$时，
+	$$y'(0)=\limx0\df{x^2\sin\df1x-0}{x-0}=\limx0x\sin\df1x=0.$$
+	由此可知$y(x)$在$x=0$处可导，且连续。
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\small\it
+	$$
+		y'=\left\{\begin{array}{ll}
+			2x\sin\df1x-\sin\df1x, & x\ne 0,\\
+			0, & x=0.
+		\end{array}\right.
+	$$
+	\pause
+	注意到
+	$$\limx02x\sin\df1x=0,\quad \limx0\sin\df1x\mbox{不存在},$$
+	故$\limx0y'(x)$不存在。由此可知$y(x)$的导函数在$x=0$处不连续。\hfill$\Box$
+	
+	\bigskip
+	\pause 
+	\ba{注：可导函数的导函数不一定是连续函数！}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{4.设对任意$x\in\mathbb{R}$，均有$f(x+2)=f(x)$，已知$f'(0)=1$，
+	证明$f(x)$在$x=2$可导，并求$f'(2)$。}\pause
+	
+	\bigskip
+	
+	\small 解：\it
+	因为$f(x+2)=f(x)$，故
+	$$\lim\limits_{\Delta x\to0}\df{f(2+\Delta x)-f(2)}{\Delta x}
+	=\lim\limits_{\Delta x\to0}\df{f(\Delta x)-f(0)}{\Delta x}
+	=f'(0)=1,$$
+	由此即知$f(x)$在$x=2$可导，且$f'(2)=1$。
+	\hfill$\Box$
+	
+	\bigskip
+	\pause
+	\ba{注：周期函数的导函数必为周期函数，反之不然。}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{5.已知曲线$y=f(x)$和曲线$y=\sin x$在原点相切（即二者的切线相同），
+	求$\limx0\df{f(3x)}x$。}\pause
+	
+	\bigskip
+	
+	\small 解：\it
+	曲线$y=f(x)$和曲线$y=\sin x$在原点相切，故
+	$$f(0)=\sin 0=0,\quad f'(0)=(\sin x)'|_{x=0}=1.$$
+	于是
+	$$\limx0\df{f(3x)}x=3\limx0\df{f(3x)-f(0)}{3x}=3f'(0)=3.$$
+	\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{6.函数$g(x)$在$x=a$连续，问函数$f(x)=|(x-a)|g(x)$
+	在$x=a$是否可导？若可导，证明之；若不可导，讨论增加什么样的条件可以使之可导。
+	利用以上讨论的结果，判断$f(x)=(x^2-4)|x^2+3x+2|$有几个不可导的点。}\pause
+	
+% 	\bigskip
+	
+	\small 解：\it
+	$$\df{f(a+\Delta x)-f(a)}{\Delta x}
+	=\df{|\Delta x|g(a+\Delta x)}{\Delta x}
+	=\df{|\Delta x|}{\Delta x}g(a+\Delta x),$$
+	\pause
+	当$\Delta x\to0$时极限存在当且仅当$\lim\limits_{\Delta x\to0}g(a+\Delta x)=0$，也即
+	$\limx{a}g(x)=0$。
+	\pause
+	$f(x)=|(x+2)(x+1)|(x+2)(x-2),$
+	根据前述的结论，在$x=-2$处$f(x)$可导，在$x=-1$处$f(x)$不可导。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{7.已知$f'(a)f(a)\ne 0$，求
+	$\limx0\left[\df{f(a+x)}{f(a)}\right]^{\frac1{\sin x}}.$}\pause
+	
+% 	\bigskip
+	
+	\small 解：\it
+	\begin{align*}
+		\mbox{原式}&=\limx0\left[1+\df{f(a+x)-f(a)}{f(a)}\right]^{\frac1{\sin x}}\\
+		&=\limx0\left[1+\df{f(a+x)-f(a)}{f(a)}\right]^{\frac{f(a)}{f(a+x)-f(a)}
+		\frac{f(a+x)-f(a)}{f(a)}\frac1{\sin x}}\\
+		&=\left\{\limx0\left[1+\df{f(a+x)-f(a)}{f(a)}\right]^{\frac{f(a)}{f(a+x)-f(a)}}\right\}
+		^{\limx0\frac{f(a+x)-f(a)}x\frac{x}{\sin x}\frac1{f(a)}}\\
+		&=e^{\frac{f'(a)}{f(a)}}
+	\end{align*}
+	\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{8.设对任意$x,y\in\mathbb{R}$，有
+	$$f(x+y)=f(x)+f(y)+x^2y+xy^2,$$
+	且当$x\to0$时$f(x)$与$x$是等价无穷小，证明$f(x)$处处可导，并求其导函数。}\pause
+	
+% 	\bigskip
+	
+	\small 解：\it
+	令$x=y=0$，由已知等式可得$f(0)=0$。\pause
+	对任意$x_0\in\mathbb{R}$，由已知等式及$\limx{0}\df{f(x)}x=1$，
+	\begin{align*}
+		\lim\limits_{\Delta x\to0}\df{f(x_0+\Delta x)-f(x_0)}{\Delta x}
+		&=\lim\limits_{\Delta x\to0}\df{f(\Delta x)+x_0^2\Delta x+x_0\Delta x^2}
+		{\Delta x}\\
+		&=\lim\limits_{\Delta x\to0}\df{f(\Delta x)}{\Delta x}+x_0^2
+		=1+x_0^2.
+	\end{align*}
+	\pause 因为$x_0$是任意的，故$f(x)$处处可导，其导函数为
+	$f'(x)=1+x^2$。\hfill$\Box$
+\end{frame}
+
+\section{2.2 函数的求导法则}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{4.设$f(x)$可导，且$f'\left(\df{\pi}{4}\right)=1$，求
+	$$\left.f'\left(\arctan\df{1+x}{1-x}\right)\right|_{x=0}
+	\quad\mbox{和}\quad  
+	\left[f\left(\arctan\df{1+x}{1-x}\right)\right]'_{x=0}.$$}\pause
+	
+% 	\bigskip
+	
+	\small 解：\it
+	$$\left.f'\left(\arctan\df{1+x}{1-x}\right)\right|_{x=0}
+	=f'(\arctan 1)=f'\left(\df{\pi}{4}\right)=1.$$
+	\pause
+	\begin{align*}
+		&\left[f\left(\arctan\df{1+x}{1-x}\right)\right]'_{x=0}
+		=f'\left(\arctan\df{1+x}{1-x}\right)\\
+		&\quad\left.\df{1}{1+\left(\frac{1+x}{1-x}\right)^2}
+		\df{(1-x)+(1+x)}{(1-x)^2}
+		\right|_{x=0}
+		=1\cdot\df12\cdot2=1.
+	\end{align*}
+	\hfill$\Box$
+\end{frame}
