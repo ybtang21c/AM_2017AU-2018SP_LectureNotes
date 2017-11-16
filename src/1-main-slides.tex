@@ -8,8 +8,8 @@
 %option: red, brown, blue
 % \documentclass[14pt,mathserif]{beamer}
 % \documentclass[14pt]{beamer}
-% \documentclass[usepdftitle=false, 14pt, handout]{beamer} %无动画
-\documentclass[usepdftitle=false, 14pt]{beamer}
+\documentclass[usepdftitle=false, 14pt, handout]{beamer} %无动画
+% \documentclass[usepdftitle=false, 14pt]{beamer}
 
 \usepackage{amsmath,amsfonts,amssymb,amsthm,bm}
 % \usepackage{txfonts} %another style of math fonts
@@ -102,6 +102,8 @@
 \renewcommand{\d}{\mathrm{d}}
 \newcommand{\ds}{\displaystyle}
 
+% \input{macros.tex}
+
 %================exampleblock counter===================
 % \newcounter{examplecounter}
 % \usecounter{examplecounter}
@@ -147,9 +149,9 @@
 
 \begin{document}
 
-% \input{./hwComB/Ch01-1.tex}
+\input{./hwComB/Ch01-1.tex}
 
-\input{./hwComB/Ch01-2-02-1.tex}
+% \input{./hwComB/Ch01-2-02-1.tex}
 
 %   \input{Ch07-ex-slides.tex} %常微分方程习题课
 % 	\input{Ch08-ex1-slides.tex} %空间直线与平面习题课
