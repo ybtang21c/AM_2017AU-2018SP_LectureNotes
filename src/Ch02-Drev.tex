@@ -1898,20 +1898,20 @@ $$\df{\d y}{\d x}=\df{\df{\d y}{\d\theta}}{\df{\d x}{\d\theta}}
 	(\rho'\cos\theta-\rho\sin\theta)\\
 	&-(\rho'\sin\theta+\rho\cos\theta)
 	(\rho''\cos\theta-\rho'\sin\theta-\rho'\sin\theta-\rho\cos\theta)\\
-	&=-\rho\rho''+2(\rho')^2+\rho^2,
+	&=\rho^2+2(\rho')^2-\rho\rho'',
 \end{align*}
 \begin{align*}
 	\df{\d}{\d\theta}\left(\df{\d y}{\d x}\right)
 	&=\df{(\rho'\sin\theta+\rho\cos\theta)'_{\theta}(\rho'\cos\theta-\rho\sin\theta)
 	-(\rho'\sin\theta+\rho\cos\theta)(\rho'\cos\theta-\rho\sin\theta)'_{\theta}}
 	{(\rho'\cos\theta-\rho\sin\theta)^2}\\
-	&=\df{-\rho\rho''+2(\rho')^2+\rho^2}{(\rho'\cos\theta-\rho\sin\theta)^2},
+	&=\df{\rho^2+2(\rho')^2-\rho\rho''}{(\rho'\cos\theta-\rho\sin\theta)^2},
 \end{align*}
 故
 $$
 \df{\d^2y}{\d x^2}
 =\df{\df{\d}{\d\theta}\left(\df{\d y}{\d x}\right)}{\df{\d x}{\d\theta}}
-=\df{-\rho\rho''+2(\rho')^2+\rho^2}{(\rho'\cos\theta-\rho\sin\theta)^3}.
+=\df{\rho^2+2(\rho')^2-\rho\rho''}{(\rho'\cos\theta-\rho\sin\theta)^3}.
 $$
 \hfill$\Box$
 
@@ -2094,3 +2094,132 @@ $$
 $$\sqrt[n]{a^n+x}\approx f(0)+f'(0)x
 =a+\df{x}{na^{n-1}}.$$
 \hfill$\Box$
+
+\newpage
+
+\begin{center}
+	\Large\bf 第二章小结
+\end{center}
+
+{\bf 1.导数的概念}
+
+$\bullet$熟练使用导数的各种不同符号，理解其意义：
+$$f\,'(x_0),\quad \left.\df{\d y}{\d x}\right|_{x=x_0},\quad\left.\df{\d
+}{\d x}y\right|_{x=x_0},\quad \left.\df{\d }{\d x}f(x)\right|_{x=x_0}\quad
+y'_x|_{x=x_0},\quad \dot{y}(x_0)$$
+$$y'',\quad y''_{xx},\quad \df{\d^2y}{\d x},
+\quad \df{\d}{\d x}\left(\df{\d y}{\d x}\right),\quad
+\quad \df{\d}{\d x}y',$$
+$$f^{\,(n)}(x),\quad \df{\d^n y}{\d x^n},\quad
+\quad \df{\d}{\d x}\left(\df{\d^{n-1} y}{\d x^{n-1}}\right),\quad
+\quad \df{\d}{\d x}y^{(n-1)}.$$
+
+$\bullet$导数的几何意义：切线（割线的极限位置）的斜率。
+
+注意：可导必存在切线，反之不然。
+
+切线方程：$y=f(x_0)+f'(x_0)(x-x_0)$
+
+法线方程：$y=f(x_0)-\df1{f'(x_0)}(x-x_0)\quad(f'(x_0)\ne 0)$
+
+$\bullet$ $f(x)$在一点可导，则一定在该点连续，反之不然（连续点可能是“尖点”，
+例如$y=|x|$在$x=0$处）
+
+例题：已知$f(x)$在$x=0$连续，且$\limx{0}\df{f(x)}x=A$，
+证明$f(x)$在$x=0$可导，并求$f'(0)$。
+
+$\bullet$正确区分各种符号，例如：$f'(x_0)$，$[f(x_0)]'$，$f'(x)$，$[f(x)]'$，
+$f'_+(x_0)$，$f'(x_0+0)$,\ldots
+
+{\bf 2.导数的计算}
+
+$\bullet$分段定义的函数的导数，根据分段的情况，有时需要使用导数的定义
+来计算分段点上的导数。
+
+$\bullet$求导法则：
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $[u(x)\pm v(x)]'=u'(x)\pm v'(x)$ 
+  \item $[u(x)v(x)]' =u'(x)v(x)+u(x)v'(x)$ 
+  \item $\left[\df{u(x)}{v(x)}\right]'
+  =\df{u'(x)v(x)-u(x)v'(x)}{v^2(x)}\;\;(\mbox{假设}v(x)\ne 0)$
+  \item $[u^{-1}(y)]_y'=\df1{u'_x(x)}$
+  \item $[u(v(x))]'=u'(v(x))v'(x)$
+\end{enumerate}
+
+难点：正确理解和使用反函数的求导法则！
+
+$\bullet$常用的导函数公式（略）
+
+要求：所求的公式都必须熟练记忆，并且掌握推导的方法！
+
+注意：形如$f(x)^{g(x)}$的函数的求导方法
+
+{\bf 3.高阶导数}
+
+$\bullet$多项式函数的高阶导函数：$n$次多项式函数超过$n$阶的
+导函数恒为零。
+
+$\bullet$各种特殊函数计算高阶导函数的技巧：$\ln(1+x)$，$\df1{1+x}$，$\ln\df{1+x}{1-x}$，
+$\df{P_n(x)}{x+a}$，$\sin x$，$\cos x$，$x^ne^x$，$x^n\sin x$，
+$e^x\sin x$，\ldots
+
+$\bullet$Leibniz公式：
+$$\left[u(x)v(x)\right]^{(n)}=
+\sum\limits_{k=0}^nC_n^ku^{(n-k)}(x)v^{(k)}(x).$$
+
+{\bf 4.隐函数与参数方程求导}
+
+重点掌握如下的“形式化”推导方法
+
+$\bullet$参数方程的各阶导数
+$${\b y'(x)}=\df{\d y}{\d x}=\df{\d y}{\d t}\df{\d t}{\d x}
+=\df{\df{\d y}{\d t}}{\df{\d t}{\d x}}={\b \df{y'(t)}{x'(t)}}$$
+\begin{align*}
+	{\b y''(x)}&=\df{\d^2y}{\d x^2}=\df{\d}{\d x}y'(x)
+	=\df{\d}{\d x}\left(\df{y'(t)}{x'(t)}\right)
+	=\df{\d}{\d t}\left(\df{y'(t)}{x'(t)}\right)\cdot\df{\d t}{\d x}\\
+	&=\df{y''(t)x'(t)-y'(t)x''(t)}{[x'(t)]^2}\cdot\df1{x'(t)}
+	={\b \df{y''(t)x'(t)-y'(t)x''(t)}{[x'(t)]^3}}
+\end{align*}
+
+$\bullet$反函数的各阶导数：设$f(x)$和$g(y)$互逆，则
+\begin{align*}
+	g''(y)&=\df{\d^2x}{\d y^2}
+	=\df{\d }{\d y}\left(\df{\d x}{\d y}\right)
+	=\df{\d }{\d y}\left(\df1{f'(x)}\right)\\
+	&=\df{\d }{\b\d x}\left(\df1{f'(x)}\right)\cdot\df{\b\d x}{\d y}
+	=-\df{f''(x)}{[f'(x)]^2}\cdot\df1{f'(x)}
+	=-\df{f''(x)}{[f'(x)]^3}.
+\end{align*}
+
+{\bf 5.相关变化率}
+
+$\bullet$应用题的解题步骤：画图（定义变量）$\to$建立关系$\to$分析求解。
+
+多看一些不同的例题，提高理解题意的能力。
+
+{\bf 6.微分}
+
+$\bullet$可微$\Leftrightarrow$可导。
+
+$\bullet$微分
+$$\d y=f'(x)\d x=f'(x)\Delta x,$$
+对于自变量$x$，$\d x=\Delta x$
+
+$\bullet$局部线性化和以直代曲
+\begin{center}
+	\resizebox{!}{6cm}{\includegraphics{./images/ch4/dy.pdf}}
+
+	\it $f(x)$在$x_0$可微，意味着在$x_0$附近，$f(x)$可以近似地表示为一个线性函数： 
+	$$f(x)\approx y= f(x_0)+f\,'(x_0)(x-x_0)$$
+\end{center}
+
+$\bullet$微分的运算法则：可以理解成求导法则的另一种表达形式
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\d (u\pm v)=\d u\pm \d v$
+  \item $\d(uv)=v\d u+u\d v$
+  \item $\d\df uv=\df{v\d u-u\d v}{v^2}$
+  \item $\d g[f(x)]=g'[f(x)]\d f(x)=g'[f(x)]f'(x)\d x$
+\end{enumerate}

@@ -48,6 +48,16 @@ $$f'(x_0)\geq 0,\quad\mbox{且}\quad f'(x_0)\leq 0,$$
 	  使后者增加了对概率论的兴趣
 	\end{itemize}
 	
+	Peter L. Bernstein, in his book {\it Against the Gods}, 
+	Fermat "{\it was a mathematician of rare power. He was an 
+	independent inventor of analytic geometry, he contributed 
+	to the early development of calculus, he did research on 
+	the weight of the earth, and he worked on light refraction 
+	and optics. In the course of what turned out to be an extended 
+	correspondence with Pascal, he made a significant contribution 
+	to the theory of probability. But Fermat's crowning achievement 
+	was in the theory of numbers}."
+	
 	\begin{tcolorbox}
 		Fermat{\it 小定理}：假设$a\in\mathbb{Z}$，$p$为素数，则$a^p-a$可以整除$p$，
 		或者写为
@@ -66,11 +76,12 @@ $$f'(x_0)\geq 0,\quad\mbox{且}\quad f'(x_0)\leq 0,$$
 	
 	这个定理造成了数学史上最大的悬案：1637年，费马在阅读丢番图《算术》拉丁文译本时，
 	曾在第11卷第8命题旁写道：
-	{\it 将一个立方数分成两个立方数之和，或一个四次幂分成两个四次幂之和，
+	{\kaishu 将一个立方数分成两个立方数之和，或一个四次幂分成两个四次幂之和，
 	或者一般地将一个高于二次的幂分成两个同次幂之和，这是不可能的。
-	关于此，我确信已发现了一种美妙的证法，可惜这里空白的地方太小，写不下。}
+	关于此，我确信已发现了一种美妙的证法，可惜这里空白的地方太小，写不下
+	(“{\it the margin is too small to include the proof}”)。}
 	
-	一直被称为“Fermat猜想”，直到英国数学家Andrew John Wiles及其学生Richard
+	一直被称为“Fermat猜想”，直到英国数学家Andrew John Wiles(1953-)及其学生Richard
 	Taylor于1995年将他们的证明出版后，才称为“Fermat大定理”。
 	经过数学家们三个多世纪的努力，猜想才变成了定理。在冲击这个数论世纪难题的过程中，
 	无论是不完全的还是最后完整的证明，都给数学界带来很大的影响；很多的数学结果、
@@ -96,6 +107,7 @@ $$f'(x_0)\geq 0,\quad\mbox{且}\quad f'(x_0)\leq 0,$$
 	得出了证明的大部分；然后于1993年6月在一个学术会议上宣布了他的证明，并瞬即
 	成为世界头条。但在审批证明的过程中，专家发现了一个极严重的错误。Wiles和他的学生Taylor
 	然后用了近一年时间尝试补救，终在1994年9月以一个之前Wiles抛弃过的方法得到成功。
+	Wiles因为这项证明获得了数学界的三大奖之一Abel Prize。
 	
 	为什么Fermat大定理在数学史上的地位如此重要？有三个主要的原因：一是问题基本，长时间
 	（350年）悬而未决，吸引了众多数学大师对其加以研究；二是研究问题的过程中产生了新的思想和方法，
@@ -2106,6 +2118,8 @@ $$\df t{t-x}>\ln\left(1+\df t{x-t}\right)=-\ln\left(1-\df tx\right)$$
 % 
 % 分析：令$f(x)=x-e\ln x$
 
+{\bf 例：}证明$x>0,y>0$时，$xy\leq x\ln x+e^{y-1}$。
+
 \begin{ext}
 	{\bf 课后作业}
 	
@@ -2132,9 +2146,9 @@ $$\df t{t-x}>\ln\left(1+\df t{x-t}\right)=-\ln\left(1-\df tx\right)$$
 	  \item 求曲线$x^2-xy+y^2=3$上横坐标最大和最小的点。
 	  \item $a>1$，$x\in[0,1]$，证明：
 	  $$\df1{2^{a-1}}\leq x^a+(1-x)^a\leq 1.$$
-	  \item 比较$\pi^e$和$e^{\pi}$的大小。
+	  \item （选作）比较$\pi^e$和$e^{\pi}$的大小。
 	  \item 证明：$\df{\tan x}x>\df x{\sin x}$，$x\in(0,\pi/2)$。
-	  \item （选作）证明$x>0,y>0$时，$xy\leq x\ln x+e^{y-1}$。
+% 	  \item （选作）证明$x>0,y>0$时，$xy\leq x\ln x+e^{y-1}$。
 	\end{enumerate}
 \end{ext}
 
@@ -2419,7 +2433,7 @@ $$
 	
 	\begin{enumerate}
 	  \item 求曲线$y=\ln\cos x$的最小曲率半径。
-	  \item 求曲线$x=a\cos^3t,y=b\sin^3t$在$t=t_0$对应点处的曲率。
+	  \item 求曲线$x=\cos^3t,y=\sin^3t$在$t=\df34\pi$对应点处的曲率。
 	  \item 求曲线$x^2+xy+y^2=3$在点$(1,1)$处的曲率半径。
 	  \item （选作）推导极坐标形式下曲线$\rho=\rho(\theta)$的曲率公式。
 	\end{enumerate}
@@ -3083,37 +3097,87 @@ $$\df{f''(x)}{|x|}>0\quad
 
 \bigskip
 
+4.$e<a<b<e^2$，证明：$\ln^2b-\ln^2a>\df4{e^2}(b-a)$。
 
+[证]：由Lagrange中值定理，存在$\xi\in(a,b)$，使得
+$$\df{\ln^2b-\ln^2a}{b-a}=\df{2\ln\xi}{\xi}.$$
 
-\begin{ext}
-	{\bf 课后作业}
-	
-	\begin{enumerate}
-	  \item 
-	  \item 
-	  \item 
-% 	  \item （选作）设$f(x)$在$x_0$处$n$阶可导，且
-% 	  $$f'(x_0)=f''(x_0)=\ldots=f^{(n-1)}(x_0)=0,\;f^{(n)}(x_0)\ne 0,$$
-% 	  证明：
-% 	  \begin{enumerate}[(1)]
-% 		\item 当$n$为奇数时，$f(x)$在$x_0$处不取极值；
-% 		\item 当$n$为偶数时，$f(x)$在$x_0$处取极值，并且若$f^{(n)}>0$，
-% 		$f(x_0)$为极小值，反之为极大值。
-% 	  \end{enumerate}
-	  \item $e<a<b<e^2$，证明：$\ln^2b-\ln^2a>\df4{e^2}(b-a)$
-% 	\end{enumerate}
-% 	\tcblower
-% 	\begin{enumerate}
-	  \item 建造一个体积为$V$的圆柱体油罐，问该油罐的地面直径与高的比例为多少时，
-	  所需要的建造材料最少。
-	  \item 求曲线$x^2-xy+y^2=3$上横坐标最大和最小的点。
-	  \item $a>1$，$x\in[0,1]$，证明：
-	  $$\df1{2^{a-1}}\leq x^a+(1-x)^a\leq 1.$$
-	  \item 比较$\pi^e$和$e^{\pi}$的大小。
-	  \item 证明：$\df{\tan x}x>\df x{\sin x}$，$x\in(0,\pi/2)$。
-	  \item （选作）证明$x>0,y>0$时，$xy\leq x\ln x+e^{y-1}$。
-	\end{enumerate}
-\end{ext}
+令$f(x)=x^{\frac1x}$，则
+$$f'(x)=x^{\frac1x-2}(1-\ln x),$$
+令$f'(x)=0$，解得$x=e$。显然，当$x>e$时，总有$f'(x)<0$，
+故当$x\in(e,e^2)$时，必有$f(x)>f(e^2)={e^2}^{\frac1{e^2}}$，
+进而
+$$\df{\ln\xi}{\xi}=\ln\xi^{\frac1{\xi}}>\df2{e^2},$$
+带入前式整理即证。\hfill$\Box$
+
+\bigskip
+
+5.建造一个体积为$V$的圆柱体油罐，问该油罐的地面直径与高的比例为多少时，
+所需要的建造材料最少。
+
+[解]：
+\hfill$\Box$
+
+\bigskip
+
+6.求曲线$x^2-xy+y^2=3$上横坐标最大和最小的点。
+
+[解]：设$x=x(y)$，已知曲线方程两边对$y$求导可得
+$$2xx'(y)-x'(y)y-x+2y=0
+\quad\Rightarrow\quad
+x'(y)=\df{2y-x}{2x-y}.$$
+令$x'(y)=0$，解得$x=2y$，带入原方程可得
+$$4y^2-2y^2+y^2=3
+\quad\Rightarrow\quad
+y=\pm1.$$
+与之对应地$x(1)=2,x(-1)=-2$，注意到该曲线处处光滑，故
+所求横坐标最大和最小的点分别为$(2,1)$和$(-2,1)$。
+\hfill$\Box$
+
+\bigskip
+
+7.$a>1$，$x\in[0,1]$，证明：
+$$\df1{2^{a-1}}\leq x^a+(1-x)^a\leq 1.$$
+
+[解]：令$f(x)=x^a+(1-x)^a$，则
+$$f'(x)=a[x^{a-1}-(1-x)^{a-1}].$$
+令$f'(x)=0$，解得$x=\df12$，比较
+$$f(0)=1,\quad f\left(\df12\right)=\df1{2^{a-1}},
+\quad f(1)=1,$$
+可知当$x\in[0,1]$时$f(x)$的最大和最小值分别为$1$和$\df1{2^{a-1}}$，
+即证。
+\hfill$\Box$
+
+\bigskip
+
+8.比较$\pi^e$和$e^{\pi}$的大小。
+
+[解]：令$f(x)=(\ln x)^{e}-x$，则
+$$f'(x)=\df{e}x(\ln x)^{e-1}-1,
+\quad
+f''(x)=(e-1-\ln x)\df{e(\ln x)^{e-2}}{x^2}
+$$
+% 令$f'(x)=0$，解得$x=e$或$x=e^e$。
+注意到$f(e^e)=f'(e^e)=0$，且$f''(e^e)=-\df1{e^{e-3}}<0$，故
+$x=e^e$是$f(x)$的极大值点。又$x>e^e$时，$f''(x)<0$，故当$x>e^e$时，
+$f'(x)<f'(e^e)=0$，进而可知$f(x)<f(e^e)=0$。
+显然$e^{\pi}>e^e$，故$f(e^{\pi})<0$，也即
+$$\pi^e<e^{\pi}.$$
+\hfill$\Box$
+
+\bigskip
+
+9.证明：$\df{\tan x}x>\df x{\sin x}$，$x\in(0,\pi/2)$。
+
+[证]：令$f(x)=\tan x\sin x-x^2$，则
+$$f'(x)=\sec^2x\sin x+\tan x\cos x-2x=(\sec^2x+1)\sin x-2x,$$
+$$f''(x)
+% =[2\sec^2x\tan x\sin x+(\sec^2x+1)\cos x]-2
+=2\df{\sin^2x}{\cos^3x}+\df1{\cos x}+\cos x-2
+\geq 2\df{\sin^2x}{\cos^3x}\geq 0,\;x\in(0,\pi/2)$$
+注意到$f(0)=f'(0)=0$，故对任意$x\in(0,\pi/2)$，$f'(x)>0$，
+进而$f(x)>0$，即证。
+\hfill$\Box$
 
 \begin{center}
 	\bf 3.6 分析绘图
@@ -3136,3 +3200,78 @@ $$\df{f''(x)}{|x|}>0\quad
 \begin{center}
 	\includegraphics[width=8cm]{./images/ch3/e-2x.pdf}
 \end{center}
+
+\begin{center}
+	\bf 3.7 曲率
+\end{center}
+
+1.求曲线$y=\ln\cos x$的最小曲率半径。
+
+[解]：
+$$y'=-\tan x,\quad y''=-\sec^2x.$$
+故曲率
+$$K=\df{|y''|}{[1+(y')^2]^{\frac32}}=|cos x|,$$
+显然当$x=2k\pi,(k\in\mathbb{R})$时，曲率取最大值，相应地，
+曲率半径取最小值为$1$。
+\hfill$\Box$
+
+\bigskip
+
+2.求曲线$x=\cos^3t,y=\sin^3t$在$t=\df34\pi$对应点处的曲率。
+
+[解]：
+\begin{align*}
+	y'_x&=\df{y'_t}{x'_t}=-\df{3\sin^2t\cos t}{3\cos^2t\sin t}
+	=-\tan t,\\
+	y''_{xx}&=\df{(y'_x)'_t}{x'_t}
+	=-\df{\sec^2t}{-3\cos^2t\sin t}=\df13\sec^4t\csc t.
+\end{align*}
+故在$t=\df34\pi$处的曲率为
+$$K\left(\df34\pi\right)=\left.\df{|y''_{xx}|}{[1+(y'_x)^2]^{\frac32}}\right|_{t=\frac34\pi}
+=\left.\df{\frac13|\sec^4t\csc t|}{|\sec^3t|}\right|_{t=\frac34\pi}
+=\left.\df1{3|\sin t\cos t|}\right|_{t=\frac34\pi}
+=\df32.$$
+\hfill$\Box$
+
+\bigskip
+
+3.求曲线$x^2+xy+y^2=3$在点$(1,1)$处的曲率半径。
+
+[解]：设$y=y(x)$，已知曲线方程两边关于$x$求导，可得
+$$2x+y+xy'+2yy'=0
+\quad\Rightarrow\quad
+y'=-\df{2x+y}{x+2y},$$
+$$y''=-\df{(2+y')(x+2y)-(2x+y)(1+2y')}{(x+2y)^2}.$$
+进而可得，在$(1,1)$处，$y'=-1,y''=-\df23$，从而已知曲线在
+该点的曲率为
+$$K=\df{|y''|}{[1+(y')^2]^{\frac32}}=\df{|-\frac23|}{2^{\frac32}}
+=\df1{3\sqrt2}.$$
+
+\hfill$\Box$
+
+\bigskip
+
+4.推导极坐标形式下曲线$\rho=\rho(\theta)$的曲率公式。
+
+[解]：令$x=\rho\cos\theta,y=\rho\sin\theta$，参考2.4节作业第五题，有
+$$
+	y'_x=\df{\rho'\sin\theta+\rho\cos\theta}
+	{\rho'\cos\theta-\rho\sin\theta},
+	\quad
+	y''_{xx}=\df{\rho^2+2(\rho')^2-\rho\rho''}
+	{(\rho'\cos\theta-\rho\sin\theta)^3},
+$$
+
+代入曲率公式可得
+\begin{align*}
+	K&=\df{|y''|}{[1+(y')^2]^{\frac32}}
+	=\df{\df{|\rho^2+2(\rho')^2-\rho\rho''|}
+	{|(\rho'\cos\theta-\rho\sin\theta)^3|}}
+	{\left[1+\left(\df{\rho'\sin\theta+\rho\cos\theta}
+	{\rho'\cos\theta-\rho\sin\theta}
+	\right)^2\right]^{\frac32}}
+	=\df{|\rho^2+2(\rho')^2-\rho\rho''|}
+	{[\rho^2+(\rho')^2]^{\frac32}}.
+\end{align*}
+即为所求。\hfill$\Box$
+
