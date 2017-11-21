@@ -1666,12 +1666,12 @@ $$\left.f'\left(\arctan\df{1+x}{1-x}\right)\right|_{x=0}
 [解]：$y=\df12[\ln(1-x)-\ln(1+x)]$，
 $$y'=\df12\left(-\df1{1-x}-\df1{1+x}\right)
 =-\df1{1-x^2},$$
-$$y''=-\df{-2x}{(1-x^2)^2}=\df{2x}{(1-x^2)^2}.$$
+$$y''=-\df{-2x}{(1-x^2)^2}=-\df{2x}{(1-x^2)^2}.$$
 故$y''(0)=0$.\hfill$\Box$
 
 \bigskip
 
-2.已知$f(x)$二阶可导，设$y=\df{f(x)}{x}$，求$\df{\d^2y}{\d x}$。
+2.已知$f(x)$二阶可导，设$y=\df{f(x)}{x}$，求$\df{\d^2y}{\d x^2}$。
 
 [解]：
 $$y'=\df{f'(x)x-f(x)}{x^2},$$
@@ -1762,11 +1762,11 @@ $$f''(x)=\left\{\begin{array}{ll}
 \begin{align*}
 	f^{(n)}(x)&=x^2[\ln(1+x)]^{(n)}+n2x[\ln(1+x)]^{(n-1)}
 	+\df{n(n-1)}22[\ln(1+x)]^{(n-2)}\\
-	&=x^2\df{(-1)^{n-1}n!}{(1+x)^n}+2nx\df{(-1)^{n-2}(n-1)!}{(1+x)^{n-1}}
-	+n(n-1)\df{(-1)^{n-3}(n-2)!}{(1+x)^{n-2}}.
+	&=x^2\df{(-1)^{n-1}(n-1)!}{(1+x)^n}+2nx\df{(-1)^{n-2}(n-2)!}{(1+x)^{n-1}}
+	+n(n-1)\df{(-1)^{n-3}(n-3)!}{(1+x)^{n-2}}.
 \end{align*}
 令$x=0$，可得
-$$f^{(n)}(0)=(-1)^{n-1}n!.$$
+$$f^{(n)}(0)=(-1)^{n-1}\df{n!}{n-2}.$$
 \hfill$\Box$
 
 \begin{center}
@@ -1832,7 +1832,7 @@ $$x=\df32.$$
 \bigskip
 
 3.已知$\left\{\begin{array}{l}
-  	x=e^x\cos t\\ y=e^x\sin t
+  	x=e^t\cos t\\ y=e^t\sin t
 \end{array}\right.$，求$\left.\df{\d y}{\d x}\right|_{t=\frac{\pi}2}$
 和$\left.\df{\d^2 y}{\d x^2}\right|_{t=\frac{\pi}2}$。
 
@@ -1841,17 +1841,17 @@ $$\df{\d x}{\d t}=e^x(\cos t-\sin t),\quad
 \df{\d y}{\d t}=e^x(\sin t+\cos t).$$
 故
 $$\df{\d y}{\d x}=\df{\df{\d y}{\d t}}{\df{\d x}{\d t}}
-\df{\cos t-\sin t}{\sin t+\cos t}.$$
-当$x=\df{\pi}2$时，$y'_x=-1$。
+=\df{\sin t+\cos t}{\cos t-\sin t}.$$
+当$t=\df{\pi}2$时，$y'_x=-1$。
 进一步
-$$\df{\d y'_x}{\d t}=\df{(-\sin t-\cos t)(\sin t+\cos t)
--(\cos t-\sin t)(\cos t-\sin t)}{(\sin t+\cos t)^2}
-=\df{-2}{(\sin t+\cos t)^2}.$$
+$$\df{\d y'_x}{\d t}=\df{(\cos t-\sin t)(\cos t-\sin t)
+-(\sin t+\cos t)(-\sin t-\cos t)}{(\cos t-\sin t)^2}
+=\df{2}{(\cos t-\sin t)^2}.$$
 故
 $$\df{\d^2 y}{\d x^2}
 =\df{\df{\d y'_x}{\d t}}{\df{\d x}{\d t}}
-=\df{-2}{e^x(\cos t-\sin t)(\sin t+\cos t)^2},$$
-从而$y''_{xx}|_{t=\frac{\pi}2}=2e^{-\frac{\pi}2}$。
+=\df{2}{e^x(\cos t-\sin t)^3},$$
+从而$y''_{xx}|_{t=\frac{\pi}2}=-2e^{-\frac{\pi}2}$。
 \hfill$\Box$
 
 \bigskip
@@ -1930,11 +1930,11 @@ $$\df{\d d}{\d t}=\df{\sqrt{x^2+y^2}}{\d t}
 当$x=9$，$x'_t=5$时，
 $$
 	y=3,\quad
-	y'_t=\df{\df{\d y}{\d x}}{\df{\d x}{\d t}}
-	=\df1{x'_yx'_t}=\df1{2y5}=\df1{30}.
+	y'_t=\df{\d y}{\d x}{\df{\d x}{\d t}}
+	=\df{x'_t}{x'_y}=\df5{2y}=\df56.
 $$
-带入前式，可得所求变化率为$\df{9\cdot 5+3\cdot\df1{30}}{3\sqrt{10}}
-=\df{451}{10\sqrt{10}}$。\hfill$\Box$
+带入前式，可得所求变化率为$\df{9\cdot 5+3\cdot\df56}{3\sqrt{10}}
+=\df{95}{6\sqrt{10}}$。\hfill$\Box$
 
 \bigskip
 
@@ -1947,7 +1947,7 @@ $$
 \end{center}
 火箭的高度$H(t)=S\tan\theta(t)$，由此可知
 $$H'(t)=S\sec^2\theta(t)\theta'(t),$$
-将$S=100$，$\theta(t)=\df{\pi}4$，$\theta'(t)=0.1$带入记得
+将$S=100$，$\theta(t)=\df{\pi}4$，$\theta'(t)=0.1$代入即得
 指定时刻火箭上升的速率为$20$km/s。\hfill$\Box$
 
 \bigskip
@@ -1967,7 +1967,7 @@ $$H'(t)=S\sec^2\theta(t)\theta'(t),$$
 \end{center}
 （1）显然$x^2(t)+y^2(t)=36$，两边求导可得
 $$x'(t)x(t)+y'(t)y(t)=0\quad
-\Rightarrow y'(t)=-\df{x'(t)x(t)}{y(t)},$$
+\Rightarrow\quad y'(t)=-\df{x'(t)x(t)}{y(t)},$$
 带入$x(t)=5,x'(t)=0.2,y(t)=\sqrt{11}$，可得指定时刻
 梯子顶部的下滑速度为$-\df1{\sqrt{11}}$m/s；
 
@@ -1993,8 +1993,9 @@ $$V(t)=\df{\pi}3(3a-h(t))h^2(t),$$
 从而没入水中的球冠体积变换率
 $$V'(t)=\pi(2ah(t)-h^2(t))h'(t),$$
 相应地，桶内水面升高的速率为
-$$H'(t)=\df{V'(t)}{\pi b^2}=\df{2ah(t)-h^2(t)}{b^2}h'(t),$$
-带入$h(t)=a,h'(t)=c$，即得所求时刻水面上升的速率为$\df{a^2}{b^2}c$。
+$$H'(t)=\df{V'(t)}{\pi [b^2-a^2+(a-h)^2]}
+=\df{2ah(t)-h^2(t)}{\pi [b^2-a^2+(a-h)^2]}h'(t),$$
+代入$h(t)=a,h'(t)=c$，即得所求时刻水面上升的速率为$\df{a^2c}{b^2-a^2}$。
 \hfill$\Box$
 
 \begin{center}

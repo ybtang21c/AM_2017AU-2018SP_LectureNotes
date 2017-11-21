@@ -1,41 +1,63 @@
 \setcounter{chapter}{3}
 
-\chapter{导数与不定积分}
+\chapter{不定积分}
 
+广义地说，不定积分就是求导的“逆运算”，但由于原函数的不唯一性，我们
+一般不会说它们是互逆的。
 
+要正确和熟练地计算不定积分，必须对所有的求导公式作到“倒背如流”，
+正因为如此，计算不定积分可以说是一项技术性和技巧性都比较强的工作。
 
-\section{导数的计算}
-
-\subsection{高阶导数}
-
-
-
-\subsection{隐函数求导法则}
-
-
-
-\section{微分}
-
-\subsection{概念}
-
-\section{变化率和相关变化率}
-
-
-
-
-\section{不定积分}
+\section{不定积分的概念与性质}
 
 \subsection{原函数与不定积分}
 
-{\bf 定义4.5.1：}若在区间$I$上，$f\,'(x)=f(x)$，
-则称$F(x)$是{\it $f(x)$在区间$I$上的原函数}。
+\begin{thx}
+	若在区间$I$上，$F'(x)=f(x)$，
+	则称{\bf $F(x)$是$f(x)$在区间$I$上的原函数}。
+\end{thx}
 
-{\bf 性质：}若$F(x)$是$f(x)$在区间$I$上的原函数，则
-\begin{enumerate}
-  \setlength{\itemindent}{1cm}
-  \item $F(x)+C$也是$f(x)$在区间$I$上的原函数
-  \item $f(x)$的任意两个原函数只相差一个常数
-\end{enumerate}
+显然，并非所有的函数都会有原函数，例如：
+
+{\bf 例：}证明：函数$$f(x)=\left\{\begin{array}{ll}
+0\;& x\ne 0\\1\;& x=0\end{array}\right.$$在$\mathbb{R}$上不存在原函数
+
+[证]：反证法。设$F(x)$为$f(x)$的原函数。显然，当$x\ne0$时，$F(x)=x+C(C\in\mathbb{R})$，
+注意到$F(x)$必须为连续函数，故易得$F(0)=C$。
+
+由此，
+$$f(0)=F'(0)=\limx{0}\df{F(x)-F(0)}x=\limx{0}\df xx=1,$$
+与已知矛盾，故假设错误，即证。\fin
+
+参考以上的证明方法，我们可以证明{\b 所有具有第一类间断点的函数都不存在原函数}。
+
+关于原函数的存在性，有如下的结论：
+
+\begin{thx}
+	若$f(x)$在区间$I$上连续，则必有原函数。
+\end{thx}
+
+显然，原函数具有如下的性质：
+
+\begin{thx}
+	若$F(x)$是$f(x)$在区间$I$上的原函数，则
+	\begin{enumerate}
+% 	  \setlength{\itemindent}{1cm}
+	  \item $F(x)+C$也是$f(x)$在区间$I$上的原函数；
+	  \item $f(x)$的任意两个原函数只相差一个常数。
+	\end{enumerate}
+\end{thx}
+
+基于这一性质，我们给出不定积分的概念：
+
+\begin{thx}
+	函数$f(x)$在区间$I$上的全体原函数称为{\bf $f(x)$在$I$上的不定积分}，
+	记为
+	$$\int f(x)\d x.$$
+	通常情况下，若$F(x)$是$f(x)$在区间$I$上的一个原函数， 则可记
+	$${\int f(x)\d x=F(x)+C},$$
+	其中$C$为任意常数。
+\end{thx}
 
 {\bf 例：}不定积分表达式的多样形式
 \begin{enumerate}[(1)]
@@ -47,66 +69,48 @@
 以上三者都属于同一个函数族，仅相差一个常数！\ps{要想判断它们是否相同，
 最可靠的方法还是求导，比较其导函数是否相同}
 
-{\bf 例：}证明：函数$$f(x)=\left\{\begin{array}{ll}
-0\;& x\ne 0\\1\;& x=0\end{array}\right.$$在$\mathbb{R}$上不存在原函数
+前述关于的定义和性质用不定积分的符号来表达，可以写为
 
-证：反证法。设$F(x)$为$f(x)$的原函数。显然，当$x\ne0$时，$F(x)=x+C(C\in\mathbb{R})$，
-注意到$F(x)$必须为连续函数，故易得$F(0)=C$。
+\begin{thx}
+	\begin{enumerate}[(1)]
+	  \item $\left(\displaystyle\int f(x)\d x\right)'=f(x)$ 
+	  \item $\d\left[\displaystyle\int f(x)\d x\right]=f(x)\d x$ 
+	  \item $\dint f\,'(x)\d x =f(x)+C$
+	  \item $\dint \d f(x)=f(x)+C$
+	\end{enumerate}
+\end{thx}
 
-由此，
-$$f(0)=F'(0)=\limx{0}\df{F(x)-F(0)}x=\limx{0}\df xx=1,$$
-与已知矛盾，故假设错误，即证。
+\subsection{基本的不定积分公式}
 
-{\bf 注：}{\b 具有第一类间断点的函数都不存在原函数}
+从求导公式出发，逆向推导，可以得到以下的基本不定积分公式
 
-{\bf 定理}（{\it 原函数的存在性}）
-若函数$f(x)$在区间$I$上连续，则在$I$上存在原函数。
-
-{\bf 定义4.5.2：}函数$f(x)$在区间$I$上的全体原函数称为{\it $f(x)$在$I$上的不定积分}，
-记为
-$$\int f(x)\d x$$
-
-{\bf 注：}若$F(x)$是$f(x)$在区间$I$上的一个原函数， 则
-$${\int f(x)\d x=F(x)+C},$$
-其中$C$为任意常数。
-
-{\bf 性质4.5.1：}{\b
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\left(\displaystyle\int f(x)\d x\right)'=f(x)$ 
-  \item $\d\left[\displaystyle\int f(x)\d x\right]=f(x)\d x$ 
-  \item $\dint f\,'(x)\d x =f(x)+C$
-  \item $\dint \d f(x)=f(x)+C$
-\end{enumerate}}
-
-\subsection{基本不定积分公式}
-
-{\it 求不定积分是求导的“逆运算”}{\b
-\begin{enumerate} [(1)]
-  \setlength{\itemindent}{1cm}
-  \item $(C)'=0$\hfill  {$\dint 0\d x=C$} 
-  \item $(x^a)'=ax^{a-1}$\hfill  {$\dint x^a\d x=\df{1}{a+1}x^{a+1}+C$}
-  \item $(e^x)'=e^x$\hfill  {$\dint e^x\d x=e^x+C$} 
-  \item $(a^x)'=a^x\ln a$\hfill  {$\dint a^x\d x=\df{a^x}{\ln a}+C$}
-  \item $(\ln x)'=\df 1x$\hfill  {$\dint \df 1x\d x=\ln|x|+C$}
-  \item $(\sin x)'=\cos x$\hfill  {$\dint \cos x\d x=\sin x+C$} 
-  \item $(\cos x)'=\sin x$\hfill  {$\dint \sin x\d x=-\cos x+C$}
-  \item $(\tan x)'=\sec^2 x$\hfill  {$\dint \sec^2 x\d x=\tan x+C$} 
-  \item $(\cot x)'=-\csc^2 x$\hfill  {$\dint \csc^2 x\d x=-\cot x+C$}
-  \item $(\sec x)'=\sec x\tan x$\hfill $\dint\sec x\tan x\d x=\sec x+C$
-  \item $(\csc x)'=-\csc x\cot x$\hfill $\dint\csc x\cot x\d x=-\csc x+C$
-  \item $(\arcsin x)'=\df{1}{\sqrt{1-x^2}}$ \hfill  
-  {$\dint{\df{1}{\sqrt{1-x^2}}}\d x=\arcsin x+C$} 
-  \item $(\arctan x)'=\df{1}{1+x^2}$ \hfill 
-  {$\dint \df{1}{1+x^2}\d x=\arctan x+C$}
-  \item $(\cosh x)'=\sinh x$ \hfill $\dint\sinh x\d x=\cosh x+C$
-  \item $(\sinh x)'=\cosh x$ \hfill $\dint\cosh x\d x=\sinh x+C$
-\end{enumerate}}
+\begin{thx}
+	\begin{enumerate} [(1)]
+% 	  \setlength{\itemindent}{1cm}
+	  \item $(C)'=0$\hfill  {$\dint 0\d x=C$} 
+	  \item $(x^a)'=ax^{a-1}$\hfill  {$\dint x^a\d x=\df{1}{a+1}x^{a+1}+C$}
+	  \item $(e^x)'=e^x$\hfill  {$\dint e^x\d x=e^x+C$} 
+	  \item $(a^x)'=a^x\ln a$\hfill  {$\dint a^x\d x=\df{a^x}{\ln a}+C$}
+	  \item $(\ln x)'=\df 1x$\hfill  {$\dint \df 1x\d x=\ln|x|+C$}
+	  \item $(\sin x)'=\cos x$\hfill  {$\dint \cos x\d x=\sin x+C$} 
+	  \item $(\cos x)'=\sin x$\hfill  {$\dint \sin x\d x=-\cos x+C$}
+	  \item $(\tan x)'=\sec^2 x$\hfill  {$\dint \sec^2 x\d x=\tan x+C$} 
+	  \item $(\cot x)'=-\csc^2 x$\hfill  {$\dint \csc^2 x\d x=-\cot x+C$}
+	  \item $(\sec x)'=\sec x\tan x$\hfill $\dint\sec x\tan x\d x=\sec x+C$
+	  \item $(\csc x)'=-\csc x\cot x$\hfill $\dint\csc x\cot x\d x=-\csc x+C$
+	  \item $(\arcsin x)'=\df{1}{\sqrt{1-x^2}}$ \hfill  
+	  {$\dint{\df{1}{\sqrt{1-x^2}}}\d x=\arcsin x+C$} 
+	  \item $(\arctan x)'=\df{1}{1+x^2}$ \hfill 
+	  {$\dint \df{1}{1+x^2}\d x=\arctan x+C$}
+	  \item $(\cosh x)'=\sinh x$ \hfill $\dint\sinh x\d x=\cosh x+C$
+	  \item $(\sinh x)'=\cosh x$ \hfill $\dint\cosh x\d x=\sinh x+C$
+	\end{enumerate}
+\end{thx}
 
 {\bf 注：}$x>0$时，$(\ln x)'=\df 1x$，所以$\dint\df{\d x}x=\ln x+C$，
 $x<0$时，$(\ln(-x))'=\df1x$，所以$\dint\df{\d x}x=\ln(-x)+C$
 
-{\bf 例3-4：}计算不定积分
+{\bf 例：}计算不定积分
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\dint x^2\sqrt{x}\d x$ 
@@ -115,11 +119,14 @@ $x<0$时，$(\ln(-x))'=\df1x$，所以$\dint\df{\d x}x=\ln(-x)+C$
   \item $\dint 2^x3^{2x}5^{3x}\d x$
 \end{enumerate}
 
-\subsection{不定积分的运算法则}
+\subsection{不定积分的基本性质}
 
-{\bf 性质4.5.2}（线性运算）设函数$f(x),g(x)$的原函数存在，则
-$$\int[\alpha f(x)+\beta g(x)]\d x=\alpha\int f(x)\d x+\beta\int g(x)\d x,$$
-其中$\alpha,\beta$为任意常数。
+\begin{thx}
+	{\bf 线性性：}设函数$f(x),g(x)$的原函数存在，则
+	$$\int[\alpha f(x)+\beta g(x)]\d x
+	=\alpha\int f(x)\d x+\beta\int g(x)\d x,$$
+	其中$\alpha,\beta$为任意常数。
+\end{thx}
 
 {\bf 例：}计算不定积分
 \begin{enumerate}[(1)]
@@ -129,32 +136,56 @@ $$\int[\alpha f(x)+\beta g(x)]\d x=\alpha\int f(x)\d x+\beta\int g(x)\d x,$$
   \item $\dint\df{(x-\sqrt x)(1+\sqrt x)}{\sqrt[3]x}\d x$
   \item $\dint\df{\d x}{\sin^2x\cos^2x}$
   \item $\dint(10^x+3\sin x+\sqrt x)\d x$
-  \item $\dint\sum\limits_{k=0}^na_kx^k$
-\end{enumerate}
-
-{\bf 例5-6：}计算不定积分
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
+  \item $\dint\sum\limits_{k=0}^na_kx^k\d x$
   \item $\dint (x^2+1)^2\d x$ 
   \item $\dint\df{(x+1)^3}{x^2}\d x$ 
   \item $\dint\df{1-x^2}{x^2(1+x^2)}\d x$
+  \item $\dint\df{2x^4+x^2+3}{x^2+1}\d x$
   \item $\dint \df{x^4}{1+x^2}\d x$ 
   \item $\dint\df{1}{1+\cos 2x}\d x$ 
   \item $\dint\tan^2 x\d x$
 \end{enumerate}
 
-\section{不定积分的计算}
+\begin{ext}
+	{\bf 课后作业}
+	\begin{enumerate}
+	  \item 同济教材习题4-1：2，5，6
+	\end{enumerate}
+\end{ext}
 
-\subsection{换元法}
+\section{换元积分法}
 
-\subsubsection{【第一换元法】}
+仅仅使用基本的积分公式以及不定积分的线性性，能够计算的不定积分类型还是
+非常有限的。本节介绍的还原积分法，是计算不定积分时最为常用和基本的方法，
+它的基本思想直接来源于对复合函数的求导法则（链式法则）的逆向思维。
 
-{\bf 定理6.3.1}（第一换元法）设$f(u)$具有原函数，$u=\varphi(x)$可导，则
-$$\dint f[\varphi(x)]\varphi'(x)\d x=\left[\dint f(u)
-\d u\right]_{u=\varphi(x)}$$
+\subsection{第一换元法}
 
-% {\bf 注：}设$F(x)$是$f(x)$的一个原函数，则
-% $$\dint f[\varphi(x)]\varphi'(x)\d x=F[\varphi(x)]+C$$
+假设$F(x)$为$f(x)$的任意一个原函数，考虑$F(x)$与另一个函数$\varphi(x)$
+复合函数，由复合函数求导法则，有
+$$[F(\varphi(x))]'=F'(\varphi(x))\varphi'(x),$$
+对上式两边同时取不定积分，利用基本的
+$$\dint F'(\varphi(x))\varphi'(x)
+=\dint[F(\varphi(x))]'\d x=F(\varphi(x))+C=F(u)+C
+=\left[\dint f(u)\d u\right]_{u=\varphi(x)}.
+$$
+从而我们得到：
+\begin{thx}
+	{\bf 积分第一换元法：}设$f(u)$具有原函数，$u=\varphi(x)$可导，则
+	$$\dint f[\varphi(x)]\varphi'(x)\d x=\left[\dint f(u)
+	\d u\right]_{u=\varphi(x)}$$
+\end{thx}
+
+理解积分的第一换元法，也可以从微分运算的角度出发
+$$F'(\varphi(x))\varphi'(x)\d x
+=F'(\varphi(x))\d\varphi(x)
+=\d F(\varphi(x))=\left.\d F(u)\right|_{u=\varphi(x)}.$$
+两边同时计算不定积分，即得前述的公式。
+
+从公式的表达上看，积分第一换元法似乎让人不得要领，但在实际运用时，
+确实非常简单和方便的，我们通常将其看成是一个将微分运算符号$\d$
+前的所有函数部分，都（利用基本的求导/积分公式）“移到”$\d$之后
+的过程，因此我们常常也将积分第一换元法称为{\kaishu “凑微分法”}。
 
 {\bf 例：}计算下列不定积分
 \begin{enumerate}[(1)]
@@ -182,30 +213,18 @@ $$\dint f[\varphi(x)]\varphi'(x)\d x=\left[\dint f(u)
 
 {\bf 注：}{\b 换元的基本原则：优先替换不好处理的部分，即{\it “看谁不顺眼就换谁”！}}
 
-% {\bf 注：}另解
-% $$\dint\sec x\d x=\dint\df{\sec x(\sec x+\tan x)}{(\sec x+\tan x)}\d x
-% =\dint\df{\d(\sec x+\tan x)}{(\sec x+\tan x)}=
-% \ln|\sec x+\tan x|+C$$
+\subsection{第二换元法}
 
-% \begin{shaded}
-% {\bf 【第一换元法的一些常用技巧】}
-% \begin{enumerate}
-%   \setlength{\itemindent}{1cm}
-%   \item {\bf 分项积分：}积化和差，有理分式分解，\ldots 
-%   \item {\bf 降低幂次：}倍角公式，万能凑幂公式，\ldots 
-%     $$\dint f(x^n)x^{n-1}\d x=\df 1n\dint f(x^n)\d x^n$$ 
-%     $$\dint f(x^n)\df 1x\d x=\df 1n\dint f(x^n)\df{1}{x^n}\d x^n$$ 
-%   \item {\bf 统一函数：}三角公式，$1=\sin^2x+\cos^2x$，\ldots 
-%   \item {\bf 巧妙配元：}加一项减一项，\ldots
-% \end{enumerate}
-% \end{shaded}
+积分第一换元法利用变换$u=\varphi(x)$，将积分$\dint f(\varphi(x))\d x$
+化为积分$\dint f(u)\d u$，第二换元法则尝试相反的方向，即利用某个变换$x=\psi(t)$，
+将积分$\dint f(x)\d x$化为$\dint f(\psi(t))\psi'(t)\d t$。
 
-\subsubsection{【第二换元法】}
-
-{\bf 定理6.3.2}（第二换元法）设$x=\varphi(t)$可导且可逆，
-$f[\varphi(t)]\varphi'(t)$具有原函数，则
-$$\dint f(x)\d x=\left[\dint
-f[\varphi(t)]\varphi'(t)\d t\right]_{t=\varphi^{-1}(x)}$$
+\begin{thx}
+	{\bf 积分第二换元法：}
+	设$x=\psi(t)$可导且可逆，$f(\psi(t))\psi'(t)$
+	存在原函数，则
+	$$\dint f(x)\d x=\dint f(\psi(t))\psi'(t)\d t$$
+\end{thx}
 
 {\bf 例：}计算下列不定积分
 \begin{enumerate}[(1)]
@@ -223,13 +242,20 @@ f[\varphi(t)]\varphi'(t)\d t\right]_{t=\varphi^{-1}(x)}$$
   \item $\dint\df{\sqrt{a^2-x^2}}{x^4}\d x\xlongequal{x=|a|\sin t}\ldots$
 \end{enumerate}
 
-\subsection{分部积分法}
+不论是第一换元法，还是第二换元法，其核心都是利用变量的代换，改变被积函数的形态，
+从而达到接近或转化为基本的不定积分的目的，从这个意义上说，二者没有什么不同。当然，
+根据被积函数结构的特点，也会有一些常用的变换技巧，具体我们将在本章最后一节中集中讨论。
+
+\section{分部积分法}
 
 注意到对可导函数$u,v$，有
 $$\d uv=u\d v+v\d u\quad\Leftrightarrow\quad 
 u\d v=\d uv-v\d u,$$
-后一式两边同时不定积分，可得如下的{\it 分部积分公式}：
-$${\b \dint u\d v=uv-\dint v\d u}$$
+后一式两边同时不定积分，可得
+\begin{thx}
+	{\bf 分部积分公式：}
+	$${\b \dint u\d v=uv-\dint v\d u}$$
+\end{thx}
 
 {\bf 例：}计算下列不定积分
 \begin{enumerate}[(1)]
@@ -259,6 +285,13 @@ $${\b \dint u\d v=uv-\dint v\d u}$$
 
 {\bf 注：}{\b {\it “{反对}不要碰，{三指}动一动”}——处理分部积分的一个大致原则，即：
 按照{\it {“三指幂对反”}}的次序将被积函数中对应的部分放到微分符号后面}
+
+\section{有理函数的积分}
+
+\subsection{有理函数的积分法}
+
+\subsection{可化为有理函数积分的问题}
+
 
 \subsection{有理函数积分}
 
