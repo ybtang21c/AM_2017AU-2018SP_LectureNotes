@@ -194,12 +194,13 @@ $$f'(\xi)+f(\xi)=0.$$
 \begin{thx}
 	辅助函数的构造可以从{\it 不定积分}（求导的逆运算）中获得一些启发
 	\begin{itemize}
-	  \setlength{\itemindent}{1cm}
+% 	  \setlength{\itemindent}{1cm}
 	  \item $f(\xi)+\lambda f'(\xi)=0$：令$F(x)=e^{\lambda x}f(x)$
-	  \item $f'(\xi)+f(\xi)g'(\xi)=0$： 令$F(x)=e^{\lambda g(x)}f(x)$
-	  \item $nf(\xi)+xf'(\xi)=0$： 令$F(x)=x^nf(x)$ 
+	  \item $f'(\xi)+f(\xi)g'(\xi)=0$： 令$F(x)=e^{g(x)}f(x)$
+	  \item $nf(\xi)+\xi f'(\xi)=0$： 令$F(x)=x^nf(x)$ 
 	  \item $f'(\xi)g(\xi)+f(\xi)g'(\xi)=0$：令$F(x)=f(x)g(x)$
-	  \item $f'(x)g(x)-f(x)g'(x)=0$： 令$F(x)=\df{f(x)}{g(x)}$
+	  \item $f'(\xi)g(\xi)-f(\xi)g'(\xi)=0$： 令$F(x)=\df{f(x)}{g(x)}$
+	  或$F(x)=\arctan\df{f(x)}{g(x)}$
 	\end{itemize}
 \end{thx}
 
