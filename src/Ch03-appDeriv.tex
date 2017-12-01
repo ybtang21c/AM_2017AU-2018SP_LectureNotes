@@ -182,17 +182,38 @@ $$f'(\xi_1)=f'(\xi_2)=0.$$
 $$a_0x^n+a_1x^{n-1}+\ldots+a_n=0$$
 在区间$(0,1)$内至少有一个根。
 
-[提示]：令
-$$F(x)=\df{a_0}{n+1}x^{n+1}+\df{a_1}{n}x^n+\ldots+a_nx$$
+[分析]：证明函数零点的存在性，截止目前，共有两种方法：一是介值定理，
+二是Rolle定理。从本题的特点来看，要找到两个函数值恰好反号的点，并
+不是非常容易作到的，因此在此我们考虑使用Rolle定理来证明。
+
+从结论上看，所要找的点是某个函数的零点，要使用Rolle定理，则需要
+将这个函数视为某个函数的导函数，如果可以验证该函数满足Rolle定理条件，
+则证明就很简单了。
+
+[证]：令
+$$F(x)=\df{a_0}{n+1}x^{n+1}+\df{a_1}{n}x^n+\ldots+a_nx,$$
+由已知，容易验证$F(x)$在$[0,1]$上满足Rolle定理条件，故必存在$\xi\in(0,1)$，
+使得$F'(\xi)=0$，也即$a_0\xi^n+a_1\xi^{n-1}+\ldots+a_n=0$。\fin
 
 {\bf 例：}设$f(x)\in C[a,b]$，在$(a,b)$内可导，且$f(a)=f(b)=0$，证明：存在
 $\xi\in(a,b)$，使得：
 $$f'(\xi)+f(\xi)=0.$$
 
-[提示]：$F(x)=f(x)e^x$
+[分析]：参考上一题的作法，如果能够找到某个函数$F(x)$，使得$f'(x)+f(x)$
+为其导函数，则可以利用Rolle定理证明结论。但是，不难发现，$f'(x)+f(x)$
+很难简单地写成某个函数的导函数，除非给它乘上某个因子，例如$e^x$。
+
+[证]：令$F(x)=f(x)e^x$，则可以验证$F(x)$在$[a,b]$上满足Rolle定理条件，
+从而存在$\xi\in(a,b)$，使得
+$$F'(\xi)=e^{\xi}[f(\xi)+f'(\xi)]=0,$$
+注意到$e^{\xi}\ne0$，故必有$f(\xi)+f'(\xi)=0$，即证。\fin
+
+采用类似的方法（寻找某个辅助函数，使得其导函数或导函数的一部分为所求结果中的
+函数形式），可以“构造”出很多的类似的问题，下面列出一些“常见的”结果形式，
+及其对应的辅助函数。
 
 \begin{thx}
-	辅助函数的构造可以从{\it 不定积分}（求导的逆运算）中获得一些启发
+	{\bf 用Rolle定理证明结论时的辅助函数：}
 	\begin{itemize}
 % 	  \setlength{\itemindent}{1cm}
 	  \item $f(\xi)+\lambda f'(\xi)=0$：令$F(x)=e^{\lambda x}f(x)$
@@ -350,28 +371,18 @@ $$F(x)=f(x)-\df{(x-a)(x-b)}{(c-a)(c-b)}f(c)$$
 	% CCurve = Plot[f[x], {x, -0.5, 3.5}];
 	% DCurve = ListPlot[Table[{n, f[n]}, {n, 0, 3}], Filling -> Axis];
 	% Show[CCurve, DCurve]
+	
+	{\bf 例：}设$a<b<c$，函数$f(x)$在$[a,c]$上二阶可导，证明：
+	存在$\xi\in(a,c)$，使得
+	$$
+	\df{f(a)}{(a-b)(a-c)}+\df{f(b)}{(b-a)(b-c)}
+	+\df{f(c)}{(c-a)(c-b)}=\df12f''(\xi).
+	$$
 \end{shaded}
 
-{\bf 例：}证明：$\df{e^a-e^b}{b-a}<\df{e^a+e^b}2,\;(a\ne b)$
-
-分析：不妨$a<b$，令$f(x)=\df{e^a+e^x}2-\df{e^a-e^x}{b-a}$
-
-{\bf 例：}$f(x)$在$[0,1]$上二阶可导，$f(0)=0,f(1)=1$，$f''(0)<0$，则
-$\df{f(x)}x$在$(0,1]$上严格单调递减
-
-{\bf 例：}$y=f(x)\in C^2(-1,1)$，$f''(x)\ne 0$，则：
-\begin{enumerate}[1)]
-  \setlength{\itemindent}{1cm}
-  \item 对于任意$x\in(-1,1),x\ne 0$，存在唯一的$\theta(x)\in(0,1)$，使得
-  $f(x)=f(0)+xf'(\theta(x)x)$成立
-  \item $\limx{0}\theta(x)=\df12$
-\end{enumerate}
-
-分析：1）Lagrange中值定理，若$\theta(x)$不唯一，则与$f''(x)\ne 0$矛盾；
-
-2）
-$$\df{f'(\theta(x)x)-f'(0)}{x}=\df{f(x)-f(0)-xf'(0)}{x^2}\to\df12f''(0),(x\to0)$$
-$$\df{f'(\theta(x)x)-f'(0)}{x}=f''(0)\limx{0}\theta(x)$$
+% {\bf 例：}证明：$\df{e^a-e^b}{b-a}<\df{e^a+e^b}2,\;(a\ne b)$
+% 
+% 分析：不妨$a<b$，令$f(x)=\df{e^a+e^x}2-\df{e^a-e^x}{b-a}$
 
 \subsection{Cauchy中值定理}
 
@@ -578,9 +589,23 @@ $$\lim\limits_{h\to 0}\df{f(x_0+h)+f(x_0-h)-2f(x_0)}{h^2}=f\,''(x_0).$$
 \end{align}
 其中最后一个等号只用到了二阶导数的定义。}
 
-{\bf ：}设$f(x)$在$x=a$处二阶可导，且$f'(a)\ne0$，证明：
+{\bf 例：}设$f(x)$在$x=a$处二阶可导，且$f'(a)\ne0$，证明：
 $$\limx{a}\left[\df1{f(x)-f(a)}-\df1{(x-a)f'(a)}\right]
 =-\df12\df{f''(a)}{[f'(a)]^2}.$$
+
+[证]：
+\begin{align*}
+	\mbox{左边}
+	&=\df1{f'(a)}\limx{a}\df{(x-a)f'(a)-f(x)+f(a)}{[f(x)-f(a)](x-a)}\\
+	&=\df1{f'(a)}\limx{a}\df{f'(a)-f'(x)}{[f'(x)-f'(a)](x-a)+f(x)-f(a)}\\
+	&=\df1{f'(a)}\limx{a}\df{-\frac{f'(x)-f'(a)}{x-a}}
+	{f'(x)-f'(a)+\frac{f(x)-f(a)}{x-a}}\\
+	&=\df1{f'(a)}\df{-\limx{a}\frac{f'(x)-f'(a)}{x-a}}
+	{\limx{a}f'(x)-f'(a)+\limx{a}\frac{f(x)-f(a)}{x-a}}\\
+	&=\df1{f'(a)}\df{-f''(a)}{f'(a)-f'(a)+f'(a)}
+	=\mbox{右边}.\\
+\end{align*}
+\fin
 
 在L'Hospital法则的证明中，“令$x\to a$时，由于$\xi$介于$x$和$a$之间，进而
 有$\xi\to a$”，这是一个非常有用的技巧，利用这一技巧，可以证明类似如下的结论：
@@ -594,7 +619,21 @@ $$f(x+1)-f(x)=f'(\xi),$$
 $\limx{+\infty}f(x+1)=\limx{+\infty}f(x)$，故
 $$0=\limx{+\infty}[f(x+1)-f(x)]=\limx{+\infty}f'(\xi)
 =\lim\limits_{\xi\to+\infty}f'(\xi)=\limx{+\infty}f'(x)$$
-即证。
+即证。\fin
+
+直观地说，本例的结论含义是，若$x\to+\infty$时，函数值趋于某个稳定的值，
+则函数值的变化率（导数）将趋于零。但是，必须注意一点，这个结论成立的前提是，
+导函数当$x\to+\infty$时的极限存在。事实上，考虑函数$f(x)=\df1x\sin x^2$（如下图），
+显然其导函数$f'(x)=-\df1{x^2}\sin x^2+2\cos x^2$当$x\to+\infty$时极限
+不存在。
+
+\begin{center}
+	\includegraphics[width=9cm]{./images/ch3/1xsinx2.pdf}
+	
+	\kaishu 尽管函数值随着$x$的增大而趋于“稳定”，但其中的波动仍然总是存在，
+	
+	相应地，其导数值并不趋于稳定的值
+\end{center}
 
 {\bf 例：}设$f(x)$在$U(x_0)$内连续，在$U^0(x_0)$内可导，
 且$\limx{x_0}f\,'(x)=l$，则$$f\,'(x_0)=l.$$
@@ -605,12 +644,55 @@ $$\df{f(x_0+\Delta x)-f(x_0)}{\Delta x}=f'(\xi),$$
 注意到{\b$\Delta x\to 0\Leftrightarrow\xi\to0$}，故
 $$f'(x_0)=\lim\limits_{\Delta x\to 0}\df{f(x_0+\Delta x)-f(x_0)}{x_0}
 =\lim\limits_{\Delta x\to 0}f'(\xi)=\lim\limits_{\xi\to 0}f'(\xi)=l,$$
-即证。
+即证。\fin
 
 {\bf 例：}
 设$f(0)=1$，且
 $$\limx{0}\df{\ln(1-x)+f(x)\sin x}{e^{x^2}-1}=0,$$
 证明：$f(x)$在$x=0$处可导，求$f\,'(0)$。
+
+[注意]：本题不能使用L'Hospital法则，否则
+$$\mbox{原式}=\limx0\df{\ln(1-x)+f(x)\sin x}{x^2}
+=\limx0\df{-\frac1{1-x}+f'(x)\sin x+f(x)\cos x}{2x},$$
+由于$f'(x)$在$x=0$附近不一定存在，因此上式的第二个等号可能
+没有意义。
+
+[解]：
+$$
+	\mbox{原式}
+	=\limx0\df{\ln(1-x)+\sin x+\sin x(f(x)-f(0))}{x^2}=0,
+$$
+其中
+\begin{align*}
+	&\limx0\df{\ln(1-x)+\sin x}{x^2}
+	=\limx0\df{-\frac1{1-x}+\cos x}{2x}
+	=\limx0\df{\frac1{(1-x)^2}-\sin x}{2}=1,\\
+	&\limx0\df{\sin x(f(x)-f(0))}{x^2}
+	=\limx0\df{f(x)-f(0)}{x},
+\end{align*}
+故必有
+$$
+	\limx0\df{f(x)-f(0)}{x}
+	=0-\limx0\df{\ln(1-x)+\sin x}{x^2}=-1.
+$$
+从而可知$f(x)$在$x=0$处可导，求$f'(0)=-1$。
+\fin
+
+{\bf 例：}$y=f(x)\in C^2(-1,1)$，$f''(x)\ne 0$，则：
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 对于任意$x\in(-1,1),x\ne 0$，存在唯一的$\theta(x)\in(0,1)$，使得
+  $f(x)=f(0)+xf'(\theta(x)x)$成立
+  \item $\limx{0}\theta(x)=\df12$
+\end{enumerate}
+
+[提示]：（1）由Rolle定理，若$\theta(x)$不唯一，则必存在$f''(x)$的零点，
+与$f''(x)\ne 0$矛盾；
+
+（2）由L'Hospital法则，
+$$\df{f'(\theta(x)x)-f'(0)}{x}=\df{f(x)-f(0)-xf'(0)}{x^2}\to\df12f''(0),(x\to0)$$
+又由（1）
+$$\df{f'(\theta(x)x)-f'(0)}{x}=f''(0)\limx{0}\theta(x).$$
 
 \begin{ext}
 	{\bf 课后作业}
@@ -734,6 +816,18 @@ Taylor公式的概念。
 	$${|f(x)-P_n(x)|=\circ[(x-x_0)^n]}$$
 \end{thx}
 
+[证]：反复使用L'Hospital法则，最后一步使用导数的定义，
+\begin{align*}
+	\limx{x_0}\df{f(x)-P_n(x)}{(x-x_0)^n}
+	&=\limx{x_0}\df{f'(x)-P'_n(x)}{n(x-x_0)^{n-1}}
+	=\limx{x_0}\df{f''(x)-P''_n(x)}{n(n-1)(x-x_0)^{n-2}}=\ldots\\
+	&=\limx{x_0}\df{f^{(n-1)}(x)-P^{(n-1)}_n(x)}{n!(x-x_0)}\\
+	&=\limx{x_0}\df{f^{(n-1)}(x)-f^{(n-1)}_n(x_0)}{n!(x-x_0)}
+	+\limx{x_0}\df{P_n^{(n-1)}(x)-P^{(n-1)}_n(x_0)}{n!(x-x_0)}\\
+	&=\df1{n!}\left[f^{(n)}(x_0)-P_n^{(n)}(x_0)\right]=0.
+\end{align*}
+即证。\fin
+
 需要特点指出一点，Taylor公式的{\b 阶数是多少，关键看余项！}例如$\sin x$的7阶和8阶Maclaurin公式分别为
 $$\sin x=x-\df{x^3}{3!}+\df{x^5}{5!}-\df{x^7}{7!}+{\b\circ(x^7)},$$
 $$\sin x=x-\df{x^3}{3!}+\df{x^5}{5!}-\df{x^7}{7!}+{\b\circ(x^8)}.$$
@@ -771,7 +865,7 @@ $f^{(k)}(x_0)=P^{(k)}_n(x_0),k=0,1,2,\ldots,n$，
 \begin{thx}
 	{\bf Taylor公式的误差估计：}若存在常数$C>0$，使当$x\in(a,b)$时，恒有
 	$$|f^{\,(n+1)}(x)|\leq C,\;n=0,1,2,\ldots$$
-	则
+	则对任意$x\in(a,b)$，有
 	$$\limn [f(x)-P_n(x)]=0.$$
 \end{thx}
 该推论告诉我们，{\it 在一定条件下}（各阶导数有界），Taylor多项式的次数越高，逼近精度就越高。
@@ -2457,6 +2551,8 @@ Lagrange中值定理、Cauchy中值定理到Taylor中值定理，以及L'Hospita
 最后，提醒一句，不要迷恋Taylor公式，还是那句话，万能工具虽然万能，但往往不是
 效率最高和用起来最简单的一个。
 
+\visibletrue
+
 \ifvisible
 
 \newpage
@@ -2550,7 +2646,7 @@ $$f'(\mu)\left(\df{a+b-2\mu}2\right)-f(\mu)\df a2=0,$$
 2.$f(x)\in C^1[a,b]$，$f(a)=f(b)=0$，$f'_+(a)f'_-(b)>0$，
 证明：$f(x)$在$(a,b)$内至少有一个零点。
 
-[解]：不妨设$f'_+(a)>0,f'_-(b)<0$。由$f'_+(a)>0$可知，存在$\delta_1>0$，
+[证]：不妨设$f'_+(a)>0,f'_-(b)<0$。由$f'_+(a)>0$可知，存在$\delta_1>0$，
 使对任意$x\in(a,a+\delta_1)$，总有
 $$\df{f(x)-f(a)}{x-a}>0\quad\Rightarrow
 \quad f(x)=f(x)-f(a)>0.$$
@@ -2563,10 +2659,10 @@ $$\df{f(x)-f(a)}{x-a}>0\quad\Rightarrow
 
 \bigskip
 
-3.证明：$(x^2-1)\ln x\geq(x-1)^2,(x>0)$。
+3.证明：$(x^2-1)\ln x\geq(x-1)^2,(x>1)$。
 
 [证]：由Lagrange中值定理，存在$\xi$介于$x$和$1$之间，使得
-$$\df{\ln x-\ln 1}{x+1}=\df1{\xi},$$
+$$\df{\ln x-\ln 1}{x-1}=\df1{\xi},$$
 显然$0<\xi<x+1\Rightarrow\df1{\xi}>\df1{x+1}$，带入前式整理后即证。
 \hfill$\Box$
 
@@ -2629,8 +2725,7 @@ x}=\df{0}{\frac{\pi}2}=0.$
 
 （4）$\limx{\infty}x^2e^{\frac1{x^2}}
 =\lim\limits_{y\to0}\df{e^{y^2}}{y^2}
-=\lim\limits_{y\to0}\df{2ye^{y^2}}{2y}
-=\lim\limits_{y\to0}e^{y^2}=1.$
+=+\infty.$
 
 （5）$\limx{\infty}\df{x^2-\cos x}{x^2+\sin x}
 =\limx{\infty}\df{1-\frac{\cos x}{x^2}}{1+\frac{\sin x}{x^2}}=1.$

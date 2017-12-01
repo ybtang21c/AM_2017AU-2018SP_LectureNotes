@@ -18,6 +18,9 @@
 \usepackage{esint} %any type of integral symbol
 % \usepackage{yhmath} %圆弧帽：\wideparen{AB}
 
+\usepackage{tcolorbox} %各种自定义的盒子
+\tcbuselibrary{skins, breakable, theorems}
+
 \usepackage{bbding}%各种五角星
 % \FiveStar，\FiveStarOpen，\FiveStarLines，\FiveStarShadow
 % \FiveStarOutline，\FiveStarCenterOpen，\FiveStarOpenDotted
@@ -34,9 +37,24 @@
 	]{Adobe Heiti Std}
 \punctstyle{CCT}
 \usepackage{xeCJKfntef}%汉字加点和可断行的下划线
+
+\newCJKfontfamily[Wawa]\Wawati{Wawati SC}
+\newCJKfontfamily[STLi]\stliti{STLiti}
+
+%============== Chinese Font Config 2 ===================
+
+% \usepackage{fontspec, xunicode, xltxtra}
+% \usepackage{xeCJK}%中文字体
 % 
-% \newCJKfontfamily[Wawa]\Wawati{Wawati SC}
-% \newCJKfontfamily[STLi]\stliti{STLiti}
+% \setmainfont{Times New Roman}%缺省英文字体 Times New Roman
+% \setCJKmainfont[ItalicFont={Adobe Kaiti Std}, 
+% 	BoldFont={Adobe Heiti Std}]{Adobe Song Std}%衬线字体 缺省中文字体
+% \setCJKsansfont{Adobe Heiti Std}%serif是有衬线字体sans serif无衬线字体。
+% \setCJKmonofont{Adobe Fangsong Std}%中文等宽字体
+
+%======== customer defined fonts and fontsize ============
+
+% \input{fontSet.tex}
 
 \usefonttheme{professionalfonts}
 
@@ -87,22 +105,22 @@
 % }
 
 %===============macros====================
-\newcommand{\bb}{\bf\color{blue}}
-\newcommand{\ba}[1]{\alert{\bf #1}}
-\newcommand*{\e}{\ensuremath{\varepsilon}}
-\renewcommand{\b}{\color{blue}}
-\newcommand*{\p}{\ensuremath{\partial}}
-\newcommand{\limn}{\ensuremath{\lim\limits_{n\to\infty}}}
-\newcommand{\sumn}{\ensuremath{\sum\limits_{n=1}^{\infty}}}
-\newcommand*{\df}[2]{\displaystyle\frac{\,{#1}\,}{\,{#2}\,}}
-\newcommand*{\limx}[1]{\ensuremath{\lim\limits_{x\to{#1}}}}
-\newcommand*{\limdx}{\ensuremath{\lim\limits_{\Delta x\to 0}}}
-\newcommand*{\dx}{\Delta x}
-\newcommand{\dint}{\ensuremath{\displaystyle\int}}
-\renewcommand{\d}{\mathrm{d}}
-\newcommand{\ds}{\displaystyle}
+% \newcommand{\bb}{\bf\color{blue}}
+% \newcommand{\ba}[1]{\alert{\bf #1}}
+% \newcommand*{\e}{\ensuremath{\varepsilon}}
+% \renewcommand{\b}{\color{blue}}
+% \newcommand*{\p}{\ensuremath{\partial}}
+% \newcommand{\limn}{\ensuremath{\lim\limits_{n\to\infty}}}
+% \newcommand{\sumn}{\ensuremath{\sum\limits_{n=1}^{\infty}}}
+% \newcommand*{\df}[2]{\displaystyle\frac{\,{#1}\,}{\,{#2}\,}}
+% \newcommand*{\limx}[1]{\ensuremath{\lim\limits_{x\to{#1}}}}
+% \newcommand*{\limdx}{\ensuremath{\lim\limits_{\Delta x\to 0}}}
+% \newcommand*{\dx}{\Delta x}
+% \newcommand{\dint}{\ensuremath{\displaystyle\int}}
+% \renewcommand{\d}{\mathrm{d}}
+% \newcommand{\ds}{\displaystyle}
 
-% \input{macros.tex}
+\input{macros.tex}
 
 %================exampleblock counter===================
 % \newcounter{examplecounter}
@@ -153,7 +171,9 @@
 
 % \input{./hwComB/Ch01-2-02-1.tex}
 
-\input{./hwComB/Ch02-2.tex}
+% \input{./hwComB/Ch02-2.tex}
+
+\input{./hwComB/Ch02-3-03-1.tex}
 
 %   \input{Ch07-ex-slides.tex} %常微分方程习题课
 % 	\input{Ch08-ex1-slides.tex} %空间直线与平面习题课

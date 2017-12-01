@@ -1,0 +1,355 @@
+% !Mode:: "TeX:UTF-8"
+
+\titlepage
+
+\begin{frame}{说在前面}
+	\linespread{1.5}
+	  \begin{itemize}[<+-|alert@+>]
+	    \item 过往的作业不订正、不补齐的不予批改，打分不超过\,\ba{C}
+	    \item 不交作业的默认记为\,\ba{D}
+	    \item 需要换作业本的，请“移植”照片，写清楚个人信息
+	    \item 请自行完成SPOC课程中的测试
+	    \item 第二次单元测试即将发布，成绩记入期末总成绩
+	  \end{itemize}
+\end{frame}
+
+\begin{frame}{出现的问题}
+	\linespread{1.5}
+	  \begin{itemize}[<+-|alert@+>]
+	    \item 用中值定理证明
+	    \begin{itemize}
+	      \item \it 写清楚理论依据：\b 由\ldots 定理 
+	      \item \it 注意陈述的完整性：\b 存在$\xi\in(a,b)$
+	      \item \it 注意语序：强烈建议不要从结果说起，写得像分析过程
+	    \end{itemize}
+	    \item 数学符号的书写
+	    \begin{itemize}
+	      \item \it 希腊字母：\b $\xi$像$\e$，$\eta$像$n$，$\mu$像$u$
+	      \item \b\it $\ln 2$写成了$\ln^2$
+	      \item \it 微分的表示：\b $1+\ln2\d x$和$(1+\ln2)\d x$不同！
+	    \end{itemize}
+	  \end{itemize}
+\end{frame}
+
+\section{2.6 微分}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.设$y=x^3-2x$，
+	\begin{enumerate}[(1)]
+	  \setlength{\itemindent}{1cm}
+	  \item 计算在$x=2$处当$\Delta x$分别为$1,\;0.1,\;
+	  0.01$时的$\Delta y$和$\d y$；
+	  \item 写出$x=2$时$y$的微分表达式。
+	\end{enumerate}}
+	\pause
+	
+% 	\bigskip
+	
+	\small 解：\it
+	\begin{align*}
+		\Delta y&=[(x+\Delta x)^3-2(x+\Delta x)]-(x^3-2x)\\
+		&=(3x^2-2)\Delta x+3x\Delta x^2+\Delta x^3,\\
+		\d y&=(3x^2-2)\d x=(3x^2-2)\Delta x.
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	
+	\small\it 当$x=2$时，
+	\begin{align*}
+		\Delta y|_{x=2}&
+		=10\Delta x+6\Delta x^2+\Delta x^3,\\
+		\d y|_{x=2}&=10\Delta x.
+	\end{align*}
+	\pause 进而
+	\begin{enumerate}[(i)]
+	  \item 当$x=2,\Delta x=1$时，$\Delta y=17,\;\d y=10$；
+	  \item 当$x=2,\Delta x=0.1$时，$\Delta y=1.061,\;\d y=1$；
+	  \item 当$x=2,\Delta x=0.01$时，$\Delta y=0.100601,\;\d y=0.1$。
+	\end{enumerate}
+	\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{2.已知$2^{xy}=x-y$，求$\d y|_{x=0}$。
+	}\pause
+	
+	\bigskip
+	
+	\small 解：\it 
+	已知方程两边求微分，可得
+	$$2^{xy}\ln2(x\d y+y\d x)=\d x-\d y,$$
+	进而
+	$$\d y=\df{1-y2^{xy}\ln2}{1+x2^{xy}\ln2}\d x.$$
+	\pause $x=0$时，$y=-1$，带入即得
+	$$\d y|_{x=0}=(1+\ln2)\d x.$$
+	\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{5.已知当$h\to 0$时，
+	$$f(x+2h)-f(x)=h\sqrt{x^2+2x}+\circ(h),$$
+	求$\d\left[f\left(\df1x\right)\right]$。}\pause
+
+	\bigskip
+	
+	\small 解： \it 
+	由已知
+	$$\lim\limits_{h\to0}\df{f(x+2h)-f(x)}{2h}
+	=\lim\limits_{h\to0}\df{h\sqrt{x^2+2x}+\circ(h)}{2h}
+	=\df{\sqrt{x^2+2x}}2.
+	$$
+	也即$f'(x)=\df{\sqrt{x^2+2x}}2$，\pause 故
+	$$\d\left[f\left(\df1x\right)\right]
+	=f'\left(\df1x\right)\left(-\df1{x^2}\right)\d x
+	=-\df{\sqrt{1+2x}}{2x^2|x|}\d x.$$
+	\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{6.设$a>0$，$|x|<<a$（表示$|x|$远远小于$a$），证明近似公式
+	$$\sqrt[n]{a^n+x}\approx a+\df{x}{na^{n-1}}.$$}\pause
+	
+	\bigskip
+	
+	\small 证：\it
+	记$f(x)=\sqrt[n]{a^n+x}$，显然$f(0)=a$，
+	又
+	$$f'(x)=\df1n(a^n+x)^{\frac1n-1}\quad
+	\Rightarrow f'(0)=\df1{na^{n-1}}.
+	$$
+	故由微分的几何意义，当$|x|<<a$时，总有
+	$$\sqrt[n]{a^n+x}\approx f(0)+f'(0)x
+	=a+\df{x}{na^{n-1}}.$$
+	\hfill$\Box$
+\end{frame}
+
+\section{3.1 微分中值定理}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.设$0<a<b$，$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，证明：
+	（1）$\exists\xi\in(a,b)$，使得：
+	$f(b)-f(a)=\ln\df ba\cdot \xi f\,'(\xi)$}\pause
+	
+	\bigskip
+	
+	\small 证：\it
+	注意到$f(x)$和$\ln x$在$[a,b]$上均连续，在
+	在$(a,b)$内均可导，且$(\ln x)'=\df1x\ne 0$，故由Cauchy中值定理，
+	存在$\xi\in(a,b)$，使得
+	$$\df{f(b)-f(a)}{\ln b-\ln a}=\df{f'(\xi)}{\frac1{\xi}},$$
+	整理后即证。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.设$0<a<b$，$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，证明：
+	（2）$\exists\eta\in(a,b)$，使得：
+    
+    \centering $2\eta[f(b)-f(a)]=(b^2-a^2)f\,'(\eta)$
+    
+    }\pause
+	
+	\bigskip
+	
+	\small 证：\it
+	注意到$f(x)$和$x^2$在$[a,b]$上均连续，在
+	在$(a,b)$内均可导，且$(x^2)'=2x\ne 0$，故由Cauchy中值定理，
+	存在$\eta\in(a,b)$，使得
+	$$\df{f(b)-f(a)}{b^2-a^2}=\df{f'(\eta)}{2\eta},$$
+	整理后即证。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.设$0<a<b$，$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，证明：
+	（3）存在$x_1,x_2,x_3\in(a,b)$，使得
+	
+	\centering $f\,'(x_1)=(b+a)\df{f\,'(x_2)}{2x_2}=(a^2+ab+b^2)
+	\df{f\,'(x_3)}{3x_3^2}$
+    
+    }\pause
+	
+	\bigskip
+	
+	\small 证：\it
+	注意到$f(x)$和$x,x^2,x^3$在$[a,b]$上均连续，在
+	在$(a,b)$内均可导，且$(x)'=x\ne 0,(x^2)'=2x\ne 0,
+	(x^3)'=3x^2\ne 0$，故由Cauchy中值定理，
+	存在$x_1,x_2,x_3\in(a,b)$，使得
+	$$\df{f(b)-f(a)}{b-a}=f'(x_1),$$
+	$$\df{f(b)-f(a)}{b^2-a^2}=\df{f'(x_2)}{2x_2}
+	\quad\Rightarrow\quad
+	\df{f(b)-f(a)}{b-a}=(b+a)\df{f'(x_2)}{2x_2},$$
+	$$\df{f(b)-f(a)}{b^3-a^3}=\df{f'(x_3)}{3x_3^2}
+	\quad\Rightarrow\quad
+	\df{f(b)-f(a)}{b-a}=(a^2+ab+b^2)\df{f'(x_3)}{3x_3^2},$$
+	整理后即证。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.设$0<a<b$，$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，证明：
+	（4）若$f\,'(x)\ne 0$，则存在$\xi,\eta\in(a,b)$，使得
+	
+	\centering $\df{f'(\xi)}{f'(\eta)}=\df{e^b-e^a}{b-a}e^{-\eta}$
+    
+    }\pause
+	
+	\bigskip
+	
+	\small 证：\it
+	由Lagrange和Cauchy中值定理，存在$\xi,\eta\in(a,b)$，使得
+	$$\df{f(b)-f(a)}{b-a}=f'(\xi)
+	\quad\Rightarrow\quad
+	f(b)-f(a)=f'(\xi)(b-a).$$
+	$$\df{f(b)-f(a)}{e^b-e^a}=\df{f'(\eta)}{e^{\eta}}
+	\quad\Rightarrow\quad
+	f(b)-f(a)=\df{e^b-e^a}{e^{\eta}}f'(\eta).$$
+	整理后即证。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.设$0<a<b$，$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，证明：
+	（5）存在$c\in(a,b)$，使得
+	
+	\centering $\df{1}{a-b}\left|\begin{array}{cc}
+	a & b\\ f(a) & f(b)
+	\end{array}\right|=f(c)-cf'(c).$
+    
+    }\pause
+	
+	\bigskip
+	
+	\small 证：\it
+	由Cauchy中值定理，存在$c\in(a,b)$，使得
+	\begin{align*}
+		\df{1}{a-b}\left|\begin{array}{cc}
+		a & b\\ f(a) & f(b)
+		\end{array}\right|
+		&=\df{af(b)-bf(a)}{a-b}=\df{\frac{f(b)}b-\df{f(a)}a}{\frac1b-\frac1a}\\
+		&=\df{\left(\frac{f(x)}x\right)'_{x=c}}{\left(\frac1x\right)'_{x=c}}
+		=f(c)-cf'c.
+	\end{align*}
+	即证。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.设$0<a<b$，$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，证明：
+	（6）若$f(a)=0$，则存在$\mu\in(a,b)$，使得
+	
+	\centering $f'(\mu)=\df{a}{a+b-2\mu}f(\mu).$
+    
+    }\pause
+	
+	\bigskip
+	
+	\small 证：\it
+	令$F(x)=f(x)\left(\df{a+b-2x}2\right)^{\frac a2}$，可以验证
+	$F(x)$在$\left[a,\df{a+b}2\right]$上满足Rolle定理条件，故存在
+	$\mu\in\left(a,\df{a+b}2\right)\subset(a,b)$，使得
+	$$F'(\mu)=\left(\df{a+b-2\mu}2\right)^{\frac a2-1}
+	\left[f'(\mu)\left(\df{a+b-2\mu}2\right)
+	-f(\mu)a\right]=0,$$
+	$\left(\df{a+b-2\mu}2\right)^{\frac a2-1}\ne0$，故必有
+	$f'(\mu)\left(\df{a+b-2\mu}2\right)-f(\mu)\df a2=0,$
+	即证。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{2.$f(x)\in C^1[a,b]$，$f(a)=f(b)=0$，$f'_+(a)f'_-(b)>0$，
+	证明：$f(x)$在$(a,b)$内至少有一个零点。}\pause
+	
+	\bigskip
+	
+	\small 证：\it
+	不妨设$f'_+(a)>0,f'_-(b)<0$。由$f'_+(a)>0$可知，存在$\delta_1>0$，
+	使对任意$x\in(a,a+\delta_1)$，总有
+	$$\df{f(x)-f(a)}{x-a}>0\quad\Rightarrow
+	\quad f(x)=f(x)-f(a)>0.$$
+	因此可以取到某个$x_1\in(a,b)$，使得$f(x_1)>0$。
+	
+	\pause 类似地，由$f'_-(b)<0$，可知比存在某个$x_2\in(a,b)$，使得$f(x_2)<0$。
+	
+	\pause 至此，由介值定理，必存在某个$\xi$介于$x_1$和$x_2$之间，使得$f(\xi)=0$。
+	\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{3.证明：对任意$x>1$，
+	
+	\centering $(x^2-1)\ln x\geq(x-1)^2$。
+	
+	}\pause
+	
+	\bigskip
+	
+	\small 证：\it
+	由Lagrange中值定理，存在$\xi$介于$x$和$1$之间，使得
+	$$\df{\ln x-\ln 1}{x-1}=\df1{\xi},$$
+	\pause 显然$0<\xi<x+1\Rightarrow\df1{\xi}>\df1{x+1}$，带入前式整理后即证。
+	\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{4.$e<a<b<e^2$，证明：$\ln^2b-\ln^2a>\df2{e^2}(b-a)$。}\pause
+	
+	\bigskip
+	
+	\small 证：\it
+	由Lagrange中值定理，存在$\xi\in(a,b)$，使得
+	$$\df{\ln^2b-\ln^2a}{b-a}=\df{2\ln\xi}{\xi},$$
+	注意到$e<\xi<e^2$，故
+	$$1<\ln\xi<2,\quad \xi<e^2,$$
+	故
+	$\df{2\ln\xi}{\xi}>\df2{e^2},$
+	代入前式整理即证。
+	\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{5.$f(x)$在$x>0$二阶可导，$f''(x)>0$，令$u_n=f(n)\;
+	 (n\in\mathbb{Z}_+)$，证明：若$u_1<u_2$，则$\{u_n\}$必发散；
+	问：若$u_1>u_2$，$\{u_n\}$是否必收敛？（若正确，证明之；否则给出反例。）}\pause
+	
+	\bigskip
+	
+	\small 证：\it
+	由$f''(x)>0$可知，$f'(x)$单调递增。若$u_1<u_2$，也即$f(1)<f(2)$，
+	由Lagrange中值定理，存在$\xi_1\in(1,2)$，使得
+	$$0<\df{f(2)-f(1)}{2-1}=f'(\xi_1),$$
+	进而可知对任意$x>2$，均有$f'(x)>f'(\xi_1)$。
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+% 	\ba{5.$f(x)$在$x>0$二阶可导，$f''(x)>0$，令$u_n=f(n)\;
+% 	 (n\in\mathbb{Z}_+)$，证明：若$u_1<u_2$，则$\{u_n\}$必发散；
+% 	问：若$u_1>u_2$，$\{u_n\}$是否必收敛？（若正确，证明之；否则给出反例。）}\pause
+	
+% 	\bigskip
+	
+	\small \it
+	对任意$n\geq2$，由Lagrange中值定理，存在$\xi_n\in(n,n+1)$，使得
+	$$\df{f(n+1)-f(n)}{(n+1)-n}=f'(\xi_n)>f'(\xi_1)$$
+	进而可得
+	$$
+	f(n+1)>f(n)+f'(\xi_1)>f(n-1)+2f'(\xi_1)>\ldots>f(1)+nf'(\xi_1),
+	$$
+	由此显然可知$\{u_n\}$发散。
+	
+	若$u_1>u_2$，$\{u_n\}$未必收敛。例如：$f(x)=(x-3)^2$，其中$u_1=4>1=u_2$，
+	但显然$\{(n-3)^2\}$发散。\hfill$\Box$
+\end{frame}

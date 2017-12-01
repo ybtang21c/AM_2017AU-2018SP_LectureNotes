@@ -2028,7 +2028,7 @@ $$H'(t)=\df{V'(t)}{\pi [b^2-a^2+(a-h)^2]}
 \begin{enumerate}[(i)]
   \item 当$x=2,\Delta x=1$时，$\Delta y=17,\;\d y=10$；
   \item 当$x=2,\Delta x=0.1$时，$\Delta y=1.061,\;\d y=1$；
-  \item 当$x=2,\Delta x=0.01$时，$\Delta y=0.1006001,\;\d y=0.1$。
+  \item 当$x=2,\Delta x=0.01$时，$\Delta y=0.100601,\;\d y=0.1$。
 \end{enumerate}
 \hfill$\Box$
 
@@ -2040,13 +2040,17 @@ $$H'(t)=\df{V'(t)}{\pi [b^2-a^2+(a-h)^2]}
 $$2^{xy}\ln2(x\d y+y\d x)=\d x-\d y,$$
 进而
 $$\d y=\df{1-y2^{xy}\ln2}{1+x2^{xy}\ln2}\d x.$$
-带入$x=0$即得
-$$\d y|_{x=0}=1-y\ln2.$$
+$x=0$时，$y=-1$，带入即得
+$$\d y|_{x=0}=(1+\ln2)\d x.$$
 \hfill$\Box$
 
 \bigskip
 
-3.设$f(x)=\lim\limits_{t\to\infty}t^2
+3.略。
+
+\bigskip
+
+4.设$f(x)=\lim\limits_{t\to\infty}t^2
 \left[e^{x+\frac2t}-e^x\right]\sin\df xt$，求$\d f(x)$。
 
 [解]：
@@ -2064,8 +2068,6 @@ $$\d f(x)=(2xe^x)'\d x=2e^x(1+x)\d x.$$
 
 \bigskip
 
-4.略。
-
 5.已知当$h\to 0$时，
 $$f(x+2h)-f(x)=h\sqrt{x^2+2x}+\circ(h),$$
 求$\d\left[f\left(\df1x\right)\right]$。
@@ -2078,7 +2080,7 @@ $$
 也即$f'(x)=\df{\sqrt{x^2+2x}}2$，故
 $$\d\left[f\left(\df1x\right)\right]
 =f'\left(\df1x\right)\left(-\df1{x^2}\right)\d x
-=-\df{\sqrt{1+2x}}{2x^3}\d x.$$
+=-\df{\sqrt{1+2x}}{2x^2|x|}\d x.$$
 \hfill$\Box$
 
 \bigskip
@@ -2086,7 +2088,7 @@ $$\d\left[f\left(\df1x\right)\right]
 6.设$a>0$，$|x|<<a$（表示$|x|$远远小于$a$），证明近似公式
 $$\sqrt[n]{a^n+x}\approx a+\df{x}{na^{n-1}}.$$
 
-[解]：记$f(x)=\sqrt[n]{a^n+x}$，显然$f(0)=a$，
+[证]：记$f(x)=\sqrt[n]{a^n+x}$，显然$f(0)=a$，
 又
 $$f'(x)=\df1n(a^n+x)^{\frac1n-1}\quad
 \Rightarrow f'(0)=\df1{na^{n-1}}.
