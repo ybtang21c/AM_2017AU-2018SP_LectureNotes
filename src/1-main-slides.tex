@@ -8,8 +8,8 @@
 %option: red, brown, blue
 % \documentclass[14pt,mathserif]{beamer}
 % \documentclass[14pt]{beamer}
-\documentclass[usepdftitle=false, 14pt, handout]{beamer} %无动画
-% \documentclass[usepdftitle=false, 14pt]{beamer}
+% \documentclass[usepdftitle=false, 14pt, handout]{beamer} %无动画
+\documentclass[usepdftitle=false, 14pt]{beamer}
 
 \usepackage{amsmath,amsfonts,amssymb,amsthm,bm}
 % \usepackage{txfonts} %another style of math fonts
@@ -20,6 +20,8 @@
 
 \usepackage{tcolorbox} %各种自定义的盒子
 \tcbuselibrary{skins, breakable, theorems}
+
+\usepackage{extarrows}%任意长的等号, \xlongequal
 
 \usepackage{bbding}%各种五角星
 % \FiveStar，\FiveStarOpen，\FiveStarLines，\FiveStarShadow
@@ -173,7 +175,9 @@
 
 % \input{./hwComB/Ch02-2.tex}
 
-\input{./hwComB/Ch02-3-03-1.tex}
+% \input{./hwComB/Ch02-3-03-1.tex}
+
+\input{./hwComB/Ch03-2.tex}
 
 %   \input{Ch07-ex-slides.tex} %常微分方程习题课
 % 	\input{Ch08-ex1-slides.tex} %空间直线与平面习题课

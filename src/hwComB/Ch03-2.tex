@@ -1,0 +1,384 @@
+% !Mode:: "TeX:UTF-8"
+
+\titlepage
+
+% \begin{frame}{说在前面}
+% 	\linespread{1.5}
+% 	  \begin{itemize}[<+-|alert@+>]
+% 	    \item 过往的作业不订正、不补齐的不予批改，打分不超过\,\ba{C}
+% 	    \item 不交作业的默认记为\,\ba{D}
+% 	    \item 需要换作业本的，请“移植”照片，写清楚个人信息
+% 	    \item 请自行完成SPOC课程中的测试
+% 	    \item 第二次单元测试即将发布，成绩记入期末总成绩
+% 	  \end{itemize}
+% \end{frame}
+
+\begin{frame}{需要注意的问题}
+	\linespread{1.5}
+	  \begin{itemize}%[<+-|alert@+>]
+	    \item L'Hospital法则
+	    \begin{itemize}
+	      \item \it 只能应用于“$\df{\bm{0}}{\bm{0}}$”
+	      和“$\df{\bm{\infty}}{\bm{\infty}}$”型
+	      \item \it 及时使用无穷小代换进行简化
+	      \item \it 不正规的符号：\b 
+	      $\xlongequal{\footnotesize\mbox{“L”}}$、
+	      $\xlongrightarrow{\footnotesize\mbox{“L'Hospital法则”}}$、
+	      $\df{\bm{0}}{\bm{0}}$、$\df{\bm{\infty}}{\bm{\infty}}$
+	    \end{itemize}
+	    \item Taylor公式
+	    \begin{itemize}
+	      \item \it Taylor多项式不包含余项
+	      \item \it 合并同次幂的系数
+	      \item \it 尽量按照幂次由低到高排列，最后写余项
+	    \end{itemize}
+	  \end{itemize}
+\end{frame}
+
+\begin{frame}{出现的问题}
+	\linespread{1.5}
+	  \begin{itemize}%[<+-|alert@+>]
+	    \item 奇特的无穷小代换
+	    \begin{itemize}
+	      \item \it\b $\ln\tan7x\sim\ln7x$
+	      \item \it\b $\ln\tan7x\sim\tan7x$
+	      \item \it\b $(1+x)^{\frac1x}\sim e$
+	    \end{itemize}
+	    \item 奇特的Taylor展开
+	    \begin{itemize}
+	      \item \it \b$\sum\limits_{k=0}^n
+	      \df{(-1)^k(x-3)^k}{(x-1)^{k+1}}+\circ((x-3)^n)$
+	      \item \b $\sqrt{\sum\limits_{k=0}^n\left(\df{x^2}4\right)^k
+	      +\circ(x^{2n})}$
+	    \end{itemize}
+	  \end{itemize}
+\end{frame}
+
+\section{3.2 L'Hospital法则}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.计算如下极限：}
+	\pause
+	
+% 	\bigskip
+	
+	\small 解：
+	（1）$\limx{0^+}\df{\ln\tan 7x}{\ln\sin 3x}=\limx{0^+}\df{\df{7\sec^27x}{\tan7x}}{\df{3\sec^23x}{\tan3x}}
+	=\limx{0^+}\df{\df7{7x}}{\df3{3x}}=1.$
+	
+	\pause	
+	（2）$\limx{+\infty}\df{\ln\left(1+\df1x\right)}{\arctan x}
+	=\df{\limx{+\infty}\ln\left(1+\df1x\right)}{\limx{+\infty}\arctan
+	x}=\df{0}{\frac{\pi}2}=0.$
+	
+	\ba{注：$0/\infty$型，不能使用L'Hospital法则！}
+	
+	\pause	
+	（3）$\limx{0^+}x^{\sin x}=\exp\left(\limx{0^+}\sin x\ln x\right)
+	=\exp\left(\limx{0^+}x\ln x\right)$
+	
+	\quad$=\exp\left(\limx{0^+}\ln x^x\right)
+	=1.$
+	
+	\pause
+	（4）$\limx{\infty}x^2e^{\frac1{x^2}}
+	=\lim\limits_{y\to0}\df{e^{y^2}}{y^2}
+	=+\infty.$
+
+	\ba{注：$\infty\cdot 1$型，不能使用L'Hospital法则！}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+% 	\ba{1.计算如下极限：}
+% 	\pause
+	
+% 	\bigskip
+	
+ 	\small 	
+	（5）$\limx{\infty}\df{x^2-\cos x}{x^2+\sin x}
+	=\limx{\infty}\df{1-\frac{\cos x}{x^2}}{1+\frac{\sin x}{x^2}}=1.$
+	
+	\ba{注：第二个等号不能使用L'Hospital法则！}
+	
+	\pause	
+	（6）$\limx{0}\df{x^2-\sin x}{x^2+\cos x}
+	=\df{\limx{0}x^2-\limx{0}\sin x}{\limx{0}x^2+\limx{0}\cos x}=0.$
+	
+	\ba{注：$0/1$型，不能使用L'Hospital法则！}
+	
+	\pause
+	（7）$\limx{0}\df{\ln(1+x^2)}{\sec x-\cos x}
+	=\limx{0}\df{x^2\cos x}{1-\cos^2 x}
+	=\limx{0}\df{x^2}{\sin^2 x}=1.$
+	
+	\pause
+	（8）$\limx{0}\df{(1+x)^{1/x}-e}{x}
+	=e\limx{0}\df{e^{1/x\ln(1+x)-1}-1}{x}$
+	
+	\quad$=e\limx{0}\df{1/x\ln(1+x)-1}{x}
+	=e\limx{0}\df{\ln(1+x)-x}{x^2}$
+	
+	\quad$=e\limx{0}\df{\frac1{1+x}-1}{2x}
+	=\frac e2\limx{0}\df{-1}{1+x}=-\frac e2.$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+% 	\ba{1.计算如下极限：}
+% 	\pause
+	
+% 	\bigskip
+	
+ 	\small 
+	（9）$\limx{1}(1-x^2)\tan\df{\pi}{2}x
+	=2\limx{1}(1-x)\tan\df{\pi}{2}x
+	$
+	
+	$\quad=2\lim\limits_{y\to0}y\tan\left[\df{\pi}2(1-y)\right]
+	=2\lim\limits_{y\to0}\df y{\tan\left(\df{\pi}2y\right)}
+	=\df4{\pi}.$
+	
+	\pause	
+	（10）$\limx{0}\left(\df 1{x^2}-\df 1{x\tan x}\right)
+	=\limx{0}\df {\tan x-x}{x^2\tan x}
+	=\limx{0}\df {\tan x-x}{x^3}$
+	
+	$\quad
+	=\limx{0}\df {\sec^2 x-1}{3x^2}
+	\limx{0}\df {\tan^2 x}{3x^2}=\df13.$
+	
+	\pause	
+	（11）$\limx{0}(x^2+2^x)^{1/x}
+	=\exp\left[\limx{0}\df{\ln(x^2+2^x)}x\right]
+	$
+	
+	$\quad=\exp\left[\limx{0}\df{2x+2^x\ln 2}{x^2+2^x}\right]
+	=\exp\left[\limx{0}\df{2+2^x\ln^2 2}{2x+2^x\ln2}\right]$
+	
+	$\quad
+	=\exp\left[\limx{0}\df{2^x\ln^3 2}{2+2^x\ln^22}\right]
+	=\exp\left[\limx{0}\df{\ln^3 2}{\frac2{2^x}+\ln^22}\right]
+	$
+	
+	$\quad
+	=e^{\ln 2}=2.$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+% 	\ba{1.计算如下极限：}
+% 	\pause
+	
+% 	\bigskip
+	
+ 	\small 
+	（12）$\limx0\df{e^{\tan x}-e^x}{\tan x-x}
+	=\limx0\df{e^{\tan x-x}-1}{\tan x-x}\limx0e^x
+	=\limx0\df{\tan x-x}{\tan x-x}=1.$
+	
+	\bigskip
+	\pause
+	（13）$\limx{0}\left(\cot x-\df 1x\right)
+	=\limx{0}\df{x-\tan x}{x\tan x}
+	=\limx{0}\df{x-\tan x}{x^2}$
+	
+	$\hspace{1cm}
+	=\limx{0}\df{1-\sec^2 x}{2x}
+	=\limx{0}\df{-\tan^2 x}{2x}=0$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+% 	\ba{1.计算如下极限：}
+% 	\pause
+	
+% 	\bigskip
+	
+ 	\small
+	（14）\it $\limx{\infty}\left[\df1n\left(a_1^{\frac1x}+a_2^{\frac1x}
+	+\ldots+a_n^{\frac1x}\right)\right]^{nx}$，其中$a_1,a_2,\ldots,a_n>0$
+	
+	记$A_n=\df{\left(a_1^{\frac1x}-1\right)+\left(a_2^{\frac1x}-1\right)
+	+\ldots+\left(a_n^{\frac1x}-1\right)}n$，显然$\limx{\infty}A_n=0$。
+	
+	\pause
+	\begin{align*}
+		&\mbox{原式}
+		=\limx{\infty}(1+A_n)^{\frac{1}{A_n}A_nnx}
+		=\left[\limx{\infty}(1+A_n)^{\frac{1}{A_n}}\right]
+		^{\limx{\infty}A_nnx}\\
+		&=\exp\left\{\limx{\infty}x\left[\left(a_1^{\frac1x}-1\right)
+		+\left(a_2^{\frac1x}-1\right)+\ldots+\left(a_n^{\frac1x}-1\right)\right]\right\}\\
+		&=\exp\left[\limx{\infty}x\left(a_1^{\frac1x}-1\right)
+		+\limx{\infty}x\left(a_2^{\frac1x}-1\right)
+		+\limx{\infty}x\ldots+\left(a_n^{\frac1x}-1\right)\right]\\
+		&=\exp\left(\limx{\infty}\df{x\ln a_1}{x}
+		+\limx{\infty}\df{x\ln a_2}{x}
+		+\ldots+\limx{\infty}\df{x\ln a_n}{x}\right)\\
+		&=a_1a_2\ldots a_n.
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{2.设$x\to 0$时，$x-\sin ax$与$x^2\ln(1-bx)$为等价无穷小，求$a,b$的值。
+	}\pause
+	
+	\bigskip
+	
+	\small 解：\it 
+	$x\to 0$时，$x^2\ln(1-bx)\sim-bx^3$，故必有
+	$$\b 1=\limx0\df{x-\sin ax}{-bx^3}
+	=\limx0\df{1-a\cos ax}{-3bx^2},$$
+	右侧极限存在当且仅当$a=1$，进而
+	$$1=\limx0\df{x-\sin ax}{-bx^3}
+	=\limx0\df{1-\cos x}{-3bx^2}
+	=\limx0\df{\frac{x^2}2}{-3bx^2}=-\df1{6b},$$
+	故$b=-\df16$。\hfill$\Box$
+	
+	\pause\ba{正确的作法应使用Taylor公式！}
+\end{frame}
+
+\section{3.2 L'Hospital法则}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.求$f(x)=x^4+x^3-2x-4$在$x=0$和$x=2$处的三阶Taylor多项式。}\pause
+
+	\bigskip
+	
+	\small 解： \it 
+	$f(x)$在$x=0$处的三阶Taylor公式为
+	$$P^{[0]}_3(x)=x^3-2x-4.$$
+	\pause 又
+	\begin{align*}
+		f(x)&=[(x-2)+2]^4+[(x-2)+2]^3-2[(x-2)+2]-4\\
+		&=(x-2)^4+9(x-2)^3+30(x-2)^2+42(x-2)+16,
+	\end{align*}
+	$f(x)$在$x=2$处的三阶Taylor公式为
+	$$P^{[2]}_3(x)=9(x-2)^3+30(x-2)^2+42(x-2)+16.$$
+	\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{2.求函数$f(x)=\df1{x-1}$按$(x-3)$的幂展开的带有Peano余项的
+	$n$阶Taylor公式。}\pause
+	
+	\bigskip
+	
+	\small 解：\it
+	\begin{align*}
+		f(x)&=\df1{2+(x-3)}=\df12\cdot\df1{1+\frac{x-3}2}\\
+		&=\df12\left[\sum\limits_{k=0}^n\left(-\df{x-3}2\right)^k
+		+\circ\left(\left(-\df{x-3}2\right)^n\right)\right]\\
+		&=\sum\limits_{k=0}^n\df{(-1)^k(x-3)^k}{2^{k+1}}+\circ((x-3)^n).
+	\end{align*}
+	\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{3.求如下函数带Peano余项的Maclaurin公式}\pause
+	
+	\bigskip
+	
+	\small 解：（1）
+	\begin{align*}
+		\ln(2+x^2)&=\ln2+\ln\left(1+\df{x^2}2\right)\\
+		&=\ln2+\sum\limits_{k=1}^n\df{(-1)^{k-1}\left(\frac{x^2}{2}\right)^k}{k}
+		+\circ\left(\left(\df{x^2}{2}\right)^n\right)\\
+		&=\ln2+\sum\limits_{k=1}^n\df{(-1)^{k-1}x^{2k}}{k2^k}
+		+\circ(x^{2n}).
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+% 	\ba{3.求如下函数带Peano余项的Maclaurin公式}\pause
+	
+% 	\bigskip
+	
+	\small （2）
+	$
+		e^{\frac{x^2}2}
+		=\sum\limits_{k=0}^n\df{\left(\frac{x^2}2\right)^k}{k!}
+		+\circ\left(\left(\df{x^2}2\right)^n\right)
+		=\sum\limits_{k=0}^n\df{x^{2k}}{k!2^k}
+		+\circ\left(x^{2n}\right).
+	$
+	\bigskip
+	
+	\pause
+	（3）
+	$
+		x\cos x^2
+		=x\left[\sum\limits_{k=0}^n\df{(-1)^kx^{4k}}{(2k)!}
+		+\circ(x^{2n})\right]$
+		
+		\quad $
+		=\sum\limits_{k=0}^n\df{(-1)^kx^{4k+1}}{(2k)!}
+		+\circ(x^{4n+1}).
+	$
+	\bigskip
+	
+	\pause
+	（4）
+	$
+		\df{1+x^2}{1-x^2}
+		=-1+\df2{1-x^2}
+		=-1+2\left[\sum\limits_{k=0}^n(x^2)^k-\circ(x^{2n})\right]$
+		
+		\quad$
+		=-1+\sum\limits_{k=0}^n2x^{2k}+\circ(x^{2n}).
+	$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+% 	\ba{3.求如下函数带Peano余项的Maclaurin公式}\pause
+	
+% 	\bigskip
+	
+	\small （5）
+	\begin{align*}
+		\df1{\sqrt{4-x^2}}
+		&=2\left(1-\frac{x^2}4\right)^{-\frac12}\\
+		&=2\left[\sum\limits_{k=0}^n\left(\begin{array}{c}
+			-\frac12 \\ k
+		\end{array}\right)\left(-\df{x^2}{4}\right)^k
+		+\circ\left(\left(-\df{x^2}{4}\right)^n\right)
+		\right]\\
+		&=2\sum\limits_{k=0}^n\df{(2k+1)!!}{k!8^k}x^{2k}
+		+\circ(x^{2n}).
+	\end{align*}
+	
+	\pause
+	（6）
+	\begin{align*}
+		&\sin^2x-x^3=\df12-\df12\cos2x-x^3\\
+% 		&=\df12-\df12\left[1-\df{(2x)^2}{2!}+\df{(2x)^4}{4!}
+% 		+\ldots+\df{(-1)^k(2x)^{2k}}{(2k)!}+\circ((2x)^{2n})\right]-x^3\\
+		&=x^2-x^3-\df{2^3x^4}{4!}
+		+\ldots-\df{(-1)^k2^{2k-1}x^{2k}}{(2k)!}+\circ(x^{2n}).
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+% 	\ba{3.求如下函数带Peano余项的Maclaurin公式}\pause
+	
+% 	\bigskip
+	
+	\small （7）\it 注意到$(1+x)e^x=(xe^x),$，而
+	$$xe^x=x\sumn\df{x^n}{n!}=\sumn\df{x^{n+1}}{n!},$$
+	故
+	$$(1+x)e^x=\left[\sumn\df{x^{n+1}}{n!}\right]'
+	=\sumn\df{(x^{n+1})'}{n!}
+	=\sumn\df{(n+1)x^n}{n!},$$
+	于是所求带Peano余项的Maclaurin公式为
+	$$(1+x)e^x=\sum\limits_{k=0}^n\df{(k+1)x^k}{k!}+\circ(x^{n+1}).$$
+	\hfill$\Box$
+\end{frame}

@@ -371,14 +371,14 @@ $$F(x)=f(x)-\df{(x-a)(x-b)}{(c-a)(c-b)}f(c)$$
 	% CCurve = Plot[f[x], {x, -0.5, 3.5}];
 	% DCurve = ListPlot[Table[{n, f[n]}, {n, 0, 3}], Filling -> Axis];
 	% Show[CCurve, DCurve]
-	
-	{\bf 例：}设$a<b<c$，函数$f(x)$在$[a,c]$上二阶可导，证明：
-	存在$\xi\in(a,c)$，使得
-	$$
-	\df{f(a)}{(a-b)(a-c)}+\df{f(b)}{(b-a)(b-c)}
-	+\df{f(c)}{(c-a)(c-b)}=\df12f''(\xi).
-	$$
 \end{shaded}
+
+{\bf 例：}设$a<b<c$，函数$f(x)$在$[a,c]$上二阶可导，证明：
+存在$\xi\in(a,c)$，使得
+$$
+\df{f(a)}{(a-b)(a-c)}+\df{f(b)}{(b-a)(b-c)}
++\df{f(c)}{(c-a)(c-b)}=\df12f''(\xi).
+$$
 
 % {\bf 例：}证明：$\df{e^a-e^b}{b-a}<\df{e^a+e^b}2,\;(a\ne b)$
 % 
@@ -1206,7 +1206,7 @@ $$\limx{0}\left(1+x+\df{f(x)}{x}\right)^{1/x}=e^3,$$
   \item $\limx{0}\left(1+\df{f(x)}{x}\right)^{1/x}$.
 \end{enumerate}
 
-[解]：注意到$1/x\to\infty\;(x\to0)$，故已知极限存在，当且仅当
+[解一]：注意到$1/x\to\infty\;(x\to0)$，故已知极限存在，当且仅当
 $$\limx0\left(1+x+\df{f(x)}x\right)=1
 \quad\Rightarrow\quad f(0)=\limx0f(x)=0.$$
 又原式即为
@@ -1228,6 +1228,37 @@ f''(0)=4.$$
 	^{\limx0{[2+\circ(1)]}}=e^2.\notag	
 \end{align}
 \hfill$\Box$
+
+[解二]：已知等式两边取对数，可得
+$$\limx0\df1x\ln\left(1+x+\df{f(x)}x\right)=3,$$
+进而（通过等价无穷小代换$\ln(1+x)\sim x$）可得
+$$\limx0\df1x\left(x+\df{f(x)}x\right)=3
+\quad\Rightarrow\quad
+\limx0\df{f(x)}{x^2}=2.$$
+从而可知
+$$\df{f(x)}{x^2}=2+\circ(1)
+\quad\Rightarrow\quad
+f(x)=x^2+\circ(x^2).$$
+以上右端公式即为$f(x)$的Maclaurin公式，从而可知
+$$f(0)=f'(0)=0,\quad f''(0)=4.$$
+以下同解一。\fin
+
+{\bf 讨论：}已知$f(x)$在$x=0$附近二次可导，$f(0)=f'(0)=0$，且
+$$\limx0\df{f(x)}{x^2}=2,$$
+求$f''(0)$。
+以下的推导存在什么错误？
+
+{\color{red}由L'Hospital法则，
+$$2=\limx0\df{f(x)}{x^2}=\limx0\df{f'(x)}{2x}
+=\limx0\df{f''(x)}{2}=\df{f''(0)}2.$$}
+
+答：有两处错误：1. L'Hospital法则的意思是：若$\limx{\Delta}\df{f'(x)}{g'(x)}=A$，
+则$\limx{\Delta}\df{f(x)}{g(x)}=A$，需要注意的是不能由后者的存在推出前者的存在，
+例如极限：$\limx{+\infty}\df{x+\sin x}x=1$，但$\limx{+\infty}\df{1+\cos x}1$
+不存在。因此以上推导中的第二和第三个等号都是不能成立的；
+2. 条件中只有$f(x)$在$x=0$附近二阶可导，但没有说$f''(x)$在$x=0$连续，故
+最后一个等号也是不成立的。
+
 
 {\bf 例：}设$x\to 0$时，$e^{\tan x}-e^x$与$x^n$为同阶无穷小，则$n$=（C）
 \ps{Taylor展开}
@@ -2718,8 +2749,8 @@ $$
 x}=\df{0}{\frac{\pi}2}=0.$
 \ps{\b 本题不能使用L'Hospital法则}
 
-（3）$\limx{0^+}x^{\sin x}=\exp\left[\limx{0^+}\sin x\ln x\right]
-=\exp\left[\limx{0^+}x\ln x\right]=\exp\left[\limx{0^+}\ln x^x\right]
+（3）$\limx{0^+}x^{\sin x}=\exp\left(\limx{0^+}\sin x\ln x\right)
+=\exp\left(\limx{0^+}x\ln x\right)=\exp\left(\limx{0^+}\ln x^x\right)
 =1.$
 \ps{\b 使用已知极限$\limx{0^+}x^x=1$}
 
@@ -2786,8 +2817,8 @@ $\hspace{1cm}
 =\limx{0}\df{x-\tan x}{x^2}$
 
 $\hspace{1cm}
-=\limx{0}\df{1-\sec^2 x}{x^2}
-=\limx{0}\df{-\tan^2 x}{x^2}=-1$
+=\limx{0}\df{1-\sec^2 x}{2x}
+=\limx{0}\df{-\tan^2 x}{2x}=0$
  
 （14）$\limx{\infty}\left[\df1n\left(a_1^{\frac1x}+a_2^{\frac1x}
 +\ldots+a_n^{\frac1x}\right)\right]^{nx}$，其中$a_1,a_2,\ldots,a_n>0$
@@ -2819,7 +2850,7 @@ $\hspace{1cm}
 [解]：$x\to 0$时，$x^2\ln(1-bx)\sim-bx^3$，故必有
 $$1=\limx0\df{x-\sin ax}{-bx^3}
 =\limx0\df{1-a\cos ax}{-3bx^2},$$
-右侧极限存在当且仅当$a=1$，进而
+\pause 右侧极限存在当且仅当$a=1$，进而
 $$1=\limx0\df{x-\sin ax}{-bx^3}
 =\limx0\df{1-\cos x}{-3bx^2}
 =\limx0\df{\frac{x^2}2}{-3bx^2}=-\df1{6b},$$
@@ -2834,14 +2865,14 @@ $$1=\limx0\df{x-\sin ax}{-bx^3}
 1.求$f(x)=x^4+x^3-2x-4$在$x=0$和$x=2$处的三阶Taylor多项式。
 
 [解]：$f(x)$在$x=0$处的三阶Taylor公式为
-$$P^{(0)}_3(x)=x^3-2x-4.$$
+$$P^{[0]}_3(x)=x^3-2x-4.$$
 又
 \begin{align*}
 	f(x)&=[(x-2)+2]^4+[(x-2)+2]^3-2[(x-2)+2]-4\\
-	&=(x-2)^4+9(x-2)^3+22(x-2)^2+42(x-2)+16,
+	&=(x-2)^4+9(x-2)^3+30(x-2)^2+42(x-2)+16,
 \end{align*}
 $f(x)$在$x=2$处的三阶Taylor公式为
-$$P^{(2)}_3(x)=9(x-2)^3+22(x-2)^2+42(x-2)+16.$$
+$$P^{[2]}_3(x)=9(x-2)^3+30(x-2)^2+42(x-2)+16.$$
 \hfill$\Box$
 
 \bigskip
@@ -2883,18 +2914,18 @@ $$
 （3）
 $$
 	x\cos x^2
-	=x\left[\sum\limits_{k=0}^n\df{(-1)^kx^{2k}}{(2k)!}
+	=x\left[\sum\limits_{k=0}^n\df{(-1)^kx^{4k}}{(2k)!}
 	+\circ(x^{2n})\right]
-	=\sum\limits_{k=0}^n\df{(-1)^kx^{2k+1}}{(2k)!}
-	+\circ(x^{2n+1}).
+	=\sum\limits_{k=0}^n\df{(-1)^kx^{4k+1}}{(2k)!}
+	+\circ(x^{4n+1}).
 $$
 
 （4）
 $$
 	\df{1+x^2}{1-x^2}
-	=2-\df1{1-x^2}
-	=2-\left[\sum\limits_{k=0}^n(x^2)^k-\circ(x^{2n})\right]
-	=2-\sum\limits_{k=0}^n(x^2)^k+\circ(x^{2n}).
+	=-1+\df2{1-x^2}
+	=-1+2\left[\sum\limits_{k=0}^n(x^2)^k-\circ(x^{2n})\right]
+	=-1+\sum\limits_{k=0}^n2x^{2k}+\circ(x^{2n}).
 $$
 
 （5）
@@ -2913,9 +2944,9 @@ $$
 （6）
 \begin{align*}
 	\sin^2x-x^3&=\df12-\df12\cos2x-x^3\\
-	&=\df12-\df12\left[1-\df{2x}{2!}+\df{(2x)^4}{4!}
+	&=\df12-\df12\left[1-\df{(2x)^2}{2!}+\df{(2x)^4}{4!}
 	+\ldots+\df{(-1)^k(2x)^{2k}}{(2k)!}+\circ((2x)^{2n})\right]-x^3\\
-	&=\df{x}2-x^3-\df{x^42^3}{4!}
+	&=x^2-x^3-\df{2^3x^4}{4!}
 	+\ldots-\df{(-1)^k2^{2k-1}x^{2k}}{(2k)!}+\circ(x^{2n}).
 \end{align*}
 
@@ -2948,16 +2979,16 @@ $$(1+x)e^x=\sum\limits_{k=0}^n\df{(k+1)x^k}{k!}+\circ(x^{n+1}).$$
 （2）
 \begin{align*}
 	&\limx0\df{\cos x-e^{-\frac{x^2}2}}{x^2[x+\ln(1-x)]}\\
-	&=\limx0\df{1-\frac{x^2}2+\frac{x^4}{4!}-1+\frac{x^2}2
+	&=\limx0\df{1-\frac{x^2}2+\frac12\frac{x^4}{4!}-1+\frac{x^2}2
 	-\frac{x^4}{4}+\circ(x^4)}{x^2(x+(-x)-\frac{x^2}2+\circ(x^2))}
-	=\df5{12}
+	=\df16
 \end{align*}
 
 （3）
 \begin{align*}
 	&\limx0\df{1+\frac12x^2-\sqrt{1+x^2}}{(\cos x-e^{x^2})\sin x^2}\\
 	&=\limx0\df{1+\frac12x^2-\left(1+\frac12x^2-\frac18x^4+\circ(x^4)\right)}
-	{\left(1-\frac{x^2}2-1-\frac{x^2}2+\circ(x^2)\right)x^2}=-\df18.
+	{\left(1-\frac{x^2}2-1-x^2+\circ(x^2)\right)x^2}=-\df1{12}.
 \end{align*}
 
 （4）
@@ -2980,12 +3011,15 @@ $$(1+x)e^x=\sum\limits_{k=0}^n\df{(k+1)x^k}{k!}+\circ(x^{n+1}).$$
 	&=1+\df13(x-1)
 	+\df13\cdot\df{-2}3\cdot\df{(x-1)^2}2
 	+\df13\cdot\df{-2}3\cdot\df{-5}3\cdot\df{(x-1)^3}6\\
-	&\quad+\df13\cdot\df{-2}3\cdot\df{-5}3\cdot\df{-8}3\cdot\df{\xi^3}{4!}\\
-	&=1+\df{x-1}3-\df{(x-1)^2}9+\df{5(x-1)^3}{81}-\df{10\xi^4}{273},
+	&\quad+\df13\cdot\df{-2}3\cdot\df{-5}3\cdot\df{-8}3
+	\cdot\df{\xi^{\frac13-4}}{4!}(x-1)^4\\
+	&=1+\df{x-1}3-\df{(x-1)^2}9+\df{5(x-1)^3}{81}
+	-\df{10\xi^{\frac13-4}}{243}(x-1)^4,
 \end{align*}
 带入$x=2$即得
 $$\sqrt[3]2\approx1+\df13-\df19+\df5{81}=\df{104}{81},$$
-注意到$|\xi|\leq 1$，故计算误差不超过$\df{10}{273}$。\hfill$\Box$
+注意到$1\leq\xi\leq 2$，故计算误差$\left|\df{10\xi^{\frac13-4}}{243}\right|
+\leq\df{10}{243}$。\hfill$\Box$
 
 \bigskip
 
