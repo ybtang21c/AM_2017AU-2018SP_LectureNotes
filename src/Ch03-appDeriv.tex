@@ -2089,23 +2089,41 @@ $$f(x_0)=\df1{k+1}(x_1+x_2+\ldots+x_k-k\sqrt[k]{x_1x_2\ldots x_k})\geq 0$$
 {\bf 例：}一个边长为$a$的方形铁皮，在四角各剪去一个边长为$x$的小正方形，然后折成
 一个无盖的长方体容器，问当$x$取何值时，长方体容器的容积最大？
 
-{\bf 例：}半径为$R$的圆形纸张上剪去一个扇形，剩余部分做成一个圆锥形容器，求该容器的最大
-容量。
+[解]：显然$0\leq x\leq \frac a2$，对应的容器容积为
+$$V(x)=x(a-2x)^2.$$
+该函数在$(0,\frac a2)$内可导，令
+$$V'(x)=(a-6x)(a-2x)=0
+\quad\Rightarrow\quad
+x=\df a2\mbox{或}\df a6.$$
+注意到
+$$V(0)=V\left(\frac a2\right)=0,\;V\left(\frac a6\right)=\df2{27}a^3.$$
+故当$x=\df a6$时，长方体的容积取最大值$\df2{27}a^3$。
+\fin
 
-[提示]：设余下的圆心角为$2\pi-\theta$，于是圆锥的底边长伟$\theta R$，从而
+{\bf 例：}半径为$R$的圆形纸张上剪去一个扇形，剩余部分做成一个圆锥形容器，
+求该容器的最大容量。
+
+[解]：设余下的圆心角为$2\pi-\theta$，于是圆锥的底边长伟$\theta R$，从而
 底面半径为$r=\df{\theta}{2\pi}R$，圆锥的高$h$满足
 $$h^2=R^2-r^2=R^2\left(1-\df{\theta^2}{4\pi^2}\right),$$
 圆锥体积的平方为
 $$V^2(\theta)=\df{\pi^2R^6}9\left(\df{\theta^2}{4\pi^2}\right)^2
 \left(1-\df{\theta^2}{4\pi^2}\right)$$
 记$x=\df{\theta^2}{4\pi^2},c=\df{\pi^2R^6}9$，从而$V=cx^2(1-x)$，显然$x\in[0,1]$，
-计算可得其驻点$x_0=\df23$，易证其也是最大值点，此时$V_{\max}=\df{2\pi R^3}{9\sqrt3}$
+计算可得其驻点$x_0=\df23$，易证其也是最大值点，此时$V_{\max}=\df{2\pi R^3}{9\sqrt3}$。
+\fin
 
-[例]：用输油管连接离海岸12km的钻井平台和沿岸往下20km处的炼油厂。已知水下和陆上铺设
+{\bf 例}：用输油管连接离海岸12km的钻井平台和沿岸往下20km处的炼油厂。已知水下和陆上铺设
 管道的成本分别是每公里50万元和30万元，问该如何设计线路，使总的建设成本最低？
 
-{\bf 例（地质勘探）：}通常情况下，声波上层岩石中的传播速度$c_1$小于在下层岩石中的传播速度$c_2$。
-如图所示，求
+这个例子中的问题和光路问题（统计教材P158-例5）本质上是同一个问题。
+
+\begin{center}
+	\includegraphics[width=.6\textwidth]{./images/ch3/RLight.jpg}
+\end{center}
+
+{\bf 例}（Seismic Refraction Method）通常情况下，
+声波在上层岩石中的传播速度$c_1$小于在下层岩石中的传播速度$c_2$。如图所示，求
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item 用$d,h,c_1,c_2$和$\theta$表示$T_1,T_2,T_3$
@@ -2113,7 +2131,9 @@ $$V^2(\theta)=\df{\pi^2R^6}9\left(\df{\theta^2}{4\pi^2}\right)^2
   \item 假设$d=1km,T_1=0.26s,T_2=0.32s,T_3=0.34s$，求$c_1,c_2,h$
 \end{enumerate}
 \begin{center}
-	\resizebox{!}{4cm}{\includegraphics{./images/ch5/eWave.pdf}}
+	\includegraphics[width=.6\textwidth]{./images/ch5/eWave.pdf}
+	
+	\includegraphics[width=.6\textwidth]{./images/ch3/RS-structure.jpg}
 \end{center}
 
 [提示]：（1）
@@ -2134,6 +2154,41 @@ $$h=\sqrt{\left(\df{c_1}2T_3\right)^2-\left(\df d2\right)^2}\approx0.4213km$$
 $$(T_2c_2-d)^2=\df{4h^2}{c_1^2}(c_2^2-c_1^2)$$
 解得$c_2=4.1024$或$7.6619$。
 
+\begin{shaded}
+	{\bf 地震勘探}
+	
+	地震勘探（Seismic Exploration）是地球物理勘探（Geophysical Prospecting）
+	的一种途径，其他的途径还有重力勘探、磁法勘探和电法勘探。
+	
+	地震勘探是近代发展变化最快的地球物理方法之一。它的原理是利用人工激发的
+	地震波在弹性不同的地层内传播规律来勘探地下的地质情况。在地面某处激发的
+	地震波向地下传播时，遇到不同弹性的地层分界面就会产生反射波或折射波返回地面，
+	用专门的仪器可记录这些波，分析所得记录的特点，如波的传播时间、振动形状等，
+	通过专门的计算或仪器处理，能较准确地测定这些界面的深度和形态，判断地层的岩性，
+	是勘探含油气构造甚至直接找油的主要物探方法，也可以用于勘探煤田、盐岩矿床、
+	个别的层状金属矿床以及解决水文地质工程地质等问题。近年来，应用天然震源的
+	各种地震勘探方法也不断得到发展。
+	
+	\begin{center}
+		\includegraphics[width=.6\textwidth]{./images/ch3/RS-reality.pdf}
+		
+		\includegraphics[width=.6\textwidth]{./images/ch3/RS-dataP-4.pdf}
+	\end{center}
+	
+	地震勘探的基本原理是所谓的地震折射法（Seismic Refraction Method），也就
+	是上面例子中所展示的基本过程。通过对探测器所接收到的数据进行处理，反演
+	计算出地层中的物质信息，包括：地质类型、地层分布、空间结构等。这类问题
+	原理虽然简单，但由于地层通常构造复杂（物质不均匀、结构多样）、多个地层
+	的反射数据相互叠加，并且存在可能的测量噪声和计算误差，因此对数据处理有很高的要求，
+	由于计算量往往特别巨大，也是大型计算设备应用较为广泛的领域之一。
+	
+	\begin{center}
+		\includegraphics[width=.8\textwidth]{./images/ch3/RS-dataP-1.jpg}
+		
+		\includegraphics[width=.8\textwidth]{./images/ch3/RS-dataP-2.jpg}
+	\end{center}
+\end{shaded}
+
 {\bf 例：}高度$h$的水桶，顶端不断注水使桶内总是保持水满的状态。在桶的侧面开个小孔，使水喷出。
 若小孔距地面高度为$y$，则水喷出的速度为$8\sqrt{h-y}$。问小孔放在多高的位置，能使水喷出的距离
 最远。
@@ -2144,8 +2199,7 @@ $s'(y)=\df{8\sqrt{2}}{\sqrt g}\df{h-2y}{2\sqrt{y(h-y)}}$，唯一驻点$y=\df h2
 显然其为最大值点，$s_{\max}=\df{4\sqrt 2}{\sqrt{g}}h$
 
 {\bf 例：}同一维度上两座建筑物，间隔$l=50$(m)，高度分别为$h_1=60$(m)和
-$h_2=30$(m)，在两个建筑物间修一座太阳能
-站，如何选址方为最优？
+$h_2=30$(m)，在两个建筑物间修一座太阳能站，如何选址方为最优？
 
 [提示]：使
 $$\theta=\pi-\arctan\df{h_1}{x}-\arctan\df{h_2}{l-x}$$
@@ -2164,7 +2218,8 @@ $$\left(x-\df{lh_1}{h_1-h_2}\right)^2-h_1h_2\left(\df{l^2}
   \item 如果坡面是向上的呢？
 \end{enumerate}
 \begin{center}
-	\resizebox{!}{5cm}{\includegraphics{./images/ch5/bFly.pdf}}
+	\includegraphics[height=5cm]{./images/ch5/bFly.pdf}\quad
+	\includegraphics[height=5cm]{./images/ch3/hCannon.jpg}
 \end{center}
 
 [提示]：（1）以时间$t$为参数，则
@@ -2383,7 +2438,7 @@ $$\df t{t-x}>\ln\left(1+\df t{x-t}\right)=-\ln\left(1-\df tx\right)$$
 	
 	{\it 铁路设计中的问题：列车从直线轨道进入圆弧轨道时，在转换的瞬间，
 	
-	离心力由零变为一个常数，如果车速较快，会车体和乘客产生很大的冲击。
+	向心力由零变为一个常数，如果车速较快，会对车体和乘客产生很大的冲击。
 	
 	能否/如何通过更合理的设计，减缓冲击，保证列车运行的安全、舒适？}
 \end{center}
@@ -2543,6 +2598,32 @@ $$
 \end{center}
 
 类似的问题广泛存在于高速公路、过山车，甚至是飞行器表面的设计中。
+
+\begin{center}
+	\includegraphics[height=3.5cm]{./images/ch3/RC-1.jpg}\quad
+	\includegraphics[height=3.5cm]{./images/ch3/RC-2.jpg}
+	
+	\bigskip
+	
+% 	roller coaster
+	
+	\includegraphics[height=4.5cm]{./images/ch3/HW-1.jpg}\quad
+	\includegraphics[height=4.5cm]{./images/ch3/HW-2.jpg}
+	
+% 	highway
+\end{center}
+
+\begin{center}
+	\includegraphics[width=9cm]{./images/ch3/AP-1.jpg}
+	
+	\bigskip
+% 	roller coaster
+	
+	\includegraphics[height=5.5cm]{./images/ch3/AP-2.jpg}\quad
+	\includegraphics[height=5.5cm]{./images/ch3/AP-3.jpg}
+	
+% 	highway
+\end{center}
 
 \begin{ext}
 	{\bf 课后作业}
@@ -2754,9 +2835,9 @@ x}=\df{0}{\frac{\pi}2}=0.$
 =1.$
 \ps{\b 使用已知极限$\limx{0^+}x^x=1$}
 
-（4）$\limx{\infty}x^2e^{\frac1{x^2}}
-=\lim\limits_{y\to0}\df{e^{y^2}}{y^2}
-=+\infty.$
+（4）$\limx{\infty}x^2e^{\frac1{x^2}}$，注意到
+$\limx{\infty}e^{\frac1{x^2}}=1,\limx{\infty}x^2$不存在，
+故原极限不存在。
 
 （5）$\limx{\infty}\df{x^2-\cos x}{x^2+\sin x}
 =\limx{\infty}\df{1-\frac{\cos x}{x^2}}{1+\frac{\sin x}{x^2}}=1.$
@@ -2835,7 +2916,7 @@ $\hspace{1cm}
 	+\left(a_2^{\frac1x}-1\right)+\ldots+\left(a_n^{\frac1x}-1\right)\right]\right\}\\
 	&=\exp\left[\limx{\infty}x\left(a_1^{\frac1x}-1\right)
 	+\limx{\infty}x\left(a_2^{\frac1x}-1\right)
-	+\limx{\infty}x\ldots+\left(a_n^{\frac1x}-1\right)\right]\\
+	+\ldots+\limx{\infty}x\left(a_n^{\frac1x}-1\right)\right]\\
 	&=\exp\left(\limx{\infty}\df{x\ln a_1}{x}
 	+\limx{\infty}\df{x\ln a_2}{x}
 	+\ldots+\limx{\infty}\df{x\ln a_n}{x}\right)\\
@@ -2847,14 +2928,23 @@ $\hspace{1cm}
 
 2.设$x\to 0$时，$x-\sin ax$与$x^2\ln(1-bx)$为等价无穷小，求$a,b$的值。
 
-[解]：$x\to 0$时，$x^2\ln(1-bx)\sim-bx^3$，故必有
+% [解]：$x\to 0$时，$x^2\ln(1-bx)\sim-bx^3$，故必有
+% $$1=\limx0\df{x-\sin ax}{-bx^3}
+% =\limx0\df{1-a\cos ax}{-3bx^2},$$
+% 右侧极限存在当且仅当$a=1$，进而
+% $$1=\limx0\df{x-\sin ax}{-bx^3}
+% =\limx0\df{1-\cos x}{-3bx^2}
+% =\limx0\df{\frac{x^2}2}{-3bx^2}=-\df1{6b},$$
+% 故$b=-\df16$。\hfill$\Box$
+
+[解]：$x\to 0$时，$x^2\ln(1-bx)\sim-bx^3$。又由Taylor公式，
+$$x-\sin ax=x-ax+\df{a^3x^3}6+\circ(x^3),$$
+故
 $$1=\limx0\df{x-\sin ax}{-bx^3}
-=\limx0\df{1-a\cos ax}{-3bx^2},$$
-\pause 右侧极限存在当且仅当$a=1$，进而
-$$1=\limx0\df{x-\sin ax}{-bx^3}
-=\limx0\df{1-\cos x}{-3bx^2}
-=\limx0\df{\frac{x^2}2}{-3bx^2}=-\df1{6b},$$
-故$b=-\df16$。\hfill$\Box$
+=\limx0\df{(1-a)x+\df{a^3x^3}6+\circ(x^3)}{-bx^3}
+=\limx0\df{1-a}{-bx^2}-\df{a^3}{6b},$$
+上式最后的极限存在当且仅当$1-a=0$，进而可知必有
+$a=1,b=-\df16$。\fin
 
 \begin{center}
 	\bf 3.3 Taylor公式
@@ -2864,14 +2954,14 @@ $$1=\limx0\df{x-\sin ax}{-bx^3}
 
 1.求$f(x)=x^4+x^3-2x-4$在$x=0$和$x=2$处的三阶Taylor多项式。
 
-[解]：$f(x)$在$x=0$处的三阶Taylor公式为
+[解]：$f(x)$在$x=0$处的三阶Taylor多项式为
 $$P^{[0]}_3(x)=x^3-2x-4.$$
 又
 \begin{align*}
 	f(x)&=[(x-2)+2]^4+[(x-2)+2]^3-2[(x-2)+2]-4\\
 	&=(x-2)^4+9(x-2)^3+30(x-2)^2+42(x-2)+16,
 \end{align*}
-$f(x)$在$x=2$处的三阶Taylor公式为
+$f(x)$在$x=2$处的三阶Taylor多项式为
 $$P^{[2]}_3(x)=9(x-2)^3+30(x-2)^2+42(x-2)+16.$$
 \hfill$\Box$
 
@@ -2931,13 +3021,13 @@ $$
 （5）
 \begin{align*}
 	\df1{\sqrt{4-x^2}}
-	&=2\left(1-\frac{x^2}4\right)^{-\frac12}
-	=2\left[\sum\limits_{k=0}^n\left(\begin{array}{c}
+	&=\df12\left(1-\frac{x^2}4\right)^{-\frac12}
+	=\df12\left[\sum\limits_{k=0}^n\left(\begin{array}{c}
 		-\frac12 \\ k
 	\end{array}\right)\left(-\df{x^2}{4}\right)^k
 	+\circ\left(\left(-\df{x^2}{4}\right)^n\right)
 	\right]\\
-	&=2\sum\limits_{k=0}^n\df{(2k+1)!!}{k!8^k}x^{2k}
+	&=\sum\limits_{k=0}^n\df{(2k+1)!!}{k!8^k2}x^{2k}
 	+\circ(x^{2n}).
 \end{align*}
 
@@ -2950,7 +3040,7 @@ $$
 	+\ldots-\df{(-1)^k2^{2k-1}x^{2k}}{(2k)!}+\circ(x^{2n}).
 \end{align*}
 
-（7）注意到$(1+x)e^x=(xe^x),$，而
+（7）注意到$(1+x)e^x=(xe^x)'$，而
 $$xe^x=x\sumn\df{x^n}{n!}=\sumn\df{x^{n+1}}{n!},
 \quad(x\in(-\infty,+\infty)),$$
 故
@@ -3189,6 +3279,11 @@ $$f'(a)(x-a)-f(x)+f(a)>0.$$
 $$f'(x)=e^x-e^{-x}-\sin x,\quad f''(x)=e^x+e^{-x}-\cos x,$$
 令$f'(x)=0$，解得$x=0$，又$f''(0)=1>0$，故$x=0$是$f(x)$
 的极小值点。
+
+又对任意$x\in(-\infty,+\infty)$，均有$f''(x)>0$，故当
+$x>0$时，必有$f'(x)>0$，当$x<0$时，必有$f'(x)<0$，从而
+可知$x=0$为$f(x)$的唯一驻点（否则由Rolle定理可推出矛盾），
+进而可知其为唯一的极值点。
 \hfill$\Box$
 
 \bigskip
@@ -3398,3 +3493,166 @@ $$
 即为所求。\hfill$\Box$
 
 \fi
+
+\newpage
+
+\begin{center}
+	\Large\bf 第三章小结
+\end{center}
+
+{\bf 1.中值定理}
+
+$\bullet$Rolle定理：若$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，
+且$f(a)=f(b)$，则存在$\xi\in(a,b)$，使得$f'(\xi)=0$。
+
+Rolle定理的高阶推广：若$f(x)$在$[a,b]$上连续，在$(a,b)$内$n$阶可导，
+且在$(a,b)$内存在$n+1$个零点，则存在$\xi\in(a,b)$，
+使得$f^{(n)}(\xi)=0$。
+
+$\bullet$用Rolle定理证明等式的思路，即：从结果出发，构造辅助函数，然后验证辅助函数满足
+中值定理条件。常用的辅助函数：
+\begin{itemize}
+  \setlength{\itemindent}{1cm}
+  \item $f(\xi)+\lambda f'(\xi)=0$：令$F(x)=e^{\lambda x}f(x)$
+  \item $f'(\xi)+f(\xi)g'(\xi)=0$： 令$F(x)=e^{g(x)}f(x)$
+  \item $nf(\xi)+\xi f'(\xi)=0$： 令$F(x)=x^nf(x)$ 
+  \item $f'(\xi)g(\xi)+f(\xi)g'(\xi)=0$：令$F(x)=f(x)g(x)$
+  \item $f'(\xi)g(\xi)-f(\xi)g'(\xi)=0$： 令$F(x)=\df{f(x)}{g(x)}$
+  或$F(x)=\arctan\df{f(x)}{g(x)}$
+\end{itemize}
+
+$\bullet$掌握用Rolle定理证明Lagrange中值定理和Cauchy中值定理的方法。
+
+$\bullet$Lagrange中值定理：若$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，
+则存在$\xi\in(a,b)$，使得：$\df{f(b)-f(a)}{b-a}=f'(\xi)$。
+
+Lagrange中值定理结论的不同形式：
+\begin{itemize}
+  \setlength{\itemindent}{1cm}
+  \item 存在$\xi\in(a,b)$，使得$f(b)-f(a)=f'(\xi)(b-a)$
+  \item 存在$\theta\in(0,1)$，使得$f(b)-f(a)
+  =f'(a+\theta(b-a))(b-a)$
+  \item 存在$\theta\in(0,1)$，使得$f(x_0+\Delta x)-f(x_0)
+  =f'(x_0+\theta\Delta x)\Delta x$ 
+\end{itemize}
+
+$*$（了解）Lagrange插值多项式：过$n$个点$(x_i,f(x_i))(i=1,2,\ldots,n)$
+的Lagrange插值多项式：
+$$L_n(x)=\sum\limits_{i=1}^n\prod_{j=1,j\ne i}^{n}
+\df{x-x_j}{x_i-x_j}f(x_i)$$
+
+$\bullet$Cauchy中值定理：若$f(x),\varphi(x)$在$[a,b]$上连续，
+在$(a,b)$内可导，且$\varphi'(x)\ne0$，
+则存在$\xi\in(a,b)$，使得：$\df{f(b)-f(a)}{\varphi(b)-\varphi(a)}=
+\df{f'(\xi)}{\varphi'(\xi)}$。
+
+$\bullet$Taylor中值定理：若$f(x)$在$x_0$处$n+1$阶可导，则存在
+$\xi$介于$x_0$和$x$之间，使得
+$$f(x)=\sum\limits_{k=0}^n\df{f^{(k)}(x_0)}{k!}(x-x_0)^k
++\df{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}.$$
+
+$\bullet$L'Hospital法则：仅对于“$\df{\bm{0}}{\bm{0}}$”和
+“$\df{\bm{\infty}}{\bm{\infty}}$”型的不定式极限适用
+
+注意：由$\limx{\Delta}\df{f'(x)}{g'(x)}=A$，可以推出
+$\limx{\Delta}\df{f(x)}{g(x)}=A$；反之不然！
+
+使用L'Hospital法则时，应注意及时化简算式，特别要注意和等价无穷小代换
+的结合使用。
+
+{\bf 2.Taylor公式}
+
+$\bullet$Taylor多项式：与给定函数在指定点处$n$阶相切的多项式函数。
+
+给定函数$f(x)$、点$x_0$和展开的阶数$n$，Taylor多项式$P_n(x)$
+是唯一确定的。
+
+$$P_n(x)=\sum\limits_{k=0}^n\df{f^{\,(k)}(x_0)}{k!}(x-x_0)^k$$
+
+带Peano余项的Taylor公式：$f(x)=P_n(x)+\circ((x-x_0)^n)$，条件：
+$f(x)$在$x_0$处$n$阶可导；
+
+带Lagrange余项的Taylor公式：$f(x)=P_n(x)+\df{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}$
+$f(x)$在$x_0$处$n+1$阶可导。
+
+$\bullet$带Peano余项的Taylor公式可用于计算“$\df{\bm{0}}{\bm{0}}$”
+型的不定式极限：根据分子分母的无穷小的阶数，来确定
+展开的阶数。必要时，先进行试探性的展开。展开后，注意及时合并高阶无穷小。
+
+$\bullet$带Lagrange余项的Taylor公式可用于证明等式和不等式：
+如果题目同时涉及到多个不同阶的导数，可以考虑使用带Lagrange余项的Taylor公式。
+展开和被展开点的常见选择包括： 区间端点、极（最）值点、区间中点、距离为
+常数的点、已知条件中提到的特殊点，等等。
+
+$\bullet$（熟练掌握）常用的Maclaurin公式：
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $e^x =\sum\limits_{k=0}^n\df{x^k}{k!}
+  +\df{e^{\theta x}}{(n+1)!}x^{n+1}\;
+  (0<\theta<1,x\in\mathbb{R})$
+  \item $\sin x
+  =\sum\limits_{k=1}^m(-1)^{k-1}\df{x^{2k-1}}{(2k-1)!} 
+  +(-1)^m\df{\cos\theta x}{(2m+1)!}x^{2m+1}\;
+  (0<\theta<1,x\in\mathbb{R})$
+  \item $\cos x= \sum\limits_{k=0}^m(-1)^{k}\df{x^{2k}}{(2k)!}
+  +(-1)^{m+1}\df{\sin\theta
+  x}{(2m+2)!}x^{2m+2}\; (0<\theta<1,x\in\mathbb{R})$
+  \item
+  $\ln(1+x) =\sum\limits_{k=1}^n(-1)^{k-1}\df{x^k}{k}
+  +\df{(-1)^nx^{n+1}}{(n+1)(1+\theta
+  x)^{n+1}}\; (0<\theta<1,x>-1)$
+  \item
+  $(1+x)^\alpha =\sum\limits_{k=0}^n
+  \df{\alpha(\alpha-1)\ldots(\alpha-k+1)}{k!}x^k$
+
+	\hspace{2cm}$+\df{\alpha(\alpha-1)\ldots(\alpha-n)}{(n+1)!}\df{x^{n+1}}{(1+\theta
+	x)^{n+1-\alpha}}\quad (0<\theta<1,x\ne -1)$
+\end{enumerate}
+
+$\bullet$函数的Taylor展开：
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 多项式函数的Taylor多项式就是其截断多项式；
+  \item 若$f(x)=\sumn a_nx^n$，且$x\to0\Leftrightarrow u\to0$，则
+  $f(u)=\sumn a_nu^n$
+  \item 幂级数在其收敛域内可以逐项求导和逐项积分
+  \item 线性组合的幂级数等于幂级数的线性组合
+\end{enumerate}
+
+注意结合本讲义，熟练掌握一些典型的例题。
+
+{\bf 3.微分几何}
+
+$\bullet$单调性：若$f'(x)>g'(x)$，且$f(a)\geq g(a)$，则当$x>a$时，
+$f(x)>g(x)$。
+
+利用单调性证明不等式，常常需要反复使用以上的结论。在构造辅助函数时，
+要注意通过一些恒等变形，尽可能是辅助函数的形式较为简单，或者其导函数
+的形式较为简单。
+
+$\bullet$凹凸性：$f''(x)>0$，$f(x)$严格凹；$f''(x)<0$，$f(x)$严格凸。
+
+凹凸性的临界点称为拐点。若函数二阶可导，则在拐点处必有$f''(x)=0$。
+
+$\bullet$极值点：局部唯一的最值点。对于连续函数而言，就是单调性发生改变的
+临界点。
+
+可能的极值点：驻点和不可导点。
+
+极值的判定：若$f'(x_0)=0$，且$f''(x_0)>0$，则$x_0$为$f(x)$的极小值点；
+若$f'(x_0)=0$，且$f''(x_0)<0$，则$x_0$为$f(x)$的极大值点；若
+$f'(x_0)=f''(x_0)=0$，则无法判定。
+
+$\bullet$最值问题：给定一定的约束条件，求目标函数的最值。
+
+可能的最值点：极值点和区间端点，或者说驻点、不可导点和区间端点。
+
+{\bf 4.曲率}
+
+$\bullet$弧微分：$\d s=\sqrt{1+(y')^2}\d x =\sqrt{(\d x)^2+(\d y)^2}
+=\sqrt{[x'(t)]^2+[y'(t)]^2}\d t=\sqrt{\rho^2(\theta)+[\rho'(\theta)]^2}\d\theta$
+
+$\bullet$曲率：$K=\left|\df{\d\alpha}{\d s}\right|
+=\df{|y''_{xx}|}{[1+(y'_x)^2]^{3/2}}$
+
+曲率半径：$R=\df1K$。

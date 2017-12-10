@@ -72,7 +72,7 @@
 	=\df{\limx{+\infty}\ln\left(1+\df1x\right)}{\limx{+\infty}\arctan
 	x}=\df{0}{\frac{\pi}2}=0.$
 	
-	\ba{注：$0/\infty$型，不能使用L'Hospital法则！}
+	\ba{注：$0/1$型，不能使用L'Hospital法则！}
 	
 	\pause	
 	（3）$\limx{0^+}x^{\sin x}=\exp\left(\limx{0^+}\sin x\ln x\right)
@@ -82,9 +82,7 @@
 	=1.$
 	
 	\pause
-	（4）$\limx{\infty}x^2e^{\frac1{x^2}}
-	=\lim\limits_{y\to0}\df{e^{y^2}}{y^2}
-	=+\infty.$
+	（4）$\limx{\infty}x^2e^{\frac1{x^2}}$极限不存在。
 
 	\ba{注：$\infty\cdot 1$型，不能使用L'Hospital法则！}
 \end{frame}
@@ -213,7 +211,7 @@
 		+\left(a_2^{\frac1x}-1\right)+\ldots+\left(a_n^{\frac1x}-1\right)\right]\right\}\\
 		&=\exp\left[\limx{\infty}x\left(a_1^{\frac1x}-1\right)
 		+\limx{\infty}x\left(a_2^{\frac1x}-1\right)
-		+\limx{\infty}x\ldots+\left(a_n^{\frac1x}-1\right)\right]\\
+		+\ldots+\limx{\infty}x\left(a_n^{\frac1x}-1\right)\right]\\
 		&=\exp\left(\limx{\infty}\df{x\ln a_1}{x}
 		+\limx{\infty}\df{x\ln a_2}{x}
 		+\ldots+\limx{\infty}\df{x\ln a_n}{x}\right)\\
@@ -241,7 +239,27 @@
 	\pause\ba{正确的作法应使用Taylor公式！}
 \end{frame}
 
-\section{3.2 L'Hospital法则}
+\begin{frame}
+	\linespread{1.5}
+	\ba{2.设$x\to 0$时，$x-\sin ax$与$x^2\ln(1-bx)$为等价无穷小，求$a,b$的值。
+	}\pause
+	
+	\bigskip
+	
+	\small 正解：\it 
+	$x\to 0$时，$x^2\ln(1-bx)\sim-bx^3$。又由Taylor公式，
+	$$x-\sin ax=x-ax+\df{a^3x^3}6+\circ(x^3),$$
+	故
+	\begin{align*}
+		1&=\limx0\df{x-\sin ax}{-bx^3}
+		=\limx0\df{(1-a)x+\df{a^3x^3}6+\circ(x^3)}{-bx^3}\\
+		&=\limx0\df{1-a}{-bx^2}-\df{a^3}{6b},
+	\end{align*}
+	上式最后的极限存在当且仅当$1-a=0$，进而可知必有
+	$a=1,b=-\df16$。\hfill$\Box$
+\end{frame}
+
+\section{3.2 Taylor公式}
 
 \begin{frame}
 	\linespread{1.5}
@@ -250,14 +268,14 @@
 	\bigskip
 	
 	\small 解： \it 
-	$f(x)$在$x=0$处的三阶Taylor公式为
+	$f(x)$在$x=0$处的三阶Taylor多项式为
 	$$P^{[0]}_3(x)=x^3-2x-4.$$
 	\pause 又
 	\begin{align*}
 		f(x)&=[(x-2)+2]^4+[(x-2)+2]^3-2[(x-2)+2]-4\\
 		&=(x-2)^4+9(x-2)^3+30(x-2)^2+42(x-2)+16,
 	\end{align*}
-	$f(x)$在$x=2$处的三阶Taylor公式为
+	$f(x)$在$x=2$处的三阶Taylor多项式为
 	$$P^{[2]}_3(x)=9(x-2)^3+30(x-2)^2+42(x-2)+16.$$
 	\hfill$\Box$
 \end{frame}
@@ -345,13 +363,13 @@
 	\small （5）
 	\begin{align*}
 		\df1{\sqrt{4-x^2}}
-		&=2\left(1-\frac{x^2}4\right)^{-\frac12}\\
-		&=2\left[\sum\limits_{k=0}^n\left(\begin{array}{c}
+		&=\df12\left(1-\frac{x^2}4\right)^{-\frac12}\\
+		&=\df12\left[\sum\limits_{k=0}^n\left(\begin{array}{c}
 			-\frac12 \\ k
 		\end{array}\right)\left(-\df{x^2}{4}\right)^k
 		+\circ\left(\left(-\df{x^2}{4}\right)^n\right)
 		\right]\\
-		&=2\sum\limits_{k=0}^n\df{(2k+1)!!}{k!8^k}x^{2k}
+		&=\sum\limits_{k=0}^n\df{(2k+1)!!}{k!8^k2}x^{2k}
 		+\circ(x^{2n}).
 	\end{align*}
 	
@@ -372,7 +390,7 @@
 	
 % 	\bigskip
 	
-	\small （7）\it 注意到$(1+x)e^x=(xe^x),$，而
+	\small （7）\it 注意到$(1+x)e^x=(xe^x)'$，而
 	$$xe^x=x\sumn\df{x^n}{n!}=\sumn\df{x^{n+1}}{n!},$$
 	故
 	$$(1+x)e^x=\left[\sumn\df{x^{n+1}}{n!}\right]'
