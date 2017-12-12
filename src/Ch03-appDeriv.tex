@@ -717,7 +717,7 @@ $$\df{f'(\theta(x)x)-f'(0)}{x}=f''(0)\limx{0}\theta(x).$$
   		  \item $\limx{\infty}\left[\df1n\left(a_1^{\frac1x}+a_2^{\frac1x}
   		  +\ldots+a_n^{\frac1x}\right)\right]^{nx}$，其中$a_1,a_2,\ldots,a_n>0$
 		\end{enumerate}
-	  \item 设$x\to 0$时，$x-\sin ax$与$x^2\ln(1-bx)$为等价无穷小，求$a,b$的值。
+% 	  \item 设$x\to 0$时，$x-\sin ax$与$x^2\ln(1-bx)$为等价无穷小，求$a,b$的值。
 % 	  \item 讨论函数
 % 	  $$f(x)=\left\{\begin{array}{ll}
 % 	  	\left[\df{(1+x)^{\frac1x}}e\right]^{\frac1x},& x>0,\\
@@ -1398,8 +1398,9 @@ $$|f\,''(c)|\geq \df 4{(b-a)^2}|f(b)-f(a)|.$$
 		\item $\limx{+\infty}\left[\left(x^3-x^2+\df{x}2\right)e^{\frac1x}
 		-\sqrt{x^6+1}\right]$
 	  \end{enumerate}
+	  \item 应用关于$(x-1)$的$3$阶Taylor公式计算$\sqrt[3]{2}$的近似值，并估计其误差。
 	  \item 应用$3$阶Taylor公式计算$\sqrt[3]{30}$的近似值，并估计其误差。
-% 	  \item 设$x\to 0$时，$x-\sin ax$与$x^2\ln(1-bx)$为等价无穷小，求$a,b$的值。
+	  \item 设$x\to 0$时，$x-\sin ax$与$x^2\ln(1-bx)$为等价无穷小，求$a,b$的值。
 	  \item 已知$f(x)$在$x=0$附近二阶可导，且
 	  $$\limx0\left[\df{\sin x}{x^3}+\df{f(x)}{x^2}\right]=0,$$
 	  求$f'(0),f''(0),f'''(0)$。
@@ -2926,26 +2927,6 @@ $\hspace{1cm}
 
 \bigskip
 
-2.设$x\to 0$时，$x-\sin ax$与$x^2\ln(1-bx)$为等价无穷小，求$a,b$的值。
-
-% [解]：$x\to 0$时，$x^2\ln(1-bx)\sim-bx^3$，故必有
-% $$1=\limx0\df{x-\sin ax}{-bx^3}
-% =\limx0\df{1-a\cos ax}{-3bx^2},$$
-% 右侧极限存在当且仅当$a=1$，进而
-% $$1=\limx0\df{x-\sin ax}{-bx^3}
-% =\limx0\df{1-\cos x}{-3bx^2}
-% =\limx0\df{\frac{x^2}2}{-3bx^2}=-\df1{6b},$$
-% 故$b=-\df16$。\hfill$\Box$
-
-[解]：$x\to 0$时，$x^2\ln(1-bx)\sim-bx^3$。又由Taylor公式，
-$$x-\sin ax=x-ax+\df{a^3x^3}6+\circ(x^3),$$
-故
-$$1=\limx0\df{x-\sin ax}{-bx^3}
-=\limx0\df{(1-a)x+\df{a^3x^3}6+\circ(x^3)}{-bx^3}
-=\limx0\df{1-a}{-bx^2}-\df{a^3}{6b},$$
-上式最后的极限存在当且仅当$1-a=0$，进而可知必有
-$a=1,b=-\df16$。\fin
-
 \begin{center}
 	\bf 3.3 Taylor公式
 \end{center}
@@ -3104,7 +3085,7 @@ $$(1+x)e^x=\sum\limits_{k=0}^n\df{(k+1)x^k}{k!}+\circ(x^{n+1}).$$
 	&\quad+\df13\cdot\df{-2}3\cdot\df{-5}3\cdot\df{-8}3
 	\cdot\df{\xi^{\frac13-4}}{4!}(x-1)^4\\
 	&=1+\df{x-1}3-\df{(x-1)^2}9+\df{5(x-1)^3}{81}
-	-\df{10\xi^{\frac13-4}}{243}(x-1)^4,
+	-\df{10(1+\xi)^{\frac13-4}}{243}(x-1)^4,
 \end{align*}
 带入$x=2$即得
 $$\sqrt[3]2\approx1+\df13-\df19+\df5{81}=\df{104}{81},$$
@@ -3113,7 +3094,45 @@ $$\sqrt[3]2\approx1+\df13-\df19+\df5{81}=\df{104}{81},$$
 
 \bigskip
 
-6.已知$f(x)$在$x=0$附近二阶可导，且
+6.应用$3$阶Taylor公式计算$\sqrt[3]{30}$的近似值，并估计其误差。
+
+[解]：$\sqrt[3]{30}=3\sqrt[3]{1+\frac19}$，由Taylor公式，对任意$x>0$
+存在$\xi\in(0,x)$，使得
+$$(1+x)^{\frac13}=1+\df13x-\df19x^2+\df5{81}x^3
+-\df{10(1+\xi)^{\frac13-4}}{243}x^4,$$
+带入$x=\frac19$，计算可得$\sqrt[3]{30}\approx\df{61160}{19683}\approx
+3.10725$，
+注意到$0<\xi<\frac19$，故计算误差
+$$3\left|\df{10(1+\xi)^{\frac13-4}}{243}
+\df1{9^4}\right|\leq3\left|\df{10}{243}\df1{9^4}\right|=\df{10}{531441}
+\approx 1.88\times10^{-5}.$$
+\fin
+
+\bigskip
+
+7.设$x\to 0$时，$x-\sin ax$与$x^2\ln(1-bx)$为等价无穷小，求$a,b$的值。
+
+% [解]：$x\to 0$时，$x^2\ln(1-bx)\sim-bx^3$，故必有
+% $$1=\limx0\df{x-\sin ax}{-bx^3}
+% =\limx0\df{1-a\cos ax}{-3bx^2},$$
+% 右侧极限存在当且仅当$a=1$，进而
+% $$1=\limx0\df{x-\sin ax}{-bx^3}
+% =\limx0\df{1-\cos x}{-3bx^2}
+% =\limx0\df{\frac{x^2}2}{-3bx^2}=-\df1{6b},$$
+% 故$b=-\df16$。\hfill$\Box$
+
+[解]：$x\to 0$时，$x^2\ln(1-bx)\sim-bx^3$。又由Taylor公式，
+$$x-\sin ax=x-ax+\df{a^3x^3}6+\circ(x^3),$$
+故
+$$1=\limx0\df{x-\sin ax}{-bx^3}
+=\limx0\df{(1-a)x+\df{a^3x^3}6+\circ(x^3)}{-bx^3}
+=\limx0\df{1-a}{-bx^2}-\df{a^3}{6b},$$
+上式最后的极限存在当且仅当$1-a=0$，进而可知必有
+$a=1,b=-\df16$。\fin
+
+\bigskip
+
+8.已知$f(x)$在$x=0$附近二阶可导，且
 $$\limx0\left[\df{\sin x}{x^3}+\df{f(x)}{x^2}\right]=0,$$
 求$f'(0),f''(0),f'''(0)$。
 
@@ -3132,7 +3151,7 @@ $$f(0)=-1,\quad f'(0)=0,\quad f''(0)=-\df13.$$
 
 \bigskip
 
-7.证明：若在$(a,b)$内，$f''(x)>0$，则对任意$a<x_1<x_2<b$，恒有：
+9.证明：若在$(a,b)$内，$f''(x)>0$，则对任意$a<x_1<x_2<b$，恒有：
 对任意$\lambda\in(0,1)$，
 $$f(\lambda x_1+(1-\lambda)x_2)<\lambda
 f(x_1)+(1-\lambda)f(x_2).$$
@@ -3164,7 +3183,7 @@ x_2-x_{\lambda}=\lambda(x_2-x_1).$$
 
 \bigskip
 
-8.设在$f(x)$在$[0,a]$上二阶连续可导，
+10.设在$f(x)$在$[0,a]$上二阶连续可导，
 $|f\,''(x)|\leq M$，且$|f(x)|$在$(0,a)$内可取到最大值，证明：
 $$|f\,'(0)+f\,'(a)|\leq Ma.$$	
 
@@ -3295,9 +3314,12 @@ $$f'(x)=a^x\ln a-1,\quad f''(x)=a^x\ln^2a.$$
 令$f'(x)=0$，解得$x=-\log_a\ln a$，注意到$f''(x)>0$，故
 $x=-\log_a\ln a$为函数的极小值点，显然也是最小值点。
 
-要使所给不等式很成立，只需$f(x)>0$，也即其最小值
-$f(-\log_a\ln a)=\df1{\ln a}>0$，
-显然，有$a>1$即可。\hfill$\Box$
+要使所给不等式很成立，只需$f(x)\geq0$，也即其最小值
+$f(-\log_a\ln a)=\df1{\ln a}-1+\log_a\ln a\geq0$，
+从而可得$a^{\frac1a}\geq e^{\frac1e}$。对函数$g(x)=x^{\frac1x}$，
+$g'(e)=0$，且当$x>e$和$x<e$时，分别有$f'(x)>0$和$f'(x)<0$，
+故$x=e$是$g(x)$的最大值点。从而可知，当且仅当$a=e$时，原不等式恒成立。
+\hfill$\Box$
 
 \bigskip
 
@@ -3332,8 +3354,15 @@ $$\df{\ln\xi}{\xi}=\ln\xi^{\frac1{\xi}}>\df2{e^2},$$
 5.建造一个体积为$V$的圆柱体油罐，问该油罐的地面直径与高的比例为多少时，
 所需要的建造材料最少。
 
-[解]：
-\hfill$\Box$
+[解]：设油罐的底面半径为$R$，高为$H$，则$V=\pi R^2H$，从而可知
+$H=\df{V}{\pi R^2}$。
+
+油罐的表面积
+$$A(R)=\pi R^2+2\pi RH=\pi R^2+\df{V}{2R}.$$
+令$A'(R)=2\pi R-\df{V}{2R^2}=0$，可解得$R=\sqrt[3]{\df{V}{4\pi}}$。
+又当$R>0$时，总有$A''(R)=2\pi+\df{3V}{2R^3}>0$，故
+$R=\sqrt[3]{\df{V}{4\pi}}$为$A(R)$的唯一极小值点，进而也是最小值点。
+此时对应的直径与高的比例为$1/2$。\fin
 
 \bigskip
 
@@ -3369,18 +3398,28 @@ $$f(0)=1,\quad f\left(\df12\right)=\df1{2^{a-1}},
 
 8.比较$\pi^e$和$e^{\pi}$的大小。
 
-[解]：令$f(x)=(\ln x)^{e}-x$，则
-$$f'(x)=\df{e}x(\ln x)^{e-1}-1,
-\quad
-f''(x)=(e-1-\ln x)\df{e(\ln x)^{e-2}}{x^2}
-$$
-% 令$f'(x)=0$，解得$x=e$或$x=e^e$。
-注意到$f(e^e)=f'(e^e)=0$，且$f''(e^e)=-\df1{e^{e-3}}<0$，故
-$x=e^e$是$f(x)$的极大值点。又$x>e^e$时，$f''(x)<0$，故当$x>e^e$时，
-$f'(x)<f'(e^e)=0$，进而可知$f(x)<f(e^e)=0$。
-显然$e^{\pi}>e^e$，故$f(e^{\pi})<0$，也即
-$$\pi^e<e^{\pi}.$$
-\hfill$\Box$
+% [解]：令$f(x)=(\ln x)^{e}-x$，则
+% $$f'(x)=\df{e}x(\ln x)^{e-1}-1,
+% \quad
+% f''(x)=(e-1-\ln x)\df{e(\ln x)^{e-2}}{x^2}
+% $$
+% % 令$f'(x)=0$，解得$x=e$或$x=e^e$。
+% 注意到$f(e^e)=f'(e^e)=0$，且$f''(e^e)=-\df1{e^{e-3}}<0$，故
+% $x=e^e$是$f(x)$的极大值点。又$x>e^e$时，$f''(x)<0$，故当$x>e^e$时，
+% $f'(x)<f'(e^e)=0$，进而可知$f(x)<f(e^e)=0$。
+% 显然$e^{\pi}>e^e$，故$f(e^{\pi})<0$，也即
+% $$\pi^e<e^{\pi}.$$
+% \hfill$\Box$
+
+[解]：令$f(x)=e\ln x-x,(x>0)$，则
+$$f'(x)=\df ex-1,\quad f''(x)=-\df e{x^2}.$$
+令$f'(x)=0$，解得$x=e$，又显然$f''(x)<0$，为$x=e$
+为其极大值点，又显然
+$$\limx{0^+}f(x)=\limx{+\infty}f(x)=-\infty,$$
+故$x=e$为$f(x)$的最大值点。从而$f(\pi)<f(e)$，也即
+$$e\ln\pi-\pi=\ln\df{\pi^e}{e^{\pi}}
+<0,$$
+从而可知$\pi^e<e^{\pi}$。\fin
 
 \bigskip
 
