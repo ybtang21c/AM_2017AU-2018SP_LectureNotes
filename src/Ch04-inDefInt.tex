@@ -22,11 +22,11 @@
 {\bf 例：}证明：函数$$f(x)=\left\{\begin{array}{ll}
 0\;& x\ne 0\\1\;& x=0\end{array}\right.$$在$\mathbb{R}$上不存在原函数
 
-[证]：反证法。设$F(x)$为$f(x)$的原函数。显然，当$x\ne0$时，$F(x)=x+C(C\in\mathbb{R})$，
+[证]：反证法。设$F(x)$为$f(x)$的原函数。显然，当$x\ne0$时，$F(x)=C(C\in\mathbb{R})$，
 注意到$F(x)$必须为连续函数，故易得$F(0)=C$。
 
 由此，
-$$f(0)=F'(0)=\limx{0}\df{F(x)-F(0)}x=\limx{0}\df xx=1,$$
+$$f(0)=F'(0)=\limx{0}\df{F(x)-F(0)}x=\limx{0}\df0x=0,$$
 与已知矛盾，故假设错误，即证。\fin
 
 参考以上的证明方法，我们可以证明{\b 所有具有第一类间断点的函数都不存在原函数}。
@@ -63,8 +63,8 @@ $$f(0)=F'(0)=\limx{0}\df{F(x)-F(0)}x=\limx{0}\df xx=1,$$
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\dint\sin x\cos x\d x=\df12\sin^2x+C$
-  \item $\dint\cos x\sin x\d x=\df12\cos^2x+C$
-  \item $\dint\df12\sin2x\d x=\cos2x+C$
+  \item $\dint\cos x\sin x\d x=-\df12\cos^2x+C$
+  \item $\dint\df12\sin2x\d x=-\df14\cos2x+C$
 \end{enumerate}
 以上三者都属于同一个函数族，仅相差一个常数！\ps{要想判断它们是否相同，
 最可靠的方法还是求导，比较其导函数是否相同}
@@ -299,7 +299,7 @@ u\d v=\d uv-v\d u,$$
   \item $\dint\csc^4x\d x$\\
   $$I=-\cot x\csc^2x+\dint\cot x\d(\csc^2x)=-\cot x\csc^2x-2I-2\cot x$$
   \item $\dint x\tan x\sec^2x\d x$
-  $$I=\df12x\sec^2x-\df12\dint\sec^2\d x=\df12(x\sec^2x-\tan x)+C$$
+  $$I=\df12x\sec^2x-\df12\dint\sec^2x\d x=\df12(x\sec^2x-\tan x)+C$$
   下面的解法错在哪里？令$x=\pi-t$\ps{求导验证结果不正确！}{\b
   \begin{align}
   I&=\dint\df{(\pi-t)\sin t}{\cos^3t}\d t=\pi\dint\df{\sin t}{\cos^3t}\d t
