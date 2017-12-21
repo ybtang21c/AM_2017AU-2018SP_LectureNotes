@@ -695,7 +695,7 @@ $$I=\df2{\sqrt3}\arctan
 % 	计算下列不定积分
 	\begin{enumerate}
 % 	  \setlength{\itemindent}{1cm}
-	  \item 同济教材习题4-5：所有单数题
+	  \item 同济教材习题4-4：所有单数题
 	%   \item $\dint\df{1+\sin x}{\sin x(1+\cos x)}\d x$ 
 % 	  \item $\dint\df{\sqrt{x-1}}{x}\d x$ 
 % 	  \item $\dint\df{\d x}{(1+e^x)^2}$
@@ -715,10 +715,58 @@ $$I=\df2{\sqrt3}\arctan
 	\end{enumerate}
 \end{ext}
 
+\section{小结}
 
-\section{计算不定积分的技巧与方法}
+求导有多容易，求不定积分就有多难。作为求导的逆运算，求不定积分是这学期
+的有一个难点，除了要倒背如流地掌握求导公式，还必须熟悉和掌握一些常见
+的求补丁积分方法和技巧。把洋葱一层层地剥开（{\it 链式法则}）容易，
+把剥开的洋葱还原回去（{\it “凑微分”}）就不那么简单了。
 
-本节内容请大家自行阅读，课堂上不再单独讲解：
+% \newpage
+% 
+% {\bf 例：}证明：$\dint\df{\d x}{x^2\sqrt{ax+b}}=-\df{\sqrt{ax+b}}{bx}
+% -\df{a}{2b}\dint\df{\d x}{x\sqrt{ax+b}}$
+% 
+% [证]：
+% \begin{align*}
+% 	\dint\df{\d x}{x^2\sqrt{ax+b}}&=\df2a\dint\df{\d\sqrt{ax+b}}{x^2}
+% 	=2a\dint\df{\d\sqrt{ax+b}}{[(\sqrt{ax+b})^2-b]^2}\\
+% 	&\xlongequal{t=\sqrt{ax+b}}2a\dint\df{\d t}{(t^2-b)^2}
+% 	=\df{a}{2b}\dint\left(\df1{t+\sqrt b}-\df1{t-\sqrt b}\right)^2\d t\\
+% 	&=\df{a}{2b}\left[\dint\df{\d t}{(t+\sqrt b)^2}
+% 	-\dint\df{2\d t}{(t+\sqrt b)(t-\sqrt b)}
+% 	+\dint\df{\d t}{(t-\sqrt b)^2}\right]\\
+% 	&=\df{a}{2b}\left[-\df1{t+\sqrt b}-\df1{\sqrt b}
+% 	\dint\left(\df1{t+\sqrt b}-\df1{t-\sqrt b}\right)\d t
+% 	-\df1{t-\sqrt b}\right]\\
+% 	&=-\df{at}{(t^2-b)b}-\df{a}{2b\sqrt b}
+% 	\ln\left|\df{t+\sqrt b}{t-\sqrt b}\right|+C\\
+% 	&=-\df{\sqrt{ax+b}}{bx}-\df{a}{2b\sqrt b}
+% 	\ln\left|\df{\sqrt{ax+b}+\sqrt b}{\sqrt{ax+b}-\sqrt b}\right|+C
+% \end{align*}
+% 类似的方法：
+% \begin{align*}
+% 	\dint\df{\d x}{x\sqrt{ax+b}}&=\df2a\dint\df{\d\sqrt{ax+b}}{x}
+% 	=2\dint\df{\d\sqrt{ax+b}}{(\sqrt{ax+b})^2-b}\\
+% 	&\xlongequal{t=\sqrt{ax+b}}\dint\df{\d t}{t^2-b}
+% 	=\df2{\sqrt b}\dint\left(\df1{t+\sqrt b}-\df1{t-\sqrt b}\right)\d t\\
+% 	&=\df2{\sqrt b}\ln\left|\df{t+\sqrt b}{t-\sqrt b}\right|+C
+% 	=\df2{\sqrt b}\ln\left|\df{\sqrt{ax+b}+\sqrt b}{\sqrt{ax+b}-\sqrt b}\right|+C
+% \end{align*}
+% 代入等式验证即证。
+% 
+% {\bf 注：}以上的方法可以推广用于计算形如$\dint\df{\d x}{x^n\sqrt{ax+b}}$的
+% 所有积分。下面是另一种解法：
+% 
+% \begin{center}
+% 	\resizebox{!}{11cm}{\includegraphics{./images/ch4/intExWHN.jpg}}
+% \end{center}
+
+\newpage
+
+\begin{center}
+	\Large\bf 第四章小结：计算不定积分的技巧与方法
+\end{center}
 
 \subsection{不定积分计算的一些典型方法}
 
@@ -1198,55 +1246,8 @@ $$x^2\sqrt{x^2+1}=\df14\left[(x^3\sqrt{x^2+1})'+\sqrt{x^2+1}
 $$I=\df14\left[x^3\sqrt{x^2+1}+\df x2\sqrt{x^2+1}
 -\df12\ln(x+\sqrt{x^2+1})\right]+C$$
 
-% \begin{ext}
-% 	{\bf 自测}
-% 
-% 	同济教材总习题四：4.
-% \end{ext}
+\begin{ext}
+	{\bf 自测}
 
-\section{小结}
-
-求导有多容易，求不定积分就有多难。作为求导的逆运算，求不定积分是这学期
-的有一个难点，除了要倒背如流地掌握求导公式，还必须熟悉和掌握一些常见
-的求补丁积分方法和技巧。把洋葱一层层地剥开（{\it 链式法则}）容易，
-把剥开的洋葱还原回去（{\it “凑微分”}）就不那么简单了。
-
-% \newpage
-% 
-% {\bf 例：}证明：$\dint\df{\d x}{x^2\sqrt{ax+b}}=-\df{\sqrt{ax+b}}{bx}
-% -\df{a}{2b}\dint\df{\d x}{x\sqrt{ax+b}}$
-% 
-% [证]：
-% \begin{align*}
-% 	\dint\df{\d x}{x^2\sqrt{ax+b}}&=\df2a\dint\df{\d\sqrt{ax+b}}{x^2}
-% 	=2a\dint\df{\d\sqrt{ax+b}}{[(\sqrt{ax+b})^2-b]^2}\\
-% 	&\xlongequal{t=\sqrt{ax+b}}2a\dint\df{\d t}{(t^2-b)^2}
-% 	=\df{a}{2b}\dint\left(\df1{t+\sqrt b}-\df1{t-\sqrt b}\right)^2\d t\\
-% 	&=\df{a}{2b}\left[\dint\df{\d t}{(t+\sqrt b)^2}
-% 	-\dint\df{2\d t}{(t+\sqrt b)(t-\sqrt b)}
-% 	+\dint\df{\d t}{(t-\sqrt b)^2}\right]\\
-% 	&=\df{a}{2b}\left[-\df1{t+\sqrt b}-\df1{\sqrt b}
-% 	\dint\left(\df1{t+\sqrt b}-\df1{t-\sqrt b}\right)\d t
-% 	-\df1{t-\sqrt b}\right]\\
-% 	&=-\df{at}{(t^2-b)b}-\df{a}{2b\sqrt b}
-% 	\ln\left|\df{t+\sqrt b}{t-\sqrt b}\right|+C\\
-% 	&=-\df{\sqrt{ax+b}}{bx}-\df{a}{2b\sqrt b}
-% 	\ln\left|\df{\sqrt{ax+b}+\sqrt b}{\sqrt{ax+b}-\sqrt b}\right|+C
-% \end{align*}
-% 类似的方法：
-% \begin{align*}
-% 	\dint\df{\d x}{x\sqrt{ax+b}}&=\df2a\dint\df{\d\sqrt{ax+b}}{x}
-% 	=2\dint\df{\d\sqrt{ax+b}}{(\sqrt{ax+b})^2-b}\\
-% 	&\xlongequal{t=\sqrt{ax+b}}\dint\df{\d t}{t^2-b}
-% 	=\df2{\sqrt b}\dint\left(\df1{t+\sqrt b}-\df1{t-\sqrt b}\right)\d t\\
-% 	&=\df2{\sqrt b}\ln\left|\df{t+\sqrt b}{t-\sqrt b}\right|+C
-% 	=\df2{\sqrt b}\ln\left|\df{\sqrt{ax+b}+\sqrt b}{\sqrt{ax+b}-\sqrt b}\right|+C
-% \end{align*}
-% 代入等式验证即证。
-% 
-% {\bf 注：}以上的方法可以推广用于计算形如$\dint\df{\d x}{x^n\sqrt{ax+b}}$的
-% 所有积分。下面是另一种解法：
-% 
-% \begin{center}
-% 	\resizebox{!}{11cm}{\includegraphics{./images/ch4/intExWHN.jpg}}
-% \end{center}
+	同济教材总习题四：4.
+\end{ext}

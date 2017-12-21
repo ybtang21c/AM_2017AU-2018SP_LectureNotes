@@ -82,16 +82,23 @@ $$\dint_a^bf(x)\d x=\dint_a^bg(x)\d x.$$
 
 \begin{thx}
 	若$f(x)$在$[a,b]$上可积，则
-	$$\dint_a^bf(x)\d x=\limn\sum\limits_{k=1}^nf\left(\df kn\right)\df1n.$$
+	$$\dint_a^bf(x)\d x
+	=\limn\sum\limits_{k=1}^nf\left[a+\df kn(b-a)\right]\df{b-a}n.$$
 \end{thx}
+
+这相当于对区间$[a,b]$做了$n$等分，然后取分割后的区间端点$a+\df kn(b-a)$
+作为近似点。特别地，当积分区间为$[0,1]$时，有
+$$\dint_0^1f(x)\d x=\limn\sum\limits_{k=1}^nf\left(\df kn\right)\df1n.$$
 
 {\bf 例：}将下列极限表示成定积分：
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\limn\df 1n\left[\sin\df{\pi}{n}+\sin\df{2\pi}{n}+\ldots
-  +\sin\df{(n-1)\pi}{n}\right]$ 
-  \item $\limn\left(\df{1}{n^2}+\df{2}{n^2}+\ldots+\df{n-1}{n^2}\right)$
-  \item $\limn\sum\limits_{k=1}^n\df{k}{n^3}\sqrt{n^2-k^2}$
+  +\sin\df{(n-1)\pi}{n}\right]=\df1{\pi}\dint_0^{\pi}\sin x\d x=\df2{\pi}$ 
+  \item $\limn\left(\df{1}{n^2}+\df{2}{n^2}+\ldots+\df{n-1}{n^2}\right)
+  =\dint_0^1x\d x=\df12$
+  \item $\limn\sum\limits_{k=1}^n\df{k}{n^3}\sqrt{n^2-k^2}
+  =\dint_0^1x\sqrt{1-x^2}\d x=\df13$
 \end{enumerate}
 
 {\bf 例：}$G_n=\sqrt[n]{(n+1)(n+2)\cdots(n+n)},(n=1,2,\ldots)$，求
@@ -168,6 +175,16 @@ $$\df2\pi=\df{\sqrt2}2\cdot\df{2+\sqrt2}2\cdot\df{\sqrt{2+\sqrt{2+\sqrt2}}}2
 
 {\bf 例：}设$I_k=\dint_0^{k\pi}e^{x^2}\sin x\d x$，试比较$I_1,I_2,I_3$
 的大小。
+
+\begin{center}
+	\includegraphics[width=8cm]{./images/ch5/ex2sinx.pdf}
+\end{center}
+
+[解]：注意到$e^{x^2}$当$x>0$时严格单调递增，故
+$$\dint_0^{\pi}e^{x^2}\sin x\d x
+<\dint_{\pi}^{2\pi}e^{x^2}|\sin x|\d x
+<\dint_{2\pi}^{3\pi}e^{x^2}\sin x\d x,$$
+于是由定积分的区间可加性，可得$I_2<I_1<I_3$。\fin
 
 \subsubsection{用定积分的性质证明不等式}
 
@@ -937,3 +954,232 @@ $I_2=\dint_1^Xe^{-x}x^{s-1}\d x$为定积分。
 	  $$\sqrt{\pi}\Gamma(2n)=2^{2n-1}\Gamma(n)\Gamma\left(n+\df12\right).$$
 	\end{enumerate}
 \end{ext}
+
+\visibletrue
+
+\ifvisible
+
+\newpage
+
+\section*{作业参考解答}
+% \addcontentsline{toc}{section}{作业参考解答}
+
+\begin{center}
+	\bf 5.1 定积分的概念与性质
+\end{center}
+
+\bigskip
+
+1.设$f(x)$在$[a,b]$上非负，当$x\in(a,b)$内$f''(x)>0,f'(x)<0$，
+$I_1=\df{b-a}2[f(b)+f(a)]$，$I_2=\dint_a^bf(x)\d x$，$I_3=(b-a)f(b)$，
+试比较$I_1,I_2,I_3$的大小。
+
+[解]：$f'(x)<0$，故对任意$x\in(a,b)$，均有$f(a)>f(x)>f(b)$，从而
+$$(b-a)f(a)>\dint_a^bf(x)\d x>(b-a)f(b),$$
+由此可知$I_2>I_3$。
+
+令$L(x)=f(a)+\df{f(b)-f(a)}{b-a}(x-a)$，
+由$f''(x)>0$，可知对任意$x\in(a,b)$，均有$f(x)<L(x)$，进而
+由定积分的保号性，可得
+$$\dint_a^bf(x)\d x<\dint_a^bL(x)\d x=\df{b-a}2[f(b)+f(a)],$$
+由此可得$I_2<I_1$。
+
+综上，$I_1>I_2>I_3$。\fin
+
+\bs
+
+2.设$f(x)\in C[0,1]$，证明：$\dint_0^1f^2(x)\d x\geq
+\left(\dint_0^1f(x)\d x\right)^2$.
+
+[提示]：令$g(x)=1$，参考Schwarz不等式的证明方法即可。
+
+\bs
+
+3.设$f(x)\in C[a,b]$，$g(x)>0$，证明：存在$\xi\in[a,b]$，使得
+$$\dint_a^bf(x)g(x)\d x=f(\xi)\dint_a^bg(x)\d x.$$
+
+[证]：由$f(x)\in C[a,b]$，可设$m,M$分别为$f(x)$在$[a,b]$上的
+最小和最大值，进而可知
+$$m\dint_a^bg(x)\d x\leq \dint_a^bf(x)g(x)\d x\leq M\dint_a^bg(x)\d x,$$
+从而
+$$m\leq\df{\dint_a^bf(x)g(x)\d x}{\dint_a^bg(x)\d x}\leq M,$$
+从而由连续函数的介值定理可知，必存在$\xi\in[a,b]$，使得
+$$f(\xi)=\df{\dint_a^bf(x)g(x)\d x}{\dint_a^bg(x)\d x}.$$
+即证。\fin
+
+\bs
+
+4.已知$f(x)$在$[0,\pi]$上连续，$(0,\pi)$内可导，且$f(0)=
+\dint_0^{\pi}f(x)\sin x\d x=0$，证明：存在$\xi\in(0,\pi)$，
+使得$f'(\xi)=0$。
+
+[证]：由$\dint_0^{\pi}f(x)\sin x\d x=0$，可知必存在$\eta\in(0,\pi)$，
+使得$f(\eta)\sin\eta=0$，注意到$x\in(0,\pi)$时，$\sin x>0$，故必有
+$f(\eta)=0$。至此，可以验证$f(x)$在$[0,\eta]$上满足Rolle定理条件，
+进而可知必存在$\xi\in(0,\eta)\subset (0,\pi)$，使得$f'(\xi)=0$。\fin
+
+5.设$f(x)$在$[0,1]$上连续，在$(0,1)$内可导，且$f(0)\cdot f(1)>0$，
+$f(1)+\dint_0^1f(x)\d x=0$，证明：存在$\xi\in(0,1)$，使得
+$f'(\xi)=\xi f(\xi)$。
+
+[证]：不妨设$f(1)>0$，则$\dint_0^1f(x)\d x<0$，从而可知，存在$\eta\in(0,1)$，
+使得$f(\eta)<0$。
+
+令$F(x)=e^{-\frac{x^2}2}f(x)$，可以验证$F(x)$在$[0,\eta]$上满足
+Rolle定理条件，从而可知必存在$\xi\in(0,\eta)\subset(0,1)$，使得
+$$F'(\xi)=e^{-\frac{\xi^2}2}[f'(\xi)-\xi f(\xi)]=0,$$
+因为$e^{-\frac{\xi^2}2}\ne0$，故必有$f'(\xi)-\xi f(\xi)=0$，即证。\fin
+
+\begin{center}
+	\bf 5.2 微积分基本公式
+\end{center}
+
+1.计算下列定积分
+
+（1）$\dint_{-1}^2[x]\max\{1,e^{-x}\}\d x$，其中$[x]$表示不超过$x$的最大整数；
+
+[解]：
+\begin{align*}
+	&\dint_{-1}^2[x]\max\{1,e^{-x}\}\d x
+	=\dint_{-1}^0(x+1)e^{-x}\d x+\dint_0^1x\d x+\dint_1^2(x-1)\d x\\
+	&=1-\dint_{-1}^0(x+1)\d e^{-x}
+	=1-(x+1)e^{-x}|_{-1}^0+\dint_{-1}^0e^{-x}\d x\\
+	&=1-1-1+e=1+e.
+\end{align*}
+
+（2）$\dint_0^{\pi}x\sqrt{\cos^2x-\cos^4x}\d x$
+
+[解]：
+\begin{align*}
+	&\dint_0^{\pi}x\sqrt{\cos^2x-\cos^4x}\d x
+	=\dint_0^{\pi}x|\sin x||\cos x|\d x\\
+	&=\dint_0^{\frac{\pi}2}x\sin x\cos x\d x
+	-\dint_{\frac{\pi}2}^{\pi}x\sin x\cos x\d x\\
+	&=\df12\left(\dint_0^{\frac{\pi}2}x\sin2x\d x
+	-\dint_{\frac{\pi}2}^{\pi}x\sin2x\d x\right)\\
+	&=-\df14\left(\dint_0^{\frac{\pi}2}x\d\cos2x
+	-\dint_{\frac{\pi}2}^{\pi}x\d\cos2x\right)\\
+	&=\df14\left(x\cos2x|_0^{\frac{\pi}2}
+	-x\cos2x|_{\frac{\pi}2}^{\pi}\right)+
+	\df14\left(\dint_0^{\frac{\pi}2}\cos2x\d x
+	-\dint_{\frac{\pi}2}^{\pi}\cos2x\d x\right)\\
+	&=\df14\left(-\df{\pi}2-\pi+\df{\pi}2\right)
+	+\df18\left(\sin2x|_0^{\frac{\pi}2}
+	-\sin2x|_{\frac{\pi}2}^{\pi}\right)=-\df{\pi}4.
+\end{align*}
+
+（3）设$f(x)=\left\{\begin{array}{ll}
+	1+x^2, & x\leq0,\\ e^{-x}, & x>0
+\end{array}\right.$，求$\dint_1^3f(x-2)\d x$
+
+[解]：
+\begin{align*}
+	\dint_1^3f(x-2)\d x
+	&=\dint_{-1}^1f(x)\d x
+	=\dint_{-1}^0(1+x^2)\d x+\dint_0^1e^{-x}\d x\\
+	&=1+\df13-e^{-1}+1=\df73-e^{-1}.
+\end{align*}
+\fin
+
+\bs
+
+2.已知$f(x)$连续，且$\dint_0^xtf(x-t)\d t=1-\cos x$，
+求$\dint_0^{\frac{\pi}2}f(x)\d x$。
+
+[解]：令$u=x-t$，则
+$$\dint_0^xtf(x-t)\d t=\dint_x^0(x-u)f(u)\d(x-u)
+=\dint_0^x(x-u)f(u)\d u=x\dint_0^xf(u)\d u-\dint_0^xuf(u)\d u.$$
+故对已知等式两边关于$x$连续求导可得
+$$\dint_0^xf(u)\d u=\sin x
+\quad\Rightarrow\quad
+f(x)=\cos x,$$
+于是可得
+$$\dint_0^{\frac{\pi}2}f(x)\d x=\dint_0^{\frac{\pi}2}\cos\d x=1.$$
+\fin
+
+\bs
+
+3.计算下列函数的导函数
+
+（1）$f(x)=\dint_0^xtg(x^2-t^2)\d t$，其中$g(x)$为连续函数；
+
+[解]：令$u=x^2-t^2$，则
+\begin{align*}
+	f(x)&=\df12\dint_0^xg(x^2-t^2)\d t^2\\
+	=\df12\dint_{x^2}^0g(u)\d(x^2-u)
+	=\df12\dint_0^{x^2}g(u)\d u,
+\end{align*}
+于是
+$$f'(x)=\df12g(x^2)2x=xg(x^2).$$
+
+（2）$f(x)=\dint_0^x\sin(x-t)^2\d t$。
+
+[解]：令$u=x-t$，则
+$$f(x)=\dint_x^0\sin u^2\d(x-u)=\dint_0^x\sin u^2\d u,$$
+故
+$$f'(x)=\sin x^2.$$
+\fin
+
+\bs
+
+4.设曲线$y=f(x)$与$y=\dint_0^{\arctan x}e^{-t^2}\d t$在原点处
+相切，求$\limn nf\left(\df2n\right)$。
+
+[解]：
+\begin{align}
+	\limn nf\left(\df2n\right)
+	&=2\limn\df{f\left(\df2n\right)}{\df2n}
+	=2\limx0\df{f(x)}x\\
+	&=2\limx0f'(x)=2f'(0)=2y'(0)\\
+	&=2e^{-\arctan^2 x}\left.\df1{1+x^2}\right|_{x=0}=2.
+\end{align}
+\fin
+
+\bs
+
+5.求$a$的值，使得$\limx{\infty}\left(\df{1+x}x\right)^{ax+1}
+=\dint_{-\infty}^ate^t\d t$。
+
+[解]：
+\begin{align*}
+	\mbox{左边}&=\limx{\infty}\left(1+\df1x\right)^{x.\cdot\frac{ax+1}x}
+	=e^a\\
+	\mbox{右边}&=\dint_{-\infty}^at\d e^t
+	=\left.te^t\right|_{-\infty}^a-\dint_{-\infty}^ae^t\d t
+	=(a-1)e^a.
+\end{align*}
+由此易知$a=2$。\fin
+
+\bs
+
+6.计算如下极限
+
+（1）$\limn\sum\limits_{k=1}^n\sqrt{\df{n+k}{n^3}}$
+
+[解]
+$$
+\mbox{原式}=\limn\sum\limits_{k=1}^n\df1n\sqrt{1+\df kn}
+=\dint_0^1\sqrt{1+x}\d x
+=\df23(1+x)^{\frac32}|_0^1=\df23(2\sqrt2-1).
+$$
+
+（2）$\limn\sum\limits_{k=1}^n\df{n^2-k^2}{n^3}$
+
+[解]：
+$$
+\mbox{原式}=\limn\sum\limits_{k=1}^n\df1n\left[1-\left(\df kn\right)^2\right]
+=\dint_0^1(1-x^2)\d x=\df23.
+$$
+
+（3）$\limx{+\infty}\df{\dint_0^x(\arctan t)^2\d t}{\sqrt{x^2+1}}$
+
+[解]：
+$$
+\mbox{原式}=\limx{+\infty}\df{\dint_0^x(\arctan t)^2\d t}{x}
+=\limx{+\infty}(\arctan x)^2=\df{\pi^2}4.
+$$
+\fin
+
+
+
+\fi

@@ -1,21 +1,795 @@
 \setcounter{chapter}{12}
 
-\chapter{幂级数与Fourier级数}
+\chapter{无穷级数}
 
-幂级数和Fourier级数是两类典型的函数项级数，但不是全部。如果是一列函数
-（以正整数为下标）依序累加起来，就可以称为函数项级数。
+无穷级数也就是{\kaishu 无穷和}，数学上将其定义为{\kaishu 依序相加}的一列数或一列函数，
+因为需要累加的项有无穷多，因此它本质上也是一类极限。
 
-幂级数因为拥有良好的可计算性和局部收敛性，广泛用于各种未知函数的展开
-和近似，是最基本和人类最熟悉的一类函数项级数。与幂级数相关的知识延续了
-Taylor公式的有关理论。
+人类对于无穷级数认识首先来自于对数项级数的观察，例如{\kaishu 调和级数}和{\kaishu 等比级数}，
+然后逐渐扩充到更一般的数项级数。围绕数项级数的核心问题，常常不是如何
+求它的和，而是判定它是否收敛（趋于某个确定的值）。根据级数构造的特点，
+历史上，很多数学家提出过不同的判敛方法，也各有其应用的范围。
+然而，不幸的是，并没有一种方法能够一劳永逸地解决所有的级数判敛问题，
+因此，级数自人们发现它以来就一直是数学中的一项难题。
 
-Fourier级数是在现代工程中具有非常重要应用的函数项级数，特别是在信号处理
+函数项级数是数项级数的推广，其中最典型的两类是{\kaishu 幂级数}和{\kaishu Fourier级数}，
+当然，它们远远不是全部。如果是一列函数（以正整数为下标）依序累加起来，
+就可以称为函数项级数。
+
+幂级数在分析学中具有无可替代的重要地位，因为拥有良好的可计算性和局部收敛性，
+它广泛用于各种函数的展开和近似，是最基本和人类最熟悉的一类函数项级数。
+与幂级数相关的知识延续了Taylor公式的有关理论，但对其的应用甚至早于微积分
+理论的完整提出。
+
+Fourier级数是在现代工程中有非常重要应用的函数项级数，特别是在信号处理
 领域，离不开与其相关的许多工具，例如Fourier分析和Fourier变换
 （Fourier Transformation，傅里叶变换）。
 
 幂级数和Fourier级数在收敛特征上具有非常典型的差异，非常适合作为
-后续学习和研究其他函数项级数的基础。
+后续学习和研究其他函数项级数的基础。深入地理解级数的本质，灵活和大胆地加以应用，
+对于真正理解微积分，将其思想推广应用于更广阔的领域具有重要的意义。
 
+\section{数项级数的概念与性质}
+
+\subsection{数项级数的概念}
+
+{\bf 数项级数}也称为{\bf 常数项级数}，有时简称为{\bf 无穷级数}、{\bf 级数}
+或{\bf 无穷和}，直观地说，就是无穷多个数值的相加。
+
+随着人们对无穷这一概念认识地深入，数学家们意识到，单纯地无穷个数相加，
+要想得到确定的结果，有时也会以来其求和的次序，而且，就无穷本身而言，
+更适合描述成一种从有限出发无限增长的过程，因此，用极限来定义级数就
+成了级数概念严格化的基本途径。
+
+在数学上，无穷级数就是指{\kaishu 某个数列按照其排列的顺序依次相加}，也即：
+\begin{thx}
+	给定数列$\{a_n\}$，则其对应的{\bf 无穷级数}可定义为
+	$$\sumn a_n=\limn\sum_{k=1}^na_k,$$
+	其中$S_n=\limn\sum_{k=1}^na_k$称为其对应的{\bf 有限和}
+	或{\bf 有限和数列}。若$\{S_n\}$收敛，则称该{\bf 无穷级数收敛}，
+	$\{S_n\}$的极限称为该{\bf 无穷级数的和}；若$\{S_n\}$发散，
+	则称该{\bf 无穷级数发散}。
+\end{thx}
+
+在这个定义中，引入极限决定了求和次序对于无穷级数的重要意义，
+\ps{正确理解级数的定义是理解其各种性质的关键，严格来说，历史上正是由
+对级数的研究启发人们创造了极限的概念，著名的例子包括割圆法和芝诺悖论}
+如果改变求和次序（也即改变数列$\{a_n\}$的排列顺序），则相应地得到的
+级数也被认为是不同的，即使它们可能都收敛到相同的和。
+
+{\bf 例：}判断下列级数的收敛性
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\sumn q^n\quad (q>0)$ \quad（{\it\b 几何级数，$|q|<1$时收敛}） 
+  \item $\sumn\df{1}{n(n+1)}=1$\quad\ps{“裂项”——有理函数分解}
+  \item $\sumn\df 1n$ \quad（{\it\b 调和级数，发散}）\\ 
+  提示：$$S_{2n}-S_n=\df1{2n}+\df1{2n-1}+\ldots+\df1n
+  >n\cdot\df1{2n}=\df12$$
+  由此进而易知$\{S_n\}$无界，从而发散！
+% 		  \item $\sumn\df 1n^2$
+  \item $\sumn (-1)^n$ \quad（{\it 发散}）
+\end{enumerate}
+
+\begin{shaded}
+{\bf 关于调和级数}
+
+调和级数发散的速度慢得让人有些不可思议，其前$1000$项的和约为$7.485$，
+前$100$万项的和约为$14.357$，前$10$亿项的和约为$21$，前一万亿项和约为$28$，
+当它的和超过$100$时，如果每一项在纸带上只占$1$毫米，我们必须使用$10^{43}$毫米长
+的纸带，这大约是$10^{25}$光年，而宇宙估计尺寸只有$10^{12}$光年，
+因此也难怪大家都会认为它是收敛的。
+
+{\bf Euler常数}
+
+Euler常数最先由瑞士数学家莱昂哈德·欧拉(Leonhard Euler)
+在1735年发表的文章 De Progressionibus harmonicus observationes 中定义。
+欧拉曾经使用C作为它的符号，并计算出了它的前6位小数。1761年他又将该值计算到了16位小数。
+$$\gamma=\limn\left[\sum\limits_{k=1}^n\df1k-\ln n\right]
+=\int_1^{\infty}\left(\df1{[x]}-\df1x\right)\d x$$
+由不等式$\ln(1+x)<x,(x\in(-1,+\infty),x\ne 0)$，
+$$S_n=\sum\limits_{k=1}^n\df1k-\ln n>\sum\limits_{k=1}^n
+\ln\left(1+\df1k\right)-\ln n=\ln(n+1)-\ln n>0.$$
+$$S_n-S_{n+1}=\ln(n+1)-\ln n-\df1{n+1}>\left(\df1{n+1}\right)
+-\df1{n+1}=0.$$
+由单调有界原理可知$\{S_n\}$收敛。
+\end{shaded}
+
+\subsection{收敛级数的基本性质}
+
+\begin{thx}
+	\begin{enumerate}
+	  \item {\bf 收敛的必要条件：}$\sumn a_n\mbox{收敛}\Rightarrow\limn a_n=0$
+	  \begin{itemize}
+	    \item 常用于判定级数发散：\b 若$\{a_n\}$不以$0$为极限，则$\sumn a_n$发散
+	  \end{itemize}
+	  \item {\bf 线性组合：}两个收敛级数的线性组合仍然收敛
+	  \begin{itemize}
+	    \item 问：一个收敛级数和一个不收敛的级数的线性组合是否收敛？
+	  \end{itemize}
+	  \item {\bf 改变有限项：}改变级数的有限项不改变其敛散性，例如： 
+	  $\sumn a_n$收敛$\Leftrightarrow\sum\limits_{n=k}^{\infty}a_n$收敛$(k\in\mathbb{N})$
+	  \begin{itemize}
+	    \item 改变包括{\kaishu 修改、删除、添加}；
+	    \item 该性质等价于：修改数列的有限项不改变其敛散性；
+	    \item 改变有限项后敛散性不变，但无穷和可能不同。
+	  \end{itemize}
+	  \item {\bf 合并收敛级数的相邻项}：任意合并收敛级数的相邻项，所得级数仍收敛
+	  \begin{itemize}
+	    \item 对于发散级数，该性质不成立，例如：$\sumn(-1)^n$
+	    \item 改变求和次序，尽可能改变级数的敛散性，也可能改变级数的收敛和
+	  \end{itemize}
+	\end{enumerate}
+\end{thx}
+
+{\bf 例：}判断以下级数的敛散性；若收敛，求其和
+
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\sumn\ln\left(1+\df 1n\right)$
+  \item
+  $\sumn\left[\prod\limits_{k=0}^p(\alpha+n+k)\right]^{-1},\;(p\in\mathbb{N})$
+  \item $\sumn\df{x^{2^{n-1}}}{1-x^{2n}}$
+  \item $\sumn\df{1}{\sqrt n}$
+\end{enumerate}
+
+{\bf 例：}判断正误
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\{a_n\}$与$\sumn a_n$同敛散\hfill$\times$
+  \item $k\ne 0$，则$\sumn a_n$与$\sumn ka_n$同敛散\hfill$\surd$
+  \item $\sumn a_n$收敛，$\sumn b_n$发散，则$\sumn(a_n+b_n)$发散\hfill$\surd$
+  \item $\sumn a_n$与$\sumn b_n$均发散，则$\sumn(a_n+b_n)$发散\hfill$\times$
+  \item 若$\sum\limits_{n=1}^{\infty}a_{2n}$和
+  $\sum\limits_{n=1}^{\infty}a_{2n-1}$均收敛，则$\sumn a_n$收敛\hfill$\surd$
+  \item 若$\sum\limits_{n=1}^{\infty}(a_{2n}+a_{2n-1})$收敛，则
+  $\sumn a_n$收敛\hfill$\times$
+\end{enumerate}
+
+\subsection{Cauchy审敛原理}
+
+以下结论可以视为数列极限的Cauchy审敛原理的另一种表述：
+\begin{thx}
+	{\bf Cauchy审敛原理：}级数$\sumn a_n$收敛当且仅当：$\forall\e$，
+    $\exists N\in\mathbb{Z}$，使对$\forall n>N$和$\forall p\in\mathbb{Z}^+$，
+    都有
+    $$|a_{n+1}+a_{n+2}+\ldots+a_{n+p}|<\e.$$
+\end{thx}
+
+{\bf 例：}证明：$\sumn\df1{n^2}$收敛。
+
+[证]：注意到
+\begin{align}
+	&|a_{n+1}+a_{n+2}+\ldots+a_{n+p}|\notag\\
+	&<\df1{(n+1)(n+2)}+\df1{(n+2)(n+3)}+\ldots+\df1{(n+p-1)(n+p)}\notag\\
+	&=\df1n-\df1{n+p}<\df1n\notag
+\end{align}
+故由Cauchy审敛原则，易知该级数收敛。\fin
+
+{\bf 例：}求和$\sumn\df1{n(n+1)(n+2)}=\df14$。
+
+{\bf 例：}求和$\sumn\df{n}{3^n}$。
+
+[提示]：记$S_n=\df13+\df2{3^2}+\ldots+\df n{3^n}$，则
+$$\df13S_n=\left(\df1{3^2}+\df2{3^3}+\ldots
++\df{n-1}{3^n}\right)+\df{n}{3^{n+1}}$$
+因此
+$$\df23S_n=\df12\left(1-\df1{3^n}\right)-\df{n}{3^{n+1}}\to\df12
+(n\to\infty)$$
+
+\section{数项级数的审敛法}
+
+给定一个数项级数，如果能够直接求出其和，或者利用求和来判断
+其是否收敛，当然是非常理想的结果。但是由于级数问题的复杂性，
+在现实中，想要采用某种统一的方法简单地得到级数的和，往往难以
+实现。事实上，单就判定一个级数的敛散性问题本身已经是非常具有
+挑战性了。
+
+为了研究级数的审敛问题，我们首先从比较特殊的级数问题出发，
+先来讨论级数每一项都非负或非正的情形（称为{\kaishu 同号级数}），
+特别地，以下就以所谓的{\kaishu 正项级数}（各项都非负）为例
+给出一系列判别敛散性的方法。
+
+\subsection{正项级数审敛法}
+
+\subsubsection{收敛的充要条件}
+
+\begin{thx}
+	{\bf 正项级数收敛的充要条件：}正项级数收敛，当且仅当其部分和数列有界。
+\end{thx}
+
+[证]：设$\sumn a_n$为正项级数，$\{S_n\}$为其部分和数列，显然
+$\{S_n\}$单调递增，由已知$\{S_n\}$有界，故由单调有界原理，
+$\{S_n\}$收敛，也即$\sumn a_n$收敛。\fin
+
+显然，该定理相当于数列收敛的单调有界原理的一种不同的表述。
+
+{\bf 例：}证明$\sumn\df1{n!}$收敛。
+
+[证]：设$\{S_n\}$为该级数的部分和数列，则对任意$n>2$，都有
+\begin{align*}
+	S_n&=1+\df12+\df1{3!}+\ldots+\df1{n!}\\
+	&<1+\df12+\df1{2^2}+\ldots+\df1{2^{n-1}}<2,
+\end{align*}
+从而由正项级数收敛的充要条件，该级数收敛。\fin
+
+\subsubsection{比较判别法}
+
+\begin{thx}
+	{\bf 比较判别法的（不等式形式）}：若对充分大的$n$，总有$0\leq a_n\leq b_n$，则
+	\begin{enumerate}
+% 	  \setlength{\itemindent}{1cm}
+	  \item 若$\sumn b_n$收敛，则$\sumn a_n$收敛
+	  \item 若$\sumn a_n$发散，则$\sumn b_n$发散
+	\end{enumerate}
+\end{thx}
+
+[证]：不妨设对任意的$n$，均有$0\leq a_n\leq b_n$。
+设$\{S_n^1\}$，$\{S_n^2\}$分别为$\sumn a_n$和$\sumn b_n$的
+部分和数列，显然$0\leq S_n^1\leq S_n^2$，因此，由数列收敛的
+夹逼准则，若$\{S_n^2\}$收敛，则$\{S_n^1\}$收敛，也即
+若$\sumn b_n$收敛，则$\sumn a_n$收敛。反之，若$\{S_n^1\}$
+发散，则$\{S_n^2\}$发散，也即若$\sumn a_n$发散，则$\sumn b_n$发散。\fin
+
+通过以上证明，不难看出，这个定理可以视为数列极限的夹逼准则的
+一种不同的表述。
+
+需要注意的是，{\b 对于变号（非同号）级数，比较判别法是不成立的}，例如：
+$$a_n=-\df1n+\df{(-1)^n}{\sqrt n}<\df{(-1)^n}{\sqrt n}=b_n,$$
+学习了交错级数的Leibniz判别法后，我们可以证明$\sumn b_n$收敛，
+但$\sumn a_n$是发散的。
+
+{\bf 例：}证明：$p$-级数$\sumn\df1{n^p}$，
+\ps{$p$-级数常常用作与其他级数比较判敛的“标杆”}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 当$p>1$时，收敛；
+  \item $0<p\leq 1$时，发散。
+\end{enumerate}
+
+[证]：
+\begin{shaded}
+(1)由以下推导可知$p>1$时，$p$-级数的部分和数列有界
+\begin{eqnarray*}
+	S_{(2^k)^p}&=&1+\df 1{2^p}+\underbrace{\left(\df1{3^p}+\df1{(2^2)^p}\right)}_2
+				+\underbrace{\left(\df1{5^p}+\ldots+\df1{(2^3)^p}\right)}_{2^2}+\ldots\\
+				&&+\underbrace{\left[\df1{(2^{k-1}+1)^p}+\ldots+\df1{(2^k)^p}\right]}_{2^{k-1}}\\
+			  &\leq &1+\df 1{2^p}+2\cdot\df1{2^p}+2^2\cdot\df1{(2^2)^p}
+			    +\ldots+2^{k-1}\cdot\df1{(2^{k-1})^p}\\
+			  &=&1+\df 1{2^p}+\left[\df1{2^{p-1}}+\left(\df1{2^{p-1}}\right)^2+
+			    \ldots+\left(\df1{2^{p-1}}\right)^{k-1}\right]\\
+			  &=&1+\df 1{2^p}+\df1{2^{p-1}}\df{1-\left(\frac1{2^{p-1}}\right)
+			    ^{k-1}}{1-\frac1{2^{p-1}}}<1+\df 1{2^p}+\df1{2^{p-1}-1}
+\end{eqnarray*}
+\end{shaded}
+
+(1)证明$p>1$时$p$-级数收敛更好的方法是利用其与无穷积分的联系，具体请参加
+第五章的反常积分一节。
+
+(2)，$p=1$时，显然发散。又因为
+$$0<\df 1n<\df 1{n^p},\quad (0<p<1),$$
+已知调和级数发散，故由比较判别法，此时$p$-级数发散。\fin
+
+{\bf 例：}讨论下列级数的敛散性
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\sumn\df{1}{3^{\ln n}}$
+  \hfill（{[提示]：$a^{\ln b}=b^{\ln a},\;(a,b>0)$}）
+  \item $\sum\limits_{n=2}^{\infty}\df 1{(\ln n)^{\ln n}}$
+  \item $\sum\limits_{n=3}^{\infty}\df 1{(\ln n)^{\ln\ln n}}$
+\end{enumerate}
+	
+[提示]: (2)\;当$n>e^{e^2}$时，
+$$(\ln n)^{\ln n}=n^{\ln\ln n}>n^2.$$
+
+(3)\;注意到$n$充分大时，$\ln n<\sqrt{n}$，进而$(\ln\ln n)^2<\ln n$，故有
+  $$\df 1{(\ln n)^{\ln\ln n}}=\df 1{e^{(\ln\ln
+  n)^2}}>\df 1n$$
+
+\begin{shaded}
+	{\bf\color{red} 一点“常识”}
+	
+	{\color{red} 设$\e>0, a>1$，则对于充分大的$x$，总成立如下关系
+	$$\ln x<<x^{\e}<<a^x<<[x]!<<x^x$$}
+
+	这些结论使用L'Hospital法则都可以很容易地证明。
+	
+	{\bf 例：} 对于充分大的$x$，$e^x>2x^4$，故对充分大的$n$，
+	有$e^{\sqrt[3]n}>2n^{\frac 43}$，从而可知$\sumn e^{-\sqrt[3]n}$收敛
+\end{shaded}
+
+需要注意的是，虽然在非正向级数的情况下，仅仅由$a_n\leq b_n$，无法推出
+$\sumn b_n$收敛则$\sumn a_n$收敛的结论，但存在如下一种特殊的情况，
+其形式更类似于数列极限的夹逼定理：
+
+\begin{thx}
+	设当$n$充分大时，$a_n\leq c_n\leq b_n$，$\sumn a_n,\sumn
+	b_n$均收敛， 则$\sumn c_n$收敛。
+\end{thx}
+
+[证]：构造新的级数$\sumn(c_n-a_n)$和$\sumn(b_n-a_n)$，则
+这两个级数满足比较判别法的条件，从而易知结论成立。\fin
+
+注意到对任意的级数$\sumn a_n$，总有
+$$-|a_n|\leq a_n\leq |a_n|,$$
+故由以上的结论立刻可以得到如下的推论：
+
+\begin{thx}
+	{\bf 绝对值级数收敛，则原级数必收敛：}若级数$\sumn|a_n|$收敛，则$\sumn a_n$也收敛。
+\end{thx}
+
+有些情况下，可在对正向级数$\sumn a_n$和$\sumn b_n$作比较时，可以
+考虑其各项值的极限，相对于不等式放缩，计算极限通常可能更加简单：
+
+\begin{thx}
+	{\bf 比较判别法（极限形式）：}已知$a_n,b_n$均非负$(n\in\mathbb{Z}_+)$，
+	且$\limn\df{a_n}{b_n}=l$，则 
+	\begin{enumerate}
+% 	  \setlength{\itemindent}{1cm}
+	  \item 若$0<l<+\infty$，$\sumn a_n,\sumn b_n$同敛散 \hfill({\it\b 随着$n$的增大，
+	  $a_n,b_n$的比值趋于常数})
+	  \item 若$l=0$，由$\sumn b_n$收敛可知$\sumn a_n$收敛； 
+	  \hfill({\it\b 随着$n$的增大，$a_n$的值远小于$b_n$})
+	  \item 若$l=+\infty$，由$\sumn a_n$收敛可知$\sumn b_n$收敛
+	  \hfill({\it\b 随着$n$的增大，$a_n$的值远大于$b_n$})
+	\end{enumerate}
+\end{thx}
+
+[证]：1. 设$0<l<+\infty$，由$\limn\df{a_n}{b_n}=l$，对
+$\e=\df l2$，存在$N\in\mbb{Z}_+$，使对任意$n>N$，都有
+$\left|\df{a_n}{b_n}-l\right|<\e$，也即
+$$\df l2b_n<a_n<\df{3l}2b_n.$$
+若$\sumn b_n$收敛，则$\sumn\df{3l}2b_n$收敛，进而
+$\sum\limits_{n=N+1}^{\infty}\df{3l}2b_n$收敛，
+由以上右端不等式可知，$\sum\limits_{n=N+1}^{\infty}a_n$收敛，
+从而$\sumn a_n$收敛。
+
+同理可证，若$\sumn b_n$发散，则$\sumn a_n$发散。综上，当
+$0<l<+\infty$时，$\sumn a_n,\sumn b_n$同敛散。
+
+2. 设$l=0$，由$\limn\df{a_n}{b_n}=0$，对$\e=1$，存在
+$N\in\mbb{Z}_+$，使对任意$n>N$，都有
+$\left|\df{a_n}{b_n}\right|<\e$，也即
+$$a_n<b_n.$$
+若$\sumn b_n$收敛，则$\sum\limits_{n=N+1}^{\infty}b_n$收敛，
+由以上右端不等式可知，$\sum\limits_{n=N+1}^{\infty}a_n$收敛，
+从而$\sumn a_n$收敛。
+
+3. 若$l=+\infty$，由$\limn\df{a_n}{b_n}=+\infty$可得
+$\limn\df{b_n}{a_n}=0$，利用上一部分的结论即可。\fin
+
+{\bf 例：}判断以下级数的敛散性：
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\sumn\df 1{2^n}\df{n^2+1}{2n^2-1}$ 
+  \item $\sumn\df{n+1}{n^k+2}\quad (k=1,2,\ldots)$ 
+  \item $\sumn\df{1}{n\sqrt[n]{n}}$ 
+  \item $\sumn\df{1}{1+x^n}\quad(x>0)$
+\end{enumerate}
+
+显然，应用比较判别法的关键，是要找到作为参照的“标杆”。考虑到$p$-级数的
+敛散性是非常明确的，而且其表达形式也比较简单，很多时候，在比较判别法中
+会以之为“标杆”来来判定其他级数的敛散性。
+
+\begin{thx}
+	{\bf $p$-判别法：}设$a_n\geq 0\;(n=1,2,\ldots)$，则 
+	\begin{enumerate}
+% 	  \setlength{\itemindent}{1cm}
+	  \item 若存在$p>1$，使得$\limn n^pa_n$存在，则$\sumn a_n$收敛 
+	  \item 若$0<p\leq 1$，使得$\limn n^pa_n>0$，则$\sumn a_n$发散
+	\end{enumerate}
+\end{thx}
+
+{\bf 例：}判断以下级数的收敛性
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\sumn\df{\arctan n}{n^{3/2}}$
+  \item $\sumn\df{\ln n}{n^{5/4}}$\ps{任何正幂次函数的增长速度最终都比任意对数函数快}
+\end{enumerate}
+
+{\bf 例：}$\sumn a_n$、$\sumn b_n$均为正项级数，若对充分大的$n$，总有
+$$\df{a_{n+1}}{a_n}\leq\df{b_{n+1}}{b_n},$$
+则若$\sumn b_n$收敛，$\sumn a_n$收敛。
+
+[证]：由已知，存在$N\in\mbb{Z}_+$，使对任意$n>N$有
+$$\df{a_{n+1}}{a_n}\leq\df{b_{n+1}}{b_n},$$
+进而
+$$a_{n+1}
+\leq\df{b_{n+1}}{b_n}a_n
+\leq\df{b_{n+1}}{b_n}\df{b_{n}}{b_{n-1}}a_{n-1}
+=\df{b_{n+1}}{b_{n-1}}a_{n-1}
+\leq\ldots
+\leq\df{b_{n+1}}{b_{N+1}}a_{N+1}
+=\df{a_{N+1}}{b_{N+1}}b_{n+1}.$$
+因为$\sumn b_n$收敛，故$\sum\limits_{n=N+1}^{\infty}b_n$收敛，
+进而由比较判别法可知，$\sum\limits_{n=N+1}^{\infty}a_n$收敛，
+再有收敛级数的性质可知，$\sumn a_n$收敛。\fin
+
+{\bf 例：}（2012年全国大学生数学竞赛）
+$\sumn a_n$和$\sumn b_n$均为正项级数，证明：
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 若$\limn\left(\df{a_n}{a_{n+1}b_n}-\df 1{b_{n+1}}\right)>0$，
+  则$\sumn a_n$收敛；
+  \item 若$\limn\left(\df{a_n}{a_{n+1}b_n}-\df 1{b_{n+1}}\right)<0$,
+  且$\sumn b_n$发散，则$\sumn a_n$发散。
+\end{enumerate}
+
+[证]：（1）由已知，存在$q>0$和$N\in\mathbb{Z}_+$，对任意$n\geq N$，有
+$$\df{a_n}{a_{n+1}b_n}-\df 1{b_{n+1}}>q,$$
+从而
+$$a_{n+1}<\df1q\left(\df{a_n}{b_n}-\df{a_{n+1}}{b_{n+1}}\right).$$
+利用递推关系可得
+$$\sum\limits_{k=N}^na_k<a_N+\df1q\left(\df{a_N}{b_N}-\df{a_n}{b_n}\right)
+<a_N+\df1q\df{a_N}{b_N},$$
+故$\sumn a_n$部分和有界，从而收敛。
+
+（2）$n$充分大（$n>N$）时，有
+$$a_{n+1}>\df{b_{n+1}}{b_n}a_n>\ldots>
+\df{b_{n+1}}{b_n}\df{b_{n}}{b_{n-1}}\ldots\df{b_{N+1}}{b_N}a_N
+=\df{a_N}{b_N}b_{n+1},$$
+由比较判别法，$\sumn b_n$发散，则$\sumn a_n$发散。\fin
+
+{\bf 例：} 判断以下级数是否收敛：$\sumn\left(\cot\df{n\pi}{4n-2}-\sin\df{n\pi}{2n+1}\right)$
+
+[解]：考虑$\sumn\left(1-\cot\df{n\pi}{4n-2}\right)$和
+$\sumn\left(1-\sin\df{n\pi}{2n+1}\right)$，注意到
+$$\limn\df{1-\sin\df{n\pi}{2n+1}}{\df1n}=\df{\pi}4,
+\quad\limn\df{1-\sin\df{n\pi}{2n+1}}{\df1{n^2}}=\df{\pi^2}{32},$$
+故以上级数一个发散一个收敛，从而原级数发散。\fin
+
+比较判别法是正项级数审敛的最基本方法，后续所有的判别法可以说都是它的推论。
+但是相对来说，比较判别法并不是一个特别容易使用的方法，因为使用它判别级数的
+敛散性时，不仅需要找到合适的“标杆”，还需要事先“猜测”出最终的敛散性，
+而所谓的“标杆”只是用于验证猜测的结果。为了更好地“猜测”级数的敛散，对于
+各种函数形式值的“大小”的判断是关键，为此我们前面提到的那一点“常识”
+和对各种数列极限结论的熟练掌握就非常重要了。
+
+最后，请务必牢记{\bf\color{red}比较判别法仅对同号级数有效！！！}
+
+\subsubsection{比值判别法}
+
+比值判别法也叫{\kaishu d'Alembert判别法}。
+
+\begin{thx}
+	{\bf 比值判别法（极限形式）}
+	设$a_n\geq 0(n=1,2,\ldots)$，$\limn\df{a_{n+1}}{a_n}=q$，则
+	\begin{enumerate}
+% 	  \setlength{\itemindent}{1cm}
+	  \item $0\leq q<1$时，$\sumn a_n$收敛； 
+	  \item $q>1$时，$\sumn a_n$发散。
+	\end{enumerate}
+\end{thx}
+
+[证]：若$q>1$，极限的保号性，存在$N\in\mbb{Z}_+$，使当
+$n>N$时，$\df{a_{n+1}}{a_n}>1$，也即$a_{n+1}>a_n$，
+这与级数收敛的必要条件$\limn a_n=0$矛盾，从而此时$\sumn a_n$发散。
+
+若$0\leq q<1$，记$p=\frac{1+q}2$，
+由极限的保号性，存在$N\in\mbb{Z}_+$，使当
+$n>N$时，$\df{a_{n+1}}{a_n}<p$，从而
+$$a_{n+1}<p{a_n}<p^2a_{n-1}<\ldots<p^{n+1-N}a_{N+1},$$
+进而
+$$\sum\limits_{k=N+1}^{n}<(1+p+p^2+\ldots+p^{n-1})a_{N+1}
+<\df1{1-p}a_{N+1},$$
+由此可知$\sumn a_n$的部分和有界，从而$\sumn a_n$收敛。\fin
+
+{\bf 注：}$q=1$时，比值判别法无法给出确定的结论，也即{\kaishu 无法判定},
+例如：$\sumn\df 1n$和$\sumn\df 1{n^2}$都对应于$q=1$，但前者发散，后者收敛。
+
+{\bf 例：}判断下列级数的收敛性
+\begin{enumerate} [(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\sumn\df 1{2^n}\df{n^2+1}{2n^2-1}$ 
+  \item $\sumn\df{n^2}{2^n}$ 
+  \item $\sumn\df{(2n)!}{(n!)^2}$
+%   \item $\sumn n!\left(\df{x}{n}\right)^n\quad (x>0)$
+\end{enumerate}
+
+{\bf 例：}设$t>0$，讨论级数$\sumn\df{t^nn!}{n^n}$的敛散性。
+
+[提示]：若$t=e$，
+$$\df{a_{n+1}}{a_n}=\df{e}{\left(1+\df1n\right)^n}>1,$$
+故$\{a_n\}$必不以$0$为极限，可知$\sumn a_n$发散；
+
+$t\ne e$的情况利用比值判别法即可判断。
+
+{\bf 注：}考虑$\sumn\df{n^n}{e^nn!}$，
+则以上推导不再成立，该如何判定其敛散性呢？
+
+[提示]：因为$\left(1+\df1n\right)^n<e<\left(1+\df1n\right)^{n+1}$，故
+$$\df{a_{n+1}}{a_n}=\df{\left(1+\df1n\right)^n}{e}>\df1{1+\frac1n}=\df n{n+1},$$
+于是
+$$a_n>\df{n-1}na_{n-1}>\df{n-1}n\cdot\df{n-2}{n-1}\ldots\df12a_1=\df{a_1}n,$$
+由此易知原级数发散。
+
+\begin{thx}
+	{\bf 比值判别法（不等式形式）}设$a_n\geq 0\,(n=1,2,\ldots)$，则 
+	\begin{enumerate}
+	  \setlength{\itemindent}{1cm}
+	  \item 若$n$充分大时，有$\df{a_{n+1}}{a_n}\leq r<1$，则$\sumn a_n$收敛； 
+	  \item 若$n$充分大时，有$\df{a_{n+1}}{a_n}\geq 1$，则$\sumn a_n$发散。
+	\end{enumerate}
+\end{thx}
+
+该定理的证明可以完全参照极限形式的证明进行。
+
+{\b {\bf 思考：}为什么以上第一个判定条件中要求$r<1$？
+
+{\bf 答：}因为若仅要求$\df{a_{n+1}}{a_n}<1$，不能避免出现
+$\limn\df{a_{n+1}}{a_n}=1$的情况，从而导致无法判定。}
+
+{\bf 例：}判断以下级数的收敛性$\sumn\df{2+(-1)^n}{5^n}$。
+
+[提示]：本例适合使用根植判别法，或者比值判别法的不等式形式
+
+{\bf 例：} 判断以下级数的收敛性：$\sqrt2+\sqrt{2-\sqrt2}+\sqrt{2-\sqrt{2-\sqrt2}}
++\sqrt{2-\sqrt{2-\sqrt{2-\sqrt2}}}$
+
+[解]：
+$$\sqrt2=2\cos\df{\pi}4=2\sin\df{\pi}4$$
+$$\sqrt{2-\sqrt2}=\sqrt{2\left(1-\cos\df{\pi}4\right)}=2\sin\df{\pi}8$$
+$$\sqrt{2-\sqrt{2-\sqrt2}}=\ldots=2\sin\df{\pi}{16}$$
+故$a_n=2\sin\df{\pi}{2^{n+1}}$。记$b_n=\df{\pi}{2^{n}}$，注意到
+$$\limn\df{a_n}{b_n}=1,$$
+且$\sumn b_n$收敛，故原级数收敛。\fin
+
+\subsubsection{根值判别法}
+
+根值判别法也叫{\kaishu Cauchy判别法}
+
+\begin{thx}
+	{\bf 根植判别法（极限形式）：}设$a_n\geq 0(n=1,2,\ldots)$，$\limn\sqrt[n]{a_n}=q$，则
+	\begin{enumerate}
+	  \setlength{\itemindent}{1cm}
+	  \item $0\leq q<1\Rightarrow\sumn a_n$收敛
+	  \item $q>1\Rightarrow\sumn a_n$发散
+	\end{enumerate}
+\end{thx}
+
+和比值法类似，$q=1$时，无法判定级数的敛散性。
+
+此外，需要注意的是，由数列极限的性质：
+$\limn\df{a_{n+1}}{a_n}=q\Rightarrow\limn\sqrt[n]{a_n}=q$，
+\ps{参见第一章介绍的Stolz定理}
+故我们可以知道根植判别法相对于比值判别法的应用范围要更广一些。
+
+
+{\bf 例：}判断下列级数的收敛性
+\begin{enumerate} [(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\sumn\df{2+(-1)^n}{5^n}$
+  \item $\sumn\df{n^2}{\left(2+\df 1n\right)^n}$
+  \item $\df 12+\df 1{3^2}+\df 1{2^3}+\df 1{3^4}+\df 1{2^5}+\df 1{3^6}+\ldots$
+\end{enumerate}
+
+% {\bf EX:}$a_n=\df{n^{n+\frac1n}}{\left(n+\df1n\right)^n}
+% \geq\df{n^n\cdot n^{\frac1n}}{(n+1)^n}\to\df1e$
+% hence $\sumn\df{n^{n+\frac1n}}{\left(n+\df1n\right)^n}$ diverge
+
+{\bf 思考：}根植判别法的不等式形式该如何表述？
+
+{\bf 例：}判断下列级数的收敛性
+\begin{enumerate} [(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\sumn\df1{3^n}\left[\sqrt2+(-1)^n\right]^n$
+  \item $\sumn\df{n^{n+\frac1n}}{\left(n+\df1n\right)^n}$\\
+  提示：$\df{n^{n+\frac1n}}{\left(n+\df1n\right)^n}\geq\df{n^n\cdot
+  n^{\frac1n}}{(n+1)^n}\to\df1e\ne0$，故发散。
+\end{enumerate}
+
+另解：
+$$\limn\df{n^{n+\frac1n}}{\left(n+\df1n\right)^n}
+=\limn\df{\sqrt[n]n}{\left(1+\df1{n^2}\right)^n},$$
+其中
+$$\limn\left(1+\df1{n^2}\right)^n=
+\left\{\limn\left(1+\df1{n^2}\right)^{n^2}\right\}^{\limn\frac1n}=e^0=1,$$
+故以上极限$=1\ne0$，级数不满足收敛的必要条件！
+
+\begin{shaded}
+
+\subsubsection{其他判别法}
+
+以上我们介绍的是最常用的正项级数审敛法，除了它们之外，还有许多“有趣”
+的判别法，例如：
+
+\begin{tcolorbox}
+	{\bf Raabe判别法（极限形式）：}设$a_n\geq 0\,(n=1,2,\ldots)$，且
+	$$\limn n\left(\df{a_n}{a_{n+1}}-1\right)=r,$$
+	则当$r>1$时，$\sumn a_n$收敛；$r\leq 1$时，$\sumn a_n$发散。	
+\end{tcolorbox}
+
+{\bf 例：}判断以下级数的敛散性
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\sumn\df{(2n-1)!!}{(2n)!!}\df 1{2n+1}$
+  \item $\sumn\df{n!}{(x+1)\ldots(x+n)}\;(x>0)$
+  \item $\sumn\df{p(p+1)\ldots(p-n+1)}{n!n^q}$
+  \item $\df ab+\df{a(a+d)}{b(b+d)}++\df{a(a+d)(a+2d)}{b(b+d)(b+2d)},(a,b,d>0)$
+\end{enumerate}
+
+[提示]：(1)
+$$R_n=n\left[\df{(2n+2)(2n+3)}{(2n+1)(2n+1)}-1\right]
+=\df{n(6n+5)}{(2n+1)^2}\to\df32>1\;(n\to\infty)$$
+(2)
+$$R_n=n\left[\df{n+x}{n+1}-1\right]=\df{n(x-1)}{n+1}$$
+
+\begin{tcolorbox}
+	{\bf Raabe判别法（不等式形式）：}设$a_n\geq 0\,(n=1,2,\ldots)$，定义
+	$$R_n=n\left(\df{a_n}{a_{n+1}}-1\right),$$
+	若存在$r>1$，当$n$充分大时，总有$R_n\geq r$，则$\sumn a_n$收敛；
+	若当$n$充分大时，总有$R_n\leq 1$，则$\sumn a_n$发散。	
+\end{tcolorbox}
+
+{\bf 例：}判断以下级数的敛散性
+$$\sumn\df{\sqrt{n!}}{(2+\sqrt 1)(2+\sqrt 2)\ldots(2+\sqrt n)}$$
+
+[提示]：记$a_n=\df{\sqrt{n!}}{(2+\sqrt 1)(2+\sqrt 2)\ldots(2+\sqrt n)}$，
+从而
+$$n\left(\df{a_n}{a_{n+1}}-1\right)=\df{2n}{\sqrt{n+1}}\to\infty\;(n\to\infty)$$
+从而易知该级数收敛。
+
+\begin{tcolorbox}
+	{\bf Bertrand判别法：}$\{a_n\}$非负，
+	$$\limn\ln n\left[n\left(\df{a_n}{a_{n+1}}-1\right)-1\right]=b,$$
+	则：$b>1$时，$\sumn a_n$收敛；$b<1$时，发散。
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	{\bf Gauss判别法：}$\{a_n\}$非负，
+	$$\df{a_n}{a_{n+1}}=1+\df{\mu}n+\mathrm{O}\left(\df1{n^{1+\e}}\right),\;\e>0,$$
+	则：$\mu>1$时，$\sumn a_n$收敛；$\mu<1$时，发散。
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	{\bf 对数判别法：}	$\{a_n\}$非负，
+	\begin{enumerate}
+	  \item $\limn\df{\ln\df1{a_n}}{\ln n}=r,$
+		则：$r>1$时，$\sumn a_n$收敛；$r<1$时，发散。
+	  \item  $\limn\df{\ln\df1{na_n}}{\ln\ln n}=r,$
+		则：$r>1$时，$\sumn a_n$收敛；$r<1$时，发散。
+	\end{enumerate}	
+\end{tcolorbox}
+
+{\bf 例：}证明级数$\sumn\left(\df{\sqrt n}{1+\sqrt n}\right)^n$收敛。
+
+\begin{tcolorbox}
+	{\bf Cauchy积分判别法：}设$f(x)$在$x\geq 1$上单调递减，
+	则$\sumn f(n)$和$\dint_1^{+\infty}f(x)\d x$同敛散。
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	{\bf Sapagof判别法：}$\{a_n\}$单调趋于零，当且仅当
+	$\sumn\left(1-\df{a_{n+1}}{a_n}\right)$发散。
+\end{tcolorbox}
+\end{shaded}
+
+\subsection{交错级数审敛法}
+
+{\bf 交错级数：}相邻各项符号相反，设$a_n\geq 0,(n\in\mathbb{Z}_+)$
+$$\sumn(-1)^na_n$$
+
+{\bf 定理2.5.1}（Leibniz判别法）若数列$\{a_n\}$单调趋于$0$，则交错级数$\sumn (-1)^na_n$收敛，且
+其和的绝对值不超过$|a_1|$。
+
+{\bf 注：}{\b Leibniz判别法只是一个充分条件，将其作为必要条件使用是最常见的一种错误！}
+
+反例：$\df12-\df13+\df1{2^2}-\df1{3^2}+\df1{2^3}-\df1{3^3}+\ldots$收敛，
+但其通项取极限后不具有单调性
+
+{\bf 例：}判断下列级数的敛散性
+\begin{enumerate} [(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\sumn(-1)^{n-1}\df{2^nn!}{n^n}$ 
+  \item $\sumn(-1)^n\df{\sqrt{n}}{n+100}$\hfill{($n>100$时$a_n$单调递减趋于$0$)}
+  \item $\sumn\sin\left(\pi\sqrt{n^2+k^2}\right),(k\in\mathbb{Z}_+)$
+\end{enumerate}
+
+{\bf 例：} 设$a_n=(-1)^n\ln\left(1+\df1n\right)$，是否 
+$\sumn a_n$和$\sumn a^2_n$均收敛？
+
+[提示]：$\left\{\ln\left(1+\df1n\right)\right\}$单调递减趋于零，
+故由Leibniz判别法，$\sumn a_n$收敛。
+
+注意到\ps{$\df1{n+1}<\ln\left(1+\df1n\right)<\df1n$}
+$$0<\ln\left(1+\df1n\right)<\df1n\quad\Rightarrow\quad
+\left[\ln\left(1+\df1n\right)\right]^2<\df1{n^2},$$
+由比较判别法，级数$\sumn a^2_n$收敛。
+
+{\bf 思考：}{\b 若级数$\sumn a_n$收敛，$\sumn a^2_n$必收敛？}
+
+答：错！若$a_n$均非负，由级数收敛的必要条件，必有$\limn a_n=0$，
+从而可知，当$n$充分大时，必有$a_n<1$，进而有$0<a^2_n<a_n$，由比较
+判别法，级数$\sumn a^2_n$收敛。\ps{也可以利用比较法的极限形式：$\limn\df{a^2_n}{a_n}=0$}
+
+但若$a_n$可能变号，以上结论将不再成立。事实上，存在反例：$a_n=(-1)^n\df1{\sqrt n}$
+
+% {\bf 例：}求和
+% \begin{enumerate}[(1)]
+%   \setlength{\itemindent}{1cm}
+%   \item $\sum\limits_{n=2}^{\infty}\df{(-1)^n}{\sqrt n+(-1)^n}
+%   =\df{(-1)^n\sqrt n}{n-1-\df1{n-1}}$
+%   \item $\sum\limits_{n=2}^{\infty}\df{(-1)^n}{\sqrt{n+(-1)^n}}
+%   =\left(\df1{\sqrt 3}-\df1{\sqrt 2}\right)+\left(\df1{\sqrt 5}-\df1{\sqrt
+%   4}\right)+\ldots+\left(\df1{\sqrt{2n+1}}-\df1{\sqrt{2n}}\right)$
+% \end{enumerate}
+% 
+% $$\df1{\sqrt{2n+1}}-\df1{\sqrt{2n}}=-\df1{\sqrt{2n(2n+1)}
+% (\sqrt{2n}+\sqrt{2n+1})}$$
+
+\subsection{绝对收敛和条件收敛}
+
+{\bf 定理2.5.2：}若$\sumn |a_n|$收敛，则$\sumn a_n$收敛；反之不然。
+
+{\bf 定理2.5.3-2.5.4}（绝对收敛级数的性质）
+
+\begin{itemize}
+  \setlength{\itemindent}{1cm}
+  \item {\bf 绝对收敛：}$\sumn |a_n|$收敛\ps{这样已经隐含了$\sumn a_n$收敛}
+  \item {\bf 条件收敛：}$\sumn |a_n|$发散，但$\sumn a_n$收敛
+\end{itemize}
+
+{\b{\bf 注意：}绝对收敛和条件收敛都可以推出$\sumn a_n$收敛！}
+
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item {\bf 交换律：}绝对收敛级数求和项任意交换次序和不变\ps{强调：交换次序意味着新的级数}
+  \item {\bf 级数的Cauchy乘积：}设$\sumn a_n,\sumn
+	  b_n$绝对收敛，则$\sum\limits_{i,j=1}^na_ib_j$绝对收敛，且
+	  $$\sum\limits_{i,j=1}^{\infty}a_ib_j=\sumn a_n\sumn b_n$$
+\end{enumerate}
+
+% {\bf 例：}已知$0\leq a_n\leq\df1n$，以下哪个级数必收敛？\hfill（D）
+% 
+% \quad(A)\;$\sumn a_n$\quad(B)$\sumn (-1)^na_n$
+% \quad(C)$\sumn \sqrt{a_n}$\quad(D)$\sumn (-1)^na^2_n$
+
+\begin{shaded}
+
+\subsection{特殊判别法}
+
+{\bf Dirichlet判别法：}若数列$\{a_n\}$单调趋于$0$，$\sumn b_n$
+  的部分和有界，则$\sumn a_nb_n$收敛。
+  
+{\bf 例：}判断以下级数的敛散性
+$$\sumn\df{\sin nx}n$$
+
+[提示]：
+设$a_n=\df1n,b_n=\sin nx$，注意到
+\begin{eqnarray*}
+&&\sin\df x2(\sin x+\sin2x+\cdots+\sin nx)\\
+&=&\df12\left[\left(\cos\df x2-\cos\df{3x}2\right)+
+\left(\cos\df {3x}2-\cos\df{5x}2\right)+\cdots+
+\left(\cos\df {2n-1}2x-\cos\df{2n+1}2x\right)\right]\\
+&=&\df12\left(\cos\df{x}2-\cos\df{2n+1}2x\right),
+\end{eqnarray*}
+故对给定$x$
+$$\left|\sum\limits_{i=1}^n\sin ix\right|
+\leq\df{\left|\cos\df{3x}2-\cos\df{2n+1}2x\right|}{2\left|\sin\df x2\right|}
+\leq\df1{\left|\sin\df x2\right|},$$
+有界。
+
+又由
+$$\left|\df{\sin nx}n\right|\geq\df{\sin^2nx}n=\df1{2n}-\df{\cos2nx}{2n},$$
+且$\sumn\df1{2n}$发散，$\sumn\df{\cos2nx}{2n}$收敛，可知
+$$\sumn\df{\sin nx}n$$是条件收敛的。
+
+{\bf Abel判别法：}若数列$\{a_n\}$单调有界，$\sumn b_n$收敛，则$\sumn a_nb_n$收敛。
+
+{\bf 例：}判断以下级数的敛散性
+
+$$\sumn(-1)^n\left(1+\df 1n\right)^n\df{1}{\sqrt n}$$ 
+
+\subsection{条件收敛的有趣性质}
+
+{\bf Riemann定理：}若级数$\sumn a_n$条件收敛，则对任意给定的数$A$，都可以通过对该级数的
+重新排列，使得新的级数以$A$为其和。
+
+\begin{itemize}
+  \item 对条件收敛的级数进行重排可能改变其和
+  \item 重排后的级数可能发散
+\end{itemize}
+
+\end{shaded}
 \section{幂级数及其应用}
 
 \subsection{函数项级数的概念}
