@@ -1133,8 +1133,9 @@ $f(\eta)=0$。至此，可以验证$f(x)$在$[0,\eta]$上满足Rolle定理条件
 $f(1)+\dint_0^1f(x)\d x=0$，证明：存在$\xi\in(0,1)$，使得
 $f'(\xi)=\xi f(\xi)$。
 
-[证]：不妨设$f(1)>0$，则$\dint_0^1f(x)\d x<0$，从而可知，存在$\eta\in(0,1)$，
-使得$f(\eta)<0$。
+[证]：不妨设$f(1)>0$，则$\dint_0^1f(x)\d x<0$，从而可知，存在$\eta_1\in(0,1)$，
+使得$f(\eta_1)<0$。进而由连续函数的介值定理，可知存在$\eta\in(0,\eta_1)$，
+使得$f(\eta)=0$。
 
 令$F(x)=e^{-\frac{x^2}2}f(x)$，可以验证$F(x)$在$[0,\eta]$上满足
 Rolle定理条件，从而可知必存在$\xi\in(0,\eta)\subset(0,1)$，使得
@@ -1150,13 +1151,11 @@ $$F'(\xi)=e^{-\frac{\xi^2}2}[f'(\xi)-\xi f(\xi)]=0,$$
 （1）$\dint_{-1}^2[x]\max\{1,e^{-x}\}\d x$，其中$[x]$表示不超过$x$的最大整数；
 
 [解]：
-\begin{align*}
-	&\dint_{-1}^2[x]\max\{1,e^{-x}\}\d x
-	=\dint_{-1}^0(x+1)e^{-x}\d x+\dint_0^1x\d x+\dint_1^2(x-1)\d x\\
-	&=1-\dint_{-1}^0(x+1)\d e^{-x}
-	=1-(x+1)e^{-x}|_{-1}^0+\dint_{-1}^0e^{-x}\d x\\
-	&=1-1-1+e=1+e.
-\end{align*}
+$$
+	\dint_{-1}^2[x]\max\{1,e^{-x}\}\d x
+	=-\dint_{-1}^0e^{-x}\d x+\dint_1^2\d x
+	=2-e
+$$
 
 （2）$\dint_0^{\pi}x\sqrt{\cos^2x-\cos^4x}\d x$
 
@@ -1217,7 +1216,7 @@ $$\dint_0^{\frac{\pi}2}f(x)\d x=\dint_0^{\frac{\pi}2}\cos\d x=1.$$
 [解]：令$u=x^2-t^2$，则
 \begin{align*}
 	f(x)&=\df12\dint_0^xg(x^2-t^2)\d t^2\\
-	=\df12\dint_{x^2}^0g(u)\d(x^2-u)
+	&=\df12\dint_{x^2}^0g(u)\d(x^2-u)
 	=\df12\dint_0^{x^2}g(u)\d u,
 \end{align*}
 于是
@@ -1237,13 +1236,13 @@ $$f'(x)=\sin x^2.$$
 相切，求$\limn nf\left(\df2n\right)$。
 
 [解]：
-\begin{align}
+\begin{align*}
 	\limn nf\left(\df2n\right)
 	&=2\limn\df{f\left(\df2n\right)}{\df2n}
 	=2\limx0\df{f(x)}x\\
 	&=2\limx0f'(x)=2f'(0)=2y'(0)\\
 	&=2e^{-\arctan^2 x}\left.\df1{1+x^2}\right|_{x=0}=2.
-\end{align}
+\end{align*}
 \fin
 
 \bs

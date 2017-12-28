@@ -1,4 +1,4 @@
-\setcounter{chapter}{12}
+\setcounter{chapter}{11}
 
 \chapter{无穷级数}
 
@@ -665,16 +665,18 @@ $$n\left(\df{a_n}{a_{n+1}}-1\right)=\df{2n}{\sqrt{n+1}}\to\infty\;(n\to\infty)$$
 
 \subsection{交错级数审敛法}
 
-{\bf 交错级数：}相邻各项符号相反，设$a_n\geq 0,(n\in\mathbb{Z}_+)$
+{\bf 交错级数：}相邻各项符号相反的级数，例如：设$a_n\geq 0,(n\in\mathbb{Z}_+)$，则
 $$\sumn(-1)^na_n$$
+为交错级数。
 
-{\bf 定理2.5.1}（Leibniz判别法）若数列$\{a_n\}$单调趋于$0$，则交错级数$\sumn (-1)^na_n$收敛，且
-其和的绝对值不超过$|a_1|$。
+\begin{thx}
+	{\bf Leibniz判别法：}若数列$\{a_n\}$单调趋于$0$，则交错级数$\sumn (-1)^na_n$收敛，且
+	其和的绝对值不超过$|a_1|$。
+\end{thx}
 
-{\bf 注：}{\b Leibniz判别法只是一个充分条件，将其作为必要条件使用是最常见的一种错误！}
-
-反例：$\df12-\df13+\df1{2^2}-\df1{3^2}+\df1{2^3}-\df1{3^3}+\ldots$收敛，
-但其通项取极限后不具有单调性
+必须注意的是{\b Leibniz判别法只是一个充分条件，将其作为必要条件使用是最常见的一种错误！}
+例如：$\df12-\df13+\df1{2^2}-\df1{3^2}+\df1{2^3}-\df1{3^3}+\ldots$收敛，
+但其通项去绝对值后并不具有单调性。
 
 {\bf 例：}判断下列级数的敛散性
 \begin{enumerate} [(1)]
@@ -718,37 +720,42 @@ $$0<\ln\left(1+\df1n\right)<\df1n\quad\Rightarrow\quad
 
 \subsection{绝对收敛和条件收敛}
 
-{\bf 定理2.5.2：}若$\sumn |a_n|$收敛，则$\sumn a_n$收敛；反之不然。
+Leibniz判别易于使用，但是其局限性也是显而易见的，对于非交错级数的
+变号级数而言，它是完全无能为力的。
 
-{\bf 定理2.5.3-2.5.4}（绝对收敛级数的性质）
+有时候，对于一个变号级数，要判定其收敛，可以通过判定其各项取绝对值
+之后的级数收敛来实现。这种加了各项绝对值之后所得级数仍收敛的性质称为
+{\bf 绝对（值）收敛}，否则，如果原级数收敛，但不绝对收敛，则称为
+{\bf 条件收敛}。
 
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item {\bf 绝对收敛：}$\sumn |a_n|$收敛\ps{这样已经隐含了$\sumn a_n$收敛}
-  \item {\bf 条件收敛：}$\sumn |a_n|$发散，但$\sumn a_n$收敛
-\end{itemize}
+\begin{thx}
+	{\bf 绝对收敛的性质：}
+	\begin{enumerate}
+	  \item {\kaishu 绝对收敛的级数必收敛：}若$\sumn |a_n|$收敛，则$\sumn a_n$收敛；反之不然；
+	  \item {\kaishu 交换律：}绝对收敛级数求和项任意交换次序其无穷和不变；
+	  \item {\kaishu 级数的Cauchy乘积：}设$\sumn a_n,\sumn
+	  b_n$绝对收敛，则$\sum\limits_{i,j=1}^na_ib_j$绝对收敛，且
+	  $$\sum\limits_{i,j=1}^{\infty}a_ib_j=\sumn a_n\sumn b_n$$
+	\end{enumerate}
+\end{thx}
 
 {\b{\bf 注意：}绝对收敛和条件收敛都可以推出$\sumn a_n$收敛！}
 
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item {\bf 交换律：}绝对收敛级数求和项任意交换次序和不变\ps{强调：交换次序意味着新的级数}
-  \item {\bf 级数的Cauchy乘积：}设$\sumn a_n,\sumn
-	  b_n$绝对收敛，则$\sum\limits_{i,j=1}^na_ib_j$绝对收敛，且
-	  $$\sum\limits_{i,j=1}^{\infty}a_ib_j=\sumn a_n\sumn b_n$$
-\end{enumerate}
+{\bf 例：}已知$0\leq a_n\leq\df1n$，以下哪个级数必收敛？\hfill（D）
 
-% {\bf 例：}已知$0\leq a_n\leq\df1n$，以下哪个级数必收敛？\hfill（D）
-% 
-% \quad(A)\;$\sumn a_n$\quad(B)$\sumn (-1)^na_n$
-% \quad(C)$\sumn \sqrt{a_n}$\quad(D)$\sumn (-1)^na^2_n$
+\quad(A)\;$\sumn a_n$\quad(B)$\sumn (-1)^na_n$
+\quad(C)$\sumn \sqrt{a_n}$\quad(D)$\sumn (-1)^na^2_n$
 
 \begin{shaded}
 
 \subsection{特殊判别法}
 
-{\bf Dirichlet判别法：}若数列$\{a_n\}$单调趋于$0$，$\sumn b_n$
-  的部分和有界，则$\sumn a_nb_n$收敛。
+下面这些判别法仅作为了解即可：
+
+\begin{tcolorbox}
+	{\bf Dirichlet判别法：}若数列$\{a_n\}$单调趋于$0$，$\sumn b_n$
+  	的部分和有界，则$\sumn a_nb_n$收敛。
+\end{tcolorbox}
   
 {\bf 例：}判断以下级数的敛散性
 $$\sumn\df{\sin nx}n$$
@@ -773,7 +780,10 @@ $$\left|\df{\sin nx}n\right|\geq\df{\sin^2nx}n=\df1{2n}-\df{\cos2nx}{2n},$$
 且$\sumn\df1{2n}$发散，$\sumn\df{\cos2nx}{2n}$收敛，可知
 $$\sumn\df{\sin nx}n$$是条件收敛的。
 
-{\bf Abel判别法：}若数列$\{a_n\}$单调有界，$\sumn b_n$收敛，则$\sumn a_nb_n$收敛。
+\begin{tcolorbox}
+	{\bf Abel判别法：}若数列$\{a_n\}$单调有界，$\sumn b_n$收敛，
+	则$\sumn a_nb_n$收敛。
+\end{tcolorbox}
 
 {\bf 例：}判断以下级数的敛散性
 
@@ -781,18 +791,25 @@ $$\sumn(-1)^n\left(1+\df 1n\right)^n\df{1}{\sqrt n}$$
 
 \subsection{条件收敛的有趣性质}
 
-{\bf Riemann定理：}若级数$\sumn a_n$条件收敛，则对任意给定的数$A$，都可以通过对该级数的
-重新排列，使得新的级数以$A$为其和。
+一个变号级数若收敛，但又不绝对收敛，则会出现以下这样一个“令人惊讶”的性质：
 
+\begin{tcolorbox}
+	{\bf Riemann定理：}若级数$\sumn a_n$条件收敛，则对任意给定的数$A$，
+	都可以通过对该级数的重新排列，使得新的级数以$A$为其和。
+\end{tcolorbox}
+这个定理意味着：
 \begin{itemize}
-  \item 对条件收敛的级数进行重排可能改变其和
-  \item 重排后的级数可能发散
+  \item 对条件收敛的级数进行重排可能改变其和；
+  \item 重排后的级数可能发散。
 \end{itemize}
 
 \end{shaded}
+
 \section{幂级数及其应用}
 
 \subsection{函数项级数的概念}
+
+对比着来看，很容易理解函数项级数的概念：
 
 {\bf 数项级数(无穷级数)：}一个{\it 数列}依序相加
 $$S=\sum\limits_{n=1}^{\infty}u_n
@@ -802,25 +819,29 @@ $$S=\sum\limits_{n=1}^{\infty}u_n
 $$S(x)=\sum\limits_{n=1}^{\infty}u_n(x)
 =\lim\limits_{n\to\infty}\sum\limits_{k=1}^nu_k(x)$$
 
-{\bf 幂级数：} 一个{\it 整数次幂的幂函数列}依序相加
+{\bf 幂级数：} 一个{\it 正整数次幂的幂函数列}依序相加
 $$S(x)=\sum\limits_{n=0}^{\infty}a_n(x-x_0)^n$$ 
 
-{\bf Fourier级数：} 一个{\it 三角函数列}依序相加
+{\bf Fourier级数：} 一个{\it 特定的三角函数列}依序相加
 $$S(x)=\df{a_0}{2}+\sum\limits_{n=1}^{\infty}
 (a_n\cos nx+b_n\sin nx)$$
 
+显然，函数项级数也有着敛散性的问题，而且更为有趣的是，当其收敛时，
+其和不再是一个数值，而应该是一个所谓的{\bf 和函数}。
+
 \subsection{幂级数的概念与性质}
 
-{\it 关于$x-x_0$的幂级数}（也称为{\it 以$x_0$为中心的幂级数}
-\ps{幂级数也常被称为{\b Taylor级数}，特别是如果$x_0$，也称为{\b Maclaurin级数}}）记为，
+{\bf 关于$(x-x_0)$的幂级数}（或{\bf 以$x_0$为中心的幂级数}
+\ps{幂级数也常被称为{\bf Taylor级数}，特别是如果$x_0=0$，
+也称为{\bf Maclaurin级数}}）记为，
 $${\sum\limits_{n=0}^{\infty}a_n(x-x_0)^n}$$
 其中：$a_n\in\mathbb{R}\,(n\in\mathbb{N})$，$x,x_0\in\mathbb{R}$。
 
-以下的讨论中，不妨假设$x_0=0$，以
+以下的讨论中，我们假设$x_0=0$，以
 $${\sum\limits_{n=0}^{\infty}a_nx^n}$$
 为代表研究幂级数的有关性质。
 
-{\bf 例：}讨论如下幂级数的收敛区间：
+{\bf 例：}讨论如下幂级数的{\kaishu 收敛区间}：
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\sum\limits_{n=0}^{\infty}\df{x^n}{n!}$\hfill $(-\infty<x<+\infty)$
@@ -831,20 +852,26 @@ $${\sum\limits_{n=0}^{\infty}a_nx^n}$$
 {\bf 注：}{\b 幂级数总是在某个（而不是多个）非空的区间上收敛，
 且在忽略区间端点的情况下，该区间关于$x_0$对称。}
 
-{\bf 定理13.1.1}(Abel定理)考虑幂级数
-$$\sum\limits_{n=0}^{\infty}a_nx^n$$
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 若在$x_0\ne 0$处该级数收敛，则对任意$|x|<|x_0|$，该级数绝对收敛； 
-  \item 若在$x_0\ne 0$处该级数发散，则对任意$|x|>|x_0|$，该级数发散。 
-\end{enumerate}
+\begin{thx}
+	{\bf Abel定理：}考虑幂级数
+	$$\sum\limits_{n=0}^{\infty}a_nx^n$$
+	\begin{enumerate}%[(1)]
+% 	  \setlength{\itemindent}{1cm}
+	  \item 若在$x_0\ne 0$处该级数收敛，则对任意$|x|<|x_0|$，该级数绝对收敛； 
+	  \item 若在$x_0\ne 0$处该级数发散，则对任意$|x|>|x_0|$，该级数发散。 
+	\end{enumerate}
+\end{thx}
 
-{\bf 推论：}存在收敛与发散的临界点：$x^*=\pm R$，使得幂级数在
-以$x_0$为中心$R$为半径({\it 收敛半径})的对称区间内收敛，在其外发散。
+由Abel定理立刻可以得到如下光宇幂级数收敛域的推论：
 
-{\bf 注：}在临界点处的收敛性需要单独判定！
+\begin{thx}
+	{\bf 幂级数的收敛域：}存在收敛与发散的临界点：$x^*=\pm R$，使得幂级数在
+	以$x_0$为中心$R$为半径({\bf 收敛半径})的对称开区间内收敛，在其外发散。	
+\end{thx}
 
-{\bf 习题13.1-17：}设幂级数$\sumn a_nx^n$的收敛半径为$3$，求$\sumn na_n(x-1)^{n+1}$
+由于上面的结论并未涉及收敛区间的端点，故{\b 在区间端点处的敛散性需要单独判定！}
+
+{\bf 例：}设幂级数$\sumn a_nx^n$的收敛半径为$3$，求$\sumn na_n(x-1)^{n+1}$
 的收敛区间。
 
 {\bf 例：}设$a_n\geq0\;(n\in\mathbb{N})$，
@@ -855,10 +882,16 @@ $$\sum\limits_{n=0}^{\infty}a_nx^n$$
 级数$\sum\limits_{n=0}^{\infty}a_n|(x_1-x_0)|^n$发散，由此可知，其收敛半径
 不可能大于$|x_1-x_0|$。
 
-{\bf 定理13.1.3-4：}若$\sum\limits_{n=0}^{\infty}a_nx^n$的系数满足
-$$\limn\left|\df{a_{n+1}}{a_n}\right|=\rho
-\quad\mbox{或}\quad\limn\sqrt[n]{|a_n|}=\rho,$$
-则该幂级数的收敛半径$R=1/\rho$。
+{\bf 例：}若$\sum a_n(x-2)^n$在$x=-2$收敛，则在$x=5$处
+\underline{\;{绝对收敛}\;}；若在$x=-2$处条件收敛，
+则收敛半径为\underline{\;{$4$}\;}
+
+\begin{thx}
+	{\bf 幂级数的收敛半径：}若$\sum\limits_{n=0}^{\infty}a_nx^n$的系数满足
+	$$\limn\left|\df{a_{n+1}}{a_n}\right|=\rho
+	\quad\mbox{或}\quad\limn\sqrt[n]{|a_n|}=\rho,$$
+	则该幂级数的收敛半径$R=1/\rho$。
+\end{thx}
 
 {\bf 例：}求下列幂级数的收敛区间
 \begin{enumerate}[(1)]
@@ -880,30 +913,54 @@ $\sum\limits_{n=0}^{\infty}x^{3n}$同敛散。令$u=x^3$，后一级数
 即为$\sum\limits_{n=0}^{\infty}u^n$，收敛区间$|u|<1$。
 最终可得原级数的收敛区间为$|x|<1$。
 
-{\bf 注：}关于求幂级数的收敛域
-\begin{enumerate}
+关于求幂级数收敛半径和收敛域的步骤，可以简单总结如下：
+
+\begin{thx}
+	{\bf 求幂级数的收敛域：}
+	\begin{enumerate}
+% 	  \setlength{\itemindent}{1cm}
+	  \item 一般步骤：{\b 先求收敛半径，再讨论区间端点的敛散性}
+	  \item 标准型幂级数： $\sum\limits_{n=0}^{\infty}a_nx^n$ 
+	  $${R=\limn\left|\df{a_n}{a_{n+1}}\right|}
+	  \quad\mbox{或}\quad {R=\df 1{\limn\sqrt[n]{|a_n|}}}$$ 
+	  \item 非标准型幂级数（缺项或通项为复合函数）：先换元、整理，再求收敛半径 
+	  \item 比值极限不存在时，注意使用根值极限（{\b 若
+	  $\limn\left|\df{a_{n+1}}{a_n}\right|$存在，
+	  $\limn\sqrt[n]{|a_n|}$必存在且与之相等}）
+	\end{enumerate}
+\end{thx}
+
+{\bf 例：}判断正误
+\begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item 一般步骤：{\b 先求收敛半径，再讨论区间端点的敛散性}
-  \item 标准型幂级数： $\sum\limits_{n=0}^{\infty}a_nx^n$ 
-  $${R=\limn\left|\df{a_n}{a_{n+1}}\right|}
-  \quad\mbox{或}\quad {R=\df 1{\limn\sqrt[n]{|a_n|}}}$$ 
-  \item 非标准型幂级数（缺项或通项为复合函数）：先换元、整理，再求收敛半径 
-  \item 比值极限不存在时，注意使用根值极限\ps{若
-  $\limn\left|\df{a_{n+1}}{a_n}\right|$存在，
-  $\limn\sqrt[n]{|a_n|}$必存在且与之相等}
+  \item 幂级数在其收敛域上一定绝对收敛 \;{{$(\;\times\;)$}} 
+  \item 设$\sum a_nx^n,\sum b_nx^n$的收敛半径分别为$R_1,R_2$，
+  则$\sum(a_n+b_n)x^n$的收敛半径$R=\min\{R_1,R_2\}$ 
+  \;{{$(\;\times\;)$}} 
+  \item 幂级数与其逐项积分和逐项求导的幂级数的收敛域相同 
+  \;{{$(\;\times\;)$}}
 \end{enumerate}
 
-\subsection{幂级数的和函数}\ps{幂级数展开与求和都是各类考试的常见考点！}
+[提示]：（1）幂级数在不包含收敛域端点的区间内绝对收敛；
 
-{\bf 定理3：}(幂级数的运算性质)
-\begin{enumerate}
-  \setlength{\itemindent}{1cm}
-  \item 两个幂级数的和在其收敛域的交集内收敛
-  \ps{求和后的幂级数收敛域可能比原来的两个幂级数都大，例如：$\sumn x^n+\sumn(-1)x^n=0$}
-  \item 幂级数逐项求导或求不定积分后收敛半径不变；\ps{收敛区间端点处的敛散性可能变化，要单独讨论！} 
-  \item 幂函数的和函数在其收敛域上连续； 
-  \item 幂函数逐项求导或求不定积分后，对应和函数分别为原和函数的导函数和原函数。
-\end{enumerate}
+（2）正确说法是$R\geq\min\{R_1,R_2\}$，例如：$a_n=-b_n$，则
+$R=+\infty$；
+
+（3）需要提出收敛域的端点！
+
+\subsection{幂级数的和函数}
+
+\begin{thx}
+	{\bf 幂级数的运算性质：}
+	\begin{enumerate}
+% 	  \setlength{\itemindent}{1cm}
+	  \item 两个幂级数的和在其收敛域的交集内收敛
+	  \ps{求和后的幂级数收敛域可能比原来的两个幂级数都大，例如：$\sumn x^n+\sumn(-1)x^n=0$}
+	  \item 幂级数逐项求导或求不定积分后收敛半径不变；\ps{收敛区间端点处的敛散性可能变化，要单独讨论！} 
+	  \item 幂函数的和函数在其收敛域上连续； 
+	  \item 幂函数逐项求导或求不定积分后，对应和函数分别为原和函数的导函数和原函数。
+	\end{enumerate}
+\end{thx}
 
 {\bf 例：}已知
 $$\df{1}{x+1}=\sum\limits_{n=0}^{\infty}(-x)^n\;(|x|<1),$$
@@ -923,8 +980,9 @@ $$\ln 2=1-\df 12+\df 13-\df 14+\ldots+\df{(-1)^n}{n}+\ldots$$
 $$S(x)=\dint_0^x\df1{t+1}\d t+S(0)=\ln|x+1|,$$
 即为所求。当$x=1$时，
 $$S(1)=\ln 2=1-\df 12+\df 13-\df 14+\ldots+\df{(-1)^n}{n}+\ldots.$$
+\fin
 
-{\bf 例：}求下列幂级数的和函数\ps{重点掌握，学会举一反三}
+{\bf 例：}求下列幂级数的和函数
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\sum\limits_{n=0}^{\infty}\df{x^n}{n!}$
@@ -961,6 +1019,7 @@ $$S(x)=\left\{\begin{array}{ll}
 	-\df{\ln|1-x|}x,&x\ne0\\
 	1,&x=0.
 \end{array}\right.$$
+\fin
 
 {\bf 例：}求数项级数$\sumn\sum\limits_{k=1}^n\df{k}{2^{n-1}}$的和。
 
@@ -972,9 +1031,9 @@ $$\sumn\df{n(n+1)}{2^n}.$$
 
 函数$f(x)$在原点处的无穷阶Taylor展开式： 
 $$f(x)=\sum\limits_{n=0}^{\infty}\df{f^{(n)}(0)}{n!}x^n$$
- 称为：{\it $f(x)$在原点处的Taylor级数(Maclaurin级数)} 
+ 称为：{\kaishu $f(x)$在原点处的Taylor级数(Maclaurin级数)} 
  
-{\bf 注：}展开的条件： $f(x)$在原点处无穷阶可导
+{\bf 注：}展开的条件： $f(x)$在原点处无穷阶可导。
 
 {\bf 例：}求以下函数的Maclaurin级数\ps{重点掌握！}
 
@@ -1025,7 +1084,7 @@ $$\arctan x=\dint_0^x\left[\sum\limits_{n=0}^{\infty}(-1)^nt^{2n}\right]\d t
 收敛域$(-1,1)$\ps{注意到$\arctan x$在$(-\infty,+\infty)$上处处无穷可导，但
 其幂级数展开的收敛域只是$(-,1)$，这很好地说明了幂级数的局部收敛性}
 
-{\bf 习题13.1-19：}将函数$f(x)=\arccos x$展开为$x$的幂级数，写出收敛区间，
+{\bf 例：}将函数$f(x)=\arccos x$展开为$x$的幂级数，写出收敛区间，
 并由此给出一个求圆周率$\pi$的公式。
 
 [提示]：
@@ -1044,52 +1103,13 @@ $$\arccos x-\arccos0
 
 \subsection{幂级数的应用}
 
-\subsubsection{【函数值的近似计算】}
+幂级数的应用于Taylor公式的应用本质上是相同的，在进行各种近似计算时，
+需要将幂级数截断为多项式来使用，有关的方法已经在Taylor公式一节讨论过，
+在此不再重复。
 
-\subsubsection{【积分的近似计算】}
-
-\subsubsection{【解微分方程】}
+这里介绍一个应用幂级数展开求解微分方程的例子：
 
 {\bf 例：}求解初值问题：$$xy''+y'+xy=0,\;y(0)=1,\;y'(0)=0$$
-
-\subsection{课堂练习}
-
-{\bf 例：}判断正误
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 幂级数在其收敛域上一定绝对收敛 \;{{$(\;\times\;)$}} 
-  \item 设$\sum a_nx^n,\sum b_nx^n$的收敛半径分别为$R_1,R_2$，
-  则$\sum(a_n+b_n)x^n$的收敛半径$R=\min\{R_1,R_2\}$ 
-  \;{{$(\;\times\;)$}} 
-  \item 幂级数与其逐项积分和逐项求导的幂级数的收敛域相同 
-  \;{{$(\;\times\;)$}}
-\end{enumerate}
-
-[提示]：（1）幂级数在不包含收敛域端点的区间内绝对收敛；
-
-（2）正确说法是$R\geq\min\{R_1,R_2\}$，例如：$a_n=-b_n$，则
-$R=+\infty$；
-
-（3）需要提出收敛域的端点！
-
-{\bf 例：}若$\sum a_n(x-2)^n$在$x=-2$收敛，则在$x=5$处
-\underline{\;{绝对收敛}\;}；若在$x=-2$处条件收敛，
-则收敛半径为\underline{\;{$4$}\;}
-
-{\bf 例：}求函数项级数$\sum\limits_{n=1}^{\infty}
-\sin\df 1 {3n}\left(\df{3+x}{3-2x}\right)^n$
-的收敛域。
-
-{\bf 例：}求级数$\sum\limits_{n=1}^{\infty}\df{n}{2^{n-1}}$的和。
-
-{\bf 例：}将下列函数展开成Maclaurin级数，并求其收敛域
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $f(x)=\arcsin x$
-  \item $f(x)=\df 1{1+x+x^2}$
-\end{enumerate}
-
-[提示]：（2）$f(x)=\df{1-x}{1-x^3}$
 
 \begin{shaded}
 	{\bf 关于$\arctan x$的展开的讨论}
@@ -1154,34 +1174,90 @@ $R=+\infty$；
 % 	\end{array}\right.$$
 \end{shaded}
 
+\begin{ext}
+	{\bf 课后作业}
+	\begin{enumerate}
+	  \item 求级数$\sumn\df{(2x+1)^n}n$的收敛域。
+	  \item 求函数项级数$\sum\limits_{n=1}^{\infty}
+		\sin\df 1 {3n}\left(\df{3+x}{3-2x}\right)^n$
+		的收敛域。
+	  \item 将函数$f(x)=\df1{\sqrt{3+2x-x^2}}$展开成$x=1$处的幂级数，并求其收敛域。
+	  \item 设级数$\sumn a_n(x-b)^n$在$x=0$收敛，
+		在$x=2b$发散，求幂级数$\sumn a_nx^n$的收敛域，并求
+		$\sumn(n+1)a_{n+1}x^n$和$\sumn\df{a_{n-1}}nx^n$的收敛半径。 
+	  \item 判别级数$\sumn\dint_0^{\pi/n}\df{\sin x}{1+x}\d x$的敛散性。 
+	  \item 求级数$\sum\limits_{n=1}^{\infty}\df{n}{2^{n-1}}$的和。
+	  \item 将下列函数展开成Maclaurin级数，并求其收敛域
+		\begin{enumerate}[(1)]
+% 		  \setlength{\itemindent}{1cm}
+		  \item $f(x)=\arcsin x$
+		  \item $f(x)=\df 1{1+x+x^2}$
+		\end{enumerate}
+	  \item 已知$f_n(x)\;(n\in\mathbb{Z}^+)$满足
+		$$f'_n(x)=f_n(x)+x^{n-1}e^x,$$
+		且$f(1)=\df en$，求级数$\sumn f_n(x)$的和。
+	  \item 设$y(x)=\sumn\df{[(n-1)!]^2}{(2n)!}(2x)^{2n},\;(|x|<1)$
+		\begin{enumerate}[(1)]
+% 		  \setlength{\itemindent}{1cm}
+		  \item 求$y(0),y'(0)$，并证明：$(1-x^2)y''-xy'=4$；
+		  \item 求$\sumn y(n)$的和函数，并求级数$\sumn\df{[(n-1)!]^2}{(2n)!}$的和。
+		\end{enumerate}
+	  \item 给定两条抛物线$y=nx^2+\df1n,y=(n+1)x^2+\df1{n+1}$，
+		设其交点的横坐标的绝对值为$a_n$，求：
+		\begin{enumerate}[(1)]
+		  \item 两条抛物线所围平面图形的面积$S_n$；
+		  \item 级数$\sumn\df{S_n}{a_n}$的和。
+		\end{enumerate}
+	  \item （选作）设$a_n=\dint_0^{n\pi}x|\sin x|\d x,\;n=1,2,\ldots$，求
+		$\sumn{a_n}{2^n}$的值。
+	  \item 求下列级数的和函数
+		\begin{enumerate}[(1)]
+		  \item $\sumn(-1)^{n-1}nx^{n-1}$；
+		  \item $\sum\limits_{n=0}^{\infty}\df{x^{4n}}{(4n)!}$；
+		  \item $\df1a+\df{2x}{a^2}+\ldots+\df{nx^{n-1}}{a^n}+\ldots$.
+		\end{enumerate}
+	\end{enumerate}
+\end{ext}
+
 \section{Fourier级数}
 
 \subsection{三角级数与Fourier级数}
 
-幂级数：{\it 对无穷次可导函数的局部逼近}
+从近似的效果来看，幂级数是一种{\it 对无穷次可导函数的局部逼近}，这种近似
+在条件满足的情况下，可以达到非常高的精度，为精确表示各类函数提供了有效的手段。
+然而，无穷次可导并不是任何的函数都具有的性质，并且从逼近的效果来看，并没有达到一种
+{\kaishu 整体一致}的近似。例如下图，用幂级数对周期函数$\sin x$作展开
 
-$${f(x)=\sum\limits_{n=0}^{\infty}\df{f^{(n)}(x_0)}{n!}(x-x_0)^n}$$
+$$\sin x\approx\sum\limits_{k=0}^{n}(-1)^k\df{x^{2k+1}}{(2k+1)!}$$
 \begin{center}
 	\resizebox{!}{5cm}{\includegraphics{./images/ch13/sinm.pdf}}
 \end{center}
 
-Fourier级数：{\it 对周期函数的整体逼近}
+本节介绍的Fourier级数在这两个方面恰好具有幂级数所不具有的一些性质。当然，
+虽然同为函数项级数，但二者的构造特点和性质其实是存在很大差异的。
 
-% {\bf Insight：}利用周期运动来逼近周期运动会有更好的整体逼近效果！
+具体来说，Fourier级数可以说是一种{\it 对周期函数的整体逼近}。这种方法的提出
+来自于对周期运动的观察。数学家Daniel Bernoulli提出，任何复杂的振动都可以分
+解成一系列简谐振动之和。而Joseph Fourier则进一步推广这一思想，他认为
+“任意”函数都可以展开成三角级数。
 
-{\it 简谐振动：} 例如弹簧振子、钟摆
-$$f(t)=A\sin(\omega t+\varphi)$$
+作为自然界中最基本的一类周期运动（例如弹簧振子、钟摆），
+{\it 简谐振动：}可以表示为： $$f(t)=A\sin(\omega t+\varphi)$$
 其中：$A$为振幅；$\omega$为角频率；$\varphi$为初相位。
 记$x=\omega t,\,a=A\sin\varphi,\,b=A\cos\varphi$， 则
-$${g(x)=f(t)=a\cos x+b\sin x}$$
+$$g(x)=f(t)=a\cos x+b\sin x.$$
 
-{\it Daniel Bernoulli (1700-1782)：}任何复杂的振动都可以分解成一系列简谐振动之和
+所谓{\bf 三角级数}，就是以上这种分解后的简谐振动所构成的无穷和，形如：
 
-{\it Joseph Fourier (1768-1830)：}“任意”函数都可以展开成三角级数
+$$A_0+\sumn A_n\sin(n\omega t+\varphi_n)$$
+或者按照写为如下的形式：
+\begin{thx}
+	{\bf 三角级数：}
+	$${\df{a_0}{2}+\sumn(a_n\cos nx+b_n\sin nx)},$$
+	其中$a_0,a_1,b_1,a_2,b_2,\ldots$均为实数。
+\end{thx}
 
-$${f(t)=A_0+\sumn A_n\sin(n\omega t+\varphi_n)}$$
-
-{\bf 三角级数与周期函数的整体逼近}
+{\bf 例：}用三角级数逼近方波的效果
 
 $${f(x)=\df{\pi}{4}\mathrm{sgn}(x),\;(x\in[-\pi,\pi])
 \;{\sim\;\sum\limits_{k=1}^n\df{\sin(2k-1)x}{2k-1}}}$$
@@ -1302,28 +1378,33 @@ $${f(x)=\df{\pi}{4}\mathrm{sgn}(x),\;(x\in[-\pi,\pi])
 	$$T(x,y)=2\sumn\df{(-1)^{n+1}}{n}\sin{nx}
 	\cdot\df{e^{ny}-e^{-ny}}{e^{n\pi}-e^{-n\pi}}.$$
 \end{shaded}
+ 
+之所以能够对任意给定的函数进行三角级数展开，关键的原因在于三角函数列所具有的
+{\kaishu 正交性}：
 
-{\bf 三角级数}
-$${\df{a_0}{2}+\sumn(a_n\cos nx+b_n\sin nx)}$$ 
-
-{\bf 定理：}
-三角函数序列$A=\{\cos kx,\sin kx|k=1,2,\ldots\}$具有{\it 正交性} ，
-即：任意$f(x),g(x)\in A$，
-$$\dint_{-\pi}^{\pi}f(x)g(x)dx=\left\{\begin{array}{ll}
-0,\;& f(x)\ne g(x)\\ \pi\;& f(x)=g(x)
-\end{array}\right.$$
+\begin{thx}
+	{\bf 三角函数序列$A=\{\cos kx,\sin kx|k=1,2,\ldots\}$的正交性}：
+	任意$f(x),g(x)\in A$，
+	$$\dint_{-\pi}^{\pi}f(x)g(x)dx=\left\{\begin{array}{ll}
+	0,\;& f(x)\ne g(x)\\ \pi\;& f(x)=g(x)
+	\end{array}\right.$$
+\end{thx}
 
 {\bf 注：}将常值函数$1$加入$A$中，不改变其正交性，只是$1$不满足
-平方积分等于$\pi$（而是等于$2\pi$）。因此，在Fourier展开式中，与$1$对应的系数$a_0$
-需要除以$2$。
+平方积分等于$\pi$（而是等于$2\pi$）。因此，在Fourier展开式中，
+与$1$对应的系数$a_0$需要除以$2$。
 
-{\bf 定理：}若函数$f(x)$可展成如下三角级数
-$$\df{a_0}{2}+\sumn(a_n\cos nx+b_n\sin nx),$$
-且该三角级数可逐项积分， 则
-$${\b\left\{\begin{array}{ll}
-a_n=\df1{\pi}\dint_{-\pi}^{\pi}f(x)\cos nx\d x,\;& n=0,1,2,\ldots\\[5pt]
-b_n=\df1{\pi}\dint_{-\pi}^{\pi}f(x)\sin nx\d x,\;& n=1,2,\ldots
-\end{array}\right.}$$
+\begin{thx}
+	若函数$f(x)$可展成如下三角级数
+	$$\df{a_0}{2}+\sumn(a_n\cos nx+b_n\sin nx),$$
+	且该三角级数可逐项积分， 则
+	$$\left\{\begin{array}{ll}
+	a_n=\df1{\pi}\dint_{-\pi}^{\pi}f(x)\cos nx\d x,\;& n=0,1,2,\ldots\\[5pt]
+	b_n=\df1{\pi}\dint_{-\pi}^{\pi}f(x)\sin nx\d x,\;& n=1,2,\ldots
+	\end{array}\right.$$
+	以上所得$a_n,b_n$称为函数$f(x)$的{\bf Fourier系数}，由其所
+	构成的三角级数称为$f(x)$的{\bf Fourier级数}。
+\end{thx}
 
 \begin{shaded}
 	{\bf 利用正交函数列构造函数项级数}
@@ -1353,12 +1434,15 @@ b_n=\df1{\pi}\dint_{-\pi}^{\pi}f(x)\sin nx\d x,\;& n=1,2,\ldots
 	\end{array}\right.$$
 	
 	参考Fourier级数的有关定理，给以类似地给出如下结论：
-	{\bf 定理：}对任意以$2$为周期的函数$f(x)$，若其可以表示为
-	$$f(x)\sim\sum\limits_{n=0}^{\infty}u_n\xi_n(x),$$
-	且右端级数可以逐项积分，则
-	$$
-	u_n=\df12\dint_0^2f(x)\xi_n(x)\d x,\;n=0,1,2,\ldots.
-	$$
+	
+	\begin{tcolorbox}
+		{\bf 定理：}对任意以$2$为周期的函数$f(x)$，若其可以表示为
+		$$f(x)\sim\sum\limits_{n=0}^{\infty}u_n\xi_n(x),$$
+		且右端级数可以逐项积分，则
+		$$
+		u_n=\df12\dint_0^2f(x)\xi_n(x)\d x,\;n=0,1,2,\ldots.
+		$$
+	\end{tcolorbox}
 \end{shaded}
 
 {\bf 例：}已知$f(x)=\left\{\begin{array}{ll}
@@ -1376,26 +1460,30 @@ $$a_n=\df1{\pi}\dint_{-\pi}^{\pi}x\cos nx\d x=0.$$
 \end{align*}
 综上，所求Fourier级数为
 $$2\sumn\df{(-1)^{n+1}}n\sin nx.$$
+\fin
 
 {\bf 例：}$f(x)$以$2\pi$为周期，且在$[-\pi,\pi)$内$f(x)=\df{\pi}{4}\mathrm{sgn}(x)$，
 求其Fourier级数。
 
-{\bf 注：}
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item {\b $[-\pi,\pi]$上的奇函数的Fourier级数只含有正弦项， 称为{\it 正弦级数}}
-  \item {\b $[-\pi,\pi]$上的偶函数的Fourier级数只含有余弦项， 称为{\it 余弦级数}}
-  \item 计算以$2\pi$为周期的函数的Fourier级数，积分区间选择任意一个长度为$2\pi$
-  的连续区间即可，也即：任取常数$x_0\in\mathbb{R}$，均有
-  	$${\b\left\{\begin{array}{ll}
-		a_n=\df1{\pi}\dint_{x_0}^{x_0+2\pi}f(x)\cos nx\d x,\;& n=0,1,2,\ldots\\[5pt]
-		b_n=\df1{\pi}\dint_{x_0}^{x_0+2\pi}f(x)\sin nx\d x,\;& n=1,2,\ldots
-  	\end{array}\right.}$$
-  \item {\b 只在有限点处取值不同的函数，Fourier级数相同}，因为改变函数在有限点
-  处的值，其定积分不变。
-  \item Fourier展开具有{\it 线性性}，也即：$f(x)+g(x)$的Fourier系数等于$f(x)$和
-  $g(x)$的Fourier系数的和
-\end{enumerate}
+\begin{thx}
+	{\bf Fourier级数的性质}
+	\begin{enumerate}%[(1)]
+% 	  \setlength{\itemindent}{1cm}
+	  \item $[-\pi,\pi]$上的奇函数的Fourier级数只含有正弦项， 称为{\bf 正弦级数}
+	  \item $[-\pi,\pi]$上的偶函数的Fourier级数只含有余弦项， 称为{\bf 余弦级数}
+	  \item {\kaishu 周期函数积分的平移不变性：}计算以$2\pi$为周期的函数的Fourier级数，
+	  积分区间选择任意一个长度为$2\pi$的连续区间即可，也即：任取常数
+	  $x_0\in\mathbb{R}$，均有
+	  	$$\left\{\begin{array}{ll}
+			a_n=\df1{\pi}\dint_{x_0}^{x_0+2\pi}f(x)\cos nx\d x,\;& n=0,1,2,\ldots\\[5pt]
+			b_n=\df1{\pi}\dint_{x_0}^{x_0+2\pi}f(x)\sin nx\d x,\;& n=1,2,\ldots
+	  	\end{array}\right.$$
+	  \item {\bf 只在有限点处取值不同的函数，Fourier级数相同}，因为改变函数在有限点
+	  处的值，其定积分不变。
+	  \item Fourier展开具有{\it 线性性}，也即：$f(x)+g(x)$的Fourier系数等于$f(x)$和
+	  $g(x)$的Fourier系数的和
+	\end{enumerate}
+\end{thx}
 
 {\bf 例：}已知$f(x)=\left\{\begin{array}{ll}
 	e^x,& x\in[0,2\pi),\\ f(x+2\pi)& \mbox{其他}
@@ -1430,15 +1518,41 @@ $$b_n=\df1{\pi}\left[\dint_{-\pi}^{0}e^{x+2\pi}\sin nx\d x+
 
 \subsection{Fourier级数的收敛性}
 
-{\bf 定理13.2.1}(Dirichlet收敛条件)$f(x)$以$2\pi$为周期， 在$[-\pi,\pi]$上其
-{\it 分段连续}且{\it 仅有有限多个极值点}\ps{$\sin\df1x$在原点的的任意邻域内均有
-无穷多个极值点，不满足该条件！}， 
-则$f(x)$的Fourier级数处处收敛，
- 其和函数
-$$S(x) =\df{f(x+0)+f(x-0)}{2}.$$
+Fourier级数的敛散性是一个相当复杂的问题，这里仅给出与之相关的结论，不予证明：
 
-{\bf 注：}根据定理条件，可知$f(x)$不可能有第二类间断点，故以上结论可以表述为：
+\begin{thx}
+	{\bf Dirichlet收敛条件：}$f(x)$以$2\pi$为周期， 在$[-\pi,\pi]$上其
+	分段连续且仅有有限多个极值点，则$f(x)$的Fourier级数处处收敛，
+	 其和函数
+	$$S(x) =\df{f(x+0)+f(x-0)}{2}.$$
+\end{thx}
+
+根据定理条件，可知$f(x)$不可能有第二类间断点，故以上结论可以表述为：
 $S(x)$在$f(x)$的连续点处收敛于$f(x)$，在$f(x)$的不连续点处收敛于其左右极限的中点。
+
+{\bf 例：}$\sin\df1x$在原点的的任意邻域内均有无穷多个极值点，不满足该条件，因此
+其Fourier级数在原点处不收敛。
+
+{\bf 例：}判断正误
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 函数$f(x)$连续，在$[-\pi,\pi]$上满足Dirichlet条件且为奇函数，则$f(x)$
+  的Fourier级数在$0,\pm\pi$处必收敛于$0$\quad  (\;{$\surd$}\;) 
+  \item $f(x)=x^2\,(x\in[-\pi,\pi])$的Fourier级数在$2\pi$处收敛于$4\pi^2$
+    \quad(\;{$\times$}\;) 
+  \item 以$2\pi$为周期的函数$f(x)=\df x{2\pi}\,(x\in[0,2\pi])$，其Fourier
+  级数的和函数为$S(x)$，则$S(0)=f(0)=0$ 
+  \quad (\;{$\times$}\;)
+  \item 函数$f(x)=x^2\,(x\in[-\pi,\pi])$以$2\pi$为周期，则 
+  \begin{itemize}
+    \item $\df 1{\pi}\dint_{-\pi}^{\pi}f(x)\sin kxdx=\df
+    1{\pi}\dint_{0}^{2\pi}f(x)\sin kxdx$\quad (\;{$\surd$}\;) 
+    \item $\df 1{\pi}\dint_{-\pi}^{\pi}x^2\sin kxdx=\df
+    1{\pi}\dint_{0}^{2\pi}x^2\sin kxdx$\quad (\;{$\times$}\;) 
+  \end{itemize}
+  \item 以$2\pi$为周期的函数$f(x)=x^2\,(x\in[-\pi,\pi])$和$g(x)=x^2\,(x\in[0,2\pi])$的
+  Fourier级数相同\quad (\;{$\times$}\;)
+\end{enumerate}
 
 {\bf 例：}试写出函数
 $$f(x)=\left\{\begin{array}{rl}
@@ -1453,6 +1567,7 @@ $${S(x)=\left\{\begin{array}{ll}
 	\pi/4,\;& 0<x<\pi\\
 	0,\; & x=0,\pm\pi
 \end{array}\right.}$$
+\fin
 
 {\bf 例：}设周期函数$f(x)$在一个周期内的表达式为
 $$f(x)=\left\{\begin{array}{ll}
@@ -1462,7 +1577,7 @@ $$f(x)=\left\{\begin{array}{ll}
 写出该函数在$[-\pi,\pi]$上的和函数$S(x)$，并求
 $S(5\pi/2),S(7\pi/2),S(7\pi)$和$S(2008\pi)$的值。
 
-{\bf 利用Fourier级数求特殊级数的和}
+有时可以利用Fourier级数求一些特殊级数的和：
 
 {\bf 例：}由
 $$\df{\pi}4=\sum\limits_{m=1}^{\infty}
@@ -1491,14 +1606,14 @@ $f(x)$以$2\pi$为周期。
 
 \subsection{函数的延拓及其Fourier展开}
 
-{\bf 1、周期延拓}
+\subsubsection{周期延拓}
 
 若$f(x)$为定义在$(-\pi,\pi)$上的函数，满足Dirichlet条件。严格来说，为了
 对其进行Fourier展开，需要将其视为某个周期函数$F(x)$的一部分，$F(x)$在
 $(-\pi,\pi)$上定义与$f(x)$完全相同。这样一来，$F(x)$对应的Fourier级数
 也就是$f(x)$的三角级数展开。
 
-{\bf 2、奇（偶）延拓}
+\subsubsection{奇（偶）延拓}
 
 考虑定义在$(0,\pi)$上的函数$f(x)$，且在其上满足Dirichlet条件。为了对其进行
 Fourier展开，只需为其补充$[-\pi,0]$上的定义，再利用周期延拓构造一个
@@ -1513,16 +1628,20 @@ Fourier展开，只需为其补充$[-\pi,0]$上的定义，再利用周期延拓
 的讨论中，我们将着重讨论一下展开后的三角级数分别为正弦和余弦级数的情形，
 对应的延拓方式分别称为奇延拓和偶延拓。
 
-具体来说，{\b 设$f(x)$在$(0,\pi)$上满足Dirichlet条件，令
-$$F(x)=\left\{\begin{array}{ll}
-  	f(x),\;& x\in(0,\pi)\\
-  	0,\;& x=0,-\pi\\
-  	\pm f(-x),\;& x\in(-\pi,0)
-  \end{array}\right.$$
-且
-  $$F(x+2\pi)=F(x)\;(-\infty<x<\infty).$$
-这样一来，$F(x)$就是满足Dirichlet条件的偶（奇）周期函数，其Fourier级数为
-余（正）弦级数，其中在$(0,\pi)$内的部分即为$f(x)$对应的余（正）弦级数。}
+具体来说，
+
+\begin{thx}
+	{\bf 奇（偶）延拓后的Fourier展开：}设$f(x)$在$(0,\pi)$上满足Dirichlet条件，令
+	$$F(x)=\left\{\begin{array}{ll}
+	  	f(x),\;& x\in(0,\pi)\\
+	  	0,\;& x=0,-\pi\\
+	  	\pm f(-x),\;& x\in(-\pi,0)
+	  \end{array}\right.$$
+	且
+	  $$F(x+2\pi)=F(x)\;(-\infty<x<\infty).$$
+	这样一来，$F(x)$就是满足Dirichlet条件的偶（奇）周期函数，其Fourier级数为
+	余（正）弦级数，其中在$(0,\pi)$内的部分即为$f(x)$对应的余（正）弦级数。
+\end{thx}
 
 {\bf 例：}设函数$f(x)=x+1\,(x\in(0,\pi))$，试将其分别展开为正弦和余弦级数。
 
@@ -1532,7 +1651,7 @@ $$F(x)=\left\{\begin{array}{ll}
 	\resizebox{!}{2.7cm}{\includegraphics{./images/ch13/ss.pdf}}
 \end{center}
 
-{\bf 注：}{\b 对于同一个定义在$(0,\pi)$上的函数，采用不同的延拓方式展开成
+特别需要注意的是，{\b 对于同一个定义在$(0,\pi)$上的函数，采用不同的延拓方式展开成
 三角级数，所得的结果可能是不同的！这和Fourier展开的唯一性并不矛盾，因为
 对于延拓后生成的函数来说，其对应的Fourier级数是唯一的。}
 
@@ -1547,14 +1666,17 @@ $2\pi$为周期的正弦级数展开式的和函数，求当$x\in(\pi,2\pi)$时$
 则$g(t)=f\left(\df{l}{\pi}t\right)$ 是以$2\pi$为周期的函数。 
 对$g(t)$做Fourier展开，由其展开式可变换得到$f(x)$的展开式。
 
-$$f(x)=\df{a_0}2+\sumn\left(a_n\cos\df{n\pi}lx+b_n\sin\df{n\pi}lx\right)$$
-其中
-$$\left\{\begin{array}{ll}
-a_n=\df1{l}\dint_{-l}^{l}f\left(\df{\pi}lx\right)
-\cos n\left(\df{\pi}lx\right)\d x,\;&
-n=0,1,2,\ldots\\[5pt] b_n=\df1{l}\dint_{-l}^{l}f\left(\df{\pi}lx\right)
-\sin n\left(\df{\pi}lx\right)\d x,\;& n=1,2,\ldots
-\end{array}\right.$$
+\begin{thx}
+	{\bf 以$2l$为周期的函数的Fourier展开：}
+	$$f(x)=\df{a_0}2+\sumn\left(a_n\cos\df{n\pi}lx+b_n\sin\df{n\pi}lx\right)$$
+	其中
+	$$\left\{\begin{array}{ll}
+	a_n=\df1{l}\dint_{-l}^{l}f\left(\df{\pi}lx\right)
+	\cos n\left(\df{\pi}lx\right)\d x,\;&
+	n=0,1,2,\ldots\\[5pt] b_n=\df1{l}\dint_{-l}^{l}f\left(\df{\pi}lx\right)
+	\sin n\left(\df{\pi}lx\right)\d x,\;& n=1,2,\ldots
+	\end{array}\right.$$
+\end{thx}
 
 需要注意的是，此时得到的$f(x)$的展开式，其基函数并不是以$2\pi$为周期的三角函数，
 而是以$2l$为周期的三角函数。
@@ -1562,120 +1684,34 @@ n=0,1,2,\ldots\\[5pt] b_n=\df1{l}\dint_{-l}^{l}f\left(\df{\pi}lx\right)
 {\bf 例：}将函数$f(x)=x\,(0<x<1)$表示为只有余弦项的三角级数，写出其和函数，
 并求$S(2017.6)$的值。
 
-\subsection{课堂练习}
-
-{\bf 例：}判断正误
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 函数$f(x)$连续，在$[-\pi,\pi]$上满足Dirichlet条件且为奇函数，则$f(x)$
-  的Fourier级数在$0,\pm\pi$处必收敛于$0$\quad  (\;{$\surd$}\;) 
-  \item $f(x)=x^2\,(x\in[-\pi,\pi])$的Fourier级数在$2\pi$处收敛于$4\pi^2$
-    \quad(\;{$\times$}\;) 
-  \item 以$2\pi$为周期的函数$f(x)=\df x{2\pi}\,(x\in[0,2\pi])$，其Fourier
-  级数的和函数为$S(x)$，则$S(0)=f(0)=0$ 
-  \quad (\;{$\times$}\;)
-  \item 函数$f(x)=x^2\,(x\in[-\pi,\pi])$以$2\pi$为周期，则 
-  \begin{itemize}
-    \item $\df 1{\pi}\dint_{-\pi}^{\pi}f(x)\sin kxdx=\df
-    1{\pi}\dint_{0}^{2\pi}f(x)\sin kxdx$\quad (\;{$\surd$}\;) 
-    \item $\df 1{\pi}\dint_{-\pi}^{\pi}x^2\sin kxdx=\df
-    1{\pi}\dint_{0}^{2\pi}x^2\sin kxdx$\quad (\;{$\times$}\;) 
-  \end{itemize}
-  \item 以$2\pi$为周期的函数$f(x)=x^2\,(x\in[-\pi,\pi])$和$g(x)=x^2\,(x\in[0,2\pi])$的
-  Fourier级数相同\quad (\;{$\times$}\;)
-\end{enumerate}
-
-{\bf 例：}将下列函数展成Fourier级数
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $f(x)=\sin^4x$
-  \item $f(x)=\arcsin(\sin x)$
-\end{enumerate}
-
-{\bf 例：}设$f(x)$是以$2\pi$为周期的连续函数，在$[-\pi,\pi]$上满足Dirichlet条件，
-且其Fourier系数为$a_k,b_k$。设
-$$G(x)=\df1{\pi}\dint_{-\pi}^{\pi}f(t)f(x+t)dt$$
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 证明$G(x)$为偶函数
-  \item 求$G(x)$的Fourier系数
-  \item 证明$\df1{\pi}\dint_{-\pi}^{\pi}f^2(x)dx=\df{a_0^2}2+
-  \sum\limits_{k=1}^{\infty}(a_k^2+b_k^2)$
-\end{enumerate}
-
-\newpage
-
-\section*{课后作业}
-\addcontentsline{toc}{section}{课后作业}
-
-{\bf 【必作题】}
-
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item 习题13.1：2，3，5，6，11，12，13，14，16，20
-  \item 习题13.2：1(1,4)，2(2)，3(1)，4，8，9，11
-\end{itemize}
-
-
-\bigskip
-
-\hrule
-
-\bigskip
-
-{\bf 【思考题】}
-
-1.\;\ps{求幂级数的收敛域是本章的基本要求，建议先复习上学期关于级数判敛的有关知识}
-求级数$\sumn\df{(2x+1)^n}n$的收敛域。
-
-2.\;\ps{函数的幂级数展开必须注明收敛域}
-将函数$f(x)=\df1{\sqrt{3+2x-x^2}}$展开成$x=1$处的幂级数，并求其收敛域。
-
-3.\;\ps{求幂级数的和函数难点相对较高，与函数的幂级数展开通常属于考试二选一的内容}
-设$y(x)=\sumn\df{[(n-1)!]^2}{(2n)!}(2x)^{2n},\;(|x|<1)$
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 求$y(0),y'(0)$，并证明：$(1-x^2)y''-xy'=4$；
-  \item 求$\sumn y(n)$的和函数，并求级数$\sumn\df{[(n-1)!]^2}{(2n)!}$的和。
-\end{enumerate}
-
-4.\;设级数$\sumn a_n(x-b)^n$在$x=0$收敛，
-在$x=2b$发散，求幂级数$\sumn a_nx^n$的收敛域，并求
-$\sumn(n+1)a_{n+1}x^n$和$\sumn\df{a_{n-1}}nx^n$的收敛半径。
-
-5.\;判别级数$\sumn\dint_0^{\pi/n}\df{\sin x}{1+x}\d x$的敛散性。
-
-6.\;已知$f_n(x)\;(n\in\mathbb{Z}^+)$满足
-$$f'_n(x)=f_n(x)+x^{n-1}e^x,$$
-且$f(1)=\df en$，求级数$\sumn f_n(x)$的和。
-
-7.\;给定两条抛物线$y=nx^2+\df1n,y=(n+1)x^2+\df1{n+1}$，
-设其交点的横坐标的绝对值为$a_n$，求：
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 两条抛物线所围平面图形的面积$S_n$；
-  \item 级数$\sumn\df{S_n}{a_n}$的和。
-\end{enumerate}
-
-8.\;设$a_n=\dint_0^{n\pi}x|\sin x|\d x,\;n=1,2,\ldots$，求
-$\sumn{a_n}{2^n}$的值。
-
-9.\;求下列级数的和函数
-
-（1）$\sumn(-1)^{n-1}nx^{n-1}$\quad 
-（2）$\sum\limits_{n=0}^{\infty}\df{x^{4n}}{(4n)!}$\quad
-（3）$\df1a+\df{2x}{a^2}+\ldots+\df{nx^{n-1}}{a^n}+\ldots$
-
-10.\;\ps{以下三题为期末必考的题型，通常为选择或填空题}
-分别写出$f(x)=1-\df{x}{\pi}\;(0\leq x\leq\pi)$的正弦和余弦级数的和函数$S(x)$，
-并求$S(-3)$和$S(12)$。
-
-11.\;写出$f(x)=\left\{\begin{array}{ll}
-	-\df12x,&-\pi<x<0\\ x-\pi,&0\leq x\leq \pi
-\end{array}\right.$的Fourier级数的和函数$S(x)$，并求$S(100)$和$S(-31.4)$。
-
-12.\;已知$f(x)=\left\{\begin{array}{ll}
-	x^2,&0<x<1/2\\ 1-x,&1/2\leq x\leq 1
-\end{array}\right.$，
-$S(x)=\df{a_0}2+\sumn a_n\cos n\pi,\;(x\in\mathbb{R})$，其中
-$a_n=2\dint_0^1\cos n\pi\d x\;(n=0,1,2,\ldots)$，求$S(2017)$和$S(2017.5)$。
+\begin{ext}
+	{\bf 课后作业}
+	\begin{enumerate}
+	  \item 将下列函数展成Fourier级数
+		\begin{enumerate}[(1)]
+% 		  \setlength{\itemindent}{1cm}
+		  \item $f(x)=\sin^4x$
+		  \item $f(x)=\arcsin(\sin x)$
+		\end{enumerate}
+	  \item 设$f(x)$是以$2\pi$为周期的连续函数，在$[-\pi,\pi]$上满足Dirichlet条件，
+		且其Fourier系数为$a_k,b_k$。设
+		$$G(x)=\df1{\pi}\dint_{-\pi}^{\pi}f(t)f(x+t)dt$$
+		\begin{enumerate}[(1)]
+% 		  \setlength{\itemindent}{1cm}
+		  \item 证明$G(x)$为偶函数
+		  \item 求$G(x)$的Fourier系数
+		  \item 证明$\df1{\pi}\dint_{-\pi}^{\pi}f^2(x)dx=\df{a_0^2}2+
+		  \sum\limits_{k=1}^{\infty}(a_k^2+b_k^2)$
+		\end{enumerate}
+	  \item 分别写出$f(x)=1-\df{x}{\pi}\;(0\leq x\leq\pi)$的正弦和余弦级数的和函数$S(x)$，
+		并求$S(-3)$和$S(12)$。
+	  \item 写出$f(x)=\left\{\begin{array}{ll}
+			-\df12x,&-\pi<x<0\\ x-\pi,&0\leq x\leq \pi
+		\end{array}\right.$的Fourier级数的和函数$S(x)$，并求$S(100)$和$S(-31.4)$。
+	  \item 已知$f(x)=\left\{\begin{array}{ll}
+			x^2,&0<x<1/2\\ 1-x,&1/2\leq x\leq 1
+		\end{array}\right.$，
+		$S(x)=\df{a_0}2+\sumn a_n\cos n\pi,\;(x\in\mathbb{R})$，其中
+		$a_n=2\dint_0^1\cos n\pi\d x\;(n=0,1,2,\ldots)$，求$S(2017)$和$S(2017.5)$。
+	\end{enumerate}
+\end{ext}
