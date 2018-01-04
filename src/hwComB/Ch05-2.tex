@@ -1,0 +1,612 @@
+% !Mode:: "TeX:UTF-8"
+
+\titlepage
+
+% \begin{frame}{说在前面}
+% 	\linespread{1.5}
+% 	  \begin{itemize}[<+-|alert@+>]
+% 	    \item 过往的作业不订正、不补齐的不予批改，打分不超过\,\ba{C}
+% 	    \item 不交作业的默认记为\,\ba{D}
+% 	    \item 需要换作业本的，请“移植”照片，写清楚个人信息
+% 	    \item 请自行完成SPOC课程中的测试
+% 	    \item 第二次单元测试即将发布，成绩记入期末总成绩
+% 	  \end{itemize}
+% \end{frame}
+
+% \begin{frame}{需要注意的问题}
+% 	\linespread{1.5}
+% 	  \begin{itemize}%[<+-|alert@+>]
+% 	    \item L'Hospital法则
+% 	    \begin{itemize}
+% 	      \item \it 只能应用于“$\df{\bm{0}}{\bm{0}}$”
+% 	      和“$\df{\bm{\infty}}{\bm{\infty}}$”型
+% 	      \item \it 及时使用无穷小代换进行简化
+% 	      \item \it 不正规的符号：\b 
+% 	      $\xlongequal{\footnotesize\mbox{“L”}}$、
+% 	      $\xlongrightarrow{\footnotesize\mbox{“L'Hospital法则”}}$、
+% 	      $\df{\bm{0}}{\bm{0}}$、$\df{\bm{\infty}}{\bm{\infty}}$
+% 	    \end{itemize}
+% 	    \item Taylor公式
+% 	    \begin{itemize}
+% 	      \item \it Taylor多项式不包含余项
+% 	      \item \it 合并同次幂的系数
+% 	      \item \it 尽量按照幂次由低到高排列，最后写余项
+% 	    \end{itemize}
+% 	  \end{itemize}
+% \end{frame}
+
+\begin{frame}{出现的问题}
+	\linespread{1.5}
+	  \begin{itemize}%[<+-|alert@+>]
+	    \item 反常积分的审敛
+	    \begin{itemize}
+	      \item \it\b 函数$f(x)$在$[1,+\infty)$上有界，故
+	      $\dint_1^{+\infty}f(x)\d x$收敛；
+	      \item \it\b 函数$f(x)$在$(0,1)$上无界，故
+	      $\dint_0^1f(x)\d x$发散；
+	      \item \it\b $\limx{+\infty}\df{\cos x}{\ln x}=0$，故由无穷积分收敛
+	      的必要条件，积分$\dint_2^{+\infty}\df{\cos x}{\ln x}\d x$收敛；
+	      \item \it\b $\limx{1^+}\df{(x-1)\cos x}{\ln x}=1$，故由极限审敛法2，
+	      积分$\dint_2^{+\infty}\df{\cos x}{\ln x}\d x$发散。   
+	    \end{itemize}
+	  \end{itemize}
+\end{frame}
+
+\section{5.3 定积分的计算-换元法和分部积分法}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.计算下列定积分：（1）$\dint_0^4e^{\sqrt x}\d x$}
+	\pause
+	
+% 	\bigskip
+	
+	\small 解：\it
+	$$\mbox{原式}\xlongequal{t=\sqrt x}
+	\dint_0^2e^t2t\d t=2te^t|_0^2-2\dint_0^2e^t\d t
+	=2e^2+2.$$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.计算下列定积分：
+	（2）$\dint_{-\frac{\pi}2}^{\frac{\pi}2}(x^3+\sin^2x)\cos^2x\d x$}
+	\pause
+	
+% 	\bigskip
+	
+	\small 解：\it
+	由对称区间上定积分的性质，
+	$\dint_{-\frac{\pi}2}^{\frac{\pi}2}x^3\cos^2x\d x=0$，
+	又注意到$\dint_{-\frac{\pi}2}^{\frac{\pi}2}\cos4x\d x=0$
+	故
+	\begin{align*}
+		\mbox{原式}
+		&=\dint_{-\frac{\pi}2}^{\frac{\pi}2}\sin^2x\cos^2x\d x
+		=\df14\dint_{-\frac{\pi}2}^{\frac{\pi}2}\sin^22x\d x\\
+		&=\df12\dint_{0}^{\frac{\pi}2}\df{1-\cos 4x}2\d x
+		=\df{\pi}{8}.
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.计算下列定积分：
+	（3）$\dint_0^{\frac{3\pi}4}\df{\d x}{1+\sin^2x}$}
+	\pause
+	
+% 	\bigskip
+	
+	\small 解：\it
+	\begin{align*}
+		\mbox{原式}&=\dint_0^{\frac{3\pi}4}\df{\csc^2x\d x}{\csc^2x+1}
+		=-\dint_0^{\frac{3\pi}4}\df{\d\cot x}{\cot^2x+2}\\
+		&=-\df1{\sqrt2}\dint_0^{\frac{3\pi}4}\df{\d\frac{\cot x}{\sqrt2}}
+		{\left(\frac{\cot x}{\sqrt2}\right)^2+1}
+		=-\left.\df1{\sqrt2}\arctan\df{\cot x}{\sqrt2}\right|_0^{\frac{3\pi}4}\\
+		&=\df1{\sqrt2}\arctan\df1{\sqrt2}
+		=\df1{\sqrt2}\left(\pi-\arctan\sqrt2\right).
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.计算下列定积分：
+	（4）$\dint_0^{\frac{\pi}2}\df{\d x}{1+(\tan x)^{\sqrt 2}}$}
+	\pause
+	
+% 	\bigskip
+	
+	\small 解：\it
+	由对称性
+	\begin{align*}
+		\mbox{原式}&=\dint_0^{\frac{\pi}2}\df{(\cos x)^{\sqrt 2}\d x}
+		{(\cos x)^{\sqrt 2}+(\sin x)^{\sqrt 2}}
+		=\dint_0^{\frac{\pi}2}\df{(\sin x)^{\sqrt 2}\d x}
+		{(\cos x)^{\sqrt 2}+(\sin x)^{\sqrt 2}}\\
+		&=\df12\dint_0^{\frac{\pi}2}\df{(\cos x)^{\sqrt 2}+(\sin x)^{\sqrt 2}}
+		{(\cos x)^{\sqrt 2}+(\sin x)^{\sqrt 2}}\d x
+		=\df12\dint_0^{\frac{\pi}2}\d x=\df{\pi}4.
+	\end{align*}
+	
+	\ba{注：$\dint_0^af(x)\d x=\dint_0^af(a-x)\d x$}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.计算下列定积分：
+	（5）$\dint_{\frac12}^{\frac32}\df{(1-x)\arcsin(1-x)}{\sqrt{2x-x^2}}\d x$}
+	\pause
+	
+% 	\bigskip
+	
+	\small 解：\it
+	注意到
+	$$\dint_{\frac12}^1\df{(1-x)\arcsin(1-x)}{\sqrt{2x-x^2}}\d x
+	\xlongequal{y=2-x}\dint_1^{\frac32}\df{(1-y)\arcsin(1-y)}
+	{\sqrt{2y-y^2}}\d y,$$
+	故
+	\begin{align*}
+		\mbox{原式}
+		&=2\dint_{\frac12}^1\df{(1-x)\arcsin(1-x)}{\sqrt{2x-x^2}}\d x
+		=2\dint_{\frac12}^1\df{(1-x)\arcsin(1-x)}{\sqrt{1-(1-x)^2}}\d x\\
+		&\xlongequal{t=1-x}2\dint_0^{\frac12}\df{t\arcsin t}{\sqrt{1-t^2}}\d t
+		=-2\dint_0^{\frac12}\arcsin t\d{\sqrt{1-t^2}}\\
+		&=-2\left.\sqrt{1-t^2}\arcsin t\right|_0^{\frac12}
+		+2\dint_0^{\frac12}\d t
+		=-\df{\sqrt3\pi}6+1.
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.计算下列定积分：
+	（6）$\dint_{-\frac{\pi}4}^{\frac{\pi}4}e^{\frac x2}
+	\df{\cos x-\sin x}{\sqrt{\cos x}}\d x$}
+	\pause
+	
+% 	\bigskip
+	
+	\small 解：\it
+	\begin{align*}
+		\mbox{原式}
+		&=\dint_{-\frac{\pi}4}^{\frac{\pi}4}e^{\frac x2}\sqrt{\cos x}\d x
+		+2\dint_{-\frac{\pi}4}^{\frac{\pi}4}e^{\frac x2}\d\sqrt{\cos x}\\
+		&=\dint_{-\frac{\pi}4}^{\frac{\pi}4}e^{\frac x2}\sqrt{\cos x}\d x
+		+2\left.e^{\frac x2}\sqrt{\cos x}\right|_{-\frac{\pi}4}^{\frac{\pi}4}
+		-\dint_{-\frac{\pi}4}^{\frac{\pi}4}e^{\frac x2}\sqrt{\cos x}\d x\\
+		&=\sqrt[4]8\left(e^{\frac{\pi}8}-e^{-\frac{\pi}8}\right).
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.计算下列定积分：
+	（7）$\dint_{-2}^2\df{x+\sin x+|x|}{2+x^2}\d x$}
+	\pause
+	
+% 	\bigskip
+	
+	\small 解：\it
+	\begin{align*}
+		\mbox{原式}
+		&=\dint_{-2}^2\df{|x|}{2+x^2}\d x
+		=2\dint_0^2\df{x}{2+x^2}\d x\\
+		&=\dint_0^2\df{\d x^2}{2+x^2}
+		=\left.\ln(2+x^2)\right|_0^2=\ln3.
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.计算下列定积分：
+	（8）$\dint_{\frac12}^{\frac32}\df{\d x}{\sqrt{|x^2-x|}}$}
+	\pause
+	
+% 	\bigskip
+	
+	\small 解：\it
+	\begin{align*}
+		\mbox{原式}
+		&=\dint_{\frac12}^1\df{\d x}{\sqrt{x(1-x)}}
+		+\dint_1^{\frac32}\df{\d x}{\sqrt{x(x-1)}}\\
+		&=2\dint_{\frac12}^1\df{\d\sqrt x}{\sqrt{1-(\sqrt x)^2}}
+		+2\dint_1^{\frac32}\df{\d\sqrt x}{\sqrt{(\sqrt x)^2-1}}\\
+		&=2\left.\arcsin\sqrt x\right|_{\frac12}^1
+		+2\dint_0^{\arccos\sqrt{\frac23}}\df{\d\sec t}{\sqrt{\sec^2t-1}}\\
+		&=\df{\pi}8+2\dint_0^{\arccos\sqrt{\frac23}}\sec t\d t\\
+		&=\df{\pi}8+2\ln\left|\sec t+\tan t\right|_0^{\arccos\sqrt{\frac23}}
+		=\df{\pi}2+\ln(2+\sqrt3).
+	\end{align*}
+	\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{2.设$f(x),g(x)$在$[0,1]$上导函数连续，且$f(0)=0$，$f'(x)\geq0$，
+	$g'(x)\geq0$，证明：对任意$a\in[0,1]$，总有
+	$$\dint_0^ag(x)f'(x)\d x+\dint_0^1f(x)g'(x)\d x\geq f(a)g(1).$$
+	}
+	
+	\pause
+% 	\vspace{-1em}
+	\small 证：\it 
+	由$f(0)=0$，
+	\begin{align*}
+		&\dint_0^1f(x)g'(x)\d x=\dint_0^1f(x)\d g(x)\\
+		&=\left.f(x)g(x)\right|_0^1-\dint_0^1g(x)\d f(x)
+		=f(1)g(1)-\dint_0^1g(x)f'(x)\d x.
+	\end{align*}
+	故待证不等式左端即为$f(1)g(1)+\dint_1^ag(x)f'(x)\d x$.
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{2.设$f(x),g(x)$在$[0,1]$上导函数连续，且$f(0)=0$，$f'(x)\geq0$，
+	$g'(x)\geq0$，证明：对任意$a\in[0,1]$，总有
+	$$\dint_0^ag(x)f'(x)\d x+\dint_0^1f(x)g'(x)\d x\geq f(a)g(1).$$
+	}
+	
+	\pause
+% 	\vspace{-1em}
+	\small 续：\it 
+	\ldots，	故待证不等式左端即为$f(1)g(1)+\dint_1^ag(x)f'(x)\d x$，令
+	$$F(a)=\dint_1^ag(x)f'(x)\d x+f(1)g(1)-f(a)g(1),$$
+	则$F'(a)=f'(a)[g(a)-g(1)]$。已知$g'(x)\geq0$，故
+	$g(a)-g(1)\leq 0$，又$f'(x)\geq0$，故$F'(a)\leq0$，
+	也即$F(a)$在$[0,1]$上单调递减。注意到$F(1)=0$，从而可知
+	$F(a)\geq 0$，即证。
+	\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{\small 3.设$f(x),g(x)$在$[a,b]$上连续，且满足$x\in[a,b)$时，
+	$$\dint_a^xf(t)\d t>\dint_a^xg(t)\d t,\;
+	\;\dint_a^bf(x)\d x=\dint_a^bg(x)\d x,$$
+	证明：$\dint_a^bxf(x)\d x<\dint_a^bxg(x)\d x$。
+	}
+	
+	\pause
+% 	\vspace{-1em}
+	\small 证：\it 
+	记$H(x)=\dint_a^x[f(t)-g(t)]\d t$，则
+	$H(x)\geq 0$，$H(b)=H(a)=0$，于是
+	\begin{align*}
+		&\dint_a^bx[f(x)-g(x)]\d x
+		=\dint_a^bx\d H(x)\\
+		&=\left.xH(x)\right|_a^b-\dint_a^bH(x)\d x
+		=-\dint_a^bH(x)\d x\leq 0,
+	\end{align*}
+	即证。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{4.设$f(x)\in C[a,b]$且严格单调递增，证明：
+	$$(a+b)\dint_a^bf(x)\d x<2\dint_a^bxf(x)\d x.$$
+	}
+	
+	\pause
+% 	\vspace{-1em}
+	\small 证一：\it 
+	注意到
+	$\dint_a^b\left(x-\df{a+b}2\right)f\left(\df{a+b}2\right)\d x=0$，
+	故
+	\begin{align*}
+		\dint_a^b\left(x-\df{a+b}2\right)f(x)\d x
+		&=\dint_a^b\left(x-\df{a+b}2\right)\left[f(x)
+		-f\left(\df{a+b}2\right)\right]\d x,
+	\end{align*}
+	由于$f(x)$在$[a,b]$上严格单调递增，故对任意$x\in(a,b)$，均有
+	$$\left(x-\df{a+b}2\right)\left[f(x)
+	-f\left(\df{a+b}2\right)\right]>0,$$
+	从而可知
+	$\dint_a^b\left(x-\df{a+b}2\right)f(x)\d x>0,$
+	即证。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{4.设$f(x)\in C[a,b]$且严格单调递增，证明：
+	$$(a+b)\dint_a^bf(x)\d x<2\dint_a^bxf(x)\d x.$$
+	}
+	
+	\pause
+% 	\vspace{-1em}
+	\small 证二：\it 
+	令
+	$$F(x)=(a+x)\dint_a^xf(t)\d t-2\dint_a^xtf(t)\d t,$$
+	则
+	$$F'(x)=\dint_a^x[f(t)-f(x)]\d t,$$
+	由于$f(x)$严格单调递增，故总有$f(t)-f(x)<0$，进而$F'(x)<0$，
+	又$F(a)=0$，从而可知$F(b)<0$，即证。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{2}
+	\ba{5.设$f(x)$是以$T$为周期的连续函数
+	  \begin{enumerate}[(1)]
+% 	    \setlength{\itemindent}{1cm}
+	    \item 证明：$\dint_0^xf(t)\d t$可以表示为一个以$T$
+	    为周期的函数$g(x)$与$kx$之和，求此常数$k$；
+	    \item 计算$\limx{\infty}\df1x\dint_0^xf(t)\d t$；
+	    \item 设$[x]$为不超过$x$的最大整数，$g(x)=x-[x]$，计算
+	    $\limx{\infty}\df1x\dint_0^xg(t)\d t$。
+	  \end{enumerate}
+	}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\small 解：（1）\it 
+	记$k=\df1T\dint_0^Tf(x)\d x$，令$g(x)=\dint_0^xf(t)\d t-kx$，
+	则对任意$x$，有
+	\begin{align*}
+		g(x+T)
+		&=\dint_0^{x+T}f(t)\d t-k(x+T)\\
+		&=\dint_0^xf(t)\d t-kx+\dint_x^{x+T}f(t)\d t-kT\\
+		&=g(x)+\dint_0^{T}f(t)\d t-kT=g(x),
+	\end{align*}
+	也即$g(x)$是以$T$为周期的函数，即证。
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\small 解：（2）{\it 
+	显然$g(x)$是一个连续的周期函数，故必有界，从而可知$\limx{\infty}\df{g(x)}x=0$，
+	于是}
+	$$\limx{\infty}\df1x\dint_0^xf(t)\d t=\limx{\infty}\df{g(x)+kx}x=k
+	=\df1T\dint_0^Tf(x)\d x.$$
+	
+	（3）\it $g(x)$是以$1$为周期的函数，且$\dint_0^1(x-[x])\d x=\df12$，故由（2）的结论，
+	可知$\limx{\infty}\df1x\dint_0^xg(t)\d t=\df12$。
+	\hfill$\Box$
+\end{frame}
+
+\section{5.4 反常积分}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.计算下列积分：
+	（1）$\dint_1^{+\infty}\df{\arctan x}{x^2}\d x$
+	}
+	
+	\pause
+% 	\vspace{-1em}
+	\small 解：\it 
+	\begin{align*}
+		\mbox{原式}
+		&=-\dint_1^{+\infty}\arctan x\d\df1x
+		=-\left.\df{\arctan x}x\right|_1^{+\infty}
+		+\dint_1^{+\infty}\df1x\d\arctan x\\
+		&=\df{\pi}4+\dint_1^{+\infty}\df1{x(1+x^2)}\d x
+		=\df{\pi}4+\df12\dint_1^{+\infty}\left(\df1{x^2}-\df1{1+x^2}\right)\d x^2\\
+		&=\df{\pi}4+\left.\df12\left[\ln x^2-\ln(1+x^2)\right]\right|_1^{+\infty}
+		=\df{\pi}4+\df12\ln2.
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.计算下列积分：
+	（2）$\dint_2^{+\infty}\df{\d x}{(x+7)\sqrt{x-2}}$
+	}
+	
+	\pause
+% 	\vspace{-1em}
+	\small 解：\it 
+	\begin{align*}
+		\mbox{原式}
+		&=\dint_2^{+\infty}\df{\d\sqrt{x-2}}{(\sqrt{x-2})^2+9}
+		\xlongequal{u=\sqrt{x-2}}2\dint_0^{+\infty}\df{\d u}{u^2+9}\\
+		&=\left.\df23\arctan\df u3\right|_0^{+\infty}=\df{\pi}3.
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.计算下列积分：
+	（3）$\dint_1^{+\infty}\df{\d x}{x\sqrt{1+2x^4+2x^8}}$
+	}
+	
+	\pause
+% 	\vspace{-1em}
+	\small 解：\it 
+	\begin{align*}
+		\mbox{原式}
+		&=\df14\dint_1^{+\infty}\df{\d x^4}{x^4\sqrt{1+2x^4+2x^8}}
+		\xlongequal{u=x^4}\df1{4\sqrt2}\dint_1^{+\infty}\df{\d u}
+		{u\sqrt{\left(u+\frac12\right)^2+\frac14}}\\
+		&\xlongequal{u=\frac12(\tan t-1)}\df1{2\sqrt2}
+		\dint_{\arctan3}^{\frac{\pi}2}\df{\d t}{\sin t-\cos t}
+		=\df14\dint_{\arctan3}^{\frac{\pi}2}\df{\d t}
+		{\sin\left(t-\frac{\pi}4\right)}\\
+		&\xlongequal{y=t-\frac{\pi}4}\df14
+		\dint_{\arctan3-\frac{\pi}4}^{\frac{\pi}4}\csc y\d y
+		=\df14\dint_{\arctan3-\frac{\pi}4}^{\frac{\pi}4}
+		\df{\csc y(\csc y+\cot y)}{\csc y+\cot y}\d y\\
+		&=-\left.\df14\ln|\csc y+\cot y|\right|
+		_{\arctan3-\frac{\pi}4}^{\frac{\pi}4}
+		=\df14\ln\df{2+\sqrt 5}{1+\sqrt 2}.
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.计算下列积分：
+	（4）$\dint_{-1}^0\df{\ln(1+x)}{\sqrt[3]{1+x}}\d x$
+	}
+	
+	\pause
+% 	\vspace{-1em}
+	\small 解：\it 
+	\begin{align*}
+		\mbox{原式}
+		&\xlongequal{y=\sqrt[3]{1+x}}9\dint_0^1u\ln u\d u
+		=\df92\dint_0^1\ln u\d u^2\\
+		&=\left.\df92u^2\ln u\right|_0^1-\df92\dint_0^1u\d u\\
+		&=-\df92\lim\limits_{u\to0^+}u^2\ln u-\df94=-\df94.
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1.计算下列积分：
+	（5）$\dint_0^{+\infty}\df{\d x}{e^{x+1}+e^{1-x}}$
+	}
+	
+	\pause
+% 	\vspace{-1em}
+	\small 解：\it 
+	$$
+		\mbox{原式}
+		=\df1e\dint_0^{+\infty}\df{e^x\d x}{e^{2x}+1}
+		=\left.\df1e\arctan e^x\right|_0^{+\infty}=\df{\pi}{4e}.
+	$$
+	\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{2.已知$\dint_0^{+\infty}\df{\sin x}x\d x=\df{\pi}2$，求
+	$\dint_0^{+\infty}\df{\sin^2x}{x^2}\d x$。
+	}
+	
+	\pause
+% 	\vspace{-1em}
+	\small 解：\it 
+	\begin{align*}
+		&\dint_0^{+\infty}\df{\sin^2x}{x^2}\d x
+		=-\dint_0^{+\infty}\sin^2x\d\df1x\\
+		&=-\left.\df{\sin^2x}x\right|_0^{+\infty}
+		+\dint_0^{+\infty}\df1x\d\sin^2x\\
+		&=\dint_0^{+\infty}\df{2\sin x\cos x}x\d x
+		=\dint_0^{+\infty}\df{\sin2x}{2x}\d 2x\\
+		&=\dint_0^{+\infty}\df{\sin u}{u}\d u=\df{\pi}2.
+	\end{align*}
+	\hfill$\Box$
+\end{frame}
+
+\section{5.5 反常积分的审敛法与$\Gamma$函数}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1. 判定如下反常积分的敛散性：
+	
+	（1）$\dint_1^{+\infty}\df{x^2\d x}{(x+1)\sqrt[2]{x^3+1}}$
+	}
+	
+	\pause
+% 	\vspace{-1em}
+	\small 解：\it 
+	注意到
+	$$\limx{+\infty}x^{\frac12}\df{x^2}{(x+1)\sqrt[2]{x^3+1}}=1,$$
+	而$\dint_1^{+\infty}\df{\d x}{x^{\frac12}}$发散，故由比较判别法，
+	该无穷积分发散。
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1. 判定如下反常积分的敛散性：	（2）$\dint_1^2\df{\d x}{(\ln x)^4}$
+	}
+	
+	\pause
+% 	\vspace{-1em}
+	\small 解：\it 
+	令$x=e^t$，原积分可化为
+	$$\dint_0^{\ln 2}\df{e^t\d t}{t^4},$$
+	注意到
+	$$\limx{0^+}x^4\df{e^x}{x^4}=1,$$
+	而瑕积分$\dint_0^{\ln 2}\df{\d x}{x^4}$发散，故由比较判别法，
+	该瑕积分发散。
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1. 判定如下反常积分的敛散性：	
+	（3）$\dint_1^{+\infty}\sin\df1{x^2}\d x$
+	}
+	
+	\pause
+% 	\vspace{-1em}
+	\small 解：\it 
+	注意到
+	$$\limx{+\infty}x^2\sin\df1{x^2}=1,$$
+	而无穷积分$\dint_1^{+\infty}\df{\d x}{x^2}$收敛，故由比较判别法，
+	该无穷积分收敛。
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1. 判定如下反常积分的敛散性：	
+	（4）$\dint_1^2\df{\d x}{\sqrt{3x-x^2-2}}$
+	}
+	
+	\pause
+% 	\vspace{-1em}
+	\small 解：\it 
+	注意到
+	$$\limx{x\to1^+}\sqrt{x-1}\df1{\sqrt{x^2-3x+2}}
+	=\limx{1^+}\sqrt{x-2}\df1{\sqrt{x^2-3x+2}}=1,$$
+	且$\dint_1^2\df{\d x}{\sqrt{x-1}}$和$\dint_1^2\df{\d x}{\sqrt{2-x}}$
+	均收敛，故由比较判别法，该瑕积分收敛。
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{1. 判定如下反常积分的敛散性：	
+	（5）$\dint_2^{+\infty}\df{\cos x}{\ln x}\d x$
+	}
+	
+	\pause
+% 	\vspace{-1em}
+	\small 解：\it 
+	$$
+		\dint_2^{+\infty}\df{\cos x}{\ln x}\d x=\ldots
+		=-\df{\sin2}{\ln2}-\df{\cos2}{2\ln^2x}
+		+\dint_2^{+\infty}\df{\ln x+2}{x^2\ln^3x}\cos x\d x.
+	$$
+	注意到
+	$$\limx{+\infty}x^2\left|\df{\ln x+2}{x^2\ln^3x}\cos x\right|=0,$$
+	注意到无穷积分$\dint_2^{+\infty}\df{\d x}{x^2}$收敛，故由比较判别法，
+	无穷积分$\dint_2^{+\infty}\df{\ln x+2}{x^2\ln^3x}\cos x\d x$绝对收敛，
+	从而收敛，于是可知原积分收敛。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{2.设反常积分$\dint_1^{+\infty}f^2(x)\d x$收敛，证明反常积分
+	$\dint_1^{+\infty}\df{f(x)}x\d x$绝对收敛。
+	}
+	
+	\pause
+% 	\vspace{-1em}
+	\small 证：\it 
+	由平均值不等式，$x\geq 1$时，
+	$$\df{|f(x)|}x\leq\df12\left[f^2(x)+\df1{x^2}\right],$$
+	从而
+	$$\dint_1^{+\infty}\df{|f(x)|}x\d x
+	\leq\df12\dint_1^{+\infty}\left[f^2(x)+\df1{x^2}\right]\d x,$$
+	注意到积分$\dint_1^{+\infty}f^2(x)\d x$和$\dint_1^{+\infty}\df1{x^2}\d x$
+	均收敛，故由比较判别法，积分$\dint_1^{+\infty}\df{|f(x)|}x\d x$收敛，
+	也即$\dint_1^{+\infty}\df{f(x)}x\d x$绝对收敛。\hfill$\Box$
+\end{frame}
+
+\begin{frame}
+	\linespread{1.5}
+	\ba{3.利用$\Gamma$函数的性质证明Legendre倍量公式：
+	$$\sqrt{\pi}\Gamma(2n)=2^{2n-1}\Gamma(n)\Gamma\left(n+\df12\right).$$
+	}
+	
+	\pause
+% 	\vspace{-1em}
+	\small 证：\it 由$\Gamma(x+1)=x\Gamma(x)$，$\Gamma\left(\df12\right)=\sqrt{\pi}$，
+	\begin{align*}
+		\mbox{左边}&=(2n-1)!\sqrt{\pi},\\
+		\mbox{右边}&=2^{2n-1}(n-1)!
+		\df{2n-1}2\df{2n-3}2\ldots\df12\sqrt{\pi},\\
+		&=(2n-2)!!(2n-1)!!\sqrt{\pi}=\mbox{左边}.
+	\end{align*}
+	即证。\hfill$\Box$
+\end{frame}

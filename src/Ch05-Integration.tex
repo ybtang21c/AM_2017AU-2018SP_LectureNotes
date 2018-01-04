@@ -1309,14 +1309,14 @@ $$\mbox{原式}\xlongequal{t=\sqrt x}
 
 [解]：由对称区间上定积分的性质，
 $\dint_{-\frac{\pi}2}^{\frac{\pi}2}x^3\cos^2x\d x=0$，
-由注意到$\dint_{-\frac{\pi}2}^{\frac{\pi}2}\cos4x\d x=0$
+又注意到$\dint_{-\frac{\pi}2}^{\frac{\pi}2}\cos4x\d x=0$
 故
 \begin{align*}
 	\mbox{原式}
 	&=\dint_{-\frac{\pi}2}^{\frac{\pi}2}\sin^2x\cos^2x\d x
 	=\df14\dint_{-\frac{\pi}2}^{\frac{\pi}2}\sin^22x\d x\\
-	&=\df18\dint_{-\frac{\pi}2}^{\frac{\pi}2}\df{1-\cos 4x}2\d x
-	=\df{\pi}{16}.
+	&=\df12\dint_{0}^{\frac{\pi}2}\df{1-\cos 4x}2\d x
+	=\df{\pi}{8}.
 \end{align*}
 
 （3）$\dint_0^{\frac{3\pi}4}\df{\d x}{1+\sin^2x}$
@@ -1328,7 +1328,7 @@ $\dint_{-\frac{\pi}2}^{\frac{\pi}2}x^3\cos^2x\d x=0$，
 	=-\df1{\sqrt2}\dint_0^{\frac{3\pi}4}\df{\d\frac{\cot x}{\sqrt2}}
 	{\left(\frac{\cot x}{\sqrt2}\right)^2+1}\\
 	&=-\left.\df1{\sqrt2}\arctan\df{\cot x}{\sqrt2}\right|_0^{\frac{3\pi}4}
-	=\df1{\sqrt2}\arctan\df1{\sqrt2}.
+	=\df1{\sqrt3}\arctan\df1{\sqrt2}.
 \end{align*}
 
 （4）$\dint_0^{\frac{\pi}2}\df{\d x}{1+(\tan x)^{\sqrt 2}}$
@@ -1339,7 +1339,7 @@ $\dint_{-\frac{\pi}2}^{\frac{\pi}2}x^3\cos^2x\d x=0$，
 	{(\cos x)^{\sqrt 2}+(\sin x)^{\sqrt 2}}
 	=\dint_0^{\frac{\pi}2}\df{(\sin x)^{\sqrt 2}\d x}
 	{(\cos x)^{\sqrt 2}+(\sin x)^{\sqrt 2}}\\
-	&\df12\dint_0^{\frac{\pi}2}\df{(\cos x)^{\sqrt 2}+(\sin x)^{\sqrt 2}}
+	&=\df12\dint_0^{\frac{\pi}2}\df{(\cos x)^{\sqrt 2}+(\sin x)^{\sqrt 2}}
 	{(\cos x)^{\sqrt 2}+(\sin x)^{\sqrt 2}}\d x
 	=\df12\dint_0^{\frac{\pi}2}\d x=\df{\pi}4.
 \end{align*}
@@ -1359,7 +1359,7 @@ $$\dint_{\frac12}^1\df{(1-x)\arcsin(1-x)}{\sqrt{2x-x^2}}\d x
 	=-2\dint_0^{\frac12}\arcsin t\d{\sqrt{1-t^2}}\\
 	&=-2\left.\sqrt{1-t^2}\arcsin t\right|_0^{\frac12}
 	+2\dint_0^{\frac12}\d t
-	=-\df{\sqrt2\pi}6+1.
+	=-\df{\sqrt3\pi}6+1.
 \end{align*}
 
 （6）$\dint_{-\frac{\pi}4}^{\frac{\pi}4}e^{\frac x2}
@@ -1400,7 +1400,7 @@ $$\dint_{\frac12}^1\df{(1-x)\arcsin(1-x)}{\sqrt{2x-x^2}}\d x
 	+2\dint_0^{\arccos\sqrt{\frac23}}\df{\d\sec t}{\sqrt{\sec^2t-1}}\\
 	&=\df{\pi}8+2\dint_0^{\arccos\sqrt{\frac23}}\sec t\d t\\
 	&=\df{\pi}8+2\ln\left|\sec t+\tan t\right|_0^{\arccos\sqrt{\frac23}}
-	=\df{\pi}8+\ln(2+\sqrt3).
+	=\df{\pi}2+\ln(2+\sqrt3).
 \end{align*}
 
 \bs
@@ -1475,8 +1475,16 @@ $$\dint_a^b\left(x-\df{a+b}2\right)f(x)\d x>0,$$
 $f(x)-f(a+b-x)<0$，故$\left(x-\df{a+b}2\right)[f(x)-f(a+b-x)]>0$，
 进而可知以上右侧的积分必大于零，即证。\fin
 
+[证法三]：令
+$$F(x)=(a+x)\dint_a^xf(t)\d t-2\dint_a^xtf(t)\d t,$$
+则
+$$F'(x)=\dint_a^x[f(t)-f(x)]\d t,$$
+由于$f(x)$严格单调递增，故总有$f(t)-f(x)<0$，进而$F'(x)<0$，
+又$F(a)=0$，从而可知$F(b)<0$，即证。\fin
+
 5.设$f(x)$是以$T$为周期的连续函数
   \begin{enumerate}[(1)]
+    \setlength{\itemindent}{1cm}
     \item 证明：$\dint_0^xf(t)\d t$可以表示为一个以$T$
     为周期的函数$g(x)$与$kx$之和，求此常数$k$；
     \item 计算$\limx{\infty}\df1x\dint_0^xf(t)\d t$；
@@ -1484,14 +1492,15 @@ $f(x)-f(a+b-x)<0$，故$\left(x-\df{a+b}2\right)[f(x)-f(a+b-x)]>0$，
     $\limx{\infty}\df1x\dint_0^xg(t)\d t$。
   \end{enumerate}
 
-[解]：（1）记$I=\df1T\dint_0^Tf(x)\d x$，令$g(x)=f(x)-I$，
-显然$g(x)$是以$T$为周期的函数，且对任意$x$，都有
-$$\dint_x^{x+T}g(t)\d t
-=\dint_x^{x+T}f(t)\d t-I=\dint_0^{T}f(t)\d t-I=0.$$
-进而
-$$\df1x\dint_0^xf(t)\d t
-=\df1x\dint_0^xI\d t=I,$$
-故令$k=I=\df1T\dint_0^Tf(x)\d x$，则$\dint_0^xf(t)\d t=g(x)+kx$，即证。
+[解]：（1）记$k=\df1T\dint_0^Tf(x)\d x$，令$g(x)=\dint_0^xf(t)\d t-kx$，
+则对任意$x$，有
+\begin{align*}
+	g(x+T)
+	&=\dint_0^{x+T}f(t)\d t-k(x+T)
+	=\dint_0^xf(t)\d t-kx+\dint_x^{x+T}f(t)\d t-kT\\
+	&=g(x)+\dint_0^{T}f(t)\d t-kT=g(x),
+\end{align*}
+也即$g(x)$是以$T$为周期的函数，即证。
 
 （2）显然$g(x)$是一个连续的周期函数，故必有界，从而可知$\limx{\infty}\df{g(x)}x=0$，
 于是
@@ -1502,7 +1511,7 @@ $$\limx{\infty}\df1x\dint_0^xf(t)\d t=\limx{\infty}\df{g(x)+kx}x=k
 可知$\limx{\infty}\df1x\dint_0^xg(t)\d t=\df12$。\fin
 
 \begin{center}
-	\bf 3.4 反常积分
+	\bf 5.4 反常积分
 \end{center}
 
 1.计算下列积分
@@ -1518,7 +1527,7 @@ $$\limx{\infty}\df1x\dint_0^xf(t)\d t=\limx{\infty}\df{g(x)+kx}x=k
 	&=\df{\pi}4+\dint_1^{+\infty}\df1{x(1+x^2)}\d x
 	=\df{\pi}4+\df12\dint_1^{+\infty}\left(\df1{x^2}-\df1{1+x^2}\right)\d x^2\\
 	&=\df{\pi}4+\left.\df12\left[\ln x^2-\ln(1+x^2)\right]\right|_1^{+\infty}
-	=\df{\pi}4+\df12\ln\df12.
+	=\df{\pi}4+\df12\ln2.
 \end{align*}
 
 （2）$\dint_2^{+\infty}\df{\d x}{(x+7)\sqrt{x-2}}$
@@ -1569,7 +1578,7 @@ $$\limx{\infty}\df1x\dint_0^xf(t)\d t=\limx{\infty}\df{g(x)+kx}x=k
 $$
 	\mbox{原式}
 	=\df1e\dint_0^{+\infty}\df{e^x\d x}{e^{2x}+1}
-	=\left.\df1e\arctan e^x\right|_0^{+\infty}=\df{\pi}{2e}.
+	=\left.\df1e\arctan e^x\right|_0^{+\infty}=\df{\pi}{4e}.
 $$
 \fin
 
@@ -1590,7 +1599,7 @@ $\dint_0^{+\infty}\df{\sin^2x}{x^2}\d x$。
 \fin
 
 \begin{center}
-	\bf 3.5 反常积分的审敛法与$\Gamma$函数
+	\bf 5.5 反常积分的审敛法与$\Gamma$函数
 \end{center}
 
 1. 判定如下反常积分的敛散性
@@ -1598,7 +1607,7 @@ $\dint_0^{+\infty}\df{\sin^2x}{x^2}\d x$。
 （1）$\dint_1^{+\infty}\df{x^2\d x}{(x+1)\sqrt[2]{x^3+1}}$
 
 [解]：注意到$\limx{+\infty}x^{\frac12}\df{x^2}{(x+1)\sqrt[2]{x^3+1}}=1$，
-而$\dint_0^{+\infty}\df{\d x}{x^{\frac12}}$发散，故由比较判别法，
+而$\dint_1^{+\infty}\df{\d x}{x^{\frac12}}$发散，故由比较判别法，
 该无穷积分发散。
 
 （2）$\dint_1^2\df{\d x}{(\ln x)^4}$
@@ -1656,7 +1665,7 @@ $$\dint_1^{+\infty}\df{|f(x)|}x\d x
 3.利用$\Gamma$函数的性质证明{\kaishu Legendre倍量公式}：
 $$\sqrt{\pi}\Gamma(2n)=2^{2n-1}\Gamma(n)\Gamma\left(n+\df12\right).$$
 
-[证]：
+[证]：由$\Gamma(x+1)=x\Gamma(x)$，$\Gamma\left(\df12\right)=\sqrt{\pi}$，
 \begin{align*}
 	\mbox{左边}&=(2n-1)!\sqrt{\pi},\\
 	\mbox{右边}&=2^{2n-1}(n-1)!\df{2n-1}2\df{2n-3}2\ldots\df12\sqrt{\pi},\\
@@ -1665,3 +1674,114 @@ $$\sqrt{\pi}\Gamma(2n)=2^{2n-1}\Gamma(n)\Gamma\left(n+\df12\right).$$
 \fin
 
 \fi
+
+\newpage
+
+\begin{center}
+	\Large\bf 第五章小结
+\end{center}
+
+{\bf 1.定积分的概念与性质}
+
+$\bullet$结合“分割取近似，做和求极限”的过程理解定积分的定义：
+$$I=\lim\limits_{\lambda\to0}\sum\limits_{k=1}^nf(\xi_k)\Delta_k.$$
+
+$\bullet$关于可积性：分段连续（只有有限多个第一类间断点）的函数是可积的，了解即可。
+
+$\bullet$可化为定积分的极限问题：若$f(x)$在$[a,b]$上可积，则
+$$\dint_a^bf(x)\d x
+=\limn\sum\limits_{k=1}^nf\left[a+\df kn(b-a)\right]\df{b-a}n.$$
+特别地，当积分区间为$[0,1]$时，有
+$$\dint_0^1f(x)\d x=\limn\sum\limits_{k=1}^nf\left(\df kn\right)\df1n.$$
+
+$\bullet$定积分的性质：
+\begin{itemize}
+  \setlength{\itemindent}{1cm}
+  \item 改变函数在有限个点处的函数值，其定积分不变；
+  \item {\kaishu 线性性：}$\dint_a^b[\alpha
+  f(x)+\beta g(x)]\d x=\alpha\dint_a^bf(x)\d x+\beta\dint_a^bg(x)\d x$
+  \item {\kaishu 区间可加性：}$\dint_a^bf(x)\d x=\dint_a^cf(x)\d x+\dint_c^bf(x)\d x$
+  \item {\kaishu 保号性：}
+  \begin{itemize}
+    \item $f(x)$在$[a,b]$上可积，且$f(x)\geq 0$，则$\dint_a^bf(x)\d x\geq 0$ 
+    \item $f(x)$在$[a,b]$上连续，非负且不恒为零，则$$\dint_a^bf(x)\d x> 0$$ 
+    \item {\kaishu 保序性：}设$f(x),g(x)$在$[a,b]$上可积，且$f(x)\leq g(x)$，则
+    $$\dint_a^bf(x)\d x\leq \dint_a^bg(x)\d x$$
+    \item {\kaishu 绝对值不等式：}$f(x)$在$[a,b]$上可积，则
+    $${\b \dint_a^bf(x)\d x\leq\dint_a^b|f(x)|\d x}$$ 
+    \item {\kaishu 积分估值：}$f(x)$在$[a,b]$上可积，且$m\leq f(x)\leq M$，则
+    $$m(b-a)\leq\dint_a^bf(x)\d x\leq M(b-a)$$
+  \end{itemize}
+\end{itemize}
+注意利用积分估值比较定积分大小的题目。
+
+$\bullet$掌握{\bf Schwarz积分不等式}及其证明：设$f(x),g(x)$均在$[a,b]$上连续，证明：
+$$\left[\dint_a^bf(x)g(x)\d x\right]^2
+\leq\dint_a^bf^2(x)\d x\dint_a^bg^2(x)\d x$$
+
+$\bullet$定积分中值定理：
+\begin{itemize}
+  \setlength{\itemindent}{1cm}
+  \item {\kaishu 第一中值定理：}设$f(x)$在$[a,b]$连续，则存在
+  $\xi\in[a,b]$，使得$\dint_a^bf(x)\d x=f(\xi)(b-a)$
+  \item {\kaishu 第二中值定理：}设$f(x)$在$[a,b]$连续，$g(x)$不变号，则存在
+  $\xi\in[a,b]$，使得$\dint_a^bf(x)g(x)\d x=f(\xi)\dint_a^bg(x)\d x$
+\end{itemize}
+
+{\bf 2.变限积分}
+$${\left[\dint_{\varphi(x)}^{\psi(x)}f(t)\d t\right]'_x
+=f[\psi(x)]\psi'(x)-f[\varphi(x)]\varphi'(x)}$$
+
+$\bullet$若对变限积分求导时，被积式中含有求导的变量，则需要通过变换将其
+移到被积式以外！！！
+
+$\bullet$必考知识点！！
+
+{\bf 3.定积分的计算}
+
+$\bullet$微积分基本定理：
+$$\dint_a^bf(x)\d x=F(b)-F(a).$$
+在积分时须注意$F(x)$必须是连续函数。反常积分的计算方式和定积分相似，
+只是对于无穷远点和瑕点，使用极限值代替函数值。
+
+$\bullet$对称区间上的定积分：
+$$\dint_{-a}^af(x)\d x=\dint_0^a[f(x)+f(-x)]\d x.$$
+
+$\bullet$利用函数图像的对称性计算积分：
+$$\dint_0^af(x)\d x=\dint_0^af(a-x)\d x$$
+例如：$\dint_0^{\frac{\pi}2}\df{\sin x\d x}{\sin x+\cos x}
+=\dint_0^{\frac{\pi}2}\df{\cos x\d x}{\cos x+\sin x}
+=\df12\dint_0^{\frac{\pi}2}\df{(\cos x+\sin x)\d x}{\cos x+\sin x}=\df{\pi}4$。
+
+{\bf 4.反常积分}
+
+$\bullet$$p$-无穷积分$\dint_a^{+\infty}\df{\d x}{x^p}$当$p>1$时收敛，
+当$0<p\leq1$时发散。
+
+$\bullet$$p$-暇积分$\dint_0^a\df{\d x}{x^p}$当$0<p<1$时收敛，
+当$p\geq1$时发散。
+
+$\bullet$若$f(x)$在$[1,+\infty)$上非负单调递减，则
+无穷积分$\dint_1^{+\infty}f(x)\d x$与无穷级数$\sumn f(n)$同敛散。
+
+$\bullet$比较审敛法：设$f(x),g(x)$在$[a,+\infty)$上连续，且
+$0\leq f(x)\leq g(x),\quad x\in[a,+\infty)$，则：
+$\dint_a^{+\infty}g(x)\d x$收敛$\Rightarrow\dint_a^{+\infty}f(x)\d x$收敛。
+反之，$\dint_a^{+\infty}f(x)\d x$发散$\Rightarrow\dint_a^{+\infty}g(x)\d x$发散。
+
+$\bullet$极限判别法：设$f(x),g(x)$在$[a,+\infty)$上连续，
+$0\leq f(x)\leq g(x)$，且$\limx{+\infty}\df{f(x)}{g(x)}=l$，则
+ \begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $0<l<+\infty$，两个无穷积分同敛散 
+  \item
+  $l=0$，$\dint_a^{+\infty}g(x)\d x$收敛
+  $\Rightarrow\dint_a^{+\infty}f(x)\d x$收敛 
+  \item
+  $l=+\infty$，$\dint_a^{+\infty}f(x)\d x$发散
+  $\Rightarrow\dint_a^{+\infty}g(x)\d x$发散
+\end{enumerate}
+
+$\bullet$绝对收敛的反常积分必收敛。
+
+$\bullet$反常积分的审敛是本章难点，注意和后面将要学习的无穷积分审敛加以比较。
