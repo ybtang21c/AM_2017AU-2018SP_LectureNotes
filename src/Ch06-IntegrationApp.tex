@@ -276,22 +276,265 @@ $$\sin\left(\arctan\df l{2a}\right)=\df{\frac{l}{2a}}
 	\end{enumerate}
 \end{ext}
 
-% {\bf 习题6.5-8.} 长度为$l$的细杆，均匀带电，总电量为$q\,(q<0)$，若在杆的延长线上，
-% 距离杆一端$x_0$处有一单位正电荷。现将单位正电荷从$x_0$处移动到无穷远，试求克服
-% 电场力所作的功。
-%
-% 解：如图，
-% \begin{center}
-% 	\resizebox{!}{2cm}{\includegraphics{./images/ch6/eMove.pdf}}
-% \end{center}
-%
-% 当单位正电荷位于$x(x>l)$处时，细杆上位置$t$处长度为$\d t$的一段对其产生的电场（吸引）力为
-% $$\d F=\df{kq\d t}{l(x-t)^2},\quad t\in[0,l]$$
-% 故此时单位正电荷所受的总电场力为
-% $$F=\dint_0^l\df{kq\d t}{l(x-t)^2}=\df{kq}l\left(\df1{x-l}-\df1x\right).$$
-% 克服该力的作用，单位正电荷向远处移动$\d x$，需要做的功为
-% $$\d W=F\d x=\df{kq}l\left(\df1{x-l}-\df1x\right)\d x,
-% \quad x\in[l+x_0,+\infty)$$
-% 故所求克服电场力所需做的总功为
-% $$W=\dint_{l+x_0}^{+\infty}\df{kq}l\left(\df1{x-l}-\df1x\right)\d x
-% =\df{kq}l\ln\left(1+\df{l}{x_0}\right).$$
+\newpage
+
+\section*{作业参考解答}
+% \addcontentsline{toc}{section}{作业参考解答}
+
+\begin{center}
+	\bf 6.2 定积分的几何应用
+\end{center}
+
+\bs
+
+1. 设$S(t)$为直线$l_t:x+y=t(t\geq0)$下方位于正方形区域
+$D:0\leq x\leq 1,0\leq y\leq 1$内的区域，求$\dint_0^xS(t)\d t$。
+
+[解]：由$S(x)$的定义可得
+$$S(t)=\left\{\begin{array}{ll}
+	\df12t^2,& 0\leq t<1;\\ 1-\df12(2-t)^2, & 1\leq t <2;\\
+	1,& t>2. 
+\end{array}\right.$$
+于是：当$0\leq x<1$时，
+$$\dint_0^xS(t)\d t=\dint_0^x\df12t^2\d t=\df16x^3.$$
+当$1<x\leq2$时，
+$$\dint_0^xS(t)\d t=\dint_0^1\df12t^2\d t
++\dint_1^x\left[1-\df12(2-t)^2\right]\d t
+=\df13+(x-1)+\df16(2-x)^3.$$
+当$x>2$时，
+$$\dint_0^xS(t)\d t=\dint_0^1\df12t^2\d t
++\dint_1^2\left[1-\df12(2-t)^2\right]\d t
++\dint_2^x1\d t
+=x-\df13.$$
+\fin
+
+\bs
+
+2.计算下列曲线的弧长
+
+（1）$y=\ln(1-x^2)$，$0\leq x\leq\df12$
+
+[解]：弧长微元
+$$\d s=\sqrt{1+[y'(x)]^2}\d x=\df{1+x^2}{1-x^2}\d
+x,\;(x\in\left[0,\df12\right]),$$
+故所求弧长
+$$s=\dint_0^{\frac12}\df{1+x^2}{1-x^2}\d x
+=\dint_0^{\frac12}\left[\df1{1+x}+\df1{1-x}-1\right]\d x
+=\left.\ln\df{1+x}{1-x}\right|_0^{\frac12}-\df12
+=\ln3-\df12.$$
+
+（2）$\rho=a(1+\cos\theta)$，$0\leq\theta\leq2\pi$
+
+[解]：弧长微元
+$$\d s=\sqrt{\rho^2(\theta)+[\rho'(\theta)]^2}\d\theta
+=2a\left|\cos\df{\theta}2\right|\d\theta,\;\theta\in[0,2\pi],$$
+故所求弧长
+$$s=\dint_0^{2\pi}2a\left|\cos\df{\theta}2\right|\d\theta
+=4a\dint_0^{\pi}\cos\df{\theta}2\d\theta
+=8a.$$
+\fin
+
+\bs
+
+3.设$D$是由曲线$y=\sin x+1$与三条直线$x=0,x=\pi,y=0$
+所围成的曲边梯形，求$D$绕$x$轴旋转一周所围成的旋转体的体积。
+
+[解]：如图
+\begin{center}
+	\includegraphics[width=7cm]{./images/ch6/sinx1cs.jpg}
+	\includegraphics[width=6cm]{./images/ch6/topSp.jpg}
+	
+	{\kaishu 第3题图\hspace{6cm} 第4题图}
+\end{center}
+体积微元
+$$\d V=\pi y^2\d x,$$
+故所求体积
+$$
+	V=\dint_0^{\pi}\pi(\sin x+1)^2\d x=\df32\pi^2.
+$$
+\fin
+
+\bs
+
+4.证明球冠（球缺）的体积公式：$V=\pi h^2\left(R-\df{h}3\right)$，其中$R$为球
+的半径，$h<R$为球冠（球缺）的高。
+
+[证]：如图，体积微元
+$$\d V=\pi[R^2-(R-x)^2]\d x=\pi(2Rx-x^2)\d x,$$
+故球缺体积
+$$V=\dint_0^h\pi(2Rx-x^2)\d x=\pi h^2\left(R-\df{h}3\right).$$
+\fin
+
+\bs
+
+5.直线$y=x$将椭圆$x^2+3y^2=6y$分为两块，求两块的面积之比。
+
+[解]：如图
+\begin{center}
+	\includegraphics[width=7cm]{./images/ch6/ecXY.jpg}
+	\includegraphics[width=7cm]{./images/ch6/ySqtXx.jpg}
+	
+	{\kaishu 第5题图\hspace{7cm} 第6题图}
+\end{center}
+体积微元
+$$\d S_2=\left(1+\sqrt{1-\df{x^2}3}-x\right)\d x,\;x\in\left[0,\df32\right],$$
+故
+$$S_2=\dint_0^{\frac32}\left(1+\sqrt{1-\df{x^2}3}-x\right)\d x
+=\df34+\df{\sqrt3}6\pi.$$
+又$S_1=\sqrt3\pi$，故所求面积比为$\df{S_1-S_2}{S_1+S_2}=\df{10\sqrt3\pi-9}
+{14\sqrt3\pi+9}$。
+\fin
+
+6.求曲线$y=\sqrt x$的一条切线，使之与该曲线及$x=0$、$x=2$
+共同所围面积最小。
+
+[解]：如图，任取曲线上一点$(x_0,\sqrt{x_0})$，过其的切线为
+$$y=\sqrt{x_0}+\df1{\sqrt{2x_0}}(x-x_0),$$
+进而体积微元
+$$\d S=\left[\df1{\sqrt{2x_0}}(x-x_0)+\sqrt{x_0}-\sqrt{x}\right]\d
+x,\;x\in[0,2],$$ 故所述体积
+$$S=\dint_0^2\left[\df1{\sqrt{2x_0}}(x-x_0)+\sqrt{x_0}-\sqrt{x}\right]\d
+x=\df{\sqrt2}{\sqrt{x_0}}+(2-\sqrt2)\sqrt{x_0}-\df{4\sqrt2}3.$$
+对$S$求$x_0\in[0,2]$上的最小值可得，$x_0=2$时，该面积最小，为$\df{2\sqrt2}3-1$。
+\fin
+
+\bs
+
+7.求圆滚线：$x=a(t-\sin t),y=a(1-\cos t)$的一拱（$0\leq t\leq 2\pi$）
+与横轴所围成的图形的面积，及其绕$x$轴旋转一周所得的旋转体的体积。
+
+参见教材，解答略。
+
+8.求底面是半径为$R$的圆，而垂直于底面上一条固定直径的所有截面均为
+等边三角形的立体的体积。
+
+[解]：如图
+\begin{center}
+	\includegraphics[width=7cm]{./images/ch6/rtSp.jpg}
+\end{center}
+体积微元
+$$\d V=\sqrt3(R^2-x^2)\d x,\;x\in[-R,R],$$
+故所求体积
+$$V=\dint_{-R}^R\sqrt3(R^2-x^2)\d x=\df{4\sqrt3}3R^3.$$
+\fin
+
+\bs
+
+1.长度为$l$的细杆，均匀带电，总电量为$q\,(q<0)$，若在杆的延长线上，
+距离杆一端$x_0$处有一单位正电荷。现将单位正电荷从$x_0$处移动到无穷远，试求克服
+电场力所作的功。
+
+[解]：如图，
+\begin{center}
+	\resizebox{!}{2cm}{\includegraphics{./images/ch6/eMove.pdf}}
+\end{center}
+当单位正电荷位于$x(x>l)$处时，细杆上位置$t$处长度为$\d t$的一段对其产生的电场（吸引）力为
+$$\d F=\df{kq\d t}{l(x-t)^2},\quad t\in[0,l]$$
+故此时单位正电荷所受的总电场力为
+$$F=\dint_0^l\df{kq\d t}{l(x-t)^2}=\df{kq}l\left(\df1{x-l}-\df1x\right).$$
+克服该力的作用，单位正电荷向远处移动$\d x$，需要做的功为
+$$\d W=F\d x=\df{kq}l\left(\df1{x-l}-\df1x\right)\d x,
+\quad x\in[l+x_0,+\infty)$$
+故所求克服电场力所需做的总功为
+$$W=\dint_{l+x_0}^{+\infty}\df{kq}l\left(\df1{x-l}-\df1x\right)\d x
+=\df{kq}l\ln\left(1+\df{l}{x_0}\right).$$
+\fin
+
+\bs
+
+2.星形线的参数方程为：$x=a\cos^3t,y=a\sin^3t$，设其上每一点处的密度
+等于其到原点距离的立方的$k$倍，在原点处放置一单位质点，求星形线在第一象限的部分对该
+质点的引力。
+
+[解]：如图，
+\begin{center}
+	\includegraphics[width=8cm]{./images/ch6/starGr.jpg}
+\end{center}
+第一象限内的星形线对应于$t\in\left[0,\df{\pi}2\right]$，相应地，
+弧长微元
+$$\d s=\sqrt{(x'_t)^2+(y'_t)^2}\d t=3a\cos t\sin t\d t,$$
+相应的质量微元
+$$\d M=k(x^3+y^3)\d s,$$
+其对原点处的单位质点的引力
+$$|\bm{\d F}|=\df{G\d M}{x^2+y^2}=Gk\sqrt{x^2+y^2}\d s,$$
+其分量
+$$\d F_x=|\bm{\d F}|\cos\theta=Gkx\d s
+=3a^2Gk\cos^4t\sin t\d t,$$
+从而
+$$F_x=\dint_0^{\frac{\pi}2}3a^2Gk\cos^4t\sin t\d t=\df{3a^2}5Gk.$$
+注意到星形线关于$y=x$的对称性，易知必有
+$$F_x=F_y=\df{3a^2}5Gk.$$
+综上可知星形线对原点处的单位质点的引力大小为$\df{3a^2}{\sqrt2}Gk$，沿$y=x$的
+方向指向原点。\fin
+
+\bs
+
+3.边长为$a$和$b$的矩形薄板，与水面成角度$\theta$斜沉于水中，长边
+平行于水面，最低处深度为$h$，设$a<b$，水的密度$\rho=1$，求水对于薄板上侧
+的总压力。
+
+[解]：如图
+\begin{center}
+	\includegraphics[width=7cm]{./images/ch6/waterPlane.jpg}
+\end{center}
+压力微元
+$$\d F=g(h-x\sin\theta)b\d x,$$
+故所求压力
+$$F=\dint_0^ag(h-x\sin\theta)b\d x
+=bg\left(ha-\df{a^2}2\sin\theta\right).$$
+\fin
+
+4.一个物体按照$x=t^3$作直线运动，已知其所受阻力等于其速度平方的$1.5$倍，
+求其从原点出发移动$1000$米时克服阻力所做的功。
+
+[解]：如图
+\begin{center}
+	\includegraphics[width=9cm]{./images/ch6/moveSt.jpg}
+\end{center}
+功的微元
+$$\d W=\df32(3t^2)^2\d x,$$
+故所求总功
+$$W=\dint_0^{10}\df32(3t^2)^2\d x=270000.$$
+\fin
+
+5.用铁锤将一铁钉击入木板，设木板对铁钉的阻力与铁钉已进入木板的深度成正比，
+已知第一次敲击后，铁钉进入木板$1$cm，假设每次敲击所做的功相同，问第二次敲击
+后，铁钉又将进入木板多少？
+
+[解]：如图
+\begin{center}
+	\includegraphics[width=6cm]{./images/ch6/nailSt.jpg}
+\end{center}
+功的微元
+$$\d W=kh\d h,$$
+由已知第一次敲击时所做的功
+$$W_1=\dint_0^1kh\d h=\df k2,$$
+根据假设每次敲击所做的功相同，设第二次敲击后到达的深度为$h_2$，则与之
+相对应的功
+$$W_2=\dint_1^{h_2}kh\d h=\df k2(h^2_2-1)=W_1=\df k2,$$
+由此可解得$h_2=\sqrt2$。故第二次敲击后，铁钉又将进入目标的深度为
+$\sqrt2-1$。\fin
+
+\bs
+
+6.一个半径为$R$，圆心角为$\theta$的圆弧形细棒，其线密度为$\mu$,
+在圆心处放置一单位质点，问细棒对该质点的引力大小为多少？方向如何？
+
+[解]：如图
+\begin{center}
+	\includegraphics[width=6cm]{./images/ch6/theSphGr.jpg}
+\end{center}
+如图，引力微元
+$$|\bm{\d F}|=\df{G\mu\d t}R,$$
+其分量
+\begin{align*}
+	\d F_x&=|\bm{\d F}|\cos t=\df{G\mu\cos t\d t}R,\\
+	\d F_y&=|\bm{\d F}|\cos t=\df{G\mu\sin t\d t}R,\\
+\end{align*}
+从而
+\begin{align*}
+	F_x&=\dint_{-\frac{\theta}2}^{\frac{\theta}2}\df{G\mu\cos t\d t}R
+	=\df{2G\mu}{R}\sin\df{\theta}2,\\
+	F_y&=\dint_{-\frac{\theta}2}^{\frac{\theta}2}\df{G\mu\sin t\d t}R=0,\\
+\end{align*}
+综上可知，所求引力大小为$\df{2G\mu}{R}\sin\df{\theta}2$，沿$x$轴指向原点方向。\fin

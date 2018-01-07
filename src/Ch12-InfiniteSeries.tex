@@ -165,7 +165,50 @@ $$S_n-S_{n+1}=\ln(n+1)-\ln n-\df1{n+1}>\left(\df1{n+1}\right)
 \end{align}
 故由Cauchy审敛原则，易知该级数收敛。\fin
 
-{\bf 例：}求和$\sumn\df1{n(n+1)(n+2)}=\df14$。
+\begin{shaded}
+	{\bf “好玩”的级数}
+	
+	级数的求和问题一直是非常“有趣”也非常困难的问题，关于级数$\sumn\df1{n^2}$
+	的和，Euler给出了一个让人脑洞打开的解法：
+	
+	据说，是法国数学家François Viète（1540-1603）最早发现了代数方程
+	的根与系数的关系，也即所谓的{\kaishu Viète定理}，其最简单的形式如下：
+	两个数$x_1,x_2$为一元二次方程$ax^2+bx+c=0$的根，当且仅当：
+	$$x_1+x_2=-\df ba,\quad x_1x_2=\df ca.$$
+	这个定理很容易被推广到一元$n$次多项式方程的情形：	$n$个数$x_1,x_2,\ldots,x_n$
+	为一元$n$次多项式方程
+	$$a_nx^n+a_{n-1}x^{n-1}+\ldots+a_1x+a_0=0$$
+	的根，当且仅当同时成立如下的关系：
+	\begin{align*}
+		\sum\limits_{i=1}^nx_i&=-\df{a_{n-1}}{a_n}\\
+		\sum\limits_{1\leq i<j\leq n}x_ix_j&=\df{a_{n-2}}{a_n}\\
+		\ldots&\ldots\\
+		\sum\limits_{1\leq i_1<i_2<\ldots<i_m\leq n}
+		x_{i_1}x_{i_2}\ldots x_{i_m}&=(-1)^m\df{a_{n-m}}{a_n}\\
+		\ldots&\ldots\\
+		x_1x_2\ldots x_n&=(-1)^n\df{a_0}{a_n}.
+	\end{align*}
+	由这个结论出发，可以得出这样的结果
+	$$\sum\limits_{i=1}^nx_i^2=\left(\sum\limits_{i=1}^nx_i\right)^2
+	-2\sum\limits_{1\leq i<j\leq n}x_ix_j=\df{a_{n-1}^2-2a_na_{n-2}}{a_n^2}.$$
+	假设所有的$x_i\ne0\;(i=1,2,\ldots,n)$，则不难发现$\df1{x_1},\df1{x_2},\ldots,
+	\df1{x_n}$恰好为一元$n$次多项式方程
+	$$a_0x^n+a_1x^{n-1}+\ldots+a_{n-1}x+a_n=0$$
+	的全部根，从而就有
+	$$\sum\limits_{i=1}^n\df1{x_i^2}=\df{a_1^2-2a_0a_2}{a_0^2}.$$
+	通过学习Taylor公式，我们了解到对任意$x\in\mbb{R}$，都有
+	$$\df{\sin x}x=1-\df{x^2}{3!}+\df{x^4}{5!}-\df{x^6}{7!}+\ldots,$$
+	并且显然$\df{\sin x}x=0$的根为$x_i=\pm i\pi(i\in\mbb{N})$，于是Euler大胆地
+	推测，此前关于一元$n$次多项式方程的根的结论应该也可以推广到无穷级数（相当于无穷次多项式）
+	方程的情形，这样就有
+	$$\sumn\df{2}{n^2\pi^2}=\df{0^2-2\left(-\df1{3!}\right)\cdot1}{1^2},$$
+	稍加整理即得
+	$$\sumn\df1{n^2}=\df{\pi^2}6.$$
+	利用类似的方法，还可以证明
+	$$\sumn\df1{n^4}=\df{\pi^4}{90}.$$
+\end{shaded}
+
+% {\bf 例：}求和$\sumn\df1{n(n+1)(n+2)}=\df14$。
 
 {\bf 例：}求和$\sumn\df{n}{3^n}$。
 
@@ -175,6 +218,26 @@ $$\df13S_n=\left(\df1{3^2}+\df2{3^3}+\ldots
 因此
 $$\df23S_n=\df12\left(1-\df1{3^n}\right)-\df{n}{3^{n+1}}\to\df12
 (n\to\infty)$$
+
+\begin{ext}
+	{\bf 课后作业}
+	\begin{enumerate}
+	  \item 求以下级数的和
+	  \begin{enumerate}[(1)]
+	    \item $\df1{1\cdot6}+\df1{6\cdot11}+\df1{11\cdot16}+\ldots$
+	    \item $\df1{1\cdot2\cdot3}+\df1{2\cdot3\cdot4}+\df1{3\cdot4\cdot5}+\ldots$
+	    \item $\sumn\df{n}{(n+1)!}$
+	  \end{enumerate}
+	  \item 已知$\sumn(a_{2n-1}+a_{2n})$收敛，能否推出$\sumn a_n$收敛？
+	  如果能，请给出证明；如果不能，请给出反例，并讨论还需要增加什么条件才能够由
+	  前者推出后者。
+	  \item （选作）利用Cauchy审敛原理判定如下级数的敛散性
+	  \begin{enumerate}[(1)]
+	    \item $\sumn\df{(-1)^{n}}n$
+	    \item $\sumn\df{\sin nx}{2^n}$
+	  \end{enumerate}
+	\end{enumerate}
+\end{ext}
 
 \section{数项级数的审敛法}
 
@@ -805,6 +868,38 @@ $$\sumn(-1)^n\left(1+\df 1n\right)^n\df{1}{\sqrt n}$$
 
 \end{shaded}
 
+\begin{ext}
+	{\bf 课后作业}
+	\begin{enumerate}
+	  \item 判断以下级数的敛散性，如果是收敛的变号级数，说明其是绝对收敛还是条件收敛：
+	  \begin{enumerate}[(1)]
+	    \item $\sumn\df{n-2}{3n^2+n}$
+	    \item $\sumn\df{\sqrt{n+2}-\sqrt{n}}{\sqrt{n+1}}$
+	    \item $\sumn\df{4^n}{n\cdot 3^n}$
+	    \item $\sumn\df{n^2}{3^n}$
+	    \item $\sumn\df1n\arctan\df1{n-1}$
+	    \item $\sumn\left(\df{n}{2n-1}\right)^{3n+2}$
+	    \item $\sumn n\left(\df34\right)^n$
+	    \item $\sumn\df{n^2}{n!}$
+	    \item $\sumn\df{n^{n+\frac1n}}{\left(1+\df1n\right)^n}$
+	    \item $\sumn(-1)^n\df{2^n}{n!}$
+	    \item $\sumn\sin\left(\pi\sqrt{n^2+1}\right)$
+	    \item $\sumn\dint_0^{\frac{\pi}n}\df{\sin x}{1+x}\d x$
+	    \item $\sumn\df{2^n-n^2}{3^n}$
+	    \item $\sumn\df1{n\ln^2(n+1)}$
+	  \end{enumerate}
+	  \item 判断以下命题的正误，如果正确，证明之；如果错误，请给出反例，并讨论
+	  需要添加什么条件方能使之成立：
+	  \begin{enumerate}[(1)]
+	    \item 已知级数$\sumn a_n$收敛，则级数$\sumn a^2_n$收敛；
+	    \item 已知级数$\sumn a^2_n$收敛，则级数$\sumn a^3_n$收敛；
+	    \item 正项级数$\sumn a_n$与级数$\sumn\df{a_n}{1+a_n}$同敛散；
+	    \item 对于正项级数$\sumn a_n$，若当$n$充分大时，总有$\df{a_{n+1}}{a_n}<1$，
+	    则该级数收敛。
+	  \end{enumerate}
+	\end{enumerate}
+\end{ext}
+
 \section{幂级数及其应用}
 
 \subsection{函数项级数的概念}
@@ -955,12 +1050,13 @@ $R=+\infty$；
 	\begin{enumerate}
 % 	  \setlength{\itemindent}{1cm}
 	  \item 两个幂级数的和在其收敛域的交集内收敛
-	  \ps{求和后的幂级数收敛域可能比原来的两个幂级数都大，例如：$\sumn x^n+\sumn(-1)x^n=0$}
-	  \item 幂级数逐项求导或求不定积分后收敛半径不变；\ps{收敛区间端点处的敛散性可能变化，要单独讨论！} 
-	  \item 幂函数的和函数在其收敛域上连续； 
+	  \item 幂级数逐项求导或求不定积分后收敛半径不变（收敛区间端点处的敛散性要单独讨论！）；
+	  \item 幂函数的和函数在其收敛域上连续；
 	  \item 幂函数逐项求导或求不定积分后，对应和函数分别为原和函数的导函数和原函数。
 	\end{enumerate}
 \end{thx}
+
+{\bf 注：}求和后的幂级数收敛域可能比原来的两个幂级数都大，例如：$\sumn x^n+\sumn(-1)x^n=0$。
 
 {\bf 例：}已知
 $$\df{1}{x+1}=\sum\limits_{n=0}^{\infty}(-x)^n\;(|x|<1),$$
@@ -1029,21 +1125,21 @@ $$\sumn\df{n(n+1)}{2^n}.$$
 
 \subsection{函数的幂级数展开}
 
-函数$f(x)$在原点处的无穷阶Taylor展开式： 
+函数$f(x)$在原点处的无穷阶Taylor展开式：
 $$f(x)=\sum\limits_{n=0}^{\infty}\df{f^{(n)}(0)}{n!}x^n$$
- 称为：{\kaishu $f(x)$在原点处的Taylor级数(Maclaurin级数)} 
- 
+ 称为：{\kaishu $f(x)$在原点处的Taylor级数(Maclaurin级数)}
+
 {\bf 注：}展开的条件： $f(x)$在原点处无穷阶可导。
 
 {\bf 例：}求以下函数的Maclaurin级数\ps{重点掌握！}
 
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item $f(x)=1+x+4x^3-5x^{99}+x^{100}$ 
-  \item $f(x)=(1-x)e^x$ 
-  \item $f(x)=\sin(x-\pi/4)$ 
-  \item $f(x)=\df 1{1-x^2}$ 
-  \item $f(x)=\ln(2+x)$ 
+  \item $f(x)=1+x+4x^3-5x^{99}+x^{100}$
+  \item $f(x)=(1-x)e^x$
+  \item $f(x)=\sin(x-\pi/4)$
+  \item $f(x)=\df 1{1-x^2}$
+  \item $f(x)=\ln(2+x)$
   \item $f(x)=\arctan x$
 \end{enumerate}
 
@@ -1061,7 +1157,7 @@ $(1-x)e^x=\sum\limits_{n=0}^{\infty}(1-x)\df{x^n}{n!}
 （3）
 $\sin(x-\pi/4)=\df{\sqrt2}2(\sin x-\cos x)
 =\df{\sqrt2}2\sum\limits_{m=0}^{\infty}(-1)^m
-\left(-\df{x^{2m}}{(2m)!}+\df{x^{2m+1}}{(2m+1)!}\right)$ 
+\left(-\df{x^{2m}}{(2m)!}+\df{x^{2m+1}}{(2m+1)!}\right)$
 收敛域$(-\infty,+\infty)$.
 
 （4）记$u=x^2$
@@ -1113,7 +1209,7 @@ $$\arccos x-\arccos0
 
 \begin{shaded}
 	{\bf 关于$\arctan x$的展开的讨论}
-	
+
 	1、先来看$\arctan x$的幂级数展开。由
 	$$(\arctan x)'=\df1{1+x^2}
 	=\sum\limits_{n=0}^{\infty}(-1)^nx^{2n}, \quad (|x|<1),$$
@@ -1125,11 +1221,11 @@ $$\arccos x-\arccos0
 	以上右侧的幂级数的收敛域为$[-1,1]$。故
 	$${\b\arctan x=\sum\limits_{n=0}^{\infty}\df{(-1)^n}{2n+1}x^{2n+1},
 	\quad |x|\leq1}$$
-	
+
 	\begin{center}
 		\resizebox{!}{5cm}{\includegraphics{./images/ch13/arctan-1.pdf}}
 	\end{center}
-	
+
 	2、下面换一种方式
 	$$(\arctan x)'=\df1{1+x^2}=\df1{x^2}\df1{1+\frac1{x^2}}
 	=\df1{x^2}\sum\limits_{n=0}^{\infty}\df{(-1)^n}{x^{2n}}
@@ -1147,22 +1243,22 @@ $$\arccos x-\arccos0
 	右侧级数的收敛域为$x\leq -1$。综上
 	$${\b\arctan x=\mathrm{sgn}(x)\df{\pi}2-\sum\limits_{n=0}^{\infty}
 	\df{(-1)^{n}}{(2n+1)x^{2n+1}},\quad |x|\geq1.}$$
-	
+
 	\begin{center}
 		\resizebox{!}{5cm}{\includegraphics{./images/ch13/arctan-2.pdf}}
 	\end{center}
-	
+
 	3、至此我们可以看到，同一个函数$\arctan x$可以由两种不同的展开式，似乎
 	与函数的幂级数展开式的唯一性矛盾，真的是这样吗？
-	
+
 	答案是否定的！因为我们得到的第二个展开式并不是幂级数。
-	
+
 	对于$\arctan x$来说，其幂级数展开的“有效”区间（收敛域）只是$[-1,1]$，而
 	$\arctan x$在定义区间$(-\infty,+\infty)$内是无穷次可导的，用幂级数展开
 	只能表示$\arctan x$的一部分。这个现象说明，
 	{\it 幂级数展开的局部性可以有两种理解，一是越靠近展开的位置结果越精确，
 	二是这种展开很可能不是对函数的定义域全局有效的}。
-	
+
 	对$\arctan x$来说，以上两个展开式恰好构成了其定义域上完整的表示，使
 	我们计算其在任一点处的函数值成为了可能。
 % 	也即
@@ -1196,9 +1292,10 @@ $$\arccos x-\arccos0
 	  \item 已知$f_n(x)\;(n\in\mathbb{Z}^+)$满足
 		$$f'_n(x)=f_n(x)+x^{n-1}e^x,$$
 		且$f(1)=\df en$，求级数$\sumn f_n(x)$的和。
-	  \item 设$y(x)=\sumn\df{[(n-1)!]^2}{(2n)!}(2x)^{2n},\;(|x|<1)$
+	  \item 设$y(x)=\sumn\df{[(n-1)!]^2}{(2n)!}(2x)^{2n}$
 		\begin{enumerate}[(1)]
 % 		  \setlength{\itemindent}{1cm}
+		  \item 求$y(x)$的定义域；
 		  \item 求$y(0),y'(0)$，并证明：$(1-x^2)y''-xy'=4$；
 		  \item 求$\sumn y(n)$的和函数，并求级数$\sumn\df{[(n-1)!]^2}{(2n)!}$的和。
 		\end{enumerate}
@@ -1216,6 +1313,7 @@ $$\arccos x-\arccos0
 		  \item $\sum\limits_{n=0}^{\infty}\df{x^{4n}}{(4n)!}$；
 		  \item $\df1a+\df{2x}{a^2}+\ldots+\df{nx^{n-1}}{a^n}+\ldots$.
 		\end{enumerate}
+% 	  \item 求级数$\sumn\df1{n^2}$的和。
 	\end{enumerate}
 \end{ext}
 
