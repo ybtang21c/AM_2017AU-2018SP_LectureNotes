@@ -496,7 +496,7 @@ $$a_{n+1}>\df{b_{n+1}}{b_n}a_n>\ldots>
 
 [解]：考虑$\sumn\left(1-\cot\df{n\pi}{4n-2}\right)$和
 $\sumn\left(1-\sin\df{n\pi}{2n+1}\right)$，注意到
-$$\limn\df{1-\sin\df{n\pi}{2n+1}}{\df1n}=\df{\pi}4,
+$$\limn\df{1-\cot\df{n\pi}{4n-2}}{\df1n}=\df{\pi}4,
 \quad\limn\df{1-\sin\df{n\pi}{2n+1}}{\df1{n^2}}=\df{\pi^2}{32},$$
 故以上级数一个发散一个收敛，从而原级数发散。\fin
 
@@ -532,7 +532,7 @@ $n>N$时，$\df{a_{n+1}}{a_n}>1$，也即$a_{n+1}>a_n$，
 $n>N$时，$\df{a_{n+1}}{a_n}<p$，从而
 $$a_{n+1}<p{a_n}<p^2a_{n-1}<\ldots<p^{n+1-N}a_{N+1},$$
 进而
-$$\sum\limits_{k=N+1}^{n}<(1+p+p^2+\ldots+p^{n-1})a_{N+1}
+$$\sum\limits_{k=N+1}^{n}a_k<(1+p+p^2+\ldots+p^{n-1})a_{N+1}
 <\df1{1-p}a_{N+1},$$
 由此可知$\sumn a_n$的部分和有界，从而$\sumn a_n$收敛。\fin
 
@@ -556,7 +556,7 @@ $$\df{a_{n+1}}{a_n}=\df{e}{\left(1+\df1n\right)^n}>1,$$
 
 $t\ne e$的情况利用比值判别法即可判断。
 
-{\bf 注：}考虑$\sumn\df{n^n}{e^nn!}$，
+{\bf 思考：}考虑$\sumn\df{n^n}{e^nn!}$，
 则以上推导不再成立，该如何判定其敛散性呢？
 
 [提示]：因为$\left(1+\df1n\right)^n<e<\left(1+\df1n\right)^{n+1}$，故
@@ -568,7 +568,7 @@ $$a_n>\df{n-1}na_{n-1}>\df{n-1}n\cdot\df{n-2}{n-1}\ldots\df12a_1=\df{a_1}n,$$
 \begin{thx}
 	{\bf 比值判别法（不等式形式）}设$a_n\geq 0\,(n=1,2,\ldots)$，则 
 	\begin{enumerate}
-	  \setlength{\itemindent}{1cm}
+% 	  \setlength{\itemindent}{1cm}
 	  \item 若$n$充分大时，有$\df{a_{n+1}}{a_n}\leq r<1$，则$\sumn a_n$收敛； 
 	  \item 若$n$充分大时，有$\df{a_{n+1}}{a_n}\geq 1$，则$\sumn a_n$发散。
 	\end{enumerate}
@@ -603,7 +603,7 @@ $$\limn\df{a_n}{b_n}=1,$$
 \begin{thx}
 	{\bf 根植判别法（极限形式）：}设$a_n\geq 0(n=1,2,\ldots)$，$\limn\sqrt[n]{a_n}=q$，则
 	\begin{enumerate}
-	  \setlength{\itemindent}{1cm}
+% 	  \setlength{\itemindent}{1cm}
 	  \item $0\leq q<1\Rightarrow\sumn a_n$收敛
 	  \item $q>1\Rightarrow\sumn a_n$发散
 	\end{enumerate}

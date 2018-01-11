@@ -214,8 +214,8 @@
 		+2\dint_1^{\frac32}\df{\d\sqrt x}{\sqrt{(\sqrt x)^2-1}}\\
 		&=2\left.\arcsin\sqrt x\right|_{\frac12}^1
 		+2\dint_0^{\arccos\sqrt{\frac23}}\df{\d\sec t}{\sqrt{\sec^2t-1}}\\
-		&=\df{\pi}8+2\dint_0^{\arccos\sqrt{\frac23}}\sec t\d t\\
-		&=\df{\pi}8+2\ln\left|\sec t+\tan t\right|_0^{\arccos\sqrt{\frac23}}
+		&=\df{\pi}2+2\dint_0^{\arccos\sqrt{\frac23}}\sec t\d t\\
+		&=\df{\pi}2+2\ln\left|\sec t+\tan t\right|_0^{\arccos\sqrt{\frac23}}
 		=\df{\pi}2+\ln(2+\sqrt3).
 	\end{align*}
 	\hfill$\Box$
@@ -546,11 +546,13 @@
 	\pause
 % 	\vspace{-1em}
 	\small 解：\it 
-	注意到
-	$$\limx{x\to1^+}\sqrt{x-1}\df1{\sqrt{x^2-3x+2}}
-	=\limx{1^+}\sqrt{x-2}\df1{\sqrt{x^2-3x+2}}=1,$$
-	且$\dint_1^2\df{\d x}{\sqrt{x-1}}$和$\dint_1^2\df{\d x}{\sqrt{2-x}}$
-	均收敛，故由比较判别法，该瑕积分收敛。
+	注意到$\limx{1^+}\sqrt{x-1}\df1{\sqrt{x^2-3x+2}}
+	=\limx{2^-}\sqrt{x-2}\df1{\sqrt{x^2-3x+2}}=1$，且
+	$\dint_1^{\frac32}\df{\d x}{\sqrt{x-1}}$和$\dint_{\frac32}^2\df{\d
+	x}{\sqrt{2-x}}$ 均收敛，故由比较判别法，
+	积分$\dint_1^{\frac32}\df{\d x}{\sqrt{3x-x^2-2}}$和
+	$\dint_{\frac32}^2\df{\d x}{\sqrt{3x-x^2-2}}$均收敛，进而
+	原瑕积分收敛。
 \end{frame}
 
 \begin{frame}

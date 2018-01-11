@@ -1626,10 +1626,13 @@ $$\dint_0^{\ln 2}\df{e^t\d t}{t^4},$$
 
 （4）$\dint_1^2\df{\d x}{\sqrt{3x-x^2-2}}$
 
-[解]：注意到$\limx{x\to1^+}\sqrt{x-1}\df1{\sqrt{x^2-3x+2}}
-=\limx{1^+}\sqrt{x-2}\df1{\sqrt{x^2-3x+2}}=1$，且
-$\dint_1^2\df{\d x}{\sqrt{x-1}}$和$\dint_1^2\df{\d x}{\sqrt{2-x}}$
-均收敛，故由比较判别法，该瑕积分收敛。
+[解]：注意到$\limx{1^+}\sqrt{x-1}\df1{\sqrt{x^2-3x+2}}
+=\limx{2^-}\sqrt{x-2}\df1{\sqrt{x^2-3x+2}}=1$，且
+$\dint_1^{\frac32}\df{\d x}{\sqrt{x-1}}$和$\dint_{\frac32}^2\df{\d
+x}{\sqrt{2-x}}$ 均收敛，故由比较判别法，
+积分$\dint_1^{\frac32}\df{\d x}{\sqrt{3x-x^2-2}}$和
+$\dint_{\frac32}^2\df{\d x}{\sqrt{3x-x^2-2}}$均收敛，进而
+原瑕积分收敛。
 
 （5）$\dint_2^{+\infty}\df{\cos x}{\ln x}\d x$
 

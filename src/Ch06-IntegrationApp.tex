@@ -88,21 +88,31 @@
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item 半径为$a$的圆形水池，一只老羊被长为$ka(0<k\leq2)$的绳子拴在水池边缘，求
-  老羊能吃到的草地面积
-  \item 如果将水池围起来，老羊吃草时，绳子因为被绕在栅栏上而不能穿过水池，再求面积
-  \item 在草场中央围一个半径为$a$的区域，要使内外的老羊吃到的草面积一样，$k$如何取
+  老羊能吃到的草地面积；
+  \item 如果将水池围起来，老羊吃草时，绳子因为被绕在栅栏上而不能穿过水池，再求以上面积；
+  \item 在草场中央围一个半径为$a$的区域，要使内外的老羊吃到的草面积一样，$k$如何取？
 \end{enumerate}
 
-[提示]：(1)
-$$A=\pi k^2a^2-2\dint_{\arccos\frac k2}^{\pi}\df12(2a\cos\varphi)^2
-\d\varphi$$
-$$A=a^2\left[(k^2-1)\pi+(2-k^2)\arccos\df k2+\df k2
-\sqrt{4-k^2}\right]$$
-(2)
-$$A=\df{\pi k^2a^2}2+2\dint_0^k\df12(ka-a\varphi)^2\d\varphi=k^2a^2
-\left(\df{\pi}2+\df k3\right)$$
-以上的$\varphi$为小园的圆心角
-(3)$k=1.26$
+[提示]：(1)如图
+\begin{center}
+	\includegraphics[width=7cm]{./images/ch6/goat-1.jpg}
+\end{center}
+使用完全几何的方法即可解答该问题
+\begin{align*}
+	S&=\pi k^2a^2-2(S_1+S_2+S_{\Delta AOC})\\
+	&=\pi k^2a^2-2[(S_1+S_{\Delta AOB})-S_{\Delta AOB}+(S_2+S_{\Delta AOC})]\\
+	&=\pi k^2a^2-2\left[\left(\pi-\arccos\df k2\right)\df{\pi a^2}2
+	-\df{ka^2}2\sin\left(\arccos\df k2\right)+\df{\pi}2k^2a^2\arccos\df k2\right]\\
+	&=a^2\left[(k^2-1)\pi+(2-k^2)\arccos\df k2+\df k2\sqrt{4-k^2}\right]
+\end{align*}
+(2)如图
+\begin{center}
+	\includegraphics[width=7cm]{./images/ch6/goat-2.jpg}
+\end{center}
+$$S=S_1+2S_2
+=\df{\pi}2k^2a^2+2\dint_0^k\df12(ka-a\theta)^2\d\theta=k^2a^2
+\left(\df{\pi}2+\df k3\right).$$
+(3)$k\approx 1.26$。\fin
 
 \subsection{平面曲线的弧长}
 
@@ -288,7 +298,7 @@ $$\sin\left(\arctan\df l{2a}\right)=\df{\frac{l}{2a}}
 \bs
 
 1. 设$S(t)$为直线$l_t:x+y=t(t\geq0)$下方位于正方形区域
-$D:0\leq x\leq 1,0\leq y\leq 1$内的区域，求$\dint_0^xS(t)\d t$。
+$D:0\leq x\leq 1,0\leq y\leq 1$内的面积，求$\dint_0^xS(t)\d t$。
 
 [解]：由$S(x)$的定义可得
 $$S(t)=\left\{\begin{array}{ll}
@@ -300,7 +310,7 @@ $$\dint_0^xS(t)\d t=\dint_0^x\df12t^2\d t=\df16x^3.$$
 当$1<x\leq2$时，
 $$\dint_0^xS(t)\d t=\dint_0^1\df12t^2\d t
 +\dint_1^x\left[1-\df12(2-t)^2\right]\d t
-=\df13+(x-1)+\df16(2-x)^3.$$
+=\df16+(x-1)+\df16(2-x)^3.$$
 当$x>2$时，
 $$\dint_0^xS(t)\d t=\dint_0^1\df12t^2\d t
 +\dint_1^2\left[1-\df12(2-t)^2\right]\d t
@@ -389,13 +399,13 @@ $$S_2=\dint_0^{\frac32}\left(1+\sqrt{1-\df{x^2}3}-x\right)\d x
 共同所围面积最小。
 
 [解]：如图，任取曲线上一点$(x_0,\sqrt{x_0})$，过其的切线为
-$$y=\sqrt{x_0}+\df1{\sqrt{2x_0}}(x-x_0),$$
-进而体积微元
-$$\d S=\left[\df1{\sqrt{2x_0}}(x-x_0)+\sqrt{x_0}-\sqrt{x}\right]\d
-x,\;x\in[0,2],$$ 故所述体积
-$$S=\dint_0^2\left[\df1{\sqrt{2x_0}}(x-x_0)+\sqrt{x_0}-\sqrt{x}\right]\d
-x=\df{\sqrt2}{\sqrt{x_0}}+(2-\sqrt2)\sqrt{x_0}-\df{4\sqrt2}3.$$
-对$S$求$x_0\in[0,2]$上的最小值可得，$x_0=2$时，该面积最小，为$\df{2\sqrt2}3-1$。
+$$y=\sqrt{x_0}+\df1{2\sqrt{x_0}}(x-x_0),$$
+进而面积微元
+$$\d S=\left[\df1{2\sqrt{x_0}}(x-x_0)+\sqrt{x_0}-\sqrt{x}\right]\d
+x,\;x\in[0,2],$$ 故所述面积
+$$S=\dint_0^2\left[\df1{2\sqrt{x_0}}(x-x_0)+\sqrt{x_0}-\sqrt{x}\right]\d
+x=\df1{\sqrt{x_0}}+\sqrt{x_0}-\df{4\sqrt2}3.$$
+显然，当$x_0=1$时，该面积最小，此时对应切线为$y=\df12(x+1)$。
 \fin
 
 \bs
@@ -417,6 +427,10 @@ $$\d V=\sqrt3(R^2-x^2)\d x,\;x\in[-R,R],$$
 故所求体积
 $$V=\dint_{-R}^R\sqrt3(R^2-x^2)\d x=\df{4\sqrt3}3R^3.$$
 \fin
+
+\bs
+
+{\bf 6.3 定积分的物理应用}
 
 \bs
 
@@ -464,7 +478,7 @@ $$\d F_x=|\bm{\d F}|\cos\theta=Gkx\d s
 $$F_x=\dint_0^{\frac{\pi}2}3a^2Gk\cos^4t\sin t\d t=\df{3a^2}5Gk.$$
 注意到星形线关于$y=x$的对称性，易知必有
 $$F_x=F_y=\df{3a^2}5Gk.$$
-综上可知星形线对原点处的单位质点的引力大小为$\df{3a^2}{\sqrt2}Gk$，沿$y=x$的
+综上可知星形线对原点处的单位质点的引力大小为$\df{3\sqrt2a^2}{5}Gk$，沿$y=x$的
 方向指向原点。\fin
 
 \bs
@@ -492,9 +506,9 @@ $$F=\dint_0^ag(h-x\sin\theta)b\d x
 	\includegraphics[width=9cm]{./images/ch6/moveSt.jpg}
 \end{center}
 功的微元
-$$\d W=\df32(3t^2)^2\d x,$$
+$$\d W=\df32(x'_t)^2\d x=\df{81}2t^6\d t,$$
 故所求总功
-$$W=\dint_0^{10}\df32(3t^2)^2\d x=270000.$$
+$$W=\dint_0^{10}\df{81}2t^6\d t=\df{81}{14}\times10^7.$$
 \fin
 
 5.用铁锤将一铁钉击入木板，设木板对铁钉的阻力与铁钉已进入木板的深度成正比，
@@ -503,7 +517,7 @@ $$W=\dint_0^{10}\df32(3t^2)^2\d x=270000.$$
 
 [解]：如图
 \begin{center}
-	\includegraphics[width=6cm]{./images/ch6/nailSt.jpg}
+	\includegraphics[width=4cm]{./images/ch6/nailSt.jpg}
 \end{center}
 功的微元
 $$\d W=kh\d h,$$
@@ -529,12 +543,12 @@ $$|\bm{\d F}|=\df{G\mu\d t}R,$$
 其分量
 \begin{align*}
 	\d F_x&=|\bm{\d F}|\cos t=\df{G\mu\cos t\d t}R,\\
-	\d F_y&=|\bm{\d F}|\cos t=\df{G\mu\sin t\d t}R,\\
+	\d F_y&=|\bm{\d F}|\sin t=\df{G\mu\sin t\d t}R,
 \end{align*}
 从而
 \begin{align*}
 	F_x&=\dint_{-\frac{\theta}2}^{\frac{\theta}2}\df{G\mu\cos t\d t}R
 	=\df{2G\mu}{R}\sin\df{\theta}2,\\
-	F_y&=\dint_{-\frac{\theta}2}^{\frac{\theta}2}\df{G\mu\sin t\d t}R=0,\\
+	F_y&=\dint_{-\frac{\theta}2}^{\frac{\theta}2}\df{G\mu\sin t\d t}R=0,
 \end{align*}
 综上可知，所求引力大小为$\df{2G\mu}{R}\sin\df{\theta}2$，沿$x$轴指向原点方向。\fin
