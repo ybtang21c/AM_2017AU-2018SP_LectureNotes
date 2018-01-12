@@ -1813,3 +1813,238 @@ $2\pi$为周期的正弦级数展开式的和函数，求当$x\in(\pi,2\pi)$时$
 		$a_n=2\dint_0^1\cos n\pi\d x\;(n=0,1,2,\ldots)$，求$S(2017)$和$S(2017.5)$。
 	\end{enumerate}
 \end{ext}
+
+\newpage
+
+\section*{作业参考解答}
+% \addcontentsline{toc}{section}{作业参考解答}
+
+\begin{center}
+	\bf 12.1 数项级数的概念与性质
+\end{center}
+
+\bs
+
+1.求以下级数的和
+
+（1）$\df1{1\cdot6}+\df1{6\cdot11}+\df1{11\cdot16}+\ldots$
+
+[解]：
+\begin{align*}
+	\mbox{原式}
+	&=\df15\left(1-\df16+\df16-\df1{11}+\df1{11}-\df1{16}+\ldots\right)\\
+	&=\df15\limn\left(1-\df1{5n+1}\right)=\df15.
+\end{align*}
+
+（2）$\df1{1\cdot2\cdot3}+\df1{2\cdot3\cdot4}+\df1{3\cdot4\cdot5}+\ldots$
+
+[解]：
+\begin{align*}
+	\mbox{原式}
+	&=\df12\left(1-\df22+\df13+\df12-\df23+\df14
+	+\df13-\df24+\df15+\ldots\right)\\
+	&=\df12\limn\left(1-\df12-\df1{n}+\df1{n+1}\right)
+	=\df14.
+\end{align*}
+
+（3）$\sumn\df{n}{(n+1)!}$
+[解]：
+$$
+\mbox{原式}
+=\limn\sumk{1}\left[\df1{n!}-\df1{(n+1)!}\right]
+=\limn\left(1-\df1{(n+1)!}\right)=1.$$
+\fin
+
+\bs
+
+2.已知$\sumn(a_{2n-1}+a_{2n})$收敛，能否推出$\sumn a_n$收敛？
+如果能，请给出证明；如果不能，请给出反例，并讨论还需要增加什么条件才能够由
+前者推出后者。
+
+[答]：已知$\sumn(a_{2n-1}+a_{2n})$收敛，不能推出$\sumn a_n$收敛。
+
+考虑$a_n=(-1)^{n+1}$，显然$\sumn a_n$发散，但由于对任意$n$，都有
+$a_{2n-1}+a_{2n}\equiv0$，故级数$\sumn(a_{2n-1}+a_{2n})$收敛收敛。
+
+可以证明，如果同时满足$\limn a_n=0$，则由$\sumn(a_{2n-1}+a_{2n})$收敛，
+可以推出$\sumn a_n$收敛。事实上，记$\{S_n\}$为$\sumn a_n$的部分和数列，
+则由$\sumn(a_{2n-1}+a_{2n})$收敛可知，$\{S_{2n}\}$必收敛，设其极限
+为$S$，则
+$$S_{2n+1}=S_{2n}+a_{2n+1}\to S+0=S,\;(n\to\infty)$$
+从而由拉链定理，可知$\{S_n\}$收敛，也即$\sumn a_n$收敛。\fin
+
+3.利用Cauchy审敛原理判定如下级数的敛散性
+
+（1）$\sumn\df{(-1)^{n}}n$
+
+[证]：对任意$\e>0$，令$N=\left[\df1{\e}\right]+1$，则对任意$m>n>N$，
+若$m-n$为偶数，则有
+\begin{align*}
+	\left|\sum\limits_{k=n}^m\df{(-1)^{k}}k\right|
+	&=\df1n-\left(\df1{n+1}-\df1{n+2}\right)
+	-\left(\df1{n+3}-\df1{n+4}\right)\\
+	&-\ldots
+	-\left(\df1{m-2}-\df1{m-1}\right)-\df1m\\
+	&<\df1n-\df1m<\df1n<\e
+\end{align*}
+若$m-n$为奇数，则有
+\begin{align*}
+	\left|\sum\limits_{k=n}^m\df{(-1)^{k}}k\right|
+	&=\df1n-\left(\df1{n+1}-\df1{n+2}\right)
+	-\left(\df1{n+3}-\df1{n+4}\right)\\
+	&-\ldots-\left(\df1{m-1}-\df1m\right)\\
+	&<\df1n<\e
+\end{align*}
+从而由Cauchy审敛原则，可知该级数收敛。
+
+（2）$\sumn\df{\sin nx}{2^n}$
+
+[证]：对任意$\e>0$，令$N=\left[-\log_2\e\right]+2$，则对任意$m>n>N$，
+$$
+	\left|\sum\limits_{k=n}^m\df{\sin kx}{2^k}\right|
+	\leq\sum\limits_{k=n}^m\left|\df{\sin kx}{2^k}\right|
+	\leq\sum\limits_{k=n}^m\left|\df1{2^k}\right|
+	\leq\df1{2^{N-1}}<\e,
+$$
+从而由Cauchy审敛原则，可知该级数收敛。\fin
+
+\begin{center}
+	\bf 12.2 数项级数的审敛法
+\end{center}
+
+\bs
+
+1.判断以下级数的敛散性，如果是收敛的变号级数，说明其是绝对收敛还是条件收敛：
+
+（1）$\sumn\df{n-2}{3n^2+n}$
+
+[解]：
+$$\limn n\df{n-2}{3n^2+n}=\df13>0,$$
+又$\sumn\df1n$发散，故由比较判别法可知，原级数发散。
+
+（2）$\sumn\df{\sqrt{n+2}-\sqrt{n}}{\sqrt{n+1}}$
+
+[解]：
+$$\limn n\df{\sqrt{n+2}-\sqrt{n}}{\sqrt{n+1}}=1>0,$$
+又$\sumn\df1n$发散，故由比较判别法可知，原级数发散。
+
+（3）$\sumn\df{4^n}{n\cdot 3^n}$
+
+[解]：
+$$\limn n\sqrt[n]{\df{4^n}{n\cdot 3^n}}=\df43>1,$$
+故由根植判别法可知，原级数发散。
+
+（4）$\sumn\df{n^2}{3^n}$
+
+[解]：
+$$\limn n\sqrt[n]{\df{n^2}{3^n}}=\df13<1,$$
+故由根植判别法可知，原级数收敛。
+
+（5）$\sumn\df1n\arctan\df1{n-1}$
+
+[解]：
+$$\limn n^2\df1n\arctan\df1{n-1}=1>0,$$
+又$\sumn\df1{n^2}$收敛，故由比较判别法可知，原级数收敛。
+
+（6）$\sumn\left(\df{n}{2n-1}\right)^{3n+2}$
+
+[解]：
+$$\limn n\sqrt[n]{\left(\df{n}{2n-1}\right)^{3n+2}}=\df18<1,$$
+故由根植判别法可知，原级数收敛。
+
+（7）$\sumn n\left(\df34\right)^n$
+
+[解]：
+$$\limn n\sqrt[n]{n\left(\df34\right)^n}=\df34<1,$$
+故由根植判别法可知，原级数收敛。
+
+（8）$\sumn\df{n^2}{n!}$
+
+[解]：
+$$\limn\df{\df{(n+1)^2}{(n+1)!}}{\df{n^2}{n!}}=0<1,$$
+故由比值判别法可知，原级数收敛。
+
+（9）$\sumn\df{n^{n+\frac1n}}{\left(1+\df1n\right)^n}$
+
+[解]：
+$$\df{n^{n+\frac1n}}{\left(n+\df1n\right)^n}\geq\df{n^n\cdot
+n^{\frac1n}}{(n+1)^n}\to\df1e,\;(n\to\infty),$$
+由此可知该级数不满足级数收敛的必要条件，故该级数发散。
+
+（10）$\sumn(-1)^n\df{2^n}{n!}$
+
+[解]：
+$$\limn\df{\df{2^{n+1}}{(n+1)!}}{\df{2^n}{n!}}=0<1,$$
+故由比值判别法，可知$\sumn\df{2^n}{n!}$，从而
+$\sumn(-1)^n\df{2^n}{n!}$绝对收敛。
+
+（11）$\sumn\sin\left(\pi\sqrt{n^2+1}\right)$
+
+[解]：
+$$\sin\left(\pi\sqrt{n^2+1}\right)=(-1)^n
+\sin\left(\df{\pi}{\sqrt{n^2+1}+n}\right),$$
+注意到$\sin\left(\df{\pi}{\sqrt{n^2+1}+n}\right)$单调递减趋于零，
+故由Leibniz判别法，原级数收敛。又
+$$\limn n\sin\left(\df{\pi}{\sqrt{n^2+1}+n}\right)=\df12>0,$$
+而$\sumn\df1n$发散，故由比较判别法，$\sumn\left|\sin
+\left(\pi\sqrt{n^2+1}\right)\right|$发散。综上，该级数条件收敛。
+
+（12）$\sumn\dint_0^{\frac{\pi}n}\df{\sin x}{1+x}\d x$
+
+[解]：
+$$\limn n^2\dint_0^{\frac{\pi}n}\df{\sin x}{1+x}\d x
+=\lim\limits_{y\to0}\df{\dint_0^{{\pi}y}\df{\sin x}{1+x}\d x}{y^2}
+=\df{\pi}2>0,$$
+又$\sumn\df1{n^2}$收敛，故由比较判别法可知，原级数收敛。
+
+（13）$\sumn\df{2^n-n^2}{3^n}$
+
+[解]：
+$$\limn n\sqrt[n]{\df{2^n-n^2}{3^n}}=\df23<1,$$
+故由根植判别法可知，原级数收敛。
+
+（14）$\sumn\df1{n\ln^2(n+1)}$
+
+[解]：$n>2$时，
+$$\df1{n\ln^2(n+1)}<\df1{n\ln^2n},$$
+注意到无穷积分
+$$\dint_2^{+\infty}\df1{x\ln^2x}\d x
+=\left.-\df1{\ln x}\right|_2^{+\infty}=\ln2,$$
+收敛，故由积分判别法，可知$\sumn\df1{n\ln^2n}$，进而由比较判别法，可知
+原级数收敛。\fin
+
+\bs
+
+2.判断以下命题的正误，如果正确，证明之；如果错误，请给出反例，并讨论
+需要添加什么条件方能使之成立：
+
+（1）已知级数$\sumn a_n$收敛，则级数$\sumn a^2_n$收敛；
+
+[答]：不成立，例如$a_n=\df{(-1)^n}{\sqrt n}$，由Leibniz判别法可知，
+该级数收敛。又$a_n^2=\df1n$，而$\sumn\df1n$发散。
+
+（2）已知级数$\sumn a^2_n$收敛，则级数$\sumn a^3_n$收敛；
+
+[答]：该命题成立。事实上，由$\sumn a^2_n$收敛，可知$\limn a_n^2=0$，
+进而易知$\limn a_n=0$，于是
+$$\limn\df{|a_n^3|}{a_n^2}=\limn|a_n|=0<1,$$
+从而由比较判别法，$\sumn|a_n^3|$收敛，进而$\sumn a^3_n$收敛。
+
+（3）正项级数$\sumn a_n$与级数$\sumn\df{a_n}{1+a_n}$同敛散；
+
+[答]：该命题成立。事实上，若$\sumn a_n$收敛，则必有$\limn a_n=0$，
+从而
+$$\limn\df{a_n}{\df{a_n}{1+a_n}}=1>0,$$
+于是由比较判别法可知，$\sumn\df{a_n}{1+a_n}$收敛。
+
+另一方面，记$b_n=\df{a_n}{1+a_n}$，则
+$a_n=\df{b_n}{1-b_n}$。若$\sumn b_n$收敛，则必有$\limn b_n=0$，
+从而
+$$\limn\df{\df{b_n}{1-b_n}}{b_n}=1>0,$$
+于是由比较判别法可知，$\sumn a_n$收敛。
+
+（4）对于正项级数$\sumn a_n$，若当$n$充分大时，总有$\df{a_{n+1}}{a_n}<1$，
+则该级数收敛。
+
+[答]：不成立。考虑$a_n=\df1n$，显然对任意$n$，均有$\df{a_{n+1}}{a_n}<1$，
+但$\sumn a_n=\sum\df1n$发散。\fin
