@@ -900,8 +900,6 @@ $$\sumn(-1)^n\left(1+\df 1n\right)^n\df{1}{\sqrt n}$$
 	\end{enumerate}
 \end{ext}
 
-\newpage
-
 \section{幂级数及其应用}
 
 函数项级数是对常数项级数的推广，将原来由对确定数列的依序求和改为
@@ -1122,6 +1120,78 @@ $$|a_nx^n|=|na_nx^n|\df1n\left|\df{x}{x_2}\right|^n,$$
 以上性质的证明请参考{\kaishu 同济大学教材第十二章第六节“函数项级数的一致收敛性及
 一致收敛级数的基本性质”}或{\kaishu 数学分析}的相关教材。
 
+\subsection{幂级数的和函数}
+
+{\bf 例：}已知
+$$\df{1}{x+1}=\sum\limits_{n=0}^{\infty}(-x)^n\;(|x|<1),$$
+求幂级数
+$$\sum\limits_{n=1}^{\infty}\df{(-1)^{n-1}}{n}x^n$$
+的和函数。由此证明：
+$$\ln 2=1-\df 12+\df 13-\df 14+\ldots+\df{(-1)^n}{n}+\ldots$$
+
+[解]：所给幂级数的收敛域为$(-1,1]$。设其和函数为$S(x)$，则当$x\in(-1,1)$时，
+\begin{align*}
+	S'(x)&=\left[\sum\limits_{n=1}^{\infty}(-1)^{n-1}\df{x^n}{n}\right]'
+	=\sum\limits_{n=1}^{\infty}\left[(-1)^{n-1}\df{x^n}{n}\right]'\\
+	&=\sum\limits_{n=1}^{\infty}(-x)^{n-1}
+	=\sum\limits_{n=0}^{\infty}(-x)^{n}=\df1{x+1},\quad x\in(-1,1),
+\end{align*}
+于是
+$$S(x)=\dint_0^x\df1{t+1}\d t+S(0)=\ln|x+1|, \quad x\in(-1,1)$$
+即为所求。又$S(x)$在$(-1,1]$上连续，故当$x=1$时，
+$$1-\df 12+\df 13-\df14+\ldots+\df{(-1)^n}{n}+\ldots
+=S(1)=\limx{1^-}S(x)=\ln 2.$$
+\fin
+
+{\bf 例：}求下列幂级数的和函数
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $\sum\limits_{n=0}^{\infty}\df{x^n}{n!}$
+  \item $\sum\limits_{n=1}^{\infty}nx^n$
+  \item $\sum\limits_{n=0}^{\infty}\df{x^n}{n+1}$
+  \item $\sum\limits_{n=0}^{\infty}n^2x^n$
+\end{enumerate}
+
+[提示]：（1）收敛域$(-\infty,+\infty)$，
+$$S'(x)=\left[\sum\limits_{n=0}^{\infty}\df{x^n}{n!}\right]'
+=\sum\limits_{n=0}^{\infty}\left[\df{x^n}{n!}\right]'
+=\sum\limits_{n=1}^{\infty}\df{x^{n-1}}{(n-1)!}=S(x),$$
+又$S(0)=1$，求解微分方程初值问题，可得$S(x)=e^x$。
+
+（2）收敛域$(-1,1)$，
+$$
+	\df{S(x)}x=\sum\limits_{n=1}^{\infty}nx^{n-1}
+	=\sum\limits_{n=1}^{\infty}(x^{n})'
+	=\left(\sum\limits_{n=1}^{\infty}x^{n}\right)'
+	=\left(\df1{1-x}-1\right)'=\df1{(1-x)^2},
+$$
+从而
+$$S(x)=\df{x}{(1-x)^2},\quad x\in(-1,1)$$
+
+（3）收敛域$[-1,1)$，
+$$
+xS(x)=\sum\limits_{n=0}^{\infty}\df{x^n+1}{n+1}
+=\sum\limits_{n=0}^{\infty}\dint_0^x t^n\d t
+=\dint_0^x \sum\limits_{n=0}^{\infty}t^n\d t
+=\dint_0^x \df1{1-t}\d t=-\ln|1-x|,
+$$
+故
+$$S(x)=\left\{\begin{array}{ll}
+	-\df{\ln|1-x|}x,&x\ne0\\
+	1,&x=0.
+\end{array}\right.$$
+\fin
+
+{\bf 例：}求幂级数$\sumn[0]\df{(-1)^n}{(n+1)2^n}x^{n+1}$。\ps{课堂练习}
+
+[提示]：$\ln(2+x)-\ln2$，$x\in(-2,2]$。
+
+{\bf 例：}求数项级数$\sumn\sum\limits_{k=1}^n\df{k}{2^{n-1}}$的和。
+
+[提示]：\ps{交换求和次序，可以使用初等方法求得级数的和}原级数即为
+$$\sumn\df{n(n+1)}{2^n}.$$
+考虑幂级数$\sumn n(n+1)x^n$，求出其和函数，然后令$x=\df12$即可。
+
 \subsection{函数的幂级数展开}
 
 函数$f(x)$在原点处的无穷阶Taylor展开式：
@@ -1141,7 +1211,7 @@ $$f(x)=\sum\limits_{n=0}^{\infty}\df{f^{(n)}(0)}{n!}x^n$$
 	  \item $\ln(1+x)=\sumn[0]\df{(-1)^n}{n+1}x^{n+1},\;x\in(-1,1]$
 	  \item $(1+x)^a=\sumn[0]\left(\begin{array}{c}
 	  	a \\ n
-	  \end{array}\right)x^n,\;x\in[-1,1)$
+	  \end{array}\right)x^n,\;x\in(-1,1)$
 	\end{enumerate}
 \end{thx}
 
@@ -1298,79 +1368,19 @@ $$
 	t\\ 
 	&=\df{\pi}2-\sum\limits_{n=0}^{\infty}\df{(2n-1)!!}{(2n)!!(2n+1)}x^{2n+1},
 \end{align*}
-收敛域$[-1,1)$。
+收敛域$[-1,1]$。
 
-\subsection{幂级数的和函数}
-
-{\bf 例：}已知
-$$\df{1}{x+1}=\sum\limits_{n=0}^{\infty}(-x)^n\;(|x|<1),$$
-求幂级数
-$$\sum\limits_{n=1}^{\infty}\df{(-1)^{n-1}}{n}x^n$$
-的和函数。由此证明：
-$$\ln 2=1-\df 12+\df 13-\df 14+\ldots+\df{(-1)^n}{n}+\ldots$$
-
-[解]：所给幂级数的收敛域为$(-1,1]$。设其和函数为$S(x)$，则当$x\in(-1,1)$时，
-\begin{align*}
-	S'(x)&=\left[\sum\limits_{n=1}^{\infty}(-1)^{n-1}\df{x^n}{n}\right]'
-	=\sum\limits_{n=1}^{\infty}\left[(-1)^{n-1}\df{x^n}{n}\right]'\\
-	&=\sum\limits_{n=1}^{\infty}(-x)^{n-1}
-	=\sum\limits_{n=0}^{\infty}(-x)^{n}=\df1{x+1},\quad x\in(-1,1),
-\end{align*}
-于是
-$$S(x)=\dint_0^x\df1{t+1}\d t+S(0)=\ln|x+1|, \quad x\in(-1,1)$$
-即为所求。又$S(x)$在$(-1,1]$上连续，故当$x=1$时，
-$$1-\df 12+\df 13-\df14+\ldots+\df{(-1)^n}{n}+\ldots
-=S(1)=\limx{1^-}S(x)=\ln 2.$$
-\fin
-
-{\bf 例：}求下列幂级数的和函数
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\sum\limits_{n=0}^{\infty}\df{x^n}{n!}$
-  \item $\sum\limits_{n=1}^{\infty}nx^n$
-  \item $\sum\limits_{n=0}^{\infty}\df{x^n}{n+1}$
-  \item $\sum\limits_{n=0}^{\infty}n^2x^n$
-\end{enumerate}
-
-[提示]：（1）收敛域$(-\infty,+\infty)$，
-$$S'(x)=\left[\sum\limits_{n=0}^{\infty}\df{x^n}{n!}\right]'
-=\sum\limits_{n=0}^{\infty}\left[\df{x^n}{n!}\right]'
-=\sum\limits_{n=1}^{\infty}\df{x^{n-1}}{(n-1)!}=S(x),$$
-又$S(0)=1$，求解微分方程初值问题，可得$S(x)=e^x$。
-
-（2）收敛域$(-1,1)$，
+注：以上展开式中的级数当$|x|=1$时，为$\sumn[0]\df{(2n-1)!!}{(2n)!!(2n+1)}$，
+判断其收敛需要用到下面的不等式：对任意$k\in\mbb{Z}^+$，$(k-1)(k+1)<k^2$，从而
 $$
-	\df{S(x)}x=\sum\limits_{n=1}^{\infty}nx^{n-1}
-	=\sum\limits_{n=1}^{\infty}(x^{n})'
-	=\left(\sum\limits_{n=1}^{\infty}x^{n}\right)'
-	=\left(\df1{1-x}-1\right)'=\df1{(1-x)^2},
+	\left[\df{(2n-1)!!}{(2n)!!}\right]^2(2n+1)
+	=\df{(1\cdot3)(3\cdot5)\ldots[(2n-1)(2n+1)]}
+	{(2\cdot2)(4\cdot4)\ldots(2n\cdot2n)}<1,
 $$
-从而
-$$S(x)=\df{x}{(1-x)^2},\quad x\in(-1,1)$$
-
-（3）收敛域$[-1,1)$，
-$$
-xS(x)=\sum\limits_{n=0}^{\infty}\df{x^n+1}{n+1}
-=\sum\limits_{n=0}^{\infty}\dint_0^x t^n\d t
-=\dint_0^x \sum\limits_{n=0}^{\infty}t^n\d t
-=\dint_0^x \df1{1-t}\d t=-\ln|1-x|,
-$$
-故
-$$S(x)=\left\{\begin{array}{ll}
-	-\df{\ln|1-x|}x,&x\ne0\\
-	1,&x=0.
-\end{array}\right.$$
-\fin
-
-{\bf 例：}求幂级数$\sumn[0]\df{(-1)^n}{(n+1)2^n}x^{n+1}$。\ps{课堂练习}
-
-[提示]：$\ln(2+x)-\ln2$，$x\in(-2,2]$。
-
-{\bf 例：}求数项级数$\sumn\sum\limits_{k=1}^n\df{k}{2^{n-1}}$的和。
-
-[提示]：\ps{交换求和次序，可以使用初等方法求得级数的和}原级数即为
-$$\sumn\df{n(n+1)}{2^n}.$$
-考虑幂级数$\sumn n(n+1)x^n$，求出其和函数，然后令$x=\df12$即可。
+于是$\df{(2n-1)!!}{(2n)!!}<\df1{\sqrt{2n+1}}$，
+进而
+$$0<\df{(2n-1)!!}{(2n)!!(2n+1)}<\df1{(2n+1)^{\frac32}},$$
+因为$\sumn\df1{(2n+1)^{\frac32}}$收敛，故由比较判别法，所讨论的级数收敛。
 
 \subsection{幂级数的应用}
 
@@ -1383,6 +1393,124 @@ $$\sumn\df{n(n+1)}{2^n}.$$
 的是，使用幂级数进行近似计算时，对于余项的估计方式略有不同：Taylor公式
 主要是使用Lagrange余项进行误差的估值，而幂级数则主要通过对余项的
 适当放缩达到控制误差的目的。
+
+{\bf 例：}计算$\dint_0^{\frac12}\df{\arctan x}x\d x$的近似值，
+误差不超过$10^{-3}$。
+
+[解]：$|x|\leq 1$时，\ps{参见12.3.5节的讨论}
+$$\arctan x=\sumn[0]\df{(-1)^n}{2n+1}x^{2n+1},$$
+从而
+$$\df{\arctan x}x=\sumn[0]\df{(-1)^n}{2n+1}x^{2n}.$$
+进而
+$$\dint_0^x\df{\arctan t}x\d t
+=\dint_0^x\sumn[0]\df{(-1)^n}{2n+1}t^{2n}\d t
+=\sumn[0]\df{(-1)^n}{2n+1}\dint_0^xt^{2n}\d t
+=\sumn[0]\df{(-1)^n}{(2n+1)^2}x^{2n+1}.$$
+展开到第$2n+1$项的误差
+\begin{align*}
+	|r_n|
+	&=\left|\sum\limits_{k=n+1}^{\infty}
+	\df{(-1)^k}{(2k+1)^2}x^{2k+1}\right|\\
+	&=\left|x^{2n+1}\left[\df1{(2n+3)^2}
+	-\df1{(2n+5)^2}+\df1{(2n+7)^2}-\ldots\right]\right|\\
+	&<\df{|x^{2n+1}|}{(2n+3)^2},
+\end{align*}
+带入$x=\df12$，令$|r_n|\leq 10^{-3}$，可以推出$n\geq 3$，故所求结果
+$$\dint_0^{\frac12}\df{\arctan x}x\d x
+\approx \df12-\df1{3^2}\df1{2^3}+\df1{5^2}\df1{2^5}-\df1{7^2}\df1{2^7}
+=\df{687539}{1411200}\approx 0.487.$$
+\fin 
+
+\begin{shaded}
+	{\kaishu 以下两个有趣的例子来自于Stewart微积分2015版}
+
+	{\bf 狭义相对论与Newton力学}
+	
+	Einstein的狭义相对论给出了物体质量与速度的关系式
+	$$m=\df{m_0}{\sqrt{1-v^2/c^2}},$$
+	其中$m$表示物体以速度$v$运动时的质量，	$m_0$表示物体静止时的质量，
+	$c$为真空中的光速。此外，他将物体的总能量定义为其质量与光速的平方的
+	乘积。进而根据该公式，他定义物体的动能（Kinetic Engergy）
+	等于其运动和静止状态下所对应的总能量之差
+	$$K=mc^2-m_0c^2=m_0c^2
+	\left[\left(1-\df{v^2}{c^2}\right)^{-1/2}-1\right].$$
+	记$x=-v^2/c^2$，则根据$(1+x)^{-1/2}$的Maclaurin公式
+	\begin{align*}
+		(1+x)^{-/2}
+		&=1-\df12+\df{\left(-\frac12\right)\left(-\frac32\right)}{2!}x^2
+		+\df{\left(-\frac12\right)\left(-\frac32\right)\left(-\frac52\right)}{3!}x^3\\
+		&=1-\df12x+\df38x^2-\df5{16}x^3+\ldots,
+	\end{align*}
+	可得
+	$$K=m_0c^2\left(\df12\df{v^2}{c^2}+\df38\df{v^4}{c^4}
+	+\df5{16}\df{v^6}{c^6}+\ldots\right).$$
+	在日常生活中，$v$总是远小于$c$，此时忽略上式中的高阶项，可得近似公式
+	$$K\approx \df12m_0v^2.$$
+	这恰好就是Newton力学体系之下对动能的定义！
+	
+	试着考虑一下$v=100$m/s时的误差。记$f(x)=m_0c^2[(1+x)^{-1/2}-1]$，
+	则$f''(x)=\frac34m_0c^2(1+x)^{-5/2}$。我们知道$c=3\times 10^8$m/s，
+	于是，以上近似对应的误差（$x=-v^2/c^2$）
+	$$|R_1(x)|\leq\df{3m_0c^2\max\limits_{0<\xi<v}|f''(\xi)|}{4\cdot2!}x^2
+	<(4.17\times 10^{-10})m_0.$$
+	这个误差看起来确实是很小的。
+	
+	{\bf 光学}
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{./images/ch12/refractionSph.png}
+	\end{center}
+	
+	如图，一束光波从$S$出发，经过一个球面（半径为$R$，球心为$C$）上一点$A$，折射到达
+	点$P$。
+	
+	根据Fermat提出的{\kaishu 光路最速原理}，光线所经过的路线总是所有路线中耗时最短的一条，
+	可以推出如下的公式：
+	$$\df{n_1}{l_0}+\df{n_2}{l_i}=\df1R\left(\df{n_2s_i}{l_i}
+	-\df{n_1s_0}{l_0}\right),$$
+	其中$n_1$和$n_2$分别为折射率，而利用余弦定理，
+	$$l_0=\sqrt{R^2+(s_0+R)^2-2R(s_0+R)\cos\phi},$$
+	$$l_i=\sqrt{R^2+(s_i+R)^2+2R(s_i+R)\cos\phi}.$$
+	注意到前述第一个方程是很难处理的，1841年，Gauss提出，对于很小的$\phi$，
+	$\cos\phi\approx 1$，从而将该方程化简为
+	$$\df{n_1}{s_0}+\df{n_2}{s_i}=\df{n_2-n_1}R.$$
+	这一结果被称为{\kaishu Gauss光学}，或者{\kaishu 一阶光学}。
+	
+	如果考虑$\cos\phi$的跟高阶近似（这时$\phi$相对不那么小了），这可以得到下面这个
+	所谓的{\kaishu 三阶光学}公式：
+	$$\df{n_1}{s_0}+\df{n_2}{s_i}=\df{n_2-n_1}R
+	+h^2\left[\df{n_1}{2s_0}\left(\df1{s_0}+\df1R\right)^2
+	+\df{n_2}{2s_i}\left(\df1R-\df1{s_i}\right)^2\right].$$
+	
+	{\bf 黑体辐射理论}
+	
+	{\kaishu 黑体}是一个理想化的物体，它能够吸收外来的全部电磁辐射，
+	并且不会有任何的反射与透射。随着温度上升，黑体所辐射出来的电磁波
+	与光线则称做黑体辐射。是一种理想的物理模型，它表示一种能够吸收所有辐射的系统。
+	
+	19世纪后期提出的Rayleigh-Jeans定律给出了黑体辐射密度（单位立体角内的辐射率）
+	的如下表达式
+	$$f(\lambda)=\df{8\pi KT}{\lambda^4},$$
+	其中$\lambda$表示辐射的波长（以m为单位），$T$为绝对温度（单位K），
+	$k$为Bolzmann常数。这一理论对于长波辐射的计算相当准确，但对于短波
+	则存在很大误差（根据实验的结果当$\lambda\to0^+$时，$f(\lambda)\to0$，
+	但由以上公式会得出$f(\lambda)\to\infty$），这种现象被称为{\kaishu 紫外灾变}
+	（ultraviolet catastrophe）。
+	
+	1900年，Max Planck给出了更加精确的模型（也称为{\kaishu Planck定律}），
+	$$f(\lambda)=\df{8\pi h c\lambda^{-5}}{e^{hc/{\lambda kT}}-1},$$
+	其中$h=6.6262\times 10^{-34}$J$\cdot$s，称为Planck常数，$c$为真空下的光速。
+	
+	\begin{center}
+		\includegraphics[width=0.6\textwidth]{./images/ch12/blackBody.jpg}
+	\end{center}
+	
+	这一新的定律能够与实验结果很好地吻合（$\lambda\to0^+$和$\lambda\to\infty$时，
+	均有$f(\lambda\to0)$）。此外，若$\lambda$非常接近于$\infty$（波长很长时），
+	令$x=1/\lambda$，则$x\to 0$，此时
+	$$e^{hc/{\lambda kT}}-1=e^{hcx/{kT}}-1\approx\df{hcx}{kT},$$
+	将右端的近似值带入Planck定律中即得Reyleigh-Jeans定律。从这个意义上说，后者可视为
+	对前者的一种近似。
+\end{shaded}
 
 \subsubsection{用幂级数求解微分方程}
 
@@ -1403,8 +1531,8 @@ $$\sumn\df{n(n+1)}{2^n}.$$
 	\begin{enumerate}
 	  \item 求下列函数项级数的收敛域
 	  \begin{enumerate}[(1)]
-	    \item $\df x{1\cdot 3}+\df{x^2}{2\cdot3^2}++\df{x^3}{3\cdot3^3}
-	    +\ldots++\df{x^n}{n\cdot3^n}+\ldots$
+	    \item $\df x{1\cdot 3}+\df{x^2}{2\cdot3^2}+\df{x^3}{3\cdot3^3}
+	    +\ldots+\df{x^n}{n\cdot3^n}+\ldots$
 	    \item $\sumn\df{(2x+1)^n}n$
 	    \item $\sumn(-1)^n\df{x^{2n+1}}{2n}$
 	    \item $\sumn\sin\df 1 {3n}\left(\df{3+x}{3-2x}\right)^n$
@@ -1417,13 +1545,6 @@ $$\sumn\df{n(n+1)}{2^n}.$$
 % 		  \item 两条抛物线所围平面图形的面积$S_n$；
 % 		  \item 级数$\sumn\df{S_n}{a_n}$的和。
 % 		\end{enumerate}
-	  \item 将下列函数展开成Maclaurin级数，并求其收敛域
-		\begin{enumerate}[(1)]
-% 		  \item $f(x)=\arcsin x$
-		  \item $f(x)=\df1{x^2-4x+3}$
-		  \item $f(x)=\df 1{1+x+x^2}$
-		\end{enumerate}
-	  \item 将函数$f(x)=\df1{\sqrt{3+2x-x^2}}$展开成$x=1$处的幂级数，并求其收敛域。
 	  \item 求下列级数的和函数
 		\begin{enumerate}[(1)]
 		  \item $\sumn(-1)^{n-1}nx^{n-1}$；
@@ -1433,6 +1554,13 @@ $$\sumn\df{n(n+1)}{2^n}.$$
 	  \item 已知$f_n(x)\;(n\in\mathbb{Z}^+)$满足
 		$$f'_n(x)=f_n(x)+x^{n-1}e^x,$$
 		且$f_n(1)=\df en$，求级数$\sumn f_n(x)$的和。
+	  \item 将下列函数展开成Maclaurin级数，并求其收敛域
+		\begin{enumerate}[(1)]
+% 		  \item $f(x)=\arcsin x$
+		  \item $f(x)=\df1{x^2-4x+3}$
+		  \item $f(x)=\df 1{1+x+x^2}$
+		\end{enumerate}
+	  \item 将函数$f(x)=\df1{\sqrt{3+2x-x^2}}$展开成$x=1$处的幂级数，并求其收敛域。
 	  \item 参考{\kaishu 同济教材第十二章第五节“一、近似计算”}的内容，
 	  用幂级数计算下列各数的近似值：
 	  \begin{enumerate}[(1)]
@@ -1441,8 +1569,6 @@ $$\sumn\df{n(n+1)}{2^n}.$$
 	  \end{enumerate}
 	\end{enumerate}
 \end{ext}
-
-\newpage
 
 \section{Fourier级数}
 
@@ -1453,10 +1579,11 @@ $$\sumn\df{n(n+1)}{2^n}.$$
 然而，无穷次可导并不是任何的函数都具有的性质，并且从逼近的效果来看，并没有达到一种
 {\kaishu 整体一致}的近似。例如下图，用幂级数对周期函数$\sin x$作展开
 
-$$\sin x\approx\sum\limits_{k=0}^{n}(-1)^k\df{x^{2k+1}}{(2k+1)!}$$
 \begin{center}
 	\resizebox{!}{5cm}{\includegraphics{./images/ch13/sinm.pdf}}
 \end{center}
+
+$$\sin x\approx\sum\limits_{k=0}^{n}(-1)^k\df{x^{2k+1}}{(2k+1)!}$$
 
 本节介绍的Fourier级数在这两个方面恰好具有幂级数所不具有的一些性质。当然，
 虽然同为函数项级数，但二者的构造特点和性质其实是存在很大差异的。
@@ -1488,17 +1615,27 @@ $${f(x)=\df{\pi}{4}\mathrm{sgn}(x),\;(x\in[-\pi,\pi])
 \;{\sim\;\sum\limits_{k=1}^n\df{\sin(2k-1)x}{2k-1}}}$$
 
 \begin{center}
-	\resizebox{!}{4cm}{\includegraphics{./images/ch13/fsgn/f0.pdf}}
-	\quad
-	\resizebox{!}{4cm}{\includegraphics{./images/ch13/fsgn/f1.pdf}}
-	
-	\resizebox{!}{4cm}{\includegraphics{./images/ch13/fsgn/f2.pdf}}
-	\quad
-	\resizebox{!}{4cm}{\includegraphics{./images/ch13/fsgn/f3.pdf}}
-	
-	\resizebox{!}{4cm}{\includegraphics{./images/ch13/fsgn/f4.pdf}}
-	\quad
-	\resizebox{!}{4cm}{\includegraphics{./images/ch13/fsgn/f5.pdf}}
+	\begin{tabular}{ccc}
+		\includegraphics[width=0.3\textwidth]{./images/ch13/fsgn/f0.pdf} &
+		\includegraphics[width=0.3\textwidth]{./images/ch13/fsgn/f1.pdf} &
+		\includegraphics[width=0.3\textwidth]{./images/ch13/fsgn/f2.pdf} \\
+		$f(x)=\frac{\pi}4\mathrm{sgn}(x)$ & $n=1$ & $n=2$\\[1em]
+		\includegraphics[width=0.3\textwidth]{./images/ch13/fsgn/f3.pdf} &
+		\includegraphics[width=0.3\textwidth]{./images/ch13/fsgn/f4.pdf} &
+		\includegraphics[width=0.3\textwidth]{./images/ch13/fsgn/f5.pdf} \\
+		$n=3$ & $n=4$ & $n=5$
+	\end{tabular}
+% 	\resizebox{!}{4cm}{\includegraphics{./images/ch13/fsgn/f0.pdf}}
+% 	\quad
+% 	\resizebox{!}{4cm}{\includegraphics{./images/ch13/fsgn/f1.pdf}}
+% 	
+% 	\resizebox{!}{4cm}{\includegraphics{./images/ch13/fsgn/f2.pdf}}
+% 	\quad
+% 	\resizebox{!}{4cm}{\includegraphics{./images/ch13/fsgn/f3.pdf}}
+% 	
+% 	\resizebox{!}{4cm}{\includegraphics{./images/ch13/fsgn/f4.pdf}}
+% 	\quad
+% 	\resizebox{!}{4cm}{\includegraphics{./images/ch13/fsgn/f5.pdf}}
 \end{center}
 
 \begin{shaded}
@@ -1562,7 +1699,8 @@ $${f(x)=\df{\pi}{4}\mathrm{sgn}(x),\;(x\in[-\pi,\pi])
 	
 	下面据说是Fourier最初的工作：
 	
-	考虑位于平面区域$[0,\pi]\times[0,\pi]$上的金属薄片，已知其上的温度分布$T(x,y)$满足热方程
+	考虑位于平面区域$[0,\pi]\times[0,\pi]$上的金属薄片，已知其上的温度分布$T(x,y)$满足
+	{\kaishu 热（传导）方程}
 	$$\df{\p^2T}{\p x^2}+\df{\p^2T}{\p y^2}=0,$$
 	以及如下的边界条件：
 	$$T(x,0)=T(0,y)=T(\pi,y)=0,\quad T(x,\pi)=x,$$
@@ -1571,7 +1709,7 @@ $${f(x)=\df{\pi}{4}\mathrm{sgn}(x),\;(x\in[-\pi,\pi])
 	\begin{center}
 % 		\resizebox{!}{5cm}{\includegraphics{./images/ch13/Fourier_heat_in_a_plate.pdf}}
 % 		\quad
-		\resizebox{!}{6cm}{\includegraphics{./images/ch13/solarPlate.pdf}}
+		\includegraphics[width=.6\textwidth]{./images/ch12/heatPlane.pdf}
 		
 		{\it $T(x,y)$的等温线——从红到白，温度逐渐升高}
 	\end{center}
@@ -1602,6 +1740,19 @@ $${f(x)=\df{\pi}{4}\mathrm{sgn}(x),\;(x\in[-\pi,\pi])
 	得到了最终的温度分布
 	$$T(x,y)=2\sumn\df{(-1)^{n+1}}{n}\sin{nx}
 	\cdot\df{e^{ny}-e^{-ny}}{e^{n\pi}-e^{-n\pi}}.$$
+	
+	\begin{center}
+		\begin{tabular}{ccc}
+			\includegraphics[width=0.3\textwidth]{./images/ch12/n1.pdf} &
+			\includegraphics[width=0.3\textwidth]{./images/ch12/n5.pdf} &
+			\includegraphics[width=0.3\textwidth]{./images/ch12/n10.pdf}\\
+			$n=1$ & $n=5$ & $n=10$\\[1em]
+			\includegraphics[width=0.3\textwidth]{./images/ch12/n20.pdf} &
+			\includegraphics[width=0.3\textwidth]{./images/ch12/n30.pdf} &
+			\includegraphics[width=0.3\textwidth]{./images/ch12/n50.pdf}\\
+			$n=20$ & $n=30$ & $n=50$
+		\end{tabular}
+	\end{center}
 \end{shaded}
  
 之所以能够对任意给定的函数进行三角级数展开，关键的原因在于三角函数列所具有的
@@ -1651,6 +1802,17 @@ $${f(x)=\df{\pi}{4}\mathrm{sgn}(x),\;(x\in[-\pi,\pi])
 		\end{array}\right.
 	$$
 	其中$[x]$表示下取整函数，也即不大于$x$的最大的整数。
+	
+	\begin{center}
+		\begin{tabular}{cc}
+			\includegraphics[width=0.4\textwidth]{./images/ch12/xi0.pdf}
+			& \includegraphics[width=0.4\textwidth]{./images/ch12/xi1.pdf}\\
+			$y=\xi_0(x)$ & $y=\xi_1(x)$\\[1em] 
+			\includegraphics[width=0.4\textwidth]{./images/ch12/xi2.pdf}
+			& \includegraphics[width=0.4\textwidth]{./images/ch12/xi3.pdf}\\
+			$y=\xi_2(x)$ & $y=\xi_3(x)$ 
+		\end{tabular}
+	\end{center}
 	
 	可以证明任意$f,g\in B$，均满足：
 	$$\dint_0^{2}f(x)g(x)\d x=
@@ -1755,8 +1917,12 @@ Fourier级数的敛散性是一个相当复杂的问题，这里仅给出与之�
 根据定理条件，可知$f(x)$不可能有第二类间断点，故以上结论可以表述为：
 $S(x)$在$f(x)$的连续点处收敛于$f(x)$，在$f(x)$的不连续点处收敛于其左右极限的中点。
 
-{\bf 例：}$\sin\df1x$在原点的的任意邻域内均有无穷多个极值点，不满足该条件，因此
+{\bf 例：}$f(x)=\sin\df1x$在原点的的任意邻域内均有无穷多个极值点，不满足该条件，因此
 其Fourier级数在原点处不收敛。
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{./images/ch12/sin1x.pdf}
+\end{center}
 
 显然，将函数展开成Fourier级数的条件比将其展开成幂级数的条件要低很多。
 
@@ -1816,13 +1982,25 @@ $$\df{\pi}4=1-\df 13+\df 15-\df 17+\ldots
 {\bf 例：}设$f(x)=|x|\;(-\pi\leq x\leq \pi)$的Fourier级数，并由此
 证明：
 $$\df{\pi^2}{6}=1+\df 1{2^2}+\df 1{3^2}+\ldots+\df 1{n^2}+\ldots$$
-$${|x|=\df{\pi}2-\df 4{\pi}\sum\limits_{m=1}^{\infty} 
-\df{\cos(2m-1)x}{(2m-1)^2},\;-\pi\leq x\leq \pi}$$
+
+[提示]：
+$$f(x)\sim\df{\pi}2-\df 4{\pi}\sum\limits_{m=1}^{\infty} 
+\df{\cos(2m-1)x}{(2m-1)^2},\;-\pi\leq x\leq \pi$$
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{./images/ch12/xExp3.pdf}
+\end{center}
 
 {\bf 例：}设周期函数$f(x)$在一个周期内的表达式为
 $$f(x)=e^x\;(x\in[0,2\pi]),$$
 试将其展成Fourier级数，并求下列数值级数的和：
 $$\sum\limits_{n=1}^{\infty}\df1{1+n^2}$$
+
+[提示]：
+$$f(x)\sim\df{e^{2\pi}-1}{\pi}\left[1+
+\sumn\df{\cos nx-n\sin nx}{n^2+1}\right]$$
+\begin{center}
+	\includegraphics[width=0.6\textwidth]{./images/ch12/expX11.pdf}
+\end{center}
 
 Fourier展开给出了求函数的三角级数的方法，但是它需要满足一个基本的条件：
 $f(x)$以$2\pi$为周期。
@@ -1873,9 +2051,9 @@ Fourier展开，只需为其补充$[-\pi,0]$上的定义，再利用周期延拓
 {\bf 例：}设函数$f(x)=x+1\,(x\in(0,\pi))$，试将其分别展开为正弦和余弦级数。
 
 \begin{center}
-	\resizebox{!}{2.7cm}{\includegraphics{./images/ch13/cs.pdf}} 
+	\includegraphics[width=0.8\textwidth]{./images/ch13/cs.pdf} 
 	
-	\resizebox{!}{2.7cm}{\includegraphics{./images/ch13/ss.pdf}}
+	\includegraphics[width=0.8\textwidth]{./images/ch13/ss.pdf}
 \end{center}
 
 特别需要注意的是，{\b 对于同一个定义在$(0,\pi)$上的函数，采用不同的延拓方式展开成
@@ -1930,17 +2108,17 @@ $2\pi$为周期的正弦级数展开式的和函数，求当$x\in(\pi,2\pi)$时$
 		  \item $f(x)=\sin^4x$
 		  \item $f(x)=\arcsin(\sin x)$
 		\end{enumerate}
-	  \item 设$f(x)$是以$2\pi$为周期的连续函数，在$[-\pi,\pi]$上满足Dirichlet条件，
-		且其Fourier系数为$a_k,b_k$。设
-		$$G(x)=\df1{\pi}\dint_{-\pi}^{\pi}f(t)f(x+t)dt$$
-		\begin{enumerate}[(1)]
-% 		  \setlength{\itemindent}{1cm}
-		  \item 证明$G(x)$为偶函数
-		  \item 求$G(x)$的Fourier系数
-		  \item 证明$\df1{\pi}\dint_{-\pi}^{\pi}f^2(x)dx=\df{a_0^2}2+
-		  \sum\limits_{k=1}^{\infty}(a_k^2+b_k^2)$
-		\end{enumerate}
-	  \item 分别写出$f(x)=1-\df{x}{\pi}\;(0\leq x\leq\pi)$的正弦和余弦级数的和函数$S(x)$，
+% 	  \item 设$f(x)$是以$2\pi$为周期的连续函数，在$[-\pi,\pi]$上满足Dirichlet条件，
+% 		且其Fourier系数为$a_k,b_k$。设
+% 		$$G(x)=\df1{\pi}\dint_{-\pi}^{\pi}f(t)f(x+t)dt$$
+% 		\begin{enumerate}[(1)]
+% % 		  \setlength{\itemindent}{1cm}
+% 		  \item 证明$G(x)$为偶函数
+% 		  \item 求$G(x)$的Fourier系数
+% 		  \item 证明$\df1{\pi}\dint_{-\pi}^{\pi}f^2(x)dx=\df{a_0^2}2+
+% 		  \sum\limits_{k=1}^{\infty}(a_k^2+b_k^2)$
+% 		\end{enumerate}
+	  \item 分别写出$f(x)=1-\df{x}{\pi}\;(0\leq x<\pi)$的正弦和余弦级数的和函数$S(x)$，
 		并求$S(-3)$和$S(12)$。
 	  \item 写出$f(x)=\left\{\begin{array}{ll}
 			-\df12x,&-\pi<x<0\\ x-\pi,&0\leq x\leq \pi
@@ -2243,15 +2421,51 @@ $$\limn\df{\sin\frac1{3n}}{\sin\frac1{3(n+1)}}=1,$$
 故该级数的收敛区间是$(-1,1)$。
 
 又$y=1$时，级数为$\sumn\sin\df1{3n}$，因为$\limn n\sin\df1{3n}=\df13$，
-故由比较判别法，级数收敛；$y=-1$时，级数为$\sumn(-1)^n\sin\df1{3n}$，
+故由比较判别法，级数发散；$y=-1$时，级数为$\sumn(-1)^n\sin\df1{3n}$，
 由Leibniz判别法，收敛。故级数$\sumn y^n\sin\df1{3n}$的收敛域为
 $[-1,1)$。求解不等式
 $$-1\leq\df{3+x}{3-2x}<1$$
-可得$x\in(-\infty,6]$，即为所求原级数的收敛域。\fin
+可得$x\in(-\infty,0)\cup[6,+\infty)$，即为所求原级数的收敛域。\fin
 
 \bs
 
-2.将下列函数展开成Maclaurin级数，并求其收敛域
+2.求下列级数的和函数
+
+（1）$\sumn(-1)^{n-1}nx^{n-1}$
+
+[解]：令$y=-x$，考虑级数$\sumn ny^{n-1}$，易得该级数的收敛域为$(-1,1)$。
+设其和函数为$S(y)$，于是当$y\in(-1,1)$时，
+$$\dint_0^yS(t)\d t=\dint_0^y\sumn nt^{n-1}\d t
+=\sumn \dint_0^ynt^{n-1}\d t=\sumn y^n=\df1{1-y}-1,$$
+进而可得
+$$S(y)=\df1{(1-y)^2}.$$
+
+综上，
+$$\sumn(-1)^{n-1}nx^{n-1}=\df1{(1+x)^2},\quad x\in(-1,1).$$
+
+（2）$\df1a+\df{2x}{a^2}+\ldots+\df{nx^{n-1}}{a^n}+\ldots$，其中$a>0$.
+
+[解]：
+该级数即为$\df1a\sumn n\left(\df xa\right)^{n-1}$，易得其收敛域为$(-a,a)$。
+记$y=\df xa$，由（1）的结果可得
+$$\df1a\sumn n\left(\df xa\right)^{n-1}
+=\df1a\sumn ny^{n-1}=\df1a\df1{(1-y)^2}=\df1a\df1{\left(1-\frac xa\right)^2}
+=\df{a}{(a-x)^2}.$$
+即为所求。
+
+（3）$\sumn[0]\df{x^{2n+1}}{n!}$
+
+[解]：该级数的收敛域为$(-\infty,+\infty)$。令$y=x^2$
+$$\sumn[0]\df{x^{2n+1}}{n!}=x\sumn[0]\df{x^{2n}}{n!}
+=x\sumn[0]\df{y^n}{n!}.$$
+级数$\sumn[0]\df{y^n}{n!}$当$y\in(-\infty,+\infty)$时收敛于$e^y$。
+由此即知
+$$\sumn[0]\df{x^{2n+1}}{n!}=xe^{x^2},\quad x\in(-\infty,+\infty).$$
+\fin
+
+\bs
+
+3.将下列函数展开成Maclaurin级数，并求其收敛域
 
 % （1）$f(x)=\arcsin x$
 % 
@@ -2280,7 +2494,7 @@ $$-1\leq\df{3+x}{3-2x}<1$$
 	&=\df12\left(\sumn[0]x^n-\df13\sumn[0]\df{x^n}{3^n}\right)\\
 	&=\df12\sumn[0]\left(1-\df1{3^{n+1}}\right)x^n.
 \end{align*}
-易得该级数的收敛域为$[-1,1)$。
+该级数的收敛域为$[-1,1)$。
 
 （2）$f(x)=\df 1{1+x+x^2}$
 
@@ -2290,59 +2504,24 @@ $$-1\leq\df{3+x}{3-2x}<1$$
 	&=\df{1-x}{1-x^3}=(1-x)\sumn[0]x^{3n}\\
 	&=1-x+x^3-x^4+x^6-x^7+\ldots+x^{3n}-x^{3n+1}+\ldots.
 \end{align*}
-注意到级数$\sumn[0]x^{3n}$的收敛域为$[-1,1)$，故以上级数的收敛域为$[-1,1)$。\fin
+注意到级数$\sumn[0]x^{3n}$的收敛域为$(-1,1)$，故以上级数的收敛域为$(-1,1)$。\fin
 
 \bs
 
-3.将函数$f(x)=\df1{\sqrt{3+2x-x^2}}$展开成$x=1$处的幂级数，并求其收敛区间。
+4.将函数$f(x)=\df1{\sqrt{3+2x-x^2}}$展开成$x=1$处的幂级数，并求其收敛区间。
 
 [解]：
 \begin{align*}
 	f(x)
-	&=2\left[1-\left(\df{x-1}2\right)^2\right]^{-\frac12}
-	=2\sumn[0]{\left(\begin{array}{c}
+	&=\df12\left[1-\left(\df{x-1}2\right)^2\right]^{-\frac12}
+	=\df12\sumn[0]{\left(\begin{array}{c}
 		-\frac12 \\ n
 	\end{array}\right)}\left[-\left(\df{x-1}2\right)^2\right]^n\\
-	&=\sumn[0]\df{(2n-1)!!}{2^{n-1}(2n)!!}(x-1)^{2n}
+	&=\sumn[0]\df{(2n-1)!!}{2^{2n+1}(2n)!!}(x-1)^{2n}
 \end{align*}
 注意到
-$$\limn\df{\df{(2n+1)!!}{2^{n}(2n+2)!!}}{\df{(2n-1)!!}{2^{n-1}(2n)!!}}=\df12,$$
+$$\limn\df{\df{(2n+1)!!}{2^{2n+3}(2n+2)!!}}{\df{(2n-1)!!}{2^{2n+1}(2n)!!}}=\df12,$$
 故所得级数的收敛半径为$2$，相应地收敛区间为$(-1,3)$。
-\fin
-
-\bs
-
-4.求下列级数的和函数
-
-（1）$\sumn(-1)^{n-1}nx^{n-1}$
-
-[解]：令$y=-x$，考虑级数$\sumn ny^{n-1}$，易得该级数的收敛域为$(-1,1)$。
-设其和函数为$S_1(y)$，于是当$y\in(-1,1)$时，
-$$\dint_0^yS_1(t)\d t=\dint_0^y\sumn nt^{n-1}\d t
-=\sumn \dint_0^ynt^{n-1}\d t=\sumn y^n=\df1{1-y}-1,$$
-进而可得
-$$S_1(y)=\df1{(1-y)^2}.$$
-
-注意到原级数的收敛域为$x\in(-1,1)$，设其和函数为$S(x)$，则
-$$S(x)=S_1(-y)=\df1{(1+x)^2},\quad x\in(-1,1).$$
-
-（2）$\df1a+\df{2x}{a^2}+\ldots+\df{nx^{n-1}}{a^n}+\ldots$，其中$a>0$.
-
-[解]：
-该级数即为$\df1a\sumn n\left(\df xa\right)^{n-1}$，易得其收敛域为$[-a,a)$。
-记$y=\df xa$，由（1）的结果可得
-$$\df1a\sumn n\left(\df xa\right)^{n-1}
-=\df1a\sumn ny^{n-1}=\df1a\df1{(1-y)^2}=\df1a\df1{\left(1-\frac xa\right)^2}
-=\df{a^2}{a(a^2-x^2)}.$$
-即为所求。
-
-（3）$\sumn[0]\df{x^{2n+1}}{n!}$
-
-[解]：该级数的收敛域为$(-\infty,+\infty)$。令$y=x^2$
-$$\sumn[0]\df{x^{2n+1}}{n!}=x\sumn[0]\df{x^{2n}}{n!}
-=x\sumn[0]\df{y^n}{n!}.$$
-级数$\sumn[0]\df{y^n}{n!}$当$y\in(-\infty,+\infty)$时收敛于$e^y$。
-由此即知所求原级数的和函数为$xe^{x^2}$。
 \fin
 
 \bs
@@ -2357,12 +2536,15 @@ $$\left[f_n(x)e^{-x}\right]'=x^{n-1},$$
 $$f_n(x)=\left(\df{x^n}n+C\right)e^x.$$
 注意到$f_n(1)=\df en$，可得$C=0$，故$f_n(x)=\df{x^n}ne^x$。
 
-$\sumn f_n(x)=\sumn\df{x^n}ne^x=e^x\sumn\df{x^n}n$。考虑级数
-$\sumn\df{x^n}n$，易得其收敛域为$[-1,1)$。设其和函数为$S(x)$，则
+$$\sumn f_n(x)=\sumn\df{x^n}ne^x=e^x\sumn\df{x^n}n.$$
+	
+考虑级数$\sumn\df{x^n}n$，易得其收敛域为$[-1,1)$。设其和函数为$S(x)$，则
 $$S'(x)=\left[\sumn\df{x^n}n\right]'
 =\sumn\left[\df{x^n}n\right]'=\sumn x^{n-1}=\df1{1-x}.$$
-至此可知
-$$\sumn f_n(x)=\df{e^x}{1-x},\quad x\in[-1,1).$$
+从而
+$$S(x)=\dint_0^x\df1{1-t}\d t=-\ln|1-x|,\quad x\in[-1,1),$$
+进而
+$$\sumn f_n(x)=-e^x\ln|1-x|,\quad x\in[-1,1).$$
 \fin
 
 \bs
@@ -2386,28 +2568,178 @@ $$
 =\df{113}{81}\approx=1.395.
 $$
 
-（2）$\dint_0^{\frac12}\df{\arctan x}x\d x$的近似值，误差不超过$10^{-3}$。
+（2）计算$\dint_0^{\frac12}\df{\arctan x}x\d x$的近似值，
+误差不超过$10^{-3}$。
 
-[解]：$|x|\leq 1$时，\ps{参见12.3.5节的讨论}
-$$\arctan x=\sumn[0]\df{(-1)^n}{2n+1}x^{2n+1},$$
-从而
-$$\df{\arctan x}x=\sumn[0]\df{(-1)^n}{2n+1}x^{2n}.$$
+[解]：注意到
+$$(\arcsin x)'=(1-x^2)^{-\frac12}
+=\sumn[0]\df{(2n-1)!!}{(2n)!!}x^{2n},\quad x\in(-1,1),$$
+故
+$$\arcsin x=\sumn[0]\df{(2n-1)!!}{(2n)!!(2n+1)}x^{2n+1},\quad x\in(-1,1),$$
 进而
-$$\dint_0^x\df{\arctan t}x\d t
-=\dint_0^x\sumn[0]\df{(-1)^n}{2n+1}t^{2n}\d t
-=\sumn[0]\df{(-1)^n}{2n+1}\dint_0^xt^{2n}\d t
-=\sumn[0]\df{(-1)^n}{(2n+1)^2}x^{2n+1}.$$
-展开到第$2n+1$项的误差
+$$\dint_0^{\frac12}\df{\arcsin x}x\d x
+=\sumn[0]\df{(2n-1)!!}{(2n)!!(2n+1)^2}\df1{2^{2n+1}},$$
+估计误差
 \begin{align*}
-	|r_n|
-	&=\left|\sum\limits_{k=n+1}^{\infty}
-	\df{(-1)^k}{(2k+1)^2}x^{2k+1}\right|\\
-	&=\left|x^{2n+1}\left[\df1{(2n+3)^2}
-	-\df1{(2n+5)^2}+\df1{(2n+7)^2}-\ldots\right]\right|\\
-	&<\df{|x^{2n+1}|}{(2n+3)^2},
+	\left|r_n\left(\df12\right)\right|
+	&=\sum\limits_{k=n+1}^{\infty}\df{(2k-1)!!}
+	{(2k)!!(2k+1)^2}\df1{2^{2k+1}}\\
+	&<\df{(2n+1)!!}{(2n+2)!!(2n+3)^22^{2n+3}}
+	\left[1+\df1{2^2}+\df1{2^4}+\ldots\right]\\
+	&<\df{(2n+1)!!}{(2n+2)!!(2n+3)^22^{2n+2}}.
 \end{align*}
-带入$x=\df12$，令$|r_n|\leq 10^{-3}$，可以推出$n\geq 3$，故所求结果
-$$\dint_0^{\frac12}\df{\arctan x}x\d x
-\approx \df12-\df1{3^2}\df1{2^3}+\df1{5^2}\df1{2^5}-\df1{7^2}\df1{2^7}
-=\df{687539}{1411200}\approx 0.487.$$
+当$n=2$时，$r_n\left(\df12\right)=\df{15}{25088}<10^{-3}$，故所求近似值为
+$$\df12+\df1{2\cdot3^2\cdot2^3}+\df{1\cdot3}{2\cdot4\cdot5^2\cdot32^2}
+=\df{29227}{57600}\approx0.5074.$$
 \fin 
+
+\begin{center}
+	\bf 12.4 Fourier级数
+\end{center}
+
+1.将下列函数展成Fourier级数
+
+（1）$f(x)=\sin^4x$
+
+[解]：三角多项式的Fourier级数是其自身，
+\begin{align*}
+	\sin^4x&=\left(\df{1-\cos2x}2\right)^2
+	=\df14\left(1-2\cos2x+\cos^22x\right)\\
+	&=\df14\left(1-2\cos2x+\df{1+\cos4x}2\right)
+	=\df38-\df12\cos2x+\df18\cos4x
+\end{align*}
+最后的展开式即为所求。
+
+（2）$f(x)=\arcsin(\sin x)$
+
+[解]：
+$$\arcsin(\sin x)=\left\{\begin{array}{ll}
+	-x-pi, & x\in\left[-\pi,-\frac{\pi}2\right)\\
+	x, & x\in\left[-\frac{\pi}2,\frac{\pi}2\right)\\
+	-x+\pi, & x\in\left[\frac{\pi}2,\pi\right)
+\end{array}\right.$$
+注意到该函数为奇函数，故其Fourier展开式中$a_n=0,n=0,1,2,\ldots$，
+\begin{align*}
+	b_n&=2\dint_0^{\pi}f(x)\d x
+	=2\dint_0^{\frac{\pi}2}x\sin nx\d x
+	+2\dint_{\frac{\pi}2}^{\pi}(-x+\pi)\sin nx\d x\\
+	&=\left\{\begin{array}{ll}
+		0, & n=2k,\\ \df{4(-1)^k}{(2k+1)^2}, & n=2k+1.
+	\end{array}\right.
+\end{align*}
+故所求Fourier级数为
+$$f(x)\sim\sumn\df{4(-1)^n}{(2n+1)^2}\sin(2n+1)x.$$
+\fin
+
+\bs
+
+2.分别写出$f(x)=1-\df{x}{\pi}\;(0\leq x\leq\pi)$的正弦和余弦级数的和函数$S(x)$，
+并求$S(-3)$和$S(12)$。
+
+[解]：$f(x)$对应的正弦级数的和函数为
+$$S_1(x)=\left\{\begin{array}{ll}
+	-1-\frac x{\pi}, & x\in[-\pi,0),\\
+	1-\frac x{\pi}, & x\in(0,\pi),\\
+	0, & x=0,\\
+	S_1(x+2\pi), & \mathrm{else}.
+\end{array}\right.$$
+于是
+$$S_1(-3)=-1+\df3{\pi},\quad
+S_1(12)=S_1(12-4\pi)=3-\df{12}{\pi}.$$
+
+$f(x)$对应的余弦级数的和函数为
+$$S_2(x)=\left\{\begin{array}{ll}
+	1+\frac x{\pi}, & x\in[-\pi,0),\\
+	1-\frac x{\pi}, & x\in[0,\pi),\\
+	S_2(x+2\pi), & \mathrm{else}.
+\end{array}\right.$$
+相应地，
+$$S_2(-3)=1-\df3{\pi},\quad
+S_2(12)=-3+\df{12}{\pi}.$$
+\fin
+
+3.写出$f(x)=\left\{\begin{array}{ll}
+	-\df12x,&-\pi<x<0\\ x-\pi,&0\leq x\leq \pi
+\end{array}\right.$的Fourier级数的和函数$S(x)$，并求$S(100)$和$S(-31.4)$。
+
+[解]：
+$$S(x)=\left\{\begin{array}{ll}
+	\frac{\pi}4, & x=-\pi,\\
+	-\frac12x, & x\in(-\pi,0),\\
+	\frac{\pi}2, & x=0,\\
+	x-\pi, & x\in(0,\pi),\\
+	S_2(x+2\pi), & \mathrm{else}.
+\end{array}\right.$$
+于是
+$$S(100)=S(100-32\pi)=16\pi-50,\quad
+S(-3.14)=1.57.$$
+\fin
+
+\bs
+
+4.已知$f(x)=\left\{\begin{array}{ll}
+	x^2,&0<x<1/2\\ 1-x,&1/2\leq x\leq 1
+\end{array}\right.$，
+$S(x)=\df{a_0}2+\sumn a_n\cos n\pi,\;(x\in\mathbb{R})$，其中
+$a_n=2\dint_0^1\cos n\pi\d x\;(n=0,1,2,\ldots)$，求$S(2017)$和$S(2017.5)$。
+
+[解]：
+$$S(x)=\left\{\begin{array}{ll}
+	x+1, & x\in\left[-1,-\frac12\right),\\
+	\frac38, & x=\pm\frac12,\\
+	x^2, & |x|<\frac12,\\
+	1-x, & x\in\left(\frac12,1\right),\\
+	S_2(x+2\pi), & \mathrm{else}.
+\end{array}\right.$$
+于是
+$$S(2017)=S(-1)=0,\quad
+S(2017.5)=S(-0.5)=\df38.$$
+\fin
+
+\newpage
+
+{\bf 例：}设$f(x)$是以$2\pi$为周期的连续函数，在$[-\pi,\pi]$上满足Dirichlet条件，
+且其Fourier系数为$a_k,b_k$。设
+$$G(x)=\df1{\pi}\dint_{-\pi}^{\pi}f(t)f(x+t)dt$$
+\begin{enumerate}[(1)]
+% 		  \setlength{\itemindent}{1cm}
+  \item 证明$G(x)$为偶函数
+  \item 求$G(x)$的Fourier系数
+  \item 证明$\df1{\pi}\dint_{-\pi}^{\pi}f^2(x)dx=\df{a_0^2}2+
+  \sum\limits_{k=1}^{\infty}(a_k^2+b_k^2)$
+\end{enumerate}
+
+[解]：（1）注意到$f(x)$以$2\pi$为周期，令$y=-x+t$，则对任意$x\in\mbb{R}$，
+$$G(-x)=\df1{\pi}\dint_{-\pi}^{\pi}f(t)f(-x+t)\d t
+=\df1{\pi}\dint_{-x-\pi}^{-x+\pi}f(x+y)f(y)\d y=G(x),$$
+由此即知$G(x)$为偶函数。
+
+（2）因为$G(x)$为偶函数，故在其Fourier级数中，正弦项的系数$B_n=0,n=1,2,\ldots$，
+余弦项的系数
+\begin{align*}
+	A_0&=\df1{\pi^2}\dint_{-\pi}^{\pi}\dint_{-\pi}^{\pi}
+	f(t)f(x+t)\d t\d x
+	=\df1{\pi^2}\dint_{-\pi}^{\pi}\dint_{-\pi}^{\pi}
+	f(x+t)\d x f(t)\d t\\
+	&\xlongequal{u=x+t}\df1{\pi^2}\dint_{-\pi}^{\pi}\dint_{t-\pi}^{t+\pi}
+	f(u)\d u f(t)\d t
+	=\df1{\pi}a_0\dint_{-\pi}^{\pi}f(t)\d t
+	=a_0^2\\
+	A_n&=\df1{\pi^2}\dint_{-\pi}^{\pi}\dint_{-\pi}^{\pi}
+	f(t)f(x+t)\d t\cos nx\d x
+	=\df1{\pi^2}\dint_{-\pi}^{\pi}\dint_{-\pi}^{\pi}
+	f(x+t)\cos nx\d x f(t)\d t\\
+	&\xlongequal{u=x+t}\df1{\pi^2}\dint_{-\pi}^{\pi}\dint_{t-\pi}^{t+\pi}
+	f(u)\cos(nu-nt)\d u f(t)\d t\\
+	&=\df1{\pi^2}\left[\dint_{-\pi}^{\pi}\dint_{t-\pi}^{t+\pi}
+	f(u)\cos nu\d u\cos nt f(t)\d t
+	+\dint_{-\pi}^{\pi}\dint_{t-\pi}^{t+\pi}
+	f(u)\sin nu\d u\sin nt f(t)\d t\right]\\
+	&=\df1{\pi}\left[a_n\dint_{-\pi}^{\pi}f(t)\cos nt\d t
+	+b_n\dint_{-\pi}^{\pi}f(t)\sin nt\d t\right]
+	=a_n^2+b_n^2.\quad n=1,2,3,\ldots
+\end{align*}
+综上，$G(x)$的Fourier级数为
+$$G(x)\sim\df{a_0^2}2+\sumn(a_n^2+b_n^2)\cos nx.$$
+
+（3）在以上的展开式中，令$x=0$，即得待证等式。\fin

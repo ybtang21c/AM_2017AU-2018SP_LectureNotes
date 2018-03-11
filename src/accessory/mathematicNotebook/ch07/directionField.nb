@@ -1,0 +1,211 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6050,        202]
+NotebookOptionsPosition[      5458,        179]
+NotebookOutlinePosition[      5811,        195]
+CellTagsIndexPosition[      5768,        192]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"\:5fae\:5206\:65b9\:7a0b\:5bf9\:5e94\:7684\:5411\:91cf\:573a", 
+   RowBox[{"(", 
+    RowBox[{"Direction", " ", "Field"}], ")"}]}], "Subsection"]], "Input",
+ CellChangeTimes->{{3.7288815395262957`*^9, 3.728881547956245*^9}, {
+  3.728882149799863*^9, 3.728882158420734*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"1.", 
+    RowBox[{"\:65b9\:7a0by", "'"}]}], "=", 
+   RowBox[{"x", "+", "y"}]}], "Subsubsection"]], "Input",
+ CellChangeTimes->{{3.728881744695806*^9, 3.728881755469997*^9}}],
+
+Cell[BoxData[
+ RowBox[{"VectorPlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"x", "+", "y"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.728881781280355*^9, 3.7288817826073513`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"StreamPlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"x", "+", "y"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+   RowBox[{"VectorPoints", "\[Rule]", "Automatic"}], ",", 
+   RowBox[{"StreamStyle", "\[Rule]", "Orange"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.728881851133099*^9, 3.7288818746556387`*^9}, {
+  3.7288838296227703`*^9, 3.72888383236797*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"c", "*", 
+       RowBox[{"E", "^", "x"}]}], "-", "x", "-", "1"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"c", ",", 
+       RowBox[{"-", "20"}], ",", "30", ",", "0.5"}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "4"}], ",", "4"}], "}"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "4"}], ",", "4"}], "}"}]}], ",", 
+   RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.728883922421493*^9, 3.72888414151083*^9}, {
+  3.728884277101712*^9, 3.728884331517137*^9}, {3.728884363170392*^9, 
+  3.728884396919528*^9}, {3.728884506589357*^9, 3.728884527167778*^9}}],
+
+Cell[BoxData[
+ RowBox[{"StreamDensityPlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"x", "+", "y"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+   RowBox[{"ColorFunction", "\[Rule]", "\"\<ThermometerColors\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.7288818097340307`*^9, 3.728881813416197*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"2.", 
+    RowBox[{"\:65b9\:7a0by", "'"}]}], "=", 
+   RowBox[{"y", 
+    RowBox[{"(", 
+     RowBox[{"1", "-", 
+      FractionBox[
+       SuperscriptBox["y", "2"], "4"]}], ")"}]}]}], "Subsubsection"]], "Input",\
+
+ CellChangeTimes->{{3.728881659936998*^9, 3.7288817434498177`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"VectorPlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"y", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        RowBox[{
+         RowBox[{"y", "^", "2"}], "/", "4"}]}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.728880976350019*^9, 3.728881021569606*^9}, {
+  3.728881053157935*^9, 3.7288810534758883`*^9}, {3.728881707087694*^9, 
+  3.7288817072723017`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"StreamPlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"y", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        RowBox[{
+         RowBox[{"y", "^", "2"}], "/", "4"}]}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+   RowBox[{"VectorPoints", "\[Rule]", "Automatic"}], ",", 
+   RowBox[{"StreamStyle", "\[Rule]", "Orange"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.72888159802769*^9}],
+
+Cell[BoxData[
+ RowBox[{"StreamDensityPlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"y", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        RowBox[{
+         RowBox[{"y", "^", "2"}], "/", "4"}]}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+   RowBox[{"ColorFunction", "\[Rule]", "\"\<ThermometerColors\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{3.728881508131866*^9}]
+},
+WindowSize->{840, 1005},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (June 27, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 308, 6, 39, "Input"],
+Cell[869, 28, 221, 6, 40, "Input"],
+Cell[1093, 36, 399, 12, 28, "Input"],
+Cell[1495, 50, 563, 15, 28, "Input"],
+Cell[2061, 67, 797, 21, 46, "Input"],
+Cell[2861, 90, 485, 14, 28, "Input"],
+Cell[3349, 106, 325, 11, 78, "Input"],
+Cell[3677, 119, 608, 18, 28, "Input"],
+Cell[4288, 139, 595, 18, 46, "Input"],
+Cell[4886, 159, 568, 18, 46, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
