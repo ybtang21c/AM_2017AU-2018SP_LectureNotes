@@ -1,0 +1,369 @@
+% !Mode:: "TeX:UTF-8"
+
+\titlepage
+
+\begin{frame}
+	\frametitle{知识点回顾}
+	\linespread{1.5}
+	\it
+	  \begin{itemize}
+ 	    \item 微分方程及其解（通解、特解）的概念
+	    \item 一阶微分方程的解法与常用技巧
+	    \item 可降阶的二（高）阶微分方程
+	    \item 二阶线性微分方程解的结构
+	    \item 求解二阶常系数齐次线性微分方程的特征方程法
+	    \item 求解特定二阶常系数非齐次线性微分方程的待定系数法
+	  \end{itemize}
+\end{frame}
+
+\section{补充例题}
+
+\subsection{二阶线性微分方程}
+
+% \section{问题讨论}
+
+% \begin{frame}{问题讨论}
+% 	\linespread{1.5}
+% 	\alert{问：}已知$n$阶线性微分方程的$n$个解，
+% 	能否写出这个微分方程及其通解？\pause\\[1ex]
+% 	
+% 	\alert{答：}{\it 不一定。}\pause 除非{\it\b 
+% 	这$n$个解恰为$n$阶齐次线性微分方程的线性无关的特解。} \pause 
+% 	
+% 	\bigskip
+% 	\alert{问：}适当确定微分方程通解中的参数值，可以得到其任意的特解？\pause \\[1ex]
+% 	
+% 	\alert{答：}{\it 错！有些特解无法用统一的通解形式来表达。}\pause {\it 例如：}{\b $y'=\sin x\cos^2y$}.
+% \end{frame}
+
+\begin{frame}{问答题}
+	\linespread{1.2}
+	\alert{问：}$y_1=(x-1)^2$和$y_2=(x+1)^2$都是方程
+	$$(x-1)^2y''-2xy'+2y=0,$$
+	和
+	$$2yy''-(y')^2=0$$
+	的解。但二者的线性组合
+	$$y=C_1(x-1)^2+C_2(x+1)^2,\;(C_1,C_2\in\mathbb{R})$$
+	却仅能满足前一个方程，为什么？\pause 
+	
+	\alert{答：}{\it\b 第二个方程不是线性方程！}
+\end{frame}
+
+\begin{frame}{填空}
+	\linespread{1.5}
+	\alert{例：}$y''+4y'+4y=1$的通解为
+	\underline{\uncover<2->{\;\b{$(C_1+C_2x)e^{-2x}+1/4$}}\;}.\\[1em]
+	
+	\alert{例：}设$e^x(C_1\cos x+C_2\sin x)$为首项系数为$1$的某二阶常系数
+	齐次线性微分方程的通解，则该微分方程为
+	\underline{\uncover<3->{\;\b{$y''-2y'+2y=0$}}\;}.\\[1em]
+	
+	\alert{例：}设$\cos x$与$xe^x$分别为某$n$阶常系数齐次线性微分方程的两个解，
+	则最小的$n=$\underline{\uncover<4->{\;\b{$4$}}\;}，相应的首项
+	系数为$1$的方程为\underline{\uncover<5->{\;\b{$
+	y^{(4)}-2y^{(3)}+2y''-2y'+y=0$}\;}}
+	
+% 	方程$xy''-2xy'+2y=x\ln x$的通解为
+% 	为\underline{\uncover<6->{\;\b{$
+% 	C_1x+C_2x^2-\left(\df12\ln^2x+\ln x\right)x$}\;}}
+\end{frame}
+
+\begin{frame}{选择}
+	\linespread{1.3}
+	\alert{例：}设$y_1(x),y_2(x),y_3(x)$为方程
+	$$y''+p(x)y'+q(x)y=f(x)$$
+	的三个线性无关的解，$C_1,C_2$为任意常数，则该非齐次线性微分方程的通解为
+	(\underline{\uncover<2->{\;\b{C}}\;})
+	\begin{enumerate}[(A)]
+	  \item $(C_1+C_2)y_1+(C_2-C_1)y_2+(1-C_2)y_3$
+	  \item $(C_1+C_2)y_1+(C_2-C_1)y_2+(C_1-C_2)y_3$
+	  \item $C_1y_1+(C_2-C_1)y_2+(1-C_2)y_3$
+	  \item $C_1y_1+(C_2-C_1)y_2+(C_1-C_2)y_3$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{选择}
+	\linespread{1.5}
+	\alert{例：}下列可能为方程$y''+4y=e^{3x}+x\sin 2x$的特解的是
+	(\underline{\uncover<2->{\;\b{A}}\;})
+	\begin{enumerate}[(A)]
+	  \item $Ae^{3x}+x[(Bx+C)\cos2x+(Dx+E)\sin2x]$
+	  \item $Ae^{3x}+(Bx+C)\cos2x+(Dx+E)\sin2x$
+	  \item $Axe^{3x}+x[(Bx+C)\cos2x+(Dx+E)\sin2x]$
+	  \item $Axe^{3x}+(Bx+C)\cos2x+(Dx+E)\sin2x$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{选择}
+	\linespread{1.3}
+	\alert{例：}已知$xe^x+e^{2x}$和$xe^x+e^{-x}$是二阶常系数非齐次线性微分方程的两个解，
+	则此方程为
+	(\underline{\uncover<2->{\;\b{B}}\;})
+	\begin{enumerate}[(A)]
+	  \item $y''-2y'+y=e^{2x}$
+	  \item $y''-y'-2y=xe^{x}$
+	  \item $y''-2y'-2y=e^x-2xe^{x}$
+	  \item $y''-y=e^{2x}$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{选择}
+	\linespread{1.3}
+	\alert{例：}方程$y''+by'+y=0$的每个解都在$x>0$上有界，则实数$b$的取值范围是
+	(\underline{\uncover<2->{\;\b{A}}\;})
+	\begin{enumerate}[(A)]
+	  \item $[0,+\infty)$
+	  \item $(-\infty,0]$
+	  \item $(-\infty,4]$
+	  \item $(-\infty,+\infty]$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{解答题}
+	\linespread{1.2}
+	\alert{例：}求方程$y''+2y'+2y=2e^{-x}\cos^2\df x2$的通解.
+	
+	\pause\alert{提示：}\it\b 
+	$$2e^{-x}\cos^2\df x2=e^{-x}+e^{-x}\cos x,$$
+	利用叠加原理分别求解两个常系数非齐次线性微分方程。
+\end{frame}
+
+\begin{frame}{解答题}
+	\linespread{1.5}
+	\alert{例：}设二阶常系数线性微分方程
+	$$y''+\alpha y'+\beta y=\gamma e^x$$
+	的一个解为$y=e^{2x}+(1+x)e^x$，试确定其中的常数$\alpha,\beta,\gamma$.
+	
+	\pause\alert{提示：}\it\b $\alpha=-3,\beta=2,\gamma=-1$.
+\end{frame}
+
+\begin{frame}{解答题}
+	\linespread{1.2}
+	\alert{例：}利用变换$x=e^t$求解如下方程
+	$$x^2\df{\d^2y}{\d x^2}+3x\df{\d y}{\d x}+5y=16x\ln x.$$
+	
+	\pause\alert{提示：}\it\b 
+	$$y''_{tt}+2y'_t+5y=16te^{t}$$
+	\pause \ba{请自行阅读教材第七章第九节“Euler方程”}
+\end{frame}
+
+\begin{frame}{解答题}
+	\linespread{1.2}
+	\alert{例：}令$t=\tan x$，将方程
+	$$y''_{xx}\cos^4x+2\cos^2x(1-\sin x\cos x)y'_x+y=e^{-\tan x}$$
+	变换为$y$关于$t$的微分方程，并求其通解。
+	
+	\pause\alert{提示：}\it\b 
+	$$y''_{tt}+2y'_t+y=e^{-t}$$
+	$$y=\left(C_1+C_2\tan x+\df12\tan^2x\right)e^{-\tan x}$$
+\end{frame}
+
+\begin{frame}{解答题}
+	\linespread{1.2}
+	\alert{课后作业：}试将$x=x(y)$所满足的微分方程
+    $$\df{\d^2x}{\d y^2}+(y+\sin x)\left(\df{\d x}{\d y}\right)^3=0$$
+    化为$y=y(x)$所满足的微分方程；
+	
+	\pause\alert{提示：}\it\b 
+	$$\df{\d^2x}{\d y^2}=\df{\d x'}{\d y}
+	=\df{\d(1/y')}{\d y}=
+	\df{\df{\d\frac1{y'}}{\d x}}{\df{\d y}{\d x}}=-\df{y''}{(y')^3},$$
+	原方程最终化为
+	$y''-y=\sin x.$
+\end{frame}
+
+% \begin{frame}{选择}
+% 	\linespread{1.3}
+% 	5.设$y(x)$满足$x\d y+(x-2y)\d x=0$，且曲线$y=y(x)$与直线$x=1$
+% 	及$x$轴所围平面图形绕$x$轴旋转所得旋转体的体积最小，则$y(x)=$
+% 	(\underline{\uncover<2->{\;\b{C}}\;})
+% 	\begin{enumerate}[(A)]
+% 	  \item $x-\df14x^2$
+% 	  \item $x+\df54x^2$
+% 	  \item $x-\df54x^2$
+% 	  \item $x+\df14x^2$
+% 	\end{enumerate}
+% \end{frame}
+
+% \begin{frame}{解方程}
+% 	\linespread{1.5}
+% 	\begin{enumerate}
+% 	  \item $xy'\ln x+y=\ln x$.\hfill \b$t=\ln x$
+% 	\end{enumerate}
+% \end{frame}
+
+% \begin{frame}{解答题}
+% 	\linespread{1.2}
+% 	1.设$f(x)$为连续函数，且
+% 	$$f(x)=e^{-x}+\dint_0^xf(t)\d t,$$
+% 	求$f(x)$.
+% 	
+% 	\pause\alert{提示：}\it\b  \alert{积分方程通常自带初值条件！}
+% 	\pause 在已知等式中令$x=0$，可得$f(0)=1$.\pause
+% 	$$f'(x)-f(x)=-e^{-x}\quad\Rightarrow\quad 
+% 	f(x)=\df12(e^x+e^{-x}).$$
+% \end{frame}
+
+
+
+% \begin{frame}{解答题}
+% 	\linespread{1.2}
+% 	3.函数$y(x)\;(x\geq 0)$二阶可导，$y'(x)>0$，
+% 	$y(0)=1$，过其上任一点$(x,y)$作曲线的切线和至$x$轴的垂线，该两直线
+% 	与$x$轴所围成的三角形面积记为$S_1(x)$，又区间$[0,\alert{x}]$
+% 	（\alert{\it 此处教材印刷错误！}）上以$y(x)$为曲边
+% 	的曲边梯形面积记为$S_2(x)$。已知$2S_1-S_2=1$，求$y(x)$。
+% 	
+% 	\pause\alert{提示：}\it\b   
+% 	$$\df{y^2}{y'}-\dint_0^xy(t)\d t=1\quad\Rightarrow\quad 
+% 	yy''=(y')^2,\;y'(0)=1.$$
+% 	\pause 结合$y(0)=1$,解得$y=e^x$.
+% \end{frame}
+
+
+
+% \begin{frame}{解答题}
+% 	\linespread{1.2}
+% 	某学生将乘积的导数公式错误地记作$(fg)'=f'g'$，然而在一次求导时
+% 	居然得到了正确的结果。目前知道他使用的$f(x)=e^{x^2},(x>1/2)$，
+% 	问他用到的$g(x)$可能是什么？
+% 	
+% 	\pause\alert{提示：}\it\b  
+% 	$$\left(e^{x^2}g\right)'=\left(e^{x^2}\right)'g'$$
+% 	从而$(2x-1)g'=2xg$，解得
+% 	$$g=Ce^x\sqrt{2x-1}$$
+% \end{frame}
+
+
+
+\begin{frame}{解答题}
+	\linespread{1.2}
+	\alert{例：}求幂级数$\sumn[0]\df{x^{3n}}{(3n)!}$的和函数。
+	
+	\pause\alert{提示：}\it\b 
+	收敛域为$(-\infty,+\infty)$，和函数满足如下的初值问题
+	$$S^{(3)}(x)=S(x),\quad,S(0)=1,S'(0)=0,S''(0)=0.$$
+	通解
+	$$S(x)=C_1e^x+e^{-\frac x2}\left(C_2\cos\df{\sqrt3}2x
+	+C_2\sin\df{\sqrt3}2x\right).$$
+\end{frame}
+
+% \begin{frame}{解答题}
+% 	\linespread{1.2}
+% 	\alert{（2003考研）} 设$y(x)$在$\mathbb{R}$上具有二阶连续导数，
+% 	$y'\ne 0$，$x=x(y)$为其反函数。
+% 	\begin{enumerate}
+% 	  \item 试将$x=x(y)$所满足的微分方程
+% 	  $$\df{\d^2x}{\d y^2}+(y+\sin x)\left(\df{\d x}{\d y}\right)^3=0$$
+% 	  变换为$y=y(x)$所满足的微分方程；
+% 	  \item 求变换后的微分方程满足初始条件$y(0)=0$和$y'(0)=1.5$的解。
+% 	\end{enumerate}
+% 	
+% 	\pause\alert{提示：}\it\b 
+% 	$y''-y=\sin x\quad\Rightarrow\quad y=e^x-e^{-x}-\df12\sin x $
+% \end{frame}
+
+\subsection{杂例}
+
+\begin{frame}{解答题}
+	\linespread{1.2}
+	\alert{例：}设$f(x)$为连续函数，且
+	$$f(x)=e^{2x}+\dint_0^xtf(x-t)\d t,$$
+	求$f(x)$.
+	
+	\pause\alert{提示：}\it\b \ba{积分方程通常自带初值条件！}
+	\pause 本例中，可得$f(0)=1,f'(0)=2$\pause  
+	$$f''(x)-f(x)=4e^{2x}\quad\Rightarrow\quad 
+	f(x)=-\df12e^x+\df16e^{-x}+\df43e^{2x}.$$
+\end{frame}
+
+\begin{frame}{解答题}
+	\linespread{1.2}
+	\alert{例：}设$f(x)$在$(-\infty,+\infty)$上处处可导，其反函数为$g(x)$，且
+	$$\dint_0^{f(x)}g(t)\d t+\dint_0^xf(t)\d t=xe^x-e^x+1,$$
+	求$f(x)$.
+	
+	\pause\alert{提示：}\it\b 两边求导，可得
+	$$f'(x)+f(x)=xe^x,$$
+	通解$y=Ce^{-x}+\df{2x-1}4e^x$。\pause 原
+	等式左边即为$1\cdot f(1)-0\cdot f(0)$，故有初值条件$f(1)=1$。
+\end{frame}
+
+\begin{frame}{解答题}
+	\linespread{1.2}
+	\alert{例：}设对任意$x,y\in\mathbb{R}$
+	$$f(x+y)=f(x)e^y+f(y)e^x,$$
+	$f'(0)=a\ne 0$，求$f(x)$.
+	
+	\pause\alert{提示：}\it\b 必须用定义计算$f'(x)$，
+	$$\lim\limits_{\Delta x\to 0}\df{f(x+\Delta x)-f(x)}{\Delta x}
+	=f(x)+ae^x.$$
+	\pause 类似题目：\alert{\bf 辅导书（下）-P256-例5}
+\end{frame}
+
+\begin{frame}{选择}
+	\linespread{1.3}
+	\alert{例：}设$y(x)$为方程$y''+py'+qy=e^{3x}$满足初始条件$y(0)=y'(0)=0$
+	的解，则$\limx{0}\df{\ln(1+x^2)}{y(x)}$
+	(\underline{\uncover<2->{\;\b{C}}\;})
+	\begin{enumerate}[(A)]
+	  \item 不存在
+	  \item 等于$1$
+	  \item 等于$2$
+	  \item 等于$3$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{选择}
+	\linespread{1.3}
+	\alert{例：}设$y=f(x)$为方程$y''-2y'+4y=0$
+	的一个解，若$f(x_0)>0,f'(x_0)=0$，
+	则函数$f(x)$在$x_0$
+	(\underline{\uncover<2->{\;\b{A}}\;})
+	\begin{enumerate}[(A)]
+	  \item 取极大值
+	  \item 取极小值
+	  \item 的某个领域内单调增加
+	  \item 的某个领域内单调减少
+	\end{enumerate}
+\end{frame}
+
+\subsection{微分方程的应用}
+
+\begin{frame}{应用题}
+	\linespread{1.4}
+	\alert{例：}已知某凹曲线任一点处的曲率为$\df1{2y^2\cos\alpha}$，其中
+	$\alpha$为该点处的切线倾角（$\cos\alpha>0$），且曲线在
+	点$(1,1)$处的切线是水平的，求该曲线的方程。
+	
+	\pause\alert{提示：}\it\b $\cos\alpha=\df1{\sqrt{1+(y')^2}}>0,
+	y''>0$
+	$$2y^2y''=[1+(y')^2]^2\quad\Rightarrow\quad
+	4y=(x-1)^2+4$$
+\end{frame}
+
+\begin{frame}{应用题}
+	\linespread{1.2}
+	\alert{例：}一根挂在钉子上的链条，最初两端距离钉子
+	分别为$8$m和$12$m，如不计钉子
+	对链条产生的摩擦力，求链条从钉子上完全滑落所需的时间。
+	
+	\pause\alert{提示：}\it\b 设$x$为较长一端端点据钉子的距离
+	$$\left\{\begin{array}{l}
+		x''-\df g{10}x=-g\\
+		x(0)=12\\
+		x'(0)=0
+	\end{array}\right.$$
+% 	\pause
+% 	\alert{思考：}若摩擦力等于$1$m长的链条的重量，模型又是怎样的？
+\end{frame}
+
+\begin{frame}{应用题}
+	\linespread{1.2}
+	\alert{例：}已知某车间容积$V$，其空气中CO$_2$的密度为$\rho_1$，现以CO$_2$浓度$\rho_2(<<\rho_1)$的
+	新鲜空气输入，问每分钟应输入多少才能在$T$分钟后使车间中CO$_2$的含量不超过$\rho_0$。
+	（注：假设新注入的空气能够与原有空气立即混合达到均匀，且空气不会被压缩。）
+
+	\pause\alert{提示：}\it\b 设$t$分钟时的$CO_2$含量为$C(t)$，
+	$$C'=\rho_2V_1-C\df{V_1}{V},C(0)=\rho_1V$$
+\end{frame}

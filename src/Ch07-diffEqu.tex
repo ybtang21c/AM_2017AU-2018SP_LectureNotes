@@ -15,9 +15,8 @@
 
 \subsection{微分方程模型}
 
-{\bf 微分方程：}包含函数、自变量及其相关的微分项的关系式（e.g. 等式）
-\ps{同济：表示未知函数、未知函数的导数与自变量之间关系的方程}
-相对于不包含任何微分项的方程，引入各种微分项，显然可以帮助我们描述更多的问题。
+{\bf 微分方程：}包含函数、自变量及其相关的微分项的等式。
+相对于不包含任何微分项的方程，引入微分项，显然可以帮助我们描述更多的问题。
 
 {\bf 常微分方程：} 涉及一元函数的微分方程，例如：
   $$x''(t)=a,\quad  \df{y''}{(1+y')^{3/2}}=L,\quad 
@@ -29,7 +28,7 @@
 
 从我们熟知和一些容易理解的问题中可以很容易地抽象出对应的微分方程模型：
 
-{\bf 例：弹簧振子的运动（简谐振动）}
+{\bf 弹簧振子的运动（简谐振动）:}
 
 假设振子的质量为$1$，弹簧的质量忽略不计。以$x$表示弹簧偏离平衡位置的位移。
 
@@ -46,13 +45,13 @@ $$\df{\d^2 x}{\d t^2}+2n\df{\d x}{\d t}+k^2x=0,$$
 $$\df{\d^2 x}{\d t^2}+2n\df{\d x}{\d t}+k^2x=h\sin pt$$
 其中右端函数$h\sin pt$表示存在一个频率为$p$，振幅为$h$的周期性的外界作用力。
 
-{\bf 例：空气中的自由落体}
+{\bf 空气中的自由落体：}
 
 物体从一定高度开始自由下落，已知其受到的空气阻力与其速度成正比（系数$k$），
 则其运动位移$S(t)$满足方程
 $$S''=g-S'k$$
 
-{\bf 例：追踪问题}
+{\bf 追踪问题：}
 某战舰发现其东北方向$(a,b)$处有一艘敌舰以速度$v_0$向正东方向行驶，于是向其发射鱼雷。
 假设鱼雷的速度为$v_1\,(v_1>v_0)$，且其运动方向始终指向敌舰。试给出鱼雷运动轨迹的数学模型。
 
@@ -80,7 +79,7 @@ y(0)=0
 \right.
 $$
 
-{\bf 例：弱肉强食的生态系统}
+{\bf 弱肉强食的生态系统：}
 在一个生态系统中仅有两种物种$A$和$B$，其中$B$依赖于捕食$A$为生。
 假设在时刻$t$二者的数量分别为$x(t)$和$y(t)$。
 
@@ -98,7 +97,7 @@ $b,d$则代表了$A,B$之间的相互影响，例如：$A$越多，则$B$的食�
 从而数量的增长率越高；反之，$B$越多，则被捕食的$A$也越多，从而
 数量的增长率越低。
 
-{\bf 例：传播模型}
+{\bf 传播模型：}
 
 以疾病传染为例：设总人数为$N$，已感染的人数为$I$，感染率$\gamma$，
 治愈率$\lambda$，则：
@@ -185,7 +184,7 @@ $y=-\sin x$。\fin
 \begin{ext}
 	{\bf 课后作业}
 	\begin{enumerate}
-	  \item 请给出如下通解对应的微分方程，被给出其满足给定初值条件的特解：
+	  \item 请给出如下通解对应的微分方程，并给出其满足给定初值条件的特解：
 	  \begin{enumerate}[(1)]
 	    \item $y=x^2+C_1x+C_2$，其中$C_1,C_2$为任意常数，$y(0)=y'(0)=1$； 
 	    \item $y=\df{1+Ce^t}{1-Ce^t}$，其中$C$为任意常数，$y(0)=2$；
@@ -269,6 +268,51 @@ $$y=Ce^{\frac{x^2}2}\;({\b C\in\mathbb{R}}).$$\fin
 
 {\bf 例：}已知曲线$C$上任一点$P(x,y)$处的法线与$x$轴交点为$Q$，且线段$PQ$被$y$轴平分，
 求曲线$C$所满足的方程。\hfill（$yy'+2x=0$）
+
+\subsection{全微分方程}
+
+有些情况下，求解一阶微分方程，可以通过微分运算来完成。
+
+{\bf 例：}求解微分方程$y'=\df y\sin x$。
+
+[解]：原方程可化为
+$$\df1y\d y-\sin x\d x=0,$$
+注意到$\frac1y\d y=\d\ln|y|$，$-\sin x\d x=\d\cos x$，故
+上式可化为
+$$\d\ln|y|+\d\cos x=0,$$
+进而利用微分运算的性质（线性性），可得
+$$\d(\ln|y|+\cos x)=0.$$
+一个函数的微分为零，当且仅当其恒为常数，故由上式可得
+$$\ln|y|+\cos x=C,\;(C\in\mbb{R}).$$
+即为所求。\fin
+
+以上的解题过程中没有直接使用积分，而是利用微分运算，最终“凑”出了
+方程的通解。能够这样求解的方程被称为{\kaishu 全微分方程}\ps{全微分
+方程的判定方法将在第11章的曲线积分部分加以介绍}。显然，
+可分离变量的方程都是全微分方程。
+
+{\bf 例：}求解下列方程
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $(\sin x+y)\d x+(x+\cos y)\d y=0$
+  \item $(e^x+e^{x+y})\d x+(e^y+e^{x+y})\d y=0$
+  \item $(3y^2+2xy)\d y+(y^2+5x^4)\d x=0$
+  \item $x\d x+y\d y+\df{y\d y-x\d x}{x^2+y^2}=0$
+  \item $y\d x+x\d y+\df{x\d y-y\d x}{x^2+y^2}=0$
+\end{enumerate}
+
+有些情况下，一个方程虽然不是全微分方程，但可以通过乘以某个{\kaishu 积分因子}，使其
+变成全微分方程，例如：$x\d y-y\d x=0$就不是全微分方程，但如果方程两边都
+除以$x^2$，可得
+$$\df1x\d y-\df y{x^2}\d x=0,$$
+进而可得
+$$\df1x\d y+y\d\df1x=0,$$
+利用微分运算$\d(uv)=u\d v+v\d u$，最终可得
+$$\d\df yx=0,$$
+进而该方程的通解为$\frac yx=C$。
+
+求解一阶非齐次线性微分方程的常数变易法，其原理就是使用积分因子$e^{\int p(x)\d x}$，
+使得方程成为了一个全微分方程（可分离变量的方程）。
 
 \subsection{齐次方程}
 
@@ -390,40 +434,106 @@ $$\df{\d x}{\d y}-x=y,$$
 	$$y=Cx\pm2\sqrt{-C}\mbox{或}xy=1$$
 \end{shaded}
 
+\begin{shaded}
+	{\bf 一阶微分方程的直观解释}
+	
+	一阶微分方程$y'=f(x,y)$，从几何的观点看，刻画了平面上任一点$(x,y)$
+	处对应的运动趋势。这种运动趋势可以用向量$(1,y')$来表示，将其对应的
+	单位向量描绘在平面上，就得到了该方程所对应的{\kaishu 线素场}或
+	{\kaishu 向量场}，进而从中可以看出其各个解的大致变化趋势。
+	
+	例如：方程$y'=x+y$，其对应的向量场与轨线如图所示：
+	\begin{center}
+		\begin{tabular}{cc}
+			\includegraphics[width=0.45\textwidth]{./images/ch7/dfxy-1.pdf}&
+			\includegraphics[width=0.45\textwidth]{./images/ch7/dfxy-4.pdf}\\
+		\end{tabular}
+	\end{center}
+	
+	同样的作法可以应用于三维的一阶微分方程组，例如著名的Lorenz方程，该方程是对
+	天气预报模型的一个极简化版本，形如：
+	$$
+		\left\{\begin{array}{l}
+			x'_t=\sigma(y-x)\\
+			y'_t=x(\rho-z)-y\\
+			z'_t=xy-\beta z
+		\end{array}\right.
+	$$
+	其中$x,y,z$分别表示温度、风速和湿度。其线素场和一个特定的轨线如图：
+	\begin{center}
+		\begin{tabular}{cc}
+			\includegraphics[width=0.45\textwidth]{./images/ch7/lorenzDF.pdf}&
+			\includegraphics[width=0.45\textwidth]{./images/ch7/LorenzAtractor.pdf}\\
+		\end{tabular}
+	\end{center}
+	图中的轨线展示的是著名的{\kaishu Lorenz吸引子}，正是对它的研究
+	引出了后来广为人知的	{\kaishu 蝴蝶效应}和{\kaishu 混沌现象}。
+\end{shaded}
+
 \begin{ext}
 	{\bf 课后作业}
 	
 	\begin{enumerate}
 	  \item 求解下列微分方程：
 	  \begin{enumerate}[(1)]
-	    \item $xy'-y+\sqrt{y^2-x^2}=0$
+	    \item $xy'-y+\sqrt{x^2-y^2}=0,(x>0)$
 	    \item $y'=(x+y)^2$
-	    \item $(\sin x+y)\d x+(x+\cos y)\d y=0$
-	    \item $x\ln x\d y+(y-\ln x)\d x=0$ 
-	    \item $3y'+y=(1-2x)y^4$
-	    \item $r'(t)+r(t)=2$
+	    \item $x\ln x\d y+(y-\ln x)\d x=0,(x>0)$ 
+	    \item $3y'+y=(1-x)y^4$
 	  \end{enumerate}
-	  \item 求下列微分方程初值问题的解
-	  \begin{enumerate}[(1)]
-	    \item $y'+\df yx=\df{\sin x}x$，其中$y(\pi)=1$
-	    \item $y'=\df xy+\df yx$，其中$y(1)=2$
-	  \end{enumerate}
+% 	  \item 求下列微分方程初值问题的解
+% 	  \begin{enumerate}[(1)]
+% 	    \item $y'+\df yx=\df{\sin x}x$，其中$y(\pi)=1$
+% 	    \item $y'=\df xy+\df yx$，其中$y(1)=2$
+% 	  \end{enumerate}
 	  \item 某湖泊的水量为$V$，每年排入湖内的污水和净水量均为$V/6$，且湖内的总水量不变。
 	  已知1999年底湖内的污染物含量为$5m_0$。为了治理污染，从2000初开始，限定排入
 	  湖中的污水中污染物浓度不得超过$m_0/V$。问至少需要经过多少年，
-	  湖内的污染物含量能够降至$m_0$以下？（注：假设湖水中的污染物浓度时均匀分布的。）
+	  湖内的污染物含量能够降至$m_0$以下？（注：假设湖水中的污染物浓度是均匀分布的。）
 % 	  [提示]：$$m'=\df{m_0}6-\df m3,\quad m=\df{m_0}2(1+9e^{-t/3})$$
 % 	  $t=6\ln3$年后，达到要求。
 	  \item 已知$f(0)=0,f(1)=1$，且当$x\in(0,1)$时，$f''(x)<0$。任取曲线
 	  $y=f(x)$上一点$(x,f(x)),\;(x\in(0,1))$，该点与原点的连线与曲线所围图形
 	  面积为$x^2$，求$f(x)$。
-	  \item 设以质量为$m$的质点作直线运动。从速度等于零的时刻起，有一个与其运动方向
-	  一致、大小与时间成正比（比例系数为$a$）的力作用于它，与此同时地面对其的阻力
-	  大小与其速度成正比（比例系数为$b$），求该质点的位移关于时间的函数。
+% 	  \item 设以质量为$m$的质点作直线运动。从速度等于零的时刻起，有一个与其运动方向
+% 	  一致、大小与时间成正比（比例系数为$a$）的力作用于它，与此同时地面对其的阻力
+% 	  大小与其速度成正比（比例系数为$b$），求该质点的位移关于时间的函数。
+	  \item 某学生将乘积的导数公式错误地记作$(fg)'=f'g'$，然而在一次求导时居然
+	  得到了正确的结果。目前知道他使用的$f(x)=e^{x^2}\,(x>1/2)$，
+	  问他用到的$g(x)$可能是什么？
+% 	  $$\left(e^{x^2}g\right)'=\left(e^{x^2}\right)'g'$$
+% 	  从而$(2x-1)g'=2xg$，解得$g=Ce^x\sqrt{|2x-1|}$
+% 	  \item 
 	\end{enumerate}
 \end{ext}
 
-\section{可降阶的二阶方程的解法}
+{\bf 课堂讨论：}求解下列微分方程
+
+% \hspace{-1ex}{\bf 【上下颠倒】}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $y'=\df{1}{2x-y^2}$ \dotfill{“上下颠倒”}，$x=\df12y(y+1)+\df14+Ce^{2y}$
+  \item $y'=\df{x}{x^2-y^2}$\dotfill{“上下颠倒”化为Bernoulli方程}\\
+%   {\bf 【齐次方程】}
+  \item $xy'=\sqrt{x^2-y^2}+y$ \dotfill{齐次方程}，$y=x\sin(\ln|x|+C)$
+  \item $y'=\df{3x^2+y^2-6x+3}{2xy-2y}$
+  \dotfill{消去低次项变齐次方程}，$3(x-1)^2-y^2=C(x-1)$\\
+%   {\bf 【其他变量替换】}
+  \item $xy'+y=2\sqrt{xy}$\dotfill{ 令$u=xy$}，$\sqrt{xy}=x+C$
+  \item $xy'+y=y(\ln x+\ln y) $ \dotfill{令$z=\ln x, w=\ln y$或$z=xy$}，$xy=Ce^x$
+  \item $xy'\ln x+y=ax(\ln x+1)$\dotfill{ 一阶线性方程}，$y=\df12\ln x+\df C{\ln x}+1$
+  \item $y'=\df{y}{2(\ln y-x)}$\dotfill{ “颠倒”,令$z=\ln y$}，$y^2[1-2(\ln y-x)]=C$
+  \item $y'+x=\sqrt{x^2+y}$\dotfill{ 令$z=\sqrt{x^2+y}-x$}，
+  $x^2+y=(x+C)(2\sqrt{x^2+y}-x)$\\
+%   {\bf 【Bernouli方程】}
+  \item $y'-\df{y}{x}=\df{2x}{3y^2}$ \dotfill{Bernouli方程}，$y^3=Cx^3-2x^2$
+  \item $2x\ln x\d y+y(y^2\ln x-1)\d x=0$\dotfill 令$z=\ln x,\df1{y^2}=\df12\ln
+  x+\df C{\ln x}$\\
+%   {\bf 【降阶计算】}
+%   \item $y^{(4)}+y''=0$\dotfill{ 令$p=y''$}
+\end{enumerate}
+
+\section{可降阶的二阶微分方程}
 
 高阶微分方程的求解显然需要通过多次积分，通过一步步地降低其阶数来实现。
 
@@ -450,6 +560,27 @@ $$y''=f(x,y,y')$$
 	$$\df{\d p}{\d x}=f(x,p).$$
 	由该方程解出$p(x)$，在进一步求解$y^{(n-1)}=p(x)$即可。
 \end{thx}
+
+{\bf 例：}证明：曲率为常数的平面曲线必为圆或直线。
+
+[证]：设方程为
+$$\df{|y''|}{{[1+(y')^2]^{\frac32}}}=K,\quad (K>0),$$
+显然方程可以改写为
+$$y''=K_1[1+(y')^2]^{\frac32},\quad (K_1\in\mbb{R}).$$
+令$p(x)=y$，方程化为
+$$p'=K_1[1+(y')^2]^{\frac32},$$
+分离变量解之可得
+$$p=\df{K_1x+C}{\sqrt{1-(K_1x+C)^2}},\quad (C\in\mbb{R}),$$
+也即
+$$y'=\df{K_1x+C}{\sqrt{1-(K_1x+C)^2}},$$
+对其两边积分，可解得
+$$y=-\df{\sqrt{1-(K_1x+C)^2}}{K_1}+C_2,\quad(C,C_2\in\mbb{R}),$$
+也即
+$$(x-C_1)^2+(y-C_2)^2=\df1{K_1^2},\quad (C_1,C_2\in\mbb{R}).$$
+
+又若$K=0$，方程即为$y''=0$，其通解为$y=C_1x+C_2,\;(C_1,C_2\in\mbb{R})$。
+
+综上可见，曲率为常数的平面曲线必为圆或直线。\fin
 
 \subsection{$y''=f(y,y')$型微分方程}
 
@@ -482,6 +613,28 @@ $$y''=f(x,y,y')$$
   \item 可以推广以上的方法求解如下的微分方程吗？
   $$y''=f(x,y),\quad y^{(n)}=f(y,y^{(n-1)})$$
 \end{enumerate}
+
+{\bf 例：}证明：曲率为常数的平面曲线必为圆或直线。
+
+[证]：设曲线方程为$y=y(x)$，曲率为$K\geq0$。由曲率的定义
+$$\df{|y''|}{[1+(y')^2]^{3/2}}=K,$$
+也即
+$$y''=[1+(y')^2]^{3/2}K_1,\quad(K_1\in\mathbb{R}).$$
+
+令$p(y)=y'$，则以上方程化为
+$$pp'=K_1(1+p^2)^{3/2},$$
+分离变量可解得
+$$-\df1{\sqrt{1+p^2}}=K_1(y-C_1),\quad(C_1\in\mathbb{R})$$
+
+若$K\ne 0$，记$R=1/K$，由上式可得
+$$y'=\pm\df{\sqrt{R^2-(y-C_1)^2}}{y-C_1}.$$
+进一步两边积分，可得
+$$-\sqrt{R^2-(y-C_1)^2}=\pm(x-C_2),\quad(C_2\in\mathbb{R})$$
+也即
+$$(x-C_2)^2+(y-C_1)^2=R^2.$$
+
+若$K=0$，则有$y''=0$，此时对应曲线方程为$y=C_1x+C_2,\;(C_1,C_2\in\mathbb{R})$.
+\fin
 
 \begin{shaded}
 
@@ -531,13 +684,17 @@ $$R^{\frac32}=\df32\sqrt{2GM_0}t+C_1$$
 	
 	求解下列初值问题
 	\begin{enumerate}
-% 	  \item 求解下列初值问题
-% 	  \begin{enumerate}[(1)]
+	  \item 求解下列初值问题
+	  \begin{enumerate}[(1)]
 	    \item $xy''=y',y(0)=1,y'(1)=0$
 	    \item $y''+(y')^2=1,y(0)=y'(0)=1$
 	    \item $y''-y=0,y(0)=0,y'(0)=1$
-% 	  \end{enumerate}
-% 	  \item 
+	  \end{enumerate}
+	  \item 已知曲线$y=y(x)$光滑、严格单调递增，且经过点$(0,1)$。
+	  记其上任一点$P(x,y)$处的切线与$x$轴的交点为$Q$，以$PQ$为斜边，
+	  $x$轴为一条直角边的直角三角形的面积为$S_1$。对应于区间$[0,x]$的
+	  曲线段与$x$轴之间的曲边梯形面积为$S_2$。已知$2S_1-S_2=1$，求
+	  曲线方程。
 	\end{enumerate}
 \end{ext}
 
@@ -644,31 +801,33 @@ $$e^{rx}(r^2+pr+q)=0$$
 即：$r^2+pr+q=0$ 。显然，若$r$为该{\bf 特征方程}的根，则
 $y=e^{rx}$为原方程的解。
 
-{\bf 教材-表7.4.1}（死记！！！）
-记$\Delta=p^2-4q$， 则：
-\begin{center}
-	\begin{tabular}{c|c|c|c}
-		\hline
-		{$\Delta$} & {$r$} & {特解} & {通解} \\ \hline 
-		$\Delta>0$ & \begin{tabular}{cc}相异实根 \\ $r_1,r_2$\end{tabular} &
-		$\begin{array}{ll}y_1=e^{r_1x}\\ y_2=e^{r_2x}\end{array}$ &
-		{$C_1e^{r_1x}+C_2e^{r_2x}$}\\ \hline 
-		$\Delta=0$ & 二重实根$r$ &
-		$\begin{array}{ll}y_1=e^{rx}\\ y_2=xe^{rx}\end{array}$ &
-		{$(C_1+xC_2)e^{rx}$}\\ \hline 
-		$\Delta<0$ & \begin{tabular}{cc}共轭复根\\ $\alpha\pm i\beta$\end{tabular} &
-		$\begin{array}{ll}y_1=e^{\alpha x}\cos\beta x\\ y_2=e^{\alpha
-		x}\sin\beta x\end{array}$ & 
-		{$\begin{array}{ll}e^{\alpha x}(C_1\cos\beta x +C_2\sin\beta
-		x)\end{array}$}\\ \hline
-	\end{tabular}
-\end{center}
+\begin{thx}
+	{\bf 二阶常系数线性微分方程的通解：}
+	记$\Delta=p^2-4q$， 则：
+	\begin{center}
+		\begin{tabular}{c|c|c|c}
+			\hline
+			{$\Delta$} & {$r$} & {特解} & {通解} \\ \hline 
+			$\Delta>0$ & \begin{tabular}{cc}相异实根 \\ $r_1,r_2$\end{tabular} &
+			$\begin{array}{ll}y_1=e^{r_1x}\\ y_2=e^{r_2x}\end{array}$ &
+			{$C_1e^{r_1x}+C_2e^{r_2x}$}\\ \hline 
+			$\Delta=0$ & 二重实根$r$ &
+			$\begin{array}{ll}y_1=e^{rx}\\ y_2=xe^{rx}\end{array}$ &
+			{$(C_1+xC_2)e^{rx}$}\\ \hline 
+			$\Delta<0$ & \begin{tabular}{cc}共轭复根\\ $\alpha\pm i\beta$\end{tabular} &
+			$\begin{array}{ll}y_1=e^{\alpha x}\cos\beta x\\ y_2=e^{\alpha
+			x}\sin\beta x\end{array}$ & 
+			{$\begin{array}{ll}e^{\alpha x}(C_1\cos\beta x +C_2\sin\beta
+			x)\end{array}$}\\ \hline
+		\end{tabular}
+	\end{center}
+\end{thx}
 
 注：$\Delta=0$时，$y_1=e^{rx}$，由Liouville公式
 $$y_2=y_1\dint\df{e^{\int p\d x}}{y_1^2}\d x
 =e^{rx}\dint e^{-(p+2r)x}\d x=e^{rx}\dint\d x=xe^{rx}$$
 
-{\bf 教材-例3-5}（自行阅读）
+{\bf 例：}
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $y''-y'-2y=0$
@@ -1052,11 +1211,34 @@ $$x^3y'''+px^2y''+qxy'+ry=0$$
 \begin{ext}
 	{\bf 课后作业}
 	\begin{enumerate}
-	  \item 求级数$\sumn[0]\df{x^{4n}}{(4n)!}$的和函数。
-	\end{enumerate}
+	  \item 求解下列微分方程
+	  \begin{enumerate}[(1)]
+	    \item $y''-y=e^x+\cos x$
+	    \item $y^{(4)}+y''=1$
+	  \end{enumerate}
+	  \item 求级数$\sumn[0]\df{x^{2n}}{(2n)!}$的和函数。
+	  \item 设$\varphi'(x)=e^x+\sqrt x\dint_0^{\sqrt x}\varphi(\sqrt x u)\d u,$
+	  $\varphi(0)=0$，求$\varphi(x)$。
+	  \item 设$y(x)$在$\mathbb{R}$上具有二阶连续导数，$y'\ne 0$，$x=x(y)$
+	  为其反函数。
+	    \begin{enumerate}[(1)]
+	      \item 试将$x=x(y)$所满足的微分方程
+	      $$\df{\d^2x}{\d y^2}+(y+\sin x)\left(\df{\d x}{\d y}\right)^3=0$$
+	      变换为$y=y(x)$所满足的微分方程；%\hfill$y''-y=-\sin x$
+	      \item 求变换后的微分方程满足初始条件$y(0)=0$和$y'(0)=1.5$的解。
+	    \end{enumerate}
+	    \item 设以质量为$m$的质点作直线运动。从速度等于零的时刻起，有一个与其运动方向
+		一致、大小与时间成正比（比例系数为$a$）的力作用于它，与此同时地面对其的阻力
+		大小与其速度成正比（比例系数为$b$），求该质点的位移函数$S(t)$（设初始位移$S(0)=0$）。
+% 	    \item 
+	  \end{enumerate}
+% 	  设特解$y^*=A\cos x+B\sin x$，解得$A=0,B=1/2$，故通解
+% 	  $$y=C_1e^x+C_2e^{-x}+\df12\sin x,$$
+% 	  利用初值条件，得所求特解
+% 	  $$y=e^x-e^{-x}+\df12\sin x$$
 \end{ext}
 
-\section{小结与习题课}
+\section{小结}
 
 微分方程经常被认为是高等数学中最难掌握的内容，究其原因无外有二：一是方程类型众多，
 套路不一，且方程的形式稍加变化，即导致所学习的“套路”失效；二是求解过程中需要进行
@@ -1069,6 +1251,560 @@ $$x^3y'''+px^2y''+qxy'+ry=0$$
 从考试的角度，通过变换求解各种可能形式的一阶微分方程和求解二阶常系数非齐次线性微分方程，
 一直都是“热点”，特别是后者结合高阶线性微分方程解的结构，可以演化出许多不同类型的题目，
 具体的例子在教学辅导书上有很多。
+
+\newpage
+
+\section*{作业参考解答}
+
+\begin{center}
+	\bf 7.1 概念与应用
+\end{center}
+
+1.请给出如下通解对应的微分方程，并给出其满足给定初值条件的特解：
+  \begin{enumerate}[(1)]
+    \setlength{\itemindent}{1cm}
+    \item $y=x^2+C_1x+C_2$，其中$C_1,C_2$为任意常数，$y(0)=y'(0)=1$； 
+    \item $y=\df{1+Ce^t}{1-Ce^t}$，其中$C$为任意常数，$y(0)=2$；
+    \item $y=(C_1+C_2x)e^x$，其中$C_1,C_2$为任意常数，$y(0)=0,y'(1)=1$。
+% 	\item $y=C_1\sin x+C_2\cos x+e^x$，其中$C_1,C_2$为任意常数，$y(0)=0,y'(\pi)=0$。
+  \end{enumerate}
+
+[解]：（1）原方程两边对$x$连续两次求导，可得
+$$y'=2x+C_1,\quad y''=2,$$
+即为所求方程。
+
+将$y(0)=y'(0)=1$分别带入通解和上述第一个方程可得$C_1=C_2=1$，故
+所求特解为$y=x^2+x+1$。
+
+（2）原方程可化为
+$$C=\df{y-1}{y+1}e^{-t},$$
+两边对$t$求导，可得
+$$0=\df{2y'-y^2+1}{(y+1)^2}e^{-t},$$
+从而可得
+$$2y'-y^2+1=0,\quad(y\ne-1),$$
+即为所求方程。
+
+将$y(0)=2$带入通解可得$C=\frac13$，从而所求特解为
+$y=\df{3+e^t}{3-e^t}$。
+
+
+（3）原方程可化为
+$$ye^{-x}=C_1+C_2x,$$
+两边对$x$连续两次求导，可得
+$$(y'-y)e^{-x}=C_2,\quad
+(y''-2y'+y)e^{-x}=0.$$
+因为$e^{-x}\ne0$，故所求方程即为
+$$y''-2y'+y=0.$$
+
+又将$y(0)=0,y'(1)=1$带入通解和前述第一个方程中，可得
+$C_1=0,C_2=\frac1{2e}$，从而所求特解为$y=\frac12xe^{x-1}$。
+\fin
+
+\bs
+
+2.设河边点$O$的正对岸为点$A$,河宽$h$，两岸平行，水流速度恒定为$a$。
+一只鸭子从点$A$游向点$O$，游动过程中其始终朝向$O$点。已知鸭子在
+静水中的游速为$b(b>a)$，以$O$为原点，水流方向为$x$轴，垂直于水流
+过河的方向为$y$轴，试给出鸭子的运动轨迹所满足的微分方程初值问题。
+
+[解]：如图，
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{./images/ch7/duck.jpg}
+\end{center}
+在鸭子运动轨迹上任一点$(x,y)$处，其运动满足
+$$x'_t=a-b\cos\theta,\quad y'_t=-b\sin\theta,$$
+其中
+$$\sin\theta=\df{y}{\sqrt{x^2+y^2}},\quad
+\cos\theta=\df{x}{\sqrt{x^2+y^2}},$$
+故
+$$y'_x=\df{y'_t}{x'_t}=\df{-by}{a\sqrt{x^2+y^2}-bx},$$
+显然$y(0)=h$，故所求初值问题为
+$$
+	\left\{\begin{array}{l}
+		y'=\df{-by}{a\sqrt{x^2+y^2}-bx},\\
+		y(0)=h.
+	\end{array}\right.
+$$
+\fin
+
+\bs
+
+\begin{center}
+	\bf 7.2 一阶微分方程的解法
+\end{center}
+
+1.求解下列微分方程：
+  \begin{enumerate}[(1)]
+    \setlength{\itemindent}{1cm}
+    \item $xy'-y+\sqrt{x^2-y^2}=0,(x>0)$
+    \item $y'=(x+y)^2$
+    \item $x\ln x\d y+(y-\ln x)\d x=0$ 
+    \item $3y'+y=(1-x)y^4$
+  \end{enumerate}
+
+[提示]：（1）令$z=\frac yx$，则原方程可化为
+$$xz'+\sqrt{1-z^2}=0.$$
+当$\sqrt{1-z^2}\ne 0$时，该方程分离变量，解得$z=\sin(-\ln x+C)$。
+当$\sqrt{1-z^2}=0$时，方程有解$y=\pm x$。
+
+综上，原方程的解为
+$$y=x\sin(\ln x+C),\;(x\in\mbb{R})
+\quad\mbox{或}\quad y=\pm x.$$
+
+（2）令$z=x+y$，则原方程可化为
+$$z'-1=z^2,$$
+该方程分离变量，解得$z=\tan(x+C)$，进而原方程的解为
+$$x+y=\tan(x+C),\;(C\in\mbb{R}).$$
+
+（3）令$u=\ln x$，则原方程可化为
+$$u\d y+(y-u)\d u=0,$$
+该方程是一个齐次方程（也是一个全微分方程），可解得
+$2yu-u^2=C$，故原方程的解为
+$$(2y-\ln x)\ln x=C,\;(C\in\mbb{R}).$$
+
+（4）该方程为Bernoulli方程。当$y\ne0$时，令
+$z=y^{-3}$，则原方程可化为
+$$-z'+z=1-x,$$
+该方程为一阶非齐次线性微分方程，可解得
+$z=-x+Ce^x$。显然$y=0$是方程的特解。综上原方程的解为
+$$y^3(-x+Ce^x)=1,\;(C\in\mbb{R}),\;\mbox{或}\;y=0.$$
+\fin
+
+\bs
+
+2.某湖泊的水量为$V$，每年排入湖内的污水和净水量均为$V/6$，且湖内的总水量不变。
+已知1999年底湖内的污染物含量为$5m_0$。为了治理污染，从2000初开始，限定排入
+湖中的污水中污染物浓度不得超过$m_0/V$。问至少需要经过多少年，
+湖内的污染物含量能够降至$m_0$以下？（注：假设湖水中的污染物浓度是均匀分布的。）
+
+[解]：设$m(t)$为自2000年起第$t$年时湖内的污染物总量，则
+$$m'=\df{m_0}6-\df{m}3,$$
+且$m(0)=5m_0$。解之可得
+$$m=\df{m_0}2\left(1+9e^{-\frac13t}\right).$$
+令$m<m_0$，可得$t>3\ln9\approx6.59$，故大约7年后，湖水中的污染物含量可以
+降至$m_0$以下。\fin
+
+3.已知$f(0)=0,f(1)=1$，且当$x\in(0,1)$时，$f''(x)<0$。任取曲线
+$y=f(x)$上一点$(x,f(x)),\;(x\in(0,1))$，该点与原点的连线与曲线所围图形
+面积为$x^2$，求$f(x)$。
+
+[解]：如图，
+\begin{center}
+	\includegraphics[width=0.45\textwidth]{./images/ch7/fxx2.jpg}
+\end{center}
+由已知
+$$\dint_0^xf(t)\d t-\df12xf(x)=x^2,\quad x\in[0,1],$$
+两边求导，整理得
+$$f(x)-xf'(x)=4x.$$
+该方程为一阶非齐次线性微分方程，解之得
+$$f(x)=(-4\ln x+C)x,\;(C\in\mbb{R},x\in(0,1)),$$
+带入$f(1)=1$，可解得$C=1$，从而所求曲线的方程为
+$$f(x)=\left\{\begin{array}{ll}
+	0,& x=0,\\
+	(-4\ln x+1)x,& x\in(0,1].
+\end{array}\right.$$
+\fin
+
+\bs
+
+4.某学生将乘积的导数公式错误地记作$(fg)'=f'g'$，然而在一次求导时居然
+得到了正确的结果。目前知道他使用的$f(x)=e^{x^2}\,(x>1/2)$，
+问他用到的$g(x)$可能是什么？
+
+[解]：由已知
+$$(e^{x^2}g(x))'=(e^{x^2})'g'(x),$$
+展开化简可得
+$$2xg=(2x-1)g',$$
+该方程分离变量，求解可得
+$$g(x)=Ce^x\sqrt{2x-1},\;(x>\frac12).$$
+\fin
+
+\bs
+
+\begin{center}
+	\bf 7.3 可降阶的二阶微分方程
+\end{center}
+
+1.求解下列初值问题
+
+（1）$xy''=y',y(0)=1,y'(1)=0$
+
+[解]：令$p(x)=y'$，则原方程即为
+$$xp'=p,$$
+分离变量可解得$p=Cx,\;(C\in\mbb{R})$，也即
+$$y'=Cx,$$
+从而可得
+$$y=C_1x^2+C_2,\quad (C_1,C_2\in\mbb{R}),$$
+带入初值条件可得$C_2=1,C_1=0$，故所求方程的特解为
+$$y=1.$$
+
+\bs
+
+（2）$y''+(y')^2=1,y(0)=y'(0)=1$
+
+[解]：令$p(x)=y'$，则原方程即为
+$$p'+p^2=1,$$
+注意到$p(0)=y'(0)=1$，故必有$p=y'=1$，进而可得
+$$y=x+C,$$
+又$y(0)=1$，可得$C=1$，从而所求特解为
+$$y=x+C.$$
+
+\bs
+
+（3）$y''-y=0,y(0)=0,y'(0)=1$
+
+[解]：令$p(y)=y'$，则原方程化为
+$$pp'-y=0,$$
+分离变量解之可得$p=\sqrt{y^2+C_1},\;(C_1\in\mbb{R})$，也即
+$$y'=\sqrt{y^2+C_1},$$
+带入初值条件，可解得$C_1=1$，进而
+$$y'=\sqrt{y^2+1},$$
+分离变量解之可得
+$$y=\df{e^{x+C_2}-e^{-(x+C_2)}}2,\quad (C_2\in\mbb{R}),$$
+在此带入初值条件，可得$C_2=0$，故所求方程的特解为
+$$y=\df{e^x-e^{-x}}2.$$
+\fin
+
+\bs
+
+2.已知曲线$y=y(x)$光滑、严格单调递增，且经过点$(0,1)$。
+记其上任一点$P(x,y)$处的切线与$x$轴的交点为$Q$，以$PQ$为斜边，
+$x$轴为一条直角边的直角三角形的面积为$S_1$。对应于区间$[0,x]$的
+曲线段与$x$轴之间的曲边梯形面积为$S_2$。已知$2S_1-S_2=1$，求
+曲线方程。
+
+[解]：如图
+\begin{center}
+	\resizebox{!}{7cm}{\includegraphics{./images/ch7/eX.pdf}}
+\end{center}
+设所求曲线为$y=y(x)$，过其上任一点$P(x,y)\;(x\geq 0)$的切线为
+$$Y=y+y'(X-x),$$
+与$x$轴相交于$Q(x-x/y',0)$。由于$y'>0$，故当$x\geq 0$时，恒有$y\geq 1$，故
+$$S_1=\df12y\left[x-\left(x-\df{y}{y'}\right)\right]=\df{y^2}{2y'}.$$
+又
+$$S_2=\dint_0^xy(t)\d t,$$
+由已知$2S_1-S_2=1$，也即
+$$\df{y^2}{y'}-\dint_0^xy(t)\d t=1.$$
+
+对该方程两边连求导，并取$x=0$可得
+$$\left\{\begin{array}{l}
+yy''=(y')^2\\
+y(0)=1\\
+y'(0)=1
+\end{array}\right.$$
+解之得$y=e^x$，即为所求。\fin
+
+\bs
+
+\begin{center}
+	\bf 7.4 二阶线性微分方程
+\end{center}
+
+1.求解下列微分方程
+  \begin{enumerate}[(1)]
+    \setlength{\itemindent}{1cm}
+    \item $y''-y=e^x+\cos x$
+    \item $y^{(4)}+y''=1$
+  \end{enumerate}
+
+[解]：（1）该方程的特征方程为$r^2-1=0$，特征根为$r=\pm1$，
+故其对应的齐次方程的通解为$y=C_1e^x+C_2e^{-x},(C_1,C_2\in\mbb{R})$。
+
+利用叠加原理，可以设原方程的特解为
+$$y^*=Axe^x+(B\cos x+C\sin x),$$
+带入原方程可得
+$$2Ae^x-2B\cos x-2C\sin x=e^x+\cos x,$$
+从而可得$A=\frac12,B=-\frac12,C=0$。
+
+综上，原方程的通解为
+$$y=C_1e^x+C_2e^{-x}+\df12xe^x-\df12\cos x,\quad (C_1,C_2\in\mbb{R})$$
+
+\bs
+
+（2）令$z=y''$，则原方程可化为
+$$z''+z=1,$$
+求解该方程可得其通解为$z=C_1\cos x+C_2\sin x+1,(C_1,C_2\in\mbb{R})$，
+也即
+$$y''=C_1\cos x+C_2\sin x+1,$$
+对其两边连续两次积分可得
+$$y=C_3\cos x+C_4\sin x+\df12x^2+C_5x+C_6,\quad (C_3,C_4,C_5,C_6\in\mbb{R}),$$
+即为原方程的通解。\fin
+
+\bs
+
+2.求级数$\sumn[0]\df{x^{2n}}{(2n)!}$的和函数。
+
+[解]：该级数的收敛域为$(-\infty,+\infty)$，设其和函数为$S(x)$，则
+$$S''(x)=S(x).$$
+这是一个二阶常系数齐次线性微分方程，解之可得
+$$S(x)=C_1e^x+C_2e^{-x},\quad(C_1,C_2\in\mbb{R}).$$
+注意到$S(0)=1,S'(0)=0$，带入以上的通解，可得$C_1=C_2=\frac12$，故
+$$\sumn[0]\df{x^{2n}}{(2n)!}=\df{e^x+e^{-x}}2,\quad(x\in\mbb{R}).$$
+\fin
+
+\bs
+
+3.设$\varphi'(x)=e^x+\sqrt x\dint_0^{\sqrt x}\varphi(\sqrt x u)\d u,$
+$\varphi(0)=0$，求$\varphi(x)$。
+
+[解]：令$t=\sqrt xu$，则已知方程即为
+$$\varphi'(x)=e^x+\dint_0^x\varphi(t)\d t,$$
+对其两边关于$x$求导，结合已知条件，可得到初值问题
+$$
+	\left\{\begin{array}{l}
+		\varphi''(x)-\varphi(x)=e^x,\\
+		\varphi(0)=0,\\
+		\varphi(0)=1.
+	\end{array}\right.
+$$
+解之可得
+$$\varphi(x)=\df14e^x-\df14e^{-x}+\df12xe^x.$$
+\fin
+
+\bs
+
+4.设$y(x)$在$\mathbb{R}$上具有二阶连续导数，$y'\ne 0$，$x=x(y)$
+  为其反函数。
+    \begin{enumerate}[(1)]
+      \setlength{\itemindent}{1cm}
+      \item 试将$x=x(y)$所满足的微分方程
+      $$\df{\d^2x}{\d y^2}+(y+\sin x)\left(\df{\d x}{\d y}\right)^3=0$$
+      变换为$y=y(x)$所满足的微分方程；%\hfill$y''-y=-\sin x$
+      \item 求变换后的微分方程满足初始条件$y(0)=0$和$y'(0)=1.5$的解。
+    \end{enumerate}
+
+[解]：（1）
+$$\df{\d^2x}{\d y^2}=\df{\d x'}{\d y}
+=\df{\d(1/y')}{\d y}=
+\df{\df{\d\frac1{y'}}{\d x}}{\df{\d y}{\d x}}=-\df{y''}{(y')^3},$$
+从而原方程可化为
+$$y''-y=\sin x.$$
+(2)以上方程对应的齐次方程的通解为$y=C_1e^x+C_2e^{-x},(C_1,C_2\in\mbb{R})$。
+设该方程的特解为$y^*=A\cos x+B\sin x$，带入方程可得
+$$-2A\cos x-2B\sin x=\sin x,$$
+从而可得$A=0,B=-\frac12$，故该方程的通解为
+$$y=C_1e^x+C_2e^{-x}-\df12\sin x,\quad (C_1,C_2\in\mbb{R}).$$
+\fin
+
+\bs
+
+5.设以质量为$m$的质点作直线运动。从速度等于零的时刻起，有一个与其运动方向
+一致、大小与时间成正比（比例系数为$a$）的力作用于它，与此同时地面对其的阻力
+大小与其速度成正比（比例系数为$b$），求该质点的位移函数$S(t)$（设初始位移$S(0)=0$）
+
+[解]：由已知
+$$S''(t)=\df{at}m-\df{bS'(t)}m.$$
+该方程对应的齐次方程的通解为$S(t)=C_1+C_2e^{-\frac{bt}m},(C_1,C_2\in\mbb{R})$。
+
+设该方程的特解为$S^*(t)=(At+B)t$，带入方程可得
+$$2A+\df bm(2At+B)=\df{at}m,$$
+由此解得$A=\df{a}{2b},B=-\df{ma}{b^2}$。
+
+综上原方程的通解为
+$$S(t)=C_1+C_2e^{-\frac{bt}m}+\df{at^2}{2b}-\df{mat}{b^2},
+\quad (C_1,C_2\in\mbb{R})$$
+
+又$S(0)=S'(0)=0$，带入通解中可得$C_1=\frac{m^2a}{b^3},C_2=-\frac{m^2a}{b^3}$，
+进而所求位移函数为
+$$S(x)=\frac{m^2a}{b^3}\left(1-e^{-\frac{bt}m}\right)
++\df{at^2}{2b}-\df{mat}{b^2}.$$
+\fin
+
+% \section*{课后作业}
+% \addcontentsline{toc}{section}{课后作业}
+% 
+% 
+% {\bf 【必作题】}
+% 
+% \begin{itemize}
+%   \setlength{\itemindent}{1cm}
+%   \item 习题7.1：6，8，13
+%   \item 习题7.2：3，4(2,3,5,6)，6(1,2)，7，8
+%   \item 求解如下方程
+% 	\begin{enumerate}[(1)]
+% 	  \setlength{\itemindent}{1cm}
+% 	  \item $y'=\df{1}{2x-y^2}$
+% 	  \item $y'=\df{x}{x^2-y^2}$
+% 	  \item $xy'=\sqrt{x^2-y^2}+y$
+% 	  \item $y'=\df{3x^2+y^2-6x+3}{2xy-2y}$
+% 	  \item $xy'+y=2\sqrt{xy}$
+% 	  \item $xy'+y=y(\ln x+\ln y) $
+% 	  \item $xy'\ln x+y=ax(\ln x+1)$
+% 	  \item $y'=\df{y}{2(\ln y-x)}$
+% 	  \item $y'+x=\sqrt{x^2+y}$
+% 	  \item $y'-\df{y}{x}=\df{2x}{3y^2}$
+% 	  \item $2x\ln x\d y+y(y^2\ln x-1)\d x=0$
+% 	\end{enumerate}
+%   \item 习题7.3：2(1,3,5)，4，7(注：倒数第二行$[0,1]$改为$[0,x]$)
+%   \item 习题7.4：6，12，13，14(1)
+%   
+% \end{itemize}
+% 
+% \bigskip
+% 
+% \hrule
+% 
+% \bigskip
+% \bigskip
+% 
+% {\bf 【思考题】}
+% 
+% \begin{itemize}
+%   \setlength{\itemindent}{1cm}
+%   \item 习题7.2：12
+%   \item 习题7.3：3，5
+%   \item 习题7.4：8，9，11，13，15，16
+% \end{itemize}
+
+% \newpage
+% 
+% \section*{习题参考解答}
+% \addcontentsline{toc}{section}{习题参考解答}
+% 
+% % {\it 注：以下题目的编号和顺序可能与作业有所不同，请留意！欢迎纠错：）}
+% 
+% {\bf 习题7.1}
+% 
+% \bigskip
+% 
+% 6.\;(1)$y'=\df{2y}x-1$,\quad (2)$y''=2y'-y$
+% 
+% \bigskip
+% 
+% 8.\;$y''x=4x-y'$
+% 
+% \bigskip
+% 
+% 13.
+% 
+% 
+% 
+% \bigskip
+% 
+% {\bf 习题7.2}
+% 
+% \bigskip
+% 
+% 3.\; (1)$y=\tan(x-1)$\quad (2)$\ln|y|+\df12y^2=\sin x+\df12$
+% \quad (3)$y=\sqrt{1+2x^2}$
+% 
+% \quad(4)$\cos y=\df{\sqrt2}4(e^x+1)$\quad(5)$y^2-x^2=y^3$
+% \quad(6)$y^2=2(\ln x+1)x^2$
+% 
+% \bigskip
+% 
+% 4.\;(2)$\df23(x+1)^{\frac72}+C(x+1)^2$\quad(3)$y=-x^2+Cx^3$
+% 
+% \quad(4)$y\cos x=x+C$\quad(5)$xy=-\cos x+C$\quad(6)$4xy=y^4+C$
+% 
+% \bigskip
+% 
+% 6.\;(1)$x^2+y^2+y+\df12=Ce^{2y}$\quad (2)$y(Ce^x-\sin x)=1$
+% 
+% \bigskip
+% 
+% 7.\;解：在已知等式中令$x=y=0$，可得$f(0)=1$。又对任意$x$，
+% \begin{align*}
+% 	f'(x)&=\lim\limits_{\Delta x\to0}\df{f(x+\Delta x)-f(x)}{\Delta x}
+% 	=\lim\limits_{\Delta x\to0}\df{f(x)f(\Delta x)-f(x)f(0)}{\Delta x}\\
+% 	&=f(x)\lim\limits_{\Delta x\to0}\df{f(\Delta x)-f(0)}{\Delta x}
+% 	=f(x)f'(0)=2f(x)
+% \end{align*}
+% 求解初值问题：$f'(x)=2f(x),f(0)=1$，可得$f(x)=e^{2x}$。
+% 
+% \bigskip
+% 
+% 8.\;解：原式两边同时关于$x$求导，整理后可得
+% $$\dint_0^xy(t)\d t=x^2y+\dint_0^xty(t)\d t,$$
+% 再次求导可得
+% $$x^2y'=-(3x-1)y,$$
+% 利用分量变量法求解，可得其通解为$x^3y=Ce^{-1/x}$，即为所求。
+% 
+% 
+% 
+% 2.\;(1)$y=x^3+x+1$\quad(3)$y=2-\ln4+\ln x^2$\quad(5)$y=e^{-x}$
+
+\visibletrue
+
+\ifvisible
+
+	\newpage
+	
+	{\bf 关于“神之课代表”所写题目的解释：}
+	
+	{\it 题目来源：辅导书（下）-P242-例10-18，题目及解答如图：}
+	
+	\begin{center}
+		\resizebox{!}{7cm}{\includegraphics{./images/ch7/p242.jpg}}
+	\end{center}
+	
+	{\it 这个解答没有问题，只是有些简略，导致不好理解。以下是我在此基础上进一步细化后的解答：}
+	
+	{\bf 解：}由于右端函数为$\gamma e^x$，故原方程的特解应该形如
+	$$y^*=x^ke^x,$$
+	其中$k$可能为$0,1,2$。
+	
+	根据线性微分方程解的结构定理，非齐次线性微分方程的特解可以由对应的齐次方程的多个特解与
+	该非齐次方程的一个特解相加得到。以下利用该结论进行分析：
+	
+	注意到
+	$$(e^{2x})''+\alpha(e^{2x})'+\beta e^{2x}
+	=(4+2\alpha+\beta)e^{2x},$$
+	故$e^{2x}$不可能是原（非齐次）方程的特解，从而只能是对应的齐次方程的特解。
+	由此可知，$r=2$是方程的特征方程的根，
+	
+	根据上一步的结论，可知$(1+x)e^x$中必然包含了原（非齐次）方程的特解，现在的问题是要将
+	这个特解的部分找出来。在此我们可以断言$(1+x)e^x$这个整体不可能就是原（非齐次）方程的特解
+	（因为它不具备前述$y^*$所应有的形式），特解只能是$e^x$和$xe^x$之一。
+	换言之，$e^x$和$xe^x$两者一个是原（非齐次）方程的特解，另一个是对应的齐次方程的特解。
+	
+	若$xe^x$是对应的齐次方程的特解。根据二阶常系数齐次线性微分方程的通解公式，只有当$r=1$
+	为其特征方程的二重根时，解才会有形如$C_1e^x+C_2xe^x$的构造。而由前面的分析我们
+	已知$r=2$是特征方程的一个根，故$xe^x$只能是原（非齐次）方程的特解。进而$y=e^x$
+	必然是对应的齐次方程的特解。
+	
+	综上可知，原（非齐次）方程有特解$xe^x$，其特征方程有相异实根$r=1,r=2$。
+	
+	以下步骤和原解答相同，略。
+	
+% 	\newpage
+% 	
+% 	\section*{作业要求}
+% 	
+% 	\begin{center}
+% 		（试行版，2015年春季学期）
+% 	\end{center}
+% 	
+% 	\begin{enumerate}
+% 	%   \setlength{\itemindent}{1cm}
+% 	  \item 作业内容分为基本题、上交题和思考题三部分，前两部分为必作题
+% 	  \item 上交与批改
+% 	  \begin{itemize}
+% 	    \item 作业分两部分分别上交
+% 	    \item 基础题每周上交一次，由本连负责人收齐交当周轮值的同学批改
+% 	    \item 上交题及思考题（选作）分三组，每周由其中一组上交，教员负责批改，
+% 	    每次上交须包括前两周未交过的部分
+% 	  \end{itemize}
+% 	  \item 基础题批改
+% 	  \begin{itemize}
+% 	    \item 按照事先排定的值班顺序，确保每人本学期至少轮值一次批改其他同学的作业
+% 	    \item 轮值同学批改其他同学作业后，须
+% 	    \begin{itemize}
+% 	      \item 根据作业正确率按百分制为其打分
+% 	      \item 在作业纸上签名
+% 	      \item 汇总作业情况交给本连负责人，汇总内容包括
+% 	      \begin{itemize}
+% 	        \item 每人的作业成绩
+% 	        \item 作业中大家错误或疑问较多的题目
+% 	      \end{itemize}
+% 	    \end{itemize}
+% 	    \item 连负责人将本连作业情况汇总后交总课代表
+% 	  \end{itemize}
+% 	\end{enumerate}
+	
+	\newpage
+
+\section{附录}
 
 \subsection{内容小结}
 
@@ -1153,205 +1889,7 @@ $$x^3y'''+px^2y''+qxy'+ry=0$$
 
 \subsection{方程求解}
 
-{\bf 例}（合理利用变换和技巧求解微分方程）
-
-\hspace{-1ex}{\bf 【上下颠倒】}
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $y'=\df{1}{2x-y^2}$ \dotfill{“上下颠倒”}，$x=\df12y(y+1)+\df14+Ce^{2y}$
-  \item $y'=\df{x}{x^2-y^2}$\dotfill{“上下颠倒”化为Bernoulli方程}\\
-  {\bf 【齐次方程】}
-  \item $xy'=\sqrt{x^2-y^2}+y$ \dotfill{齐次方程}，$y=x\sin(\ln|x|+C)$
-  \item $y'=\df{3x^2+y^2-6x+3}{2xy-2y}$
-  \dotfill{消去低次项变齐次方程}，$3(x-1)^2-y^2=C(x-1)$\\
-  {\bf 【其他变量替换】}
-  \item $xy'+y=2\sqrt{xy}$\dotfill{ 令$u=xy$}，$\sqrt{xy}=x+C$
-  \item $xy'+y=y(\ln x+\ln y) $ \dotfill{令$z=\ln x, w=\ln y$或$z=xy$}，$xy=Ce^x$
-  \item $xy'\ln x+y=ax(\ln x+1)$\dotfill{ 一阶线性方程}，$y=\df12\ln x+\df C{\ln x}+1$
-  \item $y'=\df{y}{2(\ln y-x)}$\dotfill{ “颠倒”,令$z=\ln y$}，$y^2[1-2(\ln y-x)]=C$
-  \item $y'+x=\sqrt{x^2+y}$\dotfill{ 令$z=\sqrt{x^2+y}-x$}，
-  $x^2+y=(x+C)(2\sqrt{x^2+y}-x)$\\
-  {\bf 【Bernouli方程】}
-  \item $y'-\df{y}{x}=\df{2x}{3y^2}$ \dotfill{Bernouli方程}，$y^3=Cx^3-2x^2$
-  \item $2x\ln x\d y+y(y^2\ln x-1)\d x=0$\dotfill{令$z=\ln x$，Bernouli方程}\\
-  \hfill $\df1{y^2}=\df12\ln x+\df C{\ln x}$\\
-  {\bf 【降阶计算】}
-  \item $y^{(4)}+y''=0$\dotfill{ 令$p=y''$}
-\end{enumerate}
-
-\subsection{全微分方程}
-
-{\bf 例}
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $(e^x+e^{x+y})\d x+(e^y+e^{x+y})\d y=0$
-  \item $(3y^2+2xy)\d y+(y^2+5x^4)\d x=0$
-  \item $x\d x+y\d y+\df{y\d y-x\d x}{x^2+y^2}=0$
-  \item $y\d x+x\d y+\df{x\d y-y\d x}{x^2+y^2}=0$\dotfill$xy+\arctan\df yx=C$ 
-\end{enumerate}
-
-\subsection{综合应用}
-
-{\bf 例：}已知$f(x)$在$\mathbb{R}$上有定义，且对任意$x,y$，有
-$f(x+y)=f(x)f(y)$，又$f'(0)=2$，求$f(x)$。
-
-{\bf 例：}$f'(0)=2$，
-$$f(x+y)=xf(y)+f(x)f(y)+yf(x)-(x-xy+y)$$
-$$f'(x)=3f(x)+3x-1,\;f(0)=1\Rightarrow f(x)=e^{3x}-x$$
-
-{\bf 例：}设$F(x)=f(x)g(x)$，且$f'(x)=g(x),\;g'(x)=f(x)$，
-$f(0)=0$，$f(x)+g(x)=2e^x$
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 求$F(x)$所满足的一阶微分方程；
-  \item 求$F(x)$的表达式；
-  \item 求$f(x),g(x)$的表达式。
-\end{enumerate}
-
-{\bf 例：}求满足$\dint f(x)\d x\dint\df1{f(x)}\d x=1$的所有函数。
-
-$$f'(x)=\pm f'(x),\;f(x)=Ce^{\pm x}$$
-
-{\bf 例：}设$\varphi(x)=e^x-\dint_0^x(x-u)\varphi(u)du,$
-其中$\varphi(x)$连续，求其函数表达式。
-
-{\bf 例：}设$\varphi'(x)=e^x+\sqrt x\dint_0^{\sqrt x}\varphi(\sqrt x u)du,$
-$\varphi(0)=0$，求$\varphi(x)$。
-
-{\bf 例：}某学生将乘积的导数公式错误地记作$(fg)'=f'g'$，然而在一次求导时居然得到了正确的结果。
-目前知道他使用的$f(x)=e^{x^2},(x>1/2)$，问他用到的$g(x)$可能是什么？
-
-$$\left(e^{x^2}g\right)'=\left(e^{x^2}\right)'g'$$
-从而$(2x-1)g'=2xg$，解得$g=Ce^x\sqrt{|2x-1|}$
-
-{\bf 例：}（2003年考研）
-设$y(x)$在$\mathbb{R}$上具有二阶连续导数，$y'\ne 0$，$x=x(y)$
-为其反函数。
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 试将$x=x(y)$所满足的微分方程
-  $$\df{\d^2x}{\d y^2}+(y+\sin x)\left(\df{\d x}{\d y}\right)^3=0$$
-  变换为$y=y(x)$所满足的微分方程；\hfill$y''-y=-\sin x$
-  \item 求变换后的微分方程满足初始条件$y(0)=0$和$y'(0)=1.5$的解。
-\end{enumerate}
-设特解$y^*=A\cos x+B\sin x$，解得$A=0,B=1/2$，故通解
-$$y=C_1e^x+C_2e^{-x}+\df12\sin x,$$
-利用初值条件，得所求特解
-$$y=e^x-e^{-x}+\df12\sin x$$
-
-\newpage
-
-\section*{课后作业}
-\addcontentsline{toc}{section}{课后作业}
-
-
-{\bf 【必作题】}
-
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item 习题7.1：6，8，13
-  \item 习题7.2：3，4(2,3,5,6)，6(1,2)，7，8
-  \item 求解如下方程
-	\begin{enumerate}[(1)]
-	  \setlength{\itemindent}{1cm}
-	  \item $y'=\df{1}{2x-y^2}$
-	  \item $y'=\df{x}{x^2-y^2}$
-	  \item $xy'=\sqrt{x^2-y^2}+y$
-	  \item $y'=\df{3x^2+y^2-6x+3}{2xy-2y}$
-	  \item $xy'+y=2\sqrt{xy}$
-	  \item $xy'+y=y(\ln x+\ln y) $
-	  \item $xy'\ln x+y=ax(\ln x+1)$
-	  \item $y'=\df{y}{2(\ln y-x)}$
-	  \item $y'+x=\sqrt{x^2+y}$
-	  \item $y'-\df{y}{x}=\df{2x}{3y^2}$
-	  \item $2x\ln x\d y+y(y^2\ln x-1)\d x=0$
-	\end{enumerate}
-  \item 习题7.3：2(1,3,5)，4，7(注：倒数第二行$[0,1]$改为$[0,x]$)
-  \item 习题7.4：6，12，13，14(1)
-  
-\end{itemize}
-
-\bigskip
-
-\hrule
-
-\bigskip
-\bigskip
-
-{\bf 【思考题】}
-
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item 习题7.2：12
-  \item 习题7.3：3，5
-  \item 习题7.4：8，9，11，13，15，16
-\end{itemize}
-
-\newpage
-
-\section*{习题参考解答}
-\addcontentsline{toc}{section}{习题参考解答}
-
-% {\it 注：以下题目的编号和顺序可能与作业有所不同，请留意！欢迎纠错：）}
-
-{\bf 习题7.1}
-
-\bigskip
-
-6.\;(1)$y'=\df{2y}x-1$,\quad (2)$y''=2y'-y$
-
-\bigskip
-
-8.\;$y''x=4x-y'$
-
-\bigskip
-
-13.
-
-
-
-\bigskip
-
-{\bf 习题7.2}
-
-\bigskip
-
-3.\; (1)$y=\tan(x-1)$\quad (2)$\ln|y|+\df12y^2=\sin x+\df12$
-\quad (3)$y=\sqrt{1+2x^2}$
-
-\quad(4)$\cos y=\df{\sqrt2}4(e^x+1)$\quad(5)$y^2-x^2=y^3$
-\quad(6)$y^2=2(\ln x+1)x^2$
-
-\bigskip
-
-4.\;(2)$\df23(x+1)^{\frac72}+C(x+1)^2$\quad(3)$y=-x^2+Cx^3$
-
-\quad(4)$y\cos x=x+C$\quad(5)$xy=-\cos x+C$\quad(6)$4xy=y^4+C$
-
-\bigskip
-
-6.\;(1)$x^2+y^2+y+\df12=Ce^{2y}$\quad (2)$y(Ce^x-\sin x)=1$
-
-\bigskip
-
-7.\;解：在已知等式中令$x=y=0$，可得$f(0)=1$。又对任意$x$，
-\begin{align*}
-	f'(x)&=\lim\limits_{\Delta x\to0}\df{f(x+\Delta x)-f(x)}{\Delta x}
-	=\lim\limits_{\Delta x\to0}\df{f(x)f(\Delta x)-f(x)f(0)}{\Delta x}\\
-	&=f(x)\lim\limits_{\Delta x\to0}\df{f(\Delta x)-f(0)}{\Delta x}
-	=f(x)f'(0)=2f(x)
-\end{align*}
-求解初值问题：$f'(x)=2f(x),f(0)=1$，可得$f(x)=e^{2x}$。
-
-\bigskip
-
-8.\;解：原式两边同时关于$x$求导，整理后可得
-$$\dint_0^xy(t)\d t=x^2y+\dint_0^xty(t)\d t,$$
-再次求导可得
-$$x^2y'=-(3x-1)y,$$
-利用分量变量法求解，可得其通解为$x^3y=Ce^{-1/x}$，即为所求。
-
-{\bf 求解如下方程：}
+{\bf 例：}求解如下方程
 
 （1）$y'=\df1{2x-y^2}$
 
@@ -1407,16 +1945,16 @@ $$u'=\df ux\ln u,$$
 分离变量积分可得$\ln u=Cx(C\in\mathbb{R},x>0)$，也即
 $$xy=C_1e^x,(C_1>0,x>0,y>0).$$
 
-% （7）$xy'\ln x+y=\ln x+1$
-% 
-% {\bf 解：}令$t=\ln x$，方程化为
-% $$ty'_t+y=t+1,$$
-% 令$u=ty$，则
-% $$u'_t=t+1,$$
-% 解得$u=\df12t^2+t+C(C\in\mathbb{R})$，也即
-% $$y\ln x=\df12\ln^2x+\ln x+C,(C\in\mathbb{R})$$
+（7）$xy'\ln x+y=\ln x+1$
 
-（7）$xy'\ln x+y=ax(\ln x+1)$
+{\bf 解：}令$t=\ln x$，方程化为
+$$ty'_t+y=t+1,$$
+令$u=ty$，则
+$$u'_t=t+1,$$
+解得$u=\df12t^2+t+C(C\in\mathbb{R})$，也即
+$$y\ln x=\df12\ln^2x+\ln x+C,(C\in\mathbb{R})$$
+
+（8）$xy'\ln x+y=ax(\ln x+1)$
 
 {\bf 解：}令$t=\ln x$，方程化为
 $$ty'_t+y=ae^t(t+1),$$
@@ -1425,7 +1963,7 @@ $$u'_t=ae^t(t+1),$$
 解得$u=ate^t+C(C\in\mathbb{R})$，也即
 $$(y-ax)\ln x=C,(C\in\mathbb{R})$$
 
-（8）$y'=\df y{2(\ln y-x)}$
+（9）$y'=\df y{2(\ln y-x)}$
 
 解：令$u=\ln y$，方程化为
 $$u'=\df1{2(u-x)},$$
@@ -1435,7 +1973,7 @@ $$\df{\d x}{\d u}+2x=2u.$$
 也即
 $$x=\ln y-\df12+\df{C}{y^2},(C\in\mathbb{R})$$
 
-（9）$y'+x=\sqrt{x^2+y}$
+（10）$y'+x=\sqrt{x^2+y}$
 
 解：令$z=\sqrt{x^2+y}-x$，方程化为
 $$2(x+z)z'=-z,$$
@@ -1448,158 +1986,67 @@ $$\df{\d x}{\d z}+\df2zx=-2.$$
 利用一阶非齐次线性微分方程的常数变易法，解得$x=-\df23z+Cz^{-2}(C\in\mathbb{R})$，也即
 $$x=-\df23(\sqrt{x^2+y}-x)+(\sqrt{x^2+y}-x)^{-2},(C\in\mathbb{R}).$$
 
-（10）$y'-\df yx=\df{2x}{3y^2}$
+（11）$y'-\df yx=\df{2x}{3y^2}$
 
 解：该方程为Bernoulli方程，令$z=y^3$，方程化为
 $$z'-\df{3z}x=2x,$$
 利用一阶非齐次线性微分方程的常数变易法，解得
 $$y^3=z=Cx^3-2x^2,(C\in\mathbb{R})$$
 
-（11）$2x\ln x\d y+y(y^2\ln x-1)\d x=0$
+（12）$2x\ln x\d y+y(y^2\ln x-1)\d x=0$
 
 解：令$t=\ln x$，方程化为
 $$y'_t-\df y{2t}=-\df12y^3,$$
 该方程为Bernoulli方程，可解得
 $$\df1{y^2}=\df12\ln x+\df C{\ln x},(x>0,C\in\mathbb{R})$$
 
-% （12）$y\d x+x\d y+\df{x\d y-y\d x}{x^2+y^2}=0$
-% 
-% 解：原方程即为
-% $$\d(xy)+\df{\df1x\d y-y\df1{x^2}\d x}{1+\left(\df yx\right)^2}=0,$$
-% 也即
-% $$\d(xy)+\df{\d\left(\df yx\right)}{1+\left(\df yx\right)^2}=0,$$
-% 也即
-% $$\d\left(xy+\arctan\df yx\right)=0,$$
-% 故原方程的通解为
-% $$xy+\arctan\df yx=C,(C\in\mathbb{R})$$ 
+（13）$y\d x+x\d y+\df{x\d y-y\d x}{x^2+y^2}=0$
 
-{\bf 习题7.3}
-
-\bigskip
-
-2.\;(1)$y=x^3+x+1$\quad(3)$y=2-\ln4+\ln x^2$\quad(5)$y=e^{-x}$
-
-\bigskip
-
-4.\;解：设曲线方程为$y=y(x)$，曲率为$K\geq0$。由曲率的定义
-$$\df{|y''|}{[1+(y')^2]^{3/2}}=K,$$
+解：原方程即为
+$$\d(xy)+\df{\df1x\d y-y\df1{x^2}\d x}{1+\left(\df yx\right)^2}=0,$$
 也即
-$$y''=[1+(y')^2]^{3/2}K_1,\quad(K_1\in\mathbb{R}).$$
-
-令$p(y)=y'$，则以上方程化为
-$$pp'=K_1(1+p^2)^{3/2},$$
-分离变量可解得
-$$-\df1{\sqrt{1+p^2}}=K_1(y-C_1),\quad(C_1\in\mathbb{R})$$
-
-若$K\ne 0$，记$R=1/K$，由上式可得
-$$y'=\pm\df{\sqrt{R^2-(y-C_1)^2}}{y-C_1}.$$
-进一步两边积分，可得
-$$-\sqrt{R^2-(y-C_1)^2}=\pm(x-C_2),\quad(C_2\in\mathbb{R})$$
+$$\d(xy)+\df{\d\left(\df yx\right)}{1+\left(\df yx\right)^2}=0,$$
 也即
-$$(x-C_2)^2+(y-C_1)^2=R^2.$$
+$$\d\left(xy+\arctan\df yx\right)=0,$$
+故原方程的通解为
+$$xy+\arctan\df yx=C,(C\in\mathbb{R})$$
 
-若$K=0$，则有$y''=0$，此时对应曲线方程为$y=C_1x+C_2,\;(C_1,C_2\in\mathbb{R})$.
+\subsection{综合应用}
 
-\bigskip
+{\bf 例：}已知$f(x)$在$\mathbb{R}$上有定义，且对任意$x,y$，有
+$f(x+y)=f(x)f(y)$，又$f'(0)=2$，求$f(x)$。
 
-7.\;解：如图
-\begin{center}
-	\resizebox{!}{7cm}{\includegraphics{./images/ch7/eX.pdf}}
-\end{center}
-设所求曲线为$y=y(x)$，过其上任一点$P(x,y)\;(x\geq 0)$的切线为
-$$Y=y+y'(X-x),$$
-与$x$轴相交于$Q(x-x/y',0)$。由于$y'>0$，故当$x\geq 0$时，恒有$y\geq 1$，故
-$$S_1=\df12y\left[x-\left(x-\df{y}{y'}\right)\right]=\df{y^2}{2y'}.$$
-又
-$$S_2=\dint_0^xy(t)\d t,$$
-由已知$2S_1-S_2=1$，也即
-$$\df{y^2}{y'}-\dint_0^xy(t)\d t=1.$$
+{\bf 例：}$f'(0)=2$，
+$$f(x+y)=xf(y)+f(x)f(y)+yf(x)-(x-xy+y)$$
+$$f'(x)=3f(x)+3x-1,\;f(0)=1\Rightarrow f(x)=e^{3x}-x$$
 
-对该方程两边连续求导，并逐次取$x=0$可得
-$$\left\{\begin{array}{l}
-yy''=(y')^2\\
-y(0)=1\\
-y'(0)=1
-\end{array}\right.$$
-解之得$y=e^x$，即为所求。
+{\bf 例：}设$F(x)=f(x)g(x)$，且$f'(x)=g(x),\;g'(x)=f(x)$，
+$f(0)=0$，$f(x)+g(x)=2e^x$
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 求$F(x)$所满足的一阶微分方程；
+  \item 求$F(x)$的表达式；
+  \item 求$f(x),g(x)$的表达式。
+\end{enumerate}
 
+{\bf 例：}求满足$\dint f(x)\d x\dint\df1{f(x)}\d x=-1$的所有函数。
 
-\ifvisible
+{\bf 例：}设$\varphi(x)=e^x-\dint_0^x(x-u)\varphi(u)du,$
+其中$\varphi(x)$连续，求其函数表达式。
 
-	\newpage
-	
-	{\bf 关于“神之课代表”所写题目的解释：}
-	
-	{\it 题目来源：辅导书（下）-P242-例10-18，题目及解答如图：}
-	
-	\begin{center}
-		\resizebox{!}{7cm}{\includegraphics{./images/ch7/p242.jpg}}
-	\end{center}
-	
-	{\it 这个解答没有问题，只是有些简略，导致不好理解。以下是我在此基础上进一步细化后的解答：}
-	
-	{\bf 解：}由于右端函数为$\gamma e^x$，故原方程的特解应该形如
-	$$y^*=x^ke^x,$$
-	其中$k$可能为$0,1,2$。
-	
-	根据线性微分方程解的结构定理，非齐次线性微分方程的特解可以由对应的齐次方程的多个特解与
-	该非齐次方程的一个特解相加得到。以下利用该结论进行分析：
-	
-	注意到
-	$$(e^{2x})''+\alpha(e^{2x})'+\beta e^{2x}
-	=(4+2\alpha+\beta)e^{2x},$$
-	故$e^{2x}$不可能是原（非齐次）方程的特解，从而只能是对应的齐次方程的特解。
-	由此可知，$r=2$是方程的特征方程的根，
-	
-	根据上一步的结论，可知$(1+x)e^x$中必然包含了原（非齐次）方程的特解，现在的问题是要将
-	这个特解的部分找出来。在此我们可以断言$(1+x)e^x$这个整体不可能就是原（非齐次）方程的特解
-	（因为它不具备前述$y^*$所应有的形式），特解只能是$e^x$和$xe^x$之一。
-	换言之，$e^x$和$xe^x$两者一个是原（非齐次）方程的特解，另一个是对应的齐次方程的特解。
-	
-	若$xe^x$是对应的齐次方程的特解。根据二阶常系数齐次线性微分方程的通解公式，只有当$r=1$
-	为其特征方程的二重根时，解才会有形如$C_1e^x+C_2xe^x$的构造。而由前面的分析我们
-	已知$r=2$是特征方程的一个根，故$xe^x$只能是原（非齐次）方程的特解。进而$y=e^x$
-	必然是对应的齐次方程的特解。
-	
-	综上可知，原（非齐次）方程有特解$xe^x$，其特征方程有相异实根$r=1,r=2$。
-	
-	以下步骤和原解答相同，略。
-	
-	\newpage
-	
-	\section*{作业要求}
-	
-	\begin{center}
-		（试行版，2015年春季学期）
-	\end{center}
-	
-	\begin{enumerate}
-	%   \setlength{\itemindent}{1cm}
-	  \item 作业内容分为基本题、上交题和思考题三部分，前两部分为必作题
-	  \item 上交与批改
-	  \begin{itemize}
-	    \item 作业分两部分分别上交
-	    \item 基础题每周上交一次，由本连负责人收齐交当周轮值的同学批改
-	    \item 上交题及思考题（选作）分三组，每周由其中一组上交，教员负责批改，
-	    每次上交须包括前两周未交过的部分
-	  \end{itemize}
-	  \item 基础题批改
-	  \begin{itemize}
-	    \item 按照事先排定的值班顺序，确保每人本学期至少轮值一次批改其他同学的作业
-	    \item 轮值同学批改其他同学作业后，须
-	    \begin{itemize}
-	      \item 根据作业正确率按百分制为其打分
-	      \item 在作业纸上签名
-	      \item 汇总作业情况交给本连负责人，汇总内容包括
-	      \begin{itemize}
-	        \item 每人的作业成绩
-	        \item 作业中大家错误或疑问较多的题目
-	      \end{itemize}
-	    \end{itemize}
-	    \item 连负责人将本连作业情况汇总后交总课代表
-	  \end{itemize}
-	\end{enumerate}
-	
-	\newpage
+% {\bf 例：}（2003年考研）
+% 设$y(x)$在$\mathbb{R}$上具有二阶连续导数，$y'\ne 0$，$x=x(y)$
+% 为其反函数。
+% \begin{enumerate}[(1)]
+%   \setlength{\itemindent}{1cm}
+%   \item 试将$x=x(y)$所满足的微分方程
+%   $$\df{\d^2x}{\d y^2}+(y+\sin x)\left(\df{\d x}{\d y}\right)^3=0$$
+%   变换为$y=y(x)$所满足的微分方程；\hfill$y''-y=-\sin x$
+%   \item 求变换后的微分方程满足初始条件$y(0)=0$和$y'(0)=1.5$的解。
+% \end{enumerate}
+% 设特解$y^*=A\cos x+B\sin x$，解得$A=0,B=1/2$，故通解
+% $$y=C_1e^x+C_2e^{-x}+\df12\sin x,$$
+% 利用初值条件，得所求特解
+% $$y=e^x-e^{-x}+\df12\sin x$$
 
 \fi

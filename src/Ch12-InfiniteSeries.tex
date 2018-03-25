@@ -2614,21 +2614,21 @@ $$\df12+\df1{2\cdot3^2\cdot2^3}+\df{1\cdot3}{2\cdot4\cdot5^2\cdot32^2}
 
 [解]：
 $$\arcsin(\sin x)=\left\{\begin{array}{ll}
-	-x-pi, & x\in\left[-\pi,-\frac{\pi}2\right)\\
+	-x-\pi, & x\in\left[-\pi,-\frac{\pi}2\right)\\
 	x, & x\in\left[-\frac{\pi}2,\frac{\pi}2\right)\\
 	-x+\pi, & x\in\left[\frac{\pi}2,\pi\right)
 \end{array}\right.$$
 注意到该函数为奇函数，故其Fourier展开式中$a_n=0,n=0,1,2,\ldots$，
 \begin{align*}
-	b_n&=2\dint_0^{\pi}f(x)\d x
-	=2\dint_0^{\frac{\pi}2}x\sin nx\d x
-	+2\dint_{\frac{\pi}2}^{\pi}(-x+\pi)\sin nx\d x\\
+	b_n&=\df2{\pi}\dint_0^{\pi}f(x)\d x
+	=\df2{\pi}\dint_0^{\frac{\pi}2}x\sin nx\d x
+	+\df2{\pi}\dint_{\frac{\pi}2}^{\pi}(-x+\pi)\sin nx\d x\\
 	&=\left\{\begin{array}{ll}
-		0, & n=2k,\\ \df{4(-1)^k}{(2k+1)^2}, & n=2k+1.
+		0, & n=2k,\\ \df{4(-1)^k}{\pi(2k+1)^2}, & n=2k+1.
 	\end{array}\right.
 \end{align*}
 故所求Fourier级数为
-$$f(x)\sim\sumn\df{4(-1)^n}{(2n+1)^2}\sin(2n+1)x.$$
+$$f(x)\sim\sumn[0]\df{4(-1)^n}{\pi(2n+1)^2}\sin(2n+1)x.$$
 \fin
 
 \bs
