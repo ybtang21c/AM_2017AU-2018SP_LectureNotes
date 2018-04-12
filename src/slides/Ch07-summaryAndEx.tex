@@ -68,6 +68,20 @@
 % 	C_1x+C_2x^2-\left(\df12\ln^2x+\ln x\right)x$}\;}}
 \end{frame}
 
+\begin{frame}
+	\linespread{1.2}
+	\pause\alert{提示：}\it\b 
+	特征方程的复根总是成对出现，故$\cos x$若为方程的解，$\sin x$也必为其解，
+	对应的特征根为$r=\pm i$。
+	
+	又若$xe^x$为齐次线性微分方程的特解，则$r=1$必为对应特征方程的一个重根，
+	进而可知$e^x$也是方程的解。
+	
+	综上，方程的特征根为$r=\pm i$和$r=1$（二重），于是特征方程为
+	$$(r+i)(r-i)(r-1)^2=r^4-2r^3+2r^2-2r+1=0,$$
+	由此易得原方程。
+\end{frame}
+
 \begin{frame}{选择}
 	\linespread{1.3}
 	\alert{例：}设$y_1(x),y_2(x),y_3(x)$为方程
@@ -92,19 +106,23 @@
 	  \item $Axe^{3x}+x[(Bx+C)\cos2x+(Dx+E)\sin2x]$
 	  \item $Axe^{3x}+(Bx+C)\cos2x+(Dx+E)\sin2x$
 	\end{enumerate}
+	\pause\alert{提示：}\it\b 利用叠加原理，分别构造$e^3x$和$x\sin2x$
+	对应的特解，再相加。
 \end{frame}
 
 \begin{frame}{选择}
 	\linespread{1.3}
 	\alert{例：}已知$xe^x+e^{2x}$和$xe^x+e^{-x}$是二阶常系数非齐次线性微分方程的两个解，
 	则此方程为
-	(\underline{\uncover<2->{\;\b{B}}\;})
+	(\underline{\uncover<2->{\;\b{}}\;})
 	\begin{enumerate}[(A)]
 	  \item $y''-2y'+y=e^{2x}$
 	  \item $y''-y'-2y=xe^{x}$
-	  \item $y''-2y'-2y=e^x-2xe^{x}$
+	  \item $y''-y'-2y=e^x-2xe^{x}$
 	  \item $y''-y=e^{2x}$
 	\end{enumerate}
+	\pause\alert{提示：}\it\b 显然$e^{2x}-e^{-x}$为对应齐次方程的解，其中
+	的两个函数线性无关，故分别为齐次方程的特解，进而特征根$r_1=2,r_2=-1$。
 \end{frame}
 
 \begin{frame}{选择}
@@ -114,9 +132,12 @@
 	\begin{enumerate}[(A)]
 	  \item $[0,+\infty)$
 	  \item $(-\infty,0]$
-	  \item $(-\infty,4]$
-	  \item $(-\infty,+\infty]$
+	  \item $(-\infty,2)$
+	  \item $(2,+\infty)$
 	\end{enumerate}
+	\pause\alert{提示：}\it\b 对照二阶常系数齐次线性方程的各种解的形式，可得
+	当通解中的指数函数$e^{\lambda x}$满足$\lambda<0$时，即有所有的解有界。
+	利用韦达定理可推出$b<0$。又$b=0$时，解方程可知也满足要求。
 \end{frame}
 
 \begin{frame}{解答题}
@@ -131,10 +152,14 @@
 \begin{frame}{解答题}
 	\linespread{1.5}
 	\alert{例：}设二阶常系数线性微分方程
-	$$y''+\alpha y'+\beta y=\gamma e^x$$
+	$y''+\alpha y'+\beta y=\gamma e^x$
 	的一个解为$y=e^{2x}+(1+x)e^x$，试确定其中的常数$\alpha,\beta,\gamma$.
 	
-	\pause\alert{提示：}\it\b $\alpha=-3,\beta=2,\gamma=-1$.
+	\pause\alert{提示：}\it\b 由解的结构，$e^{2x},e^x,xe^x$中有两个为齐次方程
+	的特解，另一个为非齐次方程的特解。若$xe^x$为齐次方程的解，则$e^x$也是，此时非齐次
+	方程的特解形如$Ax^2e^x$，显然$e^{2x}$不具有这种形式。故$xe^x$必为非齐次方程的特解，
+	从而$e^{2x},e^x$为齐次方程的解。由此可得到对应的特征方程，进而
+	进一步可解出$\alpha=-3,\beta=2,\gamma=-1$。
 \end{frame}
 
 \begin{frame}{解答题}
@@ -312,6 +337,8 @@
 	  \item 等于$2$
 	  \item 等于$3$
 	\end{enumerate}
+	\pause\alert{提示：}\it\b 由已知可得$y''(0)=1$，利用L'Hospital法则
+	求极限即可。
 \end{frame}
 
 \begin{frame}{选择}
@@ -326,6 +353,7 @@
 	  \item 的某个领域内单调增加
 	  \item 的某个领域内单调减少
 	\end{enumerate}
+	\pause\alert{提示：}\it\b 由已知可得$f''(x_0)<0$，利用极值的判定条件即得结果。
 \end{frame}
 
 \subsection{微分方程的应用}
@@ -336,10 +364,11 @@
 	$\alpha$为该点处的切线倾角（$\cos\alpha>0$），且曲线在
 	点$(1,1)$处的切线是水平的，求该曲线的方程。
 	
-	\pause\alert{提示：}\it\b $\cos\alpha=\df1{\sqrt{1+(y')^2}}>0,
-	y''>0$
-	$$2y^2y''=[1+(y')^2]^2\quad\Rightarrow\quad
-	4y=(x-1)^2+4$$
+	\pause\alert{提示：}\it\b $\cos\alpha=\df1{\sqrt{1+(y')^2}}>0$，
+	方程为
+	$$2y^2y''=[1+(y')^2]^2,$$
+	初值条件$y(1)=1$，最后解得
+	$$4y=(x-1)^2+4$$
 \end{frame}
 
 \begin{frame}{应用题}

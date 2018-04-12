@@ -17,7 +17,7 @@
 向量是一种有序的数学结构，可以用于表示一列包含多个成员对象（分量）
 的有序结构。例如，地理上的经纬度，就可以视为一个二维向量。
 
-本课程主要关注{\kaishu $n$维欧式\ps{欧几里得}空间}中的向量：
+本课程主要关注{\kaishu $n$维欧式\ps{欧几里得,Euclid}空间}中的向量：
 所谓{\bf $n$维向量（矢量）}，就是由$n$个实数按一定顺序排列所构成的结构，记为
 $$\bm{a}=(a_1,a_2,\ldots,a_n),$$
 其中：$a_i\in\mathbb{R},i=1,2,\ldots,n$。
@@ -30,13 +30,16 @@ $$\bm{a}=(a_1,a_2,\ldots,a_n),$$
 	{\bf 约定：}
 	\begin{enumerate}
 % 	  \setlength{\itemindent}{1cm}
-	  \item 我们所讨论的向量均指{\bf 自由向量}，也即我们只关心其长度和方向，
+	  \item 如未专门说明，我们所讨论的向量均指{\bf 自由向量}，也即我们只关心其长度和方向，
 	  但不关心其起点或终点；
 	  \item 向量坐标均指向量在直角坐标系下的坐标；
 	  \item 几何上，只考虑不超过三维的空间，对更高维的空间只研究其抽象的性质；
 	  \item 所使用的三维坐标系均为{\bf 右手系}——$x,y,z$三个坐标轴正向按照
 	  逆时针方向旋转排列。	  
 	\end{enumerate}
+	\begin{center}
+		\includegraphics[width=0.35\textwidth]{./images/ch8/Right_hand_rule_Cartesian_axes.png}
+	\end{center}
 \end{thx}
 
 设$\bm{a}=(a_1,a_2,\ldots,a_n)\in\mathbb{R}^n$，
@@ -229,6 +232,9 @@ b_1 & b_2 & b_3
 	%   (\bm{a}\cdot\bm{b})^2=|\bm{a}|^2|\bm{b}|^2\sin\theta$）
 	  \item $|\bm{a}\times\bm{b}|$等于以$\bm{a},\bm{b}$为邻边的平行四边形的面积
 	\end{enumerate}
+	\begin{center}
+		\includegraphics[width=0.35\textwidth]{./images/ch8/Right_hand_rule_cross_product.png}
+	\end{center}
 \end{thx}
 
 {\bf 例：}已知三角形$ABC$的三个顶点为$A(1,-1,2),\;B(3,2,1),\;C(2,2,3)$，求
@@ -265,25 +271,11 @@ $$[\bm{abc}]=(\bm{a}\times\bm{b})\cdot\bm{c}$$
 	\end{enumerate}
 \end{thx}
 
-{\bf 思考：}如何求某个平行六面体的高？
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{./images/ch8/tcp.jpg}
+\end{center}
 
-\begin{shaded}
-	{\bf 命题：}$\bm{s}_1,\bm{s}_2,\bm{s}_3\in\mathbb{R}^3$，则：
-	$\left[(\bm{s}_1\times\bm{s}_2)\times(\bm{s}_2\times\bm{s}_3)\right]
-	\cdot(\bm{s}_3\times\bm{s}_1)=
-	\left[(\bm{s}_1\times\bm{s}_2)\cdot\bm{s}_3\right]^2$
-	
-	证：利用三维向量的坐标表示可以证明
-	$$\bm{s}_1\times(\bm{s}_2\times\bm{s}_3)
-	=(\bm{s}_1\cdot\bm{s}_3)\bm{s}_2
-	-(\bm{s}_1\cdot\bm{s}_2)\bm{s}_3,$$
-	故
-	$$(\bm{s}_1\times\bm{s}_2)\times(\bm{s}_2\times\bm{s}_3)
-	=[(\bm{s}_1\times\bm{s}_2)\cdot\bm{s}_3]\bm{s}_2
-	-[(\bm{s}_1\times\bm{s}_2)\cdot\bm{s}_2]\bm{s}_3
-	=[(\bm{s}_1\times\bm{s}_2)\cdot\bm{s}_3]\bm{s}_2$$
-	由此结论易证。
-\end{shaded}
+{\bf 思考：}如何求某个平行六面体的高？
 
 {\bf 例：}判断正误
 \begin{enumerate}[(1)]
@@ -312,17 +304,23 @@ $$[\bm{abc}]=(\bm{a}\times\bm{b})\cdot\bm{c}$$
 \begin{ext}
 	{\bf 课后作业}
 	\begin{enumerate}
-	  \item 已知$[\bm{abc}]=2$，证明：
-	  $[(\bm{a}+\bm{b})(\bm{b}+\bm{c})(\bm{c}+\bm{a})]=4$。
-	  \item 求向量$\bm{a}=(4,3,4)$在向量$\bm{b}=(2,-2,1)$上的投影
+	  \item 已知$(\bm{a}\times\bm{b})\cdot\bm{c}=2$，证明：
+	  $[(\bm{a}+\bm{b})\times(\bm{b}+\bm{c})]\cdot(\bm{c}+\bm{a})=4$。
+	  \item 求向量$\bm{a}=(4,3,4)$在向量$\bm{b}=(2,-2,1)$上的投影长度
 	  及投影向量。
-	  \item 设$\bm{a},\bm{b},\bm{c}$均为单位向量，且$\bm{a}+\bm{b}+\bm{c}=0$，
-	  计算$\bm{a}\cdot\bm{b}+\bm{b}\cdot\bm{c}+\bm{c}\cdot\bm{a}$。
+% 	  \item 设$\bm{a},\bm{b},\bm{c}$均为单位向量，且$\bm{a}+\bm{b}+\bm{c}=0$，
+% 	  计算$\bm{a}\cdot\bm{b}+\bm{b}\cdot\bm{c}+\bm{c}\cdot\bm{a}$。
 	  \item 设$\bm{a},\bm{b}$均为非零向量，且$|\bm{b}|=1$，二者夹角为$\pi/3$，求
 	  $\limx{0}\df{|\bm{a}+x\bm{b}|-|\bm{a}|}{x}$。
 	  \item 已知平行四边形的两对角线向量分别为$\bm{A}=\bm{m}+2\bm{n}$，
 	  $\bm{B}=2\bm{m}-4\bm{n}$，其中$|\bm{m}|=1,|\bm{n}|=2$，
 	  $\bm{m}$和$\bm{n}$的夹角为$\pi/6$，求该平行四边形的面积。
+	  \item 画图：在空间直角坐标系中画出一个单位正立方体，然后在其表面上画出一个正六边形，
+	  使得六边形的每条边分别在六面体的一个面上。
+	  \item 设向量$\bm{a},\bm{b},\bm{c}$不共面，向量
+	  $$\bm{d}=\alpha\bm{a}+\beta\bm{b}+\gamma\bm{c},$$
+	  如果将$\bm{a},\bm{b},\bm{c},\bm{d}$的起点都放在一起，
+	  参数$\alpha,\beta,\gamma$须满足什么条件，方能使其终点在同一个平面上？
 	\end{enumerate}
 \end{ext}
 
@@ -360,6 +358,10 @@ $$[\bm{abc}]=(\bm{a}\times\bm{b})\cdot\bm{c}$$
 	$\bm{n}=(A,B,C)$，则 
 	$$A(x-x_0)+B(y-y_0)+C(z-z_0)=0.$$
 \end{thx}
+
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{./images/ch8/pnr.jpg}
+\end{center}
 
 {\bf 例：}求过点$M_0(2,0,-1)$，垂直于$\bm{n}=(4,2,-3)$的平面方程。
 
@@ -409,6 +411,10 @@ $$[(\bm{r}_2-\bm{r}_1)\times(\bm{r}_3-\bm{r}_1)]\cdot(\bm{r}-\bm{r}_1)=0.$$
 	$$
 \end{thx}
 
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{./images/ch8/p3r.jpg}
+\end{center}
+
 {\bf 思考：}下面这个方程和三点式方程有何关系？
 
 $$\left|\begin{array}{ccc}
@@ -431,6 +437,9 @@ $$
 	该方程称为{\bf 平面的截距式方程}。
 \end{thx}
 
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{./images/ch8/pabc.jpg}
+\end{center}
 
 \subsection{空间直线及其方程}
 
@@ -443,6 +452,10 @@ $$
 	则直线上任一点$M(\bm{r})$满足 
 	$${\bm{r}-\bm{r}_0=t\bm{s}\quad(t\in\mathbb{R})}$$ 
 \end{thx}
+
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{./images/ch8/lsr.jpg}
+\end{center}
 
 点向式方程写成分量的形式，通常写成如下的参数方程：
 
@@ -487,6 +500,10 @@ $$\df x0=\df y0=\df z1.$$
 	$$
 \end{thx}
 
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{./images/ch8/p2l.jpg}
+\end{center}
+
 显然，从几何意义上看，直线的一般方程反映了两个平面的交线为直线这一几何特征，
 或者说，所求直线为两个平面的交线，记两个平面的法向量分别为$\bm{n}_1=(A_1,B_1,C_1)$
 和$\bm{n}_2=(A_2,B_2,C_2)$，则直线的方向向量
@@ -506,6 +523,10 @@ $${\bm{r}-\bm{r}_1=t(\bm{r}_2-\bm{r}_1)\quad (t\in\mathbb{R})}.$$
 	则直线的方程为
 	$$\df{x-x_1}{x_2-x_1}=\df{y-y_1}{y_2-y_1}=\df{z-z_1}{z_2-z_1}$$
 \end{thx}
+
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{./images/ch8/l2r.jpg}
+\end{center}
 
 {\bf 思考：}下面方程表示的几何对象是什么？
 $${\df{x-x_1}{x-x_2}=\df{y-y_1}{y-y_2}=\df{z-z_1}{z-z_2}}$$
@@ -540,6 +561,10 @@ $$\left\{\begin{array}{l}
 	$${d=\df{|Ax_0+By_0+Cz_0+D|}{\sqrt{A^2+B^2+C^2}}}$$
 \end{thx}
 
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{./images/ch8/ppd.jpg}
+\end{center}
+
 {\bf 思考：}如何求垂足的坐标？如何用非向量的方法求$d$？
 
 {\bf 例：}设$a,b,c$分别为某平面在三个坐标轴上的截距，$d$为其到原点的距离，证明：
@@ -552,6 +577,10 @@ $$\df1{a^2}+\df1{b^2}+\df1{c^2}=\df1{d^2}$$
 	{\bf 解法：}根据向量叉乘的几何意义，记$\bm{s}=(m,n,p)$
 	$$d=\df{|\bm{MP}\times\bm{s}|}{|\bm{s}|}$$
 \end{thx}
+
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{./images/ch8/pld.jpg}
+\end{center}
 
 {\bf 例：}已知点$P(3,1,-4)$和直线$L:\df{x+1}2=\df{y-4}{-2}=\df{z-1}{1}$，求
 \begin{enumerate}[(1)]
@@ -577,6 +606,10 @@ $$\df1{a^2}+\df1{b^2}+\df1{c^2}=\df1{d^2}$$
 		  \Leftrightarrow\df{A_1}{A_2}=\df{B_1}{B_2}=\df{C_1}{C_2}$
 	\end{itemize}
 \end{thx}
+
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{./images/ch8/ppt.jpg}
+\end{center}
 
 {\bf 例：}已知平面过点$M_1(1,3,-2),M_2(3,0,2)$，且与平面
 $\pi:2x+y+3z+5=0$垂直，求该平面的方程。
@@ -658,6 +691,10 @@ $$L:\left\{\begin{array}{l}
 \end{array}\right.$$
 的{\bf 平面束}。
 
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{./images/ch8/pss.jpg}
+\end{center}
+
 {\bf 例：}过点$M(3,1,-2)$和直线$\df{x-4}5=\df{y+3}2=\df z1$
 的平面
 
@@ -720,7 +757,14 @@ $$\df{x+3}4=\df{y-1}{-1}=\df{z-1}{-3},\quad
 
 $$d=2$$
 
-法二：将（1）中的混合积（平行六面体面积）除以$|\bm{s_1}\times\bm{s_2}|$（底面积）
+法二：
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{./images/ch8/lln.jpg}
+\end{center}
+两直线间的距离等于由$\bm{s}_1,\bm{s}_2$与两直线线上任意两点间向量$\bm{M_1M_2}$
+为邻边的平行六面体的关于由$\bm{s}_1,\bm{s}_2$构成的底面的高，故
+将（1）中的混合积的绝对值（平行六面体面积）除以$|\bm{s_1}\times\bm{s_2}|$（底面积）
+即可。
 
 （3）法一：分别求过两条直线与公垂线方向平行的平面，联立即可。
 
@@ -819,6 +863,26 @@ $$\bm{s}_{23}=\df{2h_1}{\Delta}(\bm{s}_2\times\bm{s}_3),\quad
 	=\df{8|h_1h_2h_3|}{|\Delta|^3}\Delta^2\\
 	&=\df{8|h_1h_2h_3|}{|\Delta|}
 \end{align*}
+\fin
+
+\begin{shaded}
+	{\bf 命题：}$\bm{s}_1,\bm{s}_2,\bm{s}_3\in\mathbb{R}^3$，则：
+	$\left[(\bm{s}_1\times\bm{s}_2)\times(\bm{s}_2\times\bm{s}_3)\right]
+	\cdot(\bm{s}_3\times\bm{s}_1)=
+	\left[(\bm{s}_1\times\bm{s}_2)\cdot\bm{s}_3\right]^2$
+	
+	[证]：利用三维向量的坐标表示可以证明
+	$$\bm{s}_1\times(\bm{s}_2\times\bm{s}_3)
+	=(\bm{s}_1\cdot\bm{s}_3)\bm{s}_2
+	-(\bm{s}_1\cdot\bm{s}_2)\bm{s}_3,$$
+	故
+	$$(\bm{s}_1\times\bm{s}_2)\times(\bm{s}_2\times\bm{s}_3)
+	=[(\bm{s}_1\times\bm{s}_2)\cdot\bm{s}_3]\bm{s}_2
+	-[(\bm{s}_1\times\bm{s}_2)\cdot\bm{s}_2]\bm{s}_3
+	=[(\bm{s}_1\times\bm{s}_2)\cdot\bm{s}_3]\bm{s}_2$$
+	由此结论易证。\fin
+\end{shaded}
+
 
 {\bf 例：}设向量$\bm{a},\bm{b},\bm{c}$不共面，向量
 $$\bm{d}=\alpha\bm{a}+\beta\bm{b}+\gamma\bm{c},$$
@@ -847,18 +911,18 @@ $$\bm{d}=\alpha\bm{a}+\beta\bm{b}+\gamma\bm{c},$$
 	  \item 求过点$(3,1,-2)$且过直线$\df{x-4}5=\df{y+3}2=z$的平面
 	  的一般式方程。
 	  \item 求直线$\left\{\begin{array}{l}
-	  	2x-4y+z=0, \\ 3x-y-2z-9=0
+	  	2x-y=0, \\ 3x-y-z-9=0
 	  \end{array}\right.$
-	  在平面$4x-y+z=1$上的投影直线的对称式方程。
+	  在平面$2x-y+z=1$上的投影直线的对称式方程。
 	  \item 求过直线
 		$$\left\{\begin{array}{l}
-			x+5y+z=0\\
-			x-z+4=0
+			x+y=0\\
+			x+z+1=0
 		\end{array}\right.$$
 		且与平面$\pi:x-4y-8z+12=0$的夹角为$\pi/4$的平面方程。
 	  \item 画出下列各平面所围立体的图形
 	  \begin{enumerate}[(1)]
-	    \item $x=0,y=0,z=0,x=2,y=1,3x+4y+6z=12$
+	    \item $x=0,y=0,z=0,x=2,y=2,3x+4y+6z=12$
 	    \item $x+y=1,x+y+z=2,z=0,x=0,y=0$
 	  \end{enumerate}
 	\end{enumerate}
@@ -1090,9 +1154,14 @@ $$a_1x^2+a_2y^2+a_3z^2+b_1xy+b_2yx+b_3zx +c_1x+c_2y+c_3z+d =  0,
 $$
 其中$(a_1^2+a_2^2+a_3^2\ne 0)$。
 
-利用坐标平移变换，可以将其中的一次项都消去，只保留方程中的二次项和常数项。
-剩余的二次项构成了一个三元的二次型，可以利用合同变换，将其中的混合项
-消去，使之成为标准的二次型。根据标准二次型的不同，进而可以对二次曲面进行分类。
+首先将方程中所有的二次项视为一个二次型，利用合同变换，可以将其化为标准型，
+相应地，曲面方程中将仅含有平方项、一次项和常数项——不再含有混合的二次项。
+接下来，利用坐标平移，可以将方程中各个变量化为都化为只有一项的情形（即不可能
+同时有平方项和一次项），同时方程中可能还余下一个常数项。这是，我们所得到的
+就是一个具有标准形式的二次曲面方程了。
+
+需要说明的是：合同变换（线性变换）和平移变换都不会改变曲面的拓扑特征，也即
+不会改变曲面的类型。
 
 \subsubsection{椭球面}
 $${\df{x^2}{a^2}+\df{y^2}{b^2}+\df{z^2}{c^2}=1}$$
@@ -1136,7 +1205,9 @@ $$x=au\sec\theta,\;y=bu\tan\theta,\;z=u^2,
 
 {\bf 例：}证明：$z=xy$对应的曲面为双曲抛物面
 \begin{center}
-	\resizebox{!}{4cm}{\includegraphics{./images/ch8/diffArch.pdf}}
+% 	\resizebox{!}{4cm}{\includegraphics{./images/ch8/diffArch.pdf}}
+	\includegraphics[width=0.35\textwidth]{./images/ch8/zxy.pdf}\quad
+	\includegraphics[width=0.35\textwidth]{./images/ch8/zx2y2.pdf}
 \end{center}
 
 {\bf (二维)坐标旋转公式：}{ (逆时针旋转$\theta$)}
@@ -1157,11 +1228,6 @@ $$\left\{\begin{array}{l}
 \subsection{直纹面}
 
 {\bf 直纹面}即空间直线按照一定的规律运动所产生的曲面。
-\begin{center}
-	\resizebox{!}{5cm}{\includegraphics{./images/ch8/rtLHypo.pdf}}
-	
-	单叶双曲面：$\df{x^2}{a^2}+\df{y^2}{b^2}-\df{z^2}{c^2}=1$
-\end{center}
 
 {\bf 例：}证明：单叶双曲面$\df{x^2}{a^2}+\df{y^2}{b^2}-\df{z^2}{c^2}=1$
 是由两组直线
@@ -1170,6 +1236,10 @@ $$\left\{\begin{array}{l}
 	u\left(1\mp\df yb\right)+v\left(\df xa-\df zc\right)=0
 \end{array}\right.\quad (u^2+v^2\ne 0)$$
 生成的直纹面。即：对于单叶双曲面上的任意点，两组直线中各有一条通过改点。
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch8/rtLHypo.pdf}}
+\end{center}
 
 {\bf 例：}判断以下曲面的类型及其特征
 \begin{enumerate}[(1)]
@@ -1192,24 +1262,14 @@ $$\left\{\begin{array}{l}
 	\begin{enumerate}
 	  \item 求直线$l:\df{x}{a}=\df{y-b}0=z$绕$z$轴旋转一周所得曲面方程，
 	  并指出该曲面的类型。
-% $$\left\{\begin{array}{l}
-% x=\sqrt{a^2t^2+b^2}\cos\theta,\\ y=\sqrt{a^2t^2+b^2}\sin\theta,\\ z=t
-% \end{array}\right.$$
-% 也即
-% $$x^2+y^2=a^2z^2+b^2$$
-% \begin{enumerate}[(1)]
-%   \setlength{\itemindent}{1cm}
-%   \item $a=b=0$，$z$轴
-%   \item $a\ne0,b=0$，圆锥面
-%   \item $a\ne0,b\ne0$，单叶双曲面
-%   \item $a=0,b\ne0$，圆柱面
-% \end{enumerate}
 	  \item 已知点$A(1,0,0)$与点$B(0,1,1)$，直线$AB$绕$z$轴旋转一周
 	  所成的旋转曲面为$S$，求$S$与$z=0$、$z=1$所围成的立体体积。
-	  \item 设柱面的母线平行于直线$x=y=z$，准线为$x+y-z=1,x-y+z=0$，求柱面的方程。
-% 	  \item 
+	  \item 设柱面的母线平行于直线$x=y=z$，准线为$xOy$平面内的单位圆
+	  $x^2+y^2=1$，求柱面的方程。
 	\end{enumerate}
 \end{ext}
+
+\newpage
 
 \section{空间曲线}
 
@@ -1389,132 +1449,735 @@ $$x=x(t)+mu,y=y(t)+nu,\;z=z(t)+pu,\;(t,u\in\mathbb{R})$$
 \begin{ext}
 	{\bf 课后作业}
 	\begin{enumerate}
-	  \item 求通过曲线$\left\{\begin{array}{l}
-		x^2+y^2+z^2=8\\
-		x^2+z^2-y^2=0
-	  \end{array}\right.$，且母线分别平行于$x$轴，$y$轴和$x=y=z$的柱面方程。
-	  \item 
+	  \item 一束光线垂直于平面$x+y+z=0$，照射在球面$x^2+y^2+(z-1)^2=1$上，
+	  求球面在$xOy$平面上的投影的边界曲线方程。
+	  \item 已知直线$l:x=y=-z$，过$l$的平面$\pi$与柱体$x^2+y^2\leq1$
+	  相交的截面为$S$，求$\pi$的方程，使得$S$的面积最小，并给出$\pi$与柱面$x^2+y^2=1$
+	  的交线$C$的参数方程。
+% 	  \item 叙述如何求空间曲线
+% 		$$\left\{\begin{array}{l}
+% 		F(x,y,z)=0\\ G(x,y,z)=0
+% 		\end{array}\right.$$绕直线
+% 		$$\df{x-a}m=\df{y-b}n=\df{z-c}p$$
+% 		旋转一周所得曲面的方程。（要求：写出思路和大致的解题步骤）
+	  \item 画出以下空间区域的图形
+	  \begin{enumerate}[(1)]
+	    \item 曲面$(x-z)^2+y^2=1$与$z=-1,z=1$所围空间区域
+	    \item $0\leq x\leq 1,0\leq y\leq x,0\leq z\leq xy$
+	  \end{enumerate}
 	\end{enumerate}
 \end{ext}
 
-% \section{习题课}
-% 
-% \subsection{本章小结}
-% 
-% \begin{enumerate}
-%   \item 向量及其表示：长度+方向
-%   \item 向量运算
-%   \begin{itemize}
-%     \item 线性运算：平移、伸缩
-%     \item 点乘：投影
-%     \item 叉乘：右手法则、平行四边形面积
-%     \item 混合积：体积
-%   \end{itemize}
-%   \item 空间对象的向量表示
-%   \begin{enumerate}
-% 	\item 如何根据空间对象的特征给出其方程？ 
-% 	\item 如何由空间对象的方程发现其特征？ 
-%   \end{enumerate}
-%   \begin{itemize}
-% 	\item 位置$\to$向径 
-% 	\item 距离$\to$模 
-% 	\item 平行/垂直$\to$内/外积 
-% 	\item 夹角$\to$内积 
-% 	\item 投影$\to$内积 
-% 	\item 自由度/维度 
-%     \begin{itemize}
-%       \item 平面$\to$2维$\to$1个方程
-%       \item 直线$\to$1维$\to$2个方程
-%     \end{itemize}
-%     \item 方程的次数
-%     \begin{itemize}
-%       \item 平面/直线$\to$1次方程
-%     \end{itemize}
-%   \end{itemize}
-% \end{enumerate}
-% 
-% \subsection{综合练习}
-% 
-% % \subsubsection{【向量及其运算】}
-% %
-% 
-% 
-% 
-% \newpage
-% 
-% \section*{课后作业}
-% \addcontentsline{toc}{section}{课后作业}
-% 
-% {\bf 【必作题】}
-% 
-% \begin{itemize}
+\section{向量值函数}
+
+{\bf 向量值函数}也即以向量作为函数取值的一元函数，其抽象形式为
+$$f:\mathbb{R}\to\mathbb{R}^n$$
+例如：
+\begin{itemize}
 %   \setlength{\itemindent}{1cm}
-%   \item 习题8.1：4，9，11，12，14(1)，16，19，24
-%   \item 习题8.2：11，14，15，16，17，19，21
-%   \item 习题8.3：6，8，9
-%   \item 习题8.4：4，8，9，10，11
-% \end{itemize}
-% 
-% \bigskip
-% 
-% \hrule
-% 
-% \bigskip
-% \bigskip
+  \item $\bm{r}(t)=(t\sin t, t\cos t),\;t\in\mathbb{R}^+$ 
+  \item
+  $\bm{r}(t)=(a+mt)\bm{i}+(b+nt)\bm{j}+(c+pt)\bm{k},\;t\in\mathbb{R}$ 
+\end{itemize}
 
-% {\bf 【思考题】}
-% 
-% {\it\b 本章内容欢迎大家自学完成。如果能够搞定下面的所有题，可以免交
-% 本章所有必作题！}
+不难看出，{\kaishu 向量值函数本质上就是曲线的参数方程}。
 
-% \begin{itemize}
-%   \setlength{\itemindent}{1cm}
-%   \item 习题8.1：21
-%   \item 习题8.2：20，24
-% \end{itemize}
+\subsection{向量值函数的极限与连续}
 
+\begin{thx}
+	已知向量值函数$\bm{r}(t)=(f(t),g(t))$在$t_0$附近有定义 
+	\begin{enumerate}[(1)]
+% 	  \setlength{\itemindent}{1cm}
+	  \item {\bf $\lim\limits_{t\to t_0}\bm{r}(t)=(a,b)$}
+	  $\Leftrightarrow\lim\limits_{t\to t_0}f(t)=a$
+	  且$\lim\limits_{t\to t_0}g(t)=b$
+	  \item {\bf $\bm{r}(t)$在$t_0$处连续}$\Leftrightarrow
+	  \bm{r}(t_0)=\lim\limits_{t\to t_0}\bm{r}(t)$
+	\end{enumerate}
+\end{thx}
 
+{\bf 例：}设$\bm{r}(t)=\df{\sin 2t}{t}\bm{i}+\ln(1+t)\bm{j}$，求
+$\lim\limits_{t\to 0}\bm{r}(t)$。
+
+{\bf 例：}设$\bm{r}(t)=e^{-t}\cos 2t\bm{i}+e^{-t}\sin 2t
+\bm{j}+e^{-t}\bm{k}$，求$\lim\limits_{t\to +\infty}\bm{r}(t)$。
+
+\subsection{向量值函数的导数与微分}
+
+\begin{thx}
+	{\bf 向量值函数$\bm{r}(t)$在$t_0$处的导数（向量）：}
+	$$\bm{r}'(t_0)=\lim\limits_{\Delta t\to 0}
+	\df{\bm{r}(t_0+\Delta t)-\bm{r}(t_0)}{\Delta t}$$
+\end{thx}
+
+由以上定义，不难得到：
+\begin{enumerate}
+  \setlength{\itemindent}{1cm}
+  \item $\bm{r}'(t)$是一个向量；
+  \item $\bm{r}(t)$在$t_0$可导，当且仅当其每个分量函数在$t_0$可导；
+  \item $\bm{r}(t)$在$t_0$可导，则$\bm{r}(t)$在$t_0$连续；
+  \item $\bm{r}'(t_0)$的几何意义：对应曲线在$t_0$处的切向量。
+\end{enumerate}
+
+\begin{thx}
+	{\bf 曲线$\bm{r}(t)$在区间$I$上光滑：}
+	\begin{enumerate}[(1)]
+	  \item $\bm{r}'(t)$在$I$上连续
+	  \item $\bm{r}'(t)\ne \bm{0}$
+	\end{enumerate}
+\end{thx}
+
+{\bf 例：}判断曲线$\bm{r}(t)=(1+t^3,t^2)$是否为光滑曲线？
+
+{\bf 注：}二维向量值函数$\bm{r}(t)$可导，不等价于对应函数$y=f(x)$可导。
+
+\begin{thx}
+	\begin{itemize}
+	%   \setlength{\itemindent}{1cm}
+	  \item {\bf 向量值函数的微分：}
+	  $$\df{\d\bm{r}}{\d t}=\bm{r}'(t)\;\Leftrightarrow\;
+	  \d\bm{r}=\bm{r}'(t)\d t$$
+	  \item {\bf 向量值函数的高阶导数：}
+	  $$\bm{r}^{(n)}(t_0)=\left.\df{\d\bm{r}^{(n-1)}(t)}{\d t}\right|_{t=t_0}$$
+	\end{itemize}
+\end{thx}
+
+参考一元函数求导法则的推导，可以得到
+
+\begin{thx}
+	{\bf 向量值函数的求导法则：}
+	\begin{enumerate} 
+	  \item $(\bm{C})'=\bm{0}$ 
+	  \item $[\bm{u}(t)\pm\bm{v}(t)]'=\bm{u}'(t)\pm\bm{v}'(t)$ 
+	  \item $[k\bm{u}(t)]'=k\bm{u}'(t)$ 
+	  \item $[f(t)\bm{u}(t)]'=f'(t)\bm{u}(t)+f(t)\bm{u}'(t)$ 
+	  \item $[\bm{u}(t)\cdot\bm{v}(t)]'=\bm{u}'(t)\cdot\bm{v}(t)
+	  +\bm{u}(t)\cdot\bm{v}'(t)$ 
+	  \item $[\bm{u}(t)\times\bm{v}(t)]'=\bm{u}'(t)\times\bm{v}(t)
+	  +\bm{u}(t)\times\bm{v}'(t)$
+	  \item $[\bm{u}(f(t))]'=\bm{u}'(f(t))f'(t)$ 
+	\end{enumerate}
+\end{thx}
+
+{\bf 例：}设$\bm{r}(t)$是可导的向量值函数，且$\bm{r}'(t)\ne 0$，若
+$|\bm{r}(t)|=C$，证明：$\bm{r}(t)$与$\bm{r}'(t)$垂直。
+
+{\bf 例：}设质量为$m$的质点的位置为$\bm{r}(t)$，速度和加速度分别为
+$\bm{v}(t)$和$\bm{a}(t)$，则其角动量$\bm{L}(t)
+=m\bm{r}(t)\times\bm{v}(t)$，转动力矩$\bm{M}(t)=m\bm{r}(t)
+\times\bm{a}(t)$，证明：$\bm{L}'(t)=\bm{M}(t)$。
+
+{\bf 例：}设空间曲线的参数方程为$\Gamma:x=t,y=t^2,z=t^3$在点
+$(1,1,1)$处的切线方程与法平面方程。
+
+\subsection{向量值函数的不定积分与定积分}
+
+\begin{thx}
+	设向量值函数$\bm{r}(t)$在区间$I$上有定义 
+	\begin{enumerate}
+	  \item {\bf $\bm{R}(t)$是$\bm{r}(t)$在$I$上的一个原函数：} 
+	  $$\bm{R}'(t)=\bm{r}(t)\;(t\in I)$$ 
+	  \item {\bf $\bm{r}(t)$的不定积分：}
+	  $$\dint \bm{r}(t)\d t=\bm{R}(t)+\bm{C}\;(\bm{C}\in\mathbb{R}^n)$$
+	\end{enumerate}
+\end{thx}
+
+不难验证向量值函数的积分具有如下的性质：
+\begin{enumerate}
+  \setlength{\itemindent}{1cm}
+  \item {\bf 线性性} 
+  \item {\bf 区间可加性} 
+  \item $\dint\bm{r}(t)\d t=\left(\dint f(t)\d t\right)\bm{i}
+  +\left(\dint g(t)\d t\right)\bm{j}+\left(\dint h(t)\d t\right)\bm{k}$ 
+\end{enumerate}
+
+并且还有所谓的Newton—Leibniz公式：
+\begin{thx}
+	设$\bm{R}(t)$是$\bm{r}(t)$的原函数，则
+	$$\dint_a^b\bm{r}(t)\d t=\bm{R}(t)|_a^b=\bm{R}(b)-\bm{R}(a)$$
+\end{thx}
+
+{\bf 例：}求解关于向量值函数$\bm{r}(t)$的微分方程
+$$\df{\d\bm{r}}{\d t}=\df 32(t+1)^{1/2}\bm{i}+e^{-t}\bm{j},\;\bm{r}(0)=0$$
+
+{\bf 例：}一枚导弹以初始速度$\bm{v}_0$，仰角$\alpha$发射，假设导弹只受重力作用，
+空气阻力可以忽略不记，求导弹的位置函数$\bm{r}(t)$，并问$\alpha$
+取何值时其射程最远。
+
+\begin{ext}
+	{\bf 课后作业}
+	\begin{enumerate}
+	  \item 证明向量值函数的求导法则：
+	  \begin{enumerate}[(1)]
+	    \item $[\bm{u}(t)\cdot\bm{v}(t)]'
+	    =\bm{u}'(t)\cdot\bm{v}(t)+\bm{u}(t)\cdot\bm{v}'(t)$
+	    \item $[\bm{u}(t)\times\bm{v}(t)]'
+	    =\bm{u}'(t)\times\bm{v}(t)+\bm{u}(t)\times\bm{v}'(t)$ 
+	  \end{enumerate}
+	  进而由此给出并证明三阶行列式
+	  $$\left|\begin{array}{ccc}
+	  	a_1(t) & a_2(t) & a_3(t)\\
+	  	b_1(t) & b_2(t) & b_3(t)\\
+	  	c_1(t) & c_2(t) & c_3(t)
+	  \end{array}\right|$$
+	  的求导法则。	  
+	  \item Newton的万有引力定律可表述为
+	  $$\bm{F}=-\df{GmM}{r^3}\bm{r},$$
+	  其中$m$和$M$分别为行星和太阳的质量，$r$表示两者（球心）之间的距离，
+	  $\bm{r}$为由太阳中心指向行星中心的向量。
+	  \begin{enumerate}[(1)]
+	    \item 求行星运动的加速度$\bm{r}''$；
+	    \item 证明行星总是运行在一个经过太阳中心的平面内，也即
+	    $\bm{r}\times\bm{r}'$为常向量。
+	  \end{enumerate}
+	\end{enumerate}
+\end{ext}
 
 \newpage
 
 \section*{习题参考解答}
 \addcontentsline{toc}{section}{习题参考解答}
 
-{\bf 思考题}
+\begin{center}
+	\bf 8.1 向量及其运算
+\end{center}
 
-1.\;解：
+1.已知$(\bm{a}\times\bm{b})\cdot\bm{c}=2$，证明：
+$[(\bm{a}+\bm{b})\times(\bm{b}+\bm{c})]\cdot(\bm{c}+\bm{a})=4$。
+
+[证]：
 \begin{align*}
-	\limx{0}\df{|\bm{a}+x\bm{b}|-|\bm{a}|}{x}
-	&=\limx{0}\df{|\bm{a}+x\bm{b}|^2-|\bm{a}|^2}{x(|\bm{a}+x\bm{b}|+|\bm{a}|)}\\
+	&[(\bm{a}+\bm{b})(\bm{b}+\bm{c})(\bm{c}+\bm{a})]
+	=[(\bm{a}+\bm{b})\times(\bm{b}+\bm{c})]\cdot(\bm{c}+\bm{a})\\
+	&=(\bm{a}\times\bm{b}+\bm{a}\times\bm{c}
+	+\bm{b}\times\bm{b}+\bm{b}\times\bm{c})\cdot(\bm{c}+\bm{a})\\
+	&=(\bm{a}\times\bm{b}+\bm{a}\times\bm{c}
+	+\bm{b}\times\bm{c})\cdot(\bm{c}+\bm{a})\\
+	&=(\bm{a}\times\bm{b})\cdot\bm{c}+(\bm{a}\times\bm{b})\cdot\bm{a}
+	+(\bm{a}\times\bm{c})\cdot\bm{c}+(\bm{a}\times\bm{c})\cdot\bm{a}
+	+(\bm{b}\times\bm{c})\cdot\bm{c}+(\bm{b}\times\bm{c})\cdot\bm{a}\\
+	&=(\bm{a}\times\bm{b})\cdot\bm{c}+(\bm{b}\times\bm{c})\cdot\bm{a}
+	=2(\bm{a}\times\bm{b})\cdot\bm{c}=4.
+\end{align*}
+\fin
+
+2.求向量$\bm{a}=(4,3,4)$在向量$\bm{b}=(2,-2,1)$上的投影长度
+及投影向量。
+
+[解]：$\bm{a}$在$\bm{b}$上的投影长度为
+$$(\bm{a})_{\bm{b}}=\df{\bm{a}\cdot\bm{b}}{|\bm{b}|}
+=2.$$
+$\bm{b}$对应的单位向量为
+$$\bm{e}_{\bm{b}}=\df{\bm{b}}{|\bm{b}|}=\left(\df23,-\df23,\df13\right),$$
+于是$\bm{a}$在$\bm{b}$上的投影向量为
+$$(\bm{a})_{\bm{b}}\cdot\bm{e}_{\bm{b}}=\left(\df43,-\df43,\df23\right).$$
+\fin
+
+3.设$\bm{a},\bm{b}$均为非零向量，且$|\bm{b}|=1$，二者夹角为$\pi/3$，求
+$\limx{0}\df{|\bm{a}+x\bm{b}|-|\bm{a}|}{x}$。
+
+[解]：
+\begin{align*}
+	&\limx{0}\df{|\bm{a}+x\bm{b}|-|\bm{a}|}{x}
+	=\limx{0}\df{|\bm{a}+x\bm{b}|^2-|\bm{a}|^2}{x(|\bm{a}+x\bm{b}|+|\bm{a}|)}\\
 	&=\limx{0}\df{(\bm{a}+x\bm{b})\cdot(\bm{a}+x\bm{b})
-	-\bm{a}\cdot\bm{a}}{2x|\bm{a}|}\\
-	&=\limx{0}\df{2x\bm{a}\cdot\bm{b}+x^2|\bm{b}|^2}{2x|\bm{a}|}\\
+	-\bm{a}\cdot\bm{a}}{2x|\bm{a}|}
+	=\limx{0}\df{2x\bm{a}\cdot\bm{b}+x^2|\bm{b}|^2}{2x|\bm{a}|}\\
 	&=\df{\bm{a}\cdot\bm{b}}{|\bm{a}|}=|\bm{b}|\cos\df{\pi}3=\df12
 \end{align*}
+\fin
 
-5.\;解：设$P(x,y,z)$为所求柱面上一点，由题意，必存在母线上一点$Q(x_0,y_0,z_0)$，使得
-$P$位于$Q$沿准线运动所得轨迹上，从而可知$PQ$与$\bm{s_2}$平行，准线的方向向量为
-$\bm{s}_2=(0,1,1)$，故有
-$$\df{x-x_0}0=\df{y-y_0}1=\df{z-z_0}1.$$
-将该方程与母线方程
-$$x_0=y_0=z_0$$
-联立，消去$x_0,y_0,z_0$即得所求柱面方程
-$$y+z=2x.$$
+4.已知平行四边形的两对角线向量分别为$\bm{A}=\bm{m}+2\bm{n}$，
+$\bm{B}=2\bm{m}-4\bm{n}$，其中$|\bm{m}|=1,|\bm{n}|=2$，
+$\bm{m}$和$\bm{n}$的夹角为$\pi/6$，求该平行四边形的面积。
 
-6.\;解：设$P(x,y,z)$为所求柱面上任一点。由柱面的几何特征，过$P$
-做直线平行于$x=y=z$，其必与准线有交点$Q(x_0,y_0,z_0)$。综合以上描述，
-显然有
+[解]：如图
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{./images/ch8/ABS.jpg}
+\end{center}
+以$\bm{A}$和$\bm{B}$为对角线的平行四边形面积，等于以$\bm{A}$和$\bm{B}$
+为相邻边的平行四边形面积的一半，故所求面积
+\begin{align*}
+	S&=\df12{|\bm{A}\times\bm{B}|}
+	=\df12|(\bm{m}+2\bm{n})\times(2\bm{m}-4\bm{n})|\\
+	&=\df12|-6\bm{m}\times\bm{n}|
+	=3|\bm{m}||\bm{n}|\sin\df{\pi}6=3.
+\end{align*}
+\fin
+
+5.画图：在空间直角坐标系中画出一个单位正立方体，然后在其表面上画出一个正六边形，
+使得六边形的每条边分别在六面体的一个面上。
+
+[解]：如图
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{./images/ch8/HexCubic.pdf}
+\end{center}
+\fin
+
+6.设向量$\bm{a},\bm{b},\bm{c}$不共面，向量
+$$\bm{d}=\alpha\bm{a}+\beta\bm{b}+\gamma\bm{c},$$
+如果将$\bm{a},\bm{b},\bm{c},\bm{d}$的起点都放在一起，
+参数$\alpha,\beta,\gamma$须满足什么条件，方能使其终点在同一个平面上？
+
+[提示]：如图，
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{./images/ch8/abcd.jpg}
+\end{center}
+由混合积的几何意义，点$A,B,C,D$共面当且仅当
+$$[(\bm{d}-\bm{a})\times(\bm{d}-\bm{b})]\cdot(\bm{d}-\bm{c})=0,$$
+利用向量运算的性质化简，最后可得$\alpha+\beta+\gamma=1$。\fin
+
+\begin{center}
+	\bf 8.2 空间平面与直线
+\end{center}
+
+1.求过直线$x=y=z$，且垂直于$xOy$坐标面的平面的一般式方程。
+
+[解]：所求平面的法向量
+$$\bm{n}=\left|\begin{array}{ccc}
+	\bm{i} & \bm{j} & \bm{k}\\
+	1 & 1 & 1 \\
+	0 & 0 & 1
+\end{array}\right|=(1,-1,0).$$
+直线$x=y=z$过原点，故原点位于所求平面上，从而可得其方程为
+$$x-y=0.$$
+\fin
+
+\bs
+
+2.求点$(1,3,1)$关于平面$x+y=0$的对称点。
+
+[解]：过点$(1,3,1)$垂直于平面$x+y=0$的直线方向为
+$$\df{x-1}1=\df{y-3}1=\df{z-1}0.$$
+其于平面的交点为$(-1,1,1)$，从而所求对称点为
+$(-3,-1,1)$。\fin
+
+\bs
+
+3.求过点$(3,1,-2)$且过直线$\df{x-4}5=\df{y+3}2=z$的平面
+的一般式方程。
+
+[解]：所求平面的法向量为
+$$\bm{n}=\left|\begin{array}{ccc}
+	\bm{i} & \bm{j} & \bm{k}\\
+	1 & -4 & 2 \\
+	5 & 2 & 1
+\end{array}\right|=(-8,9,22).$$
+从而该平面的方程为
+$$-8x+9y+22z+59=0.$$
+\fin
+
+\bs
+
+4.求直线$\left\{\begin{array}{l}
+  	2x-y=0, \\ 3x-y-z-9=0
+  \end{array}\right.$
+  在平面$2x-y+z=1$上的投影直线的对称式方程。
+
+[解]：已知直线的方向向量为
+$$\bm{s_1}=\left|\begin{array}{ccc}
+	\bm{i} & \bm{j} & \bm{k}\\
+	2 & -1 & 0 \\
+	3 & -1 & -1
+\end{array}\right|=(1,2,1).$$
+过该直线且与已知平面垂直的平面的法向量为
+$$\bm{n}_1=\left|\begin{array}{ccc}
+	\bm{i} & \bm{j} & \bm{k}\\
+	1 & 2 & 1 \\
+	2 & -1 & 1
+\end{array}\right|=(3,1,-5).$$
+于是所求直线的方向向量为
+$$\bm{s}=\left|\begin{array}{ccc}
+	\bm{i} & \bm{j} & \bm{k}\\
+	3 & 1 & -5 \\
+	2 & -1 & 1
+\end{array}\right|=(-4,-13,-5).$$
+又联立已知直线与已知平面的方程可解得$(x,y,z)=(10,20,1)$，于是可知所求直线的
+对称式方程为
+$$\df{x-10}{4}=\df{y-20}{13}=\df{z-1}{5}.$$
+\fin
+
+\bs
+
+5.求过直线
+$$\left\{\begin{array}{l}
+	x+y=0\\
+	x+z+1=0
+\end{array}\right.$$
+且与平面$\pi:x-4y-8z+12=0$的夹角为$\pi/4$的平面方程。
+
+[解]：由已知，可设过已知直线的平面束方程为
+$$\lambda(x+y)+\mu(x+z+1)=0,$$
+即
+$$(\lambda+\mu)x+\lambda y+\mu z+\mu=0.$$
+由已知
+$$\cos\df{\pi}4=\df{(\lambda+\mu,\lambda,\mu)\cdot
+(1,-4,-8)}{|(\lambda+\mu,\lambda,\mu)||(1,-4,-8)|},$$
+化简可得
+$$72\lambda^2+39\lambda\mu+32\mu^2=0,$$
+该方程无解，从而可知所求平面不存在。
+\fin
+
+\bs
+
+6.画出下列各平面所围立体的图形
+  \begin{enumerate}[(1)]
+    \setlength{\itemindent}{1cm}
+    \item $x=0,y=0,z=0,x=2,y=2,3x+4y+6z=12$
+    \item $x+y=1,x+y+z=2,z=0,x=0,y=0$
+  \end{enumerate}
+
+[解]：（1）
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{./images/ch8/xyz12.jpg}
+\end{center}
+
+（2）
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{./images/ch8/xyz2.jpg}
+\end{center}
+
+\bs
+
+\begin{center}
+	\bf 8.3 空间曲面
+\end{center}
+
+1.求直线$l:\df{x}{a}=\df{y-b}0=z$绕$z$轴旋转一周所得曲面方程，
+并指出该曲面的类型。
+
+[解]：如图
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{./images/ch8/abz.jpg}
+\end{center}
+设$P(x,y,z)$为所求曲面上任意一点，则其必位于直线$l$上某点$Q$绕$z$轴旋转的轨迹上，
+$Q$的坐标可表示为$(at,b,t)$，故必有
+$$\left\{\begin{array}{l}
+	x^2+y^2=(at)^2+b^2\\
+	z=t
+\end{array}\right.$$
+消去以上两个方程中的$t$，可得
+$$x^2+y^2-a^2z^2=b^2,$$
+即为所求的旋转曲面方程，根据$a,b$取值的不同，其对应的几何对象分别为：
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item $a=b=0$：$z$轴；
+  \item $a\ne0,b=0$：圆锥面；
+  \item $a\ne0,b\ne0$：单叶双曲面；
+  \item $a=0,b\ne0$：圆柱面。
+\end{enumerate}
+\fin
+
+\bs
+
+2.已知点$A(1,0,0)$与点$B(0,1,1)$，直线$AB$绕$z$轴旋转一周
+所成的旋转曲面为$S$，求$S$与$z=0$、$z=1$所围成的立体体积。
+
+[解]：如图
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{./images/ch8/abzz.jpg}
+\end{center}
+垂直于$z$轴对所得立体进行分割，则所求立体体积为
+$$V=\dint_0^1\pi r^2\d z.$$
+其中$r$为与$z$对应的$AB$上某点$Q$到$z$轴的距离，注意到
+直线$AB$的参数方程为
+$$x=1-t,\quad y=t,\quad z=t,$$
+故$r=\sqrt{x^2+y^2}=\sqrt{1-2t+2t^2}$。进而所求体积
+$$V=\dint_0^1\pi r^2\d z
+=\dint_0^1\pi(1-2t+2t^2)\d t=\df23\pi.$$
+\fin
+
+\bs
+
+3.设柱面的母线平行于直线$x=y=z$，准线为$xOy$平面内的单位圆
+$x^2+y^2=1$，求柱面的方程。
+
+[解]：如图
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{./images/ch8/cpq.jpg}
+\end{center}
+设$P(x,y,z)$为所求柱面上任意一点，由柱面的特点可知，其必位于过
+已知单位圆上某点$Q(\cos t,\sin t,0)$方向平行于$(1,1,1)$的直线上。
+从而可得
+$$\df{x-\cos t}1=\df{y-\sin t}1=\df{z}1,$$
+消去其中的参数$t$，可得
+$$(x-z)^2+(y-z)^2=1,$$
+即为所求柱面的方程。\fin
+
+\bs
+
+\begin{center}
+	\bf 8.4 空间曲线
+\end{center}
+
+1.一束光线垂直于平面$x+y+z=0$，照射在球面$x^2+y^2+(z-1)^2=1$上，
+求球面在$xOy$平面上的投影的边界曲线方程。
+
+[解]：如图
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{./images/ch8/sunray.jpg}
+\end{center}
+设$P(x,y,0)$为所求边界曲线上一点，由投影柱面的性质，其必位于经过
+球面上某点$Q(x_0,y_0,z_0)$平行于$(1,1,1)$的直线上，由此可知
+$$\df{x-x_0}1=\df{y-y_0}1=\df{-z_0}1.$$
+又显然$Q$位于经过球心且与$(1,1,1)$垂直的平面与球面的交线上，故必有
+$$\left\{\begin{array}{l}
+	x_0^2+y_0^2+(z_0-1)^2=1\\
+	x_0+y_0+z_0=1
+\end{array}\right.$$
+联立以上所得各方程，消去$x_0,y_0,z_0$可得
+$$1+x+y+x^2-xy+y^2=\df32.$$
+故所求投影边界的曲线方程为
+$$\left\{\begin{array}{l}
+	1+x+y+x^2-xy+y^2=\df32\\
+	z=0
+\end{array}\right.$$
+\fin
+
+\bs
+
+2.已知直线$l:x=y=-z$，过$l$的平面$\pi$与柱体$x^2+y^2\leq1$
+相交的截面为$S$，求$\pi$的方程，使得$S$的面积最小，并给出$\pi$与柱面$x^2+y^2=1$
+的交线$C$的参数方程。
+
+[解]：如图
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{./images/ch8/ccS.jpg}
+\end{center}
+设平面$\pi$与$xOy$平面的夹角为$\gamma$，注意到截面$S$在$xOy$平面上的投影为
+单位圆，故必有其面积
+$$A=\df{\pi}{|\cos\gamma|},$$
+由此可知，当$|\cos\gamma|$取最大值时，截面$S$的面积最小。
+
+由已知，可设过$l$的平面束为
+$$\lambda(x-y)+\mu(x+z)=0,$$
+其方向向量为$\bm{n}=(\lambda+\mu,-\lambda,\mu)$，故
+$$\cos\gamma=\df{\bm{n}\cdot\bm{k}}{|\bm{n}||\bm{k}|}
+=\df{\mu}{\sqrt{2(\lambda^2+\lambda\mu+\mu^2)}}.$$
+若$\mu=0$，则$\cos\gamma=0$，显然不是所求最大值。若$\mu\ne0$，设
+$x=\lambda/\mu$，则
+$$|\cos\gamma|=\df1{\sqrt{2(x^2+x+1)}},$$
+显然，当$x=-\df12$时，$|\cos\gamma|$取到最大值$\df{\sqrt6}3$。
+
+由此，令$\lambda=1,\mu=-2$，可得$\pi$的方程为
+$$x+y+2z=0.$$
+相应地曲线$C$可表示为
+$$\left\{\begin{array}{l}
+	x^2+y^2=1\\
+	x+y+2z=0
+\end{array}\right.$$
+其相应的参数方程为
+$$\left\{\begin{array}{l}
+	x=\cos t\\
+	y=\sin t\\
+	z=-\df12(\cos t+\sin t)
+\end{array}\right.
+\quad (t\in[0,2\pi])$$
+\fin
+
+\bs
+
+% 3.叙述如何求空间曲线
+% $$\left\{\begin{array}{l}
+% F(x,y,z)=0\\ G(x,y,z)=0
+% \end{array}\right.$$绕直线
+% $$\df{x-a}m=\df{y-b}n=\df{z-c}p$$
+% 旋转一周所得曲面的方程。（要求：写出思路和大致的解题步骤）
+% 
+% [解]：如图
+% \begin{center}
+% 	\resizebox{!}{5cm}{\includegraphics{./images/ch8/randomRotate.pdf}}
+% \end{center}
+% 
+% 设$P(x,y,z)$为所求曲面上任一点，由题意，必存在已知曲线上一点$Q(x_0,y_0,z_0)$，
+% 使得$P$恰处于$Q$绕已知曲线($L$)旋转所产生的轨迹上，有此可知$PQ$与$L$的方向向量
+% 垂直，也即
+% $$m(x-x_0)+p(y-y_0)+q(z-z_0)=0.\eqno{(1)}$$
+% 
+% 由旋转曲面的性质，$P$和$Q$到$L$上任一点的距离相等，$M(a,b,c)$为$L$上一点，
+% 从而有
+% $$(x-a)^2+(y-b)^2+(z-c)^2=(x_0-a)^2+(y_0-b)^2+(z_0-c)^2.\eqno{(2)}$$
+% 
+% $Q$为已知曲线上一点，故满足
+% $$F(x_0,y_0,z_0)=0,\eqno{(3)}$$
+% $$G(x_0,y_0,z_0)=0.\eqno{(4)}$$
+% 
+% 以上方程(1)(2)(3)(4)联立，消去$x_0,y_0,z_0$即得所求曲面方程（关于$x,y,z$的方程）。
+% \fin
+% 
+% \bs
+
+3.画出以下空间区域的图形
+  \begin{enumerate}[(1)]
+    \setlength{\itemindent}{1cm}
+    \item 曲面$(x-z)^2+y^2=1$与$z=-1,z=1$所围空间区域
+    \item $0\leq x\leq 1,0\leq y\leq x,0\leq z\leq xy$
+  \end{enumerate}
+
+[解]：（1）
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{./images/ch8/xzy-cl.jpg}
+\end{center}
+
+（2）
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{./images/ch8/3int-1.jpg}\quad\quad
+	\includegraphics[width=0.45\textwidth]{./images/ch8/3int-2.jpg}
+\end{center}
+
+\bs
+
+\begin{center}
+	\bf 8.5 向量值函数
+\end{center}
+
+1.证明向量值函数的求导法则：
+  \begin{enumerate}[(1)]
+    \setlength{\itemindent}{1cm}
+    \item $[\bm{u}(t)\cdot\bm{v}(t)]'
+    =\bm{u}'(t)\cdot\bm{v}(t)+\bm{u}(t)\cdot\bm{v}'(t)$
+    \item $[\bm{u}(t)\times\bm{v}(t)]'
+    =\bm{u}'(t)\times\bm{v}(t)+\bm{u}(t)\times\bm{v}'(t)$ 
+  \end{enumerate}
+  进而由此给出并证明三阶行列式
+  $$\left|\begin{array}{ccc}
+  	a_1(t) & a_2(t) & a_3(t)\\
+  	b_1(t) & b_2(t) & b_3(t)\\
+  	c_1(t) & c_2(t) & c_3(t)
+  \end{array}\right|$$
+  的求导法则。	  
+
+[证]：（1）设$\bm{u}(t)=(a_1(t),a_2(t),a_3(t))$，
+$\bm{v}(t)=(b_1(t),b_2(t),b_3(t))$，则
+\begin{align*}
+	[\bm{u}(t)\cdot\bm{v}(t)]'
+	&=[a_1(t)b_1(t)+a_2(t)b_2(t)+a_3(t)b_3(t)]'\\
+	&=a_1'b_1+a_1b_1'+a_2'b_2+a_2b_2'+a_3'b_3+a_3b_3'\\
+	&=\bm{u}'(t)\cdot\bm{v}(t)+\bm{u}(t)\cdot\bm{v}'(t).
+\end{align*}
+
+（2）注意到，二阶行列式的求导满足
+$$\left|\begin{array}{cc}
+  	a_1(t) & a_2(t) \\
+  	b_1(t) & b_2(t)
+  \end{array}\right|'
+=\left|\begin{array}{cc}
+  	a_1'(t) & a_2'(t) \\
+  	b_1(t) & b_2(t)
+  \end{array}\right|+\left|\begin{array}{cc}
+  	a_1(t) & a_2(t) \\
+  	b_1'(t) & b_2'(t)
+  \end{array}\right|$$
+故
+\begin{align*}
+	[\bm{u}(t)\times\bm{v}(t)]'
+	&=\left|\begin{array}{ccc}
+	\bm{i} & \bm{j} & \bm{k}\\
+  	a_1(t) & a_2(t) & a_3(t)\\
+  	b_1(t) & b_2(t) & b_3(t)
+  	\end{array}\right|'\\
+  	&=\bm{i}\left|\begin{array}{cc}
+  	a_2 & a_3\\
+  	b_2 & b_3
+    \end{array}\right|'
+    -\bm{j}\left|\begin{array}{cc}
+  	a_1 & a_3\\
+  	b_3 & b_3
+    \end{array}\right|'
+    +\bm{k}\left|\begin{array}{cc}
+  	a_1 & a_2\\
+  	b_1 & b_2
+    \end{array}\right|'\\
+    &=\bm{i}\left(\left|\begin{array}{cc}
+  	a_2' & a_3'\\
+  	b_2 & b_3
+    \end{array}\right|
+    +\left|\begin{array}{cc}
+  	a_2 & a_3\\
+  	b_2' & b_3'
+    \end{array}\right|\right)
+    -\bm{j}\left(\left|\begin{array}{cc}
+  	a_1' & a_3'\\
+  	b_1 & b_3
+    \end{array}\right|
+    +\left|\begin{array}{cc}
+  	a_1 & a_3\\
+  	b_1' & b_3'
+    \end{array}\right|\right)\\
+    &\quad +\bm{k}\left(\left|\begin{array}{cc}
+  	a_1' & a_2'\\
+  	b_1 & b_2
+    \end{array}\right|
+    +\left|\begin{array}{cc}
+  	a_1 & a_2\\
+  	b_1' & b_2'
+    \end{array}\right|\right)\\
+    &=\left|\begin{array}{ccc}
+	\bm{i} & \bm{j} & \bm{k}\\
+  	a_1'(t) & a_2'(t) & a_3'(t)\\
+  	b_1(t) & b_2(t) & b_3(t)
+  	\end{array}\right|
+  	+\left|\begin{array}{ccc}
+	\bm{i} & \bm{j} & \bm{k}\\
+  	a_1(t) & a_2(t) & a_3(t)\\
+  	b_1'(t) & b_2'(t) & b_3'(t)
+  	\end{array}\right|\\
+  	&=\bm{u}'(t)\times\bm{v}(t)+\bm{u}(t)\times\bm{v}'(t)
+\end{align*}
+
+（3）记$\bm{u}(t)=(a_1(t),a_2(t),a_3(t))$，$\bm{v}(t)=(b_1(t),b_2(t),b_3(t))$，
+$\bm{w}(t)=(c_1(t),c_2(t),c_3(t))$，则
+\begin{align*}
+	&\left|\begin{array}{ccc}
+  	a_1(t) & a_2(t) & a_3(t)\\
+  	b_1(t) & b_2(t) & b_3(t)\\
+  	c_1(t) & c_2(t) & c_3(t)
+  \end{array}\right|'
+  =[(\bm{u}\times\bm{v})\cdot\bm{w}]'\\
+  &=(\bm{u}\times\bm{v})'\cdot\bm{w}+(\bm{u}\times\bm{v})\cdot\bm{w}'\\
+  &=(\bm{u}'\times\bm{v})\cdot\bm{w}+(\bm{u}\times\bm{v}')\cdot\bm{w}
+  +(\bm{u}\times\bm{v})\cdot\bm{w}'\\
+  &=\left|\begin{array}{ccc}
+  	a_1' & a_2' & a_3'\\
+  	b_1 & b_2 & b_3\\
+  	c_1 & c_2 & c_3
+  \end{array}\right|
+  +\left|\begin{array}{ccc}
+  	a_1 & a_2 & a_3\\
+  	b_1' & b_2' & b_3'\\
+  	c_1 & c_2 & c_3
+  \end{array}\right|
+  +\left|\begin{array}{ccc}
+  	a_1 & a_2 & a_3\\
+  	b_1 & b_2 & b_3\\
+  	c_1' & c_2' & c_3'
+  \end{array}\right|.
+\end{align*}
+\fin
+
+\bs
+
+2.Newton的万有引力定律可表述为
+  $$\bm{F}=-\df{GmM}{r^3}\bm{r},$$
+  其中$m$和$M$分别为行星和太阳的质量，$r$表示两者（球心）之间的距离，
+  $\bm{r}$为由太阳中心指向行星中心的向量。
+  \begin{enumerate}[(1)]
+    \setlength{\itemindent}{1cm}
+    \item 求行星运动的加速度$\bm{r}''$；
+    \item 证明行星总是运行在一个经过太阳中心的平面内，也即
+    $\bm{r}\times\bm{r}'$为常向量。
+  \end{enumerate}
+
+[解]：（1）由Newton第二定律，
+$$\bm{r}''=\df{\bm{F}}{m}=-\df{GM}{r^3}\bm{r}.$$
+
+（2）由向量值函数叉乘的求导法则，
 $$
-	\left\{\begin{array}{l}
-		x_0^2+y_0^2+z_0^2=1\\
-		x_0+y_0+z_0=0\\
-		\df{x-x_0}1=\df{y-y_0}1=\df{z-z_0}1
-	\end{array}
-	\right.
+	(\bm{r}\times\bm{r}')'
+	=\bm{r}'\times\bm{r}'+\bm{r}\times\bm{r}''
+	=\bm{r}\times\bm{r}''=-\bm{r}\times\df{GM}{r^3}\bm{r}=0,
 $$
-由此消去方程组中的$x_0,y_0,z_0$可得
-$$x^2+y^2+z^2-xy-yz-zx=\df32,$$
-即为所求。
+由此即知$\bm{r}\times\bm{r}'$为常向量。\fin
 
 \ifvisible
 
