@@ -1,4 +1,4 @@
-\setcounter{chapter}{11}
+\setcounter{chapter}{10}
 
 \chapter{曲线积分与曲面积分}
 
@@ -6,7 +6,7 @@
 我们可以给出其精确的数学定义。从计算的角度，曲线与曲面积分与重积分一样，都可以看成是
 定积分的应用。
 
-\section{曲线积分}
+\section{第一型的曲线积分与曲面积分}
 
 \subsection{对弧长（第一型）的曲线积分}
 
@@ -42,31 +42,31 @@ $$\cos\theta=\df{\bm{T}\cdot\bm{i}}{|\bm{T}||\bm{i}|}
 从而
 $$\d s=\df{\d x}{|\cos\theta|}=\sqrt{1+(f'_x)^2}\d x.$$
 
-{\bf 平面曲线常用的弧微分公式：}分别对应于曲线的平面直角方程、参数方程和极坐标方程表示，有
+\begin{thx}
+	{\bf 平面曲线常用的弧微分公式：}分别对应于曲线的平面直角方程、参数方程和极坐标方程表示，有
 	$$\d s=\sqrt{1+(y'_x)^2}\d x=\sqrt{(x'_t)^2+(y'_t)^2}\d t
 	=\sqrt{(\rho'_{\theta})^2+\rho^2}\d\theta$$
-
-{\bf 思考：}对于三维空间中的曲线，如何推导出相应的弧微分公式？
+\end{thx}
 
 对弧微分（弧长微元）积分（求和）即得{\it 曲线长度}，记为
 $$s=\dint_L\d s$$
 
-% \subsubsection{【空间曲线的长度】}
-
-{\bf 例：}计算圆柱螺旋线$x=\cos t,y=\sin t,z=t,(0\leq t\leq 2\pi)$的长度。
-
+对于三维空间中的曲线，可以类似地推导出相应的弧微分公式。
 设$L:\bm{r}(t)=(x(t),y(t),z(t)),\;(a\leq t\leq b)$， 则
 $${\d s=\sqrt{(\d x)^2+(\d y)^2+(\d z)^2}
 =\sqrt{(x'_t)^2+(y'_t)^2+(z'_t)^2}\d t} =|\bm{r}'(t)|\d t$$
 从而曲线长度
 $${s=\dint_L\d s =\dint_a^b\sqrt{(x'_t)^2+(y'_t)^2+(z'_t)^2}\d t
  =\dint_a^b|\bm{r}'(t)|\d t}$$
+ 
+ {\bf 例：}计算圆柱螺旋线$x=\cos t,y=\sin t,z=t,(0\leq t\leq 2\pi)$的长度。
 
-{\bf 对弧长（第一型）的曲线积分}
-
-$$\dint_Lf(x,y,z)\d s,$$
-若{\it 积分路径}$L$是封闭的，上式可记为
-$$\oint_Lf(x,y,z)\d s$$
+\begin{thx}
+	{\bf 对弧长（第一型）的曲线积分}
+	$$\dint_Lf(x,y,z)\d s,$$
+	若{\it 积分路径}$L$是封闭的，上式可记为
+	$$\oint_Lf(x,y,z)\d s$$
+\end{thx}
 
 {\bf 例：}已知空间曲线$L:\bm{r}(t)=(x(t),y(t),z(t)),\;(a\leq t\leq b)$，其上
 的线密度为$\mu(x,y,z)$，求：
@@ -78,23 +78,24 @@ $$\oint_Lf(x,y,z)\d s$$
   \item 对位于$(a,b,c)$质量为$m$的质点的{\it 万有引力}
 \end{enumerate}
 
-% \subsubsection{【性质】}
+与此前计算重积分类似，计算对弧长的曲线积分，也需要首先将其转化为定积分：
+\begin{thx}
+	{\bf 计算对弧长的曲线积分：}设曲线$L$可表示为$\bm{r}(t),\;(a\leq t\leq b)$，则
+	$$I=\dint_Lf(\bm{x})\d s=\dint_a^bf(\bm{r}(t))|\bm{r}'(t)|\d t,$$
+\end{thx}
+以上的计算过程可以概括为：画图$\to$曲线参数化\ps{曲线参数化相当于对曲线进行投影，
+从而确定其数学表示与参数的变化范围！}$\to$改写为定积分$\to$计算积分。特别要注意的是：
+{\color{red} 将对弧长的曲线积分化为定积分时，必须保证定积分上限总是大于下限！}
 
-{\bf 计算公式：}\ps{即：改写成定积分的方法}
-设曲线$L$可表示为$\bm{r}(t),\;(a\leq t\leq b)$，则
-$$I=\dint_Lf(\bm{x})\d s=\dint_a^bf(\bm{r}(t))|\bm{r}'(t)|\d t,$$
-{\b 在上式右端的定积分中，必须确保积分上限总是大于积分下限！}
-
-{\bf 性质：}
-
-\begin{enumerate}[(1)]
+对弧长的曲线积分与定积分有着非常相似的性质：
+\begin{enumerate}
   \setlength{\itemindent}{1cm}
   \item {\it 线性性} 
-  \item {\it 无向性：}对弧长（第一型）的曲线积分不考虑曲线的方向，可表示为：
-  $$\dint_Lf(x,y,z)\d s=\dint_{L^-}f(x,y,z)\d s$$
-  \item {\it 路径可加性}
-  $$\dint_{L_1+L_2}f(x,y,z)\d s=\left(\dint_{L_1}+\dint_{
-  L_2}\right)f(x,y,z)\d s$$
+%   \item {\it 无向性：}对弧长（第一型）的曲线积分不考虑曲线的方向，可表示为：
+%   $$\dint_Lf(x,y,z)\d s=\dint_{L^-}f(x,y,z)\d s$$
+  \item {\it 路径可加性：}
+  $\dint_{L_1+L_2}f(x,y,z)\d s=\left(\dint_{L_1}+\dint_{
+  L_2}\right)f(x,y,z)\d s$
   \item {\it 保号性}
   \item {\it 积分中值定理}
 \end{enumerate}
@@ -134,14 +135,6 @@ $$\bm{r}_2(u)\quad(-b\leq u\leq -a).$$
 
 \end{shaded}
 
-{\bf 注：}对弧长（第一型）的曲线积分的计算步骤：
-
-\begin{center}
-	画图$\to$曲线参数化\ps{曲线参数化相当于对曲线进行投影，
-	从而确定其数学表示与参数的变化范围！}$\to$定限$\to$积分
-\end{center}
-
-% \subsubsection{【计算】}
 
 {\bf 例：}设有点$A(1,1,0)$和$B(1,1,1)$，$L$为线段$OA,AB$和$BO$组成的封闭曲线，
 方向为$O\to A\to B\to O$，计算曲线积分
@@ -154,28 +147,113 @@ $$
 	\oint_{x^2+y^2=1}(x+y)^2\d s
 $$
 
+\subsection{对面积（第一型）的曲面积分}
 
-\subsection{对坐标（第二型）的曲线积分}
+如何求空间曲面$\Sigma:\,z=f(x,y),\,(x,y)\in D$的面积？
 
-% \subsubsection{【概念】}
+% {\bf 例：}求空间曲面$\Sigma:z=x,(x,y)\in D$的面积，其中：
+% \begin{enumerate}[(1)]
+%   \setlength{\itemindent}{1cm}
+%   \item $D:\,0\leq x\leq 1,\,0\leq y\leq 1$
+%   \item $D:\,x^2+y^2\leq 1$
+% \end{enumerate}
+% \begin{center}
+% 	\resizebox{!}{4cm}{\includegraphics{./images/ch12/ssquare.pdf}}
+% 	\hspace{3cm}
+% 	\resizebox{!}{4cm}{\includegraphics{./images/ch12/scircle.pdf}}
+% \end{center}
+
+\begin{thx}
+	{\bf 对面积的曲面积分：}
+	$$\iint_{\Sigma}f(x,y,z)\d S,$$
+	其中$\Sigma$为空间曲面。若$\Sigma$是封闭的，以上积分也可以表示为
+	$$\oiint_{\Sigma}f(x,y,z)\d S.$$
+\end{thx}
+
+{\bf 例：}推导球表面积公式。
+
+\begin{thx}
+	{\bf 计算对面积的曲面积分：}设曲面$\Sigma$的方程为$z=z(x,y),(x,y)\in D_{xy}$，则
+	$$\iint_{\Sigma}f(x,y,z)\d S
+	=\iint_{D_{xy}}f(x,y,z(x,y))\sqrt{1+(z'_x)^2+(z'_y)^2}\d\sigma_{xy}.$$
+\end{thx}
+和第一型的曲线积分类似，第一型的曲面积分的计算过程通过也是：画图$\to$曲面参数化（给出曲面方程）
+$\to$改写为二重积分$\to$计算积分。注意到二重积分再化为累次积分时，默认也要求了上限大于下限，
+因此可以说第一型的曲线和曲面积分在各方面都是非常相似的。也正因为如此，二者在基本的性质及应用方面
+也是非常相似的，在此不再重复。
+
+{\bf 例：}设空间曲面$\Sigma:\,z=f(x,y),\,(x,y)\in D$的面密度函数为
+$f(x,y,z)$，求其质量。
+$${M=\iint\limits_{\Sigma}f(x,y,z)\d S}$$
+
+{\bf 例：}计算曲面积分
+$$I=\oiint\limits_{\Sigma}x^2\d S,$$
+其中$\Sigma$为$x+y+z=1$和坐标平面所围立体的表面。
+
+{\bf 例：}计算曲面积分
+$$\iint\limits_{\Sigma}z\d S,$$
+其中$\Sigma$为柱面$x^2+y^2=1$夹在平面$z=0$和$z=1+x$之间
+的部分。
+
+{\bf 例：}设函数$y=f(x)$在区间$[a,b]$上连续可导、非负，
+证明：曲线$L:\,y=f(x),x\in[a,b]$绕$x$轴旋转所得 曲面侧面积
+$$S=2\pi\dint_Lf(x)\d s$$
+
+{\bf 例：}设半球壳$z=\sqrt{R^2-x^2-y^2}$的密度为常数$\mu$，求：
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 半球壳的质心；
+  \item 半球壳关于$z$轴的转动惯量。
+\end{enumerate}
+
+{\bf 例：}求上半球面$z=\sqrt{1-x^2-y^2}$被$x^2+y^2=x$所截取的部分的面积与形心。
+
+[提示]：面积$\pi-2$，形心$\left(\df{2}{3(\pi-2)},0,\df{\pi}{4(\pi-2)}\right)$
+
+{\bf 例：}$\ds\iint_{z=\sqrt{a^2-x^2-y^2}}(x+y+z)\d S=\pi a^3$
+
+[提示]：利用对称性化简积分。
+
+\begin{ext}
+	{\bf 课后作业}
+	\begin{enumerate}
+	  \item 已知$a>0$，计算积分$\dint_L z\d s$，其中$L$为$x^2+y^2=z^2$与$y^2=ax$
+	  的交线上从原点到$(a,a,\sqrt2a)$的一段。
+	  \item 已知$a>0$，计算积分$\dint_{\Gamma}(x^2+y^2+z^2)\d s$，其中$\Gamma$
+	  为$x^2+y^2=a^2$与$z=1$的交线。
+	  \item 已知某曲线$L$的线密度为$\mu=x^2+y^2+z^2$，方程为
+	  $$x=e^t\cos\theta,\;y=e^t\sin\theta,\;z=\sqrt2e^t,\;-\infty<t\leq0.$$
+	  求该曲线绕$z$轴转动的转动惯量。
+	  \item 计算积分$\ds\iint_{\Sigma}(x+y+z)\d S$，其中$\Sigma$为半径为
+	  $R$的上半球面。
+	  \item 计算积分$\ds\iint_S x^2\d S$，其中$S$为圆柱面$x^2+y^2=a^2$介于
+	  $z=0$和$z=h$之间的部分。
+	  \item 计算积分$\ds\iint_{\Sigma}(ax^2+by^2+cz^2)\d S$，其中
+	  $\Sigma$为单位球面。
+	  \item 设球面$x^2+y^2+z^2=2x$的面密度$\mu=x^2+y^2+z^2$，求其质量。
+	\end{enumerate}
+\end{ext}
+
+\section{对坐标（第二型）的曲线积分}
 
 {\bf 例：}已知某质点$M$在{\it 引力场}
 $$\bm{F}(x,y,z)=(P(x,y,z),Q(x,y,z),R(x,y,z))$$
 中沿曲线$L:\bm{r}(t)=(x(t),y(t),z(t)),(a\leq t\leq b)$
 运动，求引力对其做的功。
 
-$${W=\dint_L\bm{F}\d\bm{s}=\dint_LP\d x+\dint_LQ\d y+\dint_LR\d z}$$
+\begin{thx}
+	{\bf 对坐标（第二型）的曲线积分：}
+	$${W=\dint_L\bm{F}\d\bm{s}=\dint_LP\d x+\dint_LQ\d y+\dint_LR\d z}$$
+	其中，若$L$为封闭曲线，则可记为：
+	$$W=\oint_LP\d x+Q\d y+R\d z$$
+\end{thx}
 
-其中，若$L$为封闭曲线，则可记为：
-$$W=\oint_LP\d x+Q\d y+R\d z$$
-
-{\bf 计算公式：}
 设曲线$L$可表示为$\bm{r}(t),\;(a\leq t\leq b)$，则
-$$I=\dint_L\bm{F}(\bm{x})\d\bm{s}=\dint_a^b\bm{F}(\bm{r}(t))\cdot\bm{r}'(t)\d
-t,$$ {\b 在上式右端的定积分中，必须确保下限对应曲线起点，上限对应曲线终点！}
-
-% \subsubsection{【性质】}
-
+\begin{thx}
+	$$I=\dint_L\bm{F}(\bm{x})\d\bm{s}
+	=\dint_a^b\bm{F}(\bm{r}(t))\cdot\bm{r}'(t)\d t,$$
+\end{thx}
+{\b 在上式右端的定积分中，必须确保下限对应曲线起点，上限对应曲线终点！}
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item {\it 有向性：}
@@ -199,19 +277,20 @@ $$\oint_{L}\bm{f}(\bm{x})\d\bm{s}
 $$\oint_L(x+y+z)\d s\quad\mbox{和}\quad\oint_Lx\d x+y\d y+z\d z.$$
 
 {\bf 注：}对坐标（第二型）的曲线积分的计算步骤：
-
-\begin{center}
-	画图$\to$曲线参数化$\to$定限\ps{下限对应曲线起点，上限对应曲线终点！}$\to$积分
-\end{center}
+画图$\to$曲线参数化$\to$定限$\to$积分
 
 \subsection{两类曲线积分的关系}
 
-设$L:\bm{r}(t)=(x(t),y(t),z(t)),\;(a\leq t\leq b)$， 其单位切向量
-$$\bm{T}=\df{\bm{r}'(t)}{|\bm{r}'(t)|},$$
-$\bm{T}$指向$t$的增大方向，
-$${\dint_L\bm{F}\cdot \d\bm{s}=\dint_L\bm{F}\cdot\bm{T}\d s}$$
-% 	=\dint_L\bm{F}\cdot\bm{r}'(t)\d t}$$
-即：{对坐标的曲线积分总可以化为对弧长的曲线积分}
+\begin{thx}
+	{\bf 对坐标的曲线积分总可以化为对弧长的曲线积分：}
+	设$L:\bm{r}(t)=(x(t),y(t),z(t)),\;(a\leq t\leq b)$， 其单位切向量
+	$$\bm{T}=\pm\df{\bm{r}'(t)}{|\bm{r}'(t)|},$$
+	（{\color{red}$\bm{T}$指向$L$的正向，若其与$t$的正向（增大方向）一致，则
+	取正号，否则取负号}），进而可得
+	$$\dint_L\bm{F}\cdot \d\bm{s}=\dint_L\bm{F}\cdot\bm{T}\d s
+	=\pm\dint_L\bm{F}\cdot\bm{r}'(t)\d t$$
+\end{thx}
+事实上，利用以上的公式，也可以将对弧长的曲线积分总可以化为对坐标的曲线积分。
  
 {\bf 例：}计算曲线积分$\dint_Lxy\d x$，其中积分曲线$L$分别为：
 \begin{enumerate}[(1)]
@@ -228,23 +307,23 @@ $${\dint_L\bm{F}\cdot \d\bm{s}=\dint_L\bm{F}\cdot\bm{T}\d s}$$
   \item 由$A(0,-1)$沿单位圆逆时针方向至$A(0,-1)$。
 \end{enumerate}
 
-\subsection{曲线积分的应用}
+% \subsection{曲线积分的应用}
+% 
+% \begin{enumerate}
+%   \item {\bf 对弧长的曲线积分：}
+%   \begin{itemize}
+%     \item 曲线的长度、质量
+%     \item 曲线的质心、转动惯量
+%     \item 曲线对质点的引力
+%   \end{itemize}
+%   \item {\bf 对坐标的曲线积分：}
+%   \begin{itemize}
+%     \item 变力沿曲线做功
+%     \item {向量场中的环量和流量}
+%   \end{itemize}
+% \end{enumerate}
 
-\begin{enumerate}
-  \item {\bf 对弧长的曲线积分：}
-  \begin{itemize}
-    \item 曲线的长度、质量
-    \item 曲线的质心、转动惯量
-    \item 曲线对质点的引力
-  \end{itemize}
-  \item {\bf 对坐标的曲线积分：}
-  \begin{itemize}
-    \item 变力沿曲线做功
-    \item {向量场中的环量和流量}
-  \end{itemize}
-\end{enumerate}
-
-\subsubsection{【流量与环量】}
+\subsection{流量与环量}
 
 考虑平面区域内$D$内的向量场
 $$\bm{v}=(P(x,y),Q(x,y)),\;(x,y)\in D.$$
@@ -276,28 +355,59 @@ $$\bm{T}\cdot\d\bm{s}=(\d x, \d y)\quad\Rightarrow
 	{\it 环量：}${\ds\oint_L\bm{v}\cdot\bm{T}\d s}$
 \end{center}
 
+{\bf 例：}设$L$为平面上的简单光滑闭曲线，$D$为$L$所围成的有界闭区域，$\bm{n}$
+为$L$的外法向，$\df{\p u}{\p\bm{n}}$表示函数$u(x,y)$沿$\bm{n}$的方向导数
+\begin{enumerate}[(1)]
+  \item 将$\ds\oint_L\df{\p u}{\p\bm{n}}\d s$化为对坐标的曲线积分；
+  \item 设$u=x^2+y^2$，$L:x^2+y^2=6x$，计算
+  $$\ds\oint_L\df{\p u}{\p\bm{n}}\d s$$
+\end{enumerate}
+
 {\bf 例：}分别计算向量场
 $$\bm{v}_1=(x,y)\quad\mbox{和}\quad \bm{v}_2=(-y,x)$$
 沿单位圆逆时针方向的流量和环量。
+
+\begin{ext}
+	{\bf 课后作业}
+	\begin{enumerate}
+	  \item 设$L$为曲线$x=\df{3at}{1+t^3},y=\df{3at^2}{1+t^3}$上$t$由
+	  $0$到$+\infty$的一段，$a>0$，计算$\dint_Lx\d y-y\d x$。
+	  \item 计算积分
+		$$I=\int_Ly^2\d x+z^2\d y+x^2\d z,$$
+		其中$C$为曲线$\left\{\begin{array}{l}
+		x^2+y^2+z^2=1 \\ x^2+y^2=x
+		\end{array}\right.$
+		上$z\geq 0$的部分，从$x$轴正向看去为逆时针方向。
+% 	  \item 设$L$为平面上的简单光滑闭曲线，$D$为$L$所围成的有界闭区域，$\bm{n}$
+% 		为$L$的外法向，$\df{\p u}{\p\bm{n}}$表示函数$u(x,y)$沿$\bm{n}$的方向导数
+% 		\begin{enumerate}[(1)]
+% 		  \item 将$\ds\oint_L\df{\p u}{\p\bm{n}}\d s$化为对坐标的曲线积分；
+% 		  \item 设$u=x^2+y^2$，$L:x^2+y^2=6x$，计算
+% 		  $\ds\oint_L\df{\p u}{\p\bm{n}}\d s$。
+% 		\end{enumerate}
+	\end{enumerate}
+\end{ext}
 
 \section{Green公式与保守场}
 
 \subsection{Green公式}
 
-{\bf 定理12.2.1-3：}$$\oint_LP(x,y)\d x+Q(x,y)\d y=\iint_D\left(
-\df{\p Q}{\p x}-\df{\p P}{\p y}\right)\d\sigma_{xy}$$
-其中：
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item $D$为$xOy$平面内的有界闭区域
-  \item $L=\p D$：分段光滑曲线，按{\it “左侧法则”}取正向
-  \item $P(x,y),Q(x,y)$在$D$内有连续偏导数
-\end{itemize}
+\begin{thx}
+	{\bf Green公式：}
+	$$\oint_LP(x,y)\d x+Q(x,y)\d y=\iint_D\left(
+	\df{\p Q}{\p x}-\df{\p P}{\p y}\right)\d\sigma_{xy}$$
+	其中：
+	\begin{itemize}
+	  \item $D$为$xOy$平面内的有界闭区域
+	  \item $L=\p D$：分段光滑曲线，按{\it “左侧法则”}取正向
+	  \item $P(x,y),Q(x,y)$在$D$内有连续偏导数
+	\end{itemize}
+\end{thx}
 
 {\bf 例：}沿单位圆的逆时针方向计算以下曲线积分
 $$\oint_Lx\d x+y\d y,\hspace{3em}\oint_Ly\d x+x\d y$$
 
-{\bf 注：}
+{\bf 注：}使用Green公式需要注意以下几点：
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item {\it 左侧法则：}积分区域始终位于曲线方向的左侧；
@@ -310,10 +420,16 @@ $$\oint_Lx\d x+y\d y,\hspace{3em}\oint_Ly\d x+x\d y$$
 
 $$\oint_L x\d y-y\d x=2\iint_D\d\sigma$$
 
-{\bf 课堂练习：}曲线$C$为右半单位圆沿$(0,1)$至$(0,-1)$的路径，求
+{\bf 例：}曲线$C$为右半单位圆沿$(0,1)$至$(0,-1)$的路径，求
 $$\int_C(\cos x+y)\d x+(x+\sin y)\d y.$$
 
 {\bf 注：}对于非封闭路径上的第二型曲线积分，必须补全路径后才能使用Green公式！
+
+{\bf 例：}设$L$是摆线$x=t-\sin t-\pi,y=1-\cos t$从$t=0$
+到$t=2\pi$的一段，则$\dint_L\df{(x-y)\d x+(x+y)\d y}{x^2+y^2}=-\pi$
+
+[提示]：添加路径$L_1:x^2+y^2=\pi^2,\;y\geq 0$，使用Green公式计算。
+注意，不能使用路径$y=0$，因为被积函数在原点处无定义！
 
 {\bf 例：}设有流速场
 $$\bm{v}(x,y)=\left(\df{x}{x^2+y^2},
@@ -407,43 +523,42 @@ $$\bm{v}(x,y)=\left(\df{x}{x^2+y^2},
 	{\bf 注：}椭圆$ax^2+2bxy+cy^2=1$的面积为$\df{\pi}{\sqrt{ac-b^2}}$
 \end{shaded}
 
-
-
 \subsection{向量场与Green公式}
 
-\subsubsection{【散度与无源场】}
+\subsubsection{散度与无源场}
 
-已知流速场
-$$\bm{v}=(P(x,y),Q(x,y)),\;(x,y)\in D,$$
-满足Green公式条件 ，则
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item {\it 散度：}${\mathrm{div}\,\bm v=\df{\p P}{\p x}+\df{\p Q}{\p
-  y}}$ 
-  $$\oint_L\bm{v}\cdot\bm{n}\d
-  s=\iint_D\mathrm{div}\,\bm{v}\,\d\sigma$$
-  \item {\it 无源场：}${\mathrm{div}\,\bm{v}=0}$
-\end{enumerate}
+\begin{thx}
+	已知流速场
+	$$\bm{v}=(P(x,y),Q(x,y)),\;(x,y)\in D,$$
+	满足Green公式条件 ，则
+	$${\mathrm{div}\,\bm v=\df{\p P}{\p x}+\df{\p Q}{\p y}}$$
+	称为$\bm{v}$的{\bf 散度}。若在区域$D$内$\mathrm{div}\bm{v}$处处为零，
+	则称$\bm{v}$是$D$内的{\bf 无源场}。 
+\end{thx}
+显然，Green公式可以写成
+$$\oint_L\bm{v}\cdot\bm{n}\d s=\iint_D\mathrm{div}\,\bm{v}\,\d\sigma,$$
+这种形式的Green公式称为{\kaishu 散度形式的Green公式}。
 
-\subsubsection{【无旋场】}
+\subsubsection{无旋场}
 
-已知流速场
+已知向量场
 $$\bm{v}=(P(x,y),Q(x,y)),\;(x,y)\in D,$$
 满足Green公式条件 ，则
 $$\oint_L\bm{v}\cdot\bm{T}\d s=\iint\limits_D\left(
-\df{\p Q}{\p x}-\df{\p P}{\p y}\right)\d\sigma $$
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \addtocounter{enumi}{2}
-  \item {\it 无旋场：}${\df{\p Q}{\p x}-\df{\p P}{\p y}=0}$
-\end{enumerate}
-
-{\bf 定理：}
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 区域$D$内的向量场为无源场，则通过$\p D$的流量为$0$
-  \item 区域$D$内的向量场为无旋场，则沿$\p D$的环量为$0$
-\end{enumerate}
+\df{\p Q}{\p x}-\df{\p P}{\p y}\right)\d\sigma,$$
+该公式称为{\kaishu 旋度形式的Green公式}。
+\begin{thx}
+	若向量场$\bm{v}=(P,Q)$在$D$内总满足${\df{\p Q}{\p x}-\df{\p P}{\p y}=0}$，
+	则称之为$D$内的{\bf 无旋场}。
+\end{thx}
+显然
+\begin{thx}
+	\begin{enumerate}%[(1)]
+% 	  \setlength{\itemindent}{1cm}
+	  \item 区域$D$内的向量场为无源场，则通过$\p D$的流量为$0$
+	  \item 区域$D$内的向量场为无旋场，则沿$\p D$的环量为$0$
+	\end{enumerate}
+\end{thx}
 
 \subsection{保守场与积分路径无关性}
 
@@ -455,33 +570,36 @@ $$\dint_{L_{AB}}P\d x+Q\d y$$
 的值是与积分路径无关的，
 则称$\bm{F}(x,y)$为区域$D$内的一个保守场
 
-{\bf 定理12.2.4}（保守场的判定）$\bm{F}(x,y)=(P(x,y),Q(x,y))$为单连通域$D$内的向量场，
-$P,Q$具有一阶连续偏导数，则以下条件等价：
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\bm{F}$是$D$内的保守场；
-  \item $\bm{F}$是$D$内的无旋场；
-  \item 存在$u(x,y)$，使得
-  $$\d u(x,y)=P(x,y)\d x+Q(x,y)\d y,\;(x,y)\in D$$
-\end{enumerate}
+\begin{thx}
+	{\bf 保守场与积分路径无关性：}$\bm{F}(x,y)=(P(x,y),Q(x,y))$为单连通域$D$内的向量场，
+	$P,Q$具有一阶连续偏导数，则以下条件等价：
+	\begin{enumerate}[(1)]
+% 	  \setlength{\itemindent}{1cm}
+	  \item $\bm{F}$是$D$内的保守场；
+	  \item $\bm{F}$是$D$内的无旋场；
+	  \item 存在$u(x,y)$，使得
+	  $$\d u(x,y)=P(x,y)\d x+Q(x,y)\d y,\;(x,y)\in D$$
+	\end{enumerate}
+\end{thx}
+
+{\bf 例：}$f(x)$连续可导，$L$为$(3,2/3)$到$(1,2)$的直线，
+则$\dint_L\df{1+y^2f(xy)}y\d x+\df x{y^2}[y^2f(xy)-1]\d y=-4$
+
+[提示]：积分与路径无关！
 
 \subsection{原函数与全微分}
 
-$\bm{F}=(P,Q)$是$D$内的保守场，则存在$u(x,y)$，使得
+根据前述定理，设$\bm{F}=(P,Q)$是$D$内的保守场，则存在$u(x,y)$，使得
 $$\d u(x,y)=P(x,y)\d x+Q(x,y)\d y,\;(x,y)\in D$$
- $u(x,y)$称为： 
-\begin{itemize}
-  \item 微分式$P\d x+Q\d y$的{\it 原函数} 
-  \item 向量场$\bm{F}$的{\it 势函数} 
-\end{itemize}
-\bigskip
+ $u(x,y)$称为： 微分式$P\d x+Q\d y$的{\it 原函数}，或
+向量场$\bm{F}$的{\it 势函数}。
+
 $${\dint_{L_{AB}}P\d x+Q\d y=u(x,y)|_A^B} $$
-{\bf 注：}$u(x,y)$不唯一！
+显然$u(x,y)$不唯一（不同的原函数可能相差一个常数）！
 
 {\bf 原函数的计算——折线法：}\ps{强烈不推荐使用！！}
 
 $\bm{F}=(P,Q)$是$D$内的保守场，求其势函数$u(x,y)$
-
 \begin{enumerate}[Step-1:]
   \setlength{\itemindent}{1cm}
   \item 任取$A(x_0,y_0),\,B(x,y)\in D$ 
@@ -505,7 +623,7 @@ $$\d u(x,y)=\left(\df yx+\df{2x}y\right)\d x
 +\left(\ln x-\df{x^2}{y^2}\right)\d y,$$
 并求出满足$u(1,1)=0$的函数$u(x,y)$。
 
-{\bf 习题12.2-6：}求下列全微分的原函数
+{\bf 例：}求下列全微分的原函数
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $(x^2+2xy-y^2)\d x+(x^2-2xy-y^2)\d y$
@@ -513,19 +631,21 @@ $$\d u(x,y)=\left(\df yx+\df{2x}y\right)\d x
   \item $(\sqrt{x^2+y^2})x\d x+(\sqrt{x^2+y^2})y\d y$
 \end{enumerate}
 
-{\bf 习题12.2-17：}利用全微分法计算曲线积分
+{\bf 例：}利用全微分法计算曲线积分
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\dint_{(1,1,1)}^{(2,3,-4)}x\d x+y^2\d y-z\d z$
   \item $\dint_{(1,1,1)}^{(2,3,-4)}(x+y+z)^3(\d x+\d y+\d z)$
 \end{enumerate}
 
-{\bf 定义：}若存在$u(x,y)$，满足：
-$$\d u(x,y)=P(x,y)\d x+Q(x,y)\d y,$$
-则称{\it $P(x,y)\d x+Q(x,y)\d y=0$为全微分方程}
+\begin{thx}
+	若存在$u(x,y)$，满足：
+	$$\d u(x,y)=P(x,y)\d x+Q(x,y)\d y,$$
+	则称$P(x,y)\d x+Q(x,y)\d y=0$为{\bf 全微分方程}
+\end{thx}
 
 {\bf 注：}$P(x,y)\d x+Q(x,y)\d y=0$为全微分方程当且仅当
-\ps{以下的条件也称为{\b Cauchy-Riemann方程}}
+\ps{以下的条件也称为{\b Cauchy-Riemann方程/条件}}
 $$\df{\p P}{\p y}=\df{\p Q}{\p x}$$
 
 {\bf 例：}求微分方程
@@ -542,69 +662,25 @@ $$(3x^2+6xy^2)\d x+(6x^2y+4y^3)\d y=0$$
 $${\df 1{y^2}}(x\d y-y\d x) =-\d\left(\df xy\right)
 =0,\quad {\df{1}{x^2+y^2}}(x\d y-y\d x) =-\d\arctan\df xy=0$$
 
-\section{曲面积分}
+\begin{ext}
+	{\bf 课后作业}
+	\begin{enumerate}
+	  \item 已知$C$为不经过原点的简单光滑闭曲线，取逆时针方向为正向，
+	  $a>b>0$，计算曲线积分$\ds\oint_C\df{y\d x-x\d y}{ax^2+by^2}$。
+	  \item 设$L$是摆线$x=t-\sin t-\pi,y=1-\cos t$从$t=0$
+	  到$t=2\pi$的一段，计算$\dint_L\df{(x-y)\d x+(x+y)\d y}{x^2+y^2}$。
+	  \item 函数$f(r)$二阶连续可导，$r=\sqrt{x^2+y^2}$，
+  	  若$\mathrm{div}(\bigtriangledown\,f(r))=0$，求$f(r)$。
+  	  \item 设$f(x)$当$x>0$时可导，$f(1)=1$，对右半平面内的任意封闭曲线$C$，
+	  总有$\ds\oint_C4x^3y\d x+xf(x)\d y=0$，求$f(x)$，并计算积分
+	  $\dint_{(1,0)}^{(2,3)}4x^3y\d x+xf(x)\d y$。
+	  \item 设$f(x,y)$处处偏导连续，积分$\dint_Lf(x,y)\d x+x\cos x\d y$
+	  在全平面内与路径无关，且$\dint_{(0,0)}^{(t,t^2)}f(x,y)\d x+x\cos x\d y
+	  =t^2$，求$f(x,y)$。
+	\end{enumerate}
+\end{ext}
 
-\subsection{对面积的曲面积分}
-
-如何求空间曲面$\Sigma:\,z=f(x,y),\,(x,y)\in D$的面积？
-
-{\bf 例：}求空间曲面$\Sigma:z=x,(x,y)\in D$的面积，其中：
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $D:\,0\leq x\leq 1,\,0\leq y\leq 1$
-  \item $D:\,x^2+y^2\leq 1$
-\end{enumerate}
-
-\begin{center}
-	\resizebox{!}{4cm}{\includegraphics{./images/ch12/ssquare.pdf}}
-	\hspace{3cm}
-	\resizebox{!}{4cm}{\includegraphics{./images/ch12/scircle.pdf}}
-\end{center}
-
-{\bf 例：}推导球表面积公式。
-
-$${S=\iint\limits_{\Sigma}\d S
-=\iint\limits_D\sqrt{1+(f\,'_x)^2+(f\,'_y)^2}\d\sigma}$$
-
-{\bf 例：}设空间曲面$\Sigma:\,z=f(x,y),\,(x,y)\in D$的面密度函数为
-$f(x,y,z)$，求其质量。
-
-$${M=\iint\limits_{\Sigma}f(x,y,z)\d S}$$
-
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item {\bf 应用：} 质量、质心、 转动惯量、 万有引力 
-  \item {\bf 性质：} 线性性、 曲面的可加性
-\end{itemize}
-
-{\bf 例：}计算曲面积分
-$$I=\oiint\limits_{\Sigma}x^2\d S,$$
-其中$\Sigma$为$x+y+z=1$和坐标平面所围立体的表面。
-
-% {\bf 步骤：}选择投影方向 $\to$写出面积微元 $\to$计算二重积分
-
-{\bf 例：}计算曲面积分
-$$\iint\limits_{\Sigma}z\d S,$$
-其中$\Sigma$为柱面$x^2+y^2=1$夹在平面$z=0$和$z=1+x$之间
-的部分。
-
-{\bf
-习题12.3-16：}设函数$y=f(x)$在区间$[a,b]$上连续可导、非负，
-证明：曲线$L:\,y=f(x),x\in[a,b]$绕$x$轴旋转所得 曲面侧面积
-$$S=2\pi\dint_Lf(x)\d s$$
-
-{\bf 例：}设半球壳$z=\sqrt{R^2-x^2-y^2}$的密度为常数$\mu$，求：
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 半球壳的质心；
-  \item 半球壳关于$z$轴的转动惯量。
-\end{enumerate}
-
-{\bf 例：}求上半球面$z=\sqrt{1-x^2-y^2}$被$x^2+y^2=x$所截取的部分的面积与形心。
-
-[提示]：面积$\pi-2$，形心$\left(\df{2}{3(\pi-2)},0,\df{\pi}{4(\pi-2)}\right)$
-
-\subsection{对坐标的曲面积分}
+\section{对坐标（第二型）的曲面积分}
 
 {\bf 例：}已知曲面$\Sigma:\,z=f(x,y),\,(x,y)\in D$和流速场
 $$\bm{v}(x,y,z)=(P(x,y,z),Q(x,y,z),R(x,y,z)),$$
@@ -646,21 +722,22 @@ $${\Phi=\iint\limits_{\Sigma}P(x,y,z)\d y\d z
 +Q(x,y,z)\d z\d x+R(x,y,z)\d x\d y}.$$
 这种形式的积分称为{\it 对坐标（第二型）的曲面积分}。
 
-{\bf 第二型曲面积分的计算：}例如，已知曲面$\Sigma:\,z=f(x,y),\,(x,y)\in D$，计算
-$$I=\iint\limits_{\Sigma}R(x,y,z)\d x\d y$$
-
-\begin{enumerate}[Step-1\;]
-  \setlength{\itemindent}{1cm}
-  \item 观察原积分，确定积分变量为$x$和$y$
-  \item 以$x,y$为自变量，给出曲面方程
-  $$z=z(x,y),\;(x,y)\in D$$ 
-  \item 写出对应的二重积分
-  $$\iint\limits_DR(x,y,z(x,y))\d\sigma_{xy}$$
-  \item {\b 根据曲面方向确定积分的符号}：{\it 若曲面正向与$z$轴正向成锐角，取正号；
-  反之为负}，从而
-  $${I=\pm\iint\limits_DR(x,y,z(x,y))\d\sigma_{xy}}$$
-  \item 计算积分
-\end{enumerate}
+\begin{thx}
+	{\bf 第二型曲面积分的计算：}例如，已知曲面$\Sigma:\,z=f(x,y),\,(x,y)\in D$，计算
+	$$I=\iint\limits_{\Sigma}R(x,y,z)\d x\d y$$	
+	\begin{enumerate}[Step-1\;]
+% 	  \setlength{\itemindent}{1cm}
+	  \item 观察原积分，确定积分变量为$x$和$y$
+	  \item 以$x,y$为自变量，给出曲面方程
+	  $$z=z(x,y),\;(x,y)\in D$$ 
+	  \item 写出对应的二重积分
+	  $$\iint\limits_DR(x,y,z(x,y))\d\sigma_{xy}$$
+	  \item {\b 根据曲面方向确定积分的符号}：{\it 若曲面正向与$z$轴正向成锐角，取正号；
+	  反之为负}，从而
+	  $${I=\pm\iint\limits_DR(x,y,z(x,y))\d\sigma_{xy}}$$
+	  \item 计算积分
+	\end{enumerate}
+\end{thx}
 
 {\bf 注：}计算对坐标的曲线积分也可以采用与以上类似的步骤来描述。
 
@@ -678,7 +755,7 @@ $$I=\pm\int_a^bf(x,y(x))\d x.$$
 {\bf 例：}已知$\Sigma$为$x+y+z=1$与各坐标面所围立体的外表面，计算
 $$\oiint\limits_{\Sigma}x^2\d x\d y$$
 
-{\bf 教材-例5：}计算曲面积分
+{\bf 例：}计算曲面积分
 $$I=\oiint\limits_{\Sigma}xyz\d x\d y,$$
 其中$\Sigma$由四分之一单位球面($x\geq 0,y\geq 0$)和
 $x=0,y=0$共同组成。
@@ -700,11 +777,26 @@ $x=0,y=0$共同组成。
 %   \end{itemize}
 % \end{enumerate}
 
-{\bf 教材-例8：}已知流速场$\bm{v}=(0,yz,z^2)$，求穿过柱面
+{\bf 例：}已知流速场$\bm{v}=(0,yz,z^2)$，求穿过柱面
 $y^2+z^2=1(z\geq 0)$被$x=0$和$x=1$所夹部分的流量，
 取曲面上侧为其正向。
 
 {\bf 例：}将半径为$R$的球体置于水中，顶部与水面相切，求球的上半部分所受水的压力。
+
+\begin{ext}
+	{\bf 课后作业}
+	\begin{enumerate}
+	  \item 已知$\Sigma$是由上半单位球面与$xOy$坐标面所围的立体的外表面，
+	  计算$\ds\iint_{\Sigma}(x^2+y^2+z^2)\d x\d y$。
+	  \item 已知$\S$为椭球面$\df{x^2}{a^2}+\df{y^2}{b^2}+\df{z^2}{c^2}=1$
+	  的上半部分的上侧，计算$\ds\iint_Sx^3\d y\d z+y^2\d z\d x$。
+	  \item 求向量场$(y,x,z)$通过柱面$S:x^2+y^2=1,0\leq z\leq 1$的流量，
+	  其中取$S$的外侧为其正向。
+	  \item 设$\Sigma$为平面$x+y+z=1$在第一卦限的上侧，$f(x,y,z)$连续，证明：
+	  $\ds\iint_{\Sigma}[f(x,y,z)+x]\d y\d z-[2f(x,y,z)-y]\d z\d x+
+	  [f(x,y,z)+z]\d x\d y=\df12$。（提示：化为第一型的曲面积分计算）
+	\end{enumerate}
+\end{ext}
 
 \section{Gauss公式和Stokes公式}
 
@@ -727,16 +819,18 @@ $${\oint_L\bm{v}\cdot\bm{n}\d s=\iint\limits_D\mathrm{div}\,\bm{v}\d\sigma}$$
 $${\oiint\limits_{\Sigma}\bm{v}\cdot\bm{n}\d
 S=\iiint\limits_{\Omega}\mathrm{div}\,\bm{v}\d V}$$
 
-{\bf 定理12.4.1}（Gauss公式）
-$$\oiint\limits_{\Sigma}P\d y\d z+Q\d z\d x+R\d x\d y=\iiint\limits_{\Omega}
-\left(\df{\p P}{\p x}+\df{\p Q}{\p y}+\df{\p R}{\p z}\right)\d V$$
-其中：
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item {$\Omega$：}空间{\it 有界闭区域}
-  \item {$\Sigma=\p\Omega$：}分片光滑曲面，取{\it “外侧”}为正向
-  \item {$P(x,y,z),Q(x,y,z),R(x,y,z)$：}在$\Omega$内偏导连续
-\end{itemize}
+\begin{thx}
+	{\bf Gauss公式}
+	$$\oiint\limits_{\Sigma}P\d y\d z+Q\d z\d x+R\d x\d y=\iiint\limits_{\Omega}
+	\left(\df{\p P}{\p x}+\df{\p Q}{\p y}+\df{\p R}{\p z}\right)\d V$$
+	其中：
+	\begin{itemize}
+% 	  \setlength{\itemindent}{1cm}
+	  \item {$\Omega$：}空间{\it 有界闭区域}
+	  \item {$\Sigma=\p\Omega$：}分片光滑曲面，取{\it “外侧”}为正向
+	  \item {$P(x,y,z),Q(x,y,z),R(x,y,z)$：}在$\Omega$内偏导连续
+	\end{itemize}
+\end{thx}
 
 {\bf 教材-例1：}设向量场$\bm{v}=(x,y,z)$，$\Sigma:x^2+y^2+z^2=R^2$，试验证
 Gauss公式。
@@ -755,6 +849,11 @@ $$\df{x^2}{a^2}+\df{y^2}{b^2}+\df{z^2}{c^2}=1$$
 $$\oiint\limits_{\Sigma}\sqrt{x^2+y^2}e^z(\d y\d z+\d z\d x+\d x\d y)$$
 
 [提示]：使用Gauss公式，结果为$\df43\pi e(e+1)$.
+
+{\bf 例：}设$\Sigma$为锥面$z=\sqrt{x^2+y^2}(0\leq z\leq 1)$的下侧，则
+$\ds\iint_{\Sigma}x\d y\d z+2y\d z\d x+3(z-1)\d x\d y=2\pi$
+
+[提示]：“补全”曲面，用Gauss公式计算！
 
 \begin{shaded}
 	{\bf Gauss公式 vs. NUDT}
@@ -1496,7 +1595,7 @@ $$\iint\limits_{\Sigma}f(x,y,z)\d x\d y=\iint\limits_{\Sigma}f(y, x,z)\d x\d y$$
 
 \newpage
 
-\section{补充习题}
+\section*{补充习题}
 
 {\bf 例：}设$L$是摆线$x=t-\sin t-\pi,y=1-\cos t$从$t=0$
 到$t=2\pi$的一段，则$\dint_L\df{(x-y)\d x+(x+y)\d y}{x^2+y^2}=-\pi$
@@ -2060,3 +2159,165 @@ $$S_D=\iint_D\d\sigma=\df12\oint_{\p D}x\d y-y\d x$$
 \end{center}
 
 \fi
+
+\section*{习题参考解答}
+\addcontentsline{toc}{section}{习题参考解答}
+
+\begin{center}
+	\bf 11.1 第一型的曲线积分与曲面积分
+\end{center}
+
+1.已知$a>0$，计算积分$\dint_L z\d s$，其中$L$为$x^2+y^2=z^2$与$y^2=ax$
+的交线上从原点到$(a,a,\sqrt2a)$的一段。
+
+[解]：由曲线方程可求得
+$$y'_x=\df{a}{2y},\quad z'_x=\df{2x+a}{2z},\quad x\in[0,a],$$
+进而弧长微元可表示为
+$$\d s=\sqrt{1+(y'_x)^2+(z'_x)^2}\d x
+=\df z2\sqrt{8x^2+9ax+2a^2}\d x,$$
+于是
+\begin{align*}
+	\mbox{原式}&=\dint_0^a\df12\sqrt{8x^2+9ax+2a^2}\d x
+	=\df{a^2}{32}(25\sqrt{19}-9\sqrt2)
+	+\df{17\sqrt2 a^2}{256}\ln\df{17}{25+4\sqrt{38}}.
+\end{align*}
+\fin
+
+\bs
+
+2.已知$a>0$，计算积分$\dint_{\Gamma}(x^2+y^2+z^2)\d s$，其中$\Gamma$
+为$x^2+y^2=a^2$与$z=1$的交线。
+
+[解]：
+\begin{align*}
+	\mbox{原式}&=\dint_{\Gamma}(a^2+1)\d s=(a^2+1)\dint_{\Gamma}\d s
+	=2\pi a(a^2+1).
+\end{align*}
+\fin
+
+\bs
+
+3.已知某曲线$L$的线密度为$\mu=x^2+y^2+z^2$，方程为
+$$x=e^t\cos\theta,\;y=e^t\sin\theta,\;z=\sqrt2e^t,\;-\infty<t\leq0.$$
+求该曲线绕$z$轴转动的转动惯量。
+
+[解]：由已知易得弧长微元
+$$\d s=\sqrt3e^t\d t,\quad t\in(-\infty,0],$$
+进而
+\begin{align*}
+	\mbox{原式}
+	&=\dint_L(x^2+y^2)\mu\d s
+	=\dint_{-\infty}^0e^{2t}(3e^{2t})\sqrt3e^t\d t=\df{3\sqrt3}5.
+\end{align*}
+\fin
+
+\bs
+
+4.计算积分$\ds\iint_{\Sigma}(x+y+z)\d S$，其中$\Sigma$为半径为
+$R$的上半球面。
+
+[解]：注意到$\Sigma$关于$x=0$和$y=0$对称，故
+$$\ds\iint_{\Sigma}x\d S=\ds\iint_{\Sigma}y\d S=0,$$
+又由上半球面的方程$z=\sqrt{R^2-x^2-y^2}$可得$\d S=\df{R}z\d\sigma_{xy}$，
+故
+\begin{align*}
+	\mbox{原式}&=\ds\iint_{\Sigma}z\d S
+	=\ds\iint_{x^2+y^2\leq R^2}z\df{R}z\d\sigma_{xy}
+	=R\ds\iint_{x^2+y^2\leq R^2}\d\sigma_{xy}
+	=\pi R^3.
+\end{align*}
+\fin
+
+\bs
+
+5.计算积分$\ds\iint_S x^2\d S$，其中$S$为圆柱面$x^2+y^2=a^2$介于
+$z=0$和$z=h$之间的部分。
+
+[解]：注意到$S$中$x,y$是可交换的，故必有
+$$\ds\iint_S x^2\d S=\ds\iint_S y^2\d S,$$
+从而
+\begin{align*}
+	\mbox{原式}
+	&=\df12\ds\iint_S (x^2+y^2)\d S
+	=\df12\ds\iint_S a^2\d S
+	=a^2\df12\ds\iint_S \d S=\pi a^3h.
+\end{align*}
+\fin
+
+\bs
+
+6.计算积分$\ds\iint_{\Sigma}(ax^2+by^2+cz^2)\d S$，其中
+$\Sigma$为单位球面。
+
+[解]：注意到在$\Sigma$中$x,y,z$可相互替换，故必有
+$$\ds\iint_{\Sigma}x^2\d S=\ds\iint_{\Sigma}y^2\d S
+=\ds\iint_{\Sigma}z^2\d S,$$
+从而
+\begin{align*}
+	\mbox{原式}
+	&=\df{a+b+c}3\ds\iint_{\Sigma}(x^2+y^2+z^2)\d S
+	=\df{a+b+c}3\ds\iint_{\Sigma}\d S=\df{4\pi}3(a+b+c).
+\end{align*}
+\fin
+
+\bs
+
+7.设球面$x^2+y^2+z^2=2x$的面密度$\mu=x^2+y^2+z^2$，求其质量。
+
+[解]：由已知所求质量
+\begin{align*}
+	M&=\iint_{\Sigma}\mu\d S=\iint_{\Sigma}(x^2+y^2+z^2)\d S
+	=2\iint_{\Sigma}x\d S.
+\end{align*}
+记上半球面为$\Sigma_1$，则在$\Sigma_1$上$z=\sqrt{1-(x-1)^2-y^2},(x,y)\in D_{xy}$，
+其中$D_{xy}:(x-1)^2+y^2\leq 1$。不难得到
+$$\d S=\df1z\d\sigma_{xy},$$
+从而（以下令$x=1+\rho\cos t,y=\rho\sin t$）
+\begin{align*}
+	M&=4\iint_{\Sigma_1}x\d S
+	=4\iint_{D_{xy}}\df{x}{\sqrt{1-(x-1)^2-y^2}}\d\sigma_{xy}\\
+	&=4\dint_0^{2\pi}\dint_0^1\df{1+\rho\cos t}{\sqrt{1-\rho^2}}\rho\d\rho\d t
+	=8\pi.
+\end{align*}
+\fin
+
+\bs
+
+\begin{center}
+	\bf 11.2 对坐标（第二型）的曲线积分
+\end{center}
+
+1.设$L$为曲线$x=\df{3at}{1+t^3},y=\df{3at^2}{1+t^3}$上$t$由
+$0$到$+\infty$的一段，$a>0$，计算$\dint_Lx\d y-y\d x$。
+
+[解]：由已知$y=tx$，故
+\begin{align*}
+	\mbox{原式}
+	&=\dint_Lx\d(tx)-tx\d x
+	=\dint_Lx^2\d t
+	=\dint_0^{+\infty}\df{9a^2t^2}{(1+t^3)^2}\d t
+	=3a^2.
+\end{align*}
+\fin
+
+\bs
+
+2.计算积分
+$$I=\int_Ly^2\d x+z^2\d y+x^2\d z,$$
+其中$C$为曲线$\left\{\begin{array}{l}
+x^2+y^2+z^2=1 \\ x^2+y^2=x
+\end{array}\right.$
+上$z\geq 0$的部分，从$x$轴正向看去为逆时针方向。
+
+[解]：曲线$L$的参数方程为
+$$x=\cos^2\df t2,\;y=\sin\df t2\cos\df t2,\;z=\sin\df t2,
+\;t\in[0,2\pi].$$
+于是
+\begin{align*}
+	\mbox{原式}
+	&=\dint_0^{2\pi}\sin^2\df t2\cos^2\df t2\d\left(\cos^2\df t2\right)
+	+\sin^2\df t2\d\left(\sin\df t2\cos\df t2\right)
+	+\cos^4\df t2\d\sin\df t2
+	=\df{\pi}2.
+\end{align*}
+\fin

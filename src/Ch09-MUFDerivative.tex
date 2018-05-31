@@ -1260,14 +1260,14 @@ $$\lim\limits_{(x,y)\to(0,0)}\df{\circ(3x^2+2y^2)}{x^2+y^2}=0,$$
 故
 $$f(x,y)=3x^2+2y^2+xy+\circ(x^2+y^2).$$
 该式可视为$f(x,y)$在$(0,0)$处的Taylor展开，从而可知
-$$f''_{xx}(0,0)=3,\quad f''_{yy}(0,0)=2,
-\quad f''_{xy}(0,0)=f''_{yx}(0,0)=1/2,$$
+$$f''_{xx}(0,0)=6,\quad f''_{yy}(0,0)=4,
+\quad f''_{xy}(0,0)=f''_{yx}(0,0)=1,$$
 于是
 $$\bigtriangledown^2f(0,0)=\left[\begin{array}{cc}
 f''_{xx}(0,0) & f''_{xy}(0,0) \\ f''_{yx}(0,0) & f''_{yy}(0,0)
 \end{array}\right]
 =\left[\begin{array}{cc}
-3 & 1/2 \\ 1/2 &2
+6 & 1 \\ 1 & 4
 \end{array}\right],$$
 这是一个正定矩阵，由可微函数极值的充分条件，可知$(0,0)$为$f(x,y)$的极小值点。
 \fin
@@ -1326,10 +1326,10 @@ $$
 Lagrange乘子法的最大优点是使我们能够在不必过度关注约束条件结构的情况下求解
 条件极值问题。
 
-{\bf 例：}求函数$z=\sqrt{4-x^2-y^2}$的满足$(x-1)^2+y^2=1$的极值点。
-\begin{center}
-	\resizebox{!}{6cm}{\includegraphics{./images/ch10/lagxy.pdf}}
-\end{center}
+% {\bf 例：}求函数$z=\sqrt{4-x^2-y^2}$的满足$(x-1)^2+y^2=1$的极值点。
+% \begin{center}
+% 	\resizebox{!}{6cm}{\includegraphics{./images/ch10/lagxy.pdf}}
+% \end{center}
 
 根据条件极值问题形式的不同，Lagrange乘子法也可以有相应的形式，诸如：
 \begin{enumerate}[(1)]
@@ -1344,7 +1344,7 @@ Lagrange乘子法的最大优点是使我们能够在不必过度关注约束条
   令$\bigtriangledown L=0$
 \end{enumerate}
 
-{\bf 例：}求平面$x+y+z=1$与柱面$x^2+y^2=1$上距离原点最近和最远的点。
+{\bf 例：}求平面$x+y+z=1$与柱面$x^2+y^2=1$的交线上距离原点最近和最远的点。
 \begin{center}
 	\resizebox{!}{5cm}{\includegraphics{./images/ch10/planeCy.pdf}}
 \end{center}
@@ -1451,7 +1451,7 @@ $$D:|x|+|y|\leq 1\quad\Leftrightarrow\quad |X|\leq1,|Y|\leq1$$
 	  的长方体的最大体积。
 	  \item 某公司的产品广告有电台和报纸两种发布途径，经研究发现，产品销售收入$U$（万元）与
 	  投入的电台广告费用$T$（万元）和投入的报纸广告费用$P$（万元）满足如下关系
-	  $$U=15+14T+32P-8TP-2T^2-10X^2.$$
+	  $$U=15+14T+32P-8TP-2T^2-10P^2.$$
 	  \begin{enumerate}[(1)]
 	    \item 在广告预算不封顶的情况下，求公司的最优广告策略；
 	    \item 若广告总预算上限为$1.5$万元，求公司的最优广告策略。
@@ -1468,466 +1468,468 @@ $$D:|x|+|y|\leq 1\quad\Leftrightarrow\quad |X|\leq1,|Y|\leq1$$
 然而，与从一元函数推广到向量值函数时的那种“轻松自如”不同，从一元到多元的推广显然要
 复杂得多。在本章的学习中要特别注意把握两者的异同。
 
-不同的地方，主要源自两个方面，一是从一维集合上升到二维集合，导致极限概念在理解上的差异
+不同的地方，主要源自两个方面，一是从一维空间上升到高维空间，导致极限概念在理解上的差异
 （从数学形式上看没有什么不同），二是从导数概念简单形式推广中遇到的问题（向量不能作分母），
 导致在可导、可微概念上出现了诸多的差异。可以说，从一元微分学到多元微分学，一直是有异
 有同相互交织的，能够在相互比照，理解推广的原理的同时，准确把握前后的差异，是深刻理解
-本章所有结论的根本。
-
-\begin{enumerate}
-  \item {\bf 极限与连续}
-  \begin{enumerate}[(1)]
-    \item 二重极限存在性的判定
-    \begin{itemize}
-      \item {\it 套路1}：累次极限不同，则二重极限不存在
-      \item {\it 套路2}：令$y=kx$，若相应的极限与$k$有关，则二重极限不存在
-      \ps{\b 与$k$无关并不能说明二重极限存在！}
-      \item {\it 套路3}：令$x=\rho\cos\theta,y=\rho\sin\theta$，则
-      $(x,y)\to(x_0,y_0)\Leftrightarrow\rho\to0^+$，若极限
-      $$\lim\limits_{\rho\to0^+}f(\rho\cos\theta(\rho),\rho\sin\theta(\rho))$$
-      为常数，则二重极限存在。\ps{\b $\theta(\rho)$表示$\theta$的取值可能是与$\rho$有关的！}
-%       二重极限与累次极限的关系：
-%       $\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)=a\Rightarrow
-%       \lim\limits_{x\to x_0}\lim\limits_{y\to y_0}f(x,y)=
-%       \lim\limits_{y\to y_0}\lim\limits_{x\to x_0}f(x,y)=a$，反之不然！
-%       \item 判定二重极限不存在：选择不同的路径，证明相应的极限不存在，即：若
-%       对过$(x_0,y_0)$不同的连续曲线$y=y(x,k)$（例如$y=kx$），
-%       $$\lim\limits_{x\to x_0\atop y=y(x,k)}f(x,y)=a(k)$$
-%       不为常数，则二重极限不存在
-%       \item 判定二重极限存在：利用极坐标变换，将$(x,y)\to(x_0,y_0)$转换为$\rho\to0^+$，
-%       证明极限
+本章所有结论的关键。
+% 
+% \begin{enumerate}
+%   \item {\bf 极限与连续}
+%   \begin{enumerate}[(1)]
+%     \item 二重极限存在性的判定
+%     \begin{itemize}
+%       \item {\it 套路1}：累次极限不同，则二重极限不存在
+%       \item {\it 套路2}：令$y=kx$，若相应的极限与$k$有关，则二重极限不存在
+%       \ps{\b 与$k$无关并不能说明二重极限存在！}
+%       \item {\it 套路3}：令$x=\rho\cos\theta,y=\rho\sin\theta$，则
+%       $(x,y)\to(x_0,y_0)\Leftrightarrow\rho\to0^+$，若极限
 %       $$\lim\limits_{\rho\to0^+}f(\rho\cos\theta(\rho),\rho\sin\theta(\rho))$$
-%       为常数。
-      
-%       注意：{\it $\theta(\rho)$表示$\theta$的取值可能是与$\rho$有关的！}
-      \item 重点掌握教材10.2节的例3-例5
-      \item 注意各种不同极限形式的正确书写方法，例如
-      $$\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)\quad
-      \lim\limits_{x\to x_0\atop y\to y_0}f(x,y),\quad
-      \lim\limits_{x\to x_0}\lim\limits_{y\to y_0}f(x,y),\quad
-      \lim\limits_{x\to x_0\atop y=kx}f(x,y),\quad
-      \lim\limits_{x\to x_0\atop y=0}f(x,y)
-      $$
-    \end{itemize}
-    \item 连续与可微
-    \begin{itemize}
-      \item 有界闭区域上的多元连续函数与有界闭区间上的一元连续函数具有类似的性质：
-      有界性、最值存在性和介值性
-      \item 可微必连续，且偏导数存在
-      \item 用定义证明$z=f(x,y)$在$(x_0,y_0)$可微：令$A=f'_x(x_0,y_0),B=f'_y(x_0,y_0)$，
-      证明
-      $$\lim\limits_{(0,0)\to(x_0,y_0)}
-      \df{f(x_0+\Delta x,y_0+\Delta y)-f(x_0,y_0)
-      -A\Delta x-B\Delta
-      y}{\sqrt{(\Delta x)^2+(\Delta y)^2}}=0$$
-      即可
-      \item 重点掌握教材习题10.2节的16-17.
-    \end{itemize}
-  \end{enumerate}
-  \item {\bf 偏导数、全微分与方向导数}
-  \begin{enumerate}[(1)]
-    \item 偏导数及其计算
-    \begin{itemize}
-      \item 偏导数的定义：除求导变量外，将其他自变量均视为常数（因此在实际计算某个
-      点处的偏导时，可以先带入其他自变量的值）然后求导，例如
-      $$\left.\df{\p}{\p x}(1+x+\arctan(xy))\right|_{(2,0)}=
-      \left.\df{\d}{\d x}(1+x)\right|_{x=2}=1$$
-      \item 偏导数的几何意义：$f'_x(x_0,y_0)$表示曲线$\left\{\begin{array}{l}
-      z=f(x,y)\\ y=y_0
-      \end{array}\right.$在$(x_0,y_0)$处的切线斜率，也相当于在该点处沿$\bm{i}$方向
-      的方向导数$D_if(x_0,y_0)$
-      \item 复合函数的偏导数：设$z=f(u,v),u=u(x,y),v=v(x,y)$，则
-      $$z'_x=z'_uu'_x+z'_vv'_x$$
-      {\it 链式法则：}画出变量之间的依赖关系图（树），标记出每条路线上对应的偏导数，
-      按照“并联对应加法，串联对应乘法”的规则，综合写出所有可能的路径
-      \item 隐函数求导：（1）确定那些变量是自变量，那些是因变量；（2）对所有给定的方程
-      两边求（偏）导，解出相应的（偏）导数值；或者（2'）对所有方程求全微分，解出所有因变量
-      的全微分，然后根据一阶微分的形式不变性，确定相应的（偏）导数
-    \end{itemize}
-    \item 全微分：设$z=f(x,y)$，则
-    $$\d z=f'_x\d x+f'_y\d y=\bigtriangledown f\cdot \d\bm{r},$$
-    其中$\d\bm{r}=(\d x,\d y)$
-    \begin{itemize}
-      \item 全微分的应用：误差估计、判断不同参数（的误差）对测量值（的误差）的影响
-    \end{itemize}
-    \item 方向导数与梯度
-    \begin{itemize}
-      \item 方向导数的定义（以二元函数为例）
-      $$\left.\df{\p f}{\p u}\right|_{(x_0,y_0)}=D_uf(x_0,y_0)
-      =\lim\limits_{h\to0}\df{f(x_0+h\cos\theta,y_0+h\sin\theta)-
-      f(x_0,y_0)}{h}$$
-      其中$\bm{u}=|\bm{u}|(\cos\theta,\sin\theta)$
-      \item 若$z=f(x,y)$可微，则沿任意方向的方向导数存在，且
-      $$D_uf=\bigtriangledown f\cdot\bm{e}_u=\left(\bigtriangledown f\right)_u$$
-      \begin{itemize}
-        \item 推论1：沿梯度方向的方向导数值最大
-        \item 推论2：梯度方向是该点处的最快上升方向
-        \item 推论3：梯度方向垂直与该点处的等高线，且指向函数值增大的方向，例：
-        （1）球面的{\it 外法向}为指向球外部的矢径方向
-        （2）曲面$F(x,y,z)=0$可视为函数$w=F(x,y,z)$的一个等值面，故其法向量为 
-        $\bigtriangledown F$
-      \end{itemize}
-    \end{itemize}
-  \end{enumerate}
-  \item {\bf 多元函数微分学的应用}
-  \begin{enumerate}[(1)]
-    \item 注意：
-    \begin{itemize}
-      \item 与一元函数相关概念的对应关系：梯度$\bigtriangledown f\leftrightarrow$一阶导数$f'$，
-      Hessian矩阵$\bigtriangledown^2f\leftrightarrow$二阶导数$f''$
-      \item 与一元函数相关方法的异同 
-    \end{itemize}
-    \item Taylor公式（以二元函数为例）：$z=f(x,y)$在$(x_0,y_0)$处带Peano余项的二阶Taylor公式
-      \begin{eqnarray*}
-      f(x,y)&=&f(x_0,y_0)+\bigtriangledown
-      f(x_0,y_0)\left[\begin{array}{c}
-      x-x_0\\ y-y_0
-      \end{array}\right]\\
-      &&+\df12(x-x_0\;y-y_0)\bigtriangledown^2f(x_0,y_0)
-      \left[\begin{array}{c}
-      x-x_0\\ y-y_0
-      \end{array}\right]+\circ((x-x_0)^2+(y-y_0)^2)
-	\end{eqnarray*}
-	\begin{itemize}
-	  \item $n$次多项式函数的$m$阶Taylor多项式就是其$m$次阶段多项式
-	\end{itemize}
-    \item 极值问题
-    \begin{itemize}
-      \item 可能的极值点：驻点（$\bigtriangledown f=0$）、不可微点和边界点
-      
-      注意：边界部分的处理！例：$z=\sqrt{x^2+y^2}$在如下区域上的极值：(1)
-      $|x|\leq1,|y|\leq1$；(2)$x^2+y^2\leq 1$；(3)$x^2+y^2\leq 1,x\geq 1$
-      \item Fermat引理的推广：可微函数的极值点必为驻点！
-      \item 可微函数的极值判定：若$\bigtriangledown f=0$，且$\bigtriangledown^2f$
-      正（负）定，则取极小（大）值
-    \end{itemize}
-    \item 条件极值问题
-    \begin{itemize}
-      \item 对于经典极值问题的另一种叙述：任何极值问题都可以表述为一个目标函数和多个约束
-      关系的组合，例如：求（目标函数）$z=f(x,y)$满足（约束关系）$g(x,y)=0$的极值
-      \item 解法一：利用约束解出变量的对应关系，带回目标函数，求解极值问题
-      \item 解法二：Lagrange乘子法
-      \begin{itemize}
-        \item 几何意义：$\bigtriangledown f//\bigtriangledown g$
-        \item Lagrange函数
-        $$L(x,y,\lambda)=f(x,y)+\lambda g(x,y)$$
-        与目标函数有相同的极值！
-        \item 解题要点：（1）合理确定变量，分清目标函数与约束条件；（2）极值类型的判定
-      \end{itemize}
-    \end{itemize}
-  \end{enumerate}
-\end{enumerate}
-
-{\it 一些重要概念的相互关系：}
-
-\begin{center}
-	\resizebox{!}{4.5cm}{\includegraphics{./images/ch10/drela.pdf}} 
-\end{center}
-
-\begin{shaded}
-{\bf 相关的反例}
-
-1、连续但偏导不存在（连续但不可微）
-
-$$f(x,y)=\sqrt{x^2+y^2}$$
-
-2、偏导存在但不连续（偏导存在但不可微）
-
-$$
-f(x,y)=\left\{\begin{array}{ll}
-0 & ,(x,y)=(0,0)\\
-\df{xy}{x^2+y^2}& ,else
-\end{array}\right.
-$$
-
-3、可微但偏导不连续
-
-$$
-f(x,y)=\left\{\begin{array}{ll}
-0 & ,(x,y)=(0,0)\\
-(x^2+y^2)\sin\df1{x^2+y^2}& ,else
-\end{array}\right.
-$$
-
-4、偏导不连续且混合偏导数不相等
-
-$$
-f(x,y)=\left\{\begin{array}{ll}
-0 & ,(x,y)=(0,0)\\
-xy\df{x^2-y^2}{x^2+y^2}& ,else
-\end{array}\right.
-$$
-
-5、连续、偏导存在且任意方向的方向导数（按同济教材的定义）均存在但不可微
-
-$$
-f(x,y)=\left\{\begin{array}{ll}
-0 & ,(x,y)=(0,0)\\
-\df{\sqrt{|xy|}}{x^2+y^2}\sin(x^2+y^2)& ,else
-\end{array}\right.
-$$
-
-6、所有的方向导数（按KD教材的定义）存在而不可微
-
-$$
-f(x,y)=\left\{\begin{array}{ll}
-0 & ,y=0\\
-\df{x^2+y^2}{y}& ,else
-\end{array}\right.
-$$
-
-7、方向导数（按同济教材的定义）满足$D_uf=f'_x\cos\theta+f'_y\sin\theta\;
-(u=\rho\sin\theta)$但不可微，甚至不连续
-
-$$
-f(x,y)=\left\{\begin{array}{ll}
-y=\rho\sin\theta & ,(x,y)\in D_1\\
-1& ,(x,y)\in D_2\\
-0& ,else
-\end{array}\right.
-$$
-其中$D_1$为心形线$\rho=1-\cos\theta$及其内部，$D_2$表示其外部，且不在$x$轴上。
-
-[提示]: $f'_x(0,0)=0,f'_y(0,0)=1,D_uf=\sin\theta$，在$D_2$
-内总存在靠近$(0,0)$的某点，使得
-$$|f(x,y)-f(0,0)-[f'_x(0,0)x+f'_y(0,0)y]|=1$$
-
-
-\end{shaded}
+%       为常数，则二重极限存在。\ps{\b $\theta(\rho)$表示$\theta$的取值可能是与$\rho$有关的！}
+% %       二重极限与累次极限的关系：
+% %       $\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)=a\Rightarrow
+% %       \lim\limits_{x\to x_0}\lim\limits_{y\to y_0}f(x,y)=
+% %       \lim\limits_{y\to y_0}\lim\limits_{x\to x_0}f(x,y)=a$，反之不然！
+% %       \item 判定二重极限不存在：选择不同的路径，证明相应的极限不存在，即：若
+% %       对过$(x_0,y_0)$不同的连续曲线$y=y(x,k)$（例如$y=kx$），
+% %       $$\lim\limits_{x\to x_0\atop y=y(x,k)}f(x,y)=a(k)$$
+% %       不为常数，则二重极限不存在
+% %       \item 判定二重极限存在：利用极坐标变换，将$(x,y)\to(x_0,y_0)$转换为$\rho\to0^+$，
+% %       证明极限
+% %       $$\lim\limits_{\rho\to0^+}f(\rho\cos\theta(\rho),\rho\sin\theta(\rho))$$
+% %       为常数。
+%       
+% %       注意：{\it $\theta(\rho)$表示$\theta$的取值可能是与$\rho$有关的！}
+%       \item 重点掌握教材10.2节的例3-例5
+%       \item 注意各种不同极限形式的正确书写方法，例如
+%       $$\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)\quad
+%       \lim\limits_{x\to x_0\atop y\to y_0}f(x,y),\quad
+%       \lim\limits_{x\to x_0}\lim\limits_{y\to y_0}f(x,y),\quad
+%       \lim\limits_{x\to x_0\atop y=kx}f(x,y),\quad
+%       \lim\limits_{x\to x_0\atop y=0}f(x,y)
+%       $$
+%     \end{itemize}
+%     \item 连续与可微
+%     \begin{itemize}
+%       \item 有界闭区域上的多元连续函数与有界闭区间上的一元连续函数具有类似的性质：
+%       有界性、最值存在性和介值性
+%       \item 可微必连续，且偏导数存在
+%       \item 用定义证明$z=f(x,y)$在$(x_0,y_0)$可微：令$A=f'_x(x_0,y_0),B=f'_y(x_0,y_0)$，
+%       证明
+%       $$\lim\limits_{(0,0)\to(x_0,y_0)}
+%       \df{f(x_0+\Delta x,y_0+\Delta y)-f(x_0,y_0)
+%       -A\Delta x-B\Delta
+%       y}{\sqrt{(\Delta x)^2+(\Delta y)^2}}=0$$
+%       即可
+%       \item 重点掌握教材习题10.2节的16-17.
+%     \end{itemize}
+%   \end{enumerate}
+%   \item {\bf 偏导数、全微分与方向导数}
+%   \begin{enumerate}[(1)]
+%     \item 偏导数及其计算
+%     \begin{itemize}
+%       \item 偏导数的定义：除求导变量外，将其他自变量均视为常数（因此在实际计算某个
+%       点处的偏导时，可以先带入其他自变量的值）然后求导，例如
+%       $$\left.\df{\p}{\p x}(1+x+\arctan(xy))\right|_{(2,0)}=
+%       \left.\df{\d}{\d x}(1+x)\right|_{x=2}=1$$
+%       \item 偏导数的几何意义：$f'_x(x_0,y_0)$表示曲线$\left\{\begin{array}{l}
+%       z=f(x,y)\\ y=y_0
+%       \end{array}\right.$在$(x_0,y_0)$处的切线斜率，也相当于在该点处沿$\bm{i}$方向
+%       的方向导数$D_if(x_0,y_0)$
+%       \item 复合函数的偏导数：设$z=f(u,v),u=u(x,y),v=v(x,y)$，则
+%       $$z'_x=z'_uu'_x+z'_vv'_x$$
+%       {\it 链式法则：}画出变量之间的依赖关系图（树），标记出每条路线上对应的偏导数，
+%       按照“并联对应加法，串联对应乘法”的规则，综合写出所有可能的路径
+%       \item 隐函数求导：（1）确定那些变量是自变量，那些是因变量；（2）对所有给定的方程
+%       两边求（偏）导，解出相应的（偏）导数值；或者（2'）对所有方程求全微分，解出所有因变量
+%       的全微分，然后根据一阶微分的形式不变性，确定相应的（偏）导数
+%     \end{itemize}
+%     \item 全微分：设$z=f(x,y)$，则
+%     $$\d z=f'_x\d x+f'_y\d y=\bigtriangledown f\cdot \d\bm{r},$$
+%     其中$\d\bm{r}=(\d x,\d y)$
+%     \begin{itemize}
+%       \item 全微分的应用：误差估计、判断不同参数（的误差）对测量值（的误差）的影响
+%     \end{itemize}
+%     \item 方向导数与梯度
+%     \begin{itemize}
+%       \item 方向导数的定义（以二元函数为例）
+%       $$\left.\df{\p f}{\p u}\right|_{(x_0,y_0)}=D_uf(x_0,y_0)
+%       =\lim\limits_{h\to0}\df{f(x_0+h\cos\theta,y_0+h\sin\theta)-
+%       f(x_0,y_0)}{h}$$
+%       其中$\bm{u}=|\bm{u}|(\cos\theta,\sin\theta)$
+%       \item 若$z=f(x,y)$可微，则沿任意方向的方向导数存在，且
+%       $$D_uf=\bigtriangledown f\cdot\bm{e}_u=\left(\bigtriangledown f\right)_u$$
+%       \begin{itemize}
+%         \item 推论1：沿梯度方向的方向导数值最大
+%         \item 推论2：梯度方向是该点处的最快上升方向
+%         \item 推论3：梯度方向垂直与该点处的等高线，且指向函数值增大的方向，例：
+%         （1）球面的{\it 外法向}为指向球外部的矢径方向
+%         （2）曲面$F(x,y,z)=0$可视为函数$w=F(x,y,z)$的一个等值面，故其法向量为 
+%         $\bigtriangledown F$
+%       \end{itemize}
+%     \end{itemize}
+%   \end{enumerate}
+%   \item {\bf 多元函数微分学的应用}
+%   \begin{enumerate}[(1)]
+%     \item 注意：
+%     \begin{itemize}
+%       \item 与一元函数相关概念的对应关系：梯度$\bigtriangledown f\leftrightarrow$一阶导数$f'$，
+%       Hessian矩阵$\bigtriangledown^2f\leftrightarrow$二阶导数$f''$
+%       \item 与一元函数相关方法的异同 
+%     \end{itemize}
+%     \item Taylor公式（以二元函数为例）：$z=f(x,y)$在$(x_0,y_0)$处带Peano余项的二阶Taylor公式
+%       \begin{eqnarray*}
+%       f(x,y)&=&f(x_0,y_0)+\bigtriangledown
+%       f(x_0,y_0)\left[\begin{array}{c}
+%       x-x_0\\ y-y_0
+%       \end{array}\right]\\
+%       &&+\df12(x-x_0\;y-y_0)\bigtriangledown^2f(x_0,y_0)
+%       \left[\begin{array}{c}
+%       x-x_0\\ y-y_0
+%       \end{array}\right]+\circ((x-x_0)^2+(y-y_0)^2)
+% 	\end{eqnarray*}
+% 	\begin{itemize}
+% 	  \item $n$次多项式函数的$m$阶Taylor多项式就是其$m$次阶段多项式
+% 	\end{itemize}
+%     \item 极值问题
+%     \begin{itemize}
+%       \item 可能的极值点：驻点（$\bigtriangledown f=0$）、不可微点和边界点
+%       
+%       注意：边界部分的处理！例：$z=\sqrt{x^2+y^2}$在如下区域上的极值：(1)
+%       $|x|\leq1,|y|\leq1$；(2)$x^2+y^2\leq 1$；(3)$x^2+y^2\leq 1,x\geq 1$
+%       \item Fermat引理的推广：可微函数的极值点必为驻点！
+%       \item 可微函数的极值判定：若$\bigtriangledown f=0$，且$\bigtriangledown^2f$
+%       正（负）定，则取极小（大）值
+%     \end{itemize}
+%     \item 条件极值问题
+%     \begin{itemize}
+%       \item 对于经典极值问题的另一种叙述：任何极值问题都可以表述为一个目标函数和多个约束
+%       关系的组合，例如：求（目标函数）$z=f(x,y)$满足（约束关系）$g(x,y)=0$的极值
+%       \item 解法一：利用约束解出变量的对应关系，带回目标函数，求解极值问题
+%       \item 解法二：Lagrange乘子法
+%       \begin{itemize}
+%         \item 几何意义：$\bigtriangledown f//\bigtriangledown g$
+%         \item Lagrange函数
+%         $$L(x,y,\lambda)=f(x,y)+\lambda g(x,y)$$
+%         与目标函数有相同的极值！
+%         \item 解题要点：（1）合理确定变量，分清目标函数与约束条件；（2）极值类型的判定
+%       \end{itemize}
+%     \end{itemize}
+%   \end{enumerate}
+% \end{enumerate}
+% 
+% {\it 一些重要概念的相互关系：}
+% 
+% \begin{center}
+% 	\resizebox{!}{4.5cm}{\includegraphics{./images/ch10/drela.pdf}} 
+% \end{center}
+% 
+% \begin{shaded}
+% {\bf 相关的反例}
+% 
+% 1、连续但偏导不存在（连续但不可微）
+% 
+% $$f(x,y)=\sqrt{x^2+y^2}$$
+% 
+% 2、偏导存在但不连续（偏导存在但不可微）
+% 
+% $$
+% f(x,y)=\left\{\begin{array}{ll}
+% 0 & ,(x,y)=(0,0)\\
+% \df{xy}{x^2+y^2}& ,else
+% \end{array}\right.
+% $$
+% 
+% 3、可微但偏导不连续
+% 
+% $$
+% f(x,y)=\left\{\begin{array}{ll}
+% 0 & ,(x,y)=(0,0)\\
+% (x^2+y^2)\sin\df1{x^2+y^2}& ,else
+% \end{array}\right.
+% $$
+% 
+% 4、偏导不连续且混合偏导数不相等
+% 
+% $$
+% f(x,y)=\left\{\begin{array}{ll}
+% 0 & ,(x,y)=(0,0)\\
+% xy\df{x^2-y^2}{x^2+y^2}& ,else
+% \end{array}\right.
+% $$
+% 
+% 5、连续、偏导存在且任意方向的方向导数（按同济教材的定义）均存在但不可微
+% 
+% $$
+% f(x,y)=\left\{\begin{array}{ll}
+% 0 & ,(x,y)=(0,0)\\
+% \df{\sqrt{|xy|}}{x^2+y^2}\sin(x^2+y^2)& ,else
+% \end{array}\right.
+% $$
+% 
+% 6、所有的方向导数（按KD教材的定义）存在而不可微
+% 
+% $$
+% f(x,y)=\left\{\begin{array}{ll}
+% 0 & ,y=0\\
+% \df{x^2+y^2}{y}& ,else
+% \end{array}\right.
+% $$
+% 
+% 7、方向导数（按同济教材的定义）满足$D_uf=f'_x\cos\theta+f'_y\sin\theta\;
+% (u=\rho\sin\theta)$但不可微，甚至不连续
+% 
+% $$
+% f(x,y)=\left\{\begin{array}{ll}
+% y=\rho\sin\theta & ,(x,y)\in D_1\\
+% 1& ,(x,y)\in D_2\\
+% 0& ,else
+% \end{array}\right.
+% $$
+% 其中$D_1$为心形线$\rho=1-\cos\theta$及其内部，$D_2$表示其外部，且不在$x$轴上。
+% 
+% [提示]: $f'_x(0,0)=0,f'_y(0,0)=1,D_uf=\sin\theta$，在$D_2$
+% 内总存在靠近$(0,0)$的某点，使得
+% $$|f(x,y)-f(0,0)-[f'_x(0,0)x+f'_y(0,0)y]|=1$$
+% 
+% 
+% \end{shaded}
+% 
+% \newpage
+% 
+% \section*{习题课}
+% \addcontentsline{toc}{section}{习题课}
+% 
+% \subsection*{多元函数的极限、连续、偏导数与全微分}
+% 
+% {\bf 辅导（下）-P12-例6-6：}讨论极限$\lim\limits_{(x,y)\to(0,0)}\df{xy^2}{x^2+y^4}$
+% 
+% $$\lim\limits_{x\to 0\atop{y=kx}}\df{xy^2}{x^2+y^4}=0$$
+% 
+% $$\lim\limits_{x\to 0\atop{y^2=x}}\df{xy^2}{x^2+y^4}=\df12$$
+% 
+% {\bf 辅导（下）-P12-例6-7：}证明极限$\lim\limits_{(x,y)\to(0,0)}(1+xy)
+% ^{\frac1{x+y}}$不存在
+% 
+% 
+% $$\lim\limits_{x\to 0\atop{y=kx}}(1+xy)^{\frac1{x+y}}=1\quad (k\ne -1)$$
+% 
+% $$\lim\limits_{x\to 0\atop{y=x^2-x}}(1+xy)^{\frac1{x+y}}=e^{-1}$$
+% 
+% {\bf 辅导（下）-P12-例6-8：}证明极限$\lim\limits_{(x,y)\to(0,0)}
+% \df{x^3+xy^2}{x^2-xy+y^2}=0$
+% 
+% {\bf 例：}证明函数
+%   $$f(x,y)=\left\{\begin{array}{cc}
+%   	\df{x^2y}{x^2+y^2},& (x,y)\ne (0,0)\\
+%   	0,& else
+%   \end{array}\right.$$
+%   在原点可微，但偏导数不连续。
+% 
+% {\bf 辅导（下）-P16-例6-16：}证明：$z=\sqrt|xy|$在
+% 原点连续，偏导数存在，但不可微。
+% 
+% {\bf 课后思考：}习题8.2：16-18
+% 
+% {\bf 辅导（下）-P17-例6-17：}正六棱台的上下底和高分别为$1,2,2$，问
+% 那个值的测量误差对其侧面积的值影响最大？
+% 
+% $$S=6\times\df12(x+y)\times\df12\sqrt{4z^2+3(y-x)^2}$$
+% 
+% $$\d z|_{(1,2,2)}=S'_x(1,2,2)\Delta x+S'_y(1,2,2)\Delta y+
+% S'_z(1,2,2)\Delta z=\df3{\sqrt{19}}(5\Delta x+14\Delta y+12\Delta z)$$
+% 
+% \subsection*{复合函数求导}
+% 
+% {\bf 例：}
+% \begin{enumerate}[(1)]
+%   \setlength{\itemindent}{1cm}
+%   \item 设$z=u^2\ln v,u=\df xy,v=3x-2y$，求$\df {\p z}{\p x},\df{\p z}{\p
+%   y}$ 
+%   \item 设$z=\arctan(xy),y=e^x$，求$\df{\d z}{\d x}$ 
+%   \item 设$u=f\left(\df xy,\df yz\right)$，求$\df {\p u}{\p x},\df {\p u}{\p y}$
+%   和$\df {\p u}{\p z}$ 
+%   \item 设$f(x,2x)=x,f\,'_1(x,2x)=x^2$，求$f\,'_2(x,2x)$
+% \end{enumerate}
+% 
+% {\bf 例：}设$f(x,y)$一阶偏导连续，$f(1,1)=1,f\,'_x(1,1)=2$，
+% $f\,'_y(1,1)=3$，又$\varphi(x)=f(x,f(x,x))$，求
+% $$\left.\df{\d\varphi^3(x)}{\d x}\right|_{x=1}$$
+% 
+% {\bf 例：}设$z=xf\left(\df yx\right)+yg\left(x,\df xy\right)$，
+% 其中$f,g$均二次可微，求$\df{\p^2 z}{\p x\p y}$
+% 
+% {\bf 例：}设$f(x,y)$一阶偏导数连续，且对任意实数$t$，有
+% $$f(tx,ty)=tf(x,y)$$
+% 证明：曲面$z=f(x,y)$上任一点$M$处的切平面与向径平行。
+% 
+% \subsection*{隐函数求导}
+% 
+% {\bf 例：}设$z=z(x,y)$由方程$x^2+y^2+z^2=xf\left(\df yx\right)$确定，
+% 且$f$可微，求$\df {\p z}{\p x},\df{\p z}{\p y}$
+% 
+% {\bf 例：}设$y=f(x,t)$，其中$t$是由$F(x,y,t)=0$所确定的隐函数，$f,F$具有
+% 一阶连续偏导数，求$\df{\d y}{\d x}$
+% 
+% {\bf 例：}设$F(u,v)$具有一阶连续偏导数，且由$F\left(\df xz,\df yz\right)=0$
+% 可确定函数$z=z(x,y)$，求$x\df{\p z}{\p x}+y\df{\p z}{\p y}$
+% 
+% {\bf 例：}设$u=u(x,y),x=r\cos\theta,y=r\sin\theta$，将方程
+% $$x\df{\p u}{\p y}-y\df{\p u}{\p x}=0$$
+% 化为$u$关于$r,\theta$的偏导数的方程。
+% 
+% {\bf 例：}设$u=u(x,y,z)$具有连续偏导数，且
+% $$x=r\sin\theta\cos\varphi,y=r\sin\theta\sin\varphi,z=r\cos\theta$$
+% 证明：若$x\df{\p u}{\p x}+y\df{\p u}{\p y}+z\df{\p u}{\p z}=0$，
+% 则$u$与$r$无关。
+% 
+% {\bf 例：}设$f(x,y)$一阶偏导连续，$f(1,1)=1,f\,'_1(1,1)=a$，
+% $f\,'_2(1,1)=b$，又$\varphi(x)=f(x,f(x,f(x,x)))$，求
+% $\varphi(1)$与$\varphi'(1)$。
+% 
+% {\bf 例：}设由$\ln(xz)+\arctan(yz)=0$可确定隐函数$z=z(x,y)$，求$z'_x$。
+% 
+% {\bf 辅导（下）-P21-例6-26：}设$u=u(x)$由
+% $$u=f(x,y),\;g(x,y,z)=0,\;h(x,z)=0$$
+% 确定，$f,g,h$一阶偏导连续，$h'_z\ne0,g'_y\ne0$，求$\df{\p u}{\p x}$
+% 
+% $$u'_x=f'_x-\df{f'_yg'_x}{g'_y}+\df{f'_yg'_zh'_x}{g'_yh'_z}$$
+% 
+% \subsection*{方向导数}
+% 
+% {\bf 例：}求函数$z=x^2-xy+y^2$在点$(1,1)$处沿与$x$轴正向成
+% $\alpha$角的方向$\bm{l}$的方向导数。在怎样的方向上
+% 此导数取最大、最小及$0$值？
+% 
+% {\bf 例：}设$u=u(x,y,z)$，证明：$u$为$x,y,z$的线性函数，当且仅当
+% $\bigtriangledown u$为常矢量。
+% 
+% {\bf 例：}试证曲面$\sqrt{x}+\sqrt y+\sqrt z=\sqrt a\,(a>0)$
+% 在任一点处的切平面在三个坐标轴上的截距之和为常数。
+% 
+% {\bf 例：}已知曲面方程$z=xe^{y/x}$，证明：曲面上任一点$M$处的法线与其
+% 向径垂直。
+% 
+% \subsection*{Taylor公式}
+% 
+% {\bf 例：}试证明：当$x,y$很小时，有如下近似公式：
+% $$(1+x)^m(1+y)^n\approx 1+mx+ny$$
+% 
+% {\bf 例：}试证明：当$x,y$很小时，有如下近似公式：
+% \begin{enumerate}[(1)]
+%   \setlength{\itemindent}{1cm}
+%   \item $\ln(1+x)\ln(1+y)\approx xy$
+%   \item $\arctan\df{x+y}{1+xy}\approx x+y$
+% \end{enumerate}
+% 
+% \subsection*{极值与条件极值}
+% 
+% {\bf 辅导（下）-P28-例6-39：}求以$(0,0),(0,1),(1,0)$为顶点的三角形区域内
+% 到该三点距离平方和最大的点。
+% 
+% {\bf 例：}证明函数$f(x,y)=2x^2-3xy^2+y^4$不存在极值。
+% 
+% {\bf 例：}当$x,y,z$均大于零时，求函数$u=\ln x+2\ln y+3\ln z$
+% 在球面$x^2+y^2+z^2=6R^2$上的最大值，并证明对任意正数
+% $a,b,c$，成立不等式
+% $$ab^2c^3\leq 108\left(\df{a+b+c}{6}\right)^6$$
+% 
+% [解]：由Lagrange乘子法，记
+% $$L=xy^2z^3+\lambda(x^2+y^2+z^2-6R^2),$$
+% 令$\bigtriangledown L=0$，可解得$x=R,y=\sqrt2 R,z=\sqrt3 R$，从而有：
+% $$xy^2z^3\leq 6\sqrt 3R^6=6\sqrt 3\left(\df{x^2+y^2+z^2}{6}\right)^3.$$
+% 也即
+% $$x^2y^4z^6\leq 108\left(\df{x^2+y^2+z^2}{6}\right)^6.$$
+% 记$a=x^2,b=y^2,c=z^2$，即证。
+% 
+% [提示]：使用Lagrange乘子法求解该题有不小的计算量，事实上，也可以直接使用平均值不等式
+% 的方法来求解。
+% 
+% 注意到$a,b,c>0$时
+% $$\df{a+b+c}6=\df16\left(a+\df b2+\df b2+\df c3+\df c3+\df c3\right)
+% \geq \sqrt[6]{\df{ab^2c^3}{108}},$$
+% 稍加整理即为第二问的不等式（当且仅当$a=\df b2=\df c3$时，等号成立）。
+% 
+% 记$a=x^2,b=y^2,c=z^2$，则由上式，当$x^2+y^2+z^2=6R^2$时，有
+% $$x^2y^4z^6\leq108\left(\df{x^2+y^2+z^2}{6}\right)^6
+% =108\left(R^2\right)^6$$
+% 进而\ps{\b 求解极值和条件极值问题，不应拘泥于Lagrange乘子法的“套路”，合理地
+% 使用已经熟悉的不等式，常常能够使计算大为简化}
+% $$xy^2z^3\leq6\sqrt3R^6.$$
+% 并且，我们容易知道当且仅当$x^2=\df{y^2}2=\df{z^2}3$时，取到以上的最大值。
+% 
+% {\bf 例：}在半径为$R$的圆的内接三角形中，求面积最大者。
+% 
+% [提示]：圆的内接三角形的面积由圆的半径$r$和各边对应的圆心角$\alpha,\beta,\gamma$
+% 确定，具体地
+% $$S=\df{r^2}2(\sin\alpha+\sin\beta+\sin\gamma),\quad
+% (\alpha+\beta+\gamma=2\pi)$$
+% 如果不使用Lagrange乘子法，利用变量替换$\gamma=2\pi-\alpha-\beta$，则
+% \begin{align*}
+% 	\sin\alpha+\sin\beta+\sin\gamma
+% 	&=2\sin\df{\alpha+\beta}2\cos\df{\alpha-\beta}2-\sin(\alpha+\beta)\\
+% 	&=2\sin\df{\alpha+\beta}2\cos\df{\alpha-\beta}2-2\sin\df{\alpha+\beta}2
+% 	\cos\df{\alpha+\beta}2\\
+% 	&=2\sin\df{\alpha+\beta}2\left(\cos\df{\alpha-\beta}2
+% 	-\cos\df{\alpha+\beta}2\right)\\
+% 	&=4\sin\df{\alpha+\beta}2\sin\df{\alpha}2\sin\df{\beta}2
+% 	\quad(0\leq\alpha+\beta\leq2\pi)
+% \end{align*}
+% 这样问题就转换成了求解二元函数$\sin\df{\alpha+\beta}2\sin\df{\alpha}2\sin\df{\beta}2$
+% 在闭区域$0\leq\alpha+\beta\leq2\pi$上的极值问题，接下来还会有相当大的计算量。
+% 
+% 如果使用Lagrange乘子法，则可设\ps{\b 这个例子说明，使用Lagrange乘子法，并不一定总是
+% 计算量很大，所以我们应该尽可能考虑综合使用各种可行的方法}
+% $$L=\sin\alpha+\sin\beta+\sin\gamma+\lambda(\alpha+\beta+\gamma-2\pi),$$
+% 于是$\bigtriangledown L=0$也即
+% $$
+% 	\left\{\begin{array}{l}
+% 		\cos\alpha+\lambda=0\\
+% 		\cos\beta+\lambda=0\\
+% 		\cos\gamma+\lambda=0\\
+% 		\alpha+\beta+\gamma-2\pi=0
+% 	\end{array}\right.
+% $$
+% 观察方程组的特点，容易发现$\alpha=\beta=\gamma$时取极值，计算量较前面的方法大为减少。
+% 
+% {\bf 例：}现有资金$36$元，要建造一个无盖的长方体容器，已知底面造价为$3$元每平方米，
+% 侧面造价为$1$元每平方米，求可造出的长方体的最大容积。
+% 		
+% {\bf 例：}证明函数$f(x,y)=e^{\cos x}-y^2$在全平面上有无穷多个
+% 极大值，但无极小值。
+% 
+% [提示]：如图\ps{对可微的一元函数而言，两个极大值点之间必有至少一个极小值点，对多元函数则不然！}
+% \begin{center}
+% 	\resizebox{!}{5cm}{\includegraphics{./images/ch10/iUnD.pdf}}
+% \end{center}
+% 
+% {\bf 例：}设$F(x,y,z)$在条件$\varphi(x,y,z)=0$和$\psi(x,y,z)=0$
+% 之下在点$P_0(x_0,y_0,z_0)$处取得极值$m$，证明：曲面
+% $F(x,y,z)=m,\varphi(x,y,z)=0$和$\psi(x,y,z)=0$
+% 在$P_0$的法线共面，其中函数$F,\varphi,\psi$均有连续且不同时
+% 为零的一阶偏导数。
+% 
+% {\bf 例：}求函数$z=x^2-xy+y^2$在区域$D:|x|+|y|\leq 1$
+% 上的最大和最小值。
+% 
+% [提示]：令$x+y=X,x-y=Y$，则\ps{任意形如$ax^2+bxy+cy^2$的函数都可以通过
+% 该线性变换化为形如$AX^2+BY^2$的形式！}
+% $$z=x^2-xy+y^2=\df14X^2+\df34Y^2,$$
+% $$D:|x|+|y|\leq 1\quad\Leftrightarrow\quad |X|\leq1,|Y|\leq1$$
+% 易知$|X|=|Y|=1$时，$z$取最大值$1$，$|X|=|Y|=0$时，$z$取最大值$0$.
+% 
+% 如果使用普通的方法，计算量会大很多。
+% 
+% \subsection*{课堂思考}
+% 
+% {\bf 例：}设$F(x,y)=\dint_0^{xy}\df{\sin t}{1+t^2}\d t$，则
+% $\left.\df{\p^2F}{\p x^2}\right|_{x=0 \atop y=2}=$
+% \underline{\quad\quad\quad}
+% 
+% {\bf 例：}设$z=f(xy,yg(x))$，其中$f$二阶偏导数连续，$g(x)$可导且
+% 有极值$g(1)=1$，求$\left.\df{\p^2z}{\p x\p y}\right|_{x=1\atop y=1}$
 
 \newpage
-
-\section*{习题课}
-\addcontentsline{toc}{section}{习题课}
-
-\subsection*{多元函数的极限、连续、偏导数与全微分}
-
-{\bf 辅导（下）-P12-例6-6：}讨论极限$\lim\limits_{(x,y)\to(0,0)}\df{xy^2}{x^2+y^4}$
-
-$$\lim\limits_{x\to 0\atop{y=kx}}\df{xy^2}{x^2+y^4}=0$$
-
-$$\lim\limits_{x\to 0\atop{y^2=x}}\df{xy^2}{x^2+y^4}=\df12$$
-
-{\bf 辅导（下）-P12-例6-7：}证明极限$\lim\limits_{(x,y)\to(0,0)}(1+xy)
-^{\frac1{x+y}}$不存在
-
-
-$$\lim\limits_{x\to 0\atop{y=kx}}(1+xy)^{\frac1{x+y}}=1\quad (k\ne -1)$$
-
-$$\lim\limits_{x\to 0\atop{y=x^2-x}}(1+xy)^{\frac1{x+y}}=e^{-1}$$
-
-{\bf 辅导（下）-P12-例6-8：}证明极限$\lim\limits_{(x,y)\to(0,0)}
-\df{x^3+xy^2}{x^2-xy+y^2}=0$
-
-{\bf 例：}证明函数
-  $$f(x,y)=\left\{\begin{array}{cc}
-  	\df{x^2y}{x^2+y^2},& (x,y)\ne (0,0)\\
-  	0,& else
-  \end{array}\right.$$
-  在原点可微，但偏导数不连续。
-
-{\bf 辅导（下）-P16-例6-16：}证明：$z=\sqrt|xy|$在
-原点连续，偏导数存在，但不可微。
-
-{\bf 课后思考：}习题8.2：16-18
-
-{\bf 辅导（下）-P17-例6-17：}正六棱台的上下底和高分别为$1,2,2$，问
-那个值的测量误差对其侧面积的值影响最大？
-
-$$S=6\times\df12(x+y)\times\df12\sqrt{4z^2+3(y-x)^2}$$
-
-$$\d z|_{(1,2,2)}=S'_x(1,2,2)\Delta x+S'_y(1,2,2)\Delta y+
-S'_z(1,2,2)\Delta z=\df3{\sqrt{19}}(5\Delta x+14\Delta y+12\Delta z)$$
-
-\subsection*{复合函数求导}
-
-{\bf 例：}
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 设$z=u^2\ln v,u=\df xy,v=3x-2y$，求$\df {\p z}{\p x},\df{\p z}{\p
-  y}$ 
-  \item 设$z=\arctan(xy),y=e^x$，求$\df{\d z}{\d x}$ 
-  \item 设$u=f\left(\df xy,\df yz\right)$，求$\df {\p u}{\p x},\df {\p u}{\p y}$
-  和$\df {\p u}{\p z}$ 
-  \item 设$f(x,2x)=x,f\,'_1(x,2x)=x^2$，求$f\,'_2(x,2x)$
-\end{enumerate}
-
-{\bf 例：}设$f(x,y)$一阶偏导连续，$f(1,1)=1,f\,'_x(1,1)=2$，
-$f\,'_y(1,1)=3$，又$\varphi(x)=f(x,f(x,x))$，求
-$$\left.\df{\d\varphi^3(x)}{\d x}\right|_{x=1}$$
-
-{\bf 例：}设$z=xf\left(\df yx\right)+yg\left(x,\df xy\right)$，
-其中$f,g$均二次可微，求$\df{\p^2 z}{\p x\p y}$
-
-{\bf 例：}设$f(x,y)$一阶偏导数连续，且对任意实数$t$，有
-$$f(tx,ty)=tf(x,y)$$
-证明：曲面$z=f(x,y)$上任一点$M$处的切平面与向径平行。
-
-\subsection*{隐函数求导}
-
-{\bf 例：}设$z=z(x,y)$由方程$x^2+y^2+z^2=xf\left(\df yx\right)$确定，
-且$f$可微，求$\df {\p z}{\p x},\df{\p z}{\p y}$
-
-{\bf 例：}设$y=f(x,t)$，其中$t$是由$F(x,y,t)=0$所确定的隐函数，$f,F$具有
-一阶连续偏导数，求$\df{\d y}{\d x}$
-
-{\bf 例：}设$F(u,v)$具有一阶连续偏导数，且由$F\left(\df xz,\df yz\right)=0$
-可确定函数$z=z(x,y)$，求$x\df{\p z}{\p x}+y\df{\p z}{\p y}$
-
-{\bf 例：}设$u=u(x,y),x=r\cos\theta,y=r\sin\theta$，将方程
-$$x\df{\p u}{\p y}-y\df{\p u}{\p x}=0$$
-化为$u$关于$r,\theta$的偏导数的方程。
-
-{\bf 例：}设$u=u(x,y,z)$具有连续偏导数，且
-$$x=r\sin\theta\cos\varphi,y=r\sin\theta\sin\varphi,z=r\cos\theta$$
-证明：若$x\df{\p u}{\p x}+y\df{\p u}{\p y}+z\df{\p u}{\p z}=0$，
-则$u$与$r$无关。
-
-{\bf 例：}设$f(x,y)$一阶偏导连续，$f(1,1)=1,f\,'_1(1,1)=a$，
-$f\,'_2(1,1)=b$，又$\varphi(x)=f(x,f(x,f(x,x)))$，求
-$\varphi(1)$与$\varphi'(1)$。
-
-{\bf 例：}设由$\ln(xz)+\arctan(yz)=0$可确定隐函数$z=z(x,y)$，求$z'_x$。
-
-{\bf 辅导（下）-P21-例6-26：}设$u=u(x)$由
-$$u=f(x,y),\;g(x,y,z)=0,\;h(x,z)=0$$
-确定，$f,g,h$一阶偏导连续，$h'_z\ne0,g'_y\ne0$，求$\df{\p u}{\p x}$
-
-$$u'_x=f'_x-\df{f'_yg'_x}{g'_y}+\df{f'_yg'_zh'_x}{g'_yh'_z}$$
-
-\subsection*{方向导数}
-
-{\bf 例：}求函数$z=x^2-xy+y^2$在点$(1,1)$处沿与$x$轴正向成
-$\alpha$角的方向$\bm{l}$的方向导数。在怎样的方向上
-此导数取最大、最小及$0$值？
-
-{\bf 例：}设$u=u(x,y,z)$，证明：$u$为$x,y,z$的线性函数，当且仅当
-$\bigtriangledown u$为常矢量。
-
-{\bf 例：}试证曲面$\sqrt{x}+\sqrt y+\sqrt z=\sqrt a\,(a>0)$
-在任一点处的切平面在三个坐标轴上的截距之和为常数。
-
-{\bf 例：}已知曲面方程$z=xe^{y/x}$，证明：曲面上任一点$M$处的法线与其
-向径垂直。
-
-\subsection*{Taylor公式}
-
-{\bf 例：}试证明：当$x,y$很小时，有如下近似公式：
-$$(1+x)^m(1+y)^n\approx 1+mx+ny$$
-
-{\bf 例：}试证明：当$x,y$很小时，有如下近似公式：
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\ln(1+x)\ln(1+y)\approx xy$
-  \item $\arctan\df{x+y}{1+xy}\approx x+y$
-\end{enumerate}
-
-\subsection*{极值与条件极值}
-
-{\bf 辅导（下）-P28-例6-39：}求以$(0,0),(0,1),(1,0)$为顶点的三角形区域内
-到该三点距离平方和最大的点。
-
-{\bf 例：}证明函数$f(x,y)=2x^2-3xy^2+y^4$不存在极值。
-
-{\bf 例：}当$x,y,z$均大于零时，求函数$u=\ln x+2\ln y+3\ln z$
-在球面$x^2+y^2+z^2=6R^2$上的最大值，并证明对任意正数
-$a,b,c$，成立不等式
-$$ab^2c^3\leq 108\left(\df{a+b+c}{6}\right)^6$$
-
-[解]：由Lagrange乘子法，记
-$$L=xy^2z^3+\lambda(x^2+y^2+z^2-6R^2),$$
-令$\bigtriangledown L=0$，可解得$x=R,y=\sqrt2 R,z=\sqrt3 R$，从而有：
-$$xy^2z^3\leq 6\sqrt 3R^6=6\sqrt 3\left(\df{x^2+y^2+z^2}{6}\right)^3.$$
-也即
-$$x^2y^4z^6\leq 108\left(\df{x^2+y^2+z^2}{6}\right)^6.$$
-记$a=x^2,b=y^2,c=z^2$，即证。
-
-[提示]：使用Lagrange乘子法求解该题有不小的计算量，事实上，也可以直接使用平均值不等式
-的方法来求解。
-
-注意到$a,b,c>0$时
-$$\df{a+b+c}6=\df16\left(a+\df b2+\df b2+\df c3+\df c3+\df c3\right)
-\geq \sqrt[6]{\df{ab^2c^3}{108}},$$
-稍加整理即为第二问的不等式（当且仅当$a=\df b2=\df c3$时，等号成立）。
-
-记$a=x^2,b=y^2,c=z^2$，则由上式，当$x^2+y^2+z^2=6R^2$时，有
-$$x^2y^4z^6\leq108\left(\df{x^2+y^2+z^2}{6}\right)^6
-=108\left(R^2\right)^6$$
-进而\ps{\b 求解极值和条件极值问题，不应拘泥于Lagrange乘子法的“套路”，合理地
-使用已经熟悉的不等式，常常能够使计算大为简化}
-$$xy^2z^3\leq6\sqrt3R^6.$$
-并且，我们容易知道当且仅当$x^2=\df{y^2}2=\df{z^2}3$时，取到以上的最大值。
-
-{\bf 例：}在半径为$R$的圆的内接三角形中，求面积最大者。
-
-[提示]：圆的内接三角形的面积由圆的半径$r$和各边对应的圆心角$\alpha,\beta,\gamma$
-确定，具体地
-$$S=\df{r^2}2(\sin\alpha+\sin\beta+\sin\gamma),\quad
-(\alpha+\beta+\gamma=2\pi)$$
-如果不使用Lagrange乘子法，利用变量替换$\gamma=2\pi-\alpha-\beta$，则
-\begin{align*}
-	\sin\alpha+\sin\beta+\sin\gamma
-	&=2\sin\df{\alpha+\beta}2\cos\df{\alpha-\beta}2-\sin(\alpha+\beta)\\
-	&=2\sin\df{\alpha+\beta}2\cos\df{\alpha-\beta}2-2\sin\df{\alpha+\beta}2
-	\cos\df{\alpha+\beta}2\\
-	&=2\sin\df{\alpha+\beta}2\left(\cos\df{\alpha-\beta}2
-	-\cos\df{\alpha+\beta}2\right)\\
-	&=4\sin\df{\alpha+\beta}2\sin\df{\alpha}2\sin\df{\beta}2
-	\quad(0\leq\alpha+\beta\leq2\pi)
-\end{align*}
-这样问题就转换成了求解二元函数$\sin\df{\alpha+\beta}2\sin\df{\alpha}2\sin\df{\beta}2$
-在闭区域$0\leq\alpha+\beta\leq2\pi$上的极值问题，接下来还会有相当大的计算量。
-
-如果使用Lagrange乘子法，则可设\ps{\b 这个例子说明，使用Lagrange乘子法，并不一定总是
-计算量很大，所以我们应该尽可能考虑综合使用各种可行的方法}
-$$L=\sin\alpha+\sin\beta+\sin\gamma+\lambda(\alpha+\beta+\gamma-2\pi),$$
-于是$\bigtriangledown L=0$也即
-$$
-	\left\{\begin{array}{l}
-		\cos\alpha+\lambda=0\\
-		\cos\beta+\lambda=0\\
-		\cos\gamma+\lambda=0\\
-		\alpha+\beta+\gamma-2\pi=0
-	\end{array}\right.
-$$
-观察方程组的特点，容易发现$\alpha=\beta=\gamma$时取极值，计算量较前面的方法大为减少。
-
-{\bf 例：}现有资金$36$元，要建造一个无盖的长方体容器，已知底面造价为$3$元每平方米，
-侧面造价为$1$元每平方米，求可造出的长方体的最大容积。
-		
-{\bf 例：}证明函数$f(x,y)=e^{\cos x}-y^2$在全平面上有无穷多个
-极大值，但无极小值。
-
-[提示]：如图\ps{对可微的一元函数而言，两个极大值点之间必有至少一个极小值点，对多元函数则不然！}
-\begin{center}
-	\resizebox{!}{5cm}{\includegraphics{./images/ch10/iUnD.pdf}}
-\end{center}
-
-{\bf 例：}设$F(x,y,z)$在条件$\varphi(x,y,z)=0$和$\psi(x,y,z)=0$
-之下在点$P_0(x_0,y_0,z_0)$处取得极值$m$，证明：曲面
-$F(x,y,z)=m,\varphi(x,y,z)=0$和$\psi(x,y,z)=0$
-在$P_0$的法线共面，其中函数$F,\varphi,\psi$均有连续且不同时
-为零的一阶偏导数。
-
-{\bf 例：}求函数$z=x^2-xy+y^2$在区域$D:|x|+|y|\leq 1$
-上的最大和最小值。
-
-[提示]：令$x+y=X,x-y=Y$，则\ps{任意形如$ax^2+bxy+cy^2$的函数都可以通过
-该线性变换化为形如$AX^2+BY^2$的形式！}
-$$z=x^2-xy+y^2=\df14X^2+\df34Y^2,$$
-$$D:|x|+|y|\leq 1\quad\Leftrightarrow\quad |X|\leq1,|Y|\leq1$$
-易知$|X|=|Y|=1$时，$z$取最大值$1$，$|X|=|Y|=0$时，$z$取最大值$0$.
-
-如果使用普通的方法，计算量会大很多。
-
-\subsection*{课堂思考}
-
-{\bf 例：}设$F(x,y)=\dint_0^{xy}\df{\sin t}{1+t^2}\d t$，则
-$\left.\df{\p^2F}{\p x^2}\right|_{x=0 \atop y=2}=$
-\underline{\quad\quad\quad}
-
-{\bf 例：}设$z=f(xy,yg(x))$，其中$f$二阶偏导数连续，$g(x)$可导且
-有极值$g(1)=1$，求$\left.\df{\p^2z}{\p x\p y}\right|_{x=1\atop y=1}$
 
 \section*{习题参考解答}
 \addcontentsline{toc}{section}{习题参考解答}
@@ -2223,7 +2225,7 @@ $$x\df{\p u}{\p y}-y\df{\p u}{\p x}=u'_{\theta},$$
 \bs
 
 \begin{center}
-	\bf 方向导数、梯度、Hessian矩阵与多元Taylor公式
+	\bf 9.4 方向导数、梯度、Hessian矩阵与多元Taylor公式
 \end{center}
 
 1.求曲面$z=x^2+y^2$上的点$(1,1,2)$处沿椭圆$\df{x^2}{8}+\df{y^2}{2}=1$
@@ -2255,7 +2257,7 @@ $$\df1{\sqrt{x_0}}(x-x_0)+\df1{\sqrt{y_0}}(y-y_0)
 向径垂直。
 
 [证]：曲面上任一点$(x,y,z)$处的法向量为
-$$\bm{n}=\left(e^{y/x}(1-\frac yx,e^{y/x},-1\right),$$
+$$\bm{n}=\left(e^{y/x}\left(1-\frac yx\right),e^{y/x},-1\right),$$
 向径为$\bm{r}=(x,y,z)$，容易验证$\bm{n}\cdot\bm{r}=0$。\fin
 
 \bs
@@ -2263,6 +2265,11 @@ $$\bm{n}=\left(e^{y/x}(1-\frac yx,e^{y/x},-1\right),$$
 4.求函数$xe^{x+y}$在原点处带Peano余项的二阶Taylor公式。
 
 [解]：
+注意到
+$$e^x=1+x+\circ(x),$$
+故易知
+$$e^{x+y}=1+x+y+\circ(\sqrt{x^2+y^2}),$$
+进而可知
 $$xe^{x+y}=x+x^2+xy+\circ(x^2+y^2).$$
 \fin
 
@@ -2290,6 +2297,7 @@ $x=\df{a}{\sqrt3},y=\df{b}{\sqrt3}，z=\df{c}{\sqrt3}$。\fin
   投入的电台广告费用$T$（万元）和投入的报纸广告费用$P$（万元）满足如下关系
   $$U=15+14T+32P-8TP-2T^2-10P^2.$$
   \begin{enumerate}[(1)]
+    \setlength{\itemindent}{1cm}
     \item 在广告预算不封顶的情况下，求公司的最优广告策略；
     \item 若广告总预算上限为$1.5$万元，求公司的最优广告策略。
   \end{enumerate}
@@ -2329,23 +2337,6 @@ $$f(x,y)=4xy+x^2+y^2+\circ(x^2+y^2),$$
 进而可知
 $$\bigtriangledown f(0,0)=(0,0),\quad
 \bigtriangledown^2f(0,0)=\left[\begin{array}{cc}
-	1 & 2 \\ 2 & 1
+	2 & 4 \\ 4 & 2
 \end{array}\right],$$
 由此易知原点为$f(x,y)$的鞍点。\fin
-
-\begin{ext}
-	{\bf 课后作业}
-	\begin{enumerate}
-	  \item 求内接于椭球面$\df{x^2}{a^2}+\df{y^2}{b^2}+\df{z^2}{c^2}=1$
-	  的长方体的最大体积。
-	  \item 某公司的产品广告有电台和报纸两种发布途径，经研究发现，产品销售收入$U$（万元）与
-	  投入的电台广告费用$T$（万元）和投入的报纸广告费用$P$（万元）满足如下关系
-	  $$U=15+14T+32P-8TP-2T^2-10X^2.$$
-	  \begin{enumerate}[(1)]
-	    \item 在广告预算不封顶的情况下，求公司的最优广告策略；
-	    \item 若广告总预算上限为$1.5$万元，求公司的最优广告策略。
-	  \end{enumerate}
-	  \item 已知$\lim\limits_{(x,y)\to(0,0)}\df{f(x,y)-4xy}{x^2+y^2}=1$，
-	  判断$(0,0)$是否为$f(x,y)$的极值点，若是，是极大值还是极小值？
-	\end{enumerate}
-\end{ext}
