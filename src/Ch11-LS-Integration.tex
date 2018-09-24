@@ -388,7 +388,70 @@ $$\bm{v}_1=(x,y)\quad\mbox{和}\quad \bm{v}_2=(-y,x)$$
 	\end{enumerate}
 \end{ext}
 
-\section{Green公式与保守场}
+\section{Green公式及其应用}
+
+\begin{shaded}
+% 	\centerline{\bf 背景资料}
+	George Green (1793-1841) , 英国数学与物理学家，生于英国Nottingham，
+	自学（只上过一年小学）成才，1828年发表《论应用数学分析于电磁学》
+	（{\it An Essay on the Application of Mathematical Analysis to 
+	the Theories of Electricity and Magnetism }(Green, 1828)）；
+	1833年（40岁）进入Cambridge University学习，1837年毕业后留在剑桥
+	冈维尔与凯斯学院。格林在世时，他的工作在数学界并不知名。但到了公元1846年，
+	物理学家Lord Kelvin（开尔文勋爵，William Thomson, 1st Baron 
+	Kelvin）重新发现了格林的著作，将其推广给后来的数学家。
+	
+	\bigskip
+
+	1993年，Westminster Abbey设置了纪念George Green的石碑，
+	紧邻Sir Isaac Newton 和Lord Kelvin。
+	
+	\bigskip
+	
+	Nottingham Review's obituary to George Green:
+	
+	{\it ... we believe he was the son of a miller, residing near 
+	Nottingham, but having a taste for study, he applied his 
+	gifted mind to the science of mathematics, in which he 
+	made a rapid progress. In Sir Edward Ffrench Bromhead, 
+	Bart., he found a warm friend, and to his influence he 
+	owed much, while studying at Cambridge. Had his life been 
+	prolonged, he might have stood eminently high as a mathematician.}
+	
+	\hfill (from: http://www-history.mcs.st-and.ac.uk/Biographies/Green.html)
+	
+	\bigskip
+	
+	{\it Green pioneered the application of mathematics to physical 
+	problems and theorems derived from his work on electricity 
+	and magnetism are used in modern nuclear and solid state physics.}
+	
+	\hfill (http://www.westminster-abbey.org/our-history/people/george-green)
+	
+	\bigskip
+	
+	{\it Green was the first person to create a mathematical theory 
+	of electricity and magnetism and his theory formed the foundation 
+	for the work of other scientists such as James Clerk Maxwell, 
+	William Thomson, and others. His work on potential theory ran 
+	parallel to that of Carl Friedrich Gauss.}
+	
+	\hfill (http://en.wikipedia.org/wiki/George\_Green\_(mathematician))
+% 	{\begin{lstlisting}[language=html]
+% 		http://en.wikipedia.org/wiki/George_Green_(mathematician)
+% 	\end{lstlisting}}
+	
+	\bigskip
+	
+	Green公式在物理上的意义就是闭合曲线Γ内所有微环流量（Microscopic circulation）
+	的总和等于沿曲线Γ方向的线积分（Macroscopic circulation）。
+
+	\hfill (http://www.cnblogs.com/frischzenger/archive/
+	2009/06/15/1503819.html)
+
+	\bigskip
+	Green公式的几何意义，童志通，《数学通报》 1965年07期 加入收藏 投稿
+\end{shaded}
 
 \subsection{Green公式}
 
@@ -832,13 +895,13 @@ S=\iiint\limits_{\Omega}\mathrm{div}\,\bm{v}\d V}$$
 	\end{itemize}
 \end{thx}
 
-{\bf 教材-例1：}设向量场$\bm{v}=(x,y,z)$，$\Sigma:x^2+y^2+z^2=R^2$，试验证
+{\bf 例：}设向量场$\bm{v}=(x,y,z)$，$\Sigma:x^2+y^2+z^2=R^2$，试验证
 Gauss公式。
 
-{\bf 教材-例2：}求流速场$\bm{v}=(x,y,z)$由内向外流过$\Sigma:x^2+y^2=R^2
+{\bf 例：}求流速场$\bm{v}=(x,y,z)$由内向外流过$\Sigma:x^2+y^2=R^2
 (0\leq z\leq H)$侧面的流量。
 
-{\bf 教材-例3：}设原点处有一电量为$e$的点电荷，求其产生的静电场通过曲面
+{\bf 例：}设原点处有一电量为$e$的点电荷，求其产生的静电场通过曲面
 $$\df{x^2}{a^2}+\df{y^2}{b^2}+\df{z^2}{c^2}=1$$
 的电通量。
 
@@ -923,7 +986,7 @@ $\ds\iint_{\Sigma}x\d y\d z+2y\d z\d x+3(z-1)\d x\d y=2\pi$
 	$$I=\iint\limits_{\Sigma}z\d S=2\iint\limits_{D}z\d S=2\pi$$
 \end{shaded}
 
-{\bf 例}（同济11-6-例2）:计算曲面积分
+{\bf 例：}计算曲面积分
 $$\iint\limits_{\Sigma}(x^2\cos\alpha+y^2\cos\beta
 +z^2\cos\gamma)\d S,$$
 其中$\Sigma$为$x^2+y^2=z^2$介于$z=0$和$z=h\;(h>0)$之间的部分的下侧，
@@ -962,19 +1025,21 @@ z}=\bigtriangledown\cdot\bm{v}$$
 {\it 无源场：}
 $${\mathrm{div}\,\bm{v}=0}$$ 
 
-{\bf 定理2}若向量场$\bm{v}$在空间区域$\Omega$内为无源场，则
-其通过$\Omega$边界的流量为$0$。
+\begin{thx}
+	{\bf 定理：}若向量场$\bm{v}$在空间区域$\Omega$内为无源场，则
+	其通过$\Omega$边界的流量为$0$。
+\end{thx}
 
-{\bf 散度的运算法则}
-
-已知$\bm{v}=(P,Q,R)$，$u=u(x,y,z)$，$C\in\mathbb{R}$， 
-其中$P,Q,R,u$均可微，则\ps{请牢记！}
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item ${\mathrm{div}(C\bm{v}) =C\,\mathrm{div}\,\bm{v}}$ 
-  \item ${\mathrm{div}(u\bm{v}) =u\,\mathrm{div}\,\bm{v}
-  +\bm{v}\cdot\bigtriangledown u}$
-\end{enumerate}
+\begin{thx}
+	{\bf 散度的运算法则：}
+	已知$\bm{v}=(P,Q,R)$，$u=u(x,y,z)$，$C\in\mathbb{R}$， 
+	其中$P,Q,R,u$均可微，则
+	\begin{enumerate}
+	  \item ${\mathrm{div}(C\bm{v}) =C\,\mathrm{div}\,\bm{v}}$ 
+	  \item ${\mathrm{div}(u\bm{v}) =u\,\mathrm{div}\,\bm{v}
+	  +\bm{v}\cdot\bigtriangledown u}$
+	\end{enumerate}
+\end{thx}
 
 \begin{shaded}
 	{\bf Gauss公式的“挖洞”问题}
@@ -982,7 +1047,7 @@ $${\mathrm{div}\,\bm{v}=0}$$
 	和Green公式类似，Gauss公式也有需要“挖洞”处理的问题。具体的处理方法
 	参见Green公式的“挖洞”处理。
 	
-	{\bf 教材-例4：}(Gauss积分)计算
+	{\bf 例：}(Gauss积分)计算
 	$$I(\xi,\eta,\zeta)=\oiint\limits_{\Sigma}
 	\df{\cos(\bm{r},\bm{n})}{|\bm{r}|^2}\d S,$$
 	其中：$\Sigma$为不经过点$P(\xi,\eta,\zeta)$的光滑闭曲面，
@@ -1005,13 +1070,6 @@ $${\mathrm{div}\,\bm{v}=0}$$
 	[提示]：挖一个椭球形状的“洞”：$x^2+2y^2+2z^2=\e$
 \end{shaded}
 
-
-
-% {\it 二维形式的Gauss积分：}
-% $$I=\int_L\df{\cos(\bm{r},\bm{n})}{|\bm{r}|}\d s,$$
-% 
-% 几何意义：曲线在以$P$为圆心的单位圆上的投影弧长（顺时针方向为正）。
-
 \subsection{Green公式环量形式的三维推广——Stokes公式}
 
 {\bf Green公式：}平面向量场$\bm{v}$，平面区域$D$，$L=\p D$ 
@@ -1029,22 +1087,25 @@ $${\oint_L\bm{v}\cdot\bm{T}\d s=\iint\limits_D
 	y}\right)\d\sigma_{xy}}
 \end{eqnarray*}
 
-{\bf 定理：}（Stokes公式）
-\begin{eqnarray*}
-	{\ds\oint_L\bm{v}\cdot\bm{T}\d s}&{=}&
-	{\ds\iint\limits_{\Sigma^+}\left(\df{\p R}{\p y}-\df{\p Q}{\p
-	z}\right)\d\sigma_{yz}}\\ 
-	&& {\hspace{-2cm}\ds\iint\limits_{\Sigma^+}\left(\df{\p P}{\p
-	z}-\df{\p R}{\p x}\right)\d\sigma_{zx}
-	+\iint\limits_{\Sigma^+}\left(\df{\p Q}{\p x}-\df{\p P}{\p
-	y}\right)\d\sigma_{xy}}
-\end{eqnarray*}
-其中
-\begin{itemize}
-  \item {$\Sigma$：}空间光滑曲面
-  \item {$L=\p\Sigma$：}空间光滑闭曲线，按{“右手法则”}取正向
-  \item {$P,Q,R$：}在包含$\Sigma$的空间区域内偏导连续
-\end{itemize}
+\begin{thx}
+	{\bf Stokes公式}
+	\begin{eqnarray*}
+		{\ds\oint_L\bm{v}\cdot\bm{T}\d s}&{=}&
+		{\ds\iint\limits_{\Sigma^+}\left(\df{\p R}{\p y}-\df{\p Q}{\p
+		z}\right)\d\sigma_{yz}}\\ 
+		&& {\hspace{-2cm}\ds\iint\limits_{\Sigma^+}\left(\df{\p P}{\p
+		z}-\df{\p R}{\p x}\right)\d\sigma_{zx}
+		+\iint\limits_{\Sigma^+}\left(\df{\p Q}{\p x}-\df{\p P}{\p
+		y}\right)\d\sigma_{xy}}
+	\end{eqnarray*}
+	其中
+	\begin{itemize}
+	  \item {$\Sigma$：}空间光滑曲面
+	  \item {$L=\p\Sigma$：}空间光滑闭曲线，按{“右手法则”}取正向
+	  \item {$P,Q,R$：}在包含$\Sigma$的空间区域内偏导连续
+	\end{itemize}
+\end{thx}
+
 
 {\bf 例：}设向量场$\bm{v}=(-z,y,x)$，曲线$L$为$x^2+z^2=1$与$y=2$的交线，
 由$y$轴正向看过去为逆时针方向，$\Sigma$为以$L$为边界的圆盘，正向与$y$
@@ -1099,14 +1160,15 @@ $${\oint_LP\d x+Q\d y+R\d z=\iint\limits_{\Sigma}
 {\it 无旋场：}
 $${\mathrm{rot}\,\bm{v}=0}$$ 
 
-{\bf 定理4：}
-对空间向量场$\bm{v}$，以下条件等价： 
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\bm{v}$为无旋场； 
-  \item $\bm{v}$为保守场(积分与路径无关)； 
-  \item $\bm{v}$存在势函数。
-\end{enumerate}
+\begin{thx}
+	{\bf 保守场的判定：}
+	对空间向量场$\bm{v}$，以下条件等价： 
+	\begin{enumerate}
+	  \item $\bm{v}$为无旋场； 
+	  \item $\bm{v}$为保守场(积分与路径无关)； 
+	  \item $\bm{v}$存在势函数。
+	\end{enumerate}
+\end{thx}
 
 {\bf 例：}验证$\bm{F}=\left(x^2,yz,\df{y^2}2\right)$为保守场，并求其势函数。
 
@@ -1157,7 +1219,7 @@ $$\ds\oiint\limits_{\Sigma}\df{x^3}{r^3}\d
 \begin{shaded}
 	{\bf 关于原函数的计算}	
 	
-	{\bf 习题12.2-8}（2）计算如下微分形式的原函数
+	{\bf 例：}（2）计算如下微分形式的原函数
 	$$yz(2x+y+z)\d x+xz(x+2y+z)\d y+xy(x+y+2z)\d z.$$
 	
 	[方法一]：（{\it 折线法}）考虑积分路径$(0,0,0)\to(x,0,0)\to(x,y,0)\to(x,y,z)$
@@ -1197,7 +1259,39 @@ $$\ds\oiint\limits_{\Sigma}\df{x^3}{r^3}\d
 	
 \end{shaded}
 
-\newpage
+\begin{ext}
+	{\bf 课后作业}
+	\begin{enumerate}
+	  \item 计算曲面积分
+	  $$\oiint\limits_{\Sigma}2(1+x)\d y\d z+yz\d x\d y,$$
+	  其中$\Sigma$是曲线$y=\sqrt x\;(0\leq x\leq 1)$绕$x$轴旋转
+	  一周所得的曲面，且法方向与$x$轴正向的夹角大于$\pi/2$.
+	  \item 设曲面$S$为锥面$z=\sqrt{x^2+y^2}\;(0\leq z\leq2)$，
+	  法向量指向上侧，求流速场$\bm{v}=xz\bm{i}-yz\bm{j}+z^2\bm{k}$通过
+	  曲面$S$的流量。
+	  \item 已知$\Sigma$为柱面$x^2=y^2=1\;(0\leq z\leq1)$
+	  的外侧，计算曲面积分
+	  $$I=\iint\limits_{\Sigma}(x+y\sin z)\d y\d z+(z+xe^y)\d x\d y$$
+	  \item 设$\Sigma$为上半球面$x^2+y^2+z^2=4x\;(z\geq 0)$
+	  夹在圆柱$x^2+y^2=2x$内的部分，$\bm{n}=(\cos\alpha,\cos\beta,\cos\gamma)$
+	  为该半球面在点$(x,y,z)$处指向上侧的单位法向量，计算积分
+	  $$I=\iint\limits_{\Sigma}[(y-z)\cos\alpha+(z-x)\cos\beta
+	  +(x-y)\cos\gamma]\d S$$
+	  \item 设$\Sigma$为$2x^2+2y^2+z^2=4$的外侧，计算以下积分：
+	  \begin{enumerate}[(1)]
+	    \item $\oiint\limits_{\Sigma}\df{x\d y\d z+y\d z\d x+z\d x\d
+	    y}{(x^2+y^2+z^2)^{3/2}}.$
+	    \item $\oiint\limits_{\Sigma}\df{x\d y\d z+y\d z\d x+z\d x\d y}
+	    {(x^2+2y^2+2z^2)^{3/2}}$    
+	  \end{enumerate}
+	  \item 利用Stokes公式计算积分
+	  $$I=\int_Ly^2\d x+z^2\d y+x^2\d z,$$
+	  其中$C$为曲线$\left\{\begin{array}{l}
+	  x^2+y^2+z^2=1 \\ x^2+y^2=x
+	  \end{array}\right.$
+	  上$z\geq 0$的部分，从$x$轴正向看去为逆时针方向。
+	\end{enumerate}
+\end{ext}
 
 \section{对称性在积分计算中的应用}
 
@@ -1595,150 +1689,150 @@ $$\iint\limits_{\Sigma}f(x,y,z)\d x\d y=\iint\limits_{\Sigma}f(y, x,z)\d x\d y$$
 
 \newpage
 
-\section*{补充习题}
-
-{\bf 例：}设$L$是摆线$x=t-\sin t-\pi,y=1-\cos t$从$t=0$
-到$t=2\pi$的一段，则$\dint_L\df{(x-y)\d x+(x+y)\d y}{x^2+y^2}=-\pi$
-
-[提示]：添加路径$L_1:x^2+y^2=\pi^2,\;y\geq 0$，使用Green公式计算。
-注意，不能使用路径$y=0$，因为被积函数在原点处无定义！
-
-{\bf 例：}设$L_1:\df{x^2}{4}+\df{y^2}{9}=1,L_2:\df{x^2}{9}+\df{y^2}{4}=1$，
-二者所围封闭区域分别为$D_1,D_2$，则下列正确的是\;
-(C)
-%  		  \vspace{-1cm}
-\begin{enumerate}[(A)]
-  \item $\dint_{L_1}(x+y^2)\d s=2\dint_{L_2}y^2\d s$
-  \item $\dint_{L_1}(x^2+y)\d s=2\dint_{L_2}(x^2+y)\d s$
-  \item $\ds\iint_{D_1}(x+y^3)\d\sigma=2\ds\iint_{D_2}(x+y^3)\d\sigma$
-  \item $\ds\iint_{D_1}(x^2+y)\d\sigma=2\ds\iint_{D_2}(x^2+y)\d\sigma$
-\end{enumerate}
-
-{\bf 例：}$f(x,y)$偏导连续，曲线$L:f(x,y)=1$过第二象限的点$M$
-  和第四象限的点$N$，$\Gamma$为$L$上从$M$到$N$的一段弧，则下列
-  小于零的是\;
-(B)
-  \begin{enumerate}[(A)]
-  \setlength{\itemindent}{1cm}
-    \item $\dint_{\Gamma}f(x,y)\d x$
-    \item $\dint_{\Gamma}f(x,y)\d y$
-    \item $\ds\int_{\Gamma}f(x,y)\d s$
-    \item $\ds\int_{\Gamma}f\,'_x(x,y)\d x+f\,'_y(x,y)\d y$
-  \end{enumerate}
-
-{\bf 例：}设曲面$S_1:x^2+y^2+z^2=1(z\geq
-  0)$，$S_2$为$S_1$在第一卦限中的部分，
-  则以下正确的是\;
-  (C) 
-  \begin{enumerate}[(A)]
-  \setlength{\itemindent}{1cm}
-    \item $\ds\iint_{S_1}x\d S=4\iint_{S_2}x\d S$
-    \item $\ds\iint_{S_1}y\d S=4\iint_{S_2}x\d S$
-    \item $\ds\iint_{S_1}z\d S=4\iint_{S_2}x\d S$
-    \item $\ds\iint_{S_1}xyz\d S=4\iint_{S_2}xyz\d S$
-  \end{enumerate}
-
-{\bf 例：}设$f(r)$二阶连续可微，$r=\sqrt{x^2+y^2+z^2}$，
-  若$\mathrm{div}(\bigtriangledown\,f(r))=0$，则$f(r)=$\;
-  (B) 
-  \begin{enumerate}[(A)]
-  \setlength{\itemindent}{1cm}
-    \item $C_1r+C_2$
-    \item $C_1/r+C_2$
-    \item $C_1r^2+C_2$
-    \item $C_1/r^2+C_2$
-  \end{enumerate}
-  以上$C_1,C_2$为任意常数
-
-{\bf 注：}$\mathrm{div}(\bigtriangledown\,u)=u''_{xx}+u''_{yy}+u''_{zz}$
-
-{\bf 例：}计算第一型曲线积分（设$a>0$）
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\ds\int\limits_{x^{2/3}+y^{2/3}=a^{2/3}}
-  \left(x^{4/3}+y^{4/3}\right)\d s$
-  \item $\ds\int\limits_{(x^2+y^2)^2=a^2(x^2-y^2)}|y|\d s$
-  \item $\ds\int_Cz\d s$
-  其中$C$为$x^2+y^2=z^2$与$y^2=ax$的交线上从原点到$(a,a,\sqrt2a)$的一段
-\end{enumerate}
-
-[提示]：（1）令$x=a\cos^3t,y=a\sin^3t,t\in[0,2\pi]$
-
-（2）曲线的极坐标方程：$\rho=a\sqrt{\cos2\theta},\theta\in\left[-\df{\pi}4,
-\df{\pi}4\right]\cup\left[\df{3\pi}4,\df{5\pi}4\right]$，然后利用
-$$\d s=\sqrt{\rho^2+(\rho')^2}\d\theta$$
-计算弧长微元
-
-（3）以$y$为参数建立曲线的参数方程。
-
-{\bf 例：}计算积分
-$$I=\int_Ly^2\d x+z^2\d y+x^2\d z,$$
-其中$C$为曲线$\left\{\begin{array}{l}
-x^2+y^2+z^2=1 \\ x^2+y^2=x
-\end{array}\right.$
-上$z\geq 0$的部分，从$x$轴正向看去为逆时针方向。
-
-[提示]：方法一：直接计算，曲线的参数方程为 
-$$x=\cos^2\theta,y=a\cos\theta\sin\theta, z=a|\sin\theta|\;
-(\theta\in[-\pi/2,\pi/2])$$
-
-方法二：Stokes公式。
-
-{\bf 例：}设$L$为平面上的简单光滑闭曲线，$D$为$L$所围成的有界闭区域，$\bm{n}$
-为$L$的外法向，$\df{\p u}{\p\bm{n}}$表示函数$u(x,y)$沿$\bm{n}$的方向导数
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 将$\ds\oint_L\df{\p u}{\p\bm{n}}\d s$化为对坐标的曲线积分；
-  \item 设$u=x^2+y^2$，$L:x^2+y^2=6x$，计算
-  $$\ds\oint_L\df{\p u}{\p\bm{n}}\d s$$
-\end{enumerate}
-
-[提示]：辅导书-P137-例3
-
-{\bf 例：}设$f(x)$当$x>0$时可导，$f(1)=2$，对右半平面内的任意封闭曲线$C$，
-有$\ds\oint_C4x^3y\d x+xf(x)\d y=0$
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 求$f(x)$;
-  \item 设$L$为从$(1,0)$到$(2,3)$的一段弧，计算
-  $$\dint_L4x^3y\d x+xf(x)\d y$$
-\end{enumerate}
-
-[提示]：由全微分方程的条件，得到关于$f(x)$的微分方程，可解得$f(x)=\df{x^4+1}x$
-
-{\bf 例：}已知曲线$L:\left\{\begin{array}{l}
-	x^2+y^2+z^2=R^2\\ x+y+z=0
-\end{array}\right.$，
-计算曲线积分
-$$\oint_Lz^2\d s$$
-
-[提示]：利用轮换对称性
-$$\oint_Lz^2\d s=\df13\oint_L(x^2+y^2+z^2)\d s
-=\df13\oint_LR^2\d s=\df23\pi R^3.$$
-
-{\bf 例：}函数$u(x,y),v(x,y)$在单位圆内存在一阶连续偏导数，
-$$\bm{f}(x,y)=(v(x,y),u(x,y)),$$
-$$\bm{g}(x,y)=\left(u'_x-u'_y,v'_x-v'_y\right),$$
-在单位圆上，$u(x,y)=x,v(x,y)=1$，求
-$$\iint_{x^2+y^2\leq 1}\bm{f}\cdot\bm{g}\d\sigma$$
-
-[提示]：
-\begin{align}
-	&\iint\limits_{x^2+y^2\leq 1}\bm{f}\cdot\bm{g}\d\sigma\notag
-    =\iint\limits_{x^2+y^2\leq 1}\left[(vu'_x+uv'_x)-
-	(vu'_y+uv'_y)\right]\d\sigma\notag\\
-	&=\iint\limits_{x^2+y^2\leq 1}\left[(uv)'_x-(uv)'_y\right]
-	\d\sigma\notag\\
-	&=\oint_{x^2+y^2=1}(uv)\d x+(uv)\d y
-	=\oint_{x^2+y^2=1}x\d x+x\d y\notag\\
-	&=\iint\limits_{x^2+y^2\leq 1}\d\sigma=\pi\notag
-\end{align}
-
-{\bf 例：}在变力$\bm{F}=(yz,zx,xy)$的作用下，质点由原点沿直线运动到椭球面
-$\df{x^2}{a^2}+\df{y^2}{b^2}+\df{z^2}{c^2}=1$上第一卦限
-中的某点$M$，问$M$在何位置时，$\bm{F}$所做的功最大，并求出功的最大值。
-
-[提示]：首先验证$\bm{F}$为保守场，再根据$M$在椭球面的位置，求功的最大值
+% \section*{补充习题}
+% 
+% {\bf 例：}设$L$是摆线$x=t-\sin t-\pi,y=1-\cos t$从$t=0$
+% 到$t=2\pi$的一段，则$\dint_L\df{(x-y)\d x+(x+y)\d y}{x^2+y^2}=-\pi$
+% 
+% [提示]：添加路径$L_1:x^2+y^2=\pi^2,\;y\geq 0$，使用Green公式计算。
+% 注意，不能使用路径$y=0$，因为被积函数在原点处无定义！
+% 
+% {\bf 例：}设$L_1:\df{x^2}{4}+\df{y^2}{9}=1,L_2:\df{x^2}{9}+\df{y^2}{4}=1$，
+% 二者所围封闭区域分别为$D_1,D_2$，则下列正确的是\;
+% (C)
+% %  		  \vspace{-1cm}
+% \begin{enumerate}[(A)]
+%   \item $\dint_{L_1}(x+y^2)\d s=2\dint_{L_2}y^2\d s$
+%   \item $\dint_{L_1}(x^2+y)\d s=2\dint_{L_2}(x^2+y)\d s$
+%   \item $\ds\iint_{D_1}(x+y^3)\d\sigma=2\ds\iint_{D_2}(x+y^3)\d\sigma$
+%   \item $\ds\iint_{D_1}(x^2+y)\d\sigma=2\ds\iint_{D_2}(x^2+y)\d\sigma$
+% \end{enumerate}
+% 
+% {\bf 例：}$f(x,y)$偏导连续，曲线$L:f(x,y)=1$过第二象限的点$M$
+%   和第四象限的点$N$，$\Gamma$为$L$上从$M$到$N$的一段弧，则下列
+%   小于零的是\;
+% (B)
+%   \begin{enumerate}[(A)]
+%   \setlength{\itemindent}{1cm}
+%     \item $\dint_{\Gamma}f(x,y)\d x$
+%     \item $\dint_{\Gamma}f(x,y)\d y$
+%     \item $\ds\int_{\Gamma}f(x,y)\d s$
+%     \item $\ds\int_{\Gamma}f\,'_x(x,y)\d x+f\,'_y(x,y)\d y$
+%   \end{enumerate}
+% 
+% {\bf 例：}设曲面$S_1:x^2+y^2+z^2=1(z\geq
+%   0)$，$S_2$为$S_1$在第一卦限中的部分，
+%   则以下正确的是\;
+%   (C) 
+%   \begin{enumerate}[(A)]
+%   \setlength{\itemindent}{1cm}
+%     \item $\ds\iint_{S_1}x\d S=4\iint_{S_2}x\d S$
+%     \item $\ds\iint_{S_1}y\d S=4\iint_{S_2}x\d S$
+%     \item $\ds\iint_{S_1}z\d S=4\iint_{S_2}x\d S$
+%     \item $\ds\iint_{S_1}xyz\d S=4\iint_{S_2}xyz\d S$
+%   \end{enumerate}
+% 
+% {\bf 例：}设$f(r)$二阶连续可微，$r=\sqrt{x^2+y^2+z^2}$，
+%   若$\mathrm{div}(\bigtriangledown\,f(r))=0$，则$f(r)=$\;
+%   (B) 
+%   \begin{enumerate}[(A)]
+%   \setlength{\itemindent}{1cm}
+%     \item $C_1r+C_2$
+%     \item $C_1/r+C_2$
+%     \item $C_1r^2+C_2$
+%     \item $C_1/r^2+C_2$
+%   \end{enumerate}
+%   以上$C_1,C_2$为任意常数
+% 
+% {\bf 注：}$\mathrm{div}(\bigtriangledown\,u)=u''_{xx}+u''_{yy}+u''_{zz}$
+% 
+% {\bf 例：}计算第一型曲线积分（设$a>0$）
+% \begin{enumerate}[(1)]
+%   \setlength{\itemindent}{1cm}
+%   \item $\ds\int\limits_{x^{2/3}+y^{2/3}=a^{2/3}}
+%   \left(x^{4/3}+y^{4/3}\right)\d s$
+%   \item $\ds\int\limits_{(x^2+y^2)^2=a^2(x^2-y^2)}|y|\d s$
+%   \item $\ds\int_Cz\d s$
+%   其中$C$为$x^2+y^2=z^2$与$y^2=ax$的交线上从原点到$(a,a,\sqrt2a)$的一段
+% \end{enumerate}
+% 
+% [提示]：（1）令$x=a\cos^3t,y=a\sin^3t,t\in[0,2\pi]$
+% 
+% （2）曲线的极坐标方程：$\rho=a\sqrt{\cos2\theta},\theta\in\left[-\df{\pi}4,
+% \df{\pi}4\right]\cup\left[\df{3\pi}4,\df{5\pi}4\right]$，然后利用
+% $$\d s=\sqrt{\rho^2+(\rho')^2}\d\theta$$
+% 计算弧长微元
+% 
+% （3）以$y$为参数建立曲线的参数方程。
+% 
+% {\bf 例：}计算积分
+% $$I=\int_Ly^2\d x+z^2\d y+x^2\d z,$$
+% 其中$C$为曲线$\left\{\begin{array}{l}
+% x^2+y^2+z^2=1 \\ x^2+y^2=x
+% \end{array}\right.$
+% 上$z\geq 0$的部分，从$x$轴正向看去为逆时针方向。
+% 
+% [提示]：方法一：直接计算，曲线的参数方程为 
+% $$x=\cos^2\theta,y=a\cos\theta\sin\theta, z=a|\sin\theta|\;
+% (\theta\in[-\pi/2,\pi/2])$$
+% 
+% 方法二：Stokes公式。
+% 
+% {\bf 例：}设$L$为平面上的简单光滑闭曲线，$D$为$L$所围成的有界闭区域，$\bm{n}$
+% 为$L$的外法向，$\df{\p u}{\p\bm{n}}$表示函数$u(x,y)$沿$\bm{n}$的方向导数
+% \begin{enumerate}[(1)]
+%   \setlength{\itemindent}{1cm}
+%   \item 将$\ds\oint_L\df{\p u}{\p\bm{n}}\d s$化为对坐标的曲线积分；
+%   \item 设$u=x^2+y^2$，$L:x^2+y^2=6x$，计算
+%   $$\ds\oint_L\df{\p u}{\p\bm{n}}\d s$$
+% \end{enumerate}
+% 
+% [提示]：辅导书-P137-例3
+% 
+% {\bf 例：}设$f(x)$当$x>0$时可导，$f(1)=2$，对右半平面内的任意封闭曲线$C$，
+% 有$\ds\oint_C4x^3y\d x+xf(x)\d y=0$
+% \begin{enumerate}[(1)]
+%   \setlength{\itemindent}{1cm}
+%   \item 求$f(x)$;
+%   \item 设$L$为从$(1,0)$到$(2,3)$的一段弧，计算
+%   $$\dint_L4x^3y\d x+xf(x)\d y$$
+% \end{enumerate}
+% 
+% [提示]：由全微分方程的条件，得到关于$f(x)$的微分方程，可解得$f(x)=\df{x^4+1}x$
+% 
+% {\bf 例：}已知曲线$L:\left\{\begin{array}{l}
+% 	x^2+y^2+z^2=R^2\\ x+y+z=0
+% \end{array}\right.$，
+% 计算曲线积分
+% $$\oint_Lz^2\d s$$
+% 
+% [提示]：利用轮换对称性
+% $$\oint_Lz^2\d s=\df13\oint_L(x^2+y^2+z^2)\d s
+% =\df13\oint_LR^2\d s=\df23\pi R^3.$$
+% 
+% {\bf 例：}函数$u(x,y),v(x,y)$在单位圆内存在一阶连续偏导数，
+% $$\bm{f}(x,y)=(v(x,y),u(x,y)),$$
+% $$\bm{g}(x,y)=\left(u'_x-u'_y,v'_x-v'_y\right),$$
+% 在单位圆上，$u(x,y)=x,v(x,y)=1$，求
+% $$\iint_{x^2+y^2\leq 1}\bm{f}\cdot\bm{g}\d\sigma$$
+% 
+% [提示]：
+% \begin{align}
+% 	&\iint\limits_{x^2+y^2\leq 1}\bm{f}\cdot\bm{g}\d\sigma\notag
+%     =\iint\limits_{x^2+y^2\leq 1}\left[(vu'_x+uv'_x)-
+% 	(vu'_y+uv'_y)\right]\d\sigma\notag\\
+% 	&=\iint\limits_{x^2+y^2\leq 1}\left[(uv)'_x-(uv)'_y\right]
+% 	\d\sigma\notag\\
+% 	&=\oint_{x^2+y^2=1}(uv)\d x+(uv)\d y
+% 	=\oint_{x^2+y^2=1}x\d x+x\d y\notag\\
+% 	&=\iint\limits_{x^2+y^2\leq 1}\d\sigma=\pi\notag
+% \end{align}
+% 
+% {\bf 例：}在变力$\bm{F}=(yz,zx,xy)$的作用下，质点由原点沿直线运动到椭球面
+% $\df{x^2}{a^2}+\df{y^2}{b^2}+\df{z^2}{c^2}=1$上第一卦限
+% 中的某点$M$，问$M$在何位置时，$\bm{F}$所做的功最大，并求出功的最大值。
+% 
+% [提示]：首先验证$\bm{F}$为保守场，再根据$M$在椭球面的位置，求功的最大值
 
 \section{小结}
 
